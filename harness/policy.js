@@ -2,6 +2,10 @@ import { createHash } from 'node:crypto';
 
 export const MAX_JSON_BYTES = 2 * 1024 * 1024;
 export const MAX_CHECKPOINT_BYTES = 4 * 1024 * 1024;
+// Archive may copy a 10,000-code-unit reason twice, including six-byte JSON escapes.
+// Normal writes also leave 8 KiB for the small resume/expiry bookkeeping changes.
+export const MAX_OPERATION_CHECKPOINT_BYTES = MAX_CHECKPOINT_BYTES - 128 * 1024;
+export const MAX_CONTROL_CHECKPOINT_BYTES = MAX_CHECKPOINT_BYTES - 120 * 1024;
 export const STATE_VERSION = 1;
 
 // Changes to this trusted policy require a new reviewed implementation, not issue input.

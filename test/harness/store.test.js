@@ -3,11 +3,15 @@ import assert from 'node:assert/strict';
 import * as fs from 'node:fs/promises';
 import path from 'node:path';
 import { QueueStore } from '../../harness/store.js';
-import { MAX_CHECKPOINT_BYTES } from '../../harness/policy.js';
+import { MAX_CHECKPOINT_BYTES, MAX_CONTROL_CHECKPOINT_BYTES, MAX_OPERATION_CHECKPOINT_BYTES } from '../../harness/policy.js';
+import { transition } from '../../harness/queue.js';
 import { START, demo, errorCode, issue, snapshot, tempRoot } from './helpers.js';
 
 const checkpoint = (root, id = 'demo') => path.join(root, '.harness', 'runs', `${id}.json`);
 const lockfile = root => path.join(root, '.harness', 'locks', 'queue.lock');
+const encodedCheckpoint = state => `${JSON.stringify(state)}\n`;
+const checkpointBytes = state => Buffer.byteLength(encodedCheckpoint(state));
+const maximumEscapedReason = '\0'.repeat(10000);
 
 async function setup(t, input = demo) {
   const root = await tempRoot(t);
@@ -15,6 +19,24 @@ async function setup(t, input = demo) {
   const store = new QueueStore({ repoRoot: root, clock: () => now });
   const state = await store.init('demo', input);
   return { root, store, state, setTime(value) { now = value; } };
+}
+
+// Reach the exact admission boundary through supported operations, without editing a checkpoint.
+async function fillStopBudget(store, state, input) {
+  const stop = { type: 'stop', reason: '\0'.repeat(9000), condition: '\0'.repeat(9000) };
+  while (checkpointBytes(transition(state, stop, () => START)) <= MAX_OPERATION_CHECKPOINT_BYTES - 1024) {
+    state = await store.update('demo', state.revision, stop);
+    state = await store.update('demo', state.revision, { type: 'resume', snapshot: input });
+  }
+  const minimum = { type: 'stop', reason: 'r', condition: 'c' };
+  const extra = MAX_OPERATION_CHECKPOINT_BYTES - checkpointBytes(transition(state, minimum, () => START));
+  assert.ok(extra >= 0);
+  const totalTextBytes = extra + 2;
+  const escapedText = length => '\0'.repeat(Math.floor(length / 6)) + 'r'.repeat(length % 6);
+  const finalStop = { type: 'stop', reason: escapedText(Math.floor(totalTextBytes / 2)), condition: escapedText(Math.ceil(totalTextBytes / 2)) };
+  assert.ok(finalStop.reason.length <= 10000 && finalStop.condition.length <= 10000);
+  assert.equal(checkpointBytes(transition(state, finalStop, () => START)), MAX_OPERATION_CHECKPOINT_BYTES);
+  return store.update('demo', state.revision, finalStop);
 }
 
 test('persisted state is versioned and can be loaded by another store instance', async t => {
@@ -226,7 +248,7 @@ test('a second corrupted checkpoint or contradictory live run fails closed befor
   assert.equal(await fs.readFile(checkpoint(root), 'utf8'), original);
 });
 
-test('oversized UTF-8 checkpoint is rejected before replacement and remains readable', async t => {
+test('legacy near-hard-cap checkpoints are not truncated to make an oversized archive fit', async t => {
   const { root, store, state } = await setup(t, snapshot());
   const nearLimit = structuredClone(state);
   nearLimit.revision = 500;
@@ -241,8 +263,99 @@ test('oversized UTF-8 checkpoint is rejected before replacement and remains read
   assert.ok(Buffer.byteLength(original) <= MAX_CHECKPOINT_BYTES);
   assert.ok(Buffer.byteLength(original) > MAX_CHECKPOINT_BYTES - 50000);
   await fs.writeFile(checkpoint(root), original);
-  await assert.rejects(store.update('demo', 500, { type: 'stop', reason: stop.reason, condition: stop.resumeCondition }), errorCode('CHECKPOINT_TOO_LARGE'));
+  await assert.rejects(store.update('demo', 500, { type: 'archive', reason: maximumEscapedReason }), errorCode('CHECKPOINT_TOO_LARGE'));
   assert.equal(await fs.readFile(checkpoint(root), 'utf8'), original);
   assert.equal((await store.read('demo')).revision, 500);
   assert.deepEqual(await fs.readdir(path.join(root, '.harness', 'runs')), ['demo.json']);
+});
+
+test('full ordinary stop budget still permits resume and maximum escaped active-claim archive', async t => {
+  const input = snapshot();
+  const { root, store } = await setup(t, input);
+  let state = await store.update('demo', 0, { type: 'next' });
+  const claimedAt = state.entries[0].claims[0].claimedAt;
+  state = await fillStopBudget(store, state, input);
+  assert.equal(state.status, 'stopped');
+  assert.equal(state.activeIssue, 1);
+  assert.equal(checkpointBytes(state), MAX_OPERATION_CHECKPOINT_BYTES);
+  assert.equal(Buffer.byteLength(await fs.readFile(checkpoint(root))), MAX_OPERATION_CHECKPOINT_BYTES);
+  state = await store.update('demo', state.revision, { type: 'resume', snapshot: input });
+  assert.ok(checkpointBytes(state) > MAX_OPERATION_CHECKPOINT_BYTES);
+  assert.ok(checkpointBytes(state) <= MAX_CONTROL_CHECKPOINT_BYTES);
+  assert.equal(state.activeIssue, 1);
+  assert.equal(state.entries[0].attempts, 1);
+  const original = await fs.readFile(checkpoint(root), 'utf8');
+  await assert.rejects(store.update('demo', state.revision, { type: 'stop', reason: maximumEscapedReason, condition: maximumEscapedReason }), errorCode('CHECKPOINT_TOO_LARGE'));
+  assert.equal(await fs.readFile(checkpoint(root), 'utf8'), original);
+  assert.equal((await store.read('demo')).revision, state.revision);
+  const previousStops = structuredClone(state.stops);
+  assert.equal(Buffer.byteLength(JSON.stringify(maximumEscapedReason)) - 2, 60000);
+  state = await store.update('demo', state.revision, { type: 'archive', reason: maximumEscapedReason });
+  assert.equal(state.status, 'archived');
+  assert.equal(state.activeIssue, null);
+  assert.equal(state.entries[0].attempts, 1);
+  assert.equal(state.entries[0].claims[0].claimedAt, claimedAt);
+  assert.equal(state.entries[0].claims[0].outcome, 'archived');
+  assert.equal(state.entries[0].claims[0].reason, maximumEscapedReason);
+  assert.equal(state.archive.reason, maximumEscapedReason);
+  assert.deepEqual(state.stops, previousStops);
+  assert.ok(checkpointBytes(state) > MAX_CONTROL_CHECKPOINT_BYTES);
+  assert.ok(checkpointBytes(state) <= MAX_CHECKPOINT_BYTES);
+  assert.deepEqual(await store.read('demo'), state);
+  await store.init('next-batch', input);
+});
+
+test('full ordinary budget retains expiry bookkeeping and archive headroom after the deadline', async t => {
+  const input = snapshot();
+  const { root, store, setTime } = await setup(t, input);
+  let state = await store.update('demo', 0, { type: 'next' });
+  state = await fillStopBudget(store, state, input);
+  state = await store.update('demo', state.revision, { type: 'resume', snapshot: input });
+  setTime(START + 120 * 60000);
+  state = await store.update('demo', state.revision, { type: 'next' });
+  assert.equal(state.status, 'expired');
+  assert.equal(state.activeIssue, 1);
+  assert.ok(checkpointBytes(state) > MAX_OPERATION_CHECKPOINT_BYTES);
+  assert.ok(checkpointBytes(state) <= MAX_CONTROL_CHECKPOINT_BYTES);
+  const original = await fs.readFile(checkpoint(root), 'utf8');
+  await assert.rejects(store.update('demo', state.revision, { type: 'resume', snapshot: input }), errorCode('TIME_LIMIT'));
+  assert.equal(await fs.readFile(checkpoint(root), 'utf8'), original);
+  const previousStops = structuredClone(state.stops);
+  state = await store.update('demo', state.revision, { type: 'archive', reason: maximumEscapedReason });
+  assert.equal(state.status, 'archived');
+  assert.equal(state.entries[0].claims[0].outcome, 'archived');
+  assert.equal(state.entries[0].attempts, 1);
+  assert.deepEqual(state.stops, previousStops);
+  assert.ok(checkpointBytes(state) <= MAX_CHECKPOINT_BYTES);
+  await store.init('after-deadline', input);
+});
+
+test('dependency acknowledgements cannot consume reserved archive capacity', async t => {
+  const dependencies = Array.from({ length: 1000 }, (_, index) => index + 2);
+  const input = snapshot([issue(1, { dependencies })]);
+  const { root, store, state: initial } = await setup(t, input);
+  let state = initial;
+  let rejected = false;
+  for (const number of dependencies) {
+    const action = { type: 'ack-dependency', issue: number, evidence: maximumEscapedReason };
+    if (checkpointBytes(transition(state, action, () => START)) > MAX_OPERATION_CHECKPOINT_BYTES) {
+      const original = await fs.readFile(checkpoint(root), 'utf8');
+      await assert.rejects(store.update('demo', state.revision, action), errorCode('CHECKPOINT_TOO_LARGE'));
+      assert.equal(await fs.readFile(checkpoint(root), 'utf8'), original);
+      assert.equal((await store.read('demo')).revision, state.revision);
+      rejected = true;
+      break;
+    }
+    state = await store.update('demo', state.revision, action);
+  }
+  assert.equal(rejected, true);
+  assert.equal(state.status, 'waiting');
+  assert.ok(state.acknowledgements.length > 0);
+  assert.ok(checkpointBytes(state) <= MAX_OPERATION_CHECKPOINT_BYTES);
+  const previousAcknowledgements = structuredClone(state.acknowledgements);
+  state = await store.update('demo', state.revision, { type: 'archive', reason: maximumEscapedReason });
+  assert.equal(state.status, 'archived');
+  assert.deepEqual(state.acknowledgements, previousAcknowledgements);
+  assert.ok(checkpointBytes(state) <= MAX_CHECKPOINT_BYTES);
+  await store.init('after-ack-capacity', snapshot());
 });

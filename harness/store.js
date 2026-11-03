@@ -1,7 +1,10 @@
 import * as fs from 'node:fs/promises';
 import path from 'node:path';
 import { randomUUID } from 'node:crypto';
-import { MAX_CHECKPOINT_BYTES, QueueError, canonical, fail, integer, requireValue, runId } from './policy.js';
+import {
+  MAX_CHECKPOINT_BYTES, MAX_CONTROL_CHECKPOINT_BYTES, MAX_OPERATION_CHECKPOINT_BYTES,
+  QueueError, canonical, fail, integer, requireValue, runId,
+} from './policy.js';
 import { createState, isTerminal, transition, validateState } from './queue.js';
 
 async function existing(target) {
@@ -116,10 +119,13 @@ export class QueueStore {
     return result;
   }
 
-  async checkpoint(paths, state) {
+  async checkpoint(paths, state, actionType = 'init') {
     validateState(state);
     const payload = `${JSON.stringify(state)}\n`;
-    requireValue(Buffer.byteLength(payload) <= MAX_CHECKPOINT_BYTES, 'checkpoint would exceed the 4 MiB UTF-8 limit; previous checkpoint is preserved', 'CHECKPOINT_TOO_LARGE');
+    const limit = state.status === 'archived' ? MAX_CHECKPOINT_BYTES
+      : actionType === 'resume' || state.status === 'expired' ? MAX_CONTROL_CHECKPOINT_BYTES
+        : MAX_OPERATION_CHECKPOINT_BYTES;
+    requireValue(Buffer.byteLength(payload) <= limit, `checkpoint would exceed the ${limit}-byte UTF-8 transition budget; previous checkpoint is preserved`, 'CHECKPOINT_TOO_LARGE');
     const filename = path.join(paths.runs, `${state.runId}.json`);
     const current = await existing(filename);
     requireValue(!current || current.isFile() && !current.isSymbolicLink(), 'checkpoint path is unsafe', 'UNSAFE_PATH');
@@ -173,7 +179,7 @@ export class QueueStore {
       requireValue(current.revision === expectedRevision, `stale revision: expected ${expectedRevision}, current ${current.revision}`, 'STALE_REVISION');
       if (!isTerminal(current)) requireValue(!states.some(state => state.runId !== id && !isTerminal(state)), 'another live run already owns this repository queue', 'RUN_CONFLICT');
       const next = transition(current, action, this.clock);
-      if (canonical(next) !== canonical(current)) await this.checkpoint(paths, next);
+      if (canonical(next) !== canonical(current)) await this.checkpoint(paths, next, action.type);
       return next;
     });
   }
