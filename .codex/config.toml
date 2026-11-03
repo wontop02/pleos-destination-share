@@ -1,0 +1,6 @@
+# 설치된 Codex CLI에서도 역할이 명시적으로 등록되도록 파일을 연결합니다.
+[agents.builder]
+config_file = "agents/builder.toml"
+
+[agents.verifier]
+config_file = "agents/verifier.toml"
