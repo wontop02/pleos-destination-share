@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "test": "node --test test/harness/*.test.js",
+    "test": "node --test test/harness/*.test.js prototype/test/*.test.mjs",
+    "start": "node prototype/server.mjs",
+    "test:prototype": "node --test prototype/test/*.test.mjs",
     "harness": "node harness/cli.js"
   },
   "engines": {

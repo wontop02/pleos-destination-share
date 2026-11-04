@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#087c78">
+  <title>함께 가는 길 · 목적지와 원음 공유</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <main>
+    <header class="page-header">
+      <p class="eyebrow">목적지와 짧은 말, 함께</p>
+      <h1>함께 가는 길</h1>
+      <p>같은 목적지로, 같은 이야기를 들으며.</p>
+    </header>
+    <aside class="notice"><strong>정차 중이거나 동승자가 조작해 주세요.</strong><p>열린 화면에서 목적지와 원음을 주고받아요. 화면 잠금·앱 전환 중 수신은 아직 지원하지 않아요.</p></aside>
+    <p id="message" class="message" role="status" aria-live="polite" aria-atomic="true"></p>
+
+    <div id="start" class="start-grid">
+      <section class="card">
+        <p class="eyebrow">대표 차량</p><h2>공유방 만들기</h2>
+        <p class="muted">목적지를 정하고 함께 갈 사람을 초대해요.</p>
+        <form id="create-form">
+          <label for="create-name">내 이름</label><input id="create-name" name="name" maxlength="40" autocomplete="nickname" placeholder="예: 앞차 민수" required>
+          <button id="create-submit" type="submit">공유방 만들기</button>
+        </form>
+      </section>
+      <section class="card">
+        <p class="eyebrow">참여자</p><h2>초대받은 공유방 참여</h2>
+        <p id="invite-ready" class="muted">대표 차량에게 받은 초대 링크를 붙여 넣어 주세요.</p>
+        <form id="join-form">
+          <label for="join-name">내 이름</label><input id="join-name" name="name" maxlength="40" autocomplete="nickname" placeholder="예: 뒷차 지수" required>
+          <div id="join-link-field"><label for="join-link">초대 링크</label><input id="join-link" name="invitation" type="text" autocomplete="off" spellcheck="false" placeholder="초대 링크 붙여넣기"></div>
+          <button id="join-submit" type="submit" class="secondary">공유방 참여하기</button>
+        </form>
+      </section>
+    </div>
+
+    <div id="room" hidden>
+      <section class="room-bar card" aria-label="공유방 연결 상태">
+        <div class="row"><h2 id="room-heading">공유방</h2><span id="connection" class="badge">연결 중</span></div>
+        <p id="self-name"></p><p id="room-expiry" class="small muted"></p>
+        <details><summary id="member-count">참여자</summary><ul id="members" class="member-list"></ul></details>
+      </section>
+
+      <div class="room-grid">
+        <div class="primary-column">
+          <section class="card destination-card" aria-labelledby="destination-heading">
+            <p class="eyebrow">지금 함께 가는 곳</p><h2 id="destination-heading">받은 목적지</h2>
+            <p id="destination-empty" class="empty">대표 차량이 목적지를 보내면 여기에 표시돼요.</p>
+            <div id="destination-info" hidden aria-live="polite">
+              <h3 id="destination-title" class="destination-title"></h3>
+              <p id="destination-meta" class="small muted"></p><p id="destination-coordinates" class="small muted"></p>
+              <div id="navigation"><a id="naver" class="button" rel="noreferrer" href="#">네이버 지도에 경로 요청</a>
+                <p class="small muted">네이버 지도 앱 설치가 필요해요. 앱 열림과 실제 길 안내 시작은 기기에서 확인해 주세요.</p>
+              </div>
+              <p id="navigation-unavailable" class="small muted" hidden>이 좌표는 네이버 지도 경로 요청 범위 밖이에요.</p>
+            </div>
+          </section>
+
+          <section id="voice-card" class="card" aria-labelledby="voice-heading">
+            <p class="eyebrow">내 목소리 그대로</p><h2 id="voice-heading">짧게 말하기</h2>
+            <p class="muted">1–15초 녹음해 보내요. 15초가 되면 녹음을 마치고 전송해요.</p>
+            <div class="record-panel"><output id="record-timer" aria-label="녹음 시간">0.0 / 15초</output><p id="record-status" role="status" aria-live="polite">마이크 버튼을 누르면 녹음이 시작돼요.</p></div>
+            <div class="actions"><button id="record-start" type="button">마이크로 녹음 시작</button><button id="record-stop" type="button" hidden>중지하고 보내기</button><button id="record-cancel" type="button" class="secondary" hidden>녹음 취소</button></div>
+            <div id="retry-area" class="retry-panel" hidden><p>전송하지 못한 원음이 있어요. 녹음 후 30초 안에 직접 다시 보내거나 지워 주세요.</p><div class="actions"><button id="retry-send" type="button">같은 원음 다시 보내기</button><button id="retry-discard" type="button" class="secondary">원음 지우기</button></div></div>
+          </section>
+
+          <section class="card" aria-labelledby="inbox-heading">
+            <div class="row"><div><p class="eyebrow">함께 받은 이야기</p><h2 id="inbox-heading">원음 목록</h2></div><button id="playback-stop" type="button" class="secondary compact" disabled>재생 중지</button></div>
+            <div class="auto-panel"><button id="autoplay-toggle" type="button" class="secondary" aria-pressed="false">자동 재생 켜기</button><p id="autoplay-status" class="small" role="status" aria-live="polite">꺼짐 · 목록에서 직접 재생할 수 있어요.</p><p class="small muted">켠 뒤 받은 새 원음만, 수신 후 30초 안에 순서대로 재생해요. 내 원음은 자동 재생하지 않아요.</p></div>
+            <p id="playback-status" class="small" role="status" aria-live="polite">재생 중인 원음이 없어요.</p>
+            <p id="voices-empty" class="empty">아직 주고받은 원음이 없어요.</p><ol id="voices" class="voice-list"></ol>
+          </section>
+        </div>
+
+        <div class="secondary-column">
+          <section id="host-form-card" class="card" hidden>
+            <h2>목적지 변경</h2><p class="small muted">대표 차량이 직접 입력해요. 차량 내비와는 아직 연결되지 않았어요.</p>
+            <form id="destination-form">
+              <label for="destination-name">장소 이름</label><input id="destination-name" name="name" maxlength="100" required value="올림픽공원">
+              <div class="coordinates"><div><label for="latitude">위도</label><input id="latitude" name="latitude" type="number" step="any" min="-90" max="90" required value="37.5209436"></div><div><label for="longitude">경도</label><input id="longitude" name="longitude" type="number" step="any" min="-180" max="180" required value="127.1230074"></div></div>
+              <button id="destination-send" type="submit">목적지 전달하기</button>
+            </form>
+          </section>
+          <section id="invite-card" class="card" hidden>
+            <h2>함께 갈 사람 초대</h2><p class="muted">초대 링크를 받은 사람은 이 공유방에 참여할 수 있어요.</p><button id="copy-invite" type="button" class="secondary">초대 링크 복사</button>
+            <div id="invite-fallback" hidden><label for="invite-output">선택한 초대 링크 직접 복사</label><input id="invite-output" readonly autocomplete="off" spellcheck="false"></div>
+          </section>
+          <section class="card management"><h2>공유방 관리</h2><p class="small muted">공유방은 만든 뒤 6시간 동안 유지돼요. 종료되면 보관한 원음도 삭제돼요.</p><button id="leave" type="button" class="secondary" hidden>공유방 나가기</button><button id="end" type="button" class="danger" hidden>공유방 종료하고 나가기</button></section>
+        </div>
+      </div>
+    </div>
+    <footer><p>로컬 시연 · 서버를 재시작하면 공유방과 원음이 사라져요.</p><p>마이크는 localhost 또는 신뢰된 HTTPS에서 사용할 수 있어요.</p></footer>
+  </main>
+</body>
+</html>
