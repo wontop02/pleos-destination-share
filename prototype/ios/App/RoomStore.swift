@@ -48,7 +48,7 @@ import UIKit
         #endif
     }
     init() {
-        if let saved = cache.session, let valid = try? saved.validated(debugLocalHTTP: Self.debugHTTP), let endpoint = try? Endpoint(valid.server, debugLocalHTTP: Self.debugHTTP) { session = valid; api = APIClient(endpoint: endpoint); serverText = valid.server }
+        if let saved = cache.session, let valid = try? saved.validated(debugLocalHTTP: Self.debugHTTP), let endpoint = try? Endpoint(valid.server, debugLocalHTTP: Self.debugHTTP) { session = valid; api = APIClient(endpoint: endpoint); serverText = valid.server; status = "저장된 공유방에 다시 연결하고 있어요." }
         else { cache = DeviceCache(session: nil, channel: nil); KeychainStore.clear() }
         gate = ReceiveGate(clock: clock)
         if var channel = cache.channel {
@@ -111,7 +111,7 @@ import UIKit
             var wait = 1
             while !Task.isCancelled && captured == epoch && foreground {
                 do {
-                    connection = "연결 중"
+                    connection = "연결 중"; status = "공유방 연결을 확인하고 있어요."
                     for try await event in api.events(member) { guard captured == epoch, !Task.isCancelled else { return }; try consume(event); wait = 1 }
                 } catch is CancellationError { return }
                 catch RoadError.http(let code, _, _) where [401,403,404].contains(code) { if captured == epoch { invalidate("공유방이 종료됐거나 참여 권한이 없어요.") }; return }
@@ -122,7 +122,7 @@ import UIKit
     }
     private func consume(_ event: SSEEvent) throws {
         switch event.type {
-        case "snapshot": let state = try JSONDecoder().decode(Snapshot.self, from: event.data); try state.validate(); apply(state); connection = "연결됨"
+        case "snapshot": let state = try JSONDecoder().decode(Snapshot.self, from: event.data); try state.validate(); apply(state); connection = "연결됨"; status = "공유방에 연결됐어요."
         case "destination": let update = try JSONDecoder().decode(DestinationUpdate.self, from: event.data); clock.update(update.serverTime); if update.revision >= revision { revision = update.revision; destination = update.destination; status = "새 목적지를 받았어요." }
         case "voice": struct Event: Decodable { let message: Voice, serverTime: Int64 }; let value = try JSONDecoder().decode(Event.self, from: event.data); try value.message.validate(); clock.update(value.serverTime); addVoice(value.message)
         case "closed": invalidate("공유방이 종료됐거나 만료됐어요.")

@@ -17,7 +17,7 @@ npm start
 
 ## 네이티브 앱
 
-[iPhone 소스와 실행 절차](prototype/ios/README.md)는 SwiftUI·AVFoundation·PushToTalk를 사용합니다. macOS 26.7.2·Xcode 27.2에서 iOS Simulator SDK 빌드와 XCTest 24개, 동일한 Foundation 24개 시나리오가 통과했습니다. Simulator 실행용 local ad hoc 빌드로 공유방 생성과 앱 프로세스 재실행 후 Keychain 세션 복원도 확인했습니다. [현재 SDK 증거](prototype/ios/evidence/xcode-sdk-verification.json)에 환경·명령·소스 해시를 기록합니다. 실제 마이크·청취·시스템 PTT callback, 실기기 서명·capability·APNs, iPhone 내비·잠금·15/30분 무음 뒤 첫 소리는 계속 미검증으로 BLOCKED입니다.
+[iPhone 소스와 실행 절차](prototype/ios/README.md)는 SwiftUI·AVFoundation·PushToTalk를 사용합니다. macOS 26.7.2·Xcode 27.2에서 iOS Simulator SDK 빌드와 XCTest 24개, 동일한 Foundation 24개 시나리오가 통과했습니다. Simulator 실행용 local ad hoc 빌드로 공유방 생성과 앱 프로세스 재실행 후 Keychain 세션·목적지·연결 안내 복원도 확인했습니다. [최신 복원 안내 검증](prototype/ios/evidence/relaunch-status-verification.json)은 이번 새 빌드·UI 결과와 blob 동일성을 확인한 `cfd486c`의 기존 테스트 재사용을 구분해 기록합니다. 실제 마이크·청취·시스템 PTT callback, 실기기 서명·capability·APNs, iPhone 내비·잠금·15/30분 무음 뒤 첫 소리는 계속 미검증으로 BLOCKED입니다.
 
 [PTT 서버 설정](prototype/ptt/README.md)은 기본값이 미설정입니다. 키를 명시적으로 제공하지 않으면 외부 APNs 요청을 보내지 않으며, 모의 전송 결과를 실제 휴대폰 수신 성공으로 표시하지 않습니다.
 

@@ -18,7 +18,7 @@
 |---|---|---|
 | #6 | [PR #9](https://github.com/wontop02/pleos-destination-share/pull/9) main 병합, 웹·HTTP·69개 테스트 검증 | 웹 결과는 휴대폰 배경 수신 증거가 아님 |
 | #7 | [Draft PR #10](https://github.com/wontop02/pleos-destination-share/pull/10), Android APK·20개 테스트·에뮬레이터 검사 | 실제 마이크 입력 검증 부족으로 병합 보류. Galaxy 내비·잠금·15/30분 첫 소리도 미검증 |
-| #8 | [Draft PR #11](https://github.com/wontop02/pleos-destination-share/pull/11). Xcode 27.2 Simulator SDK·local ad hoc 앱 빌드, XCTest 24개와 동일한 Foundation 24개 시나리오 PASS. Simulator 공유방 생성·프로세스 재실행 후 Keychain 복원 PASS. 녹음 delegate 격리·테스트 종료 대기·Simulator entitlement 수정. Node 94/94는 관련 28개 Git blob 동일성을 확인한 기존 증거 재사용 | 새 커밋의 별도 verifier 검토와 실제 마이크·청취·PTT callback·iPhone 실증이 남음. 정상 서명·capability·APNs 자격증명은 미제공/미검증. 내비·잠금·15/30분 첫 소리와 앱 전체 완료는 BLOCKED |
+| #8 | [Draft PR #11](https://github.com/wontop02/pleos-destination-share/pull/11). [최신 복원 안내 검증](../../prototype/ios/evidence/relaunch-status-verification.json): 새 Xcode 27.2 Simulator 빌드와 실제 cold-relaunch 후 공유방·목적지·연결 안내 복원 PASS. XCTest 24개·동일 Foundation 24개·Node 94개는 `cfd486c` 독립 실행의 Core 13개/Node 28개 blob 동일성을 확인해 재사용 | 새 커밋의 별도 verifier 검토와 실제 마이크·청취·PTT callback·iPhone 실증이 남음. 정상 서명·capability·APNs 자격증명은 미제공/미검증. 내비·잠금·15/30분 첫 소리와 앱 전체 완료는 BLOCKED |
 
 ## 현재 결정
 

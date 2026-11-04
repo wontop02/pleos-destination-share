@@ -2,7 +2,7 @@
 
 SwiftUI·AVFoundation·Keychain·PushToTalk 소스와 Foundation 공통 코어다. 초기 기준은 iOS 16 이상이며 모든 구형 iPhone 지원이나 실제 잠금 수신 완료를 뜻하지 않는다. 기존 서버의 [공유방·원음 API](../README.md)와 [PTT 등록·전달 계약](../ptt/README.md)을 사용한다.
 
-**현재 상태(2026-11-04):** macOS 26.7.2·Xcode 27.2(27B52)·Swift 6.4.2에서 전체 iOS Simulator SDK의 Debug 앱 빌드와 XCTest 24개, 동일한 Foundation 실행형 24개 시나리오가 통과했다. 앱 전용 Keychain entitlement와 local ad hoc 서명을 사용한 Simulator에서 공유방 생성·앱 프로세스 재실행 후 세션 복원도 확인했다. 실제 마이크·청취·시스템 PTT callback과 iPhone 실증은 미검증이며, 정상 실기기 서명·PTT capability·APNs 자격증명도 미제공/미검증으로 BLOCKED다. Simulator 결과만으로 앱 전체나 잠금 수신을 완료 처리하지 않는다.
+**현재 상태(2026-11-05):** [최신 복원 안내 검증](evidence/relaunch-status-verification.json)에서 새 전체 Simulator 빌드와 재설치 없는 cold-relaunch 후 동일 공유방·목적지·연결 안내를 확인했다. XCTest 24개·동일 Foundation 24개·Node 94개는 관련 Core 13개/Node 28개 blob이 같은 `cfd486c` 독립 실행 결과를 재사용한다. 실제 마이크·청취·시스템 PTT callback과 iPhone 실증은 미검증이며, 정상 실기기 서명·PTT capability·APNs 자격증명도 미제공/미검증으로 BLOCKED다. Simulator 결과만으로 앱 전체나 잠금 수신을 완료 처리하지 않는다.
 
 ## 파일과 재현 명령
 
@@ -95,7 +95,7 @@ restoration delegate는 캐시 descriptor를 동기적으로 즉시 반환하며
 
 ## 검증 상태와 재개 조건
 
-현재 SDK·XCTest·Foundation 실행 증거는 [evidence/xcode-sdk-verification.json](evidence/xcode-sdk-verification.json)에 기록한다. 이전 CLT 환경의 `evidence/verification.json`과 `evidence/core-checks.log`는 과거 증거로 그대로 보존한다. 가상 PCM 표본과 actor 지연 응답은 프로토콜·경합 검사이며 실마이크나 실제 APNs 성공 증거가 아니다.
+복원·재연결 안내 수정의 새 빌드·cold-relaunch UI와 기존 테스트 재사용은 [evidence/relaunch-status-verification.json](evidence/relaunch-status-verification.json)에 기록한다. [이전 SDK 실행 기록](evidence/xcode-sdk-verification.json), 기존 Simulator UI 증거와 CLT 환경의 `evidence/verification.json`·`evidence/core-checks.log`는 당시 증거로 그대로 보존한다. 가상 PCM 표본과 actor 지연 응답은 프로토콜·경합 검사이며 실마이크나 실제 APNs 성공 증거가 아니다.
 
 이전 독립 검토에서 발견한 시스템 탈퇴 등록 누수와 수동 재생 후 PTT 대기 정체를 수정했다. 5개 actor/CAS 회귀는 접수 전 POST와 탈퇴 fence, 접수 후 취소 응답 정리, 이전 채널 정리와 새 참여 경합, CAS 충돌 재시도, 권한 실패의 제한된 종료를 실제 실행한다. Store·플랫폼 callback 전환의 실기기 동작은 Foundation 검사 수에 포함하지 않는다.
 
@@ -111,7 +111,7 @@ restoration delegate는 캐시 descriptor를 동기적으로 즉시 반환하며
 | XCTest wrapper 실행 | 24 tests·실패 0 PASS | 실행형과 같은 24개 시나리오이며 macOS 호스트 검사 |
 | 전체 iOS 앱·Simulator SDK 빌드 | unsigned Debug PASS | Xcode27.2·iOS27.2 SDK, arm64·x86_64 컴파일·링크, iOS16 target |
 | Simulator 실행용 local ad hoc 빌드 | PASS | 앱 전용 simulated entitlement section·strict/deep 서명 확인 |
-| Simulator 공유방 생성·서버 연결·Keychain 복원 | PASS · 총괄 CUA 실행 | 앱 재설치 없이 프로세스 종료·재실행, 동일 공유방·역할·만료 시각 복원. 목적지·원음 UI 검사는 별도 기록 |
+| Simulator cold-relaunch 복원·연결 안내 | PASS · 총괄 CUA 실행 | 재설치 없이 동일 공유방·역할·목적지·만료 시각 복원. 실제 snapshot 후 연결 안내로 바뀌며 초기 생성·참여 안내가 남지 않음. [새 영수증](evidence/relaunch-status-verification.json) |
 | 실제 마이크·원음 재생·PTT delegate | BLOCKED | 서명 설치한 iPhone에서 실제 입력·권한·중단·완료 관찰 |
 | Apple 서명·PTT capability·APNs | BLOCKED | 사용자가 제공하는 정상 팀·capability·프로필·APNs 자격 증명 |
 | iPhone 내비 앱 사용·잠금 중 첫 소리 | BLOCKED · 필수 제품 게이트 | 모델/iOS/내비 버전, 실제 수신·첫 소리 시각과 청취 증거 |
