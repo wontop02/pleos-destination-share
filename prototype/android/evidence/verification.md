@@ -28,3 +28,13 @@
 ## 검증 한계
 
 에뮬레이터는 `-no-audio`로 실행했다. 입력 WAV는 가상 PCM 표본이며 사람의 녹음이 아니다. AudioTrack 상태·AudioFocus 이벤트·완료 문구는 물리 스피커의 실제 첫 소리 증거가 아니다. 이 검증은 Galaxy 내비 사용, 화면 잠금, 15분·30분 무음 뒤 첫 원음 재생을 통과시키지 않는다. 필수 실기기 항목은 [제품 검증표](../../../docs/product/platform-validation.md)에 미검증으로 남긴다.
+
+## 독립 전체 재빌드와 JDK 출처 보완
+
+독립 verifier가 모든 빌드 작업을 다시 실행했을 때 APK는 `ec72512e55b7aa9a82357bf2fa9a0137a322ccf2d24b760dd87f4b1b8b39a677`(1,473,748바이트)로 생성됐고 반복 빌드도 같은 바이트였다. 앞선 UI APK `16daee77…`와는 다른 산출물로 기록한다. 총괄은 새 APK를 다시 설치해 실제 API 가입·목적지/지도 미설치 실패·Launcher 전경 중 수신의 AudioFocus 요청/반납·알림 중지 후 후속 재생 차단·탈퇴 5개 검사를 통과했다. [새 APK 실행 기록](rebuilt-emulator.json)에 버전과 한계를 분리했다.
+
+이후 기존 설치 JDK의 원본 출처 미확인 조건을 해결하기 위해 공식 체크섬을 검증한 Temurin 21.0.13+9로 전체 54개 Gradle 작업을 재실행했다. 20개 테스트·lint·manifest·빌드는 통과했고 APK는 위 `ec72512e…`와 바이트가 일치했다. [재빌드 명령·출처·소스 해시](temurin-rebuild.json)에 기록했다. 최초 `build.json`과 화면 증거는 당시 결과로 보존하며 새 결과로 덮어쓰지 않는다. 실제 마이크 조건은 계속 BLOCKED다.
+
+![독립 재빌드 APK의 목적지 수신과 지도 실패](rebuild-native-destination.png)
+
+![독립 재빌드 APK의 알림 중지 후 상태](rebuild-native-stopped.png)

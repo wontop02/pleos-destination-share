@@ -4,17 +4,17 @@ Kotlin과 플랫폼 Activity/UI, AudioRecord, AudioTrack, 수신 전용 포그�
 
 ## 빌드와 설치
 
-고정 버전은 Gradle 8.11.1, Android Gradle Plugin 8.9.2, Kotlin 2.2.20, compile/target SDK 35, build-tools 35.0.0, 최소 Android 8.0/API 26, Java bytecode 17이다. 이 작업에서는 별도 설치된 JDK 21을 사용했다. 기본 셸의 Java 25를 사용하지 않는다. 런타임 네트워크 의존성은 OkHttp 4.12.0이며 Kotlin 표준 라이브러리와 함께 Google Maven/Maven Central에서 받는다. 테스트는 JUnit 4.13.2와 JVM용 org.json 20240303을 사용한다.
+고정 버전은 Gradle 8.11.1, Android Gradle Plugin 8.9.2, Kotlin 2.2.20, compile/target SDK 35, build-tools 35.0.0, 최소 Android 8.0/API 26, Java bytecode 17이다. 최신 재빌드에는 공식 archive와 체크섬을 검증한 Eclipse Temurin 21.0.13+9를 격리된 임시 경로에서 사용했다. JDK는 GPLv2 with Classpath Exception이며 원래 시스템 JDK나 전역 설정을 바꾸지 않았다. 런타임 네트워크 의존성은 OkHttp 4.12.0이며 Kotlin 표준 라이브러리와 함께 Google Maven/Maven Central에서 받는다. 테스트는 JUnit 4.13.2와 JVM용 org.json 20240303을 사용한다.
 
 실행한 명령은 아래와 같다. JDK·SDK·Gradle 캐시는 프로세스별 경로를 지정하며 사용자 전역 설정을 바꾸지 않는다.
 
 ```sh
 cd '/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/prototype/android'
-env JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home \
+env JAVA_HOME=/private/tmp/pleos-android-toolchain-20261104/temurin-21/jdk-21.0.13+9/Contents/Home \
   ANDROID_HOME=/private/tmp/pleos-android-toolchain-20261104/sdk \
   GRADLE_USER_HOME=/private/tmp/pleos-android-toolchain-20261104/gradle-user \
   ./gradlew :app:testDebugUnitTest :app:assembleDebug :app:lintDebug \
-  :app:processReleaseMainManifest --no-daemon
+  :app:processReleaseMainManifest --rerun-tasks --no-daemon
 ```
 
 다른 환경에서는 위 세 경로만 해당 환경의 JDK 17–23, SDK, 별도 Gradle 캐시로 바꾼다. Node 22 이상이 PATH에 있어야 실제 서버 계약 테스트가 실행된다. SDK의 platform 35와 build-tools 35.0.0을 먼저 설치한다. 첫 빌드는 고정된 무료 의존성 다운로드를 위해 네트워크를 사용한다.
@@ -67,7 +67,7 @@ JVM 테스트 20개는 순서·신선도·자기 음성 제외·중복·재시�
 
 | 검증 | 현재 결과 | 필요한 증거 |
 |---|---|---|
-| 고정 도구·디버그 APK·unit/API·lint | 실행 결과는 `evidence/build.json` | 명령 종료 코드, 테스트 수, APK SHA-256 |
+| 고정 도구·디버그 APK·unit/API·lint | 최신 결과는 [Temurin 재빌드](evidence/temurin-rebuild.json), 최초 기록은 `evidence/build.json` | 명령 종료 코드, 테스트 수, APK SHA-256 |
 | Android 전경 설치·한국어 UI·생성/참여·목적지 | 에뮬레이터 실행, [증거](evidence/verification.md) | 물리 기기와는 별도 결과 |
 | 실제 마이크 녹음·1/15초·취소·권한 거절 | 에뮬레이터 권한 거절 확인. 실제 입력은 미실행 | 장치의 실제 마이크 입력, 업로드된 원본 WAV, 정리 관찰 |
 | 명시적 수신·알림 중지·오디오 포커스 | 에뮬레이터에서 실행. 실제 청취·포커스 경합은 미실행 | 실제 알림·소리·다른 앱 포커스 전환 증거 |
@@ -84,6 +84,7 @@ JVM 테스트 20개는 순서·신선도·자기 음성 제외·중복·재시�
 |---|---|
 | SDK 35/build-tools/명령행 도구 | [Google 공식 저장소 XML](https://dl.google.com/android/repository/repository2-3.xml)의 checksum과 실제 archive 비교. 기록은 `evidence/toolchain.json` |
 | Gradle 8.11.1 | [공식 distribution](https://services.gradle.org/distributions/gradle-8.11.1-bin.zip), [공식 SHA-256](https://services.gradle.org/distributions/gradle-8.11.1-bin.zip.sha256). wrapper에도 `distributionSha256Sum` 고정 |
+| Temurin 21.0.13+9 | [Adoptium 공식 release](https://github.com/adoptium/temurin21-binaries/releases/tag/jdk-21.0.13%2B9)의 asset digest·별도 `.sha256.txt`·실제 archive SHA-256 일치. `evidence/toolchain.json`에 버전·출처·체크섬 기록 |
 | AGP 8.9.2/SDK·Gradle·JDK | [공식 호환 표](https://developer.android.com/build/releases/agp-8-9-0-release-notes) |
 | Kotlin 2.2.20 | [공식 Gradle/AGP 호환 표](https://kotlinlang.org/docs/gradle-configure-project.html). 2.1.20 대신 AGP 8.9.2를 지원 범위에 포함하는 버전 선택 |
 | FGS·오디오 포커스·녹음 | [서비스 타입](https://developer.android.com/develop/background-work/services/fgs/service-types), [포커스](https://developer.android.com/media/optimize/audio-focus), [AudioRecord](https://developer.android.com/reference/android/media/AudioRecord) |

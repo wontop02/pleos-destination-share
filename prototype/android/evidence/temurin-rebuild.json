@@ -1,0 +1,62 @@
+{
+  "recordedAt": "2026-11-04T05:13:24.508996+00:00",
+  "jdk": {
+    "release": "jdk-21.0.13+9",
+    "releaseUrl": "https://github.com/adoptium/temurin21-binaries/releases/tag/jdk-21.0.13%2B9",
+    "archiveUrl": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.13_9.tar.gz",
+    "archiveName": "OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.13_9.tar.gz",
+    "bytes": 199754598,
+    "githubDigest": "sha256:bf036b35b071bfb2f54f2c0af8ee8d88afa95ee6eb3dce02c0f94cfc2524d04a",
+    "checksumUrl": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.13_9.tar.gz.sha256.txt",
+    "sha256": "bf036b35b071bfb2f54f2c0af8ee8d88afa95ee6eb3dce02c0f94cfc2524d04a",
+    "checksumVerified": true,
+    "javaHome": "/private/tmp/pleos-android-toolchain-20261104/temurin-21/jdk-21.0.13+9/Contents/Home",
+    "versionOutput": "openjdk version \"21.0.13\" 2026-10-20 LTS\nOpenJDK Runtime Environment Temurin-21.0.13+9 (build 21.0.13+9-LTS)\nOpenJDK 64-Bit Server VM Temurin-21.0.13+9 (build 21.0.13+9-LTS, mixed mode, sharing)\n",
+    "licenseFile": "/private/tmp/pleos-android-toolchain-20261104/temurin-21/jdk-21.0.13+9/Contents/Home/legal/java.base/LICENSE",
+    "licenseSha256": "4b9abebc4338048a7c2dc184e9f800deb349366bdf28eb23c2677a77b4c87726"
+  },
+  "command": "JAVA_HOME=<verified Temurin21.0.13+9> ANDROID_HOME=<isolated SDK> GRADLE_USER_HOME=<isolated cache> ./gradlew :app:testDebugUnitTest :app:assembleDebug :app:lintDebug :app:processReleaseMainManifest --rerun-tasks --no-daemon",
+  "exitCode": 0,
+  "tests": {
+    "tests": 20,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "apk": {
+    "sha256": "ec72512e55b7aa9a82357bf2fa9a0137a322ccf2d24b760dd87f4b1b8b39a677",
+    "bytes": 1473748
+  },
+  "log": "/private/tmp/pleos-android-temurin-build.log",
+  "sourceSha256": {
+    "build.gradle.kts": "c6e0ae120fa861a94bc032e36e6d0c4cac779b83cc346a85948152f920f6a236",
+    "settings.gradle.kts": "a5249fd14cd2bcb75dddbc8ce05de079dc8141a4fe0418e64e2f7cbbd84d7b98",
+    "gradle.properties": "84f7a4aaaca874ab8a50ced299ed1fe4141c893e272db3e2f089af6009468715",
+    "app/build.gradle.kts": "1796b3bb24c896bfee0b4d286be345fb57f0f208e585d405eeaf453aa245e738",
+    "gradlew": "a3648413b47ef77af21d5ebc36c687c7d103aaef3e17f33de7d4f080a6f300a3",
+    "gradlew.bat": "57931b17dd228e5c24dac90e815d0bf82477e831a4618dfab4136f5446b42a9f",
+    "gradle/wrapper/gradle-wrapper.properties": "fe90ff0d9944879f591a8c37b6dbaf5046d1051ccbb6b26b22081692c321f432",
+    "gradle/wrapper/gradle-wrapper.jar": "2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046",
+    "app/src/debug/AndroidManifest.xml": "0032f10620d2a6ab8deebd44f076e17d4adc8123dc86955e4e4bb2a264abb73d",
+    "app/src/debug/res/xml/network_security_config.xml": "6639e9a81f9542e76bfe5d2d4aef0a6f2e9b22060e5d41e5dccbfc5a5ebe4fce",
+    "app/src/main/AndroidManifest.xml": "21eaf52872cc6ade3d734515a2096adacdefe77baab8b31d4e3b364794975fb8",
+    "app/src/main/java/kr/together/road/ApiClient.kt": "1d2f1aaf50ff1858ab167c8e03fa6a39c45c78676bba0a1f6ab7cc5efca9d7a5",
+    "app/src/main/java/kr/together/road/Core.kt": "968250569ab396def582d62a4bc3970e361a8a48082262304cffabb674460718",
+    "app/src/main/java/kr/together/road/MainActivity.kt": "b41f30199c5ff42af70e83a5b9671e804305c0531b9a7df12a7799aa02e7ffc5",
+    "app/src/main/java/kr/together/road/NativeAudio.kt": "7db949011b323e14447899bddf4ef495a22d2e5f7d963fdf050b9c90334f0bd1",
+    "app/src/main/java/kr/together/road/ReceiveService.kt": "39176504d002ef191a4374c22f190388ac4dc8bd291642da21696cc84ad9bec8",
+    "app/src/main/java/kr/together/road/RoomController.kt": "6b90e4e658dd72c740873df2e079d721cdadb731a47acf1b526d2c52fd4c7cd8",
+    "app/src/main/java/kr/together/road/SecretStore.kt": "1ab17776377135fbf4e20e447773c3659c9b4f5ed8cba14b431f76b23ea5fe35",
+    "app/src/main/res/drawable/ic_road.xml": "822d9a65a3a8af7865bbf4217ebfdaf7232a9289dc52cf1e9bb8bd1a6a04f966",
+    "app/src/main/res/values/strings.xml": "f891994a0aa6aea374177849fa31660af8a839556154fd56fa847a15795042d7",
+    "app/src/main/res/values/styles.xml": "a49bae2b40165b76926ba9a0b3ebdc181efd65256fd2a94db97f87d16799aa63",
+    "app/src/main/res/xml/data_extraction_rules.xml": "68b7ccb4d39215fecc8b3e46bae0860193a9bb53dd49e19c9b1cf3f12c4fca88",
+    "app/src/main/res/xml/network_security_config.xml": "7bd91344689d618bf440dd803fef5d1c05dfbd1b12ea27379625b3388aee1846",
+    "app/src/test/java/kr/together/road/ApiContractTest.kt": "07d1b840bc719db6899a882870d4ccfede73b88a3e5f765073c979dd6852ad1c",
+    "app/src/test/java/kr/together/road/CoreTest.kt": "8f64e44a731913f95b511c1dced13bf40629e9d91b7cc0b898367686f14c174b",
+    "app/src/test/java/kr/together/road/NaverNavigationTest.kt": "312e6f6a140403a146768176d8ba77194440233591cfa2b1dd6e7fc0224aa211"
+  },
+  "sourceCommit": "b51262e3964e75c1d0f432b478d981cf458635f1",
+  "physicalMicrophone": "not run; AC3 BLOCKED",
+  "apksignerVerifyExitCode": 0
+}

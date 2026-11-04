@@ -52,5 +52,20 @@
     "okhttp": "4.12.0"
   },
   "javaHome": "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home",
-  "userGlobalSettingsChanged": false
+  "userGlobalSettingsChanged": false,
+  "jdk": {
+    "release": "jdk-21.0.13+9",
+    "releaseUrl": "https://github.com/adoptium/temurin21-binaries/releases/tag/jdk-21.0.13%2B9",
+    "archiveUrl": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.13_9.tar.gz",
+    "archiveName": "OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.13_9.tar.gz",
+    "bytes": 199754598,
+    "githubDigest": "sha256:bf036b35b071bfb2f54f2c0af8ee8d88afa95ee6eb3dce02c0f94cfc2524d04a",
+    "checksumUrl": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.13_9.tar.gz.sha256.txt",
+    "sha256": "bf036b35b071bfb2f54f2c0af8ee8d88afa95ee6eb3dce02c0f94cfc2524d04a",
+    "checksumVerified": true,
+    "javaHome": "/private/tmp/pleos-android-toolchain-20261104/temurin-21/jdk-21.0.13+9/Contents/Home",
+    "versionOutput": "openjdk version \"21.0.13\" 2026-10-20 LTS\nOpenJDK Runtime Environment Temurin-21.0.13+9 (build 21.0.13+9-LTS)\nOpenJDK 64-Bit Server VM Temurin-21.0.13+9 (build 21.0.13+9-LTS, mixed mode, sharing)\n",
+    "licenseFile": "/private/tmp/pleos-android-toolchain-20261104/temurin-21/jdk-21.0.13+9/Contents/Home/legal/java.base/LICENSE",
+    "licenseSha256": "4b9abebc4338048a7c2dc184e9f800deb349366bdf28eb23c2677a77b4c87726"
+  }
 }
