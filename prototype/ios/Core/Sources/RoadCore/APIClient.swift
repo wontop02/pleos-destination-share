@@ -92,25 +92,47 @@ public struct APIClient: Sendable, RegistrationAPI {
 }
 /// CAS and channel checks protect against an earlier POST finishing after leave/new join.
 public actor RegistrationCoordinator {
-    private var intent = UUID()
+    private struct Channel: Hashable {
+        let server: String, room: String, member: String, id: UUID
+        init(_ member: Session, _ channel: UUID) { server = member.server; room = member.roomID; self.member = member.memberID; id = channel }
+    }
+    private struct Scope: Hashable { let channel: Channel, id: UUID }
+    private struct Intent { let scope: Scope, operation: UUID }
+    private var intent: Intent?
+    private var latestScopes: [Channel: Scope] = [:]
+    private var retiredScopes: Set<Scope> = []
     public init() {}
-    public func cancelIntent() { intent = UUID() }
-    public func join(client: any RegistrationAPI, member: Session, channel: UUID, token: Data) async throws -> PTTState? {
-        let operation = UUID(); intent = operation
+    public func join(client: any RegistrationAPI, member: Session, channel: UUID, token: Data, scopeID: UUID? = nil) async throws -> PTTState? {
+        let key = Channel(member, channel), operation = UUID(), scope = Scope(channel: Channel(member, channel), id: scopeID ?? UUID())
+        guard !retiredScopes.contains(scope), !Task.isCancelled else { return nil }
+        latestScopes[key] = scope; intent = Intent(scope: scope, operation: operation)
         for _ in 0..<3 {
-            let current = try await client.ptt(member); guard intent == operation, !Task.isCancelled else { return nil }
+            guard intent?.operation == operation, !retiredScopes.contains(scope), !Task.isCancelled else { return nil }
+            let current = try await client.ptt(member); guard intent?.operation == operation, !retiredScopes.contains(scope), !Task.isCancelled else { return nil }
             do {
                 let reply = try await client.register(member, channel: channel, token: token, expectedRevision: current.revision)
-                guard intent == operation, !Task.isCancelled else { if let registration = reply.registration { try? await retire(client: client, member: member, channel: channel, onlyRegistrationID: registration.id) }; return nil }; return reply
+                guard intent?.operation == operation, !retiredScopes.contains(scope), !Task.isCancelled else { if let registration = reply.registration { try await retire(client: client, member: member, scope: scope, onlyRegistrationID: registration.id) }; return nil }; return reply
             } catch RoadError.http(let status, _, _) where status == 409 { continue }
         }; throw RoadError.invalid("수신 등록 상태가 바뀌었어요. 직접 다시 시작해 주세요.")
     }
-    public func leave(client: any RegistrationAPI, member: Session, channel: UUID) async throws { let operation = UUID(); intent = operation; try await retire(client: client, member: member, channel: channel, operation: operation) }
-    private func retire(client: any RegistrationAPI, member: Session, channel: UUID, onlyRegistrationID: String? = nil, operation: UUID? = nil) async throws {
-        let state = try await client.ptt(member)
-        if let operation, intent != operation || Task.isCancelled { return }
-        guard state.registration == nil || state.registration?.channelUUID == channel else { return }
-        if let onlyRegistrationID, state.registration?.id != onlyRegistrationID { return }
-        _ = try await client.unregister(member, channel: channel, expectedRevision: state.revision)
+    public func leave(client: any RegistrationAPI, member: Session, channel: UUID, scopeID: UUID? = nil) async throws {
+        let key = Channel(member, channel), scope = scopeID.map { Scope(channel: key, id: $0) } ?? latestScopes[key] ?? Scope(channel: key, id: UUID())
+        retiredScopes.insert(scope)
+        if intent?.scope == scope { intent = nil }
+        try await retire(client: client, member: member, scope: scope)
+    }
+    private func retire(client: any RegistrationAPI, member: Session, scope: Scope, onlyRegistrationID: String? = nil) async throws {
+        for attempt in 0..<3 {
+            let state = try await client.ptt(member)
+            if let onlyRegistrationID {
+                guard state.registration?.id == onlyRegistrationID else { return }
+            } else if let current = intent?.scope, current.channel == scope.channel, current != scope {
+                // A newer lifecycle reused the UUID. This old leave cannot own its registration.
+                return
+            }
+            guard state.registration == nil || state.registration?.channelUUID == scope.channel.id else { return }
+            do { _ = try await client.unregister(member, channel: scope.channel.id, expectedRevision: state.revision); return }
+            catch RoadError.http(let status, _, _) where status == 409 && attempt < 2 { continue }
+        }
     }
 }

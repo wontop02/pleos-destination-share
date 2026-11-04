@@ -21,12 +21,17 @@ private func report(_ value: String) { FileHandle.standardOutput.write(Data((val
             try core.testLateOldChannelInvalidationCannotClearNewRoomGate(); report("PASS late old-channel callbacks")
             try await races.testOldPostCannotRetireNewTokenRegistrationInSameChannel(); report("PASS stale registration reply")
             try await races.testOldLeaveGetCannotDeleteRegistrationFromNewJoinIntent(); report("PASS stale leave reply")
+            try await races.testPendingPostBeforeSystemLeaveCannotRegisterAfterFence(); report("PASS pending POST/system leave fence")
+            try await races.testCancelledAcceptedPostIsRetiredOnConfirmedSystemLeave(); report("PASS accepted POST/system leave retirement")
+            try await races.testLateOldChannelCleanupCannotCancelNewChannelJoin(); report("PASS late cleanup/new channel join")
+            try await races.testRetirementRetriesConcurrentCASWithoutRecreatingRegistration(); report("PASS cleanup concurrent CAS retry")
+            try await races.testRetirementPermissionFailureSurfacesWithoutRetryLoop(); report("PASS cleanup permission failure bounded")
             let api = APIContractScenarios()
             try await api.testRoomsDestinationIsolationAndAuthenticatedVoiceBytes(); report("PASS real HTTP auth/destination/WAV/idempotency")
             try await api.testSSEAuthEventsAndImmediateCancellation(); report("PASS real SSE/cancellation")
             try await api.testDisabledPTTVariableTokenAndCASFence(); report("PASS real PTT disabled/CAS/variable token")
             try await api.testLeaveCloseRevokeVoiceAccess(); report("PASS real leave/close byte access")
-            report("19/19 Foundation scenarios passed; no iOS platform or physical-device claim")
+            report("24/24 Foundation scenarios passed; no iOS platform or physical-device claim")
         } catch { FileHandle.standardError.write(Data("FAIL \(error)\n".utf8)); exit(1) }
     }
 }

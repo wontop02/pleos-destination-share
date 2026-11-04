@@ -37,6 +37,8 @@ import UIKit
     private var recordingTask: Task<Void, Never>?
     private var recordingEpoch = UUID()
     private var leaseTask: Task<Void, Never>?
+    private struct ChannelCleanupKey: Hashable { let epoch: UUID, channel: UUID }
+    private var registrationCleanups: [ChannelCleanupKey: Task<Void, Never>] = [:]
     var canUseForegroundAudio: Bool { foreground && pttResolved && requestedChannel == nil && !channelLeaving && bridge?.activeChannel == nil && !receiving }
     private static var debugHTTP: Bool {
         #if DEBUG
@@ -180,7 +182,12 @@ import UIKit
     func playManually(_ voice: Voice) {
         guard canUseForegroundAudio, !isRecording, let member = session, let api else { status = "자동 수신 채널 탈퇴를 확인한 뒤 열린 화면에서 재생해 주세요."; return }
         stopPlayback(); let playback = playEpoch, captured = epoch; playbackStatus = "원음을 불러오고 있어요."
-        playbackTask = Task { do { let bytes = try await api.download(member, voice: voice); guard captured == epoch, playback == playEpoch, canUseForegroundAudio, snapshot?.room.expiresAt ?? 0 > clock.now() else { return }; try audio.playManually(bytes); playbackStatus = "\(voice.sender.name)의 원음을 재생하고 있어요." } catch { if playback == playEpoch { playbackStatus = "재생 실패 · \(text(error))" } } }
+        playbackTask = Task {
+            var startedPlayback = false
+            defer { if !startedPlayback, playback == playEpoch { playbackTask = nil } }
+            do { let bytes = try await api.download(member, voice: voice); guard captured == epoch, playback == playEpoch, canUseForegroundAudio, snapshot?.room.expiresAt ?? 0 > clock.now() else { return }; try audio.playManually(bytes); startedPlayback = true; playbackStatus = "\(voice.sender.name)의 원음을 재생하고 있어요." }
+            catch { if playback == playEpoch { playbackStatus = "재생 실패 · \(text(error))" } }
+        }
     }
     func stopPlayback() { let wasPTT = playingPTT; playEpoch = UUID(); playbackTask?.cancel(); playbackTask = nil; audio.stopPlayback(); playingPTT = false; gate.cancelPending(); if wasPTT { finishRemote() }; playbackStatus = "재생을 중지했어요." }
     private func playbackEnded(_ success: Bool) { playbackTask = nil; playbackStatus = success ? "원음 재생을 마쳤어요." : "원음 재생이 중단됐어요."; let wasPTT = playingPTT; playingPTT = false; if wasPTT { if success { drainPTT() } else { finishRemote() } } }
@@ -191,17 +198,18 @@ import UIKit
         actionTask = Task { defer { busy = false }; do {
             let state = try await api.ptt(member); guard captured == epoch, foreground, !Task.isCancelled else { return }
             guard state.configured else { receiveStatus = "자동 수신 서버 설정이 필요해요. 수신을 시작하지 않았어요."; return }
+            stopPlayback()
             try audio.prepareForPTT(); let channel = UUID(); requestedChannel = channel; joining = true; joined = false; receiveStatus = "수신 채널에 참여하고 있어요."
             cache.channel = CachedChannel(id: channel, name: "함께 가는 길", receivingSelected: false, binding: nil, seenIDs: [], lastSequence: -1, serverEstimate: clock.now(), savedUptime: ProcessInfo.processInfo.systemUptime); try persist(); bridge.join(channel, name: "함께 가는 길")
         } catch { if captured == epoch { receiveStatus = text(error) } } }
     }
     func stopReceiving() {
         let channel = requestedChannel ?? bridge.activeChannel
-        receiving = false; joining = false; joined = false; gate.invalidate(); stopPlayback(); registrationTask?.cancel(); leaseTask?.cancel(); pushToken = nil
+        receiving = false; joining = false; joined = false; gate.invalidate(); stopPlayback(); leaseTask?.cancel(); pushToken = nil
+        if let channel { retireChannelRegistration(channel) } else { registrationTask?.cancel(); registrationTask = nil }
         cache.channel?.receivingSelected = false; cache.channel?.binding = nil; try? persist()
         guard let channel else { requestedChannel = nil; channelLeaving = false; receiveStatus = "자동 수신 꺼짐"; return }
         requestedChannel = channel; channelLeaving = true; receiveStatus = "수신 종료와 채널 탈퇴를 확인하고 있어요."; bridge.leave(channel)
-        if let member = session, let api { Task { do { try await registrations.leave(client: api, member: member, channel: channel) } catch { if !receiving { status = "수신을 중지했지만 서버 등록 해제를 확인하지 못했어요." } } } }
     }
     private func handlePTT(_ event: PTTEvent) {
         switch event {
@@ -217,7 +225,7 @@ import UIKit
         case .token(let token): pushToken = token; registerIfPossible()
         case .left(let channel): confirmLeft(channel)
         case .failedJoin(let channel):
-            guard requestedChannel == channel else { return }; receiving = false; joining = false; joined = false; gate.invalidate(); receiveStatus = "수신 채널 참여에 실패했어요."; cache.channel = nil
+            guard requestedChannel == channel else { return }; retireChannelRegistration(channel); receiving = false; joining = false; joined = false; gate.invalidate(); receiveStatus = "수신 채널 참여에 실패했어요."; cache.channel = nil
             if bridge.activeChannel == channel { channelLeaving = true } else { requestedChannel = nil; channelLeaving = false }; try? persist()
         case .failedLeave(let channel): guard requestedChannel == channel else { return }; if bridge.activeChannel == nil { confirmLeft(channel) } else { channelLeaving = true; receiveStatus = "채널 탈퇴를 확인하지 못했어요. 수신 종료를 다시 눌러 주세요." }
         case .activated: drainPTT()
@@ -226,15 +234,28 @@ import UIKit
         }
     }
     private func confirmLeft(_ channel: UUID) {
-        guard requestedChannel == channel else { return }; requestedChannel = nil; joining = false; channelLeaving = false; joined = false; receiving = false; pushToken = nil
+        guard requestedChannel == channel else { return }
+        retireChannelRegistration(channel)
+        requestedChannel = nil; joining = false; channelLeaving = false; joined = false; receiving = false; pushToken = nil
         gate.invalidate(); stopPlayback(); leaseTask?.cancel(); cache.channel = nil; try? persist(); receiveStatus = "자동 수신 꺼짐 · 채널 탈퇴 확인"
+    }
+    private func retireChannelRegistration(_ channel: UUID) {
+        registrationTask?.cancel(); registrationTask = nil
+        // Explicit stop and the later system confirmation share the same retirement task.
+        guard !registrationCleanups.keys.contains(where: { $0.channel == channel }) else { return }
+        guard let member = session, let api else { status = "채널은 종료됐지만 서버 등록 해제를 확인할 공유방 인증이 없어요."; return }
+        let captured = epoch, key = ChannelCleanupKey(epoch: epoch, channel: channel)
+        registrationCleanups[key] = Task {
+            do { try await registrations.leave(client: api, member: member, channel: channel, scopeID: captured) }
+            catch { if epoch == captured { status = "종료한 수신의 서버 등록 해제를 확인하지 못했어요. 연결과 공유방 권한을 확인해 주세요." } }
+        }
     }
     private func registerIfPossible() {
         guard joined, !channelLeaving, let channel = requestedChannel, let token = pushToken, let member = session, let api else { return }
         let captured = epoch; registrationTask?.cancel()
         registrationTask = Task {
             do {
-                guard let state = try await registrations.join(client: api, member: member, channel: channel, token: token), captured == epoch, requestedChannel == channel, joined, !channelLeaving, !Task.isCancelled else { return }
+                guard let state = try await registrations.join(client: api, member: member, channel: channel, token: token, scopeID: captured), captured == epoch, requestedChannel == channel, joined, !channelLeaving, !Task.isCancelled else { return }
                 clock.update(state.serverTime)
                 guard state.configured, state.status == "registered", let registration = state.registration, registration.channelUUID == channel, registration.expiresAt > clock.now() else { status = "자동 수신 서버 설정이 필요해요. 수신을 시작하지 않았어요."; stopReceiving(); return }
                 _ = try checkedID(registration.id)

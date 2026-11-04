@@ -18,7 +18,7 @@
 |---|---|---|
 | #6 | [PR #9](https://github.com/wontop02/pleos-destination-share/pull/9) main 병합, 웹·HTTP·69개 테스트 검증 | 웹 결과는 휴대폰 배경 수신 증거가 아님 |
 | #7 | [Draft PR #10](https://github.com/wontop02/pleos-destination-share/pull/10), Android APK·20개 테스트·에뮬레이터 검사 | 실제 마이크 입력 검증 부족으로 병합 보류. Galaxy 내비·잠금·15/30분 첫 소리도 미검증 |
-| #8 | be/issue-8-ios-prototype에 SwiftUI·AVFoundation·PTT 앱 소스와 서버 작성. Foundation 실행형19개·Node94개 검사 통과 | 전체 Xcode/iOS SDK·XCTest, 서명·푸시 capability·자격증명, 실제 iPhone 미확보. 전체 앱·실제 수신은 BLOCKED |
+| #8 | be/issue-8-ios-prototype에 SwiftUI·AVFoundation·PTT 앱 소스와 서버 작성. Foundation 실행형24개·Node94개 검사 통과. 시스템 탈퇴 정리·수동 재생에서 PTT로 전환 경계 보완 | 전체 Xcode/iOS SDK·XCTest, 서명·푸시 capability·자격증명, 실제 iPhone 미확보. 전체 앱·실제 수신은 BLOCKED |
 
 ## 현재 결정
 
