@@ -1,0 +1,33 @@
+{
+  "verdict": "PASS",
+  "actualBrowser": "installed Google Chrome in isolated Playwright contexts",
+  "fakeMicrophone": true,
+  "physicalMicrophone": false,
+  "simulatedMicDenial": true,
+  "phoneOrBackgroundTested": false,
+  "checks": [
+    "two isolated browser contexts create/join with invitation fragment cleared",
+    "host destination reaches guest UI and map request is encoded",
+    "fake microphone captured real WAV; opt-in does not replay earlier history",
+    "new remote WAV downloads, decodes and finishes playback after explicit opt-in",
+    "recording cancellation releases UI without uploading",
+    "15-second capture ends and uploads automatically; manual playback can stop",
+    "390px and320px layouts have no horizontal overflow",
+    "simulated NotAllowedError produces an actionable microphone error",
+    "foreign invitation rejected visibly"
+  ],
+  "browserPageErrors": [],
+  "boundedDurationMs": 15000,
+  "artifacts": "prototype/evidence/",
+  "testScriptAtExecution": "/private/tmp/pleos-app-ui-qa.mjs",
+  "sourceSha256": {
+    "prototype/server.mjs": "7fd71b0bc6824e692d14e62bf37e2f330fd6d30cc1497f67c99ea49ad5b17633",
+    "prototype/wav.mjs": "73d5135026baf1324fd73e19c93e46cc236efe4a02fb6d69d5ded47cad4b0856",
+    "prototype/public/app.js": "3808378db03b7febb9127edd46c16a5e0d1b6d4fda0009ce38647a5c80442d92",
+    "prototype/public/audio.js": "7e9ba00e5e4bd8d4346439e23dc58d71e11b0e226c268648cbb5b2072cff09e9",
+    "prototype/public/helpers.js": "de2f4e4b6f63501b7ef65128647468083ce8319f922aa86cf94d1e64b7313ed9",
+    "prototype/public/index.html": "d2fe515cdb9bd3ba0c62e83b07aa2503c49822b976402aa9e38a93b2d367cc27",
+    "prototype/public/recording-worklet.js": "c6a51df23e43c779fee6396d86e4ae5f98946e06c3894ab10718234686eedba7",
+    "prototype/public/style.css": "e144bd465f9cfadc7d2fadacb7f09f470dba10ac4babcf85e365785e08f3bdbc"
+  }
+}
