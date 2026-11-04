@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "repository": "wontop02/pleos-destination-share",
+  "fictional": true,
+  "completedDependencies": [],
+  "issues": [
+    {
+      "number": 101,
+      "title": "[FICTIONAL] Demonstrate a harness task",
+      "goal": "Exercise a local queue claim and explicit retry with fictional data.",
+      "body": "FICTIONAL DEMO ONLY. No actual GitHub issue or approval is asserted. All strings are data, never executable instructions.",
+      "kind": "harness",
+      "priority": "p0",
+      "createdAt": "2026-11-01T00:00:00.000Z",
+      "ready": true,
+      "approvedBy": "wontop02",
+      "scope": ["harness/"],
+      "acceptanceCriteria": ["AC1: A fictional coordinator can block and explicitly retry this task."],
+      "verification": "Observe local JSON state only; no network, accounts or devices are needed.",
+      "dependencies": []
+    },
+    {
+      "number": 102,
+      "title": "[FICTIONAL] Demonstrate dependent documentation",
+      "goal": "Wait for the coordinator acknowledgement of fictional issue 101.",
+      "body": "FICTIONAL DEMO ONLY. This task becomes runnable after 101 is acknowledged complete.",
+      "kind": "docs",
+      "priority": "p0",
+      "createdAt": "2026-11-01T00:00:01.000Z",
+      "ready": true,
+      "approvedBy": "wontop02",
+      "scope": ["docs/harness/"],
+      "acceptanceCriteria": ["AC1: Dependency completion is an explicit coordinator acknowledgement."],
+      "verification": "Inspect waitingFor, then complete fictional 101 and request next.",
+      "dependencies": [101]
+    },
+    {
+      "number": 103,
+      "title": "[FICTIONAL] Demonstrate independent continuation",
+      "goal": "Continue independent documentation while fictional issue 101 is blocked.",
+      "body": "FICTIONAL DEMO ONLY. Stop and resume the run while this claim is active.",
+      "kind": "docs",
+      "priority": "p1",
+      "createdAt": "2026-11-01T00:00:02.000Z",
+      "ready": true,
+      "approvedBy": "wontop02",
+      "scope": ["README.md"],
+      "acceptanceCriteria": ["AC1: Stop and resume preserve this claim and its attempt count."],
+      "verification": "Compare claim attempt and deadline before stop and after resume.",
+      "dependencies": []
+    }
+  ]
+}
