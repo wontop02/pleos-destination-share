@@ -1,0 +1,163 @@
+{
+  "recordedAt": "2026-11-04T04:49:07.307274+00:00",
+  "baseCommit": "821e3a387e99e4d3c87400fed3bd71173f0b9493",
+  "branch": "be/issue-7-android-prototype",
+  "device": {
+    "type": "owned Android Emulator",
+    "avd": "PleosApi35",
+    "api": 35,
+    "abi": "arm64-v8a",
+    "adbPort": 5038,
+    "serial": "emulator-5560",
+    "audioBackendEnabled": false
+  },
+  "server": "loopback Node API 127.0.0.1:4180; debug emulator alias 10.0.2.2",
+  "initialApkSha256": "de703a0a4f05de7ede754dfb3d7c9233e79ec2eece068f71cb96cdb02c4f5edb",
+  "latestApkSha256": "16daee77c4b22116683ed061155f7f2cb464e79c915e12f5a97cc1cc0fd77b81",
+  "checks": [
+    {
+      "name": "native host create, destination update, host close",
+      "result": "PASS",
+      "apk": "initial",
+      "evidence": "SDK UI and actual API state; fixture closed"
+    },
+    {
+      "name": "microphone permission denial prevents recording",
+      "result": "PASS",
+      "apk": "initial",
+      "evidence": "Android permission denied; zero duration; no microphone input test"
+    },
+    {
+      "name": "native guest joins web-origin invitation and receives destination",
+      "result": "PASS",
+      "apk": "initial",
+      "evidence": "debug loopback invitation accepted; actual member and destination state"
+    },
+    {
+      "name": "foreground synthetic WAV download and AudioTrack completion",
+      "result": "PASS",
+      "apk": "initial",
+      "evidence": "native start and completion text observed; audio backend disabled"
+    },
+    {
+      "name": "APK update restores encrypted session but leaves automatic receive off",
+      "result": "PASS",
+      "apk": "latest",
+      "evidence": "install -r succeeded; guest restored; receive start button present"
+    },
+    {
+      "name": "missing Naver handler retains destination and reports failure",
+      "result": "PASS",
+      "apk": "latest",
+      "evidence": "native-naver-missing.png"
+    },
+    {
+      "name": "explicit receiving continues when launcher is foreground",
+      "result": "PASS",
+      "apk": "latest",
+      "evidence": "new AudioFocus request and abandon before reopening app"
+    },
+    {
+      "name": "notification stop ends FGS and suppresses later automatic playback",
+      "result": "PASS",
+      "apk": "latest",
+      "evidence": "native-notification.png, native-receive-stopped.png; no new app AudioFocus entries for later WAV"
+    },
+    {
+      "name": "unsupported navigation coordinates fail with destination retained",
+      "result": "PASS",
+      "apk": "latest",
+      "evidence": "native-unsupported-navigation.png; 0,0 destination retained"
+    },
+    {
+      "name": "native guest leave removes membership",
+      "result": "PASS",
+      "apk": "latest",
+      "evidence": "native-left-room.png; actual API member count decreased to one; API host then closed"
+    }
+  ],
+  "runtimeEvents": {
+    "apkSha256": "de703a0a4f05de7ede754dfb3d7c9233e79ec2eece068f71cb96cdb02c4f5edb",
+    "foregroundVoice": {
+      "id": "8680323cd6482c873dfca512",
+      "sender": {
+        "id": "88f49706231b17991c1cee9e",
+        "name": "ApiLeadTest"
+      },
+      "sequence": 3,
+      "acceptedAt": 1793766563185,
+      "autoPlayUntil": 1793766593185,
+      "durationMs": 1000,
+      "byteLength": 32044,
+      "sampleCount": 16000,
+      "sampleRate": 16000,
+      "channels": 1,
+      "format": "pcm_s16le"
+    },
+    "audioBackendEnabled": false,
+    "physicalMicrophoneTested": false,
+    "latestApkSha256": "16daee77c4b22116683ed061155f7f2cb464e79c915e12f5a97cc1cc0fd77b81",
+    "backgroundVoice": {
+      "id": "6849969e2d43d28980ebc6c9",
+      "sender": {
+        "id": "88f49706231b17991c1cee9e",
+        "name": "ApiLeadTest"
+      },
+      "sequence": 4,
+      "acceptedAt": 1793767124473,
+      "autoPlayUntil": 1793767154473,
+      "durationMs": 1000,
+      "byteLength": 32044,
+      "sampleCount": 16000,
+      "sampleRate": 16000,
+      "channels": 1,
+      "format": "pcm_s16le"
+    },
+    "topDuringBackground": [
+      "topResumedActivity=ActivityRecord{6a15237 u0 com.android.launcher3/.uioverrides.QuickstepLauncher t7}",
+      "ResumedActivity: ActivityRecord{6a15237 u0 com.android.launcher3/.uioverrides.QuickstepLauncher t7}"
+    ],
+    "backgroundAudioFocusEvents": [
+      "11-04 13:38:44:678 requestAudioFocus() from uid/pid 10148/3677 AA=USAGE_MEDIA/CONTENT_TYPE_SPEECH clientId=android.media.AudioManager@c2f9ae7kr.together.road.NativePlayer$$ExternalSyntheticLambda0@7218694 callingPack=kr.together.road req=2 flags=0x2 sdk=35",
+      "11-04 13:38:45:717 abandonAudioFocus() from uid/pid 10148/3677 clientId=android.media.AudioManager@c2f9ae7kr.together.road.NativePlayer$$ExternalSyntheticLambda0@7218694"
+    ],
+    "notificationStopRemovedService": true,
+    "afterStopVoice": {
+      "id": "989a81425f29bd04ea14bdf2",
+      "sender": {
+        "id": "88f49706231b17991c1cee9e",
+        "name": "ApiLeadTest"
+      },
+      "sequence": 5,
+      "acceptedAt": 1793767305204,
+      "autoPlayUntil": 1793767335204,
+      "durationMs": 1000,
+      "byteLength": 32044,
+      "sampleCount": 16000,
+      "sampleRate": 16000,
+      "channels": 1,
+      "format": "pcm_s16le"
+    },
+    "afterStopNewAudioFocusEvents": [],
+    "unsupportedNavigationRejected": true,
+    "nativeGuestLeaveRemovedMembership": true,
+    "fixtureRoomClosed": true
+  },
+  "screenshots": {
+    "native-naver-missing.png": "276ba8b0a37951350a39bef3ed19f410c0773d9b6b766d0cc783e16295fb73b7",
+    "native-notification.png": "f8f17c32151d68d3d0aef8743189a5843288f40c07d49947f685ef73da42fed8",
+    "native-receive-stopped.png": "63dc56eb48a5eb8d64e6b6c408ae1c4f9c7eae94b0dbf7afb9bc8edc04ca004a",
+    "native-unsupported-navigation.png": "dfb2ad74ada71c80ec8c3af21405d6f2a2b29bbc31b96690eb518e22ab5f0de6",
+    "native-left-room.png": "701f57263f2c5080f471ddc7f5798b516999da72b6ac8bd3316c95c8b607a89a"
+  },
+  "notTested": [
+    "physical microphone recording",
+    "audible first sound",
+    "physical Galaxy",
+    "Naver installed or actual route guidance",
+    "screen lock",
+    "15-minute silence then first sound",
+    "30-minute silence then first sound"
+  ],
+  "fixtureCleanup": "native-created host and API-created host closed; native guest left; no real microphone audio used"
+}

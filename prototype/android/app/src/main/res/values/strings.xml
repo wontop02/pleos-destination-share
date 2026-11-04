@@ -1,0 +1,1 @@
+<resources><string name="connection_status">%1$s · 자동 수신 %2$s</string><string name="members_status">참여자 %1$d명\n%2$s%3$s</string><string name="room_expiry">\n%1$s 만료 예정</string></resources>

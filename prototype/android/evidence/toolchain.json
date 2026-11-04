@@ -1,0 +1,56 @@
+{
+  "sdk": {
+    "source": "https://dl.google.com/android/repository/repository2-3.xml",
+    "archives": [
+      {
+        "package": "platforms;android-35",
+        "url": "https://dl.google.com/android/repository/platform-35_r02.zip",
+        "size": 64273788,
+        "checksum": "0bb560a90a7a2cbd0dd8348224d518b638fe7949",
+        "checksumType": "sha1",
+        "localPath": "/private/tmp/pleos-android-toolchain-20261104/downloads/platform-35_r02.zip",
+        "sha256": "0988cacad01b38a18a47bac14a0695f246bc76c1b06c0eeb8eb0dc825ab0c8e0",
+        "officialChecksumVerified": true
+      },
+      {
+        "package": "build-tools;35.0.0",
+        "url": "https://dl.google.com/android/repository/build-tools_r35_macosx.zip",
+        "size": 76857898,
+        "checksum": "93ab8ce91230e067b5add4bfa79919c52b27f072",
+        "checksumType": "sha1",
+        "localPath": "/private/tmp/pleos-android-toolchain-20261104/downloads/build-tools_r35_macosx.zip",
+        "sha256": "530cdbd1ec315e1477624d7ed2f0f2962108d69f36eddba5894cef9ea2cedb48",
+        "officialChecksumVerified": true
+      },
+      {
+        "package": "cmdline-tools;latest",
+        "url": "https://dl.google.com/android/repository/commandlinetools-mac_arm64-16111833_latest.zip",
+        "size": 155384151,
+        "checksum": "ad03dc49bfacfd52c110b14104ea548b8a07e830",
+        "checksumType": "sha1",
+        "localPath": "/private/tmp/pleos-android-toolchain-20261104/downloads/commandlinetools-mac_arm64-16111833_latest.zip",
+        "sha256": "58da8f215781cc0208743e88b65ae259780c55e7eb40e50373d377cf369232d6",
+        "officialChecksumVerified": true
+      }
+    ]
+  },
+  "gradle": {
+    "url": "https://services.gradle.org/distributions/gradle-8.11.1-bin.zip",
+    "checksumSource": "https://services.gradle.org/distributions/gradle-8.11.1-bin.zip.sha256",
+    "sha256": "f397b287023acdba1e9f6fc5ea72d22dd63669d59ed4a289a29b1a76eee151c6",
+    "verified": true,
+    "home": "/private/tmp/pleos-android-toolchain-20261104/gradle/gradle-8.11.1"
+  },
+  "wrapperJar": {
+    "sha256": "2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046",
+    "checksumSource": "https://services.gradle.org/distributions/gradle-8.11.1-wrapper.jar.sha256",
+    "verified": true
+  },
+  "plugins": {
+    "agp": "8.9.2",
+    "kotlin": "2.2.20",
+    "okhttp": "4.12.0"
+  },
+  "javaHome": "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home",
+  "userGlobalSettingsChanged": false
+}

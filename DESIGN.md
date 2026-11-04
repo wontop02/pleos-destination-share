@@ -3,7 +3,7 @@
 ## Source of truth
 - Status: Active
 - Last refreshed: 2026-11-04
-- Primary product surfaces: 공유방 웹 시연, 후속 iPhone·Android 네이티브 앱.
+- Primary product surfaces: 공유방 웹 시연, Android 네이티브 프로토타입, 후속 iPhone 앱.
 - Evidence reviewed: 사용자 원음·잠금 수신 요구, 상위 폴더의 DESIGN.md·GLOSSARY.md·development/implementation-plan.md·prototype/public/. 상위 원본은 변경하지 않는다.
 
 ## Brand
@@ -43,7 +43,7 @@
 - Existing components to reuse: 상위 시제품의 공유방·목적지 흐름을 참고한다.
 - New/changed components: 연결 상태, 목적지 카드, 대표 차량 폼, 녹음 타이머·취소, 원음 목록과 재생 조작.
 - Variants and states: 연결/재연결/종료, 녹음/전송/실패, 자동 재생 꺼짐/켜짐/거절, 최신/오래된 원음.
-- Token/component ownership: prototype/public/의 CSS 변수와 UI 코드.
+- Token/component ownership: 웹은 prototype/public/의 CSS 변수, Android는 prototype/android/의 공통 스타일과 리소스로 관리한다.
 
 ## Accessibility
 - Target standard: WCAG 2.2 AA를 목표로 기본 접근성을 검토한다. 인증을 의미하지 않는다.
@@ -71,10 +71,10 @@
 - Microcopy rules: 제품 조작을 우선하고 서버·SDK 설명은 개발 문서로 둔다.
 
 ## Implementation constraints
-- Framework/styling system: 첫 실행본은 Node 표준 HTTP·이벤트 연결과 HTML/CSS/JavaScript다.
+- Framework/styling system: 웹은 Node 표준 HTTP·이벤트 연결과 HTML/CSS/JavaScript다. Android는 Kotlin·플랫폼 Activity·AudioRecord/AudioTrack·사용자가 시작하는 수신 서비스를 사용한다.
 - Design-token constraints: CSS 변수로 색·간격을 관리한다.
 - Performance constraints: 원음은 1–15초, PCM16 mono 16kHz WAV를 공통 검증 형식으로 사용한다. 15초 약 480KB이며 서버에서 실제 길이를 검사한다.
-- Compatibility constraints: 브라우저 마이크는 localhost 또는 신뢰된 HTTPS가 필요하다. iPhone 배경 수신은 PushToTalk/APNs, Android는 네이티브 서비스로 별도 검증한다.
+- Compatibility constraints: 브라우저 마이크는 localhost 또는 신뢰된 HTTPS가 필요하다. 초기 Android 기준은 API 26 이상·compile/target 35다. iPhone 배경 수신은 PushToTalk/APNs, Android는 네이티브 서비스로 실기기 검증하며 모든 구형 기종 지원을 보장하지 않는다.
 - Test/screenshot expectations: 실제 HTTP 바이트 전달, 두 독립 브라우저 참여와 목적지 전달, 모바일 화면·오류 상태를 확인한다. 실마이크·실기기 미실행을 명시한다.
 
 ## Open questions

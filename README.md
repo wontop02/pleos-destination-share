@@ -1,6 +1,6 @@
 # pleos-destination-share
 
-차량 간 목적지와 최대 15초 원음을 공유하는 프로토타입입니다. 2026-11-04 앱 개발을 재개했으며 공유방·목적지·원음 첫 실행본(#6)부터 Android(#7), iPhone(#8) 순서로 진행합니다.
+차량 간 목적지와 최대 15초 원음을 공유하는 프로토타입입니다. 웹 첫 실행본 #6은 PR #9로 main에 병합했습니다. Android 앱 #7과 iPhone 앱 #8을 같은 이슈·검증 절차로 이어갑니다.
 
 ## 제품 실행
 
@@ -14,6 +14,10 @@ npm start
 기본 주소는 `http://127.0.0.1:4180`입니다. 공유방을 만든 뒤 초대 링크를 다른 탭에서 열어 목적지와 원음을 확인합니다. API와 실행 방법은 [프로토타입 문서](prototype/README.md)를 따릅니다.
 
 웹은 열린 화면에서의 기능 검증용입니다. iPhone·Android에서 내비 앱 사용 또는 화면 잠금 중 원음 자동 재생은 네이티브 앱과 실기기로 따로 검증합니다. 모든 기종에서 검증됐다고 표시하지 않습니다.
+
+## Android 앱
+
+Kotlin 네이티브 앱의 소스와 빌드·설치 방법은 [Android 문서](prototype/android/README.md)에 있습니다. 디버그 APK는 빌드 후 `prototype/android/app/build/outputs/apk/debug/app-debug.apk`에 생성됩니다. 실제 기종의 잠금·내비 사용·장시간 무음 후 첫 소리는 [검증표](docs/product/platform-validation.md)에서 별도로 관리합니다.
 
 ## 작업 방식
 
