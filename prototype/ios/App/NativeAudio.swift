@@ -26,7 +26,7 @@ import RoadCore
     func prepareForPTT() throws {
         guard mayUseForegroundSession() else { throw RoadError.invalid("자동 수신을 먼저 종료하고 채널 탈퇴를 확인해 주세요.") }
         cancelRecording(); stopPlayback(); deactivateForeground()
-        try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .voiceChat, options: [.defaultToSpeaker, .allowBluetooth])
+        try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .voiceChat, options: [.defaultToSpeaker, .allowBluetoothHFP])
         // Activation belongs to PTChannelManager; never call setActive here.
     }
     func beginRecording() async throws {
@@ -36,7 +36,7 @@ import RoadCore
         guard allowed else { throw RoadError.invalid("마이크 권한이 거절되어 녹음하지 않았어요.") }
         guard mayUseForegroundSession() else { throw CancellationError() }
         stopPlayback()
-        let session = AVAudioSession.sharedInstance(); try session.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker, .allowBluetooth]); try session.setActive(true); ownsForegroundSession = true
+        let session = AVAudioSession.sharedInstance(); try session.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker, .allowBluetoothHFP]); try session.setActive(true); ownsForegroundSession = true
         let url = FileManager.default.temporaryDirectory.appendingPathComponent("voice-\(UUID().uuidString).wav")
         do {
             let record = try AVAudioRecorder(url: url, settings: [AVFormatIDKey: kAudioFormatLinearPCM, AVSampleRateKey: 16000.0, AVNumberOfChannelsKey: 1, AVLinearPCMBitDepthKey: 16, AVLinearPCMIsFloatKey: false, AVLinearPCMIsBigEndianKey: false])
@@ -56,13 +56,24 @@ import RoadCore
         guard buffer.frameLength == input.length, let channel = buffer.int16ChannelData?[0] else { throw RoadError.invalid("원음 표본을 읽지 못했어요.") }
         return try WAV.encode(Array(UnsafeBufferPointer(start: channel, count: Int(buffer.frameLength))))
     }
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        guard self.recorder === recorder else { return }; self.recorder = nil
+    nonisolated func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        let recordingURL = recorder.url
+        // Only immutable values cross the actor hop; each recording has a unique URL.
+        Task { @MainActor [weak self] in self?.recordingFinished(at: recordingURL, successfully: flag) }
+    }
+    private func recordingFinished(at url: URL, successfully flag: Bool) {
+        guard recorder?.url == url else { return }; recorder = nil
         defer { removeFile(); deactivateForeground() }
         guard !discard, mayUseForegroundSession(), let file else { return }
         do { guard flag else { throw RoadError.invalid("녹음을 완료하지 못했어요.") }; onRecorded(.success(try canonicalWAV(file))) } catch { onRecorded(.failure(error)) }
     }
-    func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) { cancelRecording(); onRecorded(.failure(RoadError.invalid("원음 녹음이 중단됐어요."))) }
+    nonisolated func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
+        let recordingURL = recorder.url
+        Task { @MainActor [weak self] in
+            guard let self, self.recorder?.url == recordingURL else { return }
+            self.cancelRecording(); self.onRecorded(.failure(RoadError.invalid("원음 녹음이 중단됐어요.")))
+        }
+    }
     func playManually(_ bytes: Data) throws {
         guard mayUseForegroundSession() else { throw RoadError.invalid("자동 수신 채널 탈퇴를 확인한 뒤 열린 화면에서 재생해 주세요.") }
         stopPlayback(); let session = AVAudioSession.sharedInstance(); try session.setCategory(.playback, mode: .spokenAudio); try session.setActive(true); ownsForegroundSession = true

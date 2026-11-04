@@ -2,42 +2,60 @@
 
 SwiftUI·AVFoundation·Keychain·PushToTalk 소스와 Foundation 공통 코어다. 초기 기준은 iOS 16 이상이며 모든 구형 iPhone 지원이나 실제 잠금 수신 완료를 뜻하지 않는다. 기존 서버의 [공유방·원음 API](../README.md)와 [PTT 등록·전달 계약](../ptt/README.md)을 사용한다.
 
-**현재 상태:** Foundation 실행형 검증 24개는 실행할 수 있다. 전체 iOS SDK 컴파일, XCTest 실행, 서명·PTT capability·APNs·iPhone 실증은 필요한 자원 부족으로 BLOCKED다. `-frontend -parse`와 plist 검사는 iOS 앱 typecheck·빌드 성공이 아니다.
+**현재 상태(2026-11-04):** macOS 26.7.2·Xcode 27.2(27B52)·Swift 6.4.2에서 전체 iOS Simulator SDK의 Debug 앱 빌드와 XCTest 24개, 동일한 Foundation 실행형 24개 시나리오가 통과했다. 앱 전용 Keychain entitlement와 local ad hoc 서명을 사용한 Simulator에서 공유방 생성·앱 프로세스 재실행 후 세션 복원도 확인했다. 실제 마이크·청취·시스템 PTT callback과 iPhone 실증은 미검증이며, 정상 실기기 서명·PTT capability·APNs 자격증명도 미제공/미검증으로 BLOCKED다. Simulator 결과만으로 앱 전체나 잠금 수신을 완료 처리하지 않는다.
 
 ## 파일과 재현 명령
 
 | 경로 | 역할 |
 |---|---|
-| `TogetherRoad.xcodeproj`, `Config/` | iOS 16 target·shared scheme·Debug/Release Info.plist·PTT/APNs entitlement 선언 |
+| `TogetherRoad.xcodeproj`, `Config/` | iOS 16 target·shared scheme·Debug/Release Info.plist·실기기 PTT/APNs 선언·Simulator 전용 Keychain entitlement |
 | `App/TogetherRoadApp.swift`, `ContentView.swift` | 앱 시작 시 모델·PTChannelManager 생성, 한국어 화면과 scene 수명 |
 | `App/RoomStore.swift` | 공유방·목적지·원음·등록 CAS·재연결·수신 상태 연결 |
 | `App/NativeAudio.swift`, `KeychainStore.swift`, `PTTBridge.swift` | AVFoundation·앱 전용 Keychain·실제 시스템 PTT delegate |
 | `Core/` | SwiftPM RoadCore, 동일 시나리오의 실행형 검사와 XCTest wrapper |
 
-저장소 루트에서 실행한다. Swift 6 toolchain과 Node 22 이상이 필요하며 외부 Swift 패키지는 설치하지 않는다.
+저장소 루트에서 실행한다. 전체 Xcode와 Swift 6 toolchain, Node 22 이상이 필요하며 외부 Swift 패키지는 설치하지 않는다. 전역 `xcode-select`를 바꾸지 않고 `DEVELOPER_DIR`을 각 프로세스에 지정한다. 아래 명령은 새 scratch/DerivedData 경로를 사용한다.
 
 ```sh
-swift run --package-path prototype/ios/Core \
-  --scratch-path /private/tmp/pleos-ios-fix-8-swift-20261104 RoadCoreChecks
+ios_sdk_artifacts="$(mktemp -d /private/tmp/pleos-ios-sdk.XXXXXX)"
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
+  swift run --package-path prototype/ios/Core \
+  --scratch-path "$ios_sdk_artifacts/foundation" RoadCoreChecks
 ```
 
-`RoadCoreChecks`는 Foundation과 실제 임시 Node 서버를 쓰는 검증 실행 파일이다. 24개 시나리오 중 하나라도 실패하면 오류를 출력하고 exit 1로 끝난다. 빌드 최적화로 사라지는 `assert`를 사용하지 않는다. SwiftPM 공통 시나리오를 XCTest wrapper도 호출하므로 전체 Xcode가 있는 환경에서는 같은 검사를 다음 명령으로 실행할 수 있다.
+`RoadCoreChecks`는 Foundation과 실제 임시 Node 서버를 쓰는 검증 실행 파일이다. 24개 시나리오 중 하나라도 실패하면 오류를 출력하고 exit 1로 끝난다. 빌드 최적화로 사라지는 `assert`를 사용하지 않는다. XCTest wrapper도 같은 24개 시나리오를 호출하며 두 실행을 48개의 새 커버리지로 합산하지 않는다.
 
 ```sh
-swift test --package-path prototype/ios/Core
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
+  swift test --package-path prototype/ios/Core \
+  --scratch-path "$ios_sdk_artifacts/xctest"
 ```
 
-현재 CLT에서는 `no such module 'XCTest'`로 exit 1이다. `import Testing`도 제공되지 않는다. 실행형 24/24와 XCTest BLOCKED는 별도 결과다.
+현재 전체 Xcode에서는 XCTest 24개가 실패 0개로 실행됐다. Core 13개·API 4개·등록 경합 7개다. 마지막 Swift Testing의 0 tests 출력은 XCTest 24개 결과와 별도다. 이전 CLT의 `no such module 'XCTest'` 결과는 과거 증거에 보존한다.
 
-전체 Xcode와 iOS SDK가 준비된 뒤의 unsigned simulator 빌드 명령은 다음과 같다. 현재 환경에서는 실행했으나 Xcode가 없다는 오류로 exit 1이다.
+SDK 컴파일만 확인하는 unsigned simulator 빌드 명령은 다음과 같다. iOS 27.2 SDK로 arm64·x86_64 앱을 컴파일·링크했으며 deployment target iOS 16과 기존 Swift 5 앱 언어 모드를 유지했다. 이 산출물은 실제 Keychain 실행 검증에 사용하지 않는다.
 
 ```sh
-xcodebuild -project prototype/ios/TogetherRoad.xcodeproj -scheme TogetherRoad \
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
+  xcodebuild -project prototype/ios/TogetherRoad.xcodeproj -scheme TogetherRoad \
   -configuration Debug -sdk iphonesimulator \
-  -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
+  -destination 'generic/platform=iOS Simulator' \
+  -derivedDataPath "$ios_sdk_artifacts/DerivedData-unsigned" CODE_SIGNING_ALLOWED=NO build
 ```
 
-프로젝트는 Manual signing·`CODE_SIGNING_ALLOWED=NO`를 기본으로 두며 팀·개인 키·프로필을 지정하거나 자동 탐색하지 않는다. 실제 iPhone 설치에는 사용자가 제공하는 정상 서명·PTT와 Push Notifications capability가 필요하다. bundle ID는 `kr.together.road.ios`, APNs topic은 이 bundle ID 뒤의 `.voip-ptt`이며 Debug/Release의 APNs 환경을 서버 설정과 맞춰야 한다. entitlement 선언만으로 권한을 부여받은 것은 아니다.
+Simulator에서 공유방을 만들고 재실행 후 Keychain 세션을 복원하려면 다음 실행용 빌드를 사용한다. `CODE_SIGNING_ALLOWED=NO` override를 전달하지 않는다.
+
+```sh
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
+  xcodebuild -project prototype/ios/TogetherRoad.xcodeproj -scheme TogetherRoad \
+  -configuration Debug -sdk iphonesimulator \
+  -destination 'generic/platform=iOS Simulator' \
+  -derivedDataPath "$ios_sdk_artifacts/DerivedData-simulator" build
+```
+
+`iphonesimulator` SDK에만 `CODE_SIGNING_ALLOWED=YES`, identity `-`와 `TogetherRoad-Simulator.entitlements`를 적용한다. Xcode의 `Sign to Run Locally`가 앱을 ad hoc 서명하며 개발 팀·개인 키·프로필을 사용하지 않는다. Simulator용 `application-identifier`와 유일한 `keychain-access-groups` 값은 앱 bundle ID `kr.together.road.ios`다. Xcode 27.2는 이 두 값을 Mach-O의 `__TEXT,__entitlements` Simulator section에 넣고 실제 macOS 서명 entitlement는 빈 dictionary로 둔다. 두 아키텍처의 실제 section과 strict/deep 서명을 검사했다. Simulator 선언에는 PTT/APNs 권한을 넣지 않는다.
+
+`iphoneos`는 기존 Manual signing·`CODE_SIGNING_ALLOWED=NO`, 빈 팀·identity·프로필과 실기기 PTT/APNs entitlement 파일을 유지한다. 실제 iPhone 설치에는 사용자가 제공하는 정상 서명·PTT와 Push Notifications capability가 필요하다. APNs topic은 bundle ID 뒤의 `.voip-ptt`이며 Debug/Release의 APNs 환경을 서버 설정과 맞춰야 한다. Simulator local 서명이나 entitlement 선언은 실기기 권한을 부여하지 않는다.
 
 ## 실제 조작과 연결
 
@@ -59,7 +77,7 @@ Debug HTTP는 Endpoint와 ATS 설정으로 localhost 시연에 제한한다. 초
 
 마이크·수동 재생에서 직접 활성화한 AVAudioSession은 소유 플래그로 추적해 scene이 비활성이 되어도 반납한다. PTT 활성화에는 이 플래그를 설정하지 않으며 PTT 재생 경로에서 `setActive`를 호출하지 않는다. 시스템 오디오 중단·미디어 서비스 초기화·이어폰 제거는 녹음과 재생을 중단한다. 전송 접수·원음 수신·실제 재생 callback은 구분해 표시한다.
 
-자동 수신 참여 전에는 Store의 수동 다운로드·재생 작업을 취소하고 재생 epoch와 작업 표시를 초기화한 뒤 직접 오디오 세션을 반납한다. 재생을 시작하지 못한 수동 다운로드도 작업 표시를 정리한다. 이 전환의 호출 경로와 문법은 소스로 확인했으며 실제 AVFoundation·PTT 전환은 iOS SDK와 기기에서 추가 검증해야 한다.
+자동 수신 참여 전에는 Store의 수동 다운로드·재생 작업을 취소하고 재생 epoch와 작업 표시를 초기화한 뒤 직접 오디오 세션을 반납한다. 재생을 시작하지 못한 수동 다운로드도 작업 표시를 정리한다. 이 전환의 호출 경로와 SDK 컴파일은 확인했으며 실제 AVFoundation·PTT 전환은 기기에서 추가 검증해야 한다.
 
 ## PushToTalk 수명주기
 
@@ -77,22 +95,29 @@ restoration delegate는 캐시 descriptor를 동기적으로 즉시 반환하며
 
 ## 검증 상태와 재개 조건
 
-실행 증거는 `evidence/verification.json`과 `evidence/core-checks.log`에 기록한다. 가상 PCM 표본과 actor 지연 응답은 프로토콜·경합 검사이며 실마이크나 실제 APNs 성공 증거가 아니다.
+현재 SDK·XCTest·Foundation 실행 증거는 [evidence/xcode-sdk-verification.json](evidence/xcode-sdk-verification.json)에 기록한다. 이전 CLT 환경의 `evidence/verification.json`과 `evidence/core-checks.log`는 과거 증거로 그대로 보존한다. 가상 PCM 표본과 actor 지연 응답은 프로토콜·경합 검사이며 실마이크나 실제 APNs 성공 증거가 아니다.
 
-독립 검토에서 발견한 시스템 탈퇴 등록 누수와 수동 재생 후 PTT 대기 정체를 수정했다. 새 5개 actor/CAS 회귀는 접수 전 POST와 탈퇴 fence, 접수 후 취소 응답 정리, 이전 채널 정리와 새 참여 경합, CAS 충돌 재시도, 권한 실패의 제한된 종료를 실제 실행한다. Store·플랫폼 callback 전환은 소스 호출 경로·문법 검토로 구분하며 Foundation 검사 수에 포함하지 않는다. 수정 head의 독립 검증은 별도로 필요하다.
+이전 독립 검토에서 발견한 시스템 탈퇴 등록 누수와 수동 재생 후 PTT 대기 정체를 수정했다. 5개 actor/CAS 회귀는 접수 전 POST와 탈퇴 fence, 접수 후 취소 응답 정리, 이전 채널 정리와 새 참여 경합, CAS 충돌 재시도, 권한 실패의 제한된 종료를 실제 실행한다. Store·플랫폼 callback 전환의 실기기 동작은 Foundation 검사 수에 포함하지 않는다.
+
+이번 SDK 빌드에서 `AVAudioRecorderDelegate`의 nonisolated 요구와 MainActor 상태의 충돌 경고를 확인했다. 두 녹음 callback은 고유한 녹음 URL과 성공 여부만 MainActor로 전달하고 현재 녹음과 일치할 때 처리하도록 수정했다. SDK가 이름을 변경한 Bluetooth HFP 옵션도 갱신했다. 수정 후 앱 컴파일 경고는 없어졌고 AppIntents 미사용 metadata 안내만 남았다. 실제 녹음 callback 실행은 기기 검증이 필요하다.
+
+새 Foundation 실행 중 테스트 정리가 `Process.waitUntilExit()`에서 멈추는 현상을 두 차례 포착했다. API 검증 후 자식 프로세스 종료를 5ms 간격의 async 대기와 2초 실패 상한으로 확인하도록 바꿨다. 기존 24개 시나리오와 모든 계약 assertion은 유지하며 종료 대기도 통과해야 성공한다. 새 변경의 정확한 base/head 독립 검증은 총괄이 커밋을 고정한 뒤 별도로 수행한다.
+
+초기 unsigned 산출물의 실제 Simulator 공유방 생성은 Keychain 저장에 실패했다. 해당 Simulator의 securityd 로그에서 `SecItemUpdate`의 `OSStatus -34018`과 `application-identifier`·`keychain-access-groups` 부재를 확인했다. SDK 조건부 local 서명과 앱 전용 entitlement를 추가했으며 Keychain API·접근성 정책과 암호화된 OS 저장 경로는 유지했다. 수정 산출물의 총괄 CUA 재검증에서 공유방 생성·연결과 재설치 없는 프로세스 종료·재실행 후 같은 공유방 복원이 통과했다. 생성 전 이름/참여 화면으로 돌아가지 않았고 대표 차량·참여자 수·만료 시각이 유지됐다. 앱의 기본 Keychain 접근 그룹과 entitlement의 관계는 [Apple 설명](https://developer.apple.com/documentation/security/sharing-access-to-keychain-items-among-a-collection-of-apps)을 따른다.
 
 | 항목 | 현재 결과 | 재개·추가 증거 |
 |---|---|---|
 | Swift Foundation 공통 모듈·실행형 검사 | 24/24 PASS | 실제 HTTP/SSE·WAV 바이트·CAS·취소·순서/신선도/회전·탈퇴 경합 |
-| XCTest wrapper 실행 | BLOCKED | 현재 CLT에 XCTest/Testing 모듈 없음. 전체 Xcode에서 동일 시나리오 실행 |
-| App source parse·plist/PBX/scheme 구조 | 정적 검사만 | iOS SDK typecheck가 아님 |
-| 전체 iOS 앱·simulator 빌드·화면 | BLOCKED | 현재 macOS 26.4 호환 전체 Xcode 26.6 등과 iOS SDK |
+| XCTest wrapper 실행 | 24 tests·실패 0 PASS | 실행형과 같은 24개 시나리오이며 macOS 호스트 검사 |
+| 전체 iOS 앱·Simulator SDK 빌드 | unsigned Debug PASS | Xcode27.2·iOS27.2 SDK, arm64·x86_64 컴파일·링크, iOS16 target |
+| Simulator 실행용 local ad hoc 빌드 | PASS | 앱 전용 simulated entitlement section·strict/deep 서명 확인 |
+| Simulator 공유방 생성·서버 연결·Keychain 복원 | PASS · 총괄 CUA 실행 | 앱 재설치 없이 프로세스 종료·재실행, 동일 공유방·역할·만료 시각 복원. 목적지·원음 UI 검사는 별도 기록 |
 | 실제 마이크·원음 재생·PTT delegate | BLOCKED | 서명 설치한 iPhone에서 실제 입력·권한·중단·완료 관찰 |
 | Apple 서명·PTT capability·APNs | BLOCKED | 사용자가 제공하는 정상 팀·capability·프로필·APNs 자격 증명 |
 | iPhone 내비 앱 사용·잠금 중 첫 소리 | BLOCKED · 필수 제품 게이트 | 모델/iOS/내비 버전, 실제 수신·첫 소리 시각과 청취 증거 |
 | 15분/30분 무음 뒤 잠금 첫 소리 | BLOCKED · 필수 제품 게이트 | 두 조건을 각각 실제 기기로 실행·실패/성공 구분 |
 
-현재 `xcode-select -p`는 `/Library/Developer/CommandLineTools`, macOS는 26.4, Swift CLI는 6.3이다. [Apple 시스템 요구 표](https://developer.apple.com/xcode/system-requirements/)상 Xcode 26.6은 macOS 26.2–26.x를 지원하므로 OS 업그레이드가 반드시 필요한 것은 아니다. App Store의 최신 Xcode 27 계열은 별도 호스트 요구가 있으므로 구분한다. 호환 전체 Xcode가 준비되면 `DEVELOPER_DIR`을 그 앱으로 프로세스별 지정해 위 명령을 재실행할 수 있다. 이 작업에서 OS 업그레이드, 계정 가입, 약관 동의, 서명 정보·프로필 탐색은 수행하지 않았다.
+현재 macOS는 26.7.2(25G332), 전체 Xcode는 `/Applications/Xcode.app`의 27.2(27B52), 사용한 Swift는 6.4.2다. iOS 27.2 simulator runtime도 설치됐다. 전역 `xcode-select -p`는 `/Library/Developer/CommandLineTools`로 유지하고 모든 빌드·테스트 프로세스에 `DEVELOPER_DIR`을 지정했다. 이번 앱 검사에서 서명 팀·계정·키·프로필을 탐색하거나 자동 provisioning을 사용하지 않았다. Node94/94는 이전 실행 head `7c66b71a43fb63fe8585e37928b031e47dfb49bf`와 관련 28개 Git blob이 같은지 확인해 재사용한 결과다.
 
 구현·빌드 차단 상태를 모든 iPhone의 배경 원음 수신 통과나 앱 전체 완료로 바꾸어 표시하지 않는다. 실제 iOS SDK에서 발견되는 컴파일/API 차이는 수정 후 같은 검사와 별도 verifier의 정확한 base/head 검토를 다시 수행해야 한다.
 

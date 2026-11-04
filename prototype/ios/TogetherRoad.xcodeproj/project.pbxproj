@@ -26,6 +26,7 @@
 		A20000000000000000000011 /* Info-Debug.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Debug.plist"; sourceTree = "<group>"; };
 		A20000000000000000000012 /* Info-Release.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Release.plist"; sourceTree = "<group>"; };
 		A20000000000000000000013 /* TogetherRoad.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TogetherRoad.entitlements; sourceTree = "<group>"; };
+		A20000000000000000000014 /* TogetherRoad-Simulator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TogetherRoad-Simulator.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +53,7 @@
 		};
 		A10000000000000000000006 /* Config */ = {
 			isa = PBXGroup;
-			children = (A20000000000000000000011, A20000000000000000000012, A20000000000000000000013);
+			children = (A20000000000000000000011, A20000000000000000000012, A20000000000000000000013, A20000000000000000000014);
 			path = Config;
 			sourceTree = "<group>";
 		};
@@ -167,9 +168,12 @@
 			buildSettings = {
 				APS_ENVIRONMENT = development;
 				CODE_SIGN_ENTITLEMENTS = Config/TogetherRoad.entitlements;
+				"CODE_SIGN_ENTITLEMENTS[sdk=iphonesimulator*]" = "Config/TogetherRoad-Simulator.entitlements";
 				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "-";
 				CODE_SIGN_STYLE = Manual;
 				CODE_SIGNING_ALLOWED = NO;
+				"CODE_SIGNING_ALLOWED[sdk=iphonesimulator*]" = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = NO;
@@ -193,9 +197,12 @@
 			buildSettings = {
 				APS_ENVIRONMENT = production;
 				CODE_SIGN_ENTITLEMENTS = Config/TogetherRoad.entitlements;
+				"CODE_SIGN_ENTITLEMENTS[sdk=iphonesimulator*]" = "Config/TogetherRoad-Simulator.entitlements";
 				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "-";
 				CODE_SIGN_STYLE = Manual;
 				CODE_SIGNING_ALLOWED = NO;
+				"CODE_SIGNING_ALLOWED[sdk=iphonesimulator*]" = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = NO;

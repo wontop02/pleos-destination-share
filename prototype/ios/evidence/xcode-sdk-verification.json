@@ -1,0 +1,764 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-04T14:50:33.467121+00:00",
+  "result": "BLOCKED",
+  "summary": "Full iOS Simulator SDK builds, 24 XCTest cases and the same 24 Foundation scenarios pass. Simulator-only local ad hoc signing fixes the observed -34018 Keychain failure; coordinator actual room creation and cold process-relaunch session restoration pass. Physical-device signing/PTT/APNs credentials and device behavior remain unprovided or unverified. Separate exact-base/new-head verification is pending.",
+  "target": {
+    "repository": "wontop02/pleos-destination-share",
+    "issue": 8,
+    "pr": 11,
+    "branch": "be/issue-8-ios-prototype",
+    "frozenBaseCommit": "821e3a387e99e4d3c87400fed3bd71173f0b9493",
+    "startingHead": "8b0ba18046fe1c640ec7d77baead9396e87c1ff5",
+    "workingTreeUncommitted": true,
+    "newCommitCreated": false
+  },
+  "builder": {
+    "customBuilderRoleExecuted": false,
+    "behavioralContract": ".codex/agents/builder.toml",
+    "independentVerifier": false,
+    "committedOrPushed": false,
+    "githubMutated": false
+  },
+  "environment": {
+    "macOS": "26.7.2",
+    "macOSBuild": "25G332",
+    "xcode": "27.2",
+    "xcodeBuild": "27B52",
+    "swift": "Apple Swift 6.4.2",
+    "simulatorSDK": "27.2",
+    "macOSSDK": "27.2",
+    "developerDirectory": "/Applications/Xcode.app/Contents/Developer",
+    "developerDirectoryScope": "per process only",
+    "globalXcodeSelect": "/Library/Developer/CommandLineTools",
+    "globalXcodeSelectChanged": false,
+    "node": "v25.8.1",
+    "simulatorRuntimeAvailable": true,
+    "simulatorRuntimeIdentifiers": [
+      "com.apple.CoreSimulator.SimRuntime.iOS-27-2-iPhone19-4",
+      "com.apple.CoreSimulator.SimRuntime.iOS-27-2"
+    ],
+    "scratchAndDerivedData": "new directories under rawArtifactDirectory; no previous CLT scratch reused",
+    "applicationSwiftLanguageVersion": "5.0 unchanged",
+    "packageSwiftToolsVersion": "6.0 unchanged",
+    "deploymentTarget": "iOS 16.0 unchanged"
+  },
+  "commands": {
+    "swiftTest": {
+      "environment": {
+        "DEVELOPER_DIR": "/Applications/Xcode.app/Contents/Developer"
+      },
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "prototype/ios/Core",
+        "--scratch-path",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-xcode-resume/swift-test-02"
+      ],
+      "exitCode": 0,
+      "log": "swift-test-02.log"
+    },
+    "foundationRunner": {
+      "environment": {
+        "DEVELOPER_DIR": "/Applications/Xcode.app/Contents/Developer"
+      },
+      "command": [
+        "swift",
+        "run",
+        "--package-path",
+        "prototype/ios/Core",
+        "--scratch-path",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-xcode-resume/foundation-run-02",
+        "RoadCoreChecks"
+      ],
+      "exitCode": 0,
+      "log": "foundation-run-02.log"
+    },
+    "simulatorBuild": {
+      "environment": {
+        "DEVELOPER_DIR": "/Applications/Xcode.app/Contents/Developer"
+      },
+      "command": [
+        "xcodebuild",
+        "-project",
+        "prototype/ios/TogetherRoad.xcodeproj",
+        "-scheme",
+        "TogetherRoad",
+        "-configuration",
+        "Debug",
+        "-sdk",
+        "iphonesimulator",
+        "-destination",
+        "generic/platform=iOS Simulator",
+        "-derivedDataPath",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-xcode-resume/simulator-derived-data-03",
+        "build"
+      ],
+      "exitCode": 0,
+      "log": "simulator-build-03.log",
+      "scope": "Simulator-only local ad hoc runtime build; no developer identity or profile"
+    },
+    "initialSimulatorBuild": {
+      "environment": {
+        "DEVELOPER_DIR": "/Applications/Xcode.app/Contents/Developer"
+      },
+      "command": [
+        "xcodebuild",
+        "-project",
+        "prototype/ios/TogetherRoad.xcodeproj",
+        "-scheme",
+        "TogetherRoad",
+        "-configuration",
+        "Debug",
+        "-sdk",
+        "iphonesimulator",
+        "-destination",
+        "generic/platform=iOS Simulator",
+        "-derivedDataPath",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-xcode-resume/simulator-derived-data-01",
+        "CODE_SIGNING_ALLOWED=NO",
+        "build"
+      ],
+      "exitCode": 0,
+      "log": "simulator-build-01.log",
+      "scope": "before NativeAudio SDK warning fixes"
+    },
+    "initialSwiftTest": {
+      "environment": {
+        "DEVELOPER_DIR": "/Applications/Xcode.app/Contents/Developer"
+      },
+      "command": [
+        "swift",
+        "test",
+        "--package-path",
+        "prototype/ios/Core",
+        "--scratch-path",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-xcode-resume/swift-test-01"
+      ],
+      "exitCode": 0,
+      "testCases": 24,
+      "log": "swift-test-01.log",
+      "scope": "before fixture cleanup fix"
+    },
+    "initialFoundationRunner": {
+      "environment": {
+        "DEVELOPER_DIR": "/Applications/Xcode.app/Contents/Developer"
+      },
+      "command": [
+        "swift",
+        "run",
+        "--package-path",
+        "prototype/ios/Core",
+        "--scratch-path",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-xcode-resume/foundation-run-01",
+        "RoadCoreChecks"
+      ],
+      "exitCode": 143,
+      "log": "foundation-run-01.log",
+      "scope": "23 PASS lines then sampled fixture teardown hang; explicitly terminated, not a 24/24 success"
+    },
+    "unsignedSimulatorBuild": {
+      "environment": {
+        "DEVELOPER_DIR": "/Applications/Xcode.app/Contents/Developer"
+      },
+      "command": [
+        "xcodebuild",
+        "-project",
+        "prototype/ios/TogetherRoad.xcodeproj",
+        "-scheme",
+        "TogetherRoad",
+        "-configuration",
+        "Debug",
+        "-sdk",
+        "iphonesimulator",
+        "-destination",
+        "generic/platform=iOS Simulator",
+        "-derivedDataPath",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-xcode-resume/simulator-derived-data-02",
+        "CODE_SIGNING_ALLOWED=NO",
+        "build"
+      ],
+      "exitCode": 0,
+      "log": "simulator-build-02.log"
+    },
+    "deviceDebugSigningSettings": {
+      "environment": {
+        "DEVELOPER_DIR": "/Applications/Xcode.app/Contents/Developer"
+      },
+      "command": [
+        "xcodebuild",
+        "-project",
+        "prototype/ios/TogetherRoad.xcodeproj",
+        "-scheme",
+        "TogetherRoad",
+        "-configuration",
+        "Debug",
+        "-sdk",
+        "iphoneos",
+        "-destination",
+        "generic/platform=iOS",
+        "-derivedDataPath",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-xcode-resume/device-settings-derived-data-03",
+        "-showBuildSettings",
+        "-json"
+      ],
+      "exitCode": 0,
+      "log": "device-build-settings-03.json",
+      "scope": "Read build settings only; no device signing, profile or identity lookup requested."
+    },
+    "deviceReleaseSigningSettings": {
+      "environment": {
+        "DEVELOPER_DIR": "/Applications/Xcode.app/Contents/Developer"
+      },
+      "command": [
+        "xcodebuild",
+        "-project",
+        "prototype/ios/TogetherRoad.xcodeproj",
+        "-scheme",
+        "TogetherRoad",
+        "-configuration",
+        "Release",
+        "-sdk",
+        "iphoneos",
+        "-destination",
+        "generic/platform=iOS",
+        "-derivedDataPath",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-xcode-resume/device-release-settings-derived-data-03",
+        "-showBuildSettings",
+        "-json"
+      ],
+      "exitCode": 0,
+      "log": "device-release-build-settings-03.json",
+      "scope": "Read build settings only; no device signing, profile or identity lookup requested."
+    }
+  },
+  "xctest": {
+    "status": "PASS",
+    "hostPlatform": "macOS, not iOS Simulator",
+    "testCaseCount": 24,
+    "failures": 0,
+    "suites": {
+      "CoreScenariosTests": 13,
+      "APIContractScenariosTests": 4,
+      "RegistrationRaceScenariosTests": 7
+    },
+    "sharedScenarioCount": 24,
+    "separateSwiftTestingTests": 0,
+    "notes": "The trailing Swift Testing 0-test run does not replace the 24 executed XCTest cases."
+  },
+  "foundation": {
+    "status": "PASS",
+    "scenarioCount": 24,
+    "failures": 0,
+    "scenarios": [
+      "PASS WAV PCM/duration",
+      "PASS malformed WAV",
+      "PASS SSE framing/bounds",
+      "PASS endpoint/auth invitation",
+      "PASS NAVER encoding/bounds",
+      "PASS explicit retry expiry",
+      "PASS server clock",
+      "PASS activation/self/dedup",
+      "PASS post-download expiry/epoch",
+      "PASS active session queue order",
+      "PASS push validation/lease/cap",
+      "PASS token rotation active/epoch boundary",
+      "PASS late old-channel callbacks",
+      "PASS stale registration reply",
+      "PASS stale leave reply",
+      "PASS pending POST/system leave fence",
+      "PASS accepted POST/system leave retirement",
+      "PASS late cleanup/new channel join",
+      "PASS cleanup concurrent CAS retry",
+      "PASS cleanup permission failure bounded",
+      "PASS real HTTP auth/destination/WAV/idempotency",
+      "PASS real SSE/cancellation",
+      "PASS real PTT disabled/CAS/variable token",
+      "PASS real leave/close byte access"
+    ],
+    "usesActualLoopbackNodeHTTPAndSSE": true,
+    "physicalAudio": false,
+    "actualAPNs": false
+  },
+  "coverageAccounting": {
+    "uniqueSharedScenarios": 24,
+    "xctestAndRunnerUseSameScenarios": true,
+    "not48DistinctScenarios": true,
+    "diagnosticRepetitionsAddCoverage": false
+  },
+  "sdkBuild": {
+    "status": "PASS",
+    "configuration": "Debug",
+    "sdk": "iPhoneSimulator27.2.sdk",
+    "architectures": [
+      "x86_64",
+      "arm64"
+    ],
+    "compiledAndLinkedEntireNativeApp": true,
+    "appSourceFiles": 6,
+    "codeSigningAllowed": true,
+    "developerSigningPerformed": false,
+    "applicationCompilerWarningsAfterFix": 0,
+    "remainingBuildWarnings": [
+      "2026-11-04 23:30:49.447 appintentsmetadataprocessor[29892:210923] warning: Metadata extraction skipped, no AppIntents.framework dependency found"
+    ],
+    "appPath": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-xcode-resume/simulator-derived-data-03/Build/Products/Debug-iphonesimulator/TogetherRoad.app",
+    "artifactFilesSha256": {
+      "Info.plist": "d93827d4ed1e768250551026f6b9da14ef86ac9caabe25087cddd48dfbe3dfcb",
+      "PkgInfo": "82502191c9484b04d685374f9879a0066069c49b8acae7a04b01d38d07e8eca0",
+      "TogetherRoad": "0c8245bdf9f65005cccc073ed7c8d2eaeae100947dc5259edb42282642f31ef2",
+      "TogetherRoad.debug.dylib": "566f2a064b4f68fe262dbf679cedf380ce61151b78a2f5b22593a766066d0d46",
+      "_CodeSignature/CodeResources": "7fc65c57a8c54769dfba89e7dd5f0244c754fdd0531083378505d8541fb32e4e",
+      "__preview.dylib": "bf2ae8c49ac97608edb9081bfb0c4ce964cb6521567b29b65adde9029dbc5540"
+    },
+    "compiledInputFilesSha256": {
+      "prototype/ios/App/ContentView.swift": "4efee0423f134bf0de1888df3773ccbae86f279421a2cc09b79d1a6b6bcbca84",
+      "prototype/ios/App/KeychainStore.swift": "793b4079ffd4df9c2ea29e1cba014e5f661d29652bb2324fd3485bc6723a8efd",
+      "prototype/ios/App/NativeAudio.swift": "6bb1abd9ddebbfc3fbfa039a604a39b7454af7d470e32081048757298120f84e",
+      "prototype/ios/App/PTTBridge.swift": "9dde060ea21c1f25e3745a288968ce6b07a260d21aa60e56f0fdecc1d9bf10ea",
+      "prototype/ios/App/RoomStore.swift": "3b00a45f9704a48c1e96eb9955d1a0e2fcf31bcc3a36ca090a7163d2e9dbbd7c",
+      "prototype/ios/App/TogetherRoadApp.swift": "ec2bc53508e39543495a9c642e1bedf788f57051ab36fae4f7ca63e66950a678",
+      "prototype/ios/Config/Info-Debug.plist": "ac20c43c5134208ffdbf81f085aaf3ee898df09ff432ca2e5fc98c39e59d171d",
+      "prototype/ios/Config/Info-Release.plist": "9c3cd8becd80c04bea1a4c8b37f0c7a457cfc9b29c05e89fcc9b9870323ad6c5",
+      "prototype/ios/Config/TogetherRoad-Simulator.entitlements": "35c894461ad6e21a0258da8a64ffb43ef0f2aa2cf106a33f50ec3a05d5dd0e58",
+      "prototype/ios/Config/TogetherRoad.entitlements": "6e7409dd97a86ccbc04c80a771e6dce2b1a2e1aeb29cd330261b19d906f7cc8e",
+      "prototype/ios/Core/Package.swift": "704b079242394cd51f283cc9c60c58b4ccb2fb96f60f271e10470531bcadd699",
+      "prototype/ios/Core/Sources/RoadCore/APIClient.swift": "ddfb2051cc56634b12a9e14b53860bb268745fc060de13c294257207b2253a86",
+      "prototype/ios/Core/Sources/RoadCore/Models.swift": "8eead240d91ba12bf1b6a7ad6aa83e27de0312fd0bd1c57b828152160d5b745c",
+      "prototype/ios/Core/Sources/RoadCore/ReceivePolicy.swift": "665f2a81c58163f459a86031b3ba100393401362b479b6f73273b93b3c2576c6",
+      "prototype/ios/Core/Sources/RoadCore/WAV.swift": "6cfeed6ea00880c47e8ac1c6144b5712386d62baaa87b5fb1358fa919f26735f",
+      "prototype/ios/TogetherRoad.xcodeproj/project.pbxproj": "0644d21433358ea9d96e843626623380bafa38e860f1079d81e980d42c5027a8",
+      "prototype/ios/TogetherRoad.xcodeproj/xcshareddata/xcschemes/TogetherRoad.xcscheme": "d7b456f510f0a4100e9f7cbe08164f27f3950669350de4478deaafd97b1b7a51"
+    },
+    "compiledInputsStillMatchCurrentFiles": true,
+    "simulatorUIExecutedByBuilder": false,
+    "simulatorLocalAdHocSigning": true,
+    "simulatorSigningIdentity": "- (Sign to Run Locally)",
+    "signatureEntitlements": {},
+    "simulatedMachOEntitlements": {
+      "arm64": {
+        "segment": "__TEXT",
+        "section": "__entitlements",
+        "offsetInThinMachO": 13410,
+        "size": 356,
+        "entitlements": {
+          "application-identifier": "kr.together.road.ios",
+          "keychain-access-groups": [
+            "kr.together.road.ios"
+          ]
+        }
+      },
+      "x86_64": {
+        "segment": "__TEXT",
+        "section": "__entitlements",
+        "offsetInThinMachO": 15836,
+        "size": 356,
+        "entitlements": {
+          "application-identifier": "kr.together.road.ios",
+          "keychain-access-groups": [
+            "kr.together.road.ios"
+          ]
+        }
+      }
+    },
+    "strictDeepSignatureVerificationExitCode": 0,
+    "compiledInputManifestScope": "App/Core sources plus referenced project and configuration snapshot; includes preserved inactive device/release configurations.",
+    "simulatorUICoordinatorStatus": "PASS scoped to room creation/connection and cold-relaunch Keychain restoration",
+    "simulatorUIExecutedByCoordinator": true
+  },
+  "defectsFoundAndFixed": [
+    {
+      "id": "SDK-1",
+      "path": "prototype/ios/App/NativeAudio.swift",
+      "observed": "AVAudioRecorderDelegate conformance crossed MainActor isolation; SDK/compiler warned it becomes an error in Swift 6 language mode.",
+      "fix": "Nonisolated recorder callbacks pass immutable unique recording URL and success Boolean to MainActor; current-URL check rejects callbacks from cancelled/old recordings. No AVAudioRecorder instance crosses the actor hop.",
+      "verification": "Fresh entire Simulator build passes with zero application compiler warnings. Actual microphone callback behavior still requires physical-device evidence."
+    },
+    {
+      "id": "SDK-2",
+      "path": "prototype/ios/App/NativeAudio.swift",
+      "observed": "SDK deprecation renamed allowBluetooth to allowBluetoothHFP.",
+      "fix": "Use allowBluetoothHFP, the same SDK option value 0x4, available below iOS 16. Deployment target unchanged.",
+      "verification": "Full iOS27.2 SDK compile/link at iOS16 target."
+    },
+    {
+      "id": "SDK-3",
+      "path": "prototype/ios/Core/Checks/Scenarios/APIContractScenarios.swift",
+      "observed": "Two actual full-runner hangs were sampled in NodeFixture.stop -> NSConcreteTask.waitUntilExit during API scenario teardown.",
+      "causeBoundary": "Blocking Foundation run-loop wait was observed on an async cooperative executor; the exact Foundation internal race was not proven.",
+      "fix": "Keep all 24 existing scenarios/assertions; await process exit with 5 ms suspension and a 2 s failure bound, including error cleanup, instead of blocking waitUntilExit.",
+      "verification": {
+        "initialRunTerminatedExitCode": 143,
+        "initialPassLines": 23,
+        "boundedUnchangedRunner": [
+          {
+            "run": 1,
+            "exitCode": 124,
+            "timedOut": true,
+            "passLines": 22,
+            "durationSeconds": 4.202
+          }
+        ],
+        "fixedRunnerRepetitions": 50,
+        "fixedRunnerAllExit0": true,
+        "fixedRunnerAll24PassLines": true,
+        "fixedMinSeconds": 0.444,
+        "fixedMaxSeconds": 0.501,
+        "freshSwiftTestExitCode": 0,
+        "freshSwiftRunExitCode": 0,
+        "repetitionIsNotNewScenarioCoverage": true,
+        "diagnosticOnlyMinimalProbes": "Raw debug/ directory; the final scenario alone passed 50/50 and did not reproduce the full-sequence teardown hang."
+      }
+    },
+    {
+      "id": "SDK-4",
+      "paths": [
+        "prototype/ios/TogetherRoad.xcodeproj/project.pbxproj",
+        "prototype/ios/Config/TogetherRoad-Simulator.entitlements"
+      ],
+      "observed": "Coordinator actual Simulator create-room UI failed secure Keychain save. Owned Simulator securityd logged SecItemUpdate OSStatus -34018: Client has neither application-identifier nor keychain-access-groups entitlements.",
+      "cause": "CODE_SIGNING_ALLOWED=NO omitted Simulator entitlement packaging; the installed build had only the linker-generated ad hoc signature and no app identity/access group.",
+      "fix": "Enable local ad hoc signing only for iphonesimulator SDK, identity -, and a Simulator entitlement file scoped to the bundle ID. Xcode embeds the values into both architectures of __TEXT,__entitlements. Physical iphoneos keeps Manual/unprovisioned settings and the original PTT/APNs file.",
+      "keychainImplementationChanged": false,
+      "plaintextOrInMemoryCredentialFallbackAdded": false,
+      "verification": {
+        "buildExitCode": 0,
+        "strictDeepSignatureExitCode": 0,
+        "actualMachOSectionEntitlementsByArchitecture": {
+          "arm64": {
+            "application-identifier": "kr.together.road.ios",
+            "keychain-access-groups": [
+              "kr.together.road.ios"
+            ]
+          },
+          "x86_64": {
+            "application-identifier": "kr.together.road.ios",
+            "keychain-access-groups": [
+              "kr.together.road.ios"
+            ]
+          }
+        },
+        "effectiveDeviceBuildSettings": {
+          "CODE_SIGNING_ALLOWED": "NO",
+          "CODE_SIGN_STYLE": "Manual",
+          "CODE_SIGN_IDENTITY": "",
+          "CODE_SIGN_ENTITLEMENTS": "Config/TogetherRoad.entitlements",
+          "DEVELOPMENT_TEAM": "",
+          "PROVISIONING_PROFILE_SPECIFIER": ""
+        },
+        "keychainRuntimeRetest": "PASS coordinator actual room creation and no-reinstall process-relaunch restore",
+        "runtimeEvidence": "simulator-keychain-runtime-03.json",
+        "effectiveDeviceBuildSettingsByConfiguration": {
+          "Debug": {
+            "CODE_SIGNING_ALLOWED": "NO",
+            "CODE_SIGN_STYLE": "Manual",
+            "CODE_SIGN_IDENTITY": "",
+            "CODE_SIGN_ENTITLEMENTS": "Config/TogetherRoad.entitlements",
+            "DEVELOPMENT_TEAM": "",
+            "PROVISIONING_PROFILE_SPECIFIER": "",
+            "APS_ENVIRONMENT": "development"
+          },
+          "Release": {
+            "CODE_SIGNING_ALLOWED": "NO",
+            "CODE_SIGN_STYLE": "Manual",
+            "CODE_SIGN_IDENTITY": "",
+            "CODE_SIGN_ENTITLEMENTS": "Config/TogetherRoad.entitlements",
+            "DEVELOPMENT_TEAM": "",
+            "PROVISIONING_PROFILE_SPECIFIER": "",
+            "APS_ENVIRONMENT": "production"
+          }
+        }
+      },
+      "initialUICoordinatorEvidence": {
+        "accessibilityPath": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-ui-validation/02-room-keychain-error.ax.txt",
+        "accessibilitySha256": "d3afcc92b3a795b3503627ec02a04869973a0dc2e1ec5d773e77f92a1f93527e",
+        "screenshotPath": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-ui-validation/02-room-keychain-error-0.png",
+        "screenshotSha256": "77bcda1f6f8896ab8331e677e2547826811ffbb98dd1d97d7958d73653b2aaf3"
+      },
+      "initialFailureLog": "keychain-unsigned-runtime-app-only.log"
+    }
+  ],
+  "reusedNodeEvidence": {
+    "status": "PASS",
+    "historical": true,
+    "freshNode94SuiteExecuted": false,
+    "testedHistoricalHead": "7c66b71a43fb63fe8585e37928b031e47dfb49bf",
+    "tests": 94,
+    "pass": 94,
+    "fail": 0,
+    "exitCode": 0,
+    "gitBlobRecordsVerified": 28,
+    "allBlobsMatchHistoricalAndStartingHeadAndWorkingTree": true,
+    "identityManifest": "node-blob-identity.json",
+    "priorIndependentReport": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-app-verifier-8-final.json",
+    "priorIndependentReportSha256": "d19492cb43ca7264ad12dd90ca0d0e4375448ae5aed7ce6d313bcc2e7b28e794",
+    "scope": "Server/PTT/mock HTTP2/Node contract result reused through exact Git blob identity; no real APNs claim."
+  },
+  "acceptanceCriteria": {
+    "AC1": {
+      "projectAndFullSimulatorSDKBuild": "PASS",
+      "foundationAuthenticatedAPIContracts": "PASS",
+      "keychainAndSwiftUISourceSDKTypecheck": "PASS",
+      "nativeUIRuntime": "PASS scoped to Simulator room creation/connection and cold-relaunch Keychain restoration; further UI scenarios recorded separately by coordinator",
+      "independentNewCommitReview": "PENDING",
+      "simulatorKeychainPersistence": "PASS coordinator actual create and cold process-relaunch restore, no reinstall"
+    },
+    "AC2": {
+      "coreWAVAuthenticatedHTTPBytesFreshnessOrderDedupSelfAndLifetime": "PASS",
+      "AVFoundationSDKCompile": "PASS",
+      "actualMicrophoneAndAudiblePlayback": "BLOCKED"
+    },
+    "AC3": {
+      "PushToTalkDelegateAndAPISDKCompile": "PASS",
+      "sharedCoordinatorCASAndRetirementScenarios": "PASS",
+      "actualSystemCallbacksActivationRestorationAndContinuity": "BLOCKED",
+      "rejectionPolicy": "Documented leaveChannel may end reception and require user restart; no continuous-reception claim."
+    },
+    "AC4": {
+      "serverAndMockTransportContract": "PASS (reused 94/94 through 28 exact blobs)",
+      "actualAPNs": "BLOCKED"
+    },
+    "AC5": {
+      "freshXCTest": "PASS 24 cases",
+      "freshFoundation": "PASS 24 same scenarios",
+      "fullUnsignedSimulatorSDKBuild": "PASS",
+      "independentFrozenBaseNewHeadReview": "PENDING coordinator commit",
+      "developerSigningPTTCapabilityAPNsPhysicalIPhone": "BLOCKED: normal signing/capability/APNs resources unprovided or unverified; physical-device behaviors unverified",
+      "overallIssueCompletion": "BLOCKED",
+      "fullSimulatorSDKBuild": "PASS current local ad hoc Simulator build03; historical unsigned compile retained separately"
+    }
+  },
+  "remainingBlockedGates": [
+    "Normal physical-device Apple signing, PushToTalk/Push Notifications capability and profile: unprovided or unverified",
+    "Actual APNs credentials and delivery: unprovided or unverified; no account/key/profile discovery or real APNs request performed by builder",
+    "Physical iPhone microphone input, audible original-voice playback, actual PTT callbacks/restoration/interruption: unverified",
+    "Physical iPhone navigation foreground and locked-screen first sound: unverified",
+    "Separate physical iPhone 15-minute and 30-minute silence followed by locked first sound: unverified"
+  ],
+  "notExecutedByBuilder": [
+    "Simulator launch/install/UI automation (coordinator-owned surface)",
+    "Device-SDK build (not needed as fallback; generic simulator destination was available)",
+    "Provisioning updates, signing team/profile/key discovery, account enrollment, payment or public deployment"
+  ],
+  "historicalEvidencePreserved": {
+    "prototype/ios/evidence/verification.json": {
+      "sha256": "805d789fe4633cbc6f2e057959897fff81dfee95c7fe50a8a2dfd080104b7a82",
+      "unchangedFromStartingHead": true,
+      "role": "historical CLT evidence; not current SDK result"
+    },
+    "prototype/ios/evidence/core-checks.log": {
+      "sha256": "711daf094afd3017f8f1d97e2de8ae638dd5920070e7c4b72b9e819f7ec217c4",
+      "unchangedFromStartingHead": true,
+      "role": "historical CLT evidence; not current SDK result"
+    }
+  },
+  "rawArtifactDirectory": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-xcode-resume",
+  "rawEvidenceSha256": {
+    "simulator-build-01.log": "40197107f537ca7a8727589e7fd08e79ed49cfc5c013acbfc60abecc035e3696",
+    "simulator-build-02.log": "1cbaca69dbdf096db0c9464cfb8e8b27f3d25b62becada8b1f2c681f772b64e4",
+    "swift-test-01.log": "e3aee874ee81185860f13596b7ca66e931faa570a6bd249774d52a8ba52f6ca9",
+    "swift-test-02.log": "d7c6e5bc1077d7bf0d6783713244ee7370094dd542b58a70aeac9f5acb266163",
+    "foundation-run-01.log": "f53c864c7f1def6c761f6165a064db46a6e07bf80dfe955a07ec88f58ea5e36c",
+    "foundation-run-02.log": "eaf480b160cfc1bdf56fd57cf69719d8af57dd2c81099a902fee774f877729b1",
+    "foundation-run-01.sample.txt": "280e3de2f040132955b5a5bc0762389552faa7efb9aed7278285c6375947d1a5",
+    "foundation-baseline-stress-01.sample.txt": "c0fe3ee830c89a5aaf880d0582a935502cfc7b8bc7bde33029a5deb996edadad",
+    "foundation-baseline-stress.json": "10f8543e6a2f608e641d61c6393c6e029393a8e417786ddd6410049c6e1a503f",
+    "foundation-fixed-stress.json": "5da1092ad15bc8c657ccee4bbf277377467eaa9bb1d91cdccc188df7581a2128",
+    "node-blob-identity.json": "9a2077bbe935be2a8fcadf494750f93658df410cb55d0f6a2bb502f8523496dc",
+    "environment-and-artifact-inspection.json": "3576fc080f10644211e1cbac24a250bfaf2831c97c2b3885faed842134f03f19",
+    "app-artifact-manifest.json": "0401dbcaf2a330b42a257211d03497dd8ca999bc8ec578b147f8738fbc1ac11e",
+    "simulator-build-03.log": "7dc56fcabb70c198c982f793b06e91482322a75c8ddb5493c1c3055e6dcc636c",
+    "simulator-keychain-build-03.json": "be040db557e2872647e92799cb412045e298a0049e7fffa37d4620fe513bd64e",
+    "keychain-unsigned-runtime-app-only.log": "8ecd234c3d94d7a3f523d1829e19dc935406c68d9cd95eda01881e12b6fa895e",
+    "simulator-03-signatureVerification.log": "18867b60cc3dd96e2eb83fd52609f6c25e2e1b6cd1953fbdaa2908d10d2824e2",
+    "simulator-03-signature-entitlements-xml.log": "38cc2a04dc9bd67f123b9e4cd80d5ed44130956cbc64f2245db418e65d658738",
+    "device-build-settings-03.json": "b158ddbd81fef9dfe65c1f0ce5caa07e352a916ee2b20cc21ca66bbebfd90124",
+    "core-input-identity-after-simulator-config.json": "e4dc542091bf5eb80f645fb305927b03da7920d292cf4c90dc4cf406ed95f3d6",
+    "simulator-keychain-runtime-03.json": "57701091f2eb95ca644458aa999308b4299d27a75c408295dddd97acc4a11610",
+    "device-release-build-settings-03.json": "ff9ca9ffcf0346a83cf5bb01af00ba62336b15dd3d7c0d573ddd835e16e9ab32"
+  },
+  "sourceAndDocumentationSha256": {
+    "README.md": "c39dc46ae96d474873be5fc53896aea3be2d8a9db6c3a274be1066c22facf65c",
+    "docs/product/README.md": "2d497a64292a6fa9f2fab1e94f4006a1cbb5cfe0931171bab85b4fff23373103",
+    "docs/product/platform-validation.md": "53ff19556524a5ecb1896470491046da87ad58eabd6cf895e300c2ffdd9eb82f",
+    "prototype/ios/App/ContentView.swift": "4efee0423f134bf0de1888df3773ccbae86f279421a2cc09b79d1a6b6bcbca84",
+    "prototype/ios/App/KeychainStore.swift": "793b4079ffd4df9c2ea29e1cba014e5f661d29652bb2324fd3485bc6723a8efd",
+    "prototype/ios/App/NativeAudio.swift": "6bb1abd9ddebbfc3fbfa039a604a39b7454af7d470e32081048757298120f84e",
+    "prototype/ios/App/PTTBridge.swift": "9dde060ea21c1f25e3745a288968ce6b07a260d21aa60e56f0fdecc1d9bf10ea",
+    "prototype/ios/App/RoomStore.swift": "3b00a45f9704a48c1e96eb9955d1a0e2fcf31bcc3a36ca090a7163d2e9dbbd7c",
+    "prototype/ios/App/TogetherRoadApp.swift": "ec2bc53508e39543495a9c642e1bedf788f57051ab36fae4f7ca63e66950a678",
+    "prototype/ios/Config/Info-Debug.plist": "ac20c43c5134208ffdbf81f085aaf3ee898df09ff432ca2e5fc98c39e59d171d",
+    "prototype/ios/Config/Info-Release.plist": "9c3cd8becd80c04bea1a4c8b37f0c7a457cfc9b29c05e89fcc9b9870323ad6c5",
+    "prototype/ios/Config/TogetherRoad.entitlements": "6e7409dd97a86ccbc04c80a771e6dce2b1a2e1aeb29cd330261b19d906f7cc8e",
+    "prototype/ios/Core/Checks/Runner/main.swift": "d2b3e838da15e709f8a38754aaf9b954eb048e43b5151dd43f0c0d645507fdd7",
+    "prototype/ios/Core/Checks/Scenarios/APIContractScenarios.swift": "c33c99047fd66c8f81261a7847873b6b844eb13337efbaf5b12cd39ecedc635e",
+    "prototype/ios/Core/Checks/Scenarios/Assertions.swift": "a13a427254115ee78da71c1e014b423d6507c55b879ee48f1582f55c54c8b0ed",
+    "prototype/ios/Core/Checks/Scenarios/CoreTests.swift": "241d49501ed5607e659906dc81cfa2292aae8d00456b49d3e1089e9dbc05b22a",
+    "prototype/ios/Core/Checks/Scenarios/RegistrationRaceTests.swift": "acebdfd5d7c1f03818b5f30cb5b76df01f97f97b913d26678066f209876f89a6",
+    "prototype/ios/Core/Package.swift": "704b079242394cd51f283cc9c60c58b4ccb2fb96f60f271e10470531bcadd699",
+    "prototype/ios/Core/Sources/RoadCore/APIClient.swift": "ddfb2051cc56634b12a9e14b53860bb268745fc060de13c294257207b2253a86",
+    "prototype/ios/Core/Sources/RoadCore/Models.swift": "8eead240d91ba12bf1b6a7ad6aa83e27de0312fd0bd1c57b828152160d5b745c",
+    "prototype/ios/Core/Sources/RoadCore/ReceivePolicy.swift": "665f2a81c58163f459a86031b3ba100393401362b479b6f73273b93b3c2576c6",
+    "prototype/ios/Core/Sources/RoadCore/WAV.swift": "6cfeed6ea00880c47e8ac1c6144b5712386d62baaa87b5fb1358fa919f26735f",
+    "prototype/ios/Core/Tests/RoadCoreTests/APIContractScenarios.swift": "a640463f61adaa63fddea06d2105e5ecc7a3020e2df78d4307df1b67795959be",
+    "prototype/ios/Core/Tests/RoadCoreTests/CoreTests.swift": "06b832ad734c528dc89156b05a6b882c1a288d001ee0738cdec2325eed344c0c",
+    "prototype/ios/Core/Tests/RoadCoreTests/RegistrationRaceTests.swift": "f3fb004fc8604622def97c7cef07886c578aeb40669b19587011c2ff7dac7cc7",
+    "prototype/ios/README.md": "c0d74f6f91a90e74083825f2147a9367c5f47054690581ce873d6284ebcecebc",
+    "prototype/ios/TogetherRoad.xcodeproj/project.pbxproj": "0644d21433358ea9d96e843626623380bafa38e860f1079d81e980d42c5027a8",
+    "prototype/ios/TogetherRoad.xcodeproj/xcshareddata/xcschemes/TogetherRoad.xcscheme": "d7b456f510f0a4100e9f7cbe08164f27f3950669350de4478deaafd97b1b7a51",
+    "prototype/ios/Config/TogetherRoad-Simulator.entitlements": "35c894461ad6e21a0258da8a64ffb43ef0f2aa2cf106a33f50ec3a05d5dd0e58"
+  },
+  "independentVerification": "Pending coordinator commit/freeze and separate verifier exact-base/new-head review; this builder does not self-approve.",
+  "previousUnsignedSDKBuild": {
+    "status": "PASS",
+    "configuration": "Debug",
+    "sdk": "iPhoneSimulator27.2.sdk",
+    "architectures": [
+      "x86_64",
+      "arm64"
+    ],
+    "compiledAndLinkedEntireNativeApp": true,
+    "appSourceFiles": 6,
+    "codeSigningAllowed": false,
+    "developerSigningPerformed": false,
+    "automaticLinkerSignature": "adhoc,linker-signed; no team, bound Info.plist or resource seal",
+    "applicationCompilerWarningsAfterFix": 0,
+    "remainingBuildWarnings": [
+      "2026-11-04 22:52:28.819 appintentsmetadataprocessor[18875:133592] warning: Metadata extraction skipped, no AppIntents.framework dependency found"
+    ],
+    "appPath": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-xcode-resume/simulator-derived-data-02/Build/Products/Debug-iphonesimulator/TogetherRoad.app",
+    "artifactFilesSha256": {
+      "Info.plist": "d93827d4ed1e768250551026f6b9da14ef86ac9caabe25087cddd48dfbe3dfcb",
+      "PkgInfo": "82502191c9484b04d685374f9879a0066069c49b8acae7a04b01d38d07e8eca0",
+      "TogetherRoad": "da4566422fcb19a4dc728d2b0244a8039ad47f738451cc5379063a99931ac520",
+      "TogetherRoad.debug.dylib": "7c260f360dd7a5befaba7492d76e55912b9a54b2c0d9b26363e0dff07c31018e",
+      "__preview.dylib": "3a4e74bcc96a89160b89e95fa9a384a4b1c33d25a7fb1c451998e9d880428dba"
+    },
+    "compiledInputFilesSha256": {
+      "prototype/ios/App/ContentView.swift": "4efee0423f134bf0de1888df3773ccbae86f279421a2cc09b79d1a6b6bcbca84",
+      "prototype/ios/App/KeychainStore.swift": "793b4079ffd4df9c2ea29e1cba014e5f661d29652bb2324fd3485bc6723a8efd",
+      "prototype/ios/App/NativeAudio.swift": "6bb1abd9ddebbfc3fbfa039a604a39b7454af7d470e32081048757298120f84e",
+      "prototype/ios/App/PTTBridge.swift": "9dde060ea21c1f25e3745a288968ce6b07a260d21aa60e56f0fdecc1d9bf10ea",
+      "prototype/ios/App/RoomStore.swift": "3b00a45f9704a48c1e96eb9955d1a0e2fcf31bcc3a36ca090a7163d2e9dbbd7c",
+      "prototype/ios/App/TogetherRoadApp.swift": "ec2bc53508e39543495a9c642e1bedf788f57051ab36fae4f7ca63e66950a678",
+      "prototype/ios/Config/Info-Debug.plist": "ac20c43c5134208ffdbf81f085aaf3ee898df09ff432ca2e5fc98c39e59d171d",
+      "prototype/ios/Config/Info-Release.plist": "9c3cd8becd80c04bea1a4c8b37f0c7a457cfc9b29c05e89fcc9b9870323ad6c5",
+      "prototype/ios/Config/TogetherRoad.entitlements": "6e7409dd97a86ccbc04c80a771e6dce2b1a2e1aeb29cd330261b19d906f7cc8e",
+      "prototype/ios/Core/Package.swift": "704b079242394cd51f283cc9c60c58b4ccb2fb96f60f271e10470531bcadd699",
+      "prototype/ios/Core/Sources/RoadCore/APIClient.swift": "ddfb2051cc56634b12a9e14b53860bb268745fc060de13c294257207b2253a86",
+      "prototype/ios/Core/Sources/RoadCore/Models.swift": "8eead240d91ba12bf1b6a7ad6aa83e27de0312fd0bd1c57b828152160d5b745c",
+      "prototype/ios/Core/Sources/RoadCore/ReceivePolicy.swift": "665f2a81c58163f459a86031b3ba100393401362b479b6f73273b93b3c2576c6",
+      "prototype/ios/Core/Sources/RoadCore/WAV.swift": "6cfeed6ea00880c47e8ac1c6144b5712386d62baaa87b5fb1358fa919f26735f",
+      "prototype/ios/TogetherRoad.xcodeproj/project.pbxproj": "3415344e43cb12664c60bbc87530205473e1c6ec030f2875f374b74fd6b122e4",
+      "prototype/ios/TogetherRoad.xcodeproj/xcshareddata/xcschemes/TogetherRoad.xcscheme": "d7b456f510f0a4100e9f7cbe08164f27f3950669350de4478deaafd97b1b7a51"
+    },
+    "compiledInputsStillMatchCurrentFiles": false,
+    "simulatorUIExecutedByBuilder": false,
+    "inputFilesMatchedAtInitialFreeze": true,
+    "scopeAfterRuntimeRepair": "Historical unsigned compile proof. Simulator signing configuration changed after this build; use current sdkBuild for the new tree."
+  },
+  "coreInputsStillMatchFreshXCTestAndFoundation": true,
+  "physicalSigningBuildSettings": {
+    "CODE_SIGNING_ALLOWED": "NO",
+    "CODE_SIGN_STYLE": "Manual",
+    "CODE_SIGN_IDENTITY": "",
+    "CODE_SIGN_ENTITLEMENTS": "Config/TogetherRoad.entitlements",
+    "DEVELOPMENT_TEAM": "",
+    "PROVISIONING_PROFILE_SPECIFIER": ""
+  },
+  "primarySources": [
+    {
+      "url": "https://developer.apple.com/documentation/security/sharing-access-to-keychain-items-among-a-collection-of-apps",
+      "supports": "The app entitlement list determines its Keychain access groups."
+    },
+    {
+      "url": "https://developer.apple.com/documentation/security/ksecattraccessgroup",
+      "supports": "An unspecified query group defaults to the first Keychain group or the app ID."
+    },
+    {
+      "url": "https://developer.apple.com/documentation/xcode/build-settings-reference",
+      "supports": "Code signing entitlement file, signing identity and signing style settings."
+    }
+  ],
+  "simulatorKeychainRuntime": {
+    "status": "PASS",
+    "scope": "Coordinator actual foreground iOS Simulator room creation and secure Keychain session restoration after process termination/relaunch; not physical-device or lock/PTT evidence.",
+    "simulatorModel": "iPhone 17 Pro",
+    "simulatorOS": "iOS 27.2",
+    "ownedSimulatorUDID": "C125C7FC-D3DE-4076-913A-78A37B82CB6F",
+    "actor": "Coordinator CUA and coordinator simctl operations; builder only read evidence/logs/signing metadata.",
+    "appPath": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-xcode-resume/simulator-derived-data-03/Build/Products/Debug-iphonesimulator/TogetherRoad.app",
+    "appMainSha256": "0c8245bdf9f65005cccc073ed7c8d2eaeae100947dc5259edb42282642f31ef2",
+    "appDebugDylibSha256": "566f2a064b4f68fe262dbf679cedf380ce61151b78a2f5b22593a766066d0d46",
+    "createRoom": {
+      "status": "PASS",
+      "observed": [
+        "공유방에 연결됐어요.",
+        "연결됨",
+        "대표 차량",
+        "참여자 1명"
+      ]
+    },
+    "coldRelaunch": {
+      "status": "PASS",
+      "terminateExitCode": 0,
+      "launchExitCode": 0,
+      "appReinstalled": false,
+      "sameRoomAndHostRoleRestored": true,
+      "sameExpiryObserved": "오전 5:38:25",
+      "nameOrJoinEntryNotShown": true
+    },
+    "proofFiles": {
+      "03-room-created.ax.txt": {
+        "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-ui-validation/03-room-created.ax.txt",
+        "sha256": "8810d78f10190943a93039da4f7fbd64848d520a0fdee15de0e908971e5eff33"
+      },
+      "03-room-connected-0.png": {
+        "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-ui-validation/03-room-connected-0.png",
+        "sha256": "e13b8c5cd3c2b39c54ef39001a216647c319d063a968bf313ef432eb74589708"
+      },
+      "04-cold-session-restore.ax.txt": {
+        "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-ui-validation/04-cold-session-restore.ax.txt",
+        "sha256": "14881e75fb2aaec3446efcfd341e30451478fe685b04be8e824d808b08e233a1"
+      },
+      "04-cold-session-restore-0.png": {
+        "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-ui-validation/04-cold-session-restore-0.png",
+        "sha256": "c93a7a2144badeba15f2717a5e44a1336e30f04eb3ab92cd92f1d566cf00fedd"
+      },
+      "cold-terminate.log": {
+        "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-ui-validation/cold-terminate.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "cold-launch.log": {
+        "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-ui-validation/cold-launch.log",
+        "sha256": "5da24463bd5563bf88c057a3d12e60f2c3a178c21dadccfea6e7c88749f2191f"
+      }
+    },
+    "builderReadOnlyAXCorroboration": true,
+    "keychainImplementationUnchangedFromStartingHead": true,
+    "plaintextOrInMemoryFallbackAdded": false,
+    "otherDestinationVoiceUIScenarios": "Coordinator continues separately; not included in this result.",
+    "physicalDeviceEvidence": "Unverified. No physical device was selected or tested by this builder; this record does not claim that no iPhone exists."
+  },
+  "physicalSigningBuildSettingsByConfiguration": {
+    "Debug": {
+      "CODE_SIGNING_ALLOWED": "NO",
+      "CODE_SIGN_STYLE": "Manual",
+      "CODE_SIGN_IDENTITY": "",
+      "CODE_SIGN_ENTITLEMENTS": "Config/TogetherRoad.entitlements",
+      "DEVELOPMENT_TEAM": "",
+      "PROVISIONING_PROFILE_SPECIFIER": "",
+      "APS_ENVIRONMENT": "development"
+    },
+    "Release": {
+      "CODE_SIGNING_ALLOWED": "NO",
+      "CODE_SIGN_STYLE": "Manual",
+      "CODE_SIGN_IDENTITY": "",
+      "CODE_SIGN_ENTITLEMENTS": "Config/TogetherRoad.entitlements",
+      "DEVELOPMENT_TEAM": "",
+      "PROVISIONING_PROFILE_SPECIFIER": "",
+      "APS_ENVIRONMENT": "production"
+    }
+  }
+}

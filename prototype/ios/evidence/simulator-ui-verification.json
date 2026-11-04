@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-04T15:19:36.162592+00:00",
+  "result": "PASS (scoped foreground iOS Simulator scenarios only)",
+  "overallIssueResult": "BLOCKED",
+  "executedBy": "Coordinator via native CUA; not the independent verifier",
+  "target": {
+    "issue": 8,
+    "pr": 11,
+    "branch": "be/issue-8-ios-prototype",
+    "baseCommit": "821e3a387e99e4d3c87400fed3bd71173f0b9493",
+    "sourceStartingHead": "8b0ba18046fe1c640ec7d77baead9396e87c1ff5",
+    "sourceState": "Builder-frozen uncommitted SDK repair; compiled inputs below match. Final exact commit review is separate."
+  },
+  "environment": {
+    "macOS": "26.7.2 (25G332)",
+    "Xcode": "27.2 (27B52)",
+    "SDK": "iPhoneSimulator27.2.sdk",
+    "simulatorModel": "iPhone 17 Pro",
+    "simulatorOS": "iOS 27.2 (24B8117)",
+    "testDeviceScope": "Coordinator-created Simulator only; no physical device selected or used",
+    "developerDirectory": "/Applications/Xcode.app/Contents/Developer",
+    "globalXcodeSelectChanged": false
+  },
+  "artifact": {
+    "mainExecutableSHA256": "0c8245bdf9f65005cccc073ed7c8d2eaeae100947dc5259edb42282642f31ef2",
+    "debugDylibSHA256": "566f2a064b4f68fe262dbf679cedf380ce61151b78a2f5b22593a766066d0d46",
+    "signing": "Simulator-only local ad hoc, no development team or profile",
+    "compiledInputFilesSha256": {
+      "prototype/ios/App/ContentView.swift": "4efee0423f134bf0de1888df3773ccbae86f279421a2cc09b79d1a6b6bcbca84",
+      "prototype/ios/App/KeychainStore.swift": "793b4079ffd4df9c2ea29e1cba014e5f661d29652bb2324fd3485bc6723a8efd",
+      "prototype/ios/App/NativeAudio.swift": "6bb1abd9ddebbfc3fbfa039a604a39b7454af7d470e32081048757298120f84e",
+      "prototype/ios/App/PTTBridge.swift": "9dde060ea21c1f25e3745a288968ce6b07a260d21aa60e56f0fdecc1d9bf10ea",
+      "prototype/ios/App/RoomStore.swift": "3b00a45f9704a48c1e96eb9955d1a0e2fcf31bcc3a36ca090a7163d2e9dbbd7c",
+      "prototype/ios/App/TogetherRoadApp.swift": "ec2bc53508e39543495a9c642e1bedf788f57051ab36fae4f7ca63e66950a678",
+      "prototype/ios/Config/Info-Debug.plist": "ac20c43c5134208ffdbf81f085aaf3ee898df09ff432ca2e5fc98c39e59d171d",
+      "prototype/ios/Config/Info-Release.plist": "9c3cd8becd80c04bea1a4c8b37f0c7a457cfc9b29c05e89fcc9b9870323ad6c5",
+      "prototype/ios/Config/TogetherRoad-Simulator.entitlements": "35c894461ad6e21a0258da8a64ffb43ef0f2aa2cf106a33f50ec3a05d5dd0e58",
+      "prototype/ios/Config/TogetherRoad.entitlements": "6e7409dd97a86ccbc04c80a771e6dce2b1a2e1aeb29cd330261b19d906f7cc8e",
+      "prototype/ios/Core/Package.swift": "704b079242394cd51f283cc9c60c58b4ccb2fb96f60f271e10470531bcadd699",
+      "prototype/ios/Core/Sources/RoadCore/APIClient.swift": "ddfb2051cc56634b12a9e14b53860bb268745fc060de13c294257207b2253a86",
+      "prototype/ios/Core/Sources/RoadCore/Models.swift": "8eead240d91ba12bf1b6a7ad6aa83e27de0312fd0bd1c57b828152160d5b745c",
+      "prototype/ios/Core/Sources/RoadCore/ReceivePolicy.swift": "665f2a81c58163f459a86031b3ba100393401362b479b6f73273b93b3c2576c6",
+      "prototype/ios/Core/Sources/RoadCore/WAV.swift": "6cfeed6ea00880c47e8ac1c6144b5712386d62baaa87b5fb1358fa919f26735f",
+      "prototype/ios/TogetherRoad.xcodeproj/project.pbxproj": "0644d21433358ea9d96e843626623380bafa38e860f1079d81e980d42c5027a8",
+      "prototype/ios/TogetherRoad.xcodeproj/xcshareddata/xcschemes/TogetherRoad.xcscheme": "d7b456f510f0a4100e9f7cbe08164f27f3950669350de4478deaafd97b1b7a51"
+    },
+    "compiledInputsMatchedCurrentFiles": true
+  },
+  "server": {
+    "endpoint": "http://127.0.0.1:4180",
+    "loopbackOnly": true,
+    "pttProvider": null,
+    "actualAPNsRequests": 0
+  },
+  "testData": {
+    "syntheticOnly": true,
+    "peerNames": [
+      "검증 선두 차량",
+      "검증 참여 차량"
+    ],
+    "WAV": {
+      "format": "PCM16 mono 16000 Hz",
+      "durationMs": 1000,
+      "bytes": 32044,
+      "signal": "synthetic low-amplitude 440 Hz sine, not a microphone recording"
+    },
+    "bearerStorage": "memory only, not logged or written",
+    "temporaryInvitationDeleted": true
+  },
+  "scenarios": [
+    {
+      "id": "UI1",
+      "result": "PASS",
+      "action": "Create a room through native SwiftUI",
+      "observed": "공유방에 연결됐어요. / 대표 차량 / 연결됨 / 참여자 1명",
+      "evidence": "03-room-created.ax.txt"
+    },
+    {
+      "id": "UI2",
+      "result": "PASS",
+      "action": "Terminate and launch the same app without reinstalling",
+      "commandExitCodes": [
+        0,
+        0
+      ],
+      "observed": "Same host role, member count and 오전 5:38:25 expiry; no create/join entry",
+      "evidence": "04-cold-session-restore.ax.txt"
+    },
+    {
+      "id": "UI3",
+      "result": "PASS",
+      "action": "Join a second test peer using the real API and receive its SSE destination update",
+      "observed": "공유방 참여자 / 연결됨 / 참여자 2명 / 갱신된 검증 목적지 / 37.566500,126.978000",
+      "destinationHTTPStatus": 200,
+      "voiceUploadHTTPStatus": 201,
+      "evidence": "05-peer-destination-voice.ax.txt"
+    },
+    {
+      "id": "UI4",
+      "result": "PASS (Simulator AVAudioPlayer completion UI)",
+      "action": "Receive and manually play the peer synthetic WAV",
+      "observed": "검증 선두 차량 / 1.0초 / 원음 재생을 마쳤어요.",
+      "physicalAcousticListeningVerified": false,
+      "evidence": "06-manual-playback-complete.ax.txt"
+    },
+    {
+      "id": "UI5",
+      "result": "PASS",
+      "action": "Request NAVER route without the map app installed",
+      "observed": "네이버 지도 앱이 없거나 이 경로 요청을 처리할 수 없어요. Destination remains visible and room connected.",
+      "evidence": "07-navigation-unavailable.ax.txt"
+    },
+    {
+      "id": "UI6",
+      "result": "PASS",
+      "action": "Receive an out-of-region destination and request a route",
+      "observed": "이 좌표는 네이버 지도 경로 요청 범위 밖이에요. Destination remains visible and room connected.",
+      "evidence": "08-destination-bounds-request.ax.txt"
+    },
+    {
+      "id": "UI7",
+      "result": "PASS (preconfigured denied permission)",
+      "action": "simctl privacy revoke microphone for this test app on the owned Simulator, then tap record",
+      "observed": "마이크 권한이 거절되어 녹음하지 않았어요. / 0.0 / 15초",
+      "microphoneRevokeExitCode": 0,
+      "voiceCountBefore": 1,
+      "voiceCountAfter": 1,
+      "microphoneResetAfterTestExitCode": 0,
+      "microphoneGranted": false,
+      "actualRecordingAttempted": false,
+      "evidence": "09-microphone-denied.ax.txt"
+    },
+    {
+      "id": "UI8",
+      "result": "PASS",
+      "action": "Peer closes its own room through the real API; relaunch the app",
+      "closeHTTPStatus": 200,
+      "observed": "공유방이 종료됐거나 만료됐어요. Then create/join landing persists after process restart.",
+      "evidence": [
+        "10-server-room-closed.ax.txt",
+        "11-closed-room-cold-launch.ax.txt"
+      ]
+    },
+    {
+      "id": "UI9",
+      "result": "BLOCKED",
+      "action": "Tap automatic receive in Simulator",
+      "observed": "Readiness message; after relaunch 자동 수신을 준비하지 못했어요. No active real PTT channel or push delivery proven.",
+      "reason": "Simulator evidence does not establish physical PTT capability, APNs activation, background or locked audio."
+    }
+  ],
+  "earlierFailure": {
+    "unsignedSimulatorRoomCreation": "Keychain OSStatus -34018; separate builder SDK receipt preserves original logs",
+    "fixedBy": "Simulator-only local ad hoc signature and app-scoped entitlement section; Keychain implementation unchanged"
+  },
+  "remainingUnverified": [
+    "Physical microphone capture and human listening",
+    "Normal physical-device signing, PushToTalk/Push Notifications capability and APNs credentials",
+    "Real PTT system callbacks, activation, interruption and restoration",
+    "Real iPhone navigation foreground and locked-screen first sound",
+    "Separate 15-minute and 30-minute silence followed by locked first sound"
+  ],
+  "rawEvidenceDirectory": ".harness/worktrees/product-run-artifacts/issue-8-ui-validation",
+  "rawEvidenceSha256": {
+    "03-room-created.ax.txt": "8810d78f10190943a93039da4f7fbd64848d520a0fdee15de0e908971e5eff33",
+    "04-cold-session-restore.ax.txt": "14881e75fb2aaec3446efcfd341e30451478fe685b04be8e824d808b08e233a1",
+    "05-peer-destination-voice.ax.txt": "5c0101ce0e808adeffcdfe38e6df7728772ffbdd19d26bd449ec8e6c3d064ae3",
+    "06-manual-playback-complete.ax.txt": "411b821db6bf620c8ca8d6ddc98d0b80a62967646108c718754377992af0e3f7",
+    "07-navigation-unavailable.ax.txt": "7eb2914ad338bfc4a37bf24c59c84bebbc63ee191c5b22bb0c5916be72c14bd8",
+    "08-destination-bounds-request.ax.txt": "5602353d874f76fd8530211b8ade8bce2e2f41811e7dace4d6f2a17b9829765e",
+    "09-microphone-denied.ax.txt": "8ac9e91970ec1fa5f469b237e0d0e371fd00e8fec3c4a1d51c8338652ec042e8",
+    "10-server-room-closed.ax.txt": "d98d595e322386916160ed79423838b7c8d1f6b867a36691162da7e18cd63959",
+    "11-closed-room-cold-launch.ax.txt": "39b3acdbe9296576b07d0a046e371fff81aa29a47b20a43fc411d5467b9286c8",
+    "06-manual-playback-complete-0.png": "125a456538493b32e0cbb741dcd71596bd2b167ee8870371f83ef4d5baff59f9",
+    "09-microphone-denied-0.png": "328e2d6dc17f31389f1c167e98be54d30a2c9963c2d644053d4f1384c00b9a7c",
+    "10-server-room-closed-0.png": "69235b90b701b1e25749d9a9d19df7c4cc89de02366fff1ae1be463fd582a18e",
+    "room-closed-relaunch.json": "f6012088b7f73cf125e0f0c26f7f0bca0959a5f90e1f579f71a32cf1deae08d2"
+  },
+  "committedScreenshot": {
+    "path": "prototype/ios/evidence/simulator-peer-playback.png",
+    "sha256": "125a456538493b32e0cbb741dcd71596bd2b167ee8870371f83ef4d5baff59f9"
+  },
+  "independentVerification": "Pending separate verifier against coordinator-frozen exact base/head; this report does not self-approve."
+}
