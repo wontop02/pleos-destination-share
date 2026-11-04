@@ -6,3 +6,13 @@ node_modules/
 .harness/runs/
 .harness/worktrees/
 .harness/locks/
+prototype/android/.gradle/
+prototype/android/.kotlin/
+prototype/android/.idea/
+prototype/android/**/build/
+prototype/android/**/local.properties
+prototype/android/**/*.iml
+prototype/android/**/*.keystore
+prototype/android/**/*.jks
+prototype/android/**/.externalNativeBuild/
+prototype/android/**/captures/

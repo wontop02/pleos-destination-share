@@ -1,0 +1,132 @@
+{
+  "recordedAt": "2026-11-04T04:31:55.016334+00:00",
+  "baseCommit": "821e3a387e99e4d3c87400fed3bd71173f0b9493",
+  "branch": "be/issue-7-android-prototype",
+  "workingTreeUncommitted": true,
+  "command": "env JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home ANDROID_HOME=/private/tmp/pleos-android-toolchain-20261104/sdk GRADLE_USER_HOME=/private/tmp/pleos-android-toolchain-20261104/gradle-user ./gradlew :app:testDebugUnitTest :app:assembleDebug :app:lintDebug :app:processReleaseMainManifest --no-daemon",
+  "exitCode": 0,
+  "gradleDurationSeconds": 14,
+  "tests": {
+    "total": 20,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "kr.together.road.ApiContractTest",
+        "tests": "4",
+        "skipped": "0",
+        "failures": "0",
+        "errors": "0",
+        "time": "0.564"
+      },
+      {
+        "name": "kr.together.road.CoreTest",
+        "tests": "13",
+        "skipped": "0",
+        "failures": "0",
+        "errors": "0",
+        "time": "0.013"
+      },
+      {
+        "name": "kr.together.road.NaverNavigationTest",
+        "tests": "3",
+        "skipped": "0",
+        "failures": "0",
+        "errors": "0",
+        "time": "0.001"
+      }
+    ]
+  },
+  "lint": "No issues found.",
+  "warnings": [
+    "AGP SDK reader understands XML up to3; isolated newer SDK tool metadata is XML4",
+    "Platform WindowInsets legacy getters retained for Android26 compatibility (Kotlin deprecation warning on compilation)"
+  ],
+  "apk": {
+    "path": "app/build/outputs/apk/debug/app-debug.apk",
+    "bytes": 2257566,
+    "sha256": "16daee77c4b22116683ed061155f7f2cb464e79c915e12f5a97cc1cc0fd77b81",
+    "apksignerVerifyExitCode": 0
+  },
+  "mergedManifests": {
+    "debug": {
+      "allowBackup": "false",
+      "usesCleartextTraffic": "true",
+      "serviceExported": "false",
+      "serviceType": "mediaPlayback",
+      "permissions": [
+        "android.permission.INTERNET",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.POST_NOTIFICATIONS",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"
+      ],
+      "queriesPackages": [
+        "com.nhn.android.nmap"
+      ]
+    },
+    "release": {
+      "allowBackup": "false",
+      "usesCleartextTraffic": "false",
+      "serviceExported": "false",
+      "serviceType": "mediaPlayback",
+      "permissions": [
+        "android.permission.INTERNET",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.POST_NOTIFICATIONS",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"
+      ],
+      "queriesPackages": [
+        "com.nhn.android.nmap"
+      ]
+    }
+  },
+  "sourceSha256": {
+    "build.gradle.kts": "c6e0ae120fa861a94bc032e36e6d0c4cac779b83cc346a85948152f920f6a236",
+    "settings.gradle.kts": "a5249fd14cd2bcb75dddbc8ce05de079dc8141a4fe0418e64e2f7cbbd84d7b98",
+    "gradle.properties": "84f7a4aaaca874ab8a50ced299ed1fe4141c893e272db3e2f089af6009468715",
+    "app/build.gradle.kts": "1796b3bb24c896bfee0b4d286be345fb57f0f208e585d405eeaf453aa245e738",
+    "gradlew": "a3648413b47ef77af21d5ebc36c687c7d103aaef3e17f33de7d4f080a6f300a3",
+    "gradlew.bat": "57931b17dd228e5c24dac90e815d0bf82477e831a4618dfab4136f5446b42a9f",
+    "gradle/wrapper/gradle-wrapper.properties": "fe90ff0d9944879f591a8c37b6dbaf5046d1051ccbb6b26b22081692c321f432",
+    "gradle/wrapper/gradle-wrapper.jar": "2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046",
+    "app/src/debug/AndroidManifest.xml": "0032f10620d2a6ab8deebd44f076e17d4adc8123dc86955e4e4bb2a264abb73d",
+    "app/src/debug/res/xml/network_security_config.xml": "6639e9a81f9542e76bfe5d2d4aef0a6f2e9b22060e5d41e5dccbfc5a5ebe4fce",
+    "app/src/main/AndroidManifest.xml": "21eaf52872cc6ade3d734515a2096adacdefe77baab8b31d4e3b364794975fb8",
+    "app/src/main/java/kr/together/road/ApiClient.kt": "1d2f1aaf50ff1858ab167c8e03fa6a39c45c78676bba0a1f6ab7cc5efca9d7a5",
+    "app/src/main/java/kr/together/road/Core.kt": "968250569ab396def582d62a4bc3970e361a8a48082262304cffabb674460718",
+    "app/src/main/java/kr/together/road/MainActivity.kt": "b41f30199c5ff42af70e83a5b9671e804305c0531b9a7df12a7799aa02e7ffc5",
+    "app/src/main/java/kr/together/road/NativeAudio.kt": "7db949011b323e14447899bddf4ef495a22d2e5f7d963fdf050b9c90334f0bd1",
+    "app/src/main/java/kr/together/road/ReceiveService.kt": "39176504d002ef191a4374c22f190388ac4dc8bd291642da21696cc84ad9bec8",
+    "app/src/main/java/kr/together/road/RoomController.kt": "6b90e4e658dd72c740873df2e079d721cdadb731a47acf1b526d2c52fd4c7cd8",
+    "app/src/main/java/kr/together/road/SecretStore.kt": "1ab17776377135fbf4e20e447773c3659c9b4f5ed8cba14b431f76b23ea5fe35",
+    "app/src/main/res/drawable/ic_road.xml": "822d9a65a3a8af7865bbf4217ebfdaf7232a9289dc52cf1e9bb8bd1a6a04f966",
+    "app/src/main/res/values/strings.xml": "f891994a0aa6aea374177849fa31660af8a839556154fd56fa847a15795042d7",
+    "app/src/main/res/values/styles.xml": "a49bae2b40165b76926ba9a0b3ebdc181efd65256fd2a94db97f87d16799aa63",
+    "app/src/main/res/xml/data_extraction_rules.xml": "68b7ccb4d39215fecc8b3e46bae0860193a9bb53dd49e19c9b1cf3f12c4fca88",
+    "app/src/main/res/xml/network_security_config.xml": "7bd91344689d618bf440dd803fef5d1c05dfbd1b12ea27379625b3388aee1846",
+    "app/src/test/java/kr/together/road/ApiContractTest.kt": "07d1b840bc719db6899a882870d4ccfede73b88a3e5f765073c979dd6852ad1c",
+    "app/src/test/java/kr/together/road/CoreTest.kt": "8f64e44a731913f95b511c1dced13bf40629e9d91b7cc0b898367686f14c174b",
+    "app/src/test/java/kr/together/road/NaverNavigationTest.kt": "312e6f6a140403a146768176d8ba77194440233591cfa2b1dd6e7fc0224aa211"
+  },
+  "deviceValidation": {
+    "androidUi": "coordinator API35 emulator checks in emulator.json; physical device and audible output unverified",
+    "physicalMicrophone": "not run",
+    "galaxyNavigation": "not run",
+    "lockedFirstSound": "not run",
+    "silence15MinutesFirstSound": "not run",
+    "silence30MinutesFirstSound": "not run"
+  },
+  "independentVerifier": "pending coordinator exact-head review",
+  "navigationValidation": {
+    "unitTests": 3,
+    "officialContract": "https://guide-fin.ncloud-docs.com/docs/maps-url-scheme",
+    "androidAppname": "kr.together.road",
+    "targetPackage": "com.nhn.android.nmap",
+    "bounds": "latitude31.43..44.35 longitude122.37..132.00 inclusive",
+    "handlerMissingAndCoordinatesUi": "PASS on latest APK in coordinator emulator.json; Naver absent and unsupported 0,0 both report failure",
+    "actualNaverRouteGuidance": "not run; request acceptance is not successful guidance"
+  }
+}

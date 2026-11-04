@@ -6,7 +6,7 @@
 |---|---|---|---|
 | 웹 전경 | 공유방 API, 인증 이벤트 연결, 실제 WAV 업로드·다운로드·재생 | 두 독립 참여자의 목적지와 원음, 권한 거절·중복·만료·수신 중지 | 로컬 Node·Chrome 웹 실행본과 자동 검사 제공. #6 PR의 검증 증거 참고 |
 | iPhone | Swift·PushToTalk 채널과 전용 APNs 수신, 시스템 오디오 활성화 후 재생 | 내비 전경·화면 잠금·장시간 무음 후 새 원음의 실제 첫 소리, 중단·탈퇴 시 정지 | Swift CLI 사용 가능. 전체 Xcode·서명/PTT capability·푸시 자격증명·실기기 미확보 |
-| Galaxy/Android | 사용자가 시작하는 네이티브 수신 세션, 적절한 서비스 유형·알림·오디오 포커스 | 기종/OS별 내비·잠금·15/30분 무음 후 첫 소리, 서비스 종료·복구와 사용자 중지 | Java 사용 가능. Android SDK와 연결 실기기 미확보 |
+| Galaxy/Android | 사용자가 시작하는 네이티브 수신 세션, 적절한 서비스 유형·알림·오디오 포커스 | 기종/OS별 내비·잠금·15/30분 무음 후 첫 소리, 서비스 종료·복구와 사용자 중지 | 디버그 APK·JVM/API·lint 검사 제공. [빌드 기록](../../prototype/android/evidence/build.json), [에뮬레이터 화면·수신 중지](../../prototype/android/evidence/verification.md) 확인. 물리 기기·실제 청취는 미검증 |
 | Pleos | Kotlin·NaviHelper의 실제 목적지 변경 이벤트 | 순정 내비에서 바꾼 목적지 이벤트와 현재 목적지 정보 | 계정·SDK·에뮬레이터/차량 미확보 |
 
 ## 확인한 OS 계약

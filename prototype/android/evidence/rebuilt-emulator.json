@@ -1,0 +1,71 @@
+{
+  "apkSha256": "ec72512e55b7aa9a82357bf2fa9a0137a322ccf2d24b760dd87f4b1b8b39a677",
+  "audioBackendEnabled": false,
+  "physicalMicrophoneTested": false,
+  "checks": [
+    {
+      "name": "rebuilt APK joins actual API room",
+      "result": "PASS"
+    },
+    {
+      "name": "rebuilt APK receives destination and reports missing Naver",
+      "result": "PASS"
+    },
+    {
+      "name": "rebuilt APK requests and abandons focus while launcher remains foreground",
+      "result": "PASS"
+    },
+    {
+      "name": "rebuilt APK notification stop removes service and suppresses later audio",
+      "result": "PASS"
+    },
+    {
+      "name": "rebuilt APK leaves actual API membership",
+      "result": "PASS"
+    }
+  ],
+  "destinationScreenshot": "rebuild-native-destination.png",
+  "backgroundVoice": {
+    "id": "ef8ecfcb8eda38b1b2788c44",
+    "sender": {
+      "id": "9ef76aa49a72bb139723365a",
+      "name": "RebuildLeadTest"
+    },
+    "sequence": 3,
+    "acceptedAt": 1793768485317,
+    "autoPlayUntil": 1793768515317,
+    "durationMs": 1000,
+    "byteLength": 32044,
+    "sampleCount": 16000,
+    "sampleRate": 16000,
+    "channels": 1,
+    "format": "pcm_s16le"
+  },
+  "backgroundAudioFocusEvents": [
+    "11-04 14:01:25:557 requestAudioFocus() from uid/pid 10148/4267 AA=USAGE_MEDIA/CONTENT_TYPE_SPEECH clientId=android.media.AudioManager@723cfc8kr.together.road.NativePlayer$$ExternalSyntheticLambda0@3e9861 callingPack=kr.together.road req=2 flags=0x2 sdk=35",
+    "11-04 14:01:26:585 abandonAudioFocus() from uid/pid 10148/4267 clientId=android.media.AudioManager@723cfc8kr.together.road.NativePlayer$$ExternalSyntheticLambda0@3e9861"
+  ],
+  "afterStopVoice": {
+    "id": "742439994f6e090129fe269d",
+    "sender": {
+      "id": "9ef76aa49a72bb139723365a",
+      "name": "RebuildLeadTest"
+    },
+    "sequence": 4,
+    "acceptedAt": 1793768493693,
+    "autoPlayUntil": 1793768523693,
+    "durationMs": 1000,
+    "byteLength": 32044,
+    "sampleCount": 16000,
+    "sampleRate": 16000,
+    "channels": 1,
+    "format": "pcm_s16le"
+  },
+  "afterStopNewAudioFocusEvents": [],
+  "stoppedScreenshot": "rebuild-native-stopped.png",
+  "fixtureClosed": true,
+  "screenshotsSha256": {
+    "rebuild-native-destination.png": "21f404c20cc8fd1bfa9b4bde6205283badc13a7e5b70b9bc274edbc039ea99c5",
+    "rebuild-native-stopped.png": "f20125e9765938d2b36f9a69ceb646f8d28ab34f4ed1cf3d2d33b766c194d4e4"
+  }
+}
