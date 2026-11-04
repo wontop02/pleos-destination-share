@@ -12,6 +12,14 @@
 
 이번 묶음의 제품 이슈는 #6, #7, #8로 고정한다. 새 기능을 발견하면 이 묶음에 몰래 추가하지 않는다. 자율 진행 승인은 이 범위 안의 구현·검증·정상 병합이며 보안 권한 확대나 유료 서비스 가입 승인이 아니다.
 
+## 현재 상태
+
+| 이슈 | 코드·실행 결과 | 남은 조건 |
+|---|---|---|
+| #6 | [PR #9](https://github.com/wontop02/pleos-destination-share/pull/9) main 병합, 웹·HTTP·69개 테스트 검증 | 웹 결과는 휴대폰 배경 수신 증거가 아님 |
+| #7 | [Draft PR #10](https://github.com/wontop02/pleos-destination-share/pull/10), Android APK·20개 테스트·에뮬레이터 검사 | 실제 마이크 입력 검증 부족으로 병합 보류. Galaxy 내비·잠금·15/30분 첫 소리도 미검증 |
+| #8 | be/issue-8-ios-prototype에 SwiftUI·AVFoundation·PTT 앱 소스와 서버 작성. Foundation 실행형19개·Node94개 검사 통과 | 전체 Xcode/iOS SDK·XCTest, 서명·푸시 capability·자격증명, 실제 iPhone 미확보. 전체 앱·실제 수신은 BLOCKED |
+
 ## 현재 결정
 
 - 녹음 후 전송하는 짧은 원음을 우선한다. 실시간 통화·음성 합성은 현재 범위가 아니다.

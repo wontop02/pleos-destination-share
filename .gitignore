@@ -6,3 +6,13 @@ node_modules/
 .harness/runs/
 .harness/worktrees/
 .harness/locks/
+prototype/ios/**/.build/
+prototype/ios/**/.swiftpm/
+prototype/ios/**/DerivedData/
+prototype/ios/**/xcuserdata/
+prototype/ios/**/*.xcuserstate
+prototype/ios/**/*.mobileprovision
+prototype/ios/**/*.p12
+prototype/ios/**/*.p8
+prototype/ptt/**/*.p8
+prototype/ptt/**/*.pem

@@ -4,6 +4,8 @@ import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 import { inspectWav, MAX_WAV_BYTES } from './wav.mjs';
+import { createPttAdapter, PttError, pttMutation } from './ptt/adapter.mjs';
+import { loadApnsProviderFromEnvironment } from './ptt/apns.mjs';
 
 const assets = new Map([
   ['/', ['index.html', 'text/html; charset=utf-8']],
@@ -88,7 +90,7 @@ async function jsonBody(req) {
 
 /** Local, in-memory HTTP service. Inject a clock and limits for deterministic integration tests. */
 export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 1000,
-  cleanupIntervalMs = 30_000, limits: overrides = {} } = {}) {
+  cleanupIntervalMs = 30_000, limits: overrides = {}, pttProvider = null, pttLimits = {} } = {}) {
   if (!Number.isFinite(ttlMs) || ttlMs <= 0 || !Number.isFinite(cleanupIntervalMs) || cleanupIntervalMs < 0) {
     throw new TypeError('Invalid lifecycle interval');
   }
@@ -101,6 +103,9 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
   let inflightUploads = 0;
   let stopped = false;
   const now = () => Number(clock());
+  const ptt = createPttAdapter({ provider: pttProvider, clock: now, limits: pttLimits,
+    isActive: (room, member) => !stopped && rooms.get(room.id) === room &&
+      room.members.get(member.id) === member && room.expiresAt > now() });
   const members = (room) => [...room.members.values()].map(({ id, name, role }) => ({ id, name, role }));
   const publicMessage = (message) => ({ id: message.id, sender: message.sender, sequence: message.sequence,
     acceptedAt: message.acceptedAt, autoPlayUntil: message.autoPlayUntil,
@@ -130,6 +135,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
   };
   function removeRoom(room, reason) {
     if (rooms.get(room.id) !== room) return;
+    ptt.removeRoom(room);
     room.sequence += 1;
     broadcast(room, 'closed', { reason });
     for (const stream of room.streams) { clearInterval(stream.heartbeat); stream.res.end(); }
@@ -144,6 +150,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
   function cleanupExpired() {
     const at = now();
     for (const room of rooms.values()) if (room.expiresAt <= at) removeRoom(room, 'expired');
+    ptt.cleanup();
   }
   const ensureActive = (room) => {
     if (rooms.get(room.id) !== room || room.expiresAt <= now()) {
@@ -214,7 +221,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
         return json(201, { roomId: room.id, memberId: member.id, role: member.role, token: member.token,
           inviteSecret: room.inviteSecret, state: state(room, member) });
       }
-      const match = /^\/api\/rooms\/([a-f0-9]{24})(?:\/(members|members\/me|destination|events|voice|voice\/[a-f0-9]{24}\/audio))?$/.exec(url.pathname);
+      const match = /^\/api\/rooms\/([a-f0-9]{24})(?:\/(members|members\/me|destination|events|voice|voice\/[a-f0-9]{24}\/audio|ptt))?$/.exec(url.pathname);
       if (!match) reject(404, 'not_found', '요청한 경로를 찾을 수 없습니다.');
       const [, roomId, action] = match;
       const room = rooms.get(roomId);
@@ -237,6 +244,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
       }
       if (action === 'members/me' && req.method === 'DELETE') {
         if (member.role === 'host') reject(403, 'host_must_close', '대표 차량은 공유방을 종료해 주세요.');
+        ptt.removeMember(room, member);
         for (const stream of room.streams) if (stream.memberId === member.id) {
           send(stream, 'closed', room.sequence, { reason: 'left', serverTime: now() });
           clearInterval(stream.heartbeat);
@@ -249,6 +257,14 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
         room.sequence += 1;
         broadcast(room, 'members', { members: members(room) });
         return json(200, { left: true });
+      }
+      if (action === 'ptt') {
+        if (req.method === 'GET') return json(200, ptt.get(room, member));
+        const body = await jsonBody(req);
+        // Reading the body yields: a concurrent leave/close/expiry must revoke this request too.
+        authenticate(req, room);
+        const input = pttMutation(body, req.method === 'POST');
+        return json(200, req.method === 'POST' ? ptt.register(room, member, input) : ptt.unregister(room, member, input));
       }
       if (action === 'events' && req.method === 'GET') {
         const count = [...room.streams].filter((stream) => stream.memberId === member.id).length;
@@ -312,6 +328,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
         member.uploads.push(acceptedAt);
         audioBytes += audio.length;
         broadcast(room, 'voice', { message: publicMessage(message) });
+        ptt.notify(room, member, publicMessage(message));
         return json(201, { message: publicMessage(message), duplicate: false, serverTime: now() });
       }
       if (action?.startsWith('voice/') && req.method === 'GET') {
@@ -326,9 +343,11 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
     } catch (error) {
       if (res.destroyed || res.writableEnded) return;
       req.resume();
-      if (!res.headersSent) json(error instanceof ApiError ? error.status : 500,
-        { code: error instanceof ApiError ? error.code : 'internal_error',
-          error: error instanceof ApiError ? error.message : '요청을 처리하지 못했습니다.' });
+      const known = error instanceof ApiError || error instanceof PttError;
+      if (!res.headersSent) json(known ? error.status : 500,
+        { code: known ? error.code : 'internal_error',
+          error: known ? error.message : '요청을 처리하지 못했습니다.',
+          ...(error instanceof PttError && error.state ? error.state : {}) });
       else res.end();
     }
   });
@@ -341,27 +360,32 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
     stopped = true;
     clearInterval(sweep);
     for (const room of [...rooms.values()]) removeRoom(room, 'server_stopped');
+    ptt.close().catch(() => {});
   });
   return {
-    server, cleanupExpired,
+    server, cleanupExpired, pttStats: ptt.stats,
     stats: () => ({ rooms: rooms.size, members: [...rooms.values()].reduce((sum, room) => sum + room.members.size, 0),
       messages: [...rooms.values()].reduce((sum, room) => sum + room.messages.size, 0),
       streams: [...rooms.values()].reduce((sum, room) => sum + room.streams.size, 0), audioBytes }),
-    close: () => new Promise((fulfill, fail) => {
+    close: async () => {
       stopped = true;
       clearInterval(sweep);
       for (const room of [...rooms.values()]) removeRoom(room, 'server_stopped');
-      if (!server.listening) return fulfill();
-      server.close((error) => error ? fail(error) : fulfill());
-      server.closeAllConnections();
-    }),
+      await ptt.close();
+      return new Promise((fulfill, fail) => {
+        if (!server.listening) return fulfill();
+        server.close((error) => error ? fail(error) : fulfill());
+        server.closeAllConnections();
+      });
+    },
   };
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
   const port = Number(process.env.PORT ?? 4180);
   if (!Number.isSafeInteger(port) || port < 1 || port > 65535) throw new Error('PORT must be between 1 and 65535');
-  const app = createPrototypeServer();
+  const pttProvider = await loadApnsProviderFromEnvironment();
+  const app = createPrototypeServer({ pttProvider });
   app.server.listen(port, '127.0.0.1', () => console.log(`함께 가는 길: http://127.0.0.1:${port}`));
   for (const signal of ['SIGINT', 'SIGTERM']) process.once(signal, () => { app.close().catch(() => { process.exitCode = 1; }); });
 }
