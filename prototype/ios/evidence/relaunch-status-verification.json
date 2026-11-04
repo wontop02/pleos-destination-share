@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-04T15:46:18.522160+00:00",
+  "result": "PASS: F3 scoped Simulator presentation repair; independent new-head review pending",
+  "overallIssueResult": "BLOCKED: physical microphone/PTT/signing/APNs/nav-lock evidence unverified",
+  "target": {
+    "issue": 8,
+    "pr": 11,
+    "branch": "be/issue-8-ios-prototype",
+    "baseCommit": "821e3a387e99e4d3c87400fed3bd71173f0b9493",
+    "sourceStartingCommit": "cfd486cf45c41cc9c8542bc16f1723104e39c1ee",
+    "sourceState": "Builder-frozen uncommitted display repair; final exact commit verification is recorded separately."
+  },
+  "finding": {
+    "id": "F3",
+    "priority": "P3",
+    "before": "Restored connected room kept initial create/join status.",
+    "after": "Saved session starts with a reconnecting notice; connection attempts show pending notice; connected notice is set only after validated authenticated SSE snapshot.",
+    "sourceFile": "prototype/ios/App/RoomStore.swift",
+    "sourceSha256": "e0a4e5482f94b112c765af9710ffc71472b5ebb01be815b5db7e8dbacacc1469",
+    "changedBehavior": "Status presentation only; no authentication, Keychain, audio or PTT state transition changed."
+  },
+  "environment": {
+    "macOS": "26.7.2 (25G332)",
+    "Xcode": "27.2 (27B52)",
+    "SDK": "iOS Simulator27.2",
+    "simulator": "Coordinator-owned iPhone17Pro / iOS27.2 (24B8117)",
+    "developerDirectory": "per-process /Applications/Xcode.app/Contents/Developer",
+    "globalXcodeSelectChanged": false,
+    "physicalDeviceUsed": false
+  },
+  "SDKBuild": {
+    "build": {
+      "cwd": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-8-ios",
+      "environment": {
+        "DEVELOPER_DIR": "/Applications/Xcode.app/Contents/Developer"
+      },
+      "command": [
+        "xcodebuild",
+        "-project",
+        "prototype/ios/TogetherRoad.xcodeproj",
+        "-scheme",
+        "TogetherRoad",
+        "-configuration",
+        "Debug",
+        "-sdk",
+        "iphonesimulator",
+        "-destination",
+        "generic/platform=iOS Simulator",
+        "-derivedDataPath",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-relaunch-status-fix/derived-data-01",
+        "build"
+      ],
+      "startedAt": "2026-11-04T15:41:00.811748+00:00",
+      "log": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-relaunch-status-fix/simulator-build.log",
+      "exitCode": 0,
+      "durationSeconds": 9.492,
+      "finishedAt": "2026-11-04T15:41:10.305118+00:00"
+    },
+    "appPath": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/issue-8-relaunch-status-fix/derived-data-01/Build/Products/Debug-iphonesimulator/TogetherRoad.app",
+    "bundleIdentifier": "kr.together.road.ios",
+    "minimumOSVersion": "16.0",
+    "architectures": [
+      "x86_64",
+      "arm64"
+    ],
+    "artifactFilesSha256": {
+      "Info.plist": "d93827d4ed1e768250551026f6b9da14ef86ac9caabe25087cddd48dfbe3dfcb",
+      "PkgInfo": "82502191c9484b04d685374f9879a0066069c49b8acae7a04b01d38d07e8eca0",
+      "TogetherRoad": "9e399a4c5e0d107a3dc32d8a703c9a4ebb9e9e0a7e0918173f5f9b489a6a13ee",
+      "TogetherRoad.debug.dylib": "6ca47d6524aa50fe4805e19594ec42c1db557f2f462ecb9356f088536da2125b",
+      "_CodeSignature/CodeResources": "8bdfcb9eb312f4c13ac77d38fe338d47d704706bf91b35868235a6b7726599bc",
+      "__preview.dylib": "bf2ae8c49ac97608edb9081bfb0c4ce964cb6521567b29b65adde9029dbc5540"
+    },
+    "compiledInputCount": 17,
+    "compiledInputsSha256": {
+      "prototype/ios/App/ContentView.swift": "4efee0423f134bf0de1888df3773ccbae86f279421a2cc09b79d1a6b6bcbca84",
+      "prototype/ios/App/KeychainStore.swift": "793b4079ffd4df9c2ea29e1cba014e5f661d29652bb2324fd3485bc6723a8efd",
+      "prototype/ios/App/NativeAudio.swift": "6bb1abd9ddebbfc3fbfa039a604a39b7454af7d470e32081048757298120f84e",
+      "prototype/ios/App/PTTBridge.swift": "9dde060ea21c1f25e3745a288968ce6b07a260d21aa60e56f0fdecc1d9bf10ea",
+      "prototype/ios/App/RoomStore.swift": "e0a4e5482f94b112c765af9710ffc71472b5ebb01be815b5db7e8dbacacc1469",
+      "prototype/ios/App/TogetherRoadApp.swift": "ec2bc53508e39543495a9c642e1bedf788f57051ab36fae4f7ca63e66950a678",
+      "prototype/ios/Config/Info-Debug.plist": "ac20c43c5134208ffdbf81f085aaf3ee898df09ff432ca2e5fc98c39e59d171d",
+      "prototype/ios/Config/Info-Release.plist": "9c3cd8becd80c04bea1a4c8b37f0c7a457cfc9b29c05e89fcc9b9870323ad6c5",
+      "prototype/ios/Config/TogetherRoad-Simulator.entitlements": "35c894461ad6e21a0258da8a64ffb43ef0f2aa2cf106a33f50ec3a05d5dd0e58",
+      "prototype/ios/Config/TogetherRoad.entitlements": "6e7409dd97a86ccbc04c80a771e6dce2b1a2e1aeb29cd330261b19d906f7cc8e",
+      "prototype/ios/Core/Package.swift": "704b079242394cd51f283cc9c60c58b4ccb2fb96f60f271e10470531bcadd699",
+      "prototype/ios/Core/Sources/RoadCore/APIClient.swift": "ddfb2051cc56634b12a9e14b53860bb268745fc060de13c294257207b2253a86",
+      "prototype/ios/Core/Sources/RoadCore/Models.swift": "8eead240d91ba12bf1b6a7ad6aa83e27de0312fd0bd1c57b828152160d5b745c",
+      "prototype/ios/Core/Sources/RoadCore/ReceivePolicy.swift": "665f2a81c58163f459a86031b3ba100393401362b479b6f73273b93b3c2576c6",
+      "prototype/ios/Core/Sources/RoadCore/WAV.swift": "6cfeed6ea00880c47e8ac1c6144b5712386d62baaa87b5fb1358fa919f26735f",
+      "prototype/ios/TogetherRoad.xcodeproj/project.pbxproj": "0644d21433358ea9d96e843626623380bafa38e860f1079d81e980d42c5027a8",
+      "prototype/ios/TogetherRoad.xcodeproj/xcshareddata/xcschemes/TogetherRoad.xcscheme": "d7b456f510f0a4100e9f7cbe08164f27f3950669350de4478deaafd97b1b7a51"
+    },
+    "signatureEntitlements": {},
+    "simulatedMachOEntitlements": {
+      "arm64": {
+        "segment": "__TEXT",
+        "section": "__entitlements",
+        "offsetInThinMachO": 13410,
+        "size": 356,
+        "entitlements": {
+          "application-identifier": "kr.together.road.ios",
+          "keychain-access-groups": [
+            "kr.together.road.ios"
+          ]
+        }
+      },
+      "x86_64": {
+        "segment": "__TEXT",
+        "section": "__entitlements",
+        "offsetInThinMachO": 15836,
+        "size": 356,
+        "entitlements": {
+          "application-identifier": "kr.together.road.ios",
+          "keychain-access-groups": [
+            "kr.together.road.ios"
+          ]
+        }
+      }
+    },
+    "strictDeepSignatureVerificationExitCode": 0,
+    "deviceSigningProjectBlobUnchangedFromVerifiedHead": true,
+    "applicationCompilerWarnings": 0,
+    "buildWarnings": [
+      "2026-11-05 00:41:10.133 appintentsmetadataprocessor[51853:342338] warning: Metadata extraction skipped, no AppIntents.framework dependency found"
+    ]
+  },
+  "reusedTests": {
+    "testedCommit": "cfd486cf45c41cc9c8542bc16f1723104e39c1ee",
+    "report": ".harness/worktrees/product-run-artifacts/issue-8-independent-sdk-verification/report.json",
+    "reportSha256": "ada130f6889ebe6d3994b7545874b0c91635c05293c55fa1ce900ae5ccaff925",
+    "results": {
+      "XCTestCases": 24,
+      "FoundationSharedScenarios": 24,
+      "NodeTests": 94,
+      "uniqueSharedSwiftScenarios": 24,
+      "sameSwiftScenariosNotCountedAs48": true
+    },
+    "coreInputFiles": 13,
+    "nodeRelevantGitBlobs": 28,
+    "allMatch": true,
+    "reexecutedAfterDisplayOnlyChange": false,
+    "uniqueSharedSwiftScenarios": 24,
+    "not48DistinctScenarios": true,
+    "note": "These were independently executed at cfd486c; this repair reuses them through direct source/test blob identity. They do not test native UI copy."
+  },
+  "nativeUI": {
+    "executedBy": "Coordinator via native CUA; not the independent verifier",
+    "result": "PASS",
+    "installedBinarySha256": "9e399a4c5e0d107a3dc32d8a703c9a4ebb9e9e0a7e0918173f5f9b489a6a13ee",
+    "createRoom": "공유방에 연결됐어요. / 대표 차량 / 연결됨 / 참여자 1명",
+    "destination": "Project default synthetic QA destination 올림픽공원, not user location",
+    "coldRelaunch": {
+      "result": "PASS",
+      "terminateExitCode": 0,
+      "launchExitCode": 0,
+      "appReinstalledBetweenTerminateAndLaunch": false,
+      "sameRole": true,
+      "sameParticipantCount": true,
+      "sameExpiry": "오전 6:44:09",
+      "sameDestination": "올림픽공원",
+      "topStatus": "공유방에 연결됐어요.",
+      "contradictoryCreateJoinNoticePresent": false
+    },
+    "microphoneGrantedOrRecorded": false,
+    "actualPTTActivated": false,
+    "server": "http://127.0.0.1:4180, loopback and default pttProvider:null",
+    "previousOtherScenarios": "Earlier shared-room/destination/synthetic WAV/manual-player/denial/closure observations remain historical in simulator-ui-verification.json; not re-counted as fresh tests on this binary."
+  },
+  "remainingUnverified": [
+    "Actual microphone 1s/15s input and physical acoustic listening",
+    "Normal Apple development signing, PTT/Push Notifications capability/profile and APNs credentials",
+    "Actual PTT callbacks, activation/interruption/restoration and reception continuity",
+    "Physical navigation/locked-screen first sound",
+    "Separate 15-minute and 30-minute silence followed by locked first sound"
+  ],
+  "rawArtifactDirectory": ".harness/worktrees/product-run-artifacts/issue-8-relaunch-status-fix",
+  "rawEvidenceSha256": {
+    "build-command.json": "14cc9d730a73d994e8ef4eb111a6d8b02e0cc7dba8b4a78219116f8302b136f9",
+    "simulator-build.log": "ad24df92c14399d44d808c97f074b0d6e1a51fc865b0c49a951ce4b2b1033264",
+    "app-manifest.json": "142234373ad2907e7f54bcf81583ad5c40af13db8119bf25d7a8cc31383a57d3",
+    "app-source-freeze.json": "3e594f92a938b2e53dd7d124a6a718436b393cb9d6f454b0a0d5d8bd0e0e2054",
+    "reused-test-blob-identity.json": "4aa69c38978791d72b2f7e2d6907f8e33fa0b02514ef569b2a0ff5e8e936a435",
+    "ui-01-created.ax.txt": "7b41d1b58ca247c7de9e86bf55b0eaf0b6946386964240fb1a59d55cfc08f94a",
+    "ui-02-destination-sent.ax.txt": "d568a22a7c8795b878686c645da11cd2b1469e14ba89a33baf412c1d31828953",
+    "ui-03-cold-restored.ax.txt": "272dd87b0fbe6c5a04d011a56bb38af618266cffd3fc6b419e77c090617db9b2",
+    "ui-03-cold-restored-0.png": "5df16bc6d37e1777bf0556eccad998b5fd73c9504de26386fdf774de0e86f206",
+    "cold-relaunch-command.json": "6ba01919e56f39a4b8ea8b761c52132cc5a7e323e99f02eec6e03eb32ebba787",
+    "ui-cold-terminate.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ui-cold-launch.log": "d04b22cf783b3496a63f43ea0a534654271dc79ca92012993f556e209e7efe6f"
+  },
+  "screenshot": {
+    "path": "prototype/ios/evidence/simulator-cold-restore.png",
+    "sha256": "5df16bc6d37e1777bf0556eccad998b5fd73c9504de26386fdf774de0e86f206"
+  },
+  "historicalEvidencePreserved": true,
+  "independentNewHeadVerification": "Pending coordinator commit and verifier exact-base/new-head follow-up; no merge approval."
+}

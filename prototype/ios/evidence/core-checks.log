@@ -1,0 +1,29 @@
+[0/1] Planning build
+Building for debugging...
+[0/3] Write swift-version--1AB21518FC5DEDBE.txt
+Build of product 'RoadCoreChecks' complete! (0.09s)
+PASS WAV PCM/duration
+PASS malformed WAV
+PASS SSE framing/bounds
+PASS endpoint/auth invitation
+PASS NAVER encoding/bounds
+PASS explicit retry expiry
+PASS server clock
+PASS activation/self/dedup
+PASS post-download expiry/epoch
+PASS active session queue order
+PASS push validation/lease/cap
+PASS token rotation active/epoch boundary
+PASS late old-channel callbacks
+PASS stale registration reply
+PASS stale leave reply
+PASS pending POST/system leave fence
+PASS accepted POST/system leave retirement
+PASS late cleanup/new channel join
+PASS cleanup concurrent CAS retry
+PASS cleanup permission failure bounded
+PASS real HTTP auth/destination/WAV/idempotency
+PASS real SSE/cancellation
+PASS real PTT disabled/CAS/variable token
+PASS real leave/close byte access
+24/24 Foundation scenarios passed; no iOS platform or physical-device claim

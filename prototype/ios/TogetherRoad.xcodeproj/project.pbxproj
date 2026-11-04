@@ -1,0 +1,240 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A30000000000000000000001 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000001 /* KeychainStore.swift */; };
+		A30000000000000000000002 /* NativeAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000002 /* NativeAudio.swift */; };
+		A30000000000000000000003 /* PTTBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000003 /* PTTBridge.swift */; };
+		A30000000000000000000004 /* RoomStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000004 /* RoomStore.swift */; };
+		A30000000000000000000005 /* TogetherRoadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000005 /* TogetherRoadApp.swift */; };
+		A30000000000000000000006 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000006 /* ContentView.swift */; };
+		A3000000000000000000000A /* RoadCore in Frameworks */ = {isa = PBXBuildFile; productRef = A40000000000000000000001 /* RoadCore */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A20000000000000000000001 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
+		A20000000000000000000002 /* NativeAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAudio.swift; sourceTree = "<group>"; };
+		A20000000000000000000003 /* PTTBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTTBridge.swift; sourceTree = "<group>"; };
+		A20000000000000000000004 /* RoomStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomStore.swift; sourceTree = "<group>"; };
+		A20000000000000000000005 /* TogetherRoadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogetherRoadApp.swift; sourceTree = "<group>"; };
+		A20000000000000000000006 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A2000000000000000000000F /* TogetherRoad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TogetherRoad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A20000000000000000000011 /* Info-Debug.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Debug.plist"; sourceTree = "<group>"; };
+		A20000000000000000000012 /* Info-Release.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Release.plist"; sourceTree = "<group>"; };
+		A20000000000000000000013 /* TogetherRoad.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TogetherRoad.entitlements; sourceTree = "<group>"; };
+		A20000000000000000000014 /* TogetherRoad-Simulator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TogetherRoad-Simulator.entitlements"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A10000000000000000000009 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (A3000000000000000000000A /* RoadCore in Frameworks */);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A10000000000000000000003 = {
+			isa = PBXGroup;
+			children = (A10000000000000000000005 /* App */, A10000000000000000000006 /* Config */, A10000000000000000000004 /* Products */);
+			sourceTree = "<group>";
+		};
+		A10000000000000000000004 /* Products */ = {isa = PBXGroup; children = (A2000000000000000000000F /* TogetherRoad.app */); name = Products; sourceTree = "<group>"; };
+		A10000000000000000000005 /* App */ = {
+			isa = PBXGroup;
+			children = (A20000000000000000000001, A20000000000000000000002, A20000000000000000000003, A20000000000000000000004, A20000000000000000000005, A20000000000000000000006);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A10000000000000000000006 /* Config */ = {
+			isa = PBXGroup;
+			children = (A20000000000000000000011, A20000000000000000000012, A20000000000000000000013, A20000000000000000000014);
+			path = Config;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A10000000000000000000002 /* TogetherRoad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A50000000000000000000006 /* Build configuration list for PBXNativeTarget TogetherRoad */;
+			buildPhases = (A10000000000000000000008 /* Sources */, A10000000000000000000009 /* Frameworks */, A1000000000000000000000A /* Resources */);
+			buildRules = ();
+			dependencies = ();
+			name = TogetherRoad;
+			packageProductDependencies = (A40000000000000000000001 /* RoadCore */);
+			productName = TogetherRoad;
+			productReference = A2000000000000000000000F /* TogetherRoad.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A10000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					A10000000000000000000002 = {
+						CreatedOnToolsVersion = 16.0;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {enabled = 1; };
+							com.apple.Push = {enabled = 1; };
+							com.apple.PushToTalk = {enabled = 1; };
+						};
+					};
+				};
+			};
+			buildConfigurationList = A50000000000000000000005 /* Build configuration list for PBXProject TogetherRoad */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = ko;
+			hasScannedForEncodings = 0;
+			knownRegions = (ko, Base);
+			mainGroup = A10000000000000000000003;
+			packageReferences = (A40000000000000000000002 /* XCLocalSwiftPackageReference Core */);
+			productRefGroup = A10000000000000000000004 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (A10000000000000000000002 /* TogetherRoad */);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1000000000000000000000A /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A10000000000000000000008 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (A30000000000000000000001, A30000000000000000000002, A30000000000000000000003, A30000000000000000000004, A30000000000000000000005, A30000000000000000000006);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A50000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("DEBUG=1", "$(inherited)");
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A50000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A50000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APS_ENVIRONMENT = development;
+				CODE_SIGN_ENTITLEMENTS = Config/TogetherRoad.entitlements;
+				"CODE_SIGN_ENTITLEMENTS[sdk=iphonesimulator*]" = "Config/TogetherRoad-Simulator.entitlements";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "-";
+				CODE_SIGN_STYLE = Manual;
+				CODE_SIGNING_ALLOWED = NO;
+				"CODE_SIGNING_ALLOWED[sdk=iphonesimulator*]" = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Config/Info-Debug.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks");
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.together.road.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A50000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APS_ENVIRONMENT = production;
+				CODE_SIGN_ENTITLEMENTS = Config/TogetherRoad.entitlements;
+				"CODE_SIGN_ENTITLEMENTS[sdk=iphonesimulator*]" = "Config/TogetherRoad-Simulator.entitlements";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "-";
+				CODE_SIGN_STYLE = Manual;
+				CODE_SIGNING_ALLOWED = NO;
+				"CODE_SIGNING_ALLOWED[sdk=iphonesimulator*]" = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Config/Info-Release.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks");
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.together.road.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A50000000000000000000005 /* Build configuration list for PBXProject TogetherRoad */ = {isa = XCConfigurationList; buildConfigurations = (A50000000000000000000001 /* Debug */, A50000000000000000000002 /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		A50000000000000000000006 /* Build configuration list for PBXNativeTarget TogetherRoad */ = {isa = XCConfigurationList; buildConfigurations = (A50000000000000000000003 /* Debug */, A50000000000000000000004 /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		A40000000000000000000002 /* XCLocalSwiftPackageReference Core */ = {isa = XCLocalSwiftPackageReference; relativePath = Core; };
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A40000000000000000000001 /* RoadCore */ = {isa = XCSwiftPackageProductDependency; package = A40000000000000000000002 /* XCLocalSwiftPackageReference Core */; productName = RoadCore; };
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = A10000000000000000000001 /* Project object */;
+}

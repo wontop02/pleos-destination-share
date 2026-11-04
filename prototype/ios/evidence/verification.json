@@ -1,0 +1,139 @@
+{
+  "recordedAt": "2026-11-04T05:59:31.188164+00:00",
+  "baseCommit": "821e3a387e99e4d3c87400fed3bd71173f0b9493",
+  "branch": "be/issue-8-ios-prototype",
+  "workingTreeUncommitted": true,
+  "environment": {
+    "macOS": "26.4",
+    "swift": "Apple Swift version 6.3 (swiftlang-6.3.0.123.5 clang-2100.0.123.102)\nTarget: arm64-apple-macosx26.0",
+    "developerDirectory": "/Library/Developer/CommandLineTools"
+  },
+  "foundationChecks": {
+    "command": [
+      "swift",
+      "run",
+      "--package-path",
+      "prototype/ios/Core",
+      "--scratch-path",
+      "/private/tmp/pleos-ios-fix-8-swift-20261104",
+      "RoadCoreChecks"
+    ],
+    "exitCode": 0,
+    "count": 24,
+    "failures": 0,
+    "durationSeconds": 1.971,
+    "scenarios": [
+      "PASS WAV PCM/duration",
+      "PASS malformed WAV",
+      "PASS SSE framing/bounds",
+      "PASS endpoint/auth invitation",
+      "PASS NAVER encoding/bounds",
+      "PASS explicit retry expiry",
+      "PASS server clock",
+      "PASS activation/self/dedup",
+      "PASS post-download expiry/epoch",
+      "PASS active session queue order",
+      "PASS push validation/lease/cap",
+      "PASS token rotation active/epoch boundary",
+      "PASS late old-channel callbacks",
+      "PASS stale registration reply",
+      "PASS stale leave reply",
+      "PASS pending POST/system leave fence",
+      "PASS accepted POST/system leave retirement",
+      "PASS late cleanup/new channel join",
+      "PASS cleanup concurrent CAS retry",
+      "PASS cleanup permission failure bounded",
+      "PASS real HTTP auth/destination/WAV/idempotency",
+      "PASS real SSE/cancellation",
+      "PASS real PTT disabled/CAS/variable token",
+      "PASS real leave/close byte access"
+    ],
+    "physicalAudio": false,
+    "actualAPNs": false
+  },
+  "staticChecks": {
+    "appSyntaxParse": {
+      "exitCode": 0,
+      "files": 6,
+      "scope": "syntax only; not platform typecheck"
+    },
+    "plistPBX": {
+      "exitCode": 0,
+      "output": "prototype/ios/TogetherRoad.xcodeproj/project.pbxproj: OK\nprototype/ios/Config/Info-Debug.plist: OK\nprototype/ios/Config/Info-Release.plist: OK\nprototype/ios/Config/TogetherRoad.entitlements: OK"
+    },
+    "schemeAndSourceGraph": "PASS static XML and all 6 App source references; no SDK compile",
+    "storeLifecycleReview": {
+      "F1": "Source path only: explicit stop, confirmed system leave and failed join schedule scoped registration retirement; not an iOS callback execution.",
+      "F2": "Source path only: startReceiving calls Store.stopPlayback before NativeAudio.prepareForPTT; cancellation/epoch/task marker are cleared before channel join. No runtime UI/AVFoundation/PTT execution.",
+      "countedAsFoundationScenario": false
+    }
+  },
+  "blockers": {
+    "swiftTest": {
+      "status": "BLOCKED",
+      "exitCode": 1,
+      "cause": "no such module XCTest; CLT also lacks Testing",
+      "sameScenariosInFoundationRunner": true
+    },
+    "iOSBuild": {
+      "status": "BLOCKED",
+      "exitCode": 1,
+      "cause": "xcodebuild requires Xcode; active developer directory is CommandLineTools",
+      "resume": "compatible full Xcode26.6 or other supported installation + iOS SDK; no OS upgrade asserted"
+    },
+    "signingAndPTTCapability": "BLOCKED: no provided signing team/profile/capability",
+    "actualAPNs": "BLOCKED: no provided APNs credentials; no external APNs requests executed",
+    "iPhoneMicAndForegroundUI": "BLOCKED: no iOS SDK build/installed iPhone",
+    "navigationLockedAndSilence15Or30MinutesFirstSound": "BLOCKED: no physical iPhone tests"
+  },
+  "pushResultPolicy": "Rejected malformed/stale/duplicate/old-registration push returns documented leaveChannel; channel termination/user restart may occur. No continuous reception claim.",
+  "sourceSha256": {
+    "prototype/ios/App/ContentView.swift": "4efee0423f134bf0de1888df3773ccbae86f279421a2cc09b79d1a6b6bcbca84",
+    "prototype/ios/App/KeychainStore.swift": "793b4079ffd4df9c2ea29e1cba014e5f661d29652bb2324fd3485bc6723a8efd",
+    "prototype/ios/App/NativeAudio.swift": "c228b5ecbed3f8b3b1744982f28699695c7fe818080a7330173c79a8a2b0f759",
+    "prototype/ios/App/PTTBridge.swift": "9dde060ea21c1f25e3745a288968ce6b07a260d21aa60e56f0fdecc1d9bf10ea",
+    "prototype/ios/App/RoomStore.swift": "3b00a45f9704a48c1e96eb9955d1a0e2fcf31bcc3a36ca090a7163d2e9dbbd7c",
+    "prototype/ios/App/TogetherRoadApp.swift": "ec2bc53508e39543495a9c642e1bedf788f57051ab36fae4f7ca63e66950a678",
+    "prototype/ios/Config/Info-Debug.plist": "ac20c43c5134208ffdbf81f085aaf3ee898df09ff432ca2e5fc98c39e59d171d",
+    "prototype/ios/Config/Info-Release.plist": "9c3cd8becd80c04bea1a4c8b37f0c7a457cfc9b29c05e89fcc9b9870323ad6c5",
+    "prototype/ios/Config/TogetherRoad.entitlements": "6e7409dd97a86ccbc04c80a771e6dce2b1a2e1aeb29cd330261b19d906f7cc8e",
+    "prototype/ios/Core/Checks/Runner/main.swift": "d2b3e838da15e709f8a38754aaf9b954eb048e43b5151dd43f0c0d645507fdd7",
+    "prototype/ios/Core/Checks/Scenarios/APIContractScenarios.swift": "4885c8a187e0d7f17ce635d6f887d8b076469f2676601488dd02d0ea2a4633b6",
+    "prototype/ios/Core/Checks/Scenarios/Assertions.swift": "a13a427254115ee78da71c1e014b423d6507c55b879ee48f1582f55c54c8b0ed",
+    "prototype/ios/Core/Checks/Scenarios/CoreTests.swift": "241d49501ed5607e659906dc81cfa2292aae8d00456b49d3e1089e9dbc05b22a",
+    "prototype/ios/Core/Checks/Scenarios/RegistrationRaceTests.swift": "acebdfd5d7c1f03818b5f30cb5b76df01f97f97b913d26678066f209876f89a6",
+    "prototype/ios/Core/Package.swift": "704b079242394cd51f283cc9c60c58b4ccb2fb96f60f271e10470531bcadd699",
+    "prototype/ios/Core/Sources/RoadCore/APIClient.swift": "ddfb2051cc56634b12a9e14b53860bb268745fc060de13c294257207b2253a86",
+    "prototype/ios/Core/Sources/RoadCore/Models.swift": "8eead240d91ba12bf1b6a7ad6aa83e27de0312fd0bd1c57b828152160d5b745c",
+    "prototype/ios/Core/Sources/RoadCore/ReceivePolicy.swift": "665f2a81c58163f459a86031b3ba100393401362b479b6f73273b93b3c2576c6",
+    "prototype/ios/Core/Sources/RoadCore/WAV.swift": "6cfeed6ea00880c47e8ac1c6144b5712386d62baaa87b5fb1358fa919f26735f",
+    "prototype/ios/Core/Tests/RoadCoreTests/APIContractScenarios.swift": "a640463f61adaa63fddea06d2105e5ecc7a3020e2df78d4307df1b67795959be",
+    "prototype/ios/Core/Tests/RoadCoreTests/CoreTests.swift": "06b832ad734c528dc89156b05a6b882c1a288d001ee0738cdec2325eed344c0c",
+    "prototype/ios/Core/Tests/RoadCoreTests/RegistrationRaceTests.swift": "f3fb004fc8604622def97c7cef07886c578aeb40669b19587011c2ff7dac7cc7",
+    "prototype/ios/README.md": "381e22ace719ad93a0011d620dc48cb3541437edcedb6d0886fc889f5959f440",
+    "prototype/ios/TogetherRoad.xcodeproj/project.pbxproj": "3415344e43cb12664c60bbc87530205473e1c6ec030f2875f374b74fd6b122e4",
+    "prototype/ios/TogetherRoad.xcodeproj/xcshareddata/xcschemes/TogetherRoad.xcscheme": "d7b456f510f0a4100e9f7cbe08164f27f3950669350de4478deaafd97b1b7a51"
+  },
+  "independentVerification": "pending coordinator commit and new exact-head review; builder does not self-approve",
+  "repairFromHead": "7c66b71a43fb63fe8585e37928b031e47dfb49bf",
+  "repairVerification": {
+    "origin": "Independent exact-head report /private/tmp/pleos-app-verifier-8.json; original AC3 FAIL at repairFromHead",
+    "F1": {
+      "sourceChange": "Central scoped retirement, pending task cancellation, retired epoch/channel scopes, CAS fence, exact registration-ID stale response cleanup and bounded conflict retries.",
+      "actualRegressionScenarios": [
+        "PASS pending POST/system leave fence",
+        "PASS accepted POST/system leave retirement",
+        "PASS late cleanup/new channel join",
+        "PASS cleanup concurrent CAS retry",
+        "PASS cleanup permission failure bounded"
+      ]
+    },
+    "F2": {
+      "sourceChange": "Cancel and clear Store manual playback/download before PTT join; clear marker for non-started manual downloads.",
+      "actualPlatformRegression": "BLOCKED: full iOS SDK and installed iPhone unavailable; source call-path review and syntax parse only."
+    },
+    "behavioralRedBeforeFix": "RoadCoreChecks exit 1 in testLateOldChannelCleanupCannotCancelNewChannelJoin with new actor scenarios and old coordinator.",
+    "nodeSuiteRepeated": false,
+    "nodeSuiteReason": "No server source changes in this repair; separate exact-head verifier will run its required checks."
+  }
+}

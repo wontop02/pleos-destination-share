@@ -2,11 +2,13 @@
 
 기준일: 2026-11-04. 코드·빌드·실기기 결과를 구분한다. 현재 웹 첫 실행본은 네이티브 배경 수신의 완료 근거가 아니다.
 
+실제 기기를 확보하면 [장치별 실행·기록 절차](device-validation.md)를 따른다. 현재 미실행 항목은 코드·모의 응답으로 통과시키지 않는다.
+
 | 대상 | 구현 경로 | 실제 통과에 필요한 관찰 | 현재 자원 |
 |---|---|---|---|
 | 웹 전경 | 공유방 API, 인증 이벤트 연결, 실제 WAV 업로드·다운로드·재생 | 두 독립 참여자의 목적지와 원음, 권한 거절·중복·만료·수신 중지 | 로컬 Node·Chrome 웹 실행본과 자동 검사 제공. #6 PR의 검증 증거 참고 |
-| iPhone | Swift·PushToTalk 채널과 전용 APNs 수신, 시스템 오디오 활성화 후 재생 | 내비 전경·화면 잠금·장시간 무음 후 새 원음의 실제 첫 소리, 중단·탈퇴 시 정지 | Swift CLI 사용 가능. 전체 Xcode·서명/PTT capability·푸시 자격증명·실기기 미확보 |
-| Galaxy/Android | 사용자가 시작하는 네이티브 수신 세션, 적절한 서비스 유형·알림·오디오 포커스 | 기종/OS별 내비·잠금·15/30분 무음 후 첫 소리, 서비스 종료·복구와 사용자 중지 | Java 사용 가능. Android SDK와 연결 실기기 미확보 |
+| iPhone | Swift·PushToTalk 채널과 전용 APNs 수신, 시스템 오디오 활성화 후 재생 | 내비 전경·화면 잠금·장시간 무음 후 새 원음의 실제 첫 소리, 중단·탈퇴 시 정지 | [최신 복원 안내 검증](../../prototype/ios/evidence/relaunch-status-verification.json): 새 Simulator 빌드와 실제 cold-relaunch의 동일 공유방·목적지·연결 안내 PASS. XCTest 24개·동일 Foundation 24개·Node 94개는 blob이 같은 `cfd486c` 독립 실행 결과 재사용. [실행 절차](../../prototype/ios/README.md)·[PTT 서버 계약](../../prototype/ptt/README.md) 제공. 정상 실기기 서명/capability·APNs 자격증명은 미제공/미검증이며 실제 마이크·청취·시스템 PTT callback·실기기 검증은 계속 BLOCKED |
+| Galaxy/Android | 사용자가 시작하는 네이티브 수신 세션, 적절한 서비스 유형·알림·오디오 포커스 | 기종/OS별 내비·잠금·15/30분 무음 후 첫 소리, 서비스 종료·복구와 사용자 중지 | [Draft PR #10](https://github.com/wontop02/pleos-destination-share/pull/10)에 APK 빌드·20개 테스트·API35 에뮬레이터 증거. 실제 마이크 입력·물리 기기·실제 청취는 미검증 |
 | Pleos | Kotlin·NaviHelper의 실제 목적지 변경 이벤트 | 순정 내비에서 바꾼 목적지 이벤트와 현재 목적지 정보 | 계정·SDK·에뮬레이터/차량 미확보 |
 
 ## 확인한 OS 계약
