@@ -1,0 +1,111 @@
+{
+  "scope": "SDK3.0.5, this public cafe and these invocations only; not proposal acceptance or navigation quality certification",
+  "bookmarkToActualDifferenceMetersApprox": 51.03105344425694,
+  "identityCriterionUnchanged": "name/poiId/nullableSubId/provider exact and lat/lon absolute tolerance0.00001",
+  "observations": [
+    {
+      "source": "root/ui/cafe-public-route-A.json",
+      "sha256": "4b5a4889eebc9782786f8e38b13a74053e3ea6781d6faff2d7aa2cd25cfa63f1",
+      "status": "FAILED",
+      "reason": "post_request_public_poi_identity_did_not_match",
+      "initialDestination": {
+        "latitude": 37.41289678,
+        "longitude": 127.09383464,
+        "displayLatitude": null,
+        "displayLongitude": null,
+        "name": "42dot",
+        "address": "수정구 시흥동",
+        "poiId": "36khp37hh8gqcm5nqhe5",
+        "poiSubId": null,
+        "poiSubIdMissing": true,
+        "poiProvider": "",
+        "remainDistance": 50,
+        "remainTime": 60,
+        "tollFare": 0
+      },
+      "sourceExpected": {
+        "name": "가든서비스",
+        "latitude": 37.41255277,
+        "longitude": 127.09591666,
+        "poiId": "36khp2h36p68cm5nqhec",
+        "poiSubId": null,
+        "poiProvider": "",
+        "address": "경기도 성남시 수정구 창업로40번길 6",
+        "displayLatitude": null,
+        "displayLongitude": null
+      },
+      "coordinateOnlyInput": null,
+      "postRequestDestination": {
+        "latitude": 37.412475,
+        "longitude": 127.09534722,
+        "displayLatitude": null,
+        "displayLongitude": null,
+        "name": "가든서비스",
+        "address": "수정구 시흥동",
+        "poiId": "36khp2h36p68cm5nqhec",
+        "poiSubId": null,
+        "poiSubIdMissing": true,
+        "poiProvider": "",
+        "remainDistance": 60,
+        "remainTime": 60,
+        "tollFare": 0
+      },
+      "postRequestStrictIdentityMatched": false,
+      "postRequestNameAndCoordinatesMatchInput": null,
+      "routeRequestCount": 1,
+      "routeStartedObserved": true,
+      "routingCompletedObserved": false
+    },
+    {
+      "source": "root/ui/cafe-coordinate-route-A.json",
+      "sha256": "b54866ce9105d736e74e74990567b63f03900c17f68fe93f6c0b9d1c94cabeb5",
+      "status": "OBSERVED",
+      "reason": "coordinate_only_input_match_observed_not_search_or_official_support",
+      "initialDestination": {
+        "latitude": 37.412475,
+        "longitude": 127.09534722,
+        "displayLatitude": null,
+        "displayLongitude": null,
+        "name": "가든서비스",
+        "address": "수정구 시흥동",
+        "poiId": "36khp2h36p68cm5nqhec",
+        "poiSubId": null,
+        "poiSubIdMissing": true,
+        "poiProvider": "",
+        "remainDistance": 60,
+        "remainTime": 60,
+        "tollFare": 0
+      },
+      "sourceExpected": null,
+      "coordinateOnlyInput": {
+        "name": "가든서비스",
+        "latitude": 37.41255277,
+        "longitude": 127.09591666,
+        "address": "경기도 성남시 수정구 창업로40번길 6",
+        "poiId": "",
+        "poiSubId": "",
+        "poiProvider": ""
+      },
+      "postRequestDestination": {
+        "latitude": 37.41255277,
+        "longitude": 127.09591666,
+        "displayLatitude": null,
+        "displayLongitude": null,
+        "name": "가든서비스",
+        "address": "수정구 시흥동",
+        "poiId": "",
+        "poiSubId": null,
+        "poiSubIdMissing": true,
+        "poiProvider": "",
+        "remainDistance": 1600,
+        "remainTime": 360,
+        "tollFare": 0
+      },
+      "postRequestStrictIdentityMatched": null,
+      "postRequestNameAndCoordinatesMatchInput": true,
+      "routeRequestCount": 1,
+      "routeStartedObserved": true,
+      "routingCompletedObserved": false
+    }
+  ]
+}

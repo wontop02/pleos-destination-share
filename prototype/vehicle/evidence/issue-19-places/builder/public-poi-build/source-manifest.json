@@ -1,0 +1,31 @@
+{
+  "base": "3a4c734093406bcb54e8c33bffeb9c0661f6720d",
+  "sourceState": "uncommitted public SDK bookmark address serialization and actual public POI diagnostic",
+  "files": [
+    {
+      "path": "prototype/vehicle/nativeDriver/src/main/kotlin/ai/pleos/destinations/driver/NativeDestinationDriver.kt",
+      "sha256": "370764b229d1de31a49fecb829ef45f1aeaaa18a739c7590aedb78b05ac82b41",
+      "bytes": 31960
+    },
+    {
+      "path": "prototype/vehicle/nativeDriver/src/main/AndroidManifest.xml",
+      "sha256": "6df731175a36f4066b818688c4b597cc27dc71162439f9f39bc9cd50a0f75d67",
+      "bytes": 666
+    },
+    {
+      "path": "prototype/vehicle/nativeDriver/build.gradle.kts",
+      "sha256": "a51c0e3986e5e594e4d65e9104d3e78f83a21edbeacb307e03049370e301cb93",
+      "bytes": 615
+    },
+    {
+      "path": "prototype/vehicle/build.gradle.kts",
+      "sha256": "343f11fd15ec542f26c476725da69b23cdea22fb25ef19ffed45a4fdb7b0d4dc",
+      "bytes": 172
+    },
+    {
+      "path": "prototype/vehicle/settings.gradle.kts",
+      "sha256": "bdf96cace1a96f293384387352093c4f29f51568e3046ea4a5afaa8cdbfe1732",
+      "bytes": 489
+    }
+  ]
+}

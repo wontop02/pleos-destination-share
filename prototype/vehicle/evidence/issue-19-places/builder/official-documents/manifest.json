@@ -1,0 +1,172 @@
+[
+  {
+    "url": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/intro",
+    "resolvedUrl": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/intro",
+    "retrievedAt": "2026-11-05T16:02:10.853507+00:00",
+    "status": 200,
+    "bytes": 46793,
+    "sha256": "d6e245ff6a9520e768a3517461a6fa5b504c9745eb09ce543aea8d6345b79657",
+    "path": "intro.html",
+    "iframes": []
+  },
+  {
+    "url": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/destinations",
+    "resolvedUrl": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/destinations",
+    "retrievedAt": "2026-11-05T16:02:10.854625+00:00",
+    "status": 200,
+    "bytes": 64734,
+    "sha256": "fa381fbc7f692074cd99ebe022b03f59deb3c2360e2b9823833e2b027a482c74",
+    "path": "destinations.html",
+    "iframes": []
+  },
+  {
+    "url": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/routes",
+    "resolvedUrl": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/routes",
+    "retrievedAt": "2026-11-05T16:02:10.854941+00:00",
+    "status": 200,
+    "bytes": 79389,
+    "sha256": "a7881dfabfe743630d21d85c91be0e4834b738420a4627e4c8746f6be8622375",
+    "path": "routes.html",
+    "iframes": []
+  },
+  {
+    "url": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/declaring-permissions",
+    "resolvedUrl": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/declaring-permissions",
+    "retrievedAt": "2026-11-05T16:02:10.855270+00:00",
+    "status": 200,
+    "bytes": 50544,
+    "sha256": "01dee0b6088beda11558722a57b47b2e99e9bfabb28cf6c194a3893fa78787f3",
+    "path": "declaring-permissions.html",
+    "iframes": []
+  },
+  {
+    "url": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/event-listeners",
+    "resolvedUrl": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/event-listeners",
+    "retrievedAt": "2026-11-05T16:02:11.008432+00:00",
+    "status": 200,
+    "bytes": 62861,
+    "sha256": "c44e0f4856735e70b47bf2ecac94d304044a1db1fe8002a4e82f95af4413ffca",
+    "path": "event-listeners.html",
+    "iframes": []
+  },
+  {
+    "url": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/entry",
+    "resolvedUrl": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/entry",
+    "retrievedAt": "2026-11-05T16:02:11.015059+00:00",
+    "status": 200,
+    "bytes": 42681,
+    "sha256": "27db330a2c8e6c191ad240fc74f848ed95d0ee8de0d6be843e1c3c6f7d10ef08",
+    "path": "entry.html",
+    "iframes": []
+  },
+  {
+    "url": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.helper/navi-helper/entry",
+    "resolvedUrl": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.helper/navi-helper/entry",
+    "retrievedAt": "2026-11-05T16:02:11.034153+00:00",
+    "status": 200,
+    "bytes": 51823,
+    "sha256": "64e1f331ff88c1ee22ad8bac6539fd264152ac85c223e46f43df7d327b9cff44",
+    "path": "navi-helper__ai.pleos.playground.navi.helper__navi-helper__entry.html",
+    "iframes": []
+  },
+  {
+    "url": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.helper/navi-helper/request-navigation-screen",
+    "resolvedUrl": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.helper/navi-helper/request-navigation-screen",
+    "retrievedAt": "2026-11-05T16:02:11.091420+00:00",
+    "status": 200,
+    "bytes": 52323,
+    "sha256": "9a0a37291e153ff995e0164a61c55e4100aacddf1295ed4818f79f253f69f0a6",
+    "path": "navi-helper__ai.pleos.playground.navi.helper__navi-helper__request-navigation-screen.html",
+    "iframes": []
+  },
+  {
+    "url": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.data/navigation-screen-request/search-place/entry",
+    "resolvedUrl": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.data/navigation-screen-request/search-place/entry",
+    "retrievedAt": "2026-11-05T16:02:11.113081+00:00",
+    "status": 200,
+    "bytes": 59502,
+    "sha256": "992c0ebdd58558f8ce95378b728cf9915fdc43014322b777abf23ffef0bc9eb4",
+    "path": "navi-helper__ai.pleos.playground.navi.data__navigation-screen-request__search-place__entry.html",
+    "iframes": []
+  },
+  {
+    "url": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.data/route-info/entry",
+    "resolvedUrl": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.data/route-info/entry",
+    "retrievedAt": "2026-11-05T16:02:11.181045+00:00",
+    "status": 200,
+    "bytes": 54275,
+    "sha256": "af19c762c17079dc52a25191623fd68e6e987e7f004dbccfdc73b15e37157761",
+    "path": "navi-helper__ai.pleos.playground.navi.data__route-info__entry.html",
+    "iframes": []
+  },
+  {
+    "url": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.data/recent-destination-info/entry",
+    "resolvedUrl": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.data/recent-destination-info/entry",
+    "retrievedAt": "2026-11-05T16:02:11.186773+00:00",
+    "status": 200,
+    "bytes": 54423,
+    "sha256": "577902b92a9fa1659d58b9d535a53a2e8baa21405302f117176735d36928f8b5",
+    "path": "navi-helper__ai.pleos.playground.navi.data__recent-destination-info__entry.html",
+    "iframes": []
+  },
+  {
+    "url": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.data/bookmark-info/entry",
+    "resolvedUrl": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.data/bookmark-info/entry",
+    "retrievedAt": "2026-11-05T16:02:11.190765+00:00",
+    "status": 200,
+    "bytes": 54277,
+    "sha256": "93583e1c0e0a2c4aeef72f0179116196622ed83d9e18c98c9661e1a441366433",
+    "path": "navi-helper__ai.pleos.playground.navi.data__bookmark-info__entry.html",
+    "iframes": []
+  },
+  {
+    "url": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/route-with-waypoints",
+    "resolvedUrl": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/route-with-waypoints",
+    "retrievedAt": "2026-11-05T16:15:31.090146+00:00",
+    "status": 200,
+    "bytes": 64279,
+    "sha256": "b4661d456efc9ad3a73530ed10fb9ce871cbb5d2706e1950d11887e41ea85130",
+    "path": "route-with-waypoints.html",
+    "iframes": []
+  },
+  {
+    "url": "https://document.pleos.ai/en/docs/pleos-only/release-note/sdk-release-note",
+    "resolvedUrl": "https://document.pleos.ai/en/docs/pleos-only/release-note/sdk-release-note",
+    "retrievedAt": "2026-11-05T16:50:28.789450+00:00",
+    "status": 200,
+    "bytes": 48631,
+    "sha256": "cca3d6363799f2e38d60596fe21ff2dbf05f4a1800e071aa78b537c153dcac18",
+    "path": "release-note__sdk-release-note.html",
+    "iframes": []
+  },
+  {
+    "url": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/initialization-and-release",
+    "resolvedUrl": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/initialization-and-release",
+    "retrievedAt": "2026-11-05T16:50:28.783025+00:00",
+    "status": 200,
+    "bytes": 65177,
+    "sha256": "1e2ac0d0d01f98af751f61d7805727d7f1f0f13a7f8fe6219e22db164a326d6f",
+    "path": "connect-sdk-pleos__NaviHelper__initialization-and-release.html",
+    "iframes": []
+  },
+  {
+    "url": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.data/route-start-info/entry",
+    "resolvedUrl": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.data/route-start-info/entry",
+    "retrievedAt": "2026-11-05T16:50:28.830957+00:00",
+    "status": 200,
+    "bytes": 54317,
+    "sha256": "c79dda371c415926df4b36b479f53500ad13a14f5786ed7d5c86cda8d78c0ec5",
+    "path": "connect-sdk-pleos__NaviHelper__navi-helper__ai.pleos.playground.navi.data__route-start-info__entry.html",
+    "iframes": []
+  },
+  {
+    "url": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.data/destination-info/entry",
+    "resolvedUrl": "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/NaviHelper/navi-helper/ai.pleos.playground.navi.data/destination-info/entry",
+    "retrievedAt": "2026-11-05T16:50:28.898898+00:00",
+    "status": 200,
+    "bytes": 54331,
+    "sha256": "ae9a913cadfa287f5afccd87e244b2ff03cf434fbba3e3a11a9c11ba9e9e5398",
+    "path": "connect-sdk-pleos__NaviHelper__navi-helper__ai.pleos.playground.navi.data__destination-info__entry.html",
+    "iframes": []
+  }
+]

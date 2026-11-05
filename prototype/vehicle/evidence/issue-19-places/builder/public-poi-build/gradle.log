@@ -1,0 +1,64 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.11.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :nativeDriver:preBuild UP-TO-DATE
+> Task :nativeDriver:preDebugBuild UP-TO-DATE
+> Task :nativeDriver:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :nativeDriver:checkKotlinGradlePluginConfigurationErrors
+> Task :nativeDriver:checkDebugAarMetadata UP-TO-DATE
+> Task :nativeDriver:generateDebugResValues UP-TO-DATE
+> Task :nativeDriver:mapDebugSourceSetPaths UP-TO-DATE
+> Task :nativeDriver:generateDebugResources UP-TO-DATE
+> Task :nativeDriver:mergeDebugResources UP-TO-DATE
+> Task :nativeDriver:packageDebugResources UP-TO-DATE
+> Task :nativeDriver:parseDebugLocalResources UP-TO-DATE
+> Task :nativeDriver:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :nativeDriver:extractDeepLinksDebug UP-TO-DATE
+> Task :nativeDriver:processDebugMainManifest UP-TO-DATE
+> Task :nativeDriver:processDebugManifest UP-TO-DATE
+> Task :nativeDriver:processDebugManifestForPackage UP-TO-DATE
+> Task :nativeDriver:processDebugResources UP-TO-DATE
+> Task :nativeDriver:javaPreCompileDebug UP-TO-DATE
+> Task :nativeDriver:mergeDebugShaders UP-TO-DATE
+> Task :nativeDriver:compileDebugShaders NO-SOURCE
+> Task :nativeDriver:generateDebugAssets UP-TO-DATE
+> Task :nativeDriver:mergeDebugAssets UP-TO-DATE
+> Task :nativeDriver:compressDebugAssets UP-TO-DATE
+> Task :nativeDriver:desugarDebugFileDependencies UP-TO-DATE
+> Task :nativeDriver:checkDebugDuplicateClasses UP-TO-DATE
+> Task :nativeDriver:mergeExtDexDebug UP-TO-DATE
+> Task :nativeDriver:mergeLibDexDebug UP-TO-DATE
+> Task :nativeDriver:mergeDebugJniLibFolders UP-TO-DATE
+> Task :nativeDriver:mergeDebugNativeLibs NO-SOURCE
+> Task :nativeDriver:stripDebugDebugSymbols NO-SOURCE
+> Task :nativeDriver:validateSigningDebug UP-TO-DATE
+> Task :nativeDriver:writeDebugAppMetadata UP-TO-DATE
+> Task :nativeDriver:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :nativeDriver:preDebugAndroidTestBuild SKIPPED
+> Task :nativeDriver:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :nativeDriver:extractProguardFiles UP-TO-DATE
+> Task :nativeDriver:preDebugUnitTestBuild UP-TO-DATE
+
+> Task :nativeDriver:compileDebugKotlin
+w: file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/issue-19-places/prototype/vehicle/nativeDriver/src/main/kotlin/ai/pleos/destinations/driver/NativeDestinationDriver.kt:74:50 'protectionLevel: Int' is deprecated. Deprecated in Java
+
+> Task :nativeDriver:compileDebugJavaWithJavac NO-SOURCE
+> Task :nativeDriver:dexBuilderDebug
+> Task :nativeDriver:mergeDebugGlobalSynthetics UP-TO-DATE
+> Task :nativeDriver:processDebugJavaRes UP-TO-DATE
+> Task :nativeDriver:mergeDebugJavaResource UP-TO-DATE
+> Task :nativeDriver:bundleDebugClassesToCompileJar
+> Task :nativeDriver:mergeProjectDexDebug
+> Task :nativeDriver:generateDebugLintReportModel
+> Task :nativeDriver:generateDebugAndroidTestLintModel
+> Task :nativeDriver:generateDebugUnitTestLintModel
+> Task :nativeDriver:packageDebug
+> Task :nativeDriver:createDebugApkListingFileRedirect UP-TO-DATE
+> Task :nativeDriver:assembleDebug
+> Task :nativeDriver:lintAnalyzeDebugUnitTest
+> Task :nativeDriver:lintAnalyzeDebugAndroidTest
+> Task :nativeDriver:lintAnalyzeDebug
+> Task :nativeDriver:lintReportDebug UP-TO-DATE
+> Task :nativeDriver:lintDebug
+
+BUILD SUCCESSFUL in 22s
+45 actionable tasks: 13 executed, 32 up-to-date

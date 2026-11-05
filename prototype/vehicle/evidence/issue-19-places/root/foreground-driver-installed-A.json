@@ -1,0 +1,20 @@
+{
+  "serial": "emulator-5570",
+  "user": 10,
+  "sha256": "8265a4cadd0062a960ea7b7a2bc0db8e8cde5731e1685b3e1f009bb9ac14399a",
+  "argv": [
+    "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+    "-P",
+    "5041",
+    "-s",
+    "emulator-5570",
+    "install",
+    "--user",
+    "10",
+    "-t",
+    "-r",
+    "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/foreground-activity-build/nativeDriver-debug.apk"
+  ],
+  "exitCode": 0,
+  "stdout": "Performing Streamed Install\nSuccess"
+}

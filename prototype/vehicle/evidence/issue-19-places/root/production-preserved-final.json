@@ -1,0 +1,25 @@
+{
+  "at": "2026-11-05T17:01:08.438084+00:00",
+  "scope": "two approved virtual cars user10, dedicated5041 only",
+  "priorAssertionCorrection": "automatic diagnostic is enum string OFF; earlier comparison to boolean False failed and was not counted as a passing check",
+  "devices": [
+    {
+      "serial": "emulator-5570",
+      "user": 10,
+      "productionApkSha256": "e855437d1c7a44eb5612d56e564d44da3c16b95cd92f5ff7284e34c62e1e4db9",
+      "automatic": "OFF",
+      "proposalLease": false,
+      "cachedRevision": 5,
+      "productionApkUnchanged": true
+    },
+    {
+      "serial": "emulator-5572",
+      "user": 10,
+      "productionApkSha256": "e855437d1c7a44eb5612d56e564d44da3c16b95cd92f5ff7284e34c62e1e4db9",
+      "automatic": "OFF",
+      "proposalLease": false,
+      "cachedRevision": -1,
+      "productionApkUnchanged": true
+    }
+  ]
+}

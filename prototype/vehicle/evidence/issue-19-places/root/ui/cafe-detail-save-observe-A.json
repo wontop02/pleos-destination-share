@@ -1,0 +1,356 @@
+{
+  "hostAt": "2026-11-05T16:15:43.564126+00:00",
+  "serial": "emulator-5570",
+  "user": 10,
+  "command": {
+    "argv": [
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+      "-P",
+      "5041",
+      "-s",
+      "emulator-5570",
+      "shell",
+      "am instrument --user 10 -w -r -e mode observe -e durationMs 18000 ai.pleos.destinations.driver/.NativeDestinationDriver"
+    ],
+    "exitCode": 0
+  },
+  "seconds": 21.387664458000003,
+  "productionPidBefore": "29112",
+  "productionPidAfter": "29112",
+  "productionProcessUnchanged": true,
+  "result": {
+    "sdk": "ai.pleos.playground:NaviHelper:3.0.5",
+    "mode": "observe",
+    "startedAt": 1793895324231,
+    "targetPackage": "ai.pleos.destinations.driver",
+    "processId": 18328,
+    "initialDestination": {
+      "latitude": 37.41289678,
+      "longitude": 127.09383464,
+      "displayLatitude": null,
+      "displayLongitude": null,
+      "name": "42dot",
+      "address": "수정구 시흥동",
+      "poiId": "36khp37hh8gqcm5nqhe5",
+      "poiSubId": null,
+      "poiSubIdMissing": true,
+      "poiProvider": "",
+      "remainDistance": 50,
+      "remainTime": 60,
+      "tollFare": 0
+    },
+    "observationDurationMs": 18000,
+    "destinationObservations": [
+      {
+        "latitude": 37.41289678,
+        "longitude": 127.09383464,
+        "displayLatitude": null,
+        "displayLongitude": null,
+        "name": "42dot",
+        "address": "수정구 시흥동",
+        "poiId": "36khp37hh8gqcm5nqhe5",
+        "poiSubId": null,
+        "poiSubIdMissing": true,
+        "poiProvider": "",
+        "remainDistance": 50,
+        "remainTime": 60,
+        "tollFare": 0
+      },
+      {
+        "latitude": 37.41289678,
+        "longitude": 127.09383464,
+        "displayLatitude": null,
+        "displayLongitude": null,
+        "name": "42dot",
+        "address": "수정구 시흥동",
+        "poiId": "36khp37hh8gqcm5nqhe5",
+        "poiSubId": null,
+        "poiSubIdMissing": true,
+        "poiProvider": "",
+        "remainDistance": 50,
+        "remainTime": 60,
+        "tollFare": 0
+      },
+      {
+        "latitude": 37.41289678,
+        "longitude": 127.09383464,
+        "displayLatitude": null,
+        "displayLongitude": null,
+        "name": "42dot",
+        "address": "수정구 시흥동",
+        "poiId": "36khp37hh8gqcm5nqhe5",
+        "poiSubId": null,
+        "poiSubIdMissing": true,
+        "poiProvider": "",
+        "remainDistance": 50,
+        "remainTime": 60,
+        "tollFare": 0
+      },
+      {
+        "latitude": 37.41289678,
+        "longitude": 127.09383464,
+        "displayLatitude": null,
+        "displayLongitude": null,
+        "name": "42dot",
+        "address": "수정구 시흥동",
+        "poiId": "36khp37hh8gqcm5nqhe5",
+        "poiSubId": null,
+        "poiSubIdMissing": true,
+        "poiProvider": "",
+        "remainDistance": 50,
+        "remainTime": 60,
+        "tollFare": 0
+      },
+      {
+        "latitude": 37.41289678,
+        "longitude": 127.09383464,
+        "displayLatitude": null,
+        "displayLongitude": null,
+        "name": "42dot",
+        "address": "수정구 시흥동",
+        "poiId": "36khp37hh8gqcm5nqhe5",
+        "poiSubId": null,
+        "poiSubIdMissing": true,
+        "poiProvider": "",
+        "remainDistance": 50,
+        "remainTime": 60,
+        "tollFare": 0
+      },
+      {
+        "latitude": 37.41289678,
+        "longitude": 127.09383464,
+        "displayLatitude": null,
+        "displayLongitude": null,
+        "name": "42dot",
+        "address": "수정구 시흥동",
+        "poiId": "36khp37hh8gqcm5nqhe5",
+        "poiSubId": null,
+        "poiSubIdMissing": true,
+        "poiProvider": "",
+        "remainDistance": 50,
+        "remainTime": 60,
+        "tollFare": 0
+      },
+      {
+        "latitude": 37.41289678,
+        "longitude": 127.09383464,
+        "displayLatitude": null,
+        "displayLongitude": null,
+        "name": "42dot",
+        "address": "수정구 시흥동",
+        "poiId": "36khp37hh8gqcm5nqhe5",
+        "poiSubId": null,
+        "poiSubIdMissing": true,
+        "poiProvider": "",
+        "remainDistance": 50,
+        "remainTime": 60,
+        "tollFare": 0
+      }
+    ],
+    "destinationIdentityUnchanged": true,
+    "allObservationQueriesAnswered": true,
+    "reason": "read_only_native_destination_samples_observed",
+    "status": "OBSERVED",
+    "finishedAt": 1793895343710,
+    "routeStartedObserved": false,
+    "routingCompletedObserved": false,
+    "routeRequestCount": 0,
+    "navigationScreenRequestCount": 0,
+    "events": [
+      {
+        "event": "connected",
+        "at": 1793895324459,
+        "session": 1
+      },
+      {
+        "query": 1,
+        "event": "getDestinationInfo",
+        "at": 1793895324459,
+        "session": 1
+      },
+      {
+        "query": 1,
+        "destination": {
+          "latitude": 37.41289678,
+          "longitude": 127.09383464,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "42dot",
+          "address": "수정구 시흥동",
+          "poiId": "36khp37hh8gqcm5nqhe5",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 50,
+          "remainTime": 60,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793895325525,
+        "session": 1
+      },
+      {
+        "query": 2,
+        "event": "getDestinationInfo",
+        "at": 1793895327531,
+        "session": 1
+      },
+      {
+        "query": 2,
+        "destination": {
+          "latitude": 37.41289678,
+          "longitude": 127.09383464,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "42dot",
+          "address": "수정구 시흥동",
+          "poiId": "36khp37hh8gqcm5nqhe5",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 50,
+          "remainTime": 60,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793895328566,
+        "session": 1
+      },
+      {
+        "query": 3,
+        "event": "getDestinationInfo",
+        "at": 1793895330567,
+        "session": 1
+      },
+      {
+        "query": 3,
+        "destination": {
+          "latitude": 37.41289678,
+          "longitude": 127.09383464,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "42dot",
+          "address": "수정구 시흥동",
+          "poiId": "36khp37hh8gqcm5nqhe5",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 50,
+          "remainTime": 60,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793895331596,
+        "session": 1
+      },
+      {
+        "query": 4,
+        "event": "getDestinationInfo",
+        "at": 1793895333596,
+        "session": 1
+      },
+      {
+        "query": 4,
+        "destination": {
+          "latitude": 37.41289678,
+          "longitude": 127.09383464,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "42dot",
+          "address": "수정구 시흥동",
+          "poiId": "36khp37hh8gqcm5nqhe5",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 50,
+          "remainTime": 60,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793895334636,
+        "session": 1
+      },
+      {
+        "query": 5,
+        "event": "getDestinationInfo",
+        "at": 1793895336638,
+        "session": 1
+      },
+      {
+        "query": 5,
+        "destination": {
+          "latitude": 37.41289678,
+          "longitude": 127.09383464,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "42dot",
+          "address": "수정구 시흥동",
+          "poiId": "36khp37hh8gqcm5nqhe5",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 50,
+          "remainTime": 60,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793895337654,
+        "session": 1
+      },
+      {
+        "query": 6,
+        "event": "getDestinationInfo",
+        "at": 1793895339655,
+        "session": 1
+      },
+      {
+        "query": 6,
+        "destination": {
+          "latitude": 37.41289678,
+          "longitude": 127.09383464,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "42dot",
+          "address": "수정구 시흥동",
+          "poiId": "36khp37hh8gqcm5nqhe5",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 50,
+          "remainTime": 60,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793895340675,
+        "session": 1
+      },
+      {
+        "query": 7,
+        "event": "getDestinationInfo",
+        "at": 1793895342676,
+        "session": 1
+      },
+      {
+        "query": 7,
+        "destination": {
+          "latitude": 37.41289678,
+          "longitude": 127.09383464,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "42dot",
+          "address": "수정구 시흥동",
+          "poiId": "36khp37hh8gqcm5nqhe5",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 50,
+          "remainTime": 60,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793895343701,
+        "session": 1
+      }
+    ]
+  }
+}

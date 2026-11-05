@@ -1,0 +1,184 @@
+{
+  "hostAt": "2026-11-05T16:57:14.005235+00:00",
+  "serial": "emulator-5570",
+  "user": 10,
+  "command": {
+    "argv": [
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+      "-P",
+      "5041",
+      "-s",
+      "emulator-5570",
+      "shell",
+      "am instrument --user 10 -w -r -e mode bookmarks -e publicNamesJson '[\"HD현대오일뱅크 세종주유소\"]' ai.pleos.destinations.driver/.NativeDestinationDriver"
+    ],
+    "exitCode": 0
+  },
+  "seconds": 3.6307615,
+  "productionPidBefore": "29112",
+  "productionPidAfter": "29112",
+  "productionProcessUnchanged": true,
+  "result": {
+    "sdk": "ai.pleos.playground:NaviHelper:3.0.5",
+    "mode": "bookmarks",
+    "startedAt": 1793897831924,
+    "targetPackage": "ai.pleos.destinations.driver",
+    "processId": 23516,
+    "initialDestination": {
+      "latitude": 37.41289678,
+      "longitude": 127.09383464,
+      "displayLatitude": null,
+      "displayLongitude": null,
+      "name": "42dot",
+      "address": "수정구 시흥동",
+      "poiId": "36khp37hh8gqcm5nqhe5",
+      "poiSubId": null,
+      "poiSubIdMissing": true,
+      "poiProvider": "",
+      "remainDistance": 50,
+      "remainTime": 60,
+      "tollFare": 0
+    },
+    "publicNameAllowlist": [
+      "HD현대오일뱅크 세종주유소"
+    ],
+    "bookmarkObservation": {
+      "query": 2,
+      "callbackSource": "NaviHelperEventListener.onBookmarkInfo",
+      "entryCount": 4,
+      "allowlistedEntryCount": 1,
+      "omittedEntryCount": 3,
+      "entries": [
+        {
+          "name": "HD현대오일뱅크 세종주유소",
+          "latitude": 37.42205413,
+          "longitude": 127.10318229,
+          "address": "경기도 성남시 수정구 여수대로 10",
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "poiId": "36khp23245r6cm5nqhe3",
+          "poiSubId": null,
+          "poiProvider": ""
+        }
+      ],
+      "exactPublicNameFilterApplied": true,
+      "event": "onBookmarkInfo",
+      "at": 1793897833170,
+      "session": 1
+    },
+    "postBookmarkDestination": {
+      "latitude": 37.41289678,
+      "longitude": 127.09383464,
+      "displayLatitude": null,
+      "displayLongitude": null,
+      "name": "42dot",
+      "address": "수정구 시흥동",
+      "poiId": "36khp37hh8gqcm5nqhe5",
+      "poiSubId": null,
+      "poiSubIdMissing": true,
+      "poiProvider": "",
+      "remainDistance": 50,
+      "remainTime": 60,
+      "tollFare": 0
+    },
+    "destinationIdentityUnchanged": true,
+    "reason": "allowlisted_public_bookmark_fields_observed",
+    "status": "OBSERVED",
+    "finishedAt": 1793897834189,
+    "routeStartedObserved": false,
+    "routingCompletedObserved": false,
+    "routeRequestCount": 0,
+    "navigationScreenRequestCount": 0,
+    "events": [
+      {
+        "event": "connected",
+        "at": 1793897832055,
+        "session": 1
+      },
+      {
+        "query": 1,
+        "event": "getDestinationInfo",
+        "at": 1793897832055,
+        "session": 1
+      },
+      {
+        "query": 1,
+        "destination": {
+          "latitude": 37.41289678,
+          "longitude": 127.09383464,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "42dot",
+          "address": "수정구 시흥동",
+          "poiId": "36khp37hh8gqcm5nqhe5",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 50,
+          "remainTime": 60,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793897833116,
+        "session": 1
+      },
+      {
+        "query": 2,
+        "event": "getBookmarkInfo",
+        "at": 1793897833117,
+        "session": 1
+      },
+      {
+        "query": 2,
+        "callbackSource": "NaviHelperEventListener.onBookmarkInfo",
+        "entryCount": 4,
+        "allowlistedEntryCount": 1,
+        "omittedEntryCount": 3,
+        "entries": [
+          {
+            "name": "HD현대오일뱅크 세종주유소",
+            "latitude": 37.42205413,
+            "longitude": 127.10318229,
+            "address": "경기도 성남시 수정구 여수대로 10",
+            "displayLatitude": null,
+            "displayLongitude": null,
+            "poiId": "36khp23245r6cm5nqhe3",
+            "poiSubId": null,
+            "poiProvider": ""
+          }
+        ],
+        "exactPublicNameFilterApplied": true,
+        "event": "onBookmarkInfo",
+        "at": 1793897833170,
+        "session": 1
+      },
+      {
+        "query": 3,
+        "event": "getDestinationInfo",
+        "at": 1793897833170,
+        "session": 1
+      },
+      {
+        "query": 3,
+        "destination": {
+          "latitude": 37.41289678,
+          "longitude": 127.09383464,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "42dot",
+          "address": "수정구 시흥동",
+          "poiId": "36khp37hh8gqcm5nqhe5",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 50,
+          "remainTime": 60,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793897834186,
+        "session": 1
+      }
+    ]
+  }
+}

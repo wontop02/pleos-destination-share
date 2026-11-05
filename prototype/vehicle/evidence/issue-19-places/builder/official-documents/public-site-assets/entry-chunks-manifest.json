@@ -1,0 +1,55 @@
+{
+  "purpose": "Read official public documentation static raw HTML only; no JS execution, SDK body or vendor APK inspection",
+  "pages": [
+    {
+      "sourcePath": ".data/destination-info/entry.mdx",
+      "chunks": [
+        "79260",
+        "94802"
+      ]
+    },
+    {
+      "sourcePath": ".data/route-info/entry.mdx",
+      "chunks": [
+        "79260",
+        "23637"
+      ]
+    },
+    {
+      "sourcePath": ".data/route-start-info/entry.mdx",
+      "chunks": [
+        "79260",
+        "77859"
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "chunkId": "94802",
+      "url": "https://document.pleos.ai/en/assets/js/e23c1b13.4ca33874.js",
+      "retrievedAt": "2026-11-05T16:49:36.176368+00:00",
+      "status": 200,
+      "bytes": 96957,
+      "sha256": "5795ddf7342e00922260ae822900900c059d9d6431180777cf30309df4c77a51",
+      "path": "e23c1b13.4ca33874.js"
+    },
+    {
+      "chunkId": "23637",
+      "url": "https://document.pleos.ai/en/assets/js/b679c257.632d6fac.js",
+      "retrievedAt": "2026-11-05T16:49:36.182031+00:00",
+      "status": 200,
+      "bytes": 94727,
+      "sha256": "34655be33114624446c034abcaebfccacd293ead56581839a2663aca76bb26fe",
+      "path": "b679c257.632d6fac.js"
+    },
+    {
+      "chunkId": "77859",
+      "url": "https://document.pleos.ai/en/assets/js/787824e4.d767400e.js",
+      "retrievedAt": "2026-11-05T16:49:36.173244+00:00",
+      "status": 200,
+      "bytes": 79899,
+      "sha256": "9400085dbc218f598ee5e10ccb24f634886c0c8296c5ebbf3ce765546d4005fd",
+      "path": "787824e4.d767400e.js"
+    }
+  ]
+}

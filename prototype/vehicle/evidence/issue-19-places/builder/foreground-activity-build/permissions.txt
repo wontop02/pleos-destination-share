@@ -1,0 +1,4 @@
+package: ai.pleos.destinations.driver
+uses-permission: name='pleos.car.permission.NAVI_ROUTE'
+uses-permission: name='pleos.car.permission.NAVI_ROUTE_SEARCH'
+uses-permission: name='pleos.car.permission.NAVI_CUSTOM_MAP'

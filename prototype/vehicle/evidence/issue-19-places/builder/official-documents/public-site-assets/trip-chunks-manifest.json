@@ -1,0 +1,71 @@
+{
+  "purpose": "Bounded public documentation check of trip result shapes; no runtime call",
+  "pages": [
+    {
+      "sourcePath": ".data/trip-request/entry.mdx",
+      "chunks": [
+        "79260",
+        "83394"
+      ]
+    },
+    {
+      "sourcePath": ".data/trip-info/entry.mdx",
+      "chunks": [
+        "79260",
+        "52843"
+      ]
+    },
+    {
+      "sourcePath": ".data/trip-summary/entry.mdx",
+      "chunks": [
+        "79260",
+        "91175"
+      ]
+    },
+    {
+      "sourcePath": ".helper/navi-helper/request-trip.mdx",
+      "chunks": [
+        "79260",
+        "72066"
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "chunkId": "83394",
+      "url": "https://document.pleos.ai/en/assets/js/191a754b.1970a6b6.js",
+      "retrievedAt": "2026-11-05T16:57:21.378381+00:00",
+      "status": 200,
+      "bytes": 80041,
+      "sha256": "701d8ed6ecd5ca9e9dc77417a336b63bd4b1adbd3efe3c82beb0c33463b9041b",
+      "path": "191a754b.1970a6b6.js"
+    },
+    {
+      "chunkId": "52843",
+      "url": "https://document.pleos.ai/en/assets/js/85596d2f.f4cf2bdd.js",
+      "retrievedAt": "2026-11-05T16:57:21.383785+00:00",
+      "status": 200,
+      "bytes": 79283,
+      "sha256": "1eb47ae0653a267a8f7ae1ad20f1f9550b88f14bf78e18798ba4e3a03908d0c6",
+      "path": "85596d2f.f4cf2bdd.js"
+    },
+    {
+      "chunkId": "91175",
+      "url": "https://document.pleos.ai/en/assets/js/b2fe55f6.46b1bf20.js",
+      "retrievedAt": "2026-11-05T16:57:21.371097+00:00",
+      "status": 200,
+      "bytes": 73796,
+      "sha256": "8b7e90c47f286970b3fb5d9a602d7926dfb5209ce06c75d01ded09f9999d78f9",
+      "path": "b2fe55f6.46b1bf20.js"
+    },
+    {
+      "chunkId": "72066",
+      "url": "https://document.pleos.ai/en/assets/js/670fd184.2b407233.js",
+      "retrievedAt": "2026-11-05T16:57:21.439121+00:00",
+      "status": 200,
+      "bytes": 69036,
+      "sha256": "a1f49e113a43bc10196ca583da11c429b22d5b5eb35a0555e7820d71b88bc64e",
+      "path": "670fd184.2b407233.js"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "url": "https://document.pleos.ai/en/assets/js/runtime~main.5b0723af.js",
+    "retrievedAt": "2026-11-05T16:40:17.192223+00:00",
+    "status": 200,
+    "bytes": 267104,
+    "sha256": "2525ae79d485c8af1c0ee117a7478b93a871faee3a60ceaf8df567dfbb9cacf3",
+    "path": "runtime~main.5b0723af.js"
+  },
+  {
+    "url": "https://document.pleos.ai/en/assets/js/main.ad663b68.js",
+    "retrievedAt": "2026-11-05T16:40:17.208125+00:00",
+    "status": 200,
+    "bytes": 7004874,
+    "sha256": "d26135bc5dffbfc42b39f546454c63a35ade94220cafb112581e1776f2e4d9f2",
+    "path": "main.ad663b68.js"
+  }
+]

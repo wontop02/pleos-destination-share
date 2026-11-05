@@ -1,0 +1,51 @@
+[
+  {
+    "argv": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+      "dump",
+      "badging",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/trip-build/nativeDriver-debug.apk"
+    ],
+    "exitCode": 0,
+    "stdoutFile": "badging.txt",
+    "stdoutSha256": "4be120d6b75d9cffe563ad5308c27cc84188f456319993667bd78963cddf53a6",
+    "stderrEmpty": true
+  },
+  {
+    "argv": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+      "dump",
+      "permissions",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/trip-build/nativeDriver-debug.apk"
+    ],
+    "exitCode": 0,
+    "stdoutFile": "permissions.txt",
+    "stdoutSha256": "5f81cba5126fa3e34094a275da8c5cd88ea6fa7d6267a3d49fb374233300ec31",
+    "stderrEmpty": true
+  },
+  {
+    "argv": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+      "dump",
+      "xmltree",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/trip-build/nativeDriver-debug.apk",
+      "AndroidManifest.xml"
+    ],
+    "exitCode": 0,
+    "stdoutFile": "xmltree.txt",
+    "stdoutSha256": "9538d5548a2222413ae0091bb279cc6b06dcca1b9bdae3bfe963c945175f1388",
+    "stderrEmpty": true
+  },
+  {
+    "argv": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/apksigner",
+      "verify",
+      "--print-certs",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/trip-build/nativeDriver-debug.apk"
+    ],
+    "exitCode": 0,
+    "stdoutFile": "signer.txt",
+    "stdoutSha256": "d021c90de64e598ead5d2c02257847136998e3429db786cca38a657089ccdf2f",
+    "stderrEmpty": false
+  }
+]
