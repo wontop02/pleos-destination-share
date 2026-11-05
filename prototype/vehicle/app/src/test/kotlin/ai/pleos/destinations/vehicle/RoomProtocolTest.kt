@@ -97,4 +97,24 @@ class RoomProtocolTest {
         many.line("data: " + "x".repeat(70_000))
         assertThrows(IllegalArgumentException::class.java) { many.line("data: " + "x".repeat(70_000)) }
     }
+    @Test fun retainedAcceptedProvenanceIsIndependentOfLatestCandidateAndMustMatchSharedRevisionAndTarget() {
+        val body = pendingFrame(); val accepted = body.getJSONObject("proposal")
+        accepted.put("status", "accepted").put("version", 2).put("acceptedRevision", 1).put("endedAt", 2000)
+        accepted.getJSONArray("responses").getJSONObject(1).put("response", "accepted").put("respondedAt", 2000)
+        val later = pendingFrame().getJSONObject("proposal").put("id", "d".repeat(24)).put("baseRevision", 1)
+            .put("destination", RoomProtocol.destinationJson(PrototypePlaces.all[1]))
+        body.put("proposal", later).put("acceptedProposal", accepted).put("destination", accepted.getJSONObject("destination"))
+            .put("revision", 1).put("sequence", 4).put("serverTime", 2000)
+        val update = RoomProtocol.update(body)
+        assertEquals("pending", update.proposal!!.status); assertEquals("accepted", update.acceptedProposal!!.status)
+        assertNotEquals(update.proposal!!.id, update.acceptedProposal!!.id)
+        accepted.put("acceptedRevision", 2)
+        assertThrows(Exception::class.java) { RoomProtocol.update(body) }
+        accepted.put("acceptedRevision", 1)
+        body.put("destination", RoomProtocol.destinationJson(PrototypePlaces.all[1]))
+        assertThrows(Exception::class.java) { RoomProtocol.update(body) }
+        body.put("acceptedProposal", JSONObject.NULL)
+        assertNull(RoomProtocol.update(body).acceptedProposal)
+    }
+
 }

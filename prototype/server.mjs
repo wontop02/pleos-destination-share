@@ -150,13 +150,16 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
     acceptedRevision: proposal.acceptedRevision ?? null, endedAt: proposal.endedAt ?? null,
     invalidatedBy: proposal.invalidatedBy ?? null,
   }) : null;
-  const frame = (room, proposal = room.proposal) => ({ destination: room.destination, revision: room.revision,
-    sequence: room.sequence, proposal: publicProposal(proposal), serverTime: now() });
+  const frame = (room) => ({ destination: room.destination, revision: room.revision,
+    sequence: room.sequence, proposal: publicProposal(room.proposal), acceptedProposal: publicProposal(room.acceptedProposal), serverTime: now() });
+  const proposalResult = (room, proposal, duplicate) => ({ ...frame(room), duplicate,
+    result: { proposalId: proposal.id, version: proposal.version, status: proposal.status, acceptedRevision: proposal.acceptedRevision ?? null } });
   const state = (room, member) => ({
     room: { id: room.id, createdAt: room.createdAt, expiresAt: room.expiresAt },
     self: { id: member.id, name: member.name, role: member.role }, members: members(room),
     destination: room.destination, revision: room.revision, sequence: room.sequence,
     proposal: publicProposal(room.proposal),
+    acceptedProposal: publicProposal(room.acceptedProposal),
     voiceMessages: [...room.messages.values()].map(publicMessage), serverTime: now(),
   });
   const writeStream = (stream, value) => {
@@ -193,6 +196,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
     clearTimeout(room.proposalTimer); room.proposalTimer = null;
     room.revision += 1; proposal.acceptedRevision = room.revision;
     room.destination = { ...proposal.destination, changedAt: now(), changedBy: proposal.proposer.id };
+    room.acceptedProposal = proposal; // Current destination provenance survives later proposals.
     return true;
   }
   function removeRoom(room, reason) {
@@ -207,7 +211,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
     for (const member of room.members.values()) { member.sent.clear(); member.token = ''; }
     room.members.clear();
     room.inviteSecret = '';
-    room.proposals.clear(); room.proposal = null;
+    room.proposals.clear(); room.proposal = null; room.acceptedProposal = null;
     rooms.delete(room.id);
   }
   function cleanupExpired() {
@@ -282,7 +286,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
         const createdAt = now();
         const room = { id: id(), inviteSecret: secret(), members: new Map(), messages: new Map(),
           streams: new Set(), createdAt, expiresAt: createdAt + ttlMs, destination: null, revision: 0, sequence: 0,
-          proposals: new Map(), proposal: null };
+          proposals: new Map(), proposal: null, acceptedProposal: null };
         const member = addMember(room, name, 'host');
         rooms.set(room.id, room);
         return json(201, { roomId: room.id, memberId: member.id, role: member.role, token: member.token,
@@ -348,6 +352,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
         room.revision += 1;
         room.sequence += 1;
         room.destination = body.destination === null ? null : { ...body.destination, changedAt: now(), changedBy: member.id };
+        room.acceptedProposal = null;
         const update = frame(room);
         broadcast(room, 'destination', update);
         return json(200, update);
@@ -368,7 +373,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
         const existing = room.proposals.get(body.id);
         if (existing) {
           if (existing.fingerprint !== fingerprint) reject(409, 'proposal_id_conflict', '같은 제안 ID에 다른 요청이 있습니다.');
-          return json(200, { ...frame(room, existing), duplicate: true });
+          return json(200, proposalResult(room, existing, true));
         }
         if (body.expectedRevision !== room.revision) reject(409, 'destination_revision_conflict', '더 최신 목적지가 있습니다. 다시 조회해 주세요.');
         if (room.proposal?.status === 'pending') reject(409, 'proposal_pending', '진행 중인 제안에 먼저 응답해 주세요.');
@@ -387,7 +392,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
         const accepted = commitIfUnanimous(room, proposal);
         room.sequence += 1;
         broadcast(room, accepted ? 'destination' : 'proposal', frame(room));
-        return json(201, { ...frame(room), duplicate: false });
+        return json(201, proposalResult(room, proposal, false));
       }
       if (action?.startsWith('proposals/') && req.method === 'POST') {
         const body = await jsonBody(req);
@@ -402,7 +407,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
         if (!vote) reject(403, 'proposal_member_required', '이 제안의 참여자가 아닙니다.');
         if (proposal.baseRevision !== body.expectedRevision) reject(409, 'proposal_revision_conflict', '제안의 목적지 버전이 다릅니다.');
         if (vote.response === body.response && vote.requestVersion === body.version) {
-          return json(200, { ...frame(room, proposal), duplicate: true });
+          return json(200, proposalResult(room, proposal, true));
         }
         if (proposal !== room.proposal || proposal.status !== 'pending' || proposal.version !== body.version || vote.response !== 'pending') {
           reject(409, 'proposal_stale', '이미 응답했거나 종료·변경된 제안입니다. 다시 조회해 주세요.');
@@ -413,7 +418,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
         const accepted = proposal.status === 'pending' && commitIfUnanimous(room, proposal);
         room.sequence += 1;
         broadcast(room, accepted ? 'destination' : 'proposal', frame(room));
-        return json(200, { ...frame(room), duplicate: false });
+        return json(200, proposalResult(room, proposal, false));
       }
       if (action === 'voice' && req.method === 'POST') {
         const clientMessageId = req.headers['x-client-message-id'];

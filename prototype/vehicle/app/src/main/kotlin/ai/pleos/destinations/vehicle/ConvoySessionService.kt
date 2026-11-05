@@ -32,6 +32,7 @@ class ConvoySessionService : Service() {
     private var ticking = false
     private var lastState: VehicleState? = null
     private var lastProposal: DestinationProposal? = null
+    private var lastAcceptedProposal: DestinationProposal? = null
     private var lastProposalLease = false
     private var lastProposalBusy = false
     private var lastProposalMessage = ""
@@ -51,10 +52,10 @@ class ConvoySessionService : Service() {
         session = VehicleSession(PleosNavigationGateway(applicationContext), SystemClock::elapsedRealtime,
             SecureSessionStore(this), Executors.newFixedThreadPool(3), { main.post(it) }, journal::append)
         session.observe {
-            if (lastState != it.state || lastProposal != it.proposal || lastProposalLease != it.hasProposalLease || lastProposalBusy != it.proposalBusy || lastProposalMessage != it.proposalMessage) {
-                lastState = it.state; lastProposal = it.proposal; lastProposalLease = it.hasProposalLease; lastProposalBusy = it.proposalBusy; lastProposalMessage = it.proposalMessage
+            if (lastState != it.state || lastProposal != it.proposal || lastAcceptedProposal != it.acceptedProposal || lastProposalLease != it.hasProposalLease || lastProposalBusy != it.proposalBusy || lastProposalMessage != it.proposalMessage) {
+                lastState = it.state; lastProposal = it.proposal; lastAcceptedProposal = it.acceptedProposal; lastProposalLease = it.hasProposalLease; lastProposalBusy = it.proposalBusy; lastProposalMessage = it.proposalMessage
                 journal.session("sessionState", it.state, session.coordinator.roomEpoch, serviceEpoch, uiCount,
-                    it.proposal, it.hasProposalLease, it.proposalBusy, it.proposalMessage, it.coordinator.proposalPublicationHeld)
+                    it.proposal, it.hasProposalLease, it.proposalBusy, it.proposalMessage, it.coordinator.proposalPublicationHeld, it.acceptedProposal)
             }
             if (foreground) {
                 if (it.state.automatic == AutomaticMode.OFF && !it.pendingAutomatic && !it.hasProposalLease) finishForeground()
@@ -102,7 +103,7 @@ class ConvoySessionService : Service() {
                     }
                     ensureTicker(); action()
                     journal.session("coordinationServiceStart", session.state, session.coordinator.roomEpoch, serviceEpoch, uiCount,
-                        session.proposal, session.hasProposalLease, session.proposalBusy, session.proposalMessage, session.coordinator.proposalPublicationHeld)
+                        session.proposal, session.hasProposalLease, session.proposalBusy, session.proposalMessage, session.coordinator.proposalPublicationHeld, session.acceptedProposal)
                     if (session.state.automatic == AutomaticMode.OFF && !session.pendingAutomatic && !session.hasProposalLease) finishForeground()
                 } else if (!foreground) stopSelfResult(startId)
             }
@@ -115,11 +116,11 @@ class ConvoySessionService : Service() {
         authorizedAction = null
         session.stopAutomatic()
         journal.session("automaticServiceStop", session.state, session.coordinator.roomEpoch, serviceEpoch, uiCount,
-            session.proposal, session.hasProposalLease, session.proposalBusy, session.proposalMessage, session.coordinator.proposalPublicationHeld)
+            session.proposal, session.hasProposalLease, session.proposalBusy, session.proposalMessage, session.coordinator.proposalPublicationHeld, session.acceptedProposal)
         finishForeground()
     }
     private fun record(event: String) = journal.session(event, session.state, session.coordinator.roomEpoch, serviceEpoch, uiCount,
-        session.proposal, session.hasProposalLease, session.proposalBusy, session.proposalMessage, session.coordinator.proposalPublicationHeld)
+        session.proposal, session.hasProposalLease, session.proposalBusy, session.proposalMessage, session.coordinator.proposalPublicationHeld, session.acceptedProposal)
     private fun ensureTicker() { if (!ticking) { ticking = true; main.post(ticker) } }
     private fun finishForeground() {
         foreground = false; authorizedAction = null
@@ -134,7 +135,7 @@ class ConvoySessionService : Service() {
         val status = when {
             session.pendingAutomatic -> "공유방 인증 확인 중"
             session.proposalBusy -> "제안 응답 확인 중 · 순정 안내 유지"
-            session.hasProposalLease && session.proposal?.status != "accepted" -> "제안 대기 · 전원 수락 전 안내 유지"
+            session.hasProposalLease && !session.hasProposalOperation -> "제안 대기 · 전원 수락 전 안내 유지"
             session.hasProposalLease -> when (state.applying) {
                 ai.pleos.destinations.core.ApplyPhase.CONFIRMED -> "순정 목적지 일치 확인"
                 ai.pleos.destinations.core.ApplyPhase.FAILED -> "순정 반영 실패 · 직접 재시도 필요"

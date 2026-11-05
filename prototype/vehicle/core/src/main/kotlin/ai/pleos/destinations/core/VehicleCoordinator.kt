@@ -55,7 +55,8 @@ class VehicleCoordinator(
     private var reconnectPending: PendingRouteConfirmation? = null
     private var observedForPublish: Destination? = null
     private var hasObservedForPublish = false
-    var proposalPublicationHeld = false; private set
+    private var pendingProposalHeld = false
+    val proposalPublicationHeld: Boolean get() = pendingProposalHeld || proposalRevision >= 0
     private var proposalRevision = -1L
     private enum class Purpose { OBSERVE, SHARE, VERIFY }
     private data class Read(val id: Long, val purpose: Purpose, val room: Long, val deadline: Long, var dirty: Boolean = false)
@@ -73,7 +74,7 @@ class VehicleCoordinator(
 
     /** Called before processing a pending/accepted room frame, including the initial snapshot. */
     fun protectProposal(acceptedRevision: Long? = null) {
-        proposalPublicationHeld = true
+        if (acceptedRevision == null) pendingProposalHeld = true else pendingProposalHeld = false
         hasObservedForPublish = false
         // The HTTP request may already exist, but it cannot keep a new explicit apply blocked.
         // Its revision CAS and the session's publication generation fence its eventual result.
@@ -87,9 +88,24 @@ class VehicleCoordinator(
 
     /** Success window ended or the user explicitly reset protection; take a fresh native read. */
     fun releaseProposalProtection() {
-        proposalPublicationHeld = false; proposalRevision = -1
+        pendingProposalHeld = false; proposalRevision = -1
         hasObservedForPublish = false; autoObserveAt = clock()
         trace("proposalPublicationReleased")
+    }
+
+    /** A later unsuccessful candidate cannot release an earlier accepted target's protection. */
+    fun releasePendingProposalProtection() {
+        pendingProposalHeld = false
+        hasObservedForPublish = false; autoObserveAt = clock()
+        trace("pendingProposalReleased")
+    }
+
+    /** Complete only this successful accepted operation; a newer pending hold stays active. */
+    fun completeAcceptedProposalProtection(revision: Long) {
+        if (proposalRevision != revision) return
+        proposalRevision = -1
+        hasObservedForPublish = false; autoObserveAt = clock()
+        trace("acceptedProposalReleased")
     }
 
     /** Consent is volatile and role-bound; persistence/UI attachment cannot call this implicitly. */
@@ -191,6 +207,7 @@ class VehicleCoordinator(
 
     fun attachRoom(host: Boolean, revision: Long, destination: Destination?, keepAutomatic: Boolean = false): Long {
         require(revision >= 0)
+        if (proposalRevision >= 0 && revision > proposalRevision) completeAcceptedProposalProtection(proposalRevision)
         if (!keepAutomatic && state.automatic != AutomaticMode.OFF) stopAutomatic()
         roomEpoch += 1
         invalidateApply("공유방 변경으로 이전 확인을 중지했습니다.")
@@ -221,6 +238,7 @@ class VehicleCoordinator(
 
     fun receive(epoch: Long, revision: Long, destination: Destination?) {
         if (!state.roomConnected || epoch != roomEpoch || revision <= state.revision) return
+        if (proposalRevision >= 0 && revision > proposalRevision) completeAcceptedProposalProtection(proposalRevision)
         val unchanged = destination == state.shared
         if (unchanged && state.automatic == AutomaticMode.FOLLOWER) {
             operation = operation?.copy(revision = revision)

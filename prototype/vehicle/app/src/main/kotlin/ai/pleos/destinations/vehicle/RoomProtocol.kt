@@ -36,7 +36,8 @@ data class DestinationProposal(val id: String, val version: Long, val status: St
     val createdAt: Long, val expiresAt: Long, val baseRevision: Long, val responses: List<ProposalVote>,
     val acceptedRevision: Long?, val endedAt: Long?, val invalidatedBy: String?)
 data class DestinationUpdate(val revision: Long, val sequence: Long, val destination: Destination?,
-    val proposal: DestinationProposal? = null, val hasProposal: Boolean = false, val serverTime: Long = 0)
+    val proposal: DestinationProposal? = null, val hasProposal: Boolean = false, val serverTime: Long = 0,
+    val acceptedProposal: DestinationProposal? = null, val hasAcceptedProposal: Boolean = false)
 data class RoomSnapshot(val update: DestinationUpdate, val role: String, val expiresAt: Long)
 class RoomFailure(val status: Int, val code: String) : Exception("공유방 요청 실패 ($status)")
 
@@ -121,9 +122,13 @@ object RoomProtocol {
         val revision = integer(body, "revision"); val sequence = integer(body, "sequence")
         require(revision <= sequence)
         val hasProposal = body.has("proposal")
-        return DestinationUpdate(revision, sequence, if (body.isNull("destination")) null else destination(body.getJSONObject("destination")),
+        val target = if (body.isNull("destination")) null else destination(body.getJSONObject("destination"))
+        val hasAccepted = body.has("acceptedProposal")
+        val accepted = if (hasAccepted && !body.isNull("acceptedProposal")) proposal(body.getJSONObject("acceptedProposal")) else null
+        if (accepted != null) require(accepted.status == "accepted" && accepted.acceptedRevision == revision && accepted.destination == target)
+        return DestinationUpdate(revision, sequence, target,
             if (hasProposal && !body.isNull("proposal")) proposal(body.getJSONObject("proposal")) else null,
-            hasProposal, if (hasProposal) integer(body, "serverTime") else 0)
+            hasProposal, if (hasProposal || hasAccepted) integer(body, "serverTime") else 0, accepted, hasAccepted)
     }
 
     fun snapshot(body: JSONObject): RoomSnapshot {

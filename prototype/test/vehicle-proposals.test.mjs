@@ -197,3 +197,43 @@ test('one pending, bounded input/history, changed ID replay and malformed candid
   assert.equal((await propose(app, host, 1)).data.duplicate, true);
   assert.equal((await snapshot(app, b)).revision, 0);
 });
+
+test('historical duplicate mutations preserve the current coherent room frame and expose their outcome separately', async (t) => {
+  for (const oldResponse of ['accepted', 'rejected']) {
+    const app = await runningApp(t, { clock: () => 0 }); const host = await app.create(); const member = await app.join(host);
+    const old = (await propose(app, host)).data.proposal;
+    await respond(app, member, old, oldResponse);
+    const revision = oldResponse === 'accepted' ? 1 : 0;
+    const current = (await propose(app, member, 2, revision, first)).data;
+    const duplicateCreation = await propose(app, host);
+    const duplicateVote = await respond(app, member, old, oldResponse);
+    const state = await snapshot(app, host);
+    const reconnect = await events(t, app, member); const restored = (await reconnect.next('snapshot')).data;
+    for (const response of [duplicateCreation, duplicateVote]) {
+      assert.equal(response.status, 200); assert.equal(response.data.duplicate, true);
+      assert.equal(response.data.sequence, current.sequence);
+      assert.deepEqual(response.data.proposal, state.proposal, 'same sequence must identify the same current proposal');
+      assert.deepEqual(response.data.destination, state.destination); assert.equal(response.data.revision, state.revision);
+      assert.deepEqual(response.data.proposal, restored.proposal);
+      assert.equal(response.data.result.proposalId, old.id); assert.equal(response.data.result.status, oldResponse);
+      assert.equal(response.data.result.acceptedRevision, oldResponse === 'accepted' ? 1 : null);
+    }
+    assert.equal(state.proposal.status, 'pending'); assert.equal(state.proposal.id, proposalId(2));
+  }
+});
+
+test('accepted destination provenance survives later proposal lifetimes and clears on an explicit direct update', async (t) => {
+  let now = 0; const app = await runningApp(t, { clock: () => now }); const host = await app.create(); const member = await app.join(host);
+  const p = (await propose(app, host)).data.proposal; const accepted = (await respond(app, member, p)).data;
+  assert.equal(accepted.acceptedProposal.id, p.id); assert.equal(accepted.acceptedProposal.acceptedRevision, 1);
+  const next = (await propose(app, member, 2, 1, first)).data.proposal;
+  assert.equal((await snapshot(app, host)).acceptedProposal.id, p.id);
+  await respond(app, host, next, 'rejected'); assert.equal((await snapshot(app, host)).acceptedProposal.id, p.id);
+  await propose(app, host, 3, 1, first); now = 120_000; app.cleanupExpired();
+  assert.equal((await snapshot(app, host)).acceptedProposal.id, p.id);
+  await propose(app, member, 4, 1, first); await app.join(host);
+  const invalid = await snapshot(app, host); assert.equal(invalid.proposal.status, 'invalidated'); assert.equal(invalid.acceptedProposal.id, p.id);
+  const direct = await app.call('POST', `${roomPath(host)}/destination`, { token: host.token, body: { ...first, expectedRevision: 1 } });
+  assert.equal(direct.data.acceptedProposal, null); assert.equal(direct.data.revision, 2);
+  const reconnect = await events(t, app, member); assert.equal((await reconnect.next('snapshot')).data.acceptedProposal, null);
+});

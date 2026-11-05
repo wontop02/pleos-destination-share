@@ -273,4 +273,87 @@ class VehicleProposalSessionTest {
             }; api.leave(host)
         }
     }
+    private fun laterTerminalProposalKeepsEarlierFailedTarget(mode: String) {
+        serverTime(0)
+        RoomHttpClient(base).use { api ->
+            val host = api.create("대표 실패 후 새 제안").first
+            val member = api.join(host.roomId, host.inviteSecret!!, "참여 실패 후 새 제안").first
+            api.publish(host, first, 0)
+            Runtime(host).use { a -> Runtime(member).use { b ->
+                a.session.startAutomatic(); a.advance(); a.gateway.latest.destinationInfo(first)
+                pending(b, a); accept(b, a); a.requested(); b.requested()
+                a.gateway.latest.failed(); b.gateway.latest.failed()
+                a.advance(45_000); b.advance(45_000)
+                a.gateway.latest.connected(); a.gateway.latest.destinationInfo(first)
+                assertFalse(a.session.hasProposalLease); assertTrue(a.session.coordinator.proposalPublicationHeld)
+                val failedId = a.session.proposal!!.id
+                b.session.propose(first, "새 후보는 이전 수락 실패를 해제하지 않음")
+                b.until { b.session.proposal?.id != failedId && b.session.proposal?.status == "pending" && !b.session.proposalBusy }
+                a.until { a.session.proposal?.id == b.session.proposal?.id }
+                when (mode) {
+                    "rejected" -> {
+                        val p = a.session.proposal!!; a.session.respond(p.id, p.version, false)
+                    }
+                    "expired" -> serverTime(120_000)
+                    "invalidated" -> api.join(host.roomId, host.inviteSecret!!, "추가 회원")
+                    else -> error("Unknown test mode")
+                }
+                a.until { a.session.proposal?.status == mode && !a.session.proposalBusy }
+                b.until { b.session.proposal?.status == mode }
+                a.advance(); a.gateway.latest.destinationInfo(first)
+                val until = System.nanoTime() + TimeUnit.MILLISECONDS.toNanos(250)
+                while (System.nanoTime() < until) a.queue.poll(5, TimeUnit.MILLISECONDS)?.invoke()
+                val state = api.snapshot(host).update
+                assertEquals("A later $mode proposal must not republish the previous native target", second, state.destination)
+                assertEquals(2L, state.revision); assertTrue(a.session.coordinator.proposalPublicationHeld)
+                assertEquals(listOf(second), a.gateway.routes)
+                if (mode == "rejected") {
+                    a.session.retryAcceptedProposal(); a.requested(); a.match(second)
+                    assertEquals(ApplyPhase.CONFIRMED, a.session.state.applying)
+                    a.advance(45_000); a.gateway.latest.destinationInfo(second)
+                    assertFalse(a.session.coordinator.proposalPublicationHeld)
+                    assertEquals(listOf(second, second), a.gateway.routes)
+                    assertEquals(2L, api.snapshot(host).update.revision)
+                } else if (mode == "invalidated") {
+                    a.session.resetProposalProtection(); a.advance(); a.gateway.latest.destinationInfo(first)
+                    a.until { a.session.state.revision == 3L }
+                    assertEquals(first, api.snapshot(host).update.destination)
+                }
+            } }
+            api.leave(host)
+        }
+    }
+    @Test fun laterRejectionCannotReleaseFailedAgreementProtection() = laterTerminalProposalKeepsEarlierFailedTarget("rejected")
+    @Test fun laterExpiryCannotReleaseFailedAgreementProtection() = laterTerminalProposalKeepsEarlierFailedTarget("expired")
+    @Test fun laterMembershipInvalidationCannotReleaseFailedAgreementProtection() = laterTerminalProposalKeepsEarlierFailedTarget("invalidated")
+
+    @Test fun laterProposalCannotHideHistoricalAcceptanceOnColdAutomaticResume() {
+        for (mode in listOf("pending", "rejected", "expired", "invalidated")) {
+            serverTime(0)
+            RoomHttpClient(base).use { api ->
+                val host = api.create("대표 과거 수락 출처").first
+                val member = api.join(host.roomId, host.inviteSecret!!, "참여 과거 수락 출처").first
+                val accepted = api.propose(host, "e".repeat(24), second, "과거 수락", 0).proposal!!
+                api.respond(member, accepted, true)
+                val later = api.propose(member, "f".repeat(24), first, "새 제안", 1).proposal!!
+                when (mode) {
+                    "rejected" -> api.respond(host, later, false)
+                    "expired" -> serverTime(120_000)
+                    "invalidated" -> api.join(host.roomId, host.inviteSecret!!, "새 회원")
+                }
+                for (identity in listOf(member, host)) Runtime(identity).use { r ->
+                    assertEquals(mode, r.session.proposal!!.status)
+                    assertEquals(accepted.id, r.session.acceptedProposal!!.id)
+                    r.session.startAutomatic(); r.advance(); r.gateway.latest.connected(); r.gateway.latest.destinationInfo(first)
+                    val until = System.nanoTime() + TimeUnit.MILLISECONDS.toNanos(100)
+                    while (System.nanoTime() < until) r.queue.poll(5, TimeUnit.MILLISECONDS)?.invoke()
+                    assertTrue("A later $mode proposal cannot turn an old accepted snapshot into a new route", r.gateway.routes.isEmpty())
+                    assertEquals(1L, api.snapshot(host).update.revision)
+                    assertEquals(second, api.snapshot(host).update.destination)
+                }
+                api.leave(host)
+            }
+        }
+    }
+
 }

@@ -93,4 +93,22 @@ class VehicleProposalProtectionTest {
         f.advance(60_000); assertTrue(f.gateway.routes.isEmpty()); assertTrue(f.published.isEmpty())
         assertNotEquals(ApplyPhase.CONFIRMED, f.coordinator.state.applying)
     }
+    @Test fun pendingReleaseAndStaleSuccessCannotClearCurrentAcceptedProtection() {
+        val f = Fixture(); f.coordinator.startAutomatic(); f.accepted(); f.gateway.latest.connected(); f.gateway.latest.failed()
+        f.coordinator.protectProposal(); f.coordinator.releasePendingProposalProtection()
+        f.coordinator.completeAcceptedProposalProtection(1)
+        f.advance(5_000); f.gateway.latest.connected(); f.gateway.latest.destinationInfo(first)
+        assertTrue(f.coordinator.proposalPublicationHeld); assertTrue(f.published.isEmpty())
+        assertEquals(listOf(second), f.gateway.routes)
+    }
+    @Test fun successfulAcceptedCompletionPreservesANewerPendingHold() {
+        val f = Fixture(); f.coordinator.startAutomatic(); f.accepted(); f.gateway.latest.connected()
+        f.gateway.latest.routingCompleted(); f.gateway.latest.destinationInfo(second)
+        f.coordinator.protectProposal(); f.coordinator.completeAcceptedProposalProtection(2)
+        f.advance(15_000); f.gateway.latest.destinationInfo(first)
+        assertTrue(f.coordinator.proposalPublicationHeld); assertTrue(f.published.isEmpty())
+        f.coordinator.releasePendingProposalProtection(); f.advance(); f.gateway.latest.destinationInfo(first)
+        assertEquals(listOf(first), f.published); assertEquals(listOf(second), f.gateway.routes)
+    }
+
 }

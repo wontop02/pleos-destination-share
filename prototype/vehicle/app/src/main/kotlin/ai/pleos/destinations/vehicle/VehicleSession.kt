@@ -37,6 +37,7 @@ class VehicleSession(
     var roomMessage = "공유방에 연결해 주세요."; private set
     var pendingAutomatic = false; private set
     var proposal: DestinationProposal? = null; private set
+    var acceptedProposal: DestinationProposal? = null; private set
     var proposalBusy = false; private set
     var proposalMessage = "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다."; private set
     private data class Consent(val room: String, val member: String, val proposal: String, val version: Long,
@@ -44,6 +45,7 @@ class VehicleSession(
         val operationDeadline: Long = 0)
     private var consent: Consent? = null
     private var proposalDeadline = 0L
+    val hasProposalOperation: Boolean get() = consent?.issued == true
     val hasProposalLease: Boolean get() = proposalBusy || consent?.let {
         clock() < if (it.issued) it.operationDeadline else it.deadline
     } == true
@@ -220,11 +222,15 @@ class VehicleSession(
     }
 
     private fun protectFrame(update: DestinationUpdate) {
-        val p = update.proposal ?: return
-        if (p.status == "pending") holdPublication()
-        else if (p.status == "accepted" && p.acceptedRevision == update.revision && p.destination == update.destination) {
+        val p = update.proposal
+        val accepted = update.acceptedProposal ?: p?.takeIf {
+            it.status == "accepted" && it.acceptedRevision == update.revision && it.destination == update.destination
+        }
+        // Retained provenance must not re-arm protection already completed/reset in this process.
+        if (accepted != null && (acceptedProposal?.id != accepted.id || acceptedProposal?.acceptedRevision != accepted.acceptedRevision)) {
             holdPublication(update.revision)
         }
+        if (p?.status == "pending") holdPublication()
     }
 
     /** HTTP and SSE share one monotonic reducer; accepted metadata and destination are atomic. */
@@ -240,6 +246,9 @@ class VehicleSession(
                 if (old?.id == p.id && proposalDeadline > 0) minOf(proposalDeadline, clock() + remaining) else clock() + remaining
             } ?: 0
         }
+        acceptedProposal = if (update.hasAcceptedProposal) update.acceptedProposal else
+            update.proposal?.takeIf { it.status == "accepted" && it.acceptedRevision == update.revision && it.destination == update.destination }
+                ?: acceptedProposal?.takeIf { it.acceptedRevision == update.revision && it.destination == update.destination }
         coordinator.receive(coordinator.roomEpoch, update.revision, update.destination)
         val p = proposal
         val authority = consent
@@ -271,7 +280,7 @@ class VehicleSession(
             }
             "rejected", "expired", "invalidated" -> {
                 if (consent?.issued != true) consent = null
-                if (consent?.issued != true) coordinator.releaseProposalProtection()
+                coordinator.releasePendingProposalProtection()
                 proposalMessage = when (p.status) {
                     "rejected" -> "제안 거절 · 현재 순정 안내 유지"
                     "expired" -> "120초 미응답 · 제안 만료 · 현재 순정 안내 유지"
@@ -325,9 +334,9 @@ class VehicleSession(
     }
 
     fun retryAcceptedProposal() {
-        val p = proposal ?: return; val identity = credentials ?: return
+        val p = acceptedProposal ?: return; val identity = credentials ?: return
         if (closed || busy || leaving || proposalBusy || !state.roomConnected || p.status != "accepted" ||
-            p.acceptedRevision != state.revision || p.destination != state.shared || hasProposalLease) return
+            p.acceptedRevision != state.revision || p.destination != state.shared || hasProposalLease || proposal?.status == "pending") return
         consent = Consent(identity.roomId, identity.memberId, p.id, p.version, p.baseRevision, p.destination,
             clock(), issued = true, operationDeadline = clock() + 45_000)
         holdPublication(state.revision)
@@ -377,7 +386,7 @@ class VehicleSession(
     }
     fun forget(localOnly: Boolean) {
         val reason = roomMessage
-        stopAutomatic(); storage.clear(); credentials = null; proposal = null; proposalDeadline = 0
+        stopAutomatic(); storage.clear(); credentials = null; proposal = null; acceptedProposal = null; proposalDeadline = 0
         coordinator.releaseProposalProtection()
         roomMessage = reason
         if (localOnly) roomMessage = "이 기기 인증 정보를 지웠습니다. 서버 권한은 종료 또는 최대 6시간 만료 전까지 남을 수 있습니다."
@@ -390,7 +399,7 @@ class VehicleSession(
             val deadline = if (live.issued) live.operationDeadline else live.deadline
             if (clock() >= deadline) {
                 consent = null
-                if (live.issued && state.applying == ApplyPhase.CONFIRMED) coordinator.releaseProposalProtection()
+                if (live.issued && state.applying == ApplyPhase.CONFIRMED) coordinator.completeAcceptedProposalProtection(live.baseRevision + 1)
                 if (!live.issued) proposalMessage = "제안 동의 기한 만료 · 순정 안내 유지 · 서버 상태를 기다립니다."
                 emit()
             }

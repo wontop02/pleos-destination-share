@@ -12,7 +12,7 @@ class EvidenceJournal(context: Context) {
     private val proposalSnapshot = File(context.noBackupFilesDir, "proposal-state.json")
     fun session(event: String, state: VehicleState, roomEpoch: Long, serviceEpoch: Long, uiCount: Int,
         proposal: DestinationProposal? = null, proposalLease: Boolean = false, proposalBusy: Boolean = false,
-        proposalMessage: String = "", publicationHeld: Boolean = false) {
+        proposalMessage: String = "", publicationHeld: Boolean = false, acceptedProposal: DestinationProposal? = null) {
         runCatching {
             val value = JSONObject().put("at", System.currentTimeMillis()).put("event", event)
                 .put("serviceEpoch", serviceEpoch).put("roomEpoch", roomEpoch).put("revision", state.revision)
@@ -23,6 +23,9 @@ class EvidenceJournal(context: Context) {
                 .put("routingCompletedObserved", state.routingCompletedObserved)
                 .put("proposalLease", proposalLease).put("proposalBusy", proposalBusy)
                 .put("proposalMessage", proposalMessage).put("proposalPublicationHeld", publicationHeld)
+                .put("acceptedProposalId", acceptedProposal?.id ?: JSONObject.NULL)
+                .put("acceptedProposalVersion", acceptedProposal?.version ?: JSONObject.NULL)
+                .put("acceptedProposalRevision", acceptedProposal?.acceptedRevision ?: JSONObject.NULL)
                 .put("proposal", proposal?.let { p -> JSONObject()
                     .put("id", p.id).put("version", p.version).put("status", p.status)
                     .put("candidateName", p.destination.name).put("candidatePoiId", p.destination.pleos?.poiId)

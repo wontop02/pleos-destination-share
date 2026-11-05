@@ -164,13 +164,15 @@ class MainActivity : Activity() {
         autoStopButton.isEnabled = state.automatic != AutomaticMode.OFF || service?.session?.pendingAutomatic == true || service?.session?.hasProposalLease == true
         val session = service?.session
         val p = session?.proposal; displayedProposal = p
+        val accepted = session?.acceptedProposal
         proposalText.text = p?.let { value ->
             "후보 ${value.destination.name}\n이유 ${value.reason}\n제안자 ${value.proposer.name}\n" +
                 value.responses.joinToString(" · ") { vote -> "${vote.member.name}: ${when (vote.response) { "accepted" -> "수락"; "rejected" -> "거절"; else -> "대기" }}" } +
                 "\n제안 버전 ${value.version} · 최대 120초 응답"
         } ?: "진행 중인 제안 없음 · 현재 순정 안내 유지"
+        if (accepted != null && accepted.id != p?.id) proposalText.append("\n수락한 공유 목적지 ${accepted.destination.name} · 공유 버전 ${accepted.acceptedRevision}")
         proposalStatus.text = (session?.proposalMessage ?: "공유방 연결 후 제안할 수 있습니다.") +
-            if (p?.status == "accepted" && p.acceptedRevision == state.revision) "\n${state.message}" else ""
+            if (accepted?.acceptedRevision == state.revision && p?.status != "pending") "\n${state.message}" else ""
         proposeButton.isEnabled = session?.canPropose == true
         placeButton.isEnabled = session?.proposalBusy != true
         reasonInput.isEnabled = session?.proposalBusy != true
@@ -178,7 +180,7 @@ class MainActivity : Activity() {
         acceptButton.isEnabled = responseEnabled; rejectButton.isEnabled = responseEnabled
         acceptButton.visibility = if (p?.status == "pending") View.VISIBLE else View.GONE
         rejectButton.visibility = acceptButton.visibility
-        retryProposalButton.visibility = if (p?.status == "accepted" && p.acceptedRevision == state.revision) View.VISIBLE else View.GONE
+        retryProposalButton.visibility = if (accepted?.acceptedRevision == state.revision && p?.status != "pending") View.VISIBLE else View.GONE
         retryProposalButton.isEnabled = state.roomConnected && session?.hasProposalLease == false && !busy && !leaving
         resetProposalButton.visibility = if (state.host && session?.coordinator?.proposalPublicationHeld == true && p?.status != "pending") View.VISIBLE else View.GONE
         resetProposalButton.isEnabled = session?.hasProposalLease == false
