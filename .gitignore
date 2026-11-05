@@ -6,3 +6,9 @@ node_modules/
 .harness/runs/
 .harness/worktrees/
 .harness/locks/
+prototype/vehicle/.gradle/
+prototype/vehicle/.kotlin/
+prototype/vehicle/**/build/
+prototype/vehicle/local.properties
+prototype/vehicle/*.jks
+prototype/vehicle/*.keystore

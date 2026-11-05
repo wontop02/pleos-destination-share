@@ -1,0 +1,173 @@
+{
+  "reviewedAt": "2026-11-05T03:45:16.601385+00:00",
+  "executor": "coordinator",
+  "builderAction": "Read coordinator-owned raw JSON; no ADB or UI actions",
+  "environment": "Two dedicated official Pleos Connect Emulator instances; ADB 5041, serials emulator-5570 and emulator-5572",
+  "sdk": "ai.pleos.playground:NaviHelper:3.0.5",
+  "emptyDestination": {
+    "rawArtifact": "follower-full-query.json",
+    "rawSha256": "dbec7fbe6fdcc13881790984c7a59257615034323fbe3afdee6218b83752b4a0",
+    "probeSha256": "bcb482088b71e9172125072854aad5289f45cc3f0d1da7d1df2a8ceb5d7388b4",
+    "status": "OBSERVED",
+    "actual": {
+      "latitude": 0,
+      "longitude": 0,
+      "displayLatitude": null,
+      "displayLongitude": null,
+      "name": "",
+      "address": "",
+      "poiId": "",
+      "poiSubId": null,
+      "poiSubIdMissing": true,
+      "poiProvider": "",
+      "remainDistance": 0,
+      "remainTime": 0,
+      "tollFare": 0
+    }
+  },
+  "canonicalSource": {
+    "rawArtifact": "leader-post-timeout-query.json",
+    "rawSha256": "e5e0a6771c72cc65748eda620a1fe4007b08e6f3ae8d7e803d768a040a604b9b",
+    "actual": {
+      "latitude": 37.41289678,
+      "longitude": 127.09383464,
+      "displayLatitude": null,
+      "displayLongitude": null,
+      "name": "42dot",
+      "address": "수정구 시흥동",
+      "poiId": "36khp37hh8gqcm5nqhe5",
+      "poiSubId": null,
+      "poiSubIdMissing": true,
+      "poiProvider": ""
+    }
+  },
+  "originalDocumentationSeed": {
+    "rawArtifact": "leader-route.json",
+    "rawSha256": "c389dbcd264af6c41c31e0ef1978e78dac275840662fe3d1edc0c8820949f274",
+    "status": "BLOCKED",
+    "reasonAsRecorded": "no_route_or_destination_event_within_45s",
+    "observation": "onRouteStarted was seen, but no completion or destination-change event within 45 seconds. A later real query showed a different canonical POI coordinate from the documentation input. Not counted as a strict-match success.",
+    "events": [
+      {
+        "event": "requestRoute_public_documentation_example",
+        "at": 1793847961692
+      },
+      {
+        "event": "onRouteStarted",
+        "at": 1793847974235
+      }
+    ]
+  },
+  "nullSubIdBoundaryExperiment": {
+    "rawArtifact": "follower-empty-subid-experiment.json",
+    "rawSha256": "1f74b02a5fe7a533786b050764193844dc0a28e7dfb9541da754bddc28890b48",
+    "appSha256": "b46c490edf20262ce732a943a43d08c2d571e5929f6b5384c8ffa53ccedbf912",
+    "probeSha256": "ba1f9c33e9a826acb1c72f5564d7779bdae2f37e84136320e1125f20c50b438b",
+    "sourceExpected": {
+      "name": "42dot",
+      "latitude": 37.41289678,
+      "longitude": 127.09383464,
+      "poiId": "36khp37hh8gqcm5nqhe5",
+      "poiSubId": null,
+      "poiProvider": "",
+      "address": "수정구 시흥동"
+    },
+    "requestPoiSubId": "",
+    "actual": {
+      "latitude": 37.41289678,
+      "longitude": 127.09383464,
+      "displayLatitude": null,
+      "displayLongitude": null,
+      "name": "42dot",
+      "address": "수정구 시흥동",
+      "poiId": "36khp37hh8gqcm5nqhe5",
+      "poiSubId": null,
+      "poiSubIdMissing": true,
+      "poiProvider": "",
+      "remainDistance": 50,
+      "remainTime": 60,
+      "tollFare": 0
+    },
+    "status": "VERIFIED",
+    "routeStartedObserved": true,
+    "routingCompletedObserved": false,
+    "events": [
+      {
+        "event": "requestRoute_public_poi",
+        "at": 1793848693959
+      },
+      {
+        "event": "post_request_destination_match",
+        "at": 1793848696201,
+        "matched": false
+      },
+      {
+        "event": "post_request_destination_match",
+        "at": 1793848698371,
+        "matched": false
+      },
+      {
+        "event": "post_request_destination_match",
+        "at": 1793848700524,
+        "matched": false
+      },
+      {
+        "event": "post_request_destination_match",
+        "at": 1793848702805,
+        "matched": false
+      },
+      {
+        "event": "onRouteStarted",
+        "at": 1793848705765
+      },
+      {
+        "event": "post_request_destination_match",
+        "at": 1793848705871,
+        "matched": true
+      }
+    ]
+  },
+  "scope": "Actual SDK backend execution. This is separate from app room sharing, full A-to-B UI execution, independent verifier, and real physical vehicles.",
+  "secondPublicSeed": {
+    "rawArtifact": "leader-dream-center-seed.json",
+    "rawSha256": "218c7736b50a2566f49dd984be3c8941951060c09ff526c4bb8a96a00515bd3b",
+    "status": "BLOCKED",
+    "reason": "error:route_cancelled",
+    "actual": {
+      "latitude": 37.41289678,
+      "longitude": 127.09383464,
+      "displayLatitude": null,
+      "displayLongitude": null,
+      "name": "42dot",
+      "address": "수정구 시흥동",
+      "poiId": "36khp37hh8gqcm5nqhe5",
+      "poiSubId": null,
+      "poiSubIdMissing": true,
+      "poiProvider": "",
+      "remainDistance": 50,
+      "remainTime": 60,
+      "tollFare": 0
+    }
+  },
+  "secondPublicFollowup": {
+    "rawArtifact": "leader-dream-center-followup.json",
+    "rawSha256": "2147e22b2896f058419a940a33cff28dc8e3c4f493813b24c3c3516b09ded5f9",
+    "status": "OBSERVED",
+    "reason": "actual_destination_callback_received",
+    "actual": {
+      "latitude": 37.41275833,
+      "longitude": 127.09481944,
+      "displayLatitude": null,
+      "displayLongitude": null,
+      "name": "소프트웨어드림센터",
+      "address": "수정구 시흥동",
+      "poiId": "36khp2hdj2cfcm5nqhe3",
+      "poiSubId": null,
+      "poiSubIdMissing": true,
+      "poiProvider": "",
+      "remainDistance": 10,
+      "remainTime": 60,
+      "tollFare": 0
+    }
+  }
+}

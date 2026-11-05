@@ -1,13 +1,13 @@
 # 휴대폰 원음 수신 검증표
 
-기준일: 2026-11-04. 코드·빌드·실기기 결과를 구분한다. 현재 웹 첫 실행본은 네이티브 배경 수신의 완료 근거가 아니다.
+기준일: 2026-11-05. 코드·빌드·실기기 결과를 구분한다. 웹 첫 실행본은 네이티브 배경 수신의 완료 근거가 아니다. 차량 #12는 기존 휴대폰 #7/#8과 별도 승인된 범위다.
 
 | 대상 | 구현 경로 | 실제 통과에 필요한 관찰 | 현재 자원 |
 |---|---|---|---|
 | 웹 전경 | 공유방 API, 인증 이벤트 연결, 실제 WAV 업로드·다운로드·재생 | 두 독립 참여자의 목적지와 원음, 권한 거절·중복·만료·수신 중지 | 로컬 Node·Chrome 웹 실행본과 자동 검사 제공. #6 PR의 검증 증거 참고 |
-| iPhone | Swift·PushToTalk 채널과 전용 APNs 수신, 시스템 오디오 활성화 후 재생 | 내비 전경·화면 잠금·장시간 무음 후 새 원음의 실제 첫 소리, 중단·탈퇴 시 정지 | Swift CLI 사용 가능. 전체 Xcode·서명/PTT capability·푸시 자격증명·실기기 미확보 |
-| Galaxy/Android | 사용자가 시작하는 네이티브 수신 세션, 적절한 서비스 유형·알림·오디오 포커스 | 기종/OS별 내비·잠금·15/30분 무음 후 첫 소리, 서비스 종료·복구와 사용자 중지 | Java 사용 가능. Android SDK와 연결 실기기 미확보 |
-| Pleos | Kotlin·NaviHelper의 실제 목적지 변경 이벤트 | 순정 내비에서 바꾼 목적지 이벤트와 현재 목적지 정보 | 계정·SDK·에뮬레이터/차량 미확보 |
+| iPhone | Swift·PushToTalk 채널과 전용 APNs 수신, 시스템 오디오 활성화 후 재생 | 내비 전경·화면 잠금·장시간 무음 후 새 원음의 실제 첫 소리, 중단·탈퇴 시 정지 | Xcode 27.2/SDK 27.2 시뮬레이터 빌드·UI 복원 실행. 실제 마이크·청취·서명/PTT/APNs·실기기는 BLOCKED. [Draft PR #11](https://github.com/wontop02/pleos-destination-share/pull/11), main 미병합 |
+| Galaxy/Android | 사용자가 시작하는 네이티브 수신 세션, 적절한 서비스 유형·알림·오디오 포커스 | 기종/OS별 내비·잠금·15/30분 무음 후 첫 소리, 서비스 종료·복구와 사용자 중지 | JVM 검사·SDK 빌드·lint·에뮬레이터 UI 실행. 실제 마이크·Galaxy 잠금 수신은 BLOCKED. [Draft PR #10](https://github.com/wontop02/pleos-destination-share/pull/10), main 미병합 |
+| Pleos 차량 #12 | 실제 NaviHelper 3.0.5의 조회·변경 이벤트·경로 요청과 공통 서버 | A 순정 목적지 설정/변경·공유, B 수신·직접 적용, B 후속 순정 목적지 일치, 실패·취소·해제 | 공식 Maven AAR/API 대조·전체 APK 빌드 실행. 전용 공식 Pleos 두 대의 실제 실증은 별도 판정. [차량 검증 기록](../../prototype/vehicle/evidence/verification.md) |
 
 ## 확인한 OS 계약
 
