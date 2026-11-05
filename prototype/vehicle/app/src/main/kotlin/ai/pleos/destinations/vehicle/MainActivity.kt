@@ -171,8 +171,15 @@ class MainActivity : Activity() {
                 "\n제안 버전 ${value.version} · 최대 120초 응답"
         } ?: "진행 중인 제안 없음 · 현재 순정 안내 유지"
         if (accepted != null && accepted.id != p?.id) proposalText.append("\n수락한 공유 목적지 ${accepted.destination.name} · 공유 버전 ${accepted.acceptedRevision}")
-        proposalStatus.text = (session?.proposalMessage ?: "공유방 연결 후 제안할 수 있습니다.") +
-            if (accepted?.acceptedRevision == state.revision && p?.status != "pending") "\n${state.message}" else ""
+        val lastConfirmedAt = state.confirmedAt
+        proposalStatus.text = if (p != null && accepted != null && p.status == "accepted" && p.id == accepted.id &&
+            accepted.acceptedRevision == state.revision && accepted.destination == state.shared && state.roomConnected &&
+            state.applying == ApplyPhase.CONFIRMED && lastConfirmedAt != null) {
+            "순정 목적지 일치 확인 완료\n마지막 확인 시각 ${time(lastConfirmedAt)}"
+        } else {
+            (session?.proposalMessage ?: "공유방 연결 후 제안할 수 있습니다.") +
+                if (accepted?.acceptedRevision == state.revision && p?.status != "pending") "\n${state.message}" else ""
+        }
         proposeButton.isEnabled = session?.canPropose == true
         placeButton.isEnabled = session?.proposalBusy != true
         reasonInput.isEnabled = session?.proposalBusy != true
