@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="canvas">#F2F6F6</color>
+    <color name="ink">#172D31</color>
+    <color name="primary">#006B63</color>
+    <color name="muted">#465C61</color>
+    <dimen name="space">16dp</dimen>
+    <dimen name="body_size">20sp</dimen>
+    <dimen name="title_size">28sp</dimen>
+    <dimen name="button_height">56dp</dimen>
+    <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">@color/primary</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/canvas</item>
+        <item name="android:navigationBarColor">@color/canvas</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:windowBackground">@color/canvas</item>
+    </style>
+</resources>

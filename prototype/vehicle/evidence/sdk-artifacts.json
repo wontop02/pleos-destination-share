@@ -1,0 +1,63 @@
+{
+  "checkedAt": "2026-11-05T02:26:52.362745+00:00",
+  "repository": "https://nexus-playground.pleos.ai/repository/maven-releases/",
+  "artifacts": [
+    {
+      "url": "https://nexus-playground.pleos.ai/repository/maven-releases/ai/pleos/playground/NaviHelper/3.0.5/NaviHelper-3.0.5.pom",
+      "status": 200,
+      "file": "NaviHelper-3.0.5.pom",
+      "bytes": 1747,
+      "sha256": "39e93d10d8da7758e52c83186620a8965b3b0a46438851e1a2c0dab34d292c42"
+    },
+    {
+      "url": "https://nexus-playground.pleos.ai/repository/maven-releases/ai/pleos/playground/NaviHelper/3.0.5/NaviHelper-3.0.5.aar",
+      "status": 200,
+      "file": "NaviHelper-3.0.5.aar",
+      "bytes": 65944,
+      "sha256": "15fadd11c7c611b1abdf7ebf9ce91f2a6ce2728e60b4e38b4343e11bb9c12e97"
+    },
+    {
+      "url": "https://nexus-playground.pleos.ai/repository/maven-releases/ai/pleos/playground/NaviHelper/3.0.5/NaviHelper-3.0.5.module",
+      "status": 200,
+      "file": "NaviHelper-3.0.5.module",
+      "bytes": 3904,
+      "sha256": "48799404be1138a9a206205860238582b76ddb2df5d004154508af8bdc55ff62"
+    },
+    {
+      "url": "https://nexus-playground.pleos.ai/repository/maven-releases/ai/pleos/playground/navi-data/3.0.4/navi-data-3.0.4.pom",
+      "status": 200,
+      "file": "navi-data-3.0.4.pom",
+      "bytes": 778,
+      "sha256": "b35ba80a45baa2b59cbfbb9bb41510eae5081f2c6d38cfe4415055ecf13de397"
+    },
+    {
+      "url": "https://nexus-playground.pleos.ai/repository/maven-releases/ai/pleos/playground/navi-data/3.0.4/navi-data-3.0.4.aar",
+      "status": 200,
+      "file": "navi-data-3.0.4.aar",
+      "bytes": 298474,
+      "sha256": "7ca00e592134b53237a48cc3b7864063ecc5e2885465e3ce9c8c2a29789a2e2b"
+    },
+    {
+      "url": "https://nexus-playground.pleos.ai/repository/maven-releases/ai/pleos/playground/navi-aidl/3.0.1/navi-aidl-3.0.1.pom",
+      "status": 200,
+      "file": "navi-aidl-3.0.1.pom",
+      "bytes": 607,
+      "sha256": "eeb8c797b9dcd05652bb5157073814d7da8fe7cb12b6e76a1bd29a379703bfe3"
+    },
+    {
+      "url": "https://nexus-playground.pleos.ai/repository/maven-releases/ai/pleos/playground/navi-aidl/3.0.1/navi-aidl-3.0.1.aar",
+      "status": 200,
+      "file": "navi-aidl-3.0.1.aar",
+      "bytes": 17213,
+      "sha256": "384e62b9b17102ce618272f4afbef5021867c04bd13e46a6592218643ceb40ff"
+    }
+  ],
+  "unpublishedGradleMetadata": [
+    "navi-data:3.0.4",
+    "navi-aidl:3.0.1"
+  ],
+  "notes": [
+    "Vendor archives are intentionally excluded from Git.",
+    "NaviHelper is a normal Maven implementation dependency; no fake SDK is bundled."
+  ]
+}

@@ -37,6 +37,40 @@ function personName(body) {
   }
   return body.name.trim();
 }
+// Optional Pleos fields preserve the original three-field destination response for v1 clients.
+function destinationBody(body) {
+  const keys = body && typeof body === 'object' && !Array.isArray(body) ? Object.keys(body) : [];
+  const expectedRevision = body?.expectedRevision;
+  if (expectedRevision !== undefined && (!Number.isSafeInteger(expectedRevision) || expectedRevision < 0)) {
+    reject(400, 'invalid_destination', '목적지 버전이 올바르지 않습니다.');
+  }
+  const allowed = ['name', 'latitude', 'longitude', 'pleos', 'expectedRevision'];
+  const coordinate = (value, min, max) => typeof value === 'number' && Number.isFinite(value) && value >= min && value <= max;
+  const text = (value, max, empty = false) => typeof value === 'string' && value.length <= max &&
+    (empty || !!value.trim()) && !/[\u0000-\u001f\u007f]/u.test(value);
+  if (body && Object.hasOwn(body, 'destination') && body.destination === null &&
+      keys.every((key) => ['destination', 'expectedRevision'].includes(key))) {
+    return { destination: null, expectedRevision };
+  }
+  if (!body || !keys.every((key) => allowed.includes(key)) || !text(body.name, 100) ||
+      !coordinate(body.latitude, -90, 90) || !coordinate(body.longitude, -180, 180)) {
+    reject(400, 'invalid_destination', '장소명과 올바른 위도·경도를 입력해 주세요.');
+  }
+  let pleos;
+  if (Object.hasOwn(body, 'pleos')) {
+    const value = body.pleos;
+    if (!objectWith(value, ['poiId', 'poiSubId', 'address', 'poiProvider', 'displayLatitude', 'displayLongitude']) ||
+        !text(value.poiId, 256, true) || !(value.poiSubId === null || text(value.poiSubId, 256, true)) ||
+        !text(value.address, 500, true) || !text(value.poiProvider, 128, true) ||
+        !((value.displayLatitude === null && value.displayLongitude === null) ||
+          (coordinate(value.displayLatitude, -90, 90) && coordinate(value.displayLongitude, -180, 180)))) {
+      reject(400, 'invalid_destination', '순정 목적지 정보가 올바르지 않습니다.');
+    }
+    pleos = { ...value };
+  }
+  return { destination: { name: body.name.trim(), latitude: body.latitude, longitude: body.longitude,
+    ...(pleos === undefined ? {} : { pleos }) }, expectedRevision };
+}
 function bearer(req) {
   const match = /^Bearer ([A-Za-z0-9_-]{43})$/.exec(req.headers.authorization ?? '');
   if (!match) reject(401, 'authentication_required', '공유방 인증이 필요합니다.');
@@ -263,18 +297,14 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
       }
       if (action === 'destination' && req.method === 'POST') {
         hostOnly(member);
-        const body = await jsonBody(req);
-        if (!objectWith(body, ['name', 'latitude', 'longitude']) || typeof body.name !== 'string' ||
-            !body.name.trim() || body.name.length > 100 || /[\u0000-\u001f\u007f]/u.test(body.name) ||
-            typeof body.latitude !== 'number' || !Number.isFinite(body.latitude) || body.latitude < -90 || body.latitude > 90 ||
-            typeof body.longitude !== 'number' || !Number.isFinite(body.longitude) || body.longitude < -180 || body.longitude > 180) {
-          reject(400, 'invalid_destination', '장소명과 올바른 위도·경도를 입력해 주세요.');
-        }
+        const body = destinationBody(await jsonBody(req));
         authenticate(req, room);
+        if (body.expectedRevision !== undefined && body.expectedRevision !== room.revision) {
+          reject(409, 'destination_revision_conflict', '더 최신 목적지가 있습니다. 다시 조회해 주세요.');
+        }
         room.revision += 1;
         room.sequence += 1;
-        room.destination = { name: body.name.trim(), latitude: body.latitude, longitude: body.longitude,
-          changedAt: now(), changedBy: member.id };
+        room.destination = body.destination === null ? null : { ...body.destination, changedAt: now(), changedBy: member.id };
         const update = { destination: room.destination, revision: room.revision, sequence: room.sequence, serverTime: now() };
         broadcast(room, 'destination', update);
         return json(200, update);

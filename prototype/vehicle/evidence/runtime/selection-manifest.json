@@ -1,0 +1,82 @@
+{
+  "at": "2026-11-05T04:04:28.886457+00:00",
+  "issue": 12,
+  "base": "821e3a387e99e4d3c87400fed3bd71173f0b9493",
+  "head": "root will bind exact commit in PR and independent report",
+  "devices": [
+    "emulator-5570",
+    "emulator-5572"
+  ],
+  "adbPort": 5041,
+  "physicalDevices": false,
+  "imagesUnedited": true,
+  "secretScreensPersisted": false,
+  "files": [
+    {
+      "path": "24-final-follower-absent.png",
+      "rawRelativePath": "ui/24-final-follower-absent.png",
+      "sha256": "e6a5add020b4390acd100f45c8eac38fa1de007eeb058640265037ada8e77f70",
+      "bytes": 371445
+    },
+    {
+      "path": "25-final-empty-to-dream-confirmed-0.png",
+      "rawRelativePath": "ui/25-final-empty-to-dream-confirmed-0.png",
+      "sha256": "94e291c7004cf7a188d8cd91f5bdac6312a67e02f216d8c312e66f678b4cec3b",
+      "bytes": 384048
+    },
+    {
+      "path": "26-final-leader-changed-shared-42dot.png",
+      "rawRelativePath": "ui/26-final-leader-changed-shared-42dot.png",
+      "sha256": "9e8c66515f90eb6471781c5b5efe2b85103beafa5005c153b07574856fb473ee",
+      "bytes": 384433
+    },
+    {
+      "path": "26-final-follower-dream-to-received-42dot.png",
+      "rawRelativePath": "ui/26-final-follower-dream-to-received-42dot.png",
+      "sha256": "696ff2710cbd19d3178d46e45d40a80b633d8ba306dc6c356e7f719c11433b01",
+      "bytes": 375885
+    },
+    {
+      "path": "27-final-existing-to-42dot-native.png",
+      "rawRelativePath": "ui/27-final-existing-to-42dot-native.png",
+      "sha256": "6eecf186f17bb6a6e0516470d9600ae921fc13f2a50d34562d6a667bdb69f2fb",
+      "bytes": 318744
+    },
+    {
+      "path": "27-final-existing-to-42dot-confirmed-0.png",
+      "rawRelativePath": "ui/27-final-existing-to-42dot-confirmed-0.png",
+      "sha256": "773d9799826a4a51531a76a0413809a65099a2b299ffd60c0c6d1cbd5aad8353",
+      "bytes": 380168
+    },
+    {
+      "path": "25-final-empty-to-dream-result.json",
+      "rawRelativePath": "ui/25-final-empty-to-dream-result.json",
+      "sha256": "fe263452b83e17978c1c202abde604cd5b2519e382dd2bf883bc3af5072235b6",
+      "bytes": 3198
+    },
+    {
+      "path": "26-final-room-change.json",
+      "rawRelativePath": "ui/26-final-room-change.json",
+      "sha256": "efc2294466fec04e092606d7a96fb5bf37b7935bed1015c714682f6ec5b2d3b1",
+      "bytes": 2842
+    },
+    {
+      "path": "27-final-existing-to-42dot-result.json",
+      "rawRelativePath": "ui/27-final-existing-to-42dot-result.json",
+      "sha256": "1a53ad9d904420a2462d8388fdb91a15968b160890a46dafd0e398afbcb90448",
+      "bytes": 3233
+    },
+    {
+      "path": "root-final-runtime-install.json",
+      "rawRelativePath": "root-final-runtime-install.json",
+      "sha256": "34dfcc959aea4770c77093cbe6aae615e09377c51b4b4180a4fe6e55b71ab089",
+      "bytes": 904
+    },
+    {
+      "path": "cancel-fence-manifest.json",
+      "rawRelativePath": "builder/cancel-fence-manifest.json",
+      "sha256": "af42fba3310b8dae7f1c7f10805120fc80373b7797884b758fd630aadf2ffb06",
+      "bytes": 6930
+    }
+  ]
+}

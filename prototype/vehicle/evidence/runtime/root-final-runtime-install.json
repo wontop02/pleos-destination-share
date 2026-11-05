@@ -1,0 +1,17 @@
+{
+  "at": "2026-11-05T03:55:21.302931+00:00",
+  "apkSHA256": "e2840dd5426fc0b3aac50c48604f8b2c137191aea72de64928959cc98f1be8b9",
+  "sourceManifest": "builder/cancel-fence-manifest.json",
+  "receipts": [
+    {
+      "serial": "emulator-5570",
+      "sha256": "e2840dd5426fc0b3aac50c48604f8b2c137191aea72de64928959cc98f1be8b9",
+      "launch": "Starting: Intent { cmp=ai.pleos.destinations.vehicle/.MainActivity }\nStatus: ok\nLaunchState: COLD\nActivity: ai.pleos.destinations.vehicle/.MainActivity\nTotalTime: 2259\nWaitTime: 2373\nComplete\n"
+    },
+    {
+      "serial": "emulator-5572",
+      "sha256": "e2840dd5426fc0b3aac50c48604f8b2c137191aea72de64928959cc98f1be8b9",
+      "launch": "Starting: Intent { cmp=ai.pleos.destinations.vehicle/.MainActivity }\nStatus: ok\nLaunchState: COLD\nActivity: ai.pleos.destinations.vehicle/.MainActivity\nTotalTime: 4704\nWaitTime: 4722\nComplete\n"
+    }
+  ]
+}

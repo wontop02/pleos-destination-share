@@ -1,0 +1,211 @@
+{
+  "checkedAt": "2026-11-05T04:06:47.476510+00:00",
+  "startingHead": "821e3a387e99e4d3c87400fed3bd71173f0b9493",
+  "branch": "be/issue-12-pleos-navigation",
+  "builderCommit": "uncommitted",
+  "environment": {
+    "jdk": "Temurin 21.0.13+9",
+    "gradle": "8.11.1",
+    "agp": "8.9.1",
+    "kotlin": "1.9.25",
+    "compileSdk": 35,
+    "targetSdk": 35,
+    "buildTools": "35.0.0",
+    "node": "v25.8.1"
+  },
+  "commands": [
+    {
+      "command": "npm test",
+      "cwd": ".",
+      "exit": 0,
+      "passed": 76,
+      "failed": 0,
+      "note": "existing 69 plus vehicle destination contract 7; actual Node loopback HTTP/SSE"
+    },
+    {
+      "command": "gradle --no-daemon :core:test :app:testDebugUnitTest :app:lintDebug :app:assembleDebug :app:assembleDebugAndroidTest",
+      "cwd": "prototype/vehicle",
+      "exit": 0,
+      "passed": 63,
+      "failed": 0,
+      "note": "Verified with dedicated Gradle 8.11.1; no lint baseline or disabled checks"
+    },
+    {
+      "command": "gradle --no-daemon :app:dependencies --configuration debugRuntimeClasspath",
+      "cwd": "prototype/vehicle",
+      "exit": 0
+    },
+    {
+      "command": "aapt dump permissions app/build/outputs/apk/debug/app-debug.apk",
+      "cwd": "prototype/vehicle",
+      "exit": 0,
+      "permissions": [
+        "android.permission.INTERNET",
+        "pleos.car.permission.NAVI_ROUTE",
+        "pleos.car.permission.NAVI_ROUTE_SEARCH"
+      ]
+    }
+  ],
+  "junitSuites": [
+    {
+      "name": "ai.pleos.destinations.core.VehicleCoordinatorTest",
+      "tests": "42",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "timestamp": "2026-11-05T03:52:26"
+    },
+    {
+      "name": "ai.pleos.destinations.vehicle.NaviDestinationNormalizerTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "timestamp": "2026-11-05T03:52:26"
+    },
+    {
+      "name": "ai.pleos.destinations.vehicle.PendingConfirmationCacheTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "timestamp": "2026-11-05T03:52:27"
+    },
+    {
+      "name": "ai.pleos.destinations.vehicle.RoomHttpClientTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "timestamp": "2026-11-05T03:52:27"
+    },
+    {
+      "name": "ai.pleos.destinations.vehicle.RoomProtocolTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "timestamp": "2026-11-05T03:52:28"
+    },
+    {
+      "name": "ai.pleos.destinations.vehicle.SdkRouteMappingTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "timestamp": "2026-11-05T03:52:28"
+    }
+  ],
+  "lintIssues": [
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.color.muted` appears to be unused"
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.dimen.space` appears to be unused"
+    },
+    {
+      "id": "MissingApplicationIcon",
+      "severity": "Warning",
+      "message": "Should explicitly set `android:icon`, there is no default"
+    },
+    {
+      "id": "SetTextI18n",
+      "severity": "Warning",
+      "message": "Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "app/build/outputs/apk/debug/app-debug.apk",
+      "rawFile": "vehicle-cancel-fence.apk",
+      "sha256": "e2840dd5426fc0b3aac50c48604f8b2c137191aea72de64928959cc98f1be8b9",
+      "bytes": 6093943
+    },
+    {
+      "path": "app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk",
+      "rawFile": "vehicle-sdk-probe-cancel-fence.apk",
+      "sha256": "2f90e2e79bc7a445df2931bac97ac521726fa28074cf688f8e24a6d89f663ab7",
+      "bytes": 50770
+    }
+  ],
+  "sdkGradleCacheSha256MatchesDirectMavenDownload": true,
+  "publicSdkCompileOnlyProbes": [
+    {
+      "name": "required fields including poiSubId; default fields omitted",
+      "exit": 0
+    },
+    {
+      "name": "poiSubId omitted",
+      "exit": 1,
+      "expectedDiagnostic": "no value passed for parameter 'poiSubId'"
+    }
+  ],
+  "actualPleosBackendProbe": {
+    "status": "VERIFIED destination match by coordinator",
+    "evidence": "native-sdk-observations.json",
+    "routingCompletion": "NOT OBSERVED",
+    "builderAdbOrUiActions": "NONE"
+  },
+  "actualTwoVehicleNativeNavigation": {
+    "status": "PASS runtime observation; independent verifier pending",
+    "appSha256": "e2840dd5426fc0b3aac50c48604f8b2c137191aea72de64928959cc98f1be8b9",
+    "cases": [
+      {
+        "artifact": "runtime/25-final-empty-to-dream-result.json",
+        "rawSha256": "fe263452b83e17978c1c202abde604cd5b2519e382dd2bf883bc3af5072235b6",
+        "status": "PASS",
+        "requestCount": 1,
+        "resumeCount": 1,
+        "requestToMatchMs": 23081,
+        "routingCompletedObserved": false
+      },
+      {
+        "artifact": "runtime/27-final-existing-to-42dot-result.json",
+        "rawSha256": "1a53ad9d904420a2462d8388fdb91a15968b160890a46dafd0e398afbcb90448",
+        "status": "PASS",
+        "requestCount": 1,
+        "resumeCount": 1,
+        "requestToMatchMs": 21255,
+        "routingCompletedObserved": false
+      }
+    ],
+    "scope": "Official Pleos Connect Emulator SDK, room server, app UI and native UI; physical vehicle/road testing not run"
+  },
+  "independentVerifier": {
+    "status": "NOT RUN",
+    "note": "Coordinator fixes exact base/head after commit and requests a separate-context verifier"
+  },
+  "sourceBindings": {
+    "runtimeInputs": 25,
+    "testInputs": 9,
+    "allCurrentInputHashesMatch": true,
+    "nodeServerAndAddedTestUnchangedSince76Pass": true,
+    "startingHead": "821e3a387e99e4d3c87400fed3bd71173f0b9493"
+  },
+  "historicalUiResults": [
+    {
+      "rawArtifact": "18-lifecycle-apply-result.json",
+      "rawSha256": "5c445d4e9debc0cee57a9729e7e3f32e32ddb2492806a2d8d352507110122a39",
+      "appSha256": "ad26808763f5360131ef54e3c96aef187de3737432a1c31b1306a25ef7c05097",
+      "status": "PASS",
+      "requestCount": 1,
+      "resumeCount": 1,
+      "matched": true,
+      "uiConfirmed": true
+    },
+    {
+      "rawArtifact": "22-second-destination-apply-result.json",
+      "rawSha256": "6e2abce18b20b053b7599c340cea0cddc4d3823c7d3451b0ea1d64107599ebd8",
+      "appSha256": "ad26808763f5360131ef54e3c96aef187de3737432a1c31b1306a25ef7c05097",
+      "status": "FAIL",
+      "requestCount": 1,
+      "resumeCount": 0,
+      "matched": false,
+      "uiConfirmed": false
+    }
+  ]
+}
