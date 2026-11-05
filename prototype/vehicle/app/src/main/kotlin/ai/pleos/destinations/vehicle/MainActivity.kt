@@ -1,11 +1,16 @@
 package ai.pleos.destinations.vehicle
 
+import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.ComponentName
+import android.content.Intent
+import android.content.ServiceConnection
+import android.content.pm.PackageManager
 import android.graphics.Typeface
+import android.os.Build
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
+import android.os.IBinder
 import android.os.SystemClock
 import android.text.InputType
 import android.view.View
@@ -16,38 +21,37 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import ai.pleos.destinations.core.ApplyPhase
+import ai.pleos.destinations.core.AutomaticMode
 import ai.pleos.destinations.core.CurrentDestination
 import ai.pleos.destinations.core.Destination
 import ai.pleos.destinations.core.NativeConnection
-import ai.pleos.destinations.core.VehicleCoordinator
 import ai.pleos.destinations.core.VehicleState
-import org.json.JSONObject
 import java.text.DateFormat
 import java.util.Date
-import java.util.concurrent.Executors
-import java.util.concurrent.atomic.AtomicBoolean
 
+/** Views attach to the service; onStop never tears down an opted-in automatic session. */
 class MainActivity : Activity() {
-    private val main = Handler(Looper.getMainLooper())
-    private val workers = Executors.newFixedThreadPool(3)
-    private lateinit var store: SecureSessionStore
-    private lateinit var coordinator: VehicleCoordinator
-    private var active = false
-    private var lifecycleEpoch = 0L
-    private var feedSerial = 0L
-    private var feedRunning = AtomicBoolean(false)
-    private var credentials: RoomCredentials? = null
-    private var client: RoomHttpClient? = null
-    private var temporaryClient: RoomHttpClient? = null
-    private var lastSequence = -1L
-    private var busy = false
-    private var leaving = false
-    private var roomMessage = "공유방에 연결해 주세요."
+    private var service: ConvoySessionService? = null
+    private var bound = false
+    private val credentials get() = service?.session?.credentials
+    private val busy get() = service?.session?.busy ?: true
+    private val leaving get() = service?.session?.leaving ?: false
+    private val observer: (VehicleSession) -> Unit = { render(it.state) }
+    private val connection = object : ServiceConnection {
+        override fun onServiceConnected(name: ComponentName?, binder: IBinder?) {
+            val owner = (binder as ConvoySessionService.LocalBinder).service
+            service = owner; owner.attachUi(observer)
+        }
+        override fun onServiceDisconnected(name: ComponentName?) { service = null; render(VehicleState()) }
+    }
     private lateinit var nativeText: TextView
     private lateinit var currentText: TextView
     private lateinit var sharedText: TextView
     private lateinit var messageText: TextView
     private lateinit var roomText: TextView
+    private lateinit var autoText: TextView
+    private lateinit var autoStartButton: Button
+    private lateinit var autoStopButton: Button
     private lateinit var roomForm: LinearLayout
     private lateinit var baseInput: EditText
     private lateinit var nameInput: EditText
@@ -64,257 +68,43 @@ class MainActivity : Activity() {
     private lateinit var reconnectRoomButton: Button
     private lateinit var createButton: Button
     private lateinit var joinButton: Button
-    private val ticker = object : Runnable {
-        override fun run() { if (active) { coordinator.tick(); main.postDelayed(this, 500) } }
-    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        store = SecureSessionStore(this)
-        buildScreen()
-    }
-
+    override fun onCreate(savedInstanceState: Bundle?) { super.onCreate(savedInstanceState); buildScreen(); render(VehicleState()) }
     override fun onStart() {
         super.onStart()
-        active = true
-        lifecycleEpoch += 1
-        val journal = EvidenceJournal(this)
-        coordinator = VehicleCoordinator(PleosNavigationGateway(this), SystemClock::elapsedRealtime,
-            { render(it) }, { epoch, destination -> publish(epoch, destination) }, journal::append)
-        val loaded = store.load()
-        if (loaded.damaged) roomMessage = "보안 저장 정보를 읽을 수 없어 지웠습니다. 다시 참여해 주세요."
-        val awaitingAuth = loaded.credentials?.let { PendingConfirmationCache.hasFor(it.roomId, it.memberId) } == true
-        if (!awaitingAuth) { PendingConfirmationCache.clear(); coordinator.connect() }
-        loaded.credentials?.let { resumeRoom(it) }
-        render(coordinator.state)
-        main.post(ticker)
+        bound = bindService(Intent(this, ConvoySessionService::class.java), connection, BIND_AUTO_CREATE)
     }
-
     override fun onStop() {
-        coordinator.confirmationSnapshot()?.let { pending ->
-            credentials?.let { PendingConfirmationCache.save(it.roomId, it.memberId, pending) }
-        }
-        active = false
-        lifecycleEpoch += 1
-        main.removeCallbacks(ticker)
-        stopFeed()
-        temporaryClient?.close(); temporaryClient = null
-        coordinator.stop()
+        service?.detachUi(observer); service = null
+        if (bound) { unbindService(connection); bound = false }
         inviteInput.text.clear()
-        busy = false; leaving = false
         super.onStop()
     }
-
-    override fun onDestroy() { workers.shutdownNow(); super.onDestroy() }
-
-    private fun ui(epoch: Long, action: () -> Unit) { main.post { if (active && epoch == lifecycleEpoch) action() } }
-    private fun stopFeed() {
-        feedSerial += 1
-        feedRunning.set(false)
-        client?.close(); client = null
+    private fun automaticStart() {
+        if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 14)
+        } else service?.requestAutomaticFromUi()
     }
-
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 14) {
+            if (grantResults.firstOrNull() == PackageManager.PERMISSION_GRANTED) service?.requestAutomaticFromUi()
+            else messageText.text = "진행 상태와 중지를 표시하려면 알림을 허용한 뒤 자동 동행을 시작해 주세요."
+        }
+    }
     private fun submit(join: Boolean) {
-        if (busy || credentials != null) return
-        val base = baseInput.text.toString().trim()
-        val name = nameInput.text.toString().trim()
-        val roomId = idInput.text.toString().trim()
-        val secret = inviteInput.text.toString().trim()
-        if (runCatching { validateBaseUrl(base) }.isFailure || name.isBlank() || name.length > 40 ||
-            (join && (!RoomCredentials.ID.matches(roomId) || !RoomCredentials.SECRET.matches(secret)))) {
-            roomMessage = "로컬 주소·이름을 확인해 주세요. 참여 시 공유방 ID와 초대 비밀도 필요합니다."
-            render(coordinator.state); return
-        }
-        inviteInput.text.clear()
-        busy = true; roomMessage = if (join) "공유방 참여 중" else "공유방 만드는 중"
-        render(coordinator.state)
-        val epoch = lifecycleEpoch
-        val api = RoomHttpClient(base); temporaryClient = api
-        workers.execute {
-            val result = runCatching { if (join) api.join(roomId, secret, name) else api.create(name) }
-            ui(epoch) {
-                temporaryClient = null
-                busy = false
-                result.fold(onSuccess = { (identity, snapshot) ->
-                    try { store.save(identity); attach(identity, snapshot, api) }
-                    catch (_: Exception) {
-                        roomMessage = "보안 저장 실패 · 연결하지 않았습니다. 서버 정리를 시도합니다."
-                        workers.execute { runCatching { api.leave(identity) }; api.close() }
-                    }
-                }, onFailure = { roomMessage = failureMessage(it); api.close() })
-                render(coordinator.state)
-            }
-        }
+        val secret = inviteInput.text.toString().trim(); inviteInput.text.clear()
+        service?.manual { it.submit(join, baseInput.text.toString().trim(), nameInput.text.toString().trim(),
+            idInput.text.toString().trim(), secret) }
     }
-
-    private fun resumeRoom(identity: RoomCredentials) {
-        credentials = identity
-        busy = true; roomMessage = "저장한 공유방 인증 확인 중"
-        val epoch = lifecycleEpoch
-        val api = RoomHttpClient(identity.baseUrl); temporaryClient = api
-        workers.execute {
-            val result = runCatching { api.snapshot(identity) }
-            ui(epoch) {
-                temporaryClient = null
-                busy = false
-                result.fold(onSuccess = { attach(identity, it, api) }, onFailure = {
-                    api.close(); roomMessage = failureMessage(it)
-                    if (it is RoomFailure && it.status in listOf(401, 403, 404)) forget(false)
-                })
-                render(coordinator.state)
-            }
-        }
-    }
-
-    private fun attach(identity: RoomCredentials, snapshot: RoomSnapshot, api: RoomHttpClient) {
-        require(identity.role == snapshot.role)
-        stopFeed()
-        credentials = identity
-        client = api
-        lastSequence = snapshot.update.sequence
-        coordinator.attachRoom(snapshot.role == "host", snapshot.update.revision, snapshot.update.destination)
-        val pending = PendingConfirmationCache.takeFor(identity.roomId, identity.memberId)
-        if (pending != null) {
-            if (!coordinator.resumeConfirmation(pending) && coordinator.state.connection == NativeConnection.DISCONNECTED) coordinator.connect()
-        } else if (coordinator.state.connection == NativeConnection.DISCONNECTED) coordinator.connect()
-        roomMessage = "${if (snapshot.role == "host") "대표 차량" else "참여 차량"} · 공유방 연결됨"
-        startFeed(identity, api)
-    }
-
-    private fun startFeed(identity: RoomCredentials, api: RoomHttpClient) {
-        val running = AtomicBoolean(true); feedRunning = running
-        val serial = feedSerial
-        val epoch = lifecycleEpoch
-        fun deliver(action: () -> Unit) = ui(epoch) {
-            if (running.get() && serial == feedSerial && credentials === identity) action()
-        }
-        workers.execute {
-            var wait = 500L
-            while (running.get() && !Thread.currentThread().isInterrupted) {
-                try {
-                    api.events(identity) { event, body ->
-                        when (event) {
-                            "snapshot", "destination" -> {
-                                val snapshot = if (event == "snapshot") RoomProtocol.snapshot(body) else null
-                                val update = snapshot?.update ?: RoomProtocol.update(body)
-                                deliver {
-                                    if (snapshot != null && !coordinator.state.roomConnected) {
-                                        require(snapshot.role == identity.role)
-                                        coordinator.attachRoom(snapshot.role == "host", update.revision, update.destination)
-                                        lastSequence = update.sequence
-                                    } else if (update.sequence > lastSequence) {
-                                        lastSequence = update.sequence
-                                        coordinator.receive(coordinator.roomEpoch, update.revision, update.destination)
-                                    }
-                                    roomMessage = "${if (identity.role == "host") "대표 차량" else "참여 차량"} · 새 목적지 수신 연결됨"
-                                    render(coordinator.state)
-                                }
-                                wait = 500
-                            }
-                            "closed" -> deliver {
-                                roomMessage = "공유방이 종료되었거나 참여 권한이 해제되었습니다."
-                                forget(false)
-                            }
-                        }
-                    }
-                    if (running.get()) deliver { connectionLost() }
-                } catch (error: Exception) {
-                    if (running.get()) deliver {
-                        if (error is RoomFailure && error.status in listOf(401, 403, 404)) {
-                            roomMessage = failureMessage(error); forget(false)
-                        } else connectionLost()
-                    }
-                }
-                if (running.get()) {
-                    try { Thread.sleep(wait) } catch (_: InterruptedException) { break }
-                    wait = (wait * 2).coerceAtMost(4_000)
-                }
-            }
-        }
-    }
-
-    private fun connectionLost() {
-        if (coordinator.state.roomConnected) coordinator.suspendRoom()
-        roomMessage = "공유방 연결 끊김 · 재연결 중. 마지막 받은 목적지입니다."
-        render(coordinator.state)
-    }
-
-    private fun publish(roomEpoch: Long, destination: Destination?) {
-        val identity = credentials ?: return
-        val api = client ?: return
-        val expectedRevision = coordinator.state.revision
-        val epoch = lifecycleEpoch
-        workers.execute {
-            val result = runCatching { api.publish(identity, destination, expectedRevision) }
-            ui(epoch) {
-                if (credentials !== identity || coordinator.roomEpoch != roomEpoch) return@ui
-                result.fold(onSuccess = { coordinator.shareFinished(roomEpoch, it.revision, it.destination, true) },
-                    onFailure = {
-                        coordinator.shareFinished(roomEpoch, 0, null, false)
-                        roomMessage = failureMessage(it)
-                        if (it is RoomFailure && it.status == 409) {
-                            // Reconnect's snapshot obtains the latest authoritative destination.
-                            stopFeed(); coordinator.suspendRoom(); resumeRoom(identity)
-                        } else if (it is RoomFailure && it.status in listOf(401, 403, 404)) forget(false)
-                    })
-                render(coordinator.state)
-            }
-        }
-    }
-
-    private fun leave() {
-        val identity = credentials ?: return
-        if (leaving) return
-        PendingConfirmationCache.clear()
-        stopFeed()
-        coordinator.detachRoom()
-        leaving = true; roomMessage = "공유방 나가는 중 · 순정 안내는 유지됩니다."
-        render(coordinator.state)
-        val api = RoomHttpClient(identity.baseUrl); temporaryClient = api
-        val epoch = lifecycleEpoch
-        workers.execute {
-            val result = runCatching { api.leave(identity) }; api.close()
-            ui(epoch) {
-                temporaryClient = null; leaving = false
-                if (credentials !== identity) return@ui
-                result.fold(onSuccess = { roomMessage = "공유방 나가기 완료"; forget(false) }, onFailure = {
-                    if (it is RoomFailure && it.status in listOf(401, 403, 404)) { roomMessage = "공유방 권한 종료 확인"; forget(false) }
-                    else { roomMessage = "서버 나가기 확인 실패 · 다시 시도하거나 이 기기 연결을 지워 주세요."; render(coordinator.state) }
-                })
-            }
-        }
-    }
-
-    private fun forget(localOnly: Boolean) {
-        PendingConfirmationCache.clear()
-        stopFeed(); store.clear(); credentials = null
-        coordinator.detachRoom()
-        busy = false; leaving = false
-        if (localOnly) roomMessage = "이 기기 인증 정보를 지웠습니다. 서버 권한은 종료 또는 최대 6시간 만료 전까지 남을 수 있습니다."
-        render(coordinator.state)
-    }
-
     private fun showInvitation() {
-        val identity = credentials ?: return
-        val secret = identity.inviteSecret ?: return
+        val identity = credentials ?: return; val secret = identity.inviteSecret ?: return
         val text = text("공유방 ID\n${identity.roomId}\n\n초대 비밀\n$secret\n\n신뢰하는 참여자에게만 전달해 주세요.")
         text.setTextIsSelectable(true)
         val dialog = AlertDialog.Builder(this).setTitle("공유방 초대 정보").setView(text).setPositiveButton("닫기", null).create()
         dialog.window?.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
         dialog.setOnDismissListener { text.text = "" }
-        dialog.show()
-        dialog.window?.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
-    }
-
-    private fun failureMessage(error: Throwable): String = when (error) {
-        is RoomFailure -> when (error.status) {
-            401, 403 -> "공유방 인증 또는 대표 권한을 확인해 주세요."
-            404 -> "공유방이 종료되었거나 만료되었습니다."
-            409 -> "더 최신 목적지가 있습니다. 다시 조회합니다."
-            429 -> "공유방 연결 상한입니다. 잠시 후 직접 다시 시도해 주세요."
-            else -> "공유방 요청 실패 (${error.status}) · 다시 시도해 주세요."
-        }
-        else -> "로컬 서버 연결 실패 · 주소와 연결 상태를 확인해 주세요."
+        dialog.show(); dialog.window?.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
     }
 
     private fun render(state: VehicleState) {
@@ -338,15 +128,25 @@ class MainActivity : Activity() {
         if (!state.roomConnected && state.shared != null) sharedText.append("\n연결 끊김 · 마지막 받은 목적지")
         messageText.text = state.message + (state.confirmedAt?.let { "\n확인 시각 ${time(it)}" } ?: "") +
             if (state.applying == ApplyPhase.TIMED_OUT) "\n이전 요청 확인 시간 초과 · 변경 성공을 확인하지 못했습니다." else ""
-        roomText.text = roomMessage
+        roomText.text = service?.session?.roomMessage ?: "공유방 연결 준비 중"
+        autoText.text = when (state.automatic) {
+            AutomaticMode.OFF -> "자동 동행 꺼짐 · 시작을 선택하기 전에는 자동 공유·적용하지 않습니다."
+            AutomaticMode.LEADER -> "동행 중 · 대표 순정 목적지 자동 공유 · 앱 복귀 불필요"
+            AutomaticMode.FOLLOWER -> if (state.shared == null) "자동 따르기 켜짐 · 공유 목적지 대기 · 순정 안내 유지"
+                else "자동 따르기 켜짐 · 최신 목적지 자동 적용·실제 조회 확인 · 앱 복귀 불필요"
+        }
+        autoStartButton.text = if (credentials?.role == "host") "동행 시작 · 자동 공유" else "자동 따르기 시작"
+        autoStartButton.isEnabled = credentials != null && !busy && !leaving && state.automatic == AutomaticMode.OFF
+        autoStopButton.isEnabled = state.automatic != AutomaticMode.OFF || service?.session?.pendingAutomatic == true
+        val manual = state.automatic == AutomaticMode.OFF
         val applying = state.applying in listOf(ApplyPhase.CONNECTING, ApplyPhase.REQUESTED, ApplyPhase.ROUTING, ApplyPhase.VERIFYING)
-        connectButton.isEnabled = state.connection != NativeConnection.CONNECTING && !applying
+        connectButton.isEnabled = service != null && state.connection != NativeConnection.CONNECTING && !applying
         refreshButton.isEnabled = state.connection == NativeConnection.CONNECTED && state.current != CurrentDestination.Loading && !applying && !state.sharing
         shareButton.visibility = if (state.host) View.VISIBLE else View.GONE
         clearButton.visibility = if (state.host) View.VISIBLE else View.GONE
-        shareButton.isEnabled = state.roomConnected && state.connection == NativeConnection.CONNECTED && !state.sharing && !applying && state.current != CurrentDestination.Loading
-        clearButton.isEnabled = state.roomConnected && state.shared != null && !state.sharing && !applying && state.current != CurrentDestination.Loading
-        applyButton.isEnabled = state.roomConnected && state.shared?.canRequestRoute == true && !state.sharing && !applying
+        shareButton.isEnabled = manual && state.roomConnected && state.connection == NativeConnection.CONNECTED && !state.sharing && !applying && state.current != CurrentDestination.Loading
+        clearButton.isEnabled = manual && state.roomConnected && state.shared != null && !state.sharing && !applying && state.current != CurrentDestination.Loading
+        applyButton.isEnabled = manual && state.roomConnected && state.shared?.canRequestRoute == true && !state.sharing && !applying
         inviteButton.visibility = if (credentials?.inviteSecret != null) View.VISIBLE else View.GONE
         leaveButton.visibility = if (credentials != null) View.VISIBLE else View.GONE
         forgetButton.visibility = if (credentials != null) View.VISIBLE else View.GONE
@@ -398,21 +198,27 @@ class MainActivity : Activity() {
         val root = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(dp(24), dp(16), dp(24), dp(16)) }
         scroll.addView(root)
         root.addView(text("동행 목적지", true))
-        root.addView(text("정차 또는 동승자 조작용 · 받은 목적지는 직접 적용합니다."))
+        root.addView(text("정차 또는 동승자 조작용 · 자동 동행은 명시적으로 시작합니다."))
+        card(root, "자동 동행").apply {
+            autoText = text(""); autoText.accessibilityLiveRegion = View.ACCESSIBILITY_LIVE_REGION_POLITE; addView(autoText)
+            addView(text("대표는 순정 목적지 변경을 자동 공유합니다. 참여자는 최신 목적지와 이후 변경의 자동 적용에 동의합니다. 내비 화면에서도 진행 알림으로 확인·중지할 수 있습니다."))
+            autoStartButton = button("동행 시작") { automaticStart() }
+            autoStopButton = button("자동 동행 중지") { service?.stopAutomatic() }
+        }
         card(root, "현재 순정 내비").apply {
             nativeText = text(""); addView(nativeText)
             currentText = text(""); addView(currentText)
-            connectButton = button("순정 내비 연결 / 다시 연결") { coordinator.connect() }
-            refreshButton = button("현재 목적지 다시 조회") { coordinator.refresh() }
-            shareButton = button("현재 순정 목적지 공유") { coordinator.shareCurrent() }
+            connectButton = button("순정 내비 연결 / 다시 연결") { service?.manual { it.coordinator.connect() } }
+            refreshButton = button("현재 목적지 다시 조회") { service?.manual { it.coordinator.refresh() } }
+            shareButton = button("현재 순정 목적지 공유") { service?.manual { it.coordinator.shareCurrent() } }
         }
         card(root, "받은 공유 목적지").apply {
             sharedText = text(""); addView(sharedText)
-            applyButton = button("받은 목적지를 순정 내비에 적용") { coordinator.applyShared() }
-            addView(text("순정 내비가 열리면 45초 안에 이 앱으로 돌아와 확인해 주세요. 돌아온 뒤 경로를 다시 요청하지 않고 실제 목적지만 확인합니다."))
+            applyButton = button("받은 목적지를 순정 내비에 적용") { service?.manual { it.coordinator.applyShared() } }
+            addView(text("자동 동행 중에는 앱으로 돌아오지 않아도 실제 목적지 확인을 계속합니다. 자동 동행이 꺼진 수동 적용은 45초 안에 돌아와 확인해 주세요."))
             clearButton = button("공유 목적지 지우기") {
                 AlertDialog.Builder(this@MainActivity).setMessage("공유방 목적지를 지웁니다. 각 차량의 순정 안내는 유지됩니다.")
-                    .setNegativeButton("취소", null).setPositiveButton("공유 목적지 지우기") { _, _ -> coordinator.clearShared() }.show()
+                    .setNegativeButton("취소", null).setPositiveButton("공유 목적지 지우기") { _, _ -> service?.manual { it.coordinator.clearShared() } }.show()
             }
             messageText = text(""); messageText.accessibilityLiveRegion = View.ACCESSIBILITY_LIVE_REGION_POLITE; addView(messageText)
         }
@@ -429,13 +235,13 @@ class MainActivity : Activity() {
             }
             inviteButton = button("초대 정보 보기") { showInvitation() }
             reconnectRoomButton = button("공유방 다시 연결") {
-                credentials?.let { stopFeed(); coordinator.suspendRoom(); resumeRoom(it); render(coordinator.state) }
+                service?.manual { it.reconnectRoom() }
             }
             leaveButton = button("공유방 나가기 / 대표는 종료") {
                 AlertDialog.Builder(this@MainActivity).setMessage("${if (credentials?.role == "host") "대표가 나가면 공유방이 종료됩니다." else "이 차량이 공유방에서 나갑니다."} 순정 안내는 유지됩니다.")
-                    .setNegativeButton("취소", null).setPositiveButton("나가기") { _, _ -> leave() }.show()
+                    .setNegativeButton("취소", null).setPositiveButton("나가기") { _, _ -> service?.manual { it.leave() } }.show()
             }
-            forgetButton = button("이 기기 연결 지우기") { forget(true) }
+            forgetButton = button("이 기기 연결 지우기") { service?.manual { it.forget(true) } }
         }
         setContentView(scroll)
     }

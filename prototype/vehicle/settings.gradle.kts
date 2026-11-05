@@ -12,4 +12,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "PleosDestinationShare"
-include(":core", ":app")
+include(":core", ":app", ":nativeDriver")

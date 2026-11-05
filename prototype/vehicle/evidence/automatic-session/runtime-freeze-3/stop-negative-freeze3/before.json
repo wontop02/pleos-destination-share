@@ -1,0 +1,34 @@
+{
+  "hostAt": "2026-11-05T07:43:45.486952+00:00",
+  "hostMonotonic": 0.941223166,
+  "serial": "emulator-5572",
+  "pid": "10889",
+  "topResumed": [
+    "topResumedActivity=ActivityRecord{92d1725 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}",
+    "topResumedActivity=ActivityRecord{1c0b597 u10 ai.umos.drivingview/.DrivingViewActivity t1000005}",
+    "topResumedActivity=ActivityRecord{4f5c857 u10 ai.umos.homescreen/.HomeActivity t1000003}",
+    "ResumedActivity: ActivityRecord{92d1725 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}"
+  ],
+  "ownActivityStates": [
+    "state=STOPPED delayedResume=false finishing=false"
+  ],
+  "nativeForeground": true,
+  "ownResumed": false,
+  "serviceForeground": false,
+  "serviceDetails": [],
+  "session": {
+    "at": 1793864597004,
+    "event": "serviceDestroy",
+    "serviceEpoch": 16132415,
+    "roomEpoch": 2,
+    "revision": -1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "CANCELLED",
+    "connection": "DISCONNECTED",
+    "roomConnected": false,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  }
+}

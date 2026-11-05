@@ -1,0 +1,13 @@
+{
+  "at": "2026-11-05T05:47:33.589Z",
+  "issue": 14,
+  "pid": 55961,
+  "host": "127.0.0.1",
+  "port": 4184,
+  "worktree": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-14-auto-follow",
+  "sourceSHA256": {
+    "prototype/server.mjs": "963a66b23dbaa62aa46459639b7d499a8c1dac22af679d58c544fcd214a8bc35",
+    "prototype/wav.mjs": "73d5135026baf1324fd73e19c93e46cc236efe4a02fb6d69d5ded47cad4b0856"
+  },
+  "publicExposure": false
+}

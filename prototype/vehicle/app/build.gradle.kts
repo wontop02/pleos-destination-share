@@ -10,7 +10,7 @@ android {
         minSdk = 28
         targetSdk = 35
         versionCode = 1
-        versionName = "0.1.0-issue12"
+        versionName = "0.2.0-issue14"
         testApplicationId = "ai.pleos.destinations.vehicle.probe"
         testInstrumentationRunner = "ai.pleos.destinations.vehicle.NaviSdkProbe"
     }

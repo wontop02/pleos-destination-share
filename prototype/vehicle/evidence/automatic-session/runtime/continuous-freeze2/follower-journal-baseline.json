@@ -1,0 +1,1818 @@
+[
+  {
+    "at": 1793849151224,
+    "event": "connected",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793849151263,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793849152351,
+    "event": "onDestinationInfoAbsent",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793849354968,
+    "event": "connected",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793849354988,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793849355177,
+    "event": "onDestinationInfoAbsent",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793849379691,
+    "event": "roomDestination",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793849418848,
+    "event": "connected",
+    "nativeEpoch": 2,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793849418900,
+    "event": "requestRoute",
+    "nativeEpoch": 2,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793849510642,
+    "event": "connected",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793849510671,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793849511900,
+    "event": "onDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793849643844,
+    "event": "connected",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793849643879,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793849644145,
+    "event": "onDestinationInfoAbsent",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793850033836,
+    "event": "connected",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793850033868,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793850034010,
+    "event": "onDestinationInfoAbsent",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793850066418,
+    "event": "roomDestination",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793850075699,
+    "event": "roomDestination",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793850116808,
+    "event": "connected",
+    "nativeEpoch": 2,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793850116834,
+    "event": "requestRoute",
+    "nativeEpoch": 2,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793850137581,
+    "event": "connected",
+    "nativeEpoch": 1,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793850137593,
+    "event": "resumeVerification",
+    "nativeEpoch": 1,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793850137616,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793850138673,
+    "event": "onDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793850138694,
+    "event": "destinationMatch",
+    "nativeEpoch": 1,
+    "operation": 2,
+    "matched": true
+  },
+  {
+    "at": 1793850378914,
+    "event": "roomDestination",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793850421857,
+    "event": "connected",
+    "nativeEpoch": 2,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1793850421883,
+    "event": "requestRoute",
+    "nativeEpoch": 2,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1793850423213,
+    "event": "onRouteCancelled",
+    "nativeEpoch": 2,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1793850443482,
+    "event": "connected",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793850443519,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793850444594,
+    "event": "onDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793850581322,
+    "event": "connected",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793850581344,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793850581569,
+    "event": "onDestinationInfoAbsent",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793850921246,
+    "event": "connected",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793850921291,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793850921486,
+    "event": "onDestinationInfoAbsent",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793850940483,
+    "event": "connected",
+    "nativeEpoch": 2,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793850940507,
+    "event": "requestRoute",
+    "nativeEpoch": 2,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793850962498,
+    "event": "connected",
+    "nativeEpoch": 1,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793850962502,
+    "event": "resumeVerification",
+    "nativeEpoch": 1,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793850962507,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793850963563,
+    "event": "onDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793850963588,
+    "event": "destinationMatch",
+    "nativeEpoch": 1,
+    "operation": 2,
+    "matched": true
+  },
+  {
+    "at": 1793851000829,
+    "event": "roomDestination",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793851031350,
+    "event": "connected",
+    "nativeEpoch": 2,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1793851031363,
+    "event": "requestRoute",
+    "nativeEpoch": 2,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1793851032875,
+    "event": "onRouteCancelled",
+    "nativeEpoch": 2,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1793851051507,
+    "event": "connected",
+    "nativeEpoch": 1,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1793851051526,
+    "event": "resumeVerification",
+    "nativeEpoch": 1,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1793851051559,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1793851052600,
+    "event": "onDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1793851052618,
+    "event": "destinationMatch",
+    "nativeEpoch": 1,
+    "operation": 4,
+    "matched": true
+  },
+  {
+    "at": 1793852267871,
+    "event": "connected",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793852267923,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793852269183,
+    "event": "onDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793852468687,
+    "event": "connected",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793852468712,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793852469056,
+    "event": "onDestinationInfoAbsent",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793852508043,
+    "event": "connected",
+    "nativeEpoch": 2,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793852508126,
+    "event": "requestRoute",
+    "nativeEpoch": 2,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793852510167,
+    "event": "periodicVerification",
+    "nativeEpoch": 2,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793852510224,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 2,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793852511394,
+    "event": "onDestinationInfoAbsent",
+    "nativeEpoch": 2,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793852527671,
+    "event": "connected",
+    "nativeEpoch": 1,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793852527679,
+    "event": "resumeVerification",
+    "nativeEpoch": 1,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793852527700,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793852528796,
+    "event": "onDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793852528839,
+    "event": "destinationMatch",
+    "nativeEpoch": 1,
+    "operation": 2,
+    "matched": true
+  },
+  {
+    "at": 1793856816892,
+    "event": "connected",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793856816917,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793856818096,
+    "event": "onDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793858106356,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 0,
+    "revision": -1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "DISCONNECTED",
+    "roomConnected": false,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793858106371,
+    "event": "serviceCreate",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 0,
+    "revision": -1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "DISCONNECTED",
+    "roomConnected": false,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793858106467,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 0,
+    "revision": -1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTING",
+    "roomConnected": false,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793858106719,
+    "event": "activityStartAttach",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 0,
+    "revision": -1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTING",
+    "roomConnected": false,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793858106818,
+    "event": "connected",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793858106819,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 0,
+    "revision": -1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": false,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793858106844,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 0,
+    "revision": -1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": false,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793858106850,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793858106873,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 1,
+    "revision": 5,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793858107988,
+    "event": "onDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793858107989,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 1,
+    "revision": 5,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793858108028,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 1,
+    "revision": 5,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793858400623,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 1,
+    "revision": 5,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "CANCELLED",
+    "connection": "DISCONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793858400656,
+    "event": "automaticStop",
+    "nativeEpoch": 2,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793858400657,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 2,
+    "revision": -1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "CANCELLED",
+    "connection": "DISCONNECTED",
+    "roomConnected": false,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793858661279,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 0,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "CANCELLED",
+    "connection": "DISCONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793858661331,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 0,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "CANCELLED",
+    "connection": "CONNECTING",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793858661876,
+    "event": "connected",
+    "nativeEpoch": 3,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793858661882,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 0,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "CANCELLED",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793858661920,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 0,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "CANCELLED",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793858661943,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 3,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793858663068,
+    "event": "onDestinationInfo",
+    "nativeEpoch": 3,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793858663069,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 0,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "CANCELLED",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793858663108,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 0,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "CANCELLED",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793858904908,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "CANCELLED",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793858904970,
+    "event": "roomDestination",
+    "nativeEpoch": 3,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793859025503,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "CANCELLED",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859025798,
+    "event": "automaticStart",
+    "nativeEpoch": 3,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793859025839,
+    "event": "automaticServiceStart",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "CANCELLED",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859026224,
+    "event": "automaticApply",
+    "nativeEpoch": 3,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793859026226,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "CONNECTING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859026492,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "CONNECTING",
+    "connection": "CONNECTING",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859026739,
+    "event": "connected",
+    "nativeEpoch": 4,
+    "operation": 3,
+    "matched": null
+  },
+  {
+    "at": 1793859026739,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "CONNECTING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859026868,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "REQUESTED",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859026894,
+    "event": "requestRoute",
+    "nativeEpoch": 4,
+    "operation": 3,
+    "matched": null
+  },
+  {
+    "at": 1793859028955,
+    "event": "periodicVerification",
+    "nativeEpoch": 4,
+    "operation": 3,
+    "matched": null
+  },
+  {
+    "at": 1793859028956,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "VERIFYING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859028990,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "VERIFYING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859029034,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 4,
+    "operation": 3,
+    "matched": null
+  },
+  {
+    "at": 1793859030516,
+    "event": "onDestinationInfo",
+    "nativeEpoch": 4,
+    "operation": 3,
+    "matched": null
+  },
+  {
+    "at": 1793859030519,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "VERIFYING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859032275,
+    "event": "destinationMatch",
+    "nativeEpoch": 4,
+    "operation": 3,
+    "matched": true
+  },
+  {
+    "at": 1793859032324,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "CONFIRMED",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": 11837863,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859033624,
+    "event": "onRouteCancelled",
+    "nativeEpoch": 4,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793859033650,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "CONFIRMED",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859035299,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "IDLE",
+    "connection": "CONNECTING",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859036694,
+    "event": "activityStopDetach",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "IDLE",
+    "connection": "CONNECTING",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859037958,
+    "event": "connected",
+    "nativeEpoch": 5,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793859037959,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859038329,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859039106,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 5,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793859040241,
+    "event": "onDestinationInfo",
+    "nativeEpoch": 5,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793859040242,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859041101,
+    "event": "sessionState",
+    "serviceEpoch": 10911707,
+    "roomEpoch": 3,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859615778,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 0,
+    "revision": -1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "DISCONNECTED",
+    "roomConnected": false,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859615810,
+    "event": "serviceCreate",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 0,
+    "revision": -1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "DISCONNECTED",
+    "roomConnected": false,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859616242,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 0,
+    "revision": -1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTING",
+    "roomConnected": false,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859617289,
+    "event": "activityStartAttach",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 0,
+    "revision": -1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTING",
+    "roomConnected": false,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859617425,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTING",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859617602,
+    "event": "connected",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793859617603,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859617623,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859617645,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793859618836,
+    "event": "onDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793859618837,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859618874,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859818598,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859818714,
+    "event": "automaticStart",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793859818799,
+    "event": "automaticServiceStart",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859819076,
+    "event": "automaticApply",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1793859819078,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "CONNECTING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859819146,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "CONNECTING",
+    "connection": "CONNECTING",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859819242,
+    "event": "connected",
+    "nativeEpoch": 2,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793859819242,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "CONNECTING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859819306,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "REQUESTED",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859819342,
+    "event": "requestRoute",
+    "nativeEpoch": 2,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793859820814,
+    "event": "onRouteCancelled",
+    "nativeEpoch": 2,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793859820875,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "REQUESTED",
+    "connection": "CONNECTING",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859821208,
+    "event": "connected",
+    "nativeEpoch": 3,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793859821209,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "REQUESTED",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859821312,
+    "event": "resumeVerification",
+    "nativeEpoch": 3,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793859821319,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "VERIFYING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859821375,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "VERIFYING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859821535,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 3,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793859821626,
+    "event": "onDestinationInfoAbsent",
+    "nativeEpoch": 3,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793859821639,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "VERIFYING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859822155,
+    "event": "activityStopDetach",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "VERIFYING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859823790,
+    "event": "periodicVerification",
+    "nativeEpoch": 3,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793859823791,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "VERIFYING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859823810,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "VERIFYING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859823927,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 3,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793859823956,
+    "event": "onDestinationInfoAbsent",
+    "nativeEpoch": 3,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793859823956,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "VERIFYING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859825980,
+    "event": "periodicVerification",
+    "nativeEpoch": 3,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793859825982,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "VERIFYING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859826059,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "VERIFYING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859826086,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 3,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793859826109,
+    "event": "onDestinationInfoAbsent",
+    "nativeEpoch": 3,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793859826110,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "VERIFYING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859827724,
+    "event": "onRouteStarted",
+    "nativeEpoch": 3,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793859828350,
+    "event": "periodicVerification",
+    "nativeEpoch": 3,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793859828353,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "VERIFYING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859828514,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "VERIFYING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859828623,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 3,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793859829846,
+    "event": "onDestinationInfo",
+    "nativeEpoch": 3,
+    "operation": 2,
+    "matched": null
+  },
+  {
+    "at": 1793859829846,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "VERIFYING",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false
+  },
+  {
+    "at": 1793859829960,
+    "event": "destinationMatch",
+    "nativeEpoch": 3,
+    "operation": 2,
+    "matched": true
+  },
+  {
+    "at": 1793859829961,
+    "event": "sessionState",
+    "serviceEpoch": 12421167,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "CONFIRMED",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": 12635500,
+    "routingCompletedObserved": false
+  }
+]

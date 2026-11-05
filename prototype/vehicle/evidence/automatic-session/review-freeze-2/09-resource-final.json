@@ -1,0 +1,70 @@
+{
+  "emulator-5570": {
+    "at": "2026-11-05T07:09:36.784208+00:00",
+    "hostMonotonic": 154.014639416,
+    "serial": "emulator-5570",
+    "pid": "20878",
+    "resumedActivities": [
+      "topResumedActivity=ActivityRecord{eb0228e u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}",
+      "topResumedActivity=ActivityRecord{1ed968a u10 ai.umos.drivingview/.DrivingViewActivity t1000005}",
+      "topResumedActivity=ActivityRecord{8cfa86e u10 ai.umos.homescreen/.HomeActivity t1000003}",
+      "ResumedActivity: ActivityRecord{eb0228e u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}"
+    ],
+    "ownActivityStates": [
+      "state=STOPPED delayedResume=false finishing=false"
+    ],
+    "nativeForeground": true,
+    "ownResumed": false,
+    "serviceForeground": false,
+    "serviceDetails": [],
+    "session": {
+      "at": 1793862574686,
+      "event": "serviceDestroy",
+      "serviceEpoch": 15268336,
+      "roomEpoch": 2,
+      "revision": -1,
+      "role": "member",
+      "automatic": "OFF",
+      "applying": "CANCELLED",
+      "connection": "DISCONNECTED",
+      "roomConnected": false,
+      "uiCount": 0,
+      "confirmedAtElapsed": null,
+      "routingCompletedObserved": false
+    }
+  },
+  "emulator-5572": {
+    "at": "2026-11-05T07:09:37.599118+00:00",
+    "hostMonotonic": 154.829555166,
+    "serial": "emulator-5572",
+    "pid": "4948",
+    "resumedActivities": [
+      "topResumedActivity=ActivityRecord{92d1725 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}",
+      "topResumedActivity=ActivityRecord{1c0b597 u10 ai.umos.drivingview/.DrivingViewActivity t1000005}",
+      "topResumedActivity=ActivityRecord{4f5c857 u10 ai.umos.homescreen/.HomeActivity t1000003}",
+      "ResumedActivity: ActivityRecord{92d1725 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}"
+    ],
+    "ownActivityStates": [
+      "state=STOPPED delayedResume=false finishing=false"
+    ],
+    "nativeForeground": true,
+    "ownResumed": false,
+    "serviceForeground": false,
+    "serviceDetails": [],
+    "session": {
+      "at": 1793862440988,
+      "event": "serviceDestroy",
+      "serviceEpoch": 14849405,
+      "roomEpoch": 2,
+      "revision": -1,
+      "role": "member",
+      "automatic": "OFF",
+      "applying": "CANCELLED",
+      "connection": "DISCONNECTED",
+      "roomConnected": false,
+      "uiCount": 0,
+      "confirmedAtElapsed": null,
+      "routingCompletedObserved": false
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # pleos-destination-share
 
-차량 간 목적지와 최대 15초 원음을 공유하는 프로토타입입니다. 공유방 웹·인증 서버(#6)는 병합되었습니다. 2026-11-05 별도 승인된 [Pleos 차량 목적지 앱 #12](prototype/vehicle/README.md)을 우선 구현·검증합니다. 휴대폰 원음 앱의 [Android PR #10](https://github.com/wontop02/pleos-destination-share/pull/10)과 [iPhone PR #11](https://github.com/wontop02/pleos-destination-share/pull/11)은 실기기 필수 검증이 막힌 Draft이며 `main`에 병합되지 않았습니다.
+차량 간 목적지와 최대 15초 원음을 공유하는 프로토타입입니다. 공유방 웹·인증 서버(#6)는 병합되었습니다. 2026-11-05 [Pleos 차량 목적지 앱 #12](prototype/vehicle/README.md)의 수동 실증을 병합했고, 새 승인 이슈 #14의 [앱 복귀 없는 자동 동행](docs/product/vehicle-auto-follow.md)을 구현·검증합니다. 휴대폰 원음 앱의 [Android PR #10](https://github.com/wontop02/pleos-destination-share/pull/10)과 [iPhone PR #11](https://github.com/wontop02/pleos-destination-share/pull/11)은 실기기 필수 검증이 막힌 Draft이며 `main`에 병합되지 않았습니다.
 
 ## 제품 실행
 
@@ -15,7 +15,7 @@ npm start
 
 웹은 열린 화면에서의 기능 검증용입니다. iPhone·Android에서 내비 앱 사용 또는 화면 잠금 중 원음 자동 재생은 네이티브 앱과 실기기로 따로 검증합니다. 모든 기종에서 검증됐다고 표시하지 않습니다.
 
-차량 앱은 NaviHelper 3.0.5로 순정 목적지를 조회하고 대표가 직접 공유합니다. 수신 차량은 받은 목적지를 직접 적용하며, 후속 순정 목적지 조회가 요청과 일치할 때만 일치 확인을 표시합니다. SDK 빌드·서버 검사는 실제 Pleos 두 대의 내비 실증과 구분합니다. 실증과 독립 verifier가 완료되기 전에는 #12를 완료·병합하지 않습니다.
+차량 앱은 NaviHelper 3.0.5로 순정 목적지를 조회합니다. 기본 꺼짐인 자동 동행을 대표와 참여자가 각각 시작하면 순정 내비 화면에서 변경 공유·최신 목적지 적용·실제 조회 확인을 계속합니다. 진행 알림으로 중지할 수 있고 기존 직접 공유·적용도 유지합니다. 동결 3의 공식 Pleos 에뮬레이터 두 대에서 908.721초 동안 앱 재진입 없이 세 번 변경·실제 목적지 일치를 관찰했고, 상태 우선 알림 제목 대비는 14.390:1이었습니다. 알림 중지 후 새 A 변경 완료 뒤 81.348초 동안 B 새 요청은 0회였습니다. 동결 2의 F1 전체 FAIL과 새 실행은 [검증 이력](prototype/vehicle/evidence/automatic-session/verification.md)에서 구분하며, 최종 독립 판정과 병합 상태는 [PR #15](https://github.com/wontop02/pleos-destination-share/pull/15)를 참조합니다.
 
 ## 작업 방식
 

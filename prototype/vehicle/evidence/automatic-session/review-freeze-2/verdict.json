@@ -1,0 +1,238 @@
+{
+  "verdict": "FAIL",
+  "issue": 14,
+  "pr": "https://github.com/wontop02/pleos-destination-share/pull/15",
+  "base": "7d9dcc053c8dfe2b8ce1f22fef3c17b9c8c54856",
+  "head": "0b92a6b4df1fb97c811842d0f0b455ccc9e5590b",
+  "branch": "be/issue-14-vehicle-auto-follow",
+  "at": "2026-11-05T07:11:48.435868+00:00",
+  "issueRawSha256": "1ca59db75b55dd39a958c2bc9237b76b3bec7dd7b90b46f41257356bb17268b0",
+  "issueRemoteBodySha256": "a622def5a306558146e88f61f48cb1f5f42dac41e9d6cf107762d82544ce0f5a",
+  "issueContractSha256": "2c6f6693d831c91effe5d5964178fbc2a5fc9c286abb4c5d26029c1d5ca6baf1",
+  "sourceManifestSha256": "a5bfcef798928a8b64ef1323e56f69b78dfc5f94a052f19b1d3d5db5a3eddae4",
+  "runtimeSourceSha256": "76c4350628c272f0c04d6405b2819c732954ab9a6ef2db405ed36d925034e0cb",
+  "allBuildInputsSha256": "72af78492463b80978ad5882ea229114c94ce4db5bd7e0eb2de0fda9dc93a5a9",
+  "acceptanceCriteria": {
+    "AC1": {
+      "verdict": "FAIL",
+      "reason": "기본 OFF, 역할별 새 opt-in, UI 독립 FGS/SDK/HTTP/SSE, 정상 specialUse/최소 권한, 실제 중지 경로는 확인했다. 필수 진행 상태 본문이 실제 알림에서 거의 읽히지 않아 F1로 실패한다.",
+      "evidence": [
+        "02-default-off.json",
+        "03-independent-opt-in.json",
+        "01-preflight.json",
+        "07-follower-stop-receipt.json",
+        "09-leader-stop-receipt.json",
+        "apk-inspection-commands.json",
+        "ui/06-follower-notification.png"
+      ]
+    },
+    "AC2": {
+      "verdict": "PASS",
+      "reason": "대표 실제 native 변경의 자동 발행, 전체 빈 목적지와 실패·전역취소의 구분, 실제 nullable sub-ID 보존, bounded 단일 조회와 중복/역순 제어, 비대표 발행 0 및 기존 v1 계약 보존을 확인했다.",
+      "evidence": [
+        "evidence-recalculation.json",
+        "05-independent-change.json",
+        "05-source-dream.json",
+        "05-follower-dream-query.json",
+        "commands-build.json"
+      ]
+    },
+    "AC3": {
+      "verdict": "FAIL",
+      "reason": "B의 최신값 및 후속 변경 자동 requestRoute, 새 실제 조회 strict match, 화면 밖 완료, stale/버전/방/취소/timeout fence와 작업별45초 기한은 확인했다. 완료 상태를 사용자가 알림에서 읽기 어렵다는 F1로 실패한다.",
+      "evidence": [
+        "04-latest-confirmed.json",
+        "05-independent-change.json",
+        "core-TEST-ai.pleos.destinations.core.VehicleAutomationTest.xml",
+        "ui/06-follower-notification.png"
+      ]
+    },
+    "AC4": {
+      "verdict": "PASS",
+      "reason": "실제 SystemUI 중지 후 새 A 변경에도 자동 요청 0, SDK/FGS/방 수명 종료와 재생성 없음, off→on 새 명시 동의를 확인했다. 종료/이전콜백/방종료/인증·비밀 보호는 소스 및 실제 HTTP/SSE 회귀를 직접 검사했다.",
+      "evidence": [
+        "07-follower-stop-receipt.json",
+        "08-stop-negative-result.json",
+        "08-stop-negative-final-events.jsonl",
+        "09-resource-final.json",
+        "secret-scan.json",
+        "app-TEST-ai.pleos.destinations.vehicle.VehicleSessionTest.xml"
+      ]
+    },
+    "AC5": {
+      "verdict": "PASS",
+      "reason": "동결2 원본을 직접 재계산했다. 공식2AVD 907.743초·57쌍·같은PID/서비스epoch·Activity재진입0, 변경3회(+24.436,+302.358,+633.147초), B요청3/strictmatch3, 원본중지후77.9675초 요청0, APK/source 해시와 무편집96개 일치가 확인됐다. 이는 F1을 해소하지 않으며 전체 판정은 FAIL이다.",
+      "evidence": [
+        "input-hashes.json",
+        "evidence-recalculation.json",
+        "01-preflight.json",
+        "05-independent-change.json",
+        "08-stop-negative-result.json"
+      ]
+    }
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "priority": 2,
+      "blocking": true,
+      "affectedAC": [
+        "AC1",
+        "AC3"
+      ],
+      "title": "실제 Pleos 알림에서 진행·확인 상태 본문을 읽기 어렵다",
+      "sourceFile": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/ConvoySessionService.kt",
+      "sourceLine": 132,
+      "observation": "실제 B 알림의 상태 본문은 RGB(51,51,51), 배경은 RGB(40,42,45)다. 제목과 중지는 밝지만 확인 상태는 이 어두운 본문에만 표시된다.",
+      "strongestScreenshotContrastRatio": 1.138966520614428,
+      "evidence": [
+        "ui/06-follower-notification.png",
+        "ui/06-follower-notification.xml.txt",
+        "06-notification-inspection.json",
+        "notification-contrast.json"
+      ],
+      "requiredCorrection": "화면 밖 사용자가 요청·확인 중·일치·실패·대기 상태를 실제 알림에서 읽을 수 있게 수정하고 공식 이미지에서 검증한다. 새 source/APK 동결과 정확한 새 head 검증이 필요하다."
+    }
+  ],
+  "tests": {
+    "node": 76,
+    "core": 71,
+    "app": 26,
+    "total": 173,
+    "failed": 0,
+    "buildExit": 0,
+    "lintErrors": 0,
+    "appLintWarnings": 5,
+    "driverLintWarnings": 2
+  },
+  "directEvidence": {
+    "buildInputsVerified": 40,
+    "rawCopiesVerified": 96,
+    "continuousSamplesVerified": 57,
+    "frozenApksVerified": 3,
+    "independentPositiveRevisionBefore": 9,
+    "independentPositiveRevisionAfter": 11,
+    "independentPositiveCounts": {
+      "emulator-5570": {
+        "activityReentries": 0,
+        "requests": 0,
+        "publications": 2,
+        "strictMatches": 0
+      },
+      "emulator-5572": {
+        "activityReentries": 0,
+        "requests": 1,
+        "publications": 0,
+        "strictMatches": 1
+      }
+    },
+    "independentNegativeSecondsAfterSource": 86.62154525000001,
+    "independentNegativeNewRequests": 0
+  },
+  "independence": {
+    "role": "builtin default, separately delegated context, parent model/reasoning inherited",
+    "customRoleAutodiscoveryClaimed": false,
+    "behaviorContractRead": ".codex/agents/verifier.toml",
+    "securityIsolationClaimed": false
+  },
+  "noCommit": true,
+  "noSourceChange": true,
+  "noGHMutation": true,
+  "uiOwnershipReturned": true,
+  "adbPort": 5041,
+  "serials": [
+    "emulator-5570",
+    "emulator-5572"
+  ],
+  "resourceState": {
+    "emulator-5570": {
+      "at": "2026-11-05T07:09:36.784208+00:00",
+      "hostMonotonic": 154.014639416,
+      "serial": "emulator-5570",
+      "pid": "20878",
+      "resumedActivities": [
+        "topResumedActivity=ActivityRecord{eb0228e u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}",
+        "topResumedActivity=ActivityRecord{1ed968a u10 ai.umos.drivingview/.DrivingViewActivity t1000005}",
+        "topResumedActivity=ActivityRecord{8cfa86e u10 ai.umos.homescreen/.HomeActivity t1000003}",
+        "ResumedActivity: ActivityRecord{eb0228e u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}"
+      ],
+      "ownActivityStates": [
+        "state=STOPPED delayedResume=false finishing=false"
+      ],
+      "nativeForeground": true,
+      "ownResumed": false,
+      "serviceForeground": false,
+      "serviceDetails": [],
+      "session": {
+        "at": 1793862574686,
+        "event": "serviceDestroy",
+        "serviceEpoch": 15268336,
+        "roomEpoch": 2,
+        "revision": -1,
+        "role": "member",
+        "automatic": "OFF",
+        "applying": "CANCELLED",
+        "connection": "DISCONNECTED",
+        "roomConnected": false,
+        "uiCount": 0,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false
+      }
+    },
+    "emulator-5572": {
+      "at": "2026-11-05T07:09:37.599118+00:00",
+      "hostMonotonic": 154.829555166,
+      "serial": "emulator-5572",
+      "pid": "4948",
+      "resumedActivities": [
+        "topResumedActivity=ActivityRecord{92d1725 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}",
+        "topResumedActivity=ActivityRecord{1c0b597 u10 ai.umos.drivingview/.DrivingViewActivity t1000005}",
+        "topResumedActivity=ActivityRecord{4f5c857 u10 ai.umos.homescreen/.HomeActivity t1000003}",
+        "ResumedActivity: ActivityRecord{92d1725 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}"
+      ],
+      "ownActivityStates": [
+        "state=STOPPED delayedResume=false finishing=false"
+      ],
+      "nativeForeground": true,
+      "ownResumed": false,
+      "serviceForeground": false,
+      "serviceDetails": [],
+      "session": {
+        "at": 1793862440988,
+        "event": "serviceDestroy",
+        "serviceEpoch": 14849405,
+        "roomEpoch": 2,
+        "revision": -1,
+        "role": "member",
+        "automatic": "OFF",
+        "applying": "CANCELLED",
+        "connection": "DISCONNECTED",
+        "roomConnected": false,
+        "uiCount": 0,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false
+      }
+    }
+  },
+  "preservedResources": [
+    "owned ADB5041",
+    "both owned official AVDs",
+    "loopback backend127.0.0.1:4184 PID55961",
+    "existing encrypted room credentials"
+  ],
+  "notExecuted": [
+    "실차·휴대폰 내비",
+    "공개 배포·specialUse 스토어 심사",
+    "무기한 상주",
+    "production 앱을 target한 instrumentation",
+    "재설치/재시작/강제종료",
+    "새 계정/결제/법적 동의/다른 앱·ADB·전역설정 변경",
+    "독립 verifier의 새15분 실행; 기존 총괄 원본15분을 직접 검사하고 별도 실제 동작을 추가 재현"
+  ],
+  "limits": [
+    "onRoutingCompleted 실제 수신 미관측; 요청·목적지 일치와 구분",
+    "스냅샷은 주기 관측이며 사이 구간 Activity 재진입은 보존된 lifecycle journal prefix와 이후 event로 보완",
+    "RGB 대비는 실제 PNG에 대한 보조 측정이며 전체 접근성 인증 주장이 아님"
+  ],
+  "nextAction": "F1 수정 후 새 runtime freeze/APK·15분 실증·정확 새 head로 재검증 요청"
+}

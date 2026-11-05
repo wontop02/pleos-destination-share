@@ -1,0 +1,108 @@
+{
+  "image": "ui/06-follower-notification.png",
+  "bodyTextBounds": [
+    272,
+    182,
+    479,
+    212
+  ],
+  "mostCommonColors": [
+    [
+      [
+        40,
+        42,
+        45
+      ],
+      4660
+    ],
+    [
+      [
+        51,
+        51,
+        51
+      ],
+      336
+    ],
+    [
+      [
+        49,
+        50,
+        50
+      ],
+      126
+    ],
+    [
+      [
+        50,
+        50,
+        51
+      ],
+      91
+    ],
+    [
+      [
+        45,
+        46,
+        48
+      ],
+      90
+    ],
+    [
+      [
+        46,
+        47,
+        48
+      ],
+      87
+    ],
+    [
+      [
+        42,
+        43,
+        46
+      ],
+      81
+    ],
+    [
+      [
+        44,
+        45,
+        47
+      ],
+      79
+    ],
+    [
+      [
+        50,
+        50,
+        50
+      ],
+      75
+    ],
+    [
+      [
+        42,
+        44,
+        46
+      ],
+      73
+    ]
+  ],
+  "background": [
+    40,
+    42,
+    45
+  ],
+  "lightestCandidate": [
+    51,
+    51,
+    51
+  ],
+  "method": "Read actual screenshot RGB pixels within fresh SystemUI text bounds; no image edits.",
+  "bodyStrongestAvailableContrastRatio": 1.138966520614428,
+  "foregroundSolidTextRGB": [
+    51,
+    51,
+    51
+  ]
+}

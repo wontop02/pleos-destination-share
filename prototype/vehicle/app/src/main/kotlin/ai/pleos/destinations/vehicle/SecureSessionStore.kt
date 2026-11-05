@@ -17,13 +17,12 @@ import javax.crypto.SecretKey
 import javax.crypto.spec.GCMParameterSpec
 
 /** Bearer/invitation secrets never enter preferences, backup, URLs, saved view state, or logs. */
-class SecureSessionStore(context: Context) {
+class SecureSessionStore(context: Context) : SessionStorage {
     private val file = AtomicFile(File(context.noBackupFilesDir, "room-session.bin"))
     private val alias = "pleos-destination-share.room.v1"
     private val aad = "pleos-destination-share.session.v1".toByteArray(Charsets.UTF_8)
-    data class Loaded(val credentials: RoomCredentials?, val damaged: Boolean)
 
-    @Synchronized fun save(credentials: RoomCredentials) {
+    @Synchronized override fun save(credentials: RoomCredentials) {
         val cipher = Cipher.getInstance("AES/GCM/NoPadding")
         cipher.init(Cipher.ENCRYPT_MODE, key())
         cipher.updateAAD(aad)
@@ -37,8 +36,8 @@ class SecureSessionStore(context: Context) {
         catch (error: Exception) { file.failWrite(stream); throw error }
     }
 
-    @Synchronized fun load(): Loaded {
-        if (!file.baseFile.exists()) return Loaded(null, false)
+    @Synchronized override fun load(): LoadedSession {
+        if (!file.baseFile.exists()) return LoadedSession(null, false)
         return try {
             require(file.baseFile.length() <= 16_384)
             val input = DataInputStream(ByteArrayInputStream(file.readFully()))
@@ -51,11 +50,11 @@ class SecureSessionStore(context: Context) {
             cipher.updateAAD(aad)
             val plain = cipher.doFinal(encrypted)
             val body = try { JSONObject(String(plain, Charsets.UTF_8)) } finally { plain.fill(0) }
-            Loaded(RoomProtocol.credentials(body.getString("baseUrl"), body), false)
-        } catch (_: Exception) { clear(); Loaded(null, true) }
+            LoadedSession(RoomProtocol.credentials(body.getString("baseUrl"), body), false)
+        } catch (_: Exception) { clear(); LoadedSession(null, true) }
     }
 
-    @Synchronized fun clear() {
+    @Synchronized override fun clear() {
         file.delete()
         runCatching { KeyStore.getInstance("AndroidKeyStore").apply { load(null) }.deleteEntry(alias) }
     }

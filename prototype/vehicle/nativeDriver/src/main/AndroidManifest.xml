@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="pleos.car.permission.NAVI_ROUTE" />
+    <uses-permission android:name="pleos.car.permission.NAVI_ROUTE_SEARCH" />
+    <uses-feature android:name="android.hardware.type.automotive" android:required="true" />
+    <application android:label="Native SDK test driver" android:allowBackup="false" android:testOnly="true" />
+    <instrumentation android:name=".NativeDestinationDriver"
+        android:targetPackage="ai.pleos.destinations.driver" android:functionalTest="true" />
+</manifest>

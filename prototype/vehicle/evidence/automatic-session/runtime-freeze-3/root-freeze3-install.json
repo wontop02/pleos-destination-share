@@ -1,0 +1,93 @@
+{
+  "at": "2026-11-05T07:22:19.169115+00:00",
+  "manifest": "../builder/freeze-3/source-manifest.json",
+  "sourceHashMismatch": 0,
+  "receipts": [
+    {
+      "serial": "emulator-5570",
+      "appSHA256": "264605564a27d7cdc05578769d509b1c28220917cdf7dc605df43437e11cc216",
+      "driverSHA256": "8e534886360623b27aede4c49f8fdc1c33b8d89bd2e0b6d2b4949fa59e397ea9",
+      "launch": "Starting: Intent { cmp=ai.pleos.destinations.vehicle/.MainActivity }\nStatus: ok\nLaunchState: COLD\nActivity: ai.pleos.destinations.vehicle/.MainActivity\nTotalTime: 7876\nWaitTime: 8045\nComplete\n",
+      "defaultOff": {
+        "hostAt": "2026-11-05T07:21:33.535879+00:00",
+        "hostMonotonic": 34.613273916,
+        "serial": "emulator-5570",
+        "pid": "24562",
+        "topResumed": [
+          "topResumedActivity=ActivityRecord{77013bc u10 ai.pleos.destinations.vehicle/.MainActivity t1000016}",
+          "topResumedActivity=ActivityRecord{1ed968a u10 ai.umos.drivingview/.DrivingViewActivity t1000005}",
+          "topResumedActivity=ActivityRecord{8cfa86e u10 ai.umos.homescreen/.HomeActivity t1000003}",
+          "ResumedActivity: ActivityRecord{77013bc u10 ai.pleos.destinations.vehicle/.MainActivity t1000016}"
+        ],
+        "ownActivityStates": [
+          "state=RESUMED delayedResume=false finishing=false"
+        ],
+        "nativeForeground": false,
+        "ownResumed": true,
+        "serviceForeground": false,
+        "serviceDetails": [
+          "* ServiceRecord{115dd31 u10 ai.pleos.destinations.vehicle/.ConvoySessionService}",
+          "app=ProcessRecord{71742fe 24562:ai.pleos.destinations.vehicle/u10a174}"
+        ],
+        "session": {
+          "at": 1793863290476,
+          "event": "sessionState",
+          "serviceEpoch": 16526086,
+          "roomEpoch": 1,
+          "revision": 13,
+          "role": "host",
+          "automatic": "OFF",
+          "applying": "IDLE",
+          "connection": "CONNECTED",
+          "roomConnected": true,
+          "uiCount": 1,
+          "confirmedAtElapsed": null,
+          "routingCompletedObserved": false
+        }
+      }
+    },
+    {
+      "serial": "emulator-5572",
+      "appSHA256": "264605564a27d7cdc05578769d509b1c28220917cdf7dc605df43437e11cc216",
+      "driverSHA256": "8e534886360623b27aede4c49f8fdc1c33b8d89bd2e0b6d2b4949fa59e397ea9",
+      "launch": "Starting: Intent { cmp=ai.pleos.destinations.vehicle/.MainActivity }\nStatus: ok\nLaunchState: COLD\nActivity: ai.pleos.destinations.vehicle/.MainActivity\nTotalTime: 9731\nWaitTime: 10042\nComplete\n",
+      "defaultOff": {
+        "hostAt": "2026-11-05T07:22:14.271494+00:00",
+        "hostMonotonic": 75.34866375,
+        "serial": "emulator-5572",
+        "pid": "10889",
+        "topResumed": [
+          "topResumedActivity=ActivityRecord{82141d8 u10 ai.pleos.destinations.vehicle/.MainActivity t1000016}",
+          "topResumedActivity=ActivityRecord{1c0b597 u10 ai.umos.drivingview/.DrivingViewActivity t1000005}",
+          "topResumedActivity=ActivityRecord{4f5c857 u10 ai.umos.homescreen/.HomeActivity t1000003}",
+          "ResumedActivity: ActivityRecord{82141d8 u10 ai.pleos.destinations.vehicle/.MainActivity t1000016}"
+        ],
+        "ownActivityStates": [
+          "state=RESUMED delayedResume=false finishing=false"
+        ],
+        "nativeForeground": false,
+        "ownResumed": true,
+        "serviceForeground": false,
+        "serviceDetails": [
+          "* ServiceRecord{b1f25eb u10 ai.pleos.destinations.vehicle/.ConvoySessionService}",
+          "app=ProcessRecord{d490931 10889:ai.pleos.destinations.vehicle/u10a174}"
+        ],
+        "session": {
+          "at": 1793863331477,
+          "event": "sessionState",
+          "serviceEpoch": 16132415,
+          "roomEpoch": 1,
+          "revision": 13,
+          "role": "member",
+          "automatic": "OFF",
+          "applying": "IDLE",
+          "connection": "CONNECTED",
+          "roomConnected": true,
+          "uiCount": 1,
+          "confirmedAtElapsed": null,
+          "routingCompletedObserved": false
+        }
+      }
+    }
+  ]
+}

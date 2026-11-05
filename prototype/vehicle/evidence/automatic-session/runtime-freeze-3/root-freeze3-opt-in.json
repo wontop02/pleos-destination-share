@@ -1,0 +1,81 @@
+{
+  "at": "2026-11-05T07:23:40.226059+00:00",
+  "leader": {
+    "hostAt": "2026-11-05T07:23:39.301622+00:00",
+    "hostMonotonic": 27.153652958,
+    "serial": "emulator-5570",
+    "pid": "24562",
+    "topResumed": [
+      "topResumedActivity=ActivityRecord{eb0228e u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}",
+      "topResumedActivity=ActivityRecord{1ed968a u10 ai.umos.drivingview/.DrivingViewActivity t1000005}",
+      "topResumedActivity=ActivityRecord{8cfa86e u10 ai.umos.homescreen/.HomeActivity t1000003}",
+      "ResumedActivity: ActivityRecord{eb0228e u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}"
+    ],
+    "ownActivityStates": [
+      "state=STOPPED delayedResume=false finishing=false"
+    ],
+    "nativeForeground": true,
+    "ownResumed": false,
+    "serviceForeground": true,
+    "serviceDetails": [
+      "* ServiceRecord{115dd31 u10 ai.pleos.destinations.vehicle/.ConvoySessionService}",
+      "app=ProcessRecord{71742fe 24562:ai.pleos.destinations.vehicle/u10a174}",
+      "isForeground=true foregroundId=1401 types=40000000 foregroundNoti=Notification(channel=convoy-coordination shortcut=null contentView=null vibrate=null sound=null defaults=0x0 flags=0x6a color=0x00000000 category=service actions=1 vis=PRIVATE)",
+      "startRequested=true delayedStop=false stopIfKilled=true callStart=true lastStartId=1"
+    ],
+    "session": {
+      "at": 1793863414718,
+      "event": "sessionState",
+      "serviceEpoch": 16526086,
+      "roomEpoch": 1,
+      "revision": 13,
+      "role": "host",
+      "automatic": "LEADER",
+      "applying": "IDLE",
+      "connection": "CONNECTED",
+      "roomConnected": true,
+      "uiCount": 0,
+      "confirmedAtElapsed": null,
+      "routingCompletedObserved": false
+    }
+  },
+  "follower": {
+    "hostAt": "2026-11-05T07:23:40.102591+00:00",
+    "hostMonotonic": 27.954528625,
+    "serial": "emulator-5572",
+    "pid": "10889",
+    "topResumed": [
+      "topResumedActivity=ActivityRecord{92d1725 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}",
+      "topResumedActivity=ActivityRecord{1c0b597 u10 ai.umos.drivingview/.DrivingViewActivity t1000005}",
+      "topResumedActivity=ActivityRecord{4f5c857 u10 ai.umos.homescreen/.HomeActivity t1000003}",
+      "ResumedActivity: ActivityRecord{92d1725 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}"
+    ],
+    "ownActivityStates": [
+      "state=STOPPED delayedResume=false finishing=false"
+    ],
+    "nativeForeground": true,
+    "ownResumed": false,
+    "serviceForeground": true,
+    "serviceDetails": [
+      "* ServiceRecord{b1f25eb u10 ai.pleos.destinations.vehicle/.ConvoySessionService}",
+      "app=ProcessRecord{d490931 10889:ai.pleos.destinations.vehicle/u10a174}",
+      "isForeground=true foregroundId=1401 types=40000000 foregroundNoti=Notification(channel=convoy-coordination shortcut=null contentView=null vibrate=null sound=null defaults=0x0 flags=0x6a color=0x00000000 category=service actions=1 vis=PRIVATE)",
+      "startRequested=true delayedStop=false stopIfKilled=true callStart=true lastStartId=1"
+    ],
+    "session": {
+      "at": 1793863416711,
+      "event": "sessionState",
+      "serviceEpoch": 16132415,
+      "roomEpoch": 1,
+      "revision": 13,
+      "role": "member",
+      "automatic": "FOLLOWER",
+      "applying": "CONFIRMED",
+      "connection": "CONNECTED",
+      "roomConnected": true,
+      "uiCount": 0,
+      "confirmedAtElapsed": 16222250,
+      "routingCompletedObserved": false
+    }
+  }
+}

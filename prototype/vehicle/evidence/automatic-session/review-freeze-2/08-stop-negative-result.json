@@ -1,0 +1,543 @@
+{
+  "status": "PASS",
+  "observationAfterSourceSeconds": 86.62154525000001,
+  "newFollowerRequests": 0,
+  "activityReentries": 0,
+  "leaderRevisionBefore": 11,
+  "leaderRevisionAfter": 13,
+  "source": {
+    "at": "2026-11-05T07:07:51.333568+00:00",
+    "serial": "emulator-5570",
+    "mode": "route-42dot",
+    "durationSeconds": 17.332487582999995,
+    "productionPidBefore": "20878",
+    "productionPidAfter": "20878",
+    "productionProcessUnchanged": true,
+    "result": {
+      "sdk": "ai.pleos.playground:NaviHelper:3.0.5",
+      "mode": "route-42dot",
+      "startedAt": 1793862458091,
+      "targetPackage": "ai.pleos.destinations.driver",
+      "processId": 17181,
+      "initialDestination": {
+        "latitude": 37.41275833,
+        "longitude": 127.09481944,
+        "displayLatitude": null,
+        "displayLongitude": null,
+        "name": "소프트웨어드림센터",
+        "address": "수정구 시흥동",
+        "poiId": "36khp2hdj2cfcm5nqhe3",
+        "poiSubId": null,
+        "poiSubIdMissing": true,
+        "poiProvider": "",
+        "remainDistance": 10,
+        "remainTime": 60,
+        "tollFare": 0
+      },
+      "sourceExpected": {
+        "name": "42dot",
+        "latitude": 37.41289678,
+        "longitude": 127.09383464,
+        "poiId": "36khp37hh8gqcm5nqhe5",
+        "poiSubId": null,
+        "poiProvider": "",
+        "address": "수정구 시흥동"
+      },
+      "requestPoiSubId": "",
+      "postRequestDestination": {
+        "latitude": 37.41289678,
+        "longitude": 127.09383464,
+        "displayLatitude": null,
+        "displayLongitude": null,
+        "name": "42dot",
+        "address": "수정구 시흥동",
+        "poiId": "36khp37hh8gqcm5nqhe5",
+        "poiSubId": null,
+        "poiSubIdMissing": true,
+        "poiProvider": "",
+        "remainDistance": 50,
+        "remainTime": 60,
+        "tollFare": 0
+      },
+      "reason": "actual_post_request_destination_matched",
+      "status": "VERIFIED",
+      "finishedAt": 1793862470586,
+      "routeStartedObserved": true,
+      "routingCompletedObserved": false,
+      "events": [
+        {
+          "event": "connected",
+          "at": 1793862458517,
+          "session": 1
+        },
+        {
+          "query": 1,
+          "event": "getDestinationInfo",
+          "at": 1793862458517,
+          "session": 1
+        },
+        {
+          "query": 1,
+          "destination": {
+            "latitude": 37.41275833,
+            "longitude": 127.09481944,
+            "displayLatitude": null,
+            "displayLongitude": null,
+            "name": "소프트웨어드림센터",
+            "address": "수정구 시흥동",
+            "poiId": "36khp2hdj2cfcm5nqhe3",
+            "poiSubId": null,
+            "poiSubIdMissing": true,
+            "poiProvider": "",
+            "remainDistance": 10,
+            "remainTime": 60,
+            "tollFare": 0
+          },
+          "event": "onDestinationInfo",
+          "at": 1793862459830,
+          "session": 1
+        },
+        {
+          "event": "connected",
+          "at": 1793862459908,
+          "session": 3
+        },
+        {
+          "event": "requestRoute_public_poi",
+          "at": 1793862459915,
+          "session": 3
+        },
+        {
+          "event": "onRouteCancelled",
+          "at": 1793862460655,
+          "session": 3
+        },
+        {
+          "query": 2,
+          "event": "getDestinationInfo",
+          "at": 1793862460655,
+          "session": 3
+        },
+        {
+          "query": 2,
+          "destination": {
+            "latitude": 0,
+            "longitude": 0,
+            "displayLatitude": null,
+            "displayLongitude": null,
+            "name": "",
+            "address": "",
+            "poiId": "",
+            "poiSubId": null,
+            "poiSubIdMissing": true,
+            "poiProvider": "",
+            "remainDistance": 0,
+            "remainTime": 0,
+            "tollFare": 0
+          },
+          "event": "onDestinationInfo",
+          "at": 1793862460813,
+          "session": 3
+        },
+        {
+          "matched": false,
+          "event": "post_request_destination_match",
+          "at": 1793862460814,
+          "session": 3
+        },
+        {
+          "query": null,
+          "destination": {
+            "latitude": 0,
+            "longitude": 0,
+            "displayLatitude": null,
+            "displayLongitude": null,
+            "name": "",
+            "address": "",
+            "poiId": "",
+            "poiSubId": null,
+            "poiSubIdMissing": true,
+            "poiProvider": "",
+            "remainDistance": 0,
+            "remainTime": 0,
+            "tollFare": 0
+          },
+          "event": "onDestinationInfo",
+          "at": 1793862460925,
+          "session": 3
+        },
+        {
+          "query": null,
+          "destination": {
+            "latitude": 0,
+            "longitude": 0,
+            "displayLatitude": null,
+            "displayLongitude": null,
+            "name": "",
+            "address": "",
+            "poiId": "",
+            "poiSubId": null,
+            "poiSubIdMissing": true,
+            "poiProvider": "",
+            "remainDistance": 0,
+            "remainTime": 0,
+            "tollFare": 0
+          },
+          "event": "onDestinationInfo",
+          "at": 1793862461317,
+          "session": 3
+        },
+        {
+          "query": 3,
+          "event": "getDestinationInfo",
+          "at": 1793862462816,
+          "session": 3
+        },
+        {
+          "query": 3,
+          "destination": {
+            "latitude": 0,
+            "longitude": 0,
+            "displayLatitude": null,
+            "displayLongitude": null,
+            "name": "",
+            "address": "",
+            "poiId": "",
+            "poiSubId": null,
+            "poiSubIdMissing": true,
+            "poiProvider": "",
+            "remainDistance": 0,
+            "remainTime": 0,
+            "tollFare": 0
+          },
+          "event": "onDestinationInfo",
+          "at": 1793862462902,
+          "session": 3
+        },
+        {
+          "matched": false,
+          "event": "post_request_destination_match",
+          "at": 1793862462902,
+          "session": 3
+        },
+        {
+          "query": 4,
+          "event": "getDestinationInfo",
+          "at": 1793862464904,
+          "session": 3
+        },
+        {
+          "query": 4,
+          "destination": {
+            "latitude": 0,
+            "longitude": 0,
+            "displayLatitude": null,
+            "displayLongitude": null,
+            "name": "",
+            "address": "",
+            "poiId": "",
+            "poiSubId": null,
+            "poiSubIdMissing": true,
+            "poiProvider": "",
+            "remainDistance": 0,
+            "remainTime": 0,
+            "tollFare": 0
+          },
+          "event": "onDestinationInfo",
+          "at": 1793862464984,
+          "session": 3
+        },
+        {
+          "matched": false,
+          "event": "post_request_destination_match",
+          "at": 1793862464984,
+          "session": 3
+        },
+        {
+          "query": 5,
+          "event": "getDestinationInfo",
+          "at": 1793862466985,
+          "session": 3
+        },
+        {
+          "query": 5,
+          "destination": {
+            "latitude": 0,
+            "longitude": 0,
+            "displayLatitude": null,
+            "displayLongitude": null,
+            "name": "",
+            "address": "",
+            "poiId": "",
+            "poiSubId": null,
+            "poiSubIdMissing": true,
+            "poiProvider": "",
+            "remainDistance": 0,
+            "remainTime": 0,
+            "tollFare": 0
+          },
+          "event": "onDestinationInfo",
+          "at": 1793862467041,
+          "session": 3
+        },
+        {
+          "matched": false,
+          "event": "post_request_destination_match",
+          "at": 1793862467041,
+          "session": 3
+        },
+        {
+          "event": "onRouteStarted",
+          "at": 1793862468204,
+          "session": 3
+        },
+        {
+          "query": 6,
+          "event": "getDestinationInfo",
+          "at": 1793862469041,
+          "session": 3
+        },
+        {
+          "query": 6,
+          "destination": {
+            "latitude": 37.41289678,
+            "longitude": 127.09383464,
+            "displayLatitude": null,
+            "displayLongitude": null,
+            "name": "42dot",
+            "address": "수정구 시흥동",
+            "poiId": "36khp37hh8gqcm5nqhe5",
+            "poiSubId": null,
+            "poiSubIdMissing": true,
+            "poiProvider": "",
+            "remainDistance": 50,
+            "remainTime": 60,
+            "tollFare": 0
+          },
+          "event": "onDestinationInfo",
+          "at": 1793862470428,
+          "session": 3
+        },
+        {
+          "matched": true,
+          "event": "post_request_destination_match",
+          "at": 1793862470433,
+          "session": 3
+        }
+      ]
+    }
+  },
+  "actualFollowerBefore": {
+    "at": "2026-11-05T07:07:32.870304+00:00",
+    "serial": "emulator-5572",
+    "mode": "query",
+    "durationSeconds": 10.010038917,
+    "productionPidBefore": "4948",
+    "productionPidAfter": "4948",
+    "productionProcessUnchanged": true,
+    "result": {
+      "sdk": "ai.pleos.playground:NaviHelper:3.0.5",
+      "mode": "query",
+      "startedAt": 1793862450207,
+      "targetPackage": "ai.pleos.destinations.driver",
+      "processId": 30284,
+      "initialDestination": {
+        "latitude": 37.41275833,
+        "longitude": 127.09481944,
+        "displayLatitude": null,
+        "displayLongitude": null,
+        "name": "소프트웨어드림센터",
+        "address": "수정구 시흥동",
+        "poiId": "36khp2hdj2cfcm5nqhe3",
+        "poiSubId": null,
+        "poiSubIdMissing": true,
+        "poiProvider": "",
+        "remainDistance": 10,
+        "remainTime": 60,
+        "tollFare": 0
+      },
+      "reason": "actual_destination_callback_received",
+      "status": "OBSERVED",
+      "finishedAt": 1793862452301,
+      "routeStartedObserved": false,
+      "routingCompletedObserved": false,
+      "events": [
+        {
+          "event": "connected",
+          "at": 1793862450888,
+          "session": 1
+        },
+        {
+          "query": 1,
+          "event": "getDestinationInfo",
+          "at": 1793862450888,
+          "session": 1
+        },
+        {
+          "query": 1,
+          "destination": {
+            "latitude": 37.41275833,
+            "longitude": 127.09481944,
+            "displayLatitude": null,
+            "displayLongitude": null,
+            "name": "소프트웨어드림센터",
+            "address": "수정구 시흥동",
+            "poiId": "36khp2hdj2cfcm5nqhe3",
+            "poiSubId": null,
+            "poiSubIdMissing": true,
+            "poiProvider": "",
+            "remainDistance": 10,
+            "remainTime": 60,
+            "tollFare": 0
+          },
+          "event": "onDestinationInfo",
+          "at": 1793862452274,
+          "session": 1
+        }
+      ]
+    }
+  },
+  "actualFollowerAfter": {
+    "at": "2026-11-05T07:09:10.662783+00:00",
+    "serial": "emulator-5572",
+    "mode": "query",
+    "durationSeconds": 5.903384458000005,
+    "productionPidBefore": "4948",
+    "productionPidAfter": "4948",
+    "productionProcessUnchanged": true,
+    "result": {
+      "sdk": "ai.pleos.playground:NaviHelper:3.0.5",
+      "mode": "query",
+      "startedAt": 1793862548286,
+      "targetPackage": "ai.pleos.destinations.driver",
+      "processId": 7396,
+      "initialDestination": {
+        "latitude": 37.41275833,
+        "longitude": 127.09481944,
+        "displayLatitude": null,
+        "displayLongitude": null,
+        "name": "소프트웨어드림센터",
+        "address": "수정구 시흥동",
+        "poiId": "36khp2hdj2cfcm5nqhe3",
+        "poiSubId": null,
+        "poiSubIdMissing": true,
+        "poiProvider": "",
+        "remainDistance": 10,
+        "remainTime": 60,
+        "tollFare": 0
+      },
+      "reason": "actual_destination_callback_received",
+      "status": "OBSERVED",
+      "finishedAt": 1793862550120,
+      "routeStartedObserved": false,
+      "routingCompletedObserved": false,
+      "events": [
+        {
+          "event": "connected",
+          "at": 1793862548852,
+          "session": 1
+        },
+        {
+          "query": 1,
+          "event": "getDestinationInfo",
+          "at": 1793862548853,
+          "session": 1
+        },
+        {
+          "query": 1,
+          "destination": {
+            "latitude": 37.41275833,
+            "longitude": 127.09481944,
+            "displayLatitude": null,
+            "displayLongitude": null,
+            "name": "소프트웨어드림센터",
+            "address": "수정구 시흥동",
+            "poiId": "36khp2hdj2cfcm5nqhe3",
+            "poiSubId": null,
+            "poiSubIdMissing": true,
+            "poiProvider": "",
+            "remainDistance": 10,
+            "remainTime": 60,
+            "tollFare": 0
+          },
+          "event": "onDestinationInfo",
+          "at": 1793862550093,
+          "session": 1
+        }
+      ]
+    }
+  },
+  "finalLeader": {
+    "at": "2026-11-05T07:09:11.035456+00:00",
+    "hostMonotonic": 128.266015375,
+    "serial": "emulator-5570",
+    "pid": "20878",
+    "resumedActivities": [
+      "topResumedActivity=ActivityRecord{eb0228e u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}",
+      "topResumedActivity=ActivityRecord{1ed968a u10 ai.umos.drivingview/.DrivingViewActivity t1000005}",
+      "topResumedActivity=ActivityRecord{8cfa86e u10 ai.umos.homescreen/.HomeActivity t1000003}",
+      "ResumedActivity: ActivityRecord{eb0228e u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}"
+    ],
+    "ownActivityStates": [
+      "state=STOPPED delayedResume=false finishing=false"
+    ],
+    "nativeForeground": true,
+    "ownResumed": false,
+    "serviceForeground": true,
+    "serviceDetails": [
+      "* ServiceRecord{f132783 u10 ai.pleos.destinations.vehicle/.ConvoySessionService}",
+      "app=ProcessRecord{ff4b919 20878:ai.pleos.destinations.vehicle/u10a174}",
+      "isForeground=true foregroundId=1401 types=40000000 foregroundNoti=Notification(channel=convoy-coordination shortcut=null contentView=null vibrate=null sound=null defaults=0x0 flags=0x6a color=0x00000000 category=service actions=1 vis=PRIVATE)",
+      "startRequested=true delayedStop=false stopIfKilled=true callStart=true lastStartId=1"
+    ],
+    "session": {
+      "at": 1793862544459,
+      "event": "sessionState",
+      "serviceEpoch": 15268336,
+      "roomEpoch": 1,
+      "revision": 13,
+      "role": "host",
+      "automatic": "LEADER",
+      "applying": "IDLE",
+      "connection": "CONNECTED",
+      "roomConnected": true,
+      "uiCount": 0,
+      "confirmedAtElapsed": null,
+      "routingCompletedObserved": false
+    }
+  },
+  "finalFollower": {
+    "at": "2026-11-05T07:09:18.283754+00:00",
+    "hostMonotonic": 135.514273583,
+    "serial": "emulator-5572",
+    "pid": "4948",
+    "resumedActivities": [
+      "topResumedActivity=ActivityRecord{92d1725 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}",
+      "topResumedActivity=ActivityRecord{1c0b597 u10 ai.umos.drivingview/.DrivingViewActivity t1000005}",
+      "topResumedActivity=ActivityRecord{4f5c857 u10 ai.umos.homescreen/.HomeActivity t1000003}",
+      "ResumedActivity: ActivityRecord{92d1725 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}"
+    ],
+    "ownActivityStates": [
+      "state=STOPPED delayedResume=false finishing=false"
+    ],
+    "nativeForeground": true,
+    "ownResumed": false,
+    "serviceForeground": false,
+    "serviceDetails": [],
+    "session": {
+      "at": 1793862440988,
+      "event": "serviceDestroy",
+      "serviceEpoch": 14849405,
+      "roomEpoch": 2,
+      "revision": -1,
+      "role": "member",
+      "automatic": "OFF",
+      "applying": "CANCELLED",
+      "connection": "DISCONNECTED",
+      "roomConnected": false,
+      "uiCount": 0,
+      "confirmedAtElapsed": null,
+      "routingCompletedObserved": false
+    }
+  }
+}

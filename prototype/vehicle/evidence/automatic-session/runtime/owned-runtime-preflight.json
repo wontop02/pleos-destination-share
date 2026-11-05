@@ -1,0 +1,21 @@
+{
+  "at": "2026-11-05T05:40:54.301034+00:00",
+  "adbPort": 5041,
+  "ownedSerials": [
+    {
+      "serial": "emulator-5570",
+      "state": "device",
+      "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+      "foregroundUser": "10"
+    },
+    {
+      "serial": "emulator-5572",
+      "state": "device",
+      "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+      "foregroundUser": "10"
+    }
+  ],
+  "physicalDevicesUsed": false,
+  "priorVersionsAndLicensesReused": true,
+  "plannedBackendPort": 4184
+}

@@ -1,0 +1,40 @@
+{
+  "at": "2026-11-05T07:27:04.103065+00:00",
+  "title": "순정 목적지 일치 확인 · 동행 중 · 참여 · 자동 따르기",
+  "bounds": [
+    272,
+    136,
+    921,
+    174
+  ],
+  "backgroundRGB": [
+    40,
+    42,
+    45
+  ],
+  "solidTitleRGB": [
+    255,
+    255,
+    255
+  ],
+  "contrastRatio": 14.390448297873283,
+  "unreadableDuplicateBodyAbsent": true,
+  "method": "actual PNG title pixels; no image edits",
+  "state": {
+    "at": 1793863416711,
+    "event": "sessionState",
+    "serviceEpoch": 16132415,
+    "roomEpoch": 1,
+    "revision": 13,
+    "role": "member",
+    "automatic": "FOLLOWER",
+    "applying": "CONFIRMED",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": 16222250,
+    "routingCompletedObserved": false
+  },
+  "capture": "ui/18b-freeze3-confirmed-notification.png",
+  "earlierCapture": "18 screenshot preceded notification-center display; retained as failed observation"
+}

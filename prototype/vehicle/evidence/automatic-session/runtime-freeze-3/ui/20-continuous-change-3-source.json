@@ -1,0 +1,322 @@
+{
+  "hostAt": "2026-11-05T07:38:25.292071+00:00",
+  "serial": "emulator-5570",
+  "mode": "route-dream-center",
+  "seconds": 21.511,
+  "productionPidBefore": "24562",
+  "productionPidAfter": "24562",
+  "productionProcessUnchanged": true,
+  "result": {
+    "sdk": "ai.pleos.playground:NaviHelper:3.0.5",
+    "mode": "route-dream-center",
+    "startedAt": 1793864290650,
+    "targetPackage": "ai.pleos.destinations.driver",
+    "processId": 21308,
+    "initialDestination": {
+      "latitude": 37.41289678,
+      "longitude": 127.09383464,
+      "displayLatitude": null,
+      "displayLongitude": null,
+      "name": "42dot",
+      "address": "수정구 시흥동",
+      "poiId": "36khp37hh8gqcm5nqhe5",
+      "poiSubId": null,
+      "poiSubIdMissing": true,
+      "poiProvider": "",
+      "remainDistance": 50,
+      "remainTime": 60,
+      "tollFare": 0
+    },
+    "sourceExpected": {
+      "name": "소프트웨어드림센터",
+      "latitude": 37.41275833,
+      "longitude": 127.09481944,
+      "poiId": "36khp2hdj2cfcm5nqhe3",
+      "poiSubId": null,
+      "poiProvider": "",
+      "address": "수정구 시흥동"
+    },
+    "requestPoiSubId": "",
+    "postRequestDestination": {
+      "latitude": 37.41275833,
+      "longitude": 127.09481944,
+      "displayLatitude": null,
+      "displayLongitude": null,
+      "name": "소프트웨어드림센터",
+      "address": "수정구 시흥동",
+      "poiId": "36khp2hdj2cfcm5nqhe3",
+      "poiSubId": null,
+      "poiSubIdMissing": true,
+      "poiProvider": "",
+      "remainDistance": 10,
+      "remainTime": 60,
+      "tollFare": 0
+    },
+    "reason": "actual_post_request_destination_matched",
+    "status": "VERIFIED",
+    "finishedAt": 1793864304454,
+    "routeStartedObserved": true,
+    "routingCompletedObserved": false,
+    "events": [
+      {
+        "event": "connected",
+        "at": 1793864291815,
+        "session": 1
+      },
+      {
+        "query": 1,
+        "event": "getDestinationInfo",
+        "at": 1793864291816,
+        "session": 1
+      },
+      {
+        "query": 1,
+        "destination": {
+          "latitude": 37.41289678,
+          "longitude": 127.09383464,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "42dot",
+          "address": "수정구 시흥동",
+          "poiId": "36khp37hh8gqcm5nqhe5",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 50,
+          "remainTime": 60,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793864293231,
+        "session": 1
+      },
+      {
+        "event": "connected",
+        "at": 1793864293450,
+        "session": 3
+      },
+      {
+        "event": "requestRoute_public_poi",
+        "at": 1793864293477,
+        "session": 3
+      },
+      {
+        "event": "onRouteCancelled",
+        "at": 1793864294511,
+        "session": 3
+      },
+      {
+        "query": 2,
+        "event": "getDestinationInfo",
+        "at": 1793864294513,
+        "session": 3
+      },
+      {
+        "query": 2,
+        "destination": {
+          "latitude": 0,
+          "longitude": 0,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "",
+          "address": "",
+          "poiId": "",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 0,
+          "remainTime": 0,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793864294861,
+        "session": 3
+      },
+      {
+        "matched": false,
+        "event": "post_request_destination_match",
+        "at": 1793864294861,
+        "session": 3
+      },
+      {
+        "query": null,
+        "destination": {
+          "latitude": 0,
+          "longitude": 0,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "",
+          "address": "",
+          "poiId": "",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 0,
+          "remainTime": 0,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793864294903,
+        "session": 3
+      },
+      {
+        "query": null,
+        "destination": {
+          "latitude": 0,
+          "longitude": 0,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "",
+          "address": "",
+          "poiId": "",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 0,
+          "remainTime": 0,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793864295835,
+        "session": 3
+      },
+      {
+        "query": 3,
+        "event": "getDestinationInfo",
+        "at": 1793864296867,
+        "session": 3
+      },
+      {
+        "query": 3,
+        "destination": {
+          "latitude": 0,
+          "longitude": 0,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "",
+          "address": "",
+          "poiId": "",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 0,
+          "remainTime": 0,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793864296998,
+        "session": 3
+      },
+      {
+        "matched": false,
+        "event": "post_request_destination_match",
+        "at": 1793864296998,
+        "session": 3
+      },
+      {
+        "query": 4,
+        "event": "getDestinationInfo",
+        "at": 1793864299001,
+        "session": 3
+      },
+      {
+        "query": 4,
+        "destination": {
+          "latitude": 0,
+          "longitude": 0,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "",
+          "address": "",
+          "poiId": "",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 0,
+          "remainTime": 0,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793864299153,
+        "session": 3
+      },
+      {
+        "matched": false,
+        "event": "post_request_destination_match",
+        "at": 1793864299153,
+        "session": 3
+      },
+      {
+        "query": 5,
+        "event": "getDestinationInfo",
+        "at": 1793864301158,
+        "session": 3
+      },
+      {
+        "query": 5,
+        "destination": {
+          "latitude": 0,
+          "longitude": 0,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "",
+          "address": "",
+          "poiId": "",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 0,
+          "remainTime": 0,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793864301186,
+        "session": 3
+      },
+      {
+        "matched": false,
+        "event": "post_request_destination_match",
+        "at": 1793864301186,
+        "session": 3
+      },
+      {
+        "event": "onRouteStarted",
+        "at": 1793864301999,
+        "session": 3
+      },
+      {
+        "query": 6,
+        "event": "getDestinationInfo",
+        "at": 1793864303238,
+        "session": 3
+      },
+      {
+        "query": 6,
+        "destination": {
+          "latitude": 37.41275833,
+          "longitude": 127.09481944,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "소프트웨어드림센터",
+          "address": "수정구 시흥동",
+          "poiId": "36khp2hdj2cfcm5nqhe3",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 10,
+          "remainTime": 60,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793864304410,
+        "session": 3
+      },
+      {
+        "matched": true,
+        "event": "post_request_destination_match",
+        "at": 1793864304415,
+        "session": 3
+      }
+    ]
+  }
+}

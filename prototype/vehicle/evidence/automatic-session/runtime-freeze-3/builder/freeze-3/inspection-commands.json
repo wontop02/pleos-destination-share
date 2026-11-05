@@ -1,0 +1,161 @@
+[
+  {
+    "module": "app",
+    "check": "permissions",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+      "dump",
+      "permissions",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/app-debug.apk"
+    ],
+    "exit": 0,
+    "output": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/app-permissions.txt",
+    "sha256": "fbfa3165138d5913caff65903d533c13351e0a89bcaae06093b655fc618b56be"
+  },
+  {
+    "module": "app",
+    "check": "badging",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+      "dump",
+      "badging",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/app-debug.apk"
+    ],
+    "exit": 0,
+    "output": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/app-badging.txt",
+    "sha256": "d0aa98d7cd4add7f817df313019a1060bf02a2a52abde2f0cf201295d163b1e9"
+  },
+  {
+    "module": "app",
+    "check": "xmltree",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+      "dump",
+      "xmltree",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/app-debug.apk",
+      "AndroidManifest.xml"
+    ],
+    "exit": 0,
+    "output": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/app-xmltree.txt",
+    "sha256": "33223722f8faf91b012bc2a99e0c941b89fe0ef20dfb66b056506d8655a73849"
+  },
+  {
+    "module": "app",
+    "check": "signer",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/apksigner",
+      "verify",
+      "--print-certs",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/app-debug.apk"
+    ],
+    "exit": 0,
+    "output": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/app-signer.txt",
+    "sha256": "d021c90de64e598ead5d2c02257847136998e3429db786cca38a657089ccdf2f"
+  },
+  {
+    "module": "probe",
+    "check": "permissions",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+      "dump",
+      "permissions",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/app-debug-androidTest.apk"
+    ],
+    "exit": 0,
+    "output": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/probe-permissions.txt",
+    "sha256": "82d6034470bdfcd0a4b4da54a99ed7f02567e7530b05d9a9c58818f6806b042b"
+  },
+  {
+    "module": "probe",
+    "check": "badging",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+      "dump",
+      "badging",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/app-debug-androidTest.apk"
+    ],
+    "exit": 0,
+    "output": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/probe-badging.txt",
+    "sha256": "7b403511e103212798126b8fa9035336995a518356a3a0cf1ee562799a186e64"
+  },
+  {
+    "module": "probe",
+    "check": "xmltree",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+      "dump",
+      "xmltree",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/app-debug-androidTest.apk",
+      "AndroidManifest.xml"
+    ],
+    "exit": 0,
+    "output": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/probe-xmltree.txt",
+    "sha256": "9216872f8c5774314ea3fa820c486046ccf280bbf35b3044259b7b0a538695e2"
+  },
+  {
+    "module": "probe",
+    "check": "signer",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/apksigner",
+      "verify",
+      "--print-certs",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/app-debug-androidTest.apk"
+    ],
+    "exit": 0,
+    "output": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/probe-signer.txt",
+    "sha256": "d021c90de64e598ead5d2c02257847136998e3429db786cca38a657089ccdf2f"
+  },
+  {
+    "module": "nativeDriver",
+    "check": "permissions",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+      "dump",
+      "permissions",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/nativeDriver-debug.apk"
+    ],
+    "exit": 0,
+    "output": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/nativeDriver-permissions.txt",
+    "sha256": "0f4ab3d0e59d4ba882b58f376b09eb44900e1c21d45f2659667efac8174d6b82"
+  },
+  {
+    "module": "nativeDriver",
+    "check": "badging",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+      "dump",
+      "badging",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/nativeDriver-debug.apk"
+    ],
+    "exit": 0,
+    "output": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/nativeDriver-badging.txt",
+    "sha256": "584c0b993b8c2a6c7e4e8e9bf8e350d1f21d0e2a5cc32d707c5ff631843a019a"
+  },
+  {
+    "module": "nativeDriver",
+    "check": "xmltree",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+      "dump",
+      "xmltree",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/nativeDriver-debug.apk",
+      "AndroidManifest.xml"
+    ],
+    "exit": 0,
+    "output": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/nativeDriver-xmltree.txt",
+    "sha256": "954ba9ffe8f037e83a2233ee171637b8fcba3ca95649a1734a5edb60e35617ad"
+  },
+  {
+    "module": "nativeDriver",
+    "check": "signer",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/apksigner",
+      "verify",
+      "--print-certs",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/nativeDriver-debug.apk"
+    ],
+    "exit": 0,
+    "output": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/nativeDriver-signer.txt",
+    "sha256": "d021c90de64e598ead5d2c02257847136998e3429db786cca38a657089ccdf2f"
+  }
+]
