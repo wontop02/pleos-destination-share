@@ -1,0 +1,31 @@
+{
+  "artifacts": [
+    {
+      "artifact": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/gradle-user/caches/modules-2/files-2.1/ai.pleos.playground/NaviHelper/3.0.5/a7b78be7cdbe0942a009d4f8781f7d99f20d7ece/NaviHelper-3.0.5.aar",
+      "sha256": "15fadd11c7c611b1abdf7ebf9ce91f2a6ce2728e60b4e38b4343e11bb9c12e97",
+      "classesJarSha256": "1802e8a1f4f68706765133157b170f62b76b0164a528a2f43550a896f7915d31",
+      "classCount": 52
+    },
+    {
+      "artifact": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/gradle-user/caches/modules-2/files-2.1/ai.pleos.playground/navi-data/3.0.4/53a3d251642b357d367f41b1d2e4b7c016e04b13/navi-data-3.0.4.aar",
+      "sha256": "7ca00e592134b53237a48cc3b7864063ecc5e2885465e3ce9c8c2a29789a2e2b",
+      "classesJarSha256": "ca863405741cb9b77a9cef2aec43bec30eab63876ba9ff6c6860ec8a8f24fe3b",
+      "classCount": 177
+    }
+  ],
+  "command": [
+    "/private/tmp/pleos-vehicle-tools-20261105/jdk/jdk-21.0.13+9/Contents/Home/bin/javap",
+    "-public",
+    "-classpath",
+    "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/sdk-public/NaviHelper-3.0.5.classes.jar:/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/sdk-public/navi-data-3.0.4.classes.jar",
+    "ai.pleos.playground.navi.helper.NaviHelper",
+    "ai.pleos.playground.navi.helper.listener.NaviHelperEventListener",
+    "ai.pleos.playground.navi.constants.NavigationScreen",
+    "ai.pleos.playground.navi.data.RouteInfo",
+    "ai.pleos.playground.navi.data.DestinationInfo",
+    "ai.pleos.playground.navi.data.BookmarkInfo",
+    "ai.pleos.playground.navi.data.RecentDestinationInfo"
+  ],
+  "exitCode": 0,
+  "scope": "public SDK declaration inspection only; no bytecode, private API, vendor APK or device access"
+}

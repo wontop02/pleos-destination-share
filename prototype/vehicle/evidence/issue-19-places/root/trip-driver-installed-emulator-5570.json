@@ -1,0 +1,20 @@
+{
+  "serial": "emulator-5570",
+  "user": 10,
+  "sha256": "470c696a36d17c04089073a4ed4b6c33cd03e0630608601ee9d8085c29be7ad7",
+  "argv": [
+    "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+    "-P",
+    "5041",
+    "-s",
+    "emulator-5570",
+    "install",
+    "--user",
+    "10",
+    "-t",
+    "-r",
+    "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/trip-build/nativeDriver-debug.apk"
+  ],
+  "exitCode": 0,
+  "stdout": "Performing Streamed Install\nSuccess"
+}

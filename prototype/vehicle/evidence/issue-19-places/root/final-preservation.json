@@ -1,0 +1,13 @@
+{
+  "base": "3a4c734093406bcb54e8c33bffeb9c0661f6720d",
+  "baselineTrackedCount": 406,
+  "changedBaselinePaths": [
+    "prototype/vehicle/nativeDriver/src/main/AndroidManifest.xml",
+    "prototype/vehicle/nativeDriver/src/main/kotlin/ai/pleos/destinations/driver/NativeDestinationDriver.kt"
+  ],
+  "otherBaselineTrackedFilesUnchanged": 404,
+  "missing": [],
+  "priorTrackedEvidenceFilesUnchanged": 315,
+  "finalDiagnosticBuildInputsMatchCurrentSource": true,
+  "productionAppCoreServerUnchanged": true
+}

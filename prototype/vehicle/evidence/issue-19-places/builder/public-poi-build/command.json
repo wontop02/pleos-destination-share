@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "/private/tmp/pleos-vehicle-tools-20261105/gradle/gradle-8.11.1/bin/gradle",
+    "--no-daemon",
+    "--offline",
+    ":nativeDriver:assembleDebug",
+    ":nativeDriver:lintDebug"
+  ],
+  "cwd": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-19-places/prototype/vehicle",
+  "environmentSource": "approved toolchain/build-env.json; values intentionally omitted",
+  "exitCode": 0,
+  "startedAtEpoch": 1793895790.327531,
+  "finishedAtEpoch": 1793895813.753962,
+  "sourceSha256": "370764b229d1de31a49fecb829ef45f1aeaaa18a739c7590aedb78b05ac82b41",
+  "apk": {
+    "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/public-poi-build/nativeDriver-debug.apk",
+    "sha256": "8dbf5626ef7f4bf617e29a70d90b338456e6a6a07404699b80be8807624ef424"
+  }
+}

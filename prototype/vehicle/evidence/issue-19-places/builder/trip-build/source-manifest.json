@@ -1,0 +1,36 @@
+{
+  "base": "3a4c734093406bcb54e8c33bffeb9c0661f6720d",
+  "sourceState": "trip diagnostic only; exact9-key/numeric JSON parser; no production changes",
+  "files": [
+    {
+      "path": "prototype/vehicle/nativeDriver/src/main/kotlin/ai/pleos/destinations/driver/NativeDestinationDriver.kt",
+      "sha256": "bd333294d5e687c0244f4058c0b55be00c2937a3c8f97cf76f308dd0f2ad797b",
+      "bytes": 41910
+    },
+    {
+      "path": "prototype/vehicle/nativeDriver/src/main/kotlin/ai/pleos/destinations/driver/SearchScreenProbeActivity.kt",
+      "sha256": "3f87837fedd38cf67147de20f553c7c5e12ff4a7a6a26d0af037cd8081854fc3",
+      "bytes": 14022
+    },
+    {
+      "path": "prototype/vehicle/nativeDriver/src/main/AndroidManifest.xml",
+      "sha256": "e1f9e3565d1fa4dcdb39e2983874d0a9d70d291fc74cb522237756a63c785f7c",
+      "bytes": 846
+    },
+    {
+      "path": "prototype/vehicle/nativeDriver/build.gradle.kts",
+      "sha256": "a51c0e3986e5e594e4d65e9104d3e78f83a21edbeacb307e03049370e301cb93",
+      "bytes": 615
+    },
+    {
+      "path": "prototype/vehicle/build.gradle.kts",
+      "sha256": "343f11fd15ec542f26c476725da69b23cdea22fb25ef19ffed45a4fdb7b0d4dc",
+      "bytes": 172
+    },
+    {
+      "path": "prototype/vehicle/settings.gradle.kts",
+      "sha256": "bdf96cace1a96f293384387352093c4f29f51568e3046ea4a5afaa8cdbfe1732",
+      "bytes": 489
+    }
+  ]
+}

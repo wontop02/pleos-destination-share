@@ -1,0 +1,16 @@
+{
+  "source": "ui/cafe-bookmark-address-A.json",
+  "sourceSha256": "b8bee89984eefaee9d6f2dd7644117bd93e7b30688577e0a977f387d4a229ec4",
+  "destination": {
+    "name": "가든서비스",
+    "latitude": 37.41255277,
+    "longitude": 127.09591666,
+    "address": "경기도 성남시 수정구 창업로40번길 6",
+    "displayLatitude": null,
+    "displayLongitude": null,
+    "poiId": "36khp2h36p68cm5nqhec",
+    "poiSubId": null,
+    "poiProvider": ""
+  },
+  "mode": "explicit SDK capability diagnosis, not an unaccepted consumer proposal"
+}

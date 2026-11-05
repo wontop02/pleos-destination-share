@@ -1,0 +1,160 @@
+{
+  "purpose": "Read static official API documentation text omitted from SSR. Public website JS only; no execution, vendor APK or SDK bytecode inspection.",
+  "pages": [
+    {
+      "sourcePath": ".data/bookmark-info/entry.mdx",
+      "chunks": [
+        "79260",
+        "49746"
+      ]
+    },
+    {
+      "sourcePath": ".data/bookmark-info/latitude.mdx",
+      "chunks": [
+        "79260",
+        "17047"
+      ]
+    },
+    {
+      "sourcePath": ".data/bookmark-info/display-latitude.mdx",
+      "chunks": [
+        "79260",
+        "84141"
+      ]
+    },
+    {
+      "sourcePath": ".data/destination-info/latitude.mdx",
+      "chunks": [
+        "79260",
+        "17578"
+      ]
+    },
+    {
+      "sourcePath": ".data/destination-info/display-latitude.mdx",
+      "chunks": [
+        "79260",
+        "66849"
+      ]
+    },
+    {
+      "sourcePath": ".data/route-info/latitude.mdx",
+      "chunks": [
+        "79260",
+        "68308"
+      ]
+    },
+    {
+      "sourcePath": ".data/route-info/display-latitude.mdx",
+      "chunks": [
+        "79260",
+        "46930"
+      ]
+    },
+    {
+      "sourcePath": ".helper/navi-helper/request-navigation-screen.mdx",
+      "chunks": [
+        "79260",
+        "87949"
+      ]
+    },
+    {
+      "sourcePath": ".data/navigation-screen-request/search-place/entry.mdx",
+      "chunks": [
+        "79260",
+        "83580"
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "chunkId": "17047",
+      "url": "https://document.pleos.ai/en/assets/js/b175b181.4c896580.js",
+      "retrievedAt": "2026-11-05T16:41:21.241665+00:00",
+      "status": 200,
+      "bytes": 66591,
+      "sha256": "89a99f365c0665bbcdebf03426db874fcb479dc9f8f49d40b4a6a0a040fe5395",
+      "path": "b175b181.4c896580.js"
+    },
+    {
+      "chunkId": "17578",
+      "url": "https://document.pleos.ai/en/assets/js/010c868b.3ea9a293.js",
+      "retrievedAt": "2026-11-05T16:41:21.246681+00:00",
+      "status": 200,
+      "bytes": 66639,
+      "sha256": "5e13c0162cd0931da5065bdb3a0c2139185166ab19292d2bc80508d7d7ad734e",
+      "path": "010c868b.3ea9a293.js"
+    },
+    {
+      "chunkId": "46930",
+      "url": "https://document.pleos.ai/en/assets/js/d1eb0082.695e6c67.js",
+      "retrievedAt": "2026-11-05T16:41:21.237098+00:00",
+      "status": 200,
+      "bytes": 66764,
+      "sha256": "1943539985d6107110e8f319c6b045ece58cbbbb6becdec435c3d1e3bd819228",
+      "path": "d1eb0082.695e6c67.js"
+    },
+    {
+      "chunkId": "49746",
+      "url": "https://document.pleos.ai/en/assets/js/2945b0f8.b47729f0.js",
+      "retrievedAt": "2026-11-05T16:41:21.267877+00:00",
+      "status": 200,
+      "bytes": 92090,
+      "sha256": "233899bbe4af57d66248520dd070aa3843cea6034b4fcca49f5deaa33d067b9f",
+      "path": "2945b0f8.b47729f0.js"
+    },
+    {
+      "chunkId": "66849",
+      "url": "https://document.pleos.ai/en/assets/js/f2e71916.1fca92bb.js",
+      "retrievedAt": "2026-11-05T16:41:21.390875+00:00",
+      "status": 200,
+      "bytes": 66860,
+      "sha256": "35e083e0c649592a1fc0f1144d043729ce7cfde5e8931d2e41567826ba283061",
+      "path": "f2e71916.1fca92bb.js"
+    },
+    {
+      "chunkId": "68308",
+      "url": "https://document.pleos.ai/en/assets/js/82a4b6a6.600e631e.js",
+      "retrievedAt": "2026-11-05T16:41:21.353429+00:00",
+      "status": 200,
+      "bytes": 66542,
+      "sha256": "c6e6ba31505865dd06bb69ccb9e000301d5c3dcaed4e533f048857d524370a30",
+      "path": "82a4b6a6.600e631e.js"
+    },
+    {
+      "chunkId": "79260",
+      "url": "https://document.pleos.ai/en/assets/js/79260.678c4f28.js",
+      "retrievedAt": "2026-11-05T16:41:21.390847+00:00",
+      "status": 200,
+      "bytes": 150075,
+      "sha256": "59ad1d52a597f6f56a3ba4f6c11ea4b55a0925903fac1617d19b641bec446127",
+      "path": "79260.678c4f28.js"
+    },
+    {
+      "chunkId": "83580",
+      "url": "https://document.pleos.ai/en/assets/js/b8d85f5d.afa9b564.js",
+      "retrievedAt": "2026-11-05T16:41:21.420521+00:00",
+      "status": 200,
+      "bytes": 71290,
+      "sha256": "65dd9cd04e5c40e819436ebb25982db95a07ae04840bb37fdb54cd45c1a09ba1",
+      "path": "b8d85f5d.afa9b564.js"
+    },
+    {
+      "chunkId": "84141",
+      "url": "https://document.pleos.ai/en/assets/js/010c1f3a.9893d19e.js",
+      "retrievedAt": "2026-11-05T16:41:21.535385+00:00",
+      "status": 200,
+      "bytes": 66816,
+      "sha256": "763cf6a4f510866dd9ea8b7f5c8c2f03b7098f62faa870b225149ffe319bf7ec",
+      "path": "010c1f3a.9893d19e.js"
+    },
+    {
+      "chunkId": "87949",
+      "url": "https://document.pleos.ai/en/assets/js/91f83154.78f89514.js",
+      "retrievedAt": "2026-11-05T16:41:21.544508+00:00",
+      "status": 200,
+      "bytes": 68573,
+      "sha256": "de8c8ab06627b4466860619cc280cbd06c650a78edaa1eb61cf1805e1116a253",
+      "path": "91f83154.78f89514.js"
+    }
+  ]
+}

@@ -1,0 +1,572 @@
+{
+  "rawRoot": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106",
+  "copyMethod": "byte-identical selected public artifacts; excludes SDK binaries, official page bodies, credentials and private app state",
+  "files": [
+    {
+      "path": "issue.md",
+      "sourceRelativeToRaw": "issue.md",
+      "bytes": 5462,
+      "sha256": "eac98e1c4a83bbdd5b984fc962a4a58be6437079c859e10846adbca96ae47180"
+    },
+    {
+      "path": "preexisting-inputs.json",
+      "sourceRelativeToRaw": "preexisting-inputs.json",
+      "bytes": 63693,
+      "sha256": "2afb4e86bf54e917d5d5c4423c28268c3ea55e699afe981b976811b9add19432"
+    },
+    {
+      "path": "root/ui/search-cafe-A.json",
+      "sourceRelativeToRaw": "root/ui/search-cafe-A.json",
+      "bytes": 11387,
+      "sha256": "bd10cc0558bbab64478e6b37cac8dcbbc788f51ca87d3ab4bcac9de815403aba"
+    },
+    {
+      "path": "root/ui/cafe-detail-save-observe-A.json",
+      "sourceRelativeToRaw": "root/ui/cafe-detail-save-observe-A.json",
+      "bytes": 9850,
+      "sha256": "340346f530cca91c96da1e612e6d71b6621c2dd4097efb019f5ac6e4ba0bac04"
+    },
+    {
+      "path": "root/ui/cafe-bookmark-A.json",
+      "sourceRelativeToRaw": "root/ui/cafe-bookmark-A.json",
+      "bytes": 5202,
+      "sha256": "d99ad297854284adbc711b13d0b90be2cf4e2293d68dc8f259ab58f02159e845"
+    },
+    {
+      "path": "root/ui/cafe-bookmark-address-A.json",
+      "sourceRelativeToRaw": "root/ui/cafe-bookmark-address-A.json",
+      "bytes": 5332,
+      "sha256": "b8bee89984eefaee9d6f2dd7644117bd93e7b30688577e0a977f387d4a229ec4"
+    },
+    {
+      "path": "root/ui/cafe-public-route-A.json",
+      "sourceRelativeToRaw": "root/ui/cafe-public-route-A.json",
+      "bytes": 18999,
+      "sha256": "4b5a4889eebc9782786f8e38b13a74053e3ea6781d6faff2d7aa2cd25cfa63f1"
+    },
+    {
+      "path": "root/ui/cafe-coordinate-route-A.json",
+      "sourceRelativeToRaw": "root/ui/cafe-coordinate-route-A.json",
+      "bytes": 8028,
+      "sha256": "b54866ce9105d736e74e74990567b63f03900c17f68fe93f6c0b9d1c94cabeb5"
+    },
+    {
+      "path": "root/ui/search-fuel-A.json",
+      "sourceRelativeToRaw": "root/ui/search-fuel-A.json",
+      "bytes": 7964,
+      "sha256": "5701942c50b47adc392a8cbe9d1f5041871f3f01c3ae424148de025463f80af4"
+    },
+    {
+      "path": "root/ui/search-fuel-from-app-A.json",
+      "sourceRelativeToRaw": "root/ui/search-fuel-from-app-A.json",
+      "bytes": 11396,
+      "sha256": "119aab46e78d75a37686ee6073ab421986a1c438bd89f08a75c4bd642734ff99"
+    },
+    {
+      "path": "root/ui/search-restaurant-A.json",
+      "sourceRelativeToRaw": "root/ui/search-restaurant-A.json",
+      "bytes": 26282,
+      "sha256": "bc5316ffc504c06201b70bc3854b78cbeaca72316ba4384944a74e1029f9b2e2"
+    },
+    {
+      "path": "root/ui/foreground-fuel-A-activity.json",
+      "sourceRelativeToRaw": "root/ui/foreground-fuel-A-activity.json",
+      "bytes": 12004,
+      "sha256": "5183ebb6b35833c27a8a532099b5ee3feb4c6b9aa9162755c8ce9b3c1c36a888"
+    },
+    {
+      "path": "root/ui/foreground-restaurant-B-activity.json",
+      "sourceRelativeToRaw": "root/ui/foreground-restaurant-B-activity.json",
+      "bytes": 11998,
+      "sha256": "c924656e20dec8cb77cca15d7628cdfbac964cec1a6d724c07e46d82f784a12b"
+    },
+    {
+      "path": "root/ui/fuel-save-observe-A.json",
+      "sourceRelativeToRaw": "root/ui/fuel-save-observe-A.json",
+      "bytes": 12138,
+      "sha256": "31fb093bdf1f782851f5d54791dd6fe8aa516af98cf15f2450b9ad5794ff0e5f"
+    },
+    {
+      "path": "root/ui/fuel-bookmark-address-A.json",
+      "sourceRelativeToRaw": "root/ui/fuel-bookmark-address-A.json",
+      "bytes": 5347,
+      "sha256": "0a83934f50d6ed7f9b5e776f192b9da0ccea6c5b8d2d0354ac0a9ef54b964e57"
+    },
+    {
+      "path": "root/ui/restaurant-save-observe-B.json",
+      "sourceRelativeToRaw": "root/ui/restaurant-save-observe-B.json",
+      "bytes": 22446,
+      "sha256": "08b6126f7d64b3c60f1f9ff07c02bc0d84c34140977c3f620daf78d583d166b8"
+    },
+    {
+      "path": "root/ui/restaurant-bookmark-address-B.json",
+      "sourceRelativeToRaw": "root/ui/restaurant-bookmark-address-B.json",
+      "bytes": 5274,
+      "sha256": "2f63e9be282be75f649880fe70bf614fd2dea087fa59b96dc5b0526919da0367"
+    },
+    {
+      "path": "root/ui/search-cafe-A-screen.png",
+      "sourceRelativeToRaw": "root/ui/search-cafe-A-screen.png",
+      "bytes": 407254,
+      "sha256": "128cdb39e059d016db9704bc9bb1458261b3bae0e586428998afc0bee04385ec"
+    },
+    {
+      "path": "root/ui/search-cafe-A-screen.xml.txt",
+      "sourceRelativeToRaw": "root/ui/search-cafe-A-screen.xml.txt",
+      "bytes": 26380,
+      "sha256": "afb877a26b48de683edd54e3f363216479f289e5802ae081cffc3bd2ba97377f"
+    },
+    {
+      "path": "root/ui/cafe-detail-A.png",
+      "sourceRelativeToRaw": "root/ui/cafe-detail-A.png",
+      "bytes": 677046,
+      "sha256": "0366afbc391baa558816250f5a729be364953d34ba3d964d4efbd314a45b91bb"
+    },
+    {
+      "path": "root/ui/cafe-detail-A.xml.txt",
+      "sourceRelativeToRaw": "root/ui/cafe-detail-A.xml.txt",
+      "bytes": 15746,
+      "sha256": "f3a202c4f71ee4e99d185f3935464f4fb8189cf058036b184d424352812efd95"
+    },
+    {
+      "path": "root/ui/cafe-save-dialog-A.png",
+      "sourceRelativeToRaw": "root/ui/cafe-save-dialog-A.png",
+      "bytes": 676843,
+      "sha256": "5ddcf985040eb231118dfea4ebb513476c75dc962151c2d40c634e0ad08b5f18"
+    },
+    {
+      "path": "root/ui/cafe-save-dialog-A.xml.txt",
+      "sourceRelativeToRaw": "root/ui/cafe-save-dialog-A.xml.txt",
+      "bytes": 16465,
+      "sha256": "8642ad02e4647e99f51b4e7666a48f4d2dec06777ba3bac1dc2470ebbcafcc9d"
+    },
+    {
+      "path": "root/ui/search-fuel-A-screen.png",
+      "sourceRelativeToRaw": "root/ui/search-fuel-A-screen.png",
+      "bytes": 314065,
+      "sha256": "0d199bc8e67d669d6cceefc7b642bd6dbf555d97c65b3a3484228bf43fa40798"
+    },
+    {
+      "path": "root/ui/search-fuel-A-screen.xml.txt",
+      "sourceRelativeToRaw": "root/ui/search-fuel-A-screen.xml.txt",
+      "bytes": 5338,
+      "sha256": "4aaafa2ddf98199d0f688ce7fad7b4e99091d2b1c238922a8a6b4a249cc42610"
+    },
+    {
+      "path": "root/ui/search-fuel-from-app-A-screen.png",
+      "sourceRelativeToRaw": "root/ui/search-fuel-from-app-A-screen.png",
+      "bytes": 314379,
+      "sha256": "3a8cd3d0e7ddf8138ecf8d9858a94d7391c90d5939182f151166c58cdbf7b4f8"
+    },
+    {
+      "path": "root/ui/search-fuel-from-app-A-screen.xml.txt",
+      "sourceRelativeToRaw": "root/ui/search-fuel-from-app-A-screen.xml.txt",
+      "bytes": 5338,
+      "sha256": "4aaafa2ddf98199d0f688ce7fad7b4e99091d2b1c238922a8a6b4a249cc42610"
+    },
+    {
+      "path": "root/ui/search-restaurant-A-fast.png",
+      "sourceRelativeToRaw": "root/ui/search-restaurant-A-fast.png",
+      "bytes": 314333,
+      "sha256": "77c451f36fe81088b612b9d3b59df6532fcc942b5cca0ff1cdfa4d9c845c3f31"
+    },
+    {
+      "path": "root/ui/foreground-fuel-A-screen.png",
+      "sourceRelativeToRaw": "root/ui/foreground-fuel-A-screen.png",
+      "bytes": 422350,
+      "sha256": "2ad1fe1d18e89d7232a675c463bf0218e3533abc553d413df102613c65be319d"
+    },
+    {
+      "path": "root/ui/foreground-fuel-A-screen.xml.txt",
+      "sourceRelativeToRaw": "root/ui/foreground-fuel-A-screen.xml.txt",
+      "bytes": 26835,
+      "sha256": "e8279d32c69b8311e30b6ccc06e6ac8d41a7a14dd46f216c871399fb9f188c27"
+    },
+    {
+      "path": "root/ui/foreground-restaurant-B-screen.png",
+      "sourceRelativeToRaw": "root/ui/foreground-restaurant-B-screen.png",
+      "bytes": 404115,
+      "sha256": "19e108df5a99045951a926ec288ed5f4945e1325d1d36139ba4c237f71b7b4f1"
+    },
+    {
+      "path": "root/ui/foreground-restaurant-B-screen.xml.txt",
+      "sourceRelativeToRaw": "root/ui/foreground-restaurant-B-screen.xml.txt",
+      "bytes": 26748,
+      "sha256": "36a9f7356509626c877e01d92b5edca2c39f905b04844450f5b84810391ccc97"
+    },
+    {
+      "path": "root/ui/fuel-bookmark-saved-A.png",
+      "sourceRelativeToRaw": "root/ui/fuel-bookmark-saved-A.png",
+      "bytes": 346400,
+      "sha256": "ecaecc7ed97fde6fbfb4c927760995e6541d11fce68059fef5f28b5c359c4539"
+    },
+    {
+      "path": "root/ui/fuel-bookmark-saved-A.xml.txt",
+      "sourceRelativeToRaw": "root/ui/fuel-bookmark-saved-A.xml.txt",
+      "bytes": 10939,
+      "sha256": "f6c9cb8e1fda451fa9be1b88036c49c3ab0d2b6bf3bcddf0fda4e78cae947923"
+    },
+    {
+      "path": "root/ui/restaurant-bookmark-saved-B.png",
+      "sourceRelativeToRaw": "root/ui/restaurant-bookmark-saved-B.png",
+      "bytes": 366778,
+      "sha256": "06a6179198fc98785f61d21f9019b152d4958b384bc44151efba1f2ecfedba9e"
+    },
+    {
+      "path": "root/ui/restaurant-bookmark-saved-B.xml.txt",
+      "sourceRelativeToRaw": "root/ui/restaurant-bookmark-saved-B.xml.txt",
+      "bytes": 16569,
+      "sha256": "b860108ba9a7d95404f67bb1b4ef05c8fd80ba07aef68459d08175e6d4fbd98d"
+    },
+    {
+      "path": "root/cafe-route-source.json",
+      "sourceRelativeToRaw": "root/cafe-route-source.json",
+      "bytes": 542,
+      "sha256": "8146bc936d4093461fc51758698b6d82a9badcc8dfbf1cf730709282fbb7f367"
+    },
+    {
+      "path": "root/foreground-driver-installed-A.json",
+      "sourceRelativeToRaw": "root/foreground-driver-installed-A.json",
+      "bytes": 769,
+      "sha256": "cc4300ab9bcc9c9343a8b2eaab5d95adbc62819097a145d9f02518b2be5a1867"
+    },
+    {
+      "path": "root/foreground-driver-installed-B.json",
+      "sourceRelativeToRaw": "root/foreground-driver-installed-B.json",
+      "bytes": 769,
+      "sha256": "2cc66ed327bf559ce8da605270a603de0360154e50eea65e429fb0b31c4b58e0"
+    },
+    {
+      "path": "root/production-preserved-final.json",
+      "sourceRelativeToRaw": "root/production-preserved-final.json",
+      "bytes": 851,
+      "sha256": "5fe82b16b468f306f2922fbad368c9a8b8759c2825d72f0b21d146d2c4af041d"
+    },
+    {
+      "path": "builder/sdk-public-summary.json",
+      "sourceRelativeToRaw": "builder/sdk-public-summary.json",
+      "bytes": 11086,
+      "sha256": "a267ecf8ee26b35b5091d9b86b0629366778fd717d1307e401b7869678cd1b27"
+    },
+    {
+      "path": "builder/runtime-route-comparison.json",
+      "sourceRelativeToRaw": "builder/runtime-route-comparison.json",
+      "bytes": 3782,
+      "sha256": "793f1924b98319ceafe126fe5ffbec40a7f5c1cd158b1423e546ac69e52b7683"
+    },
+    {
+      "path": "builder/official-documents/manifest.json",
+      "sourceRelativeToRaw": "builder/official-documents/manifest.json",
+      "bytes": 9089,
+      "sha256": "26f8c7a95ea28d2c70874b48ee8607dd41d0b8e3ab132c49ff8fc1438dfadfdf"
+    },
+    {
+      "path": "builder/official-documents/public-site-assets/manifest.json",
+      "sourceRelativeToRaw": "builder/official-documents/public-site-assets/manifest.json",
+      "bytes": 594,
+      "sha256": "a593fc7b2c8eef8ee5d4f2f6755c25f2823b4100dc23e9264442ccb06b52f00a"
+    },
+    {
+      "path": "builder/official-documents/public-site-assets/field-chunks-manifest.json",
+      "sourceRelativeToRaw": "builder/official-documents/public-site-assets/field-chunks-manifest.json",
+      "bytes": 4760,
+      "sha256": "e387cfb2328ce4711c98d6f4917c94bca87b723f5dad8a4179a50c1a9a64adfb"
+    },
+    {
+      "path": "builder/official-documents/public-site-assets/entry-chunks-manifest.json",
+      "sourceRelativeToRaw": "builder/official-documents/public-site-assets/entry-chunks-manifest.json",
+      "bytes": 1548,
+      "sha256": "a1044d03f8f358a0332f992e1b9b01b65819ae2859f3ed7d21008211ae37a783"
+    },
+    {
+      "path": "builder/official-documents/public-site-assets/trip-chunks-manifest.json",
+      "sourceRelativeToRaw": "builder/official-documents/public-site-assets/trip-chunks-manifest.json",
+      "bytes": 1973,
+      "sha256": "1bce1e35b6a3a3ceeb993806f61321b3eca414e10d2d8990f9bb888a01e7cd26"
+    },
+    {
+      "path": "builder/sdk-public/manifest.json",
+      "sourceRelativeToRaw": "builder/sdk-public/manifest.json",
+      "bytes": 2139,
+      "sha256": "7f881b4712fd258fe9005a88bd85ee54d6e62cd59fdd84ce8c2dbbbca14a0cea"
+    },
+    {
+      "path": "builder/sdk-public/javap-supported-command.json",
+      "sourceRelativeToRaw": "builder/sdk-public/javap-supported-command.json",
+      "bytes": 1141,
+      "sha256": "b66320ef2a8aaa9f8694874ea463411b4dbbb5d08c44b14fc56ffbe23605e4f6"
+    },
+    {
+      "path": "builder/sdk-public/javap-screen-command.json",
+      "sourceRelativeToRaw": "builder/sdk-public/javap-screen-command.json",
+      "bytes": 948,
+      "sha256": "95215917ef88f238ef2388666e402215402c39a08e5df9c954245a10980bad84"
+    },
+    {
+      "path": "builder/sdk-public/javap-routepoint-command.json",
+      "sourceRelativeToRaw": "builder/sdk-public/javap-routepoint-command.json",
+      "bytes": 877,
+      "sha256": "df2cb0bceaae212c515a3baf5eb968ba96b3d5b8d728f6f4f38797bfdb172c53"
+    },
+    {
+      "path": "builder/sdk-public/javap-routestart-command.json",
+      "sourceRelativeToRaw": "builder/sdk-public/javap-routestart-command.json",
+      "bytes": 685,
+      "sha256": "86895033674c750e346a8e0a229d26b790ea6230dca44e5b712931d302fcd589"
+    },
+    {
+      "path": "builder/sdk-public/javap-trip-command.json",
+      "sourceRelativeToRaw": "builder/sdk-public/javap-trip-command.json",
+      "bytes": 865,
+      "sha256": "64d3d9c0aa279d74be547c878df244f8162787dd2fed48c2166baca437fe99d4"
+    },
+    {
+      "path": "builder/sdk-public/javap-tripsummary-command.json",
+      "sourceRelativeToRaw": "builder/sdk-public/javap-tripsummary-command.json",
+      "bytes": 630,
+      "sha256": "897b58c49df710ca04937a6f8624adc5da9e17eb5d14b4e9d61078c3cf487b43"
+    },
+    {
+      "path": "builder/permission-probe-build/command.json",
+      "sourceRelativeToRaw": "builder/permission-probe-build/command.json",
+      "bytes": 937,
+      "sha256": "c5fb7ca6e54ff5fc98c8278e6fede971a47868eda808980dea2e25398b4add39"
+    },
+    {
+      "path": "builder/permission-probe-build/source-manifest.json",
+      "sourceRelativeToRaw": "builder/permission-probe-build/source-manifest.json",
+      "bytes": 1188,
+      "sha256": "970fbaa4b04f30c2f3b41e5f45e8dc802f01de3fcbd8c895766d06cb2835ee07"
+    },
+    {
+      "path": "builder/permission-probe-build/gradle.log",
+      "sourceRelativeToRaw": "builder/permission-probe-build/gradle.log",
+      "bytes": 3843,
+      "sha256": "752d045ffa4fa9fa32af50b61e13b8aa1db6ea7355782085ff1caf9e7071ad9a"
+    },
+    {
+      "path": "builder/permission-probe-build/lint-results-debug.txt",
+      "sourceRelativeToRaw": "builder/permission-probe-build/lint-results-debug.txt",
+      "bytes": 2323,
+      "sha256": "e162b1c73a53cecbd0a332a3f0d950d018671ef85744e6a51d6d45b40c0c6e45"
+    },
+    {
+      "path": "builder/search-bookmark-build/freeze-2/command.json",
+      "sourceRelativeToRaw": "builder/search-bookmark-build/freeze-2/command.json",
+      "bytes": 945,
+      "sha256": "46b3e8c45fb2f030ff42bddf6b801925b683df52e172bea1c18568df0e2ccfcc"
+    },
+    {
+      "path": "builder/search-bookmark-build/freeze-2/source-manifest.json",
+      "sourceRelativeToRaw": "builder/search-bookmark-build/freeze-2/source-manifest.json",
+      "bytes": 1158,
+      "sha256": "04352492908f61e2960f2ac1bff9464c1f13ec155119b9ca61c442c48224bcca"
+    },
+    {
+      "path": "builder/search-bookmark-build/freeze-2/gradle.log",
+      "sourceRelativeToRaw": "builder/search-bookmark-build/freeze-2/gradle.log",
+      "bytes": 3629,
+      "sha256": "343729e1f4ff76ee133a8c2ab274da7e168aa28e750a962815c6ca358eac90aa"
+    },
+    {
+      "path": "builder/search-bookmark-build/freeze-2/lint-results-debug.txt",
+      "sourceRelativeToRaw": "builder/search-bookmark-build/freeze-2/lint-results-debug.txt",
+      "bytes": 2323,
+      "sha256": "e162b1c73a53cecbd0a332a3f0d950d018671ef85744e6a51d6d45b40c0c6e45"
+    },
+    {
+      "path": "builder/search-bookmark-build/freeze-2/inspection-commands.json",
+      "sourceRelativeToRaw": "builder/search-bookmark-build/freeze-2/inspection-commands.json",
+      "bytes": 2141,
+      "sha256": "f82d4f6dc79f1fa4cbaff7d7221cbbdb74b9cd12ef7d700cb210868128ec0703"
+    },
+    {
+      "path": "builder/search-bookmark-build/freeze-2/permissions.txt",
+      "sourceRelativeToRaw": "builder/search-bookmark-build/freeze-2/permissions.txt",
+      "bytes": 218,
+      "sha256": "5f81cba5126fa3e34094a275da8c5cd88ea6fa7d6267a3d49fb374233300ec31"
+    },
+    {
+      "path": "builder/public-poi-build/command.json",
+      "sourceRelativeToRaw": "builder/public-poi-build/command.json",
+      "bytes": 930,
+      "sha256": "aca5117075012c9330e66b5199141deb0899f871025bd01805a4fa3f70f06671"
+    },
+    {
+      "path": "builder/public-poi-build/source-manifest.json",
+      "sourceRelativeToRaw": "builder/public-poi-build/source-manifest.json",
+      "bytes": 1132,
+      "sha256": "1aeed8977504283434dc419d5af3b5a69c6395962b7ad4f0661dd6fe1b5244f4"
+    },
+    {
+      "path": "builder/public-poi-build/gradle.log",
+      "sourceRelativeToRaw": "builder/public-poi-build/gradle.log",
+      "bytes": 3629,
+      "sha256": "52c206a1e32c8c1dbd3a100e2cf2bd9899b8d4cad53896081fc5cddea2ffd680"
+    },
+    {
+      "path": "builder/public-poi-build/lint-results-debug.txt",
+      "sourceRelativeToRaw": "builder/public-poi-build/lint-results-debug.txt",
+      "bytes": 2323,
+      "sha256": "e162b1c73a53cecbd0a332a3f0d950d018671ef85744e6a51d6d45b40c0c6e45"
+    },
+    {
+      "path": "builder/public-poi-build/inspection-commands.json",
+      "sourceRelativeToRaw": "builder/public-poi-build/inspection-commands.json",
+      "bytes": 2085,
+      "sha256": "62ff7eb7def30712c52b551d0a610ff2a19462aabc9b0032c847e39bbbdd13e6"
+    },
+    {
+      "path": "builder/public-poi-build/permissions.txt",
+      "sourceRelativeToRaw": "builder/public-poi-build/permissions.txt",
+      "bytes": 218,
+      "sha256": "5f81cba5126fa3e34094a275da8c5cd88ea6fa7d6267a3d49fb374233300ec31"
+    },
+    {
+      "path": "builder/foreground-activity-build/command.json",
+      "sourceRelativeToRaw": "builder/foreground-activity-build/command.json",
+      "bytes": 1543,
+      "sha256": "705b87cc6de8e1c18437fd34305ed949238032f8e0b6a7e444699e39f928e7ab"
+    },
+    {
+      "path": "builder/foreground-activity-build/source-manifest.json",
+      "sourceRelativeToRaw": "builder/foreground-activity-build/source-manifest.json",
+      "bytes": 1380,
+      "sha256": "c9b2a35b7607754321c3ce5a8b4db0db9212db7bd46c7e883b713ba8497342e1"
+    },
+    {
+      "path": "builder/foreground-activity-build/gradle.log",
+      "sourceRelativeToRaw": "builder/foreground-activity-build/gradle.log",
+      "bytes": 3447,
+      "sha256": "4a9952724ede800e018c7b33dc7b387498e52f267ea641ab691e2382a9220de7"
+    },
+    {
+      "path": "builder/foreground-activity-build/lint-results-debug.txt",
+      "sourceRelativeToRaw": "builder/foreground-activity-build/lint-results-debug.txt",
+      "bytes": 4841,
+      "sha256": "28c6cafb7b5399769ae93dabb9eba94013ed4621f08e5212b444e886a3f7f4f6"
+    },
+    {
+      "path": "builder/foreground-activity-build/inspection-commands.json",
+      "sourceRelativeToRaw": "builder/foreground-activity-build/inspection-commands.json",
+      "bytes": 2121,
+      "sha256": "a1395fe92e8075d19736d880c9976b185420447c086dd20ee23c5fdf54b2aa66"
+    },
+    {
+      "path": "builder/foreground-activity-build/permissions.txt",
+      "sourceRelativeToRaw": "builder/foreground-activity-build/permissions.txt",
+      "bytes": 218,
+      "sha256": "5f81cba5126fa3e34094a275da8c5cd88ea6fa7d6267a3d49fb374233300ec31"
+    },
+    {
+      "path": "root/github-input-refetch.json",
+      "sourceRelativeToRaw": "root/github-input-refetch.json",
+      "bytes": 6064,
+      "sha256": "aa0c91d076470b5bfde6a76c89dd40b7ef5ea25e827b39ebfe69194f082e7b99"
+    },
+    {
+      "path": "root/trip-driver-installed-emulator-5570.json",
+      "sourceRelativeToRaw": "root/trip-driver-installed-emulator-5570.json",
+      "bytes": 706,
+      "sha256": "a2be5b0f3c8fc5107092c0d17a098d2a39e9dfe701469aa2ea70f7480ffd63f6"
+    },
+    {
+      "path": "root/trip-driver-installed-emulator-5572.json",
+      "sourceRelativeToRaw": "root/trip-driver-installed-emulator-5572.json",
+      "bytes": 706,
+      "sha256": "cccb0d191e6db5e580d5d94f6c2ce908799c86d02338a8e8ae1550b2954a6b25"
+    },
+    {
+      "path": "root/ui/cafe-trip-A.json",
+      "sourceRelativeToRaw": "root/ui/cafe-trip-A.json",
+      "bytes": 7521,
+      "sha256": "998b87f80a2bb01473a8ed1da0618fe27028ed048a718a770845dc496cc5145f"
+    },
+    {
+      "path": "root/ui/restaurant-trip-B.json",
+      "sourceRelativeToRaw": "root/ui/restaurant-trip-B.json",
+      "bytes": 7534,
+      "sha256": "10b6cc9c7d1971e4b74bc82a2a77f5acf886bd4da8458f031444d555e274ba82"
+    },
+    {
+      "path": "root/ui/trip-extra-field-rejected-A.json",
+      "sourceRelativeToRaw": "root/ui/trip-extra-field-rejected-A.json",
+      "bytes": 2915,
+      "sha256": "5342740d4c515788a40efc708b9d301097ef98af0fd6b497448f2dd27ee3a3d5"
+    },
+    {
+      "path": "root/ui/final-native-A.json",
+      "sourceRelativeToRaw": "root/ui/final-native-A.json",
+      "bytes": 2429,
+      "sha256": "9f7e75d92a536c5bc6ccb08ad14af987dbfbb55d8747fe8a1eb2f3d0c1b12da6"
+    },
+    {
+      "path": "root/ui/final-native-B.json",
+      "sourceRelativeToRaw": "root/ui/final-native-B.json",
+      "bytes": 2436,
+      "sha256": "6b96ef8b6fd69668d2accd482432722f8b004ee611831354576feb51cf0c145f"
+    },
+    {
+      "path": "builder/trip-build/command.json",
+      "sourceRelativeToRaw": "builder/trip-build/command.json",
+      "bytes": 1527,
+      "sha256": "27c129fc7713f3d6cb34acb467019d39b202658d35d676a512a1eb56ab0b1873"
+    },
+    {
+      "path": "builder/trip-build/source-manifest.json",
+      "sourceRelativeToRaw": "builder/trip-build/source-manifest.json",
+      "bytes": 1361,
+      "sha256": "35428f10f6d53cca27f55d29908fcb2224044862c3ddba962e7c570e1af23380"
+    },
+    {
+      "path": "builder/trip-build/gradle.log",
+      "sourceRelativeToRaw": "builder/trip-build/gradle.log",
+      "bytes": 3629,
+      "sha256": "45636621138e44b4487b1af45bab807a74683079e7d9cbe816075f0ca2edfbf3"
+    },
+    {
+      "path": "builder/trip-build/lint-results-debug.txt",
+      "sourceRelativeToRaw": "builder/trip-build/lint-results-debug.txt",
+      "bytes": 4841,
+      "sha256": "28c6cafb7b5399769ae93dabb9eba94013ed4621f08e5212b444e886a3f7f4f6"
+    },
+    {
+      "path": "builder/trip-build/inspection-commands.json",
+      "sourceRelativeToRaw": "builder/trip-build/inspection-commands.json",
+      "bytes": 2061,
+      "sha256": "f0ef69905d4de7abbbf18e378bfef679f32b7b00500754871fc694ec05e87d2e"
+    },
+    {
+      "path": "builder/trip-build/permissions.txt",
+      "sourceRelativeToRaw": "builder/trip-build/permissions.txt",
+      "bytes": 218,
+      "sha256": "5f81cba5126fa3e34094a275da8c5cd88ea6fa7d6267a3d49fb374233300ec31"
+    },
+    {
+      "path": "root/actions-public-selection.jsonl",
+      "sourceRelativeToRaw": "root/actions-public-selection.jsonl",
+      "bytes": 6483,
+      "sha256": "f15f3dba0e8a9468b87f6d028c6e2f494ebea0657946376e6aa0510ccbbf1159"
+    },
+    {
+      "path": "root/final-preservation.json",
+      "sourceRelativeToRaw": "root/final-preservation.json",
+      "bytes": 504,
+      "sha256": "709bfdcfdeb2074e3d5018db5ef83492fa66d5f1c649c609cf472fa1785e7e7b"
+    },
+    {
+      "path": "builder/baseline-preservation-final.json",
+      "sourceRelativeToRaw": "builder/baseline-preservation-final.json",
+      "bytes": 504,
+      "sha256": "709bfdcfdeb2074e3d5018db5ef83492fa66d5f1c649c609cf472fa1785e7e7b"
+    }
+  ],
+  "derivations": [
+    {
+      "path": "root/actions-public-selection.jsonl",
+      "source": "root/actions.jsonl",
+      "sourceSha256": "c799284d117529b4e5f9cecd70e513cf723da126ebabbec4a241888e9dd3face",
+      "filter": "only public selection, own SDK probe and diagnostic install events; no private session diagnostics"
+    }
+  ]
+}

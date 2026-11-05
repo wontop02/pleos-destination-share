@@ -1,0 +1,184 @@
+{
+  "hostAt": "2026-11-05T16:59:19.752968+00:00",
+  "serial": "emulator-5572",
+  "user": 10,
+  "command": {
+    "argv": [
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+      "-P",
+      "5041",
+      "-s",
+      "emulator-5572",
+      "shell",
+      "am instrument --user 10 -w -r -e mode bookmarks -e publicNamesJson '[\"청계산담백미\"]' ai.pleos.destinations.driver/.NativeDestinationDriver"
+    ],
+    "exitCode": 0
+  },
+  "seconds": 2.5619505,
+  "productionPidBefore": "30400",
+  "productionPidAfter": "30400",
+  "productionProcessUnchanged": true,
+  "result": {
+    "sdk": "ai.pleos.playground:NaviHelper:3.0.5",
+    "mode": "bookmarks",
+    "startedAt": 1793897957405,
+    "targetPackage": "ai.pleos.destinations.driver",
+    "processId": 6317,
+    "initialDestination": {
+      "latitude": 37.41289678,
+      "longitude": 127.09383464,
+      "displayLatitude": null,
+      "displayLongitude": null,
+      "name": "42dot",
+      "address": "수정구 시흥동",
+      "poiId": "36khp37hh8gqcm5nqhe5",
+      "poiSubId": null,
+      "poiSubIdMissing": true,
+      "poiProvider": "",
+      "remainDistance": 50,
+      "remainTime": 60,
+      "tollFare": 0
+    },
+    "publicNameAllowlist": [
+      "청계산담백미"
+    ],
+    "bookmarkObservation": {
+      "query": 2,
+      "callbackSource": "NaviHelperEventListener.onBookmarkInfo",
+      "entryCount": 3,
+      "allowlistedEntryCount": 1,
+      "omittedEntryCount": 2,
+      "entries": [
+        {
+          "name": "청계산담백미",
+          "latitude": 37.40931388,
+          "longitude": 127.09780277,
+          "address": "경기도 성남시 수정구 달래내로 22",
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "poiId": "36khp2h5fjcfcm5nqhe3",
+          "poiSubId": null,
+          "poiProvider": ""
+        }
+      ],
+      "exactPublicNameFilterApplied": true,
+      "event": "onBookmarkInfo",
+      "at": 1793897958460,
+      "session": 1
+    },
+    "postBookmarkDestination": {
+      "latitude": 37.41289678,
+      "longitude": 127.09383464,
+      "displayLatitude": null,
+      "displayLongitude": null,
+      "name": "42dot",
+      "address": "수정구 시흥동",
+      "poiId": "36khp37hh8gqcm5nqhe5",
+      "poiSubId": null,
+      "poiSubIdMissing": true,
+      "poiProvider": "",
+      "remainDistance": 50,
+      "remainTime": 60,
+      "tollFare": 0
+    },
+    "destinationIdentityUnchanged": true,
+    "reason": "allowlisted_public_bookmark_fields_observed",
+    "status": "OBSERVED",
+    "finishedAt": 1793897959466,
+    "routeStartedObserved": false,
+    "routingCompletedObserved": false,
+    "routeRequestCount": 0,
+    "navigationScreenRequestCount": 0,
+    "events": [
+      {
+        "event": "connected",
+        "at": 1793897957434,
+        "session": 1
+      },
+      {
+        "query": 1,
+        "event": "getDestinationInfo",
+        "at": 1793897957435,
+        "session": 1
+      },
+      {
+        "query": 1,
+        "destination": {
+          "latitude": 37.41289678,
+          "longitude": 127.09383464,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "42dot",
+          "address": "수정구 시흥동",
+          "poiId": "36khp37hh8gqcm5nqhe5",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 50,
+          "remainTime": 60,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793897958446,
+        "session": 1
+      },
+      {
+        "query": 2,
+        "event": "getBookmarkInfo",
+        "at": 1793897958446,
+        "session": 1
+      },
+      {
+        "query": 2,
+        "callbackSource": "NaviHelperEventListener.onBookmarkInfo",
+        "entryCount": 3,
+        "allowlistedEntryCount": 1,
+        "omittedEntryCount": 2,
+        "entries": [
+          {
+            "name": "청계산담백미",
+            "latitude": 37.40931388,
+            "longitude": 127.09780277,
+            "address": "경기도 성남시 수정구 달래내로 22",
+            "displayLatitude": null,
+            "displayLongitude": null,
+            "poiId": "36khp2h5fjcfcm5nqhe3",
+            "poiSubId": null,
+            "poiProvider": ""
+          }
+        ],
+        "exactPublicNameFilterApplied": true,
+        "event": "onBookmarkInfo",
+        "at": 1793897958460,
+        "session": 1
+      },
+      {
+        "query": 3,
+        "event": "getDestinationInfo",
+        "at": 1793897958460,
+        "session": 1
+      },
+      {
+        "query": 3,
+        "destination": {
+          "latitude": 37.41289678,
+          "longitude": 127.09383464,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "42dot",
+          "address": "수정구 시흥동",
+          "poiId": "36khp37hh8gqcm5nqhe5",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 50,
+          "remainTime": 60,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793897959464,
+        "session": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "hostAt": "2026-11-05T17:07:48.852945+00:00",
+  "serial": "emulator-5570",
+  "user": 10,
+  "command": {
+    "argv": [
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+      "-P",
+      "5041",
+      "-s",
+      "emulator-5570",
+      "shell",
+      "am instrument --user 10 -w -r -e mode trip-public-poi -e publicDestinationJson '{\"name\": \"가든서비스\", \"latitude\": 37.41255277, \"longitude\": 127.09591666, \"address\": \"경기도 성남시 수정구 창업로40번길 6\", \"displayLatitude\": null, \"displayLongitude\": null, \"poiId\": \"36khp2h36p68cm5nqhec\", \"poiSubId\": null, \"poiProvider\": \"\", \"unexpectedField\": true}' ai.pleos.destinations.driver/.NativeDestinationDriver"
+    ],
+    "exitCode": 0
+  },
+  "seconds": 2.368761458,
+  "productionPidBefore": "29112",
+  "productionPidAfter": "29112",
+  "productionProcessUnchanged": true,
+  "result": {
+    "sdk": "ai.pleos.playground:NaviHelper:3.0.5",
+    "mode": "trip-public-poi",
+    "startedAt": 1793898467908,
+    "targetPackage": "ai.pleos.destinations.driver",
+    "processId": 14282,
+    "initialDestination": {
+      "latitude": 37.41289678,
+      "longitude": 127.09383464,
+      "displayLatitude": null,
+      "displayLongitude": null,
+      "name": "42dot",
+      "address": "수정구 시흥동",
+      "poiId": "36khp37hh8gqcm5nqhe5",
+      "poiSubId": null,
+      "poiSubIdMissing": true,
+      "poiProvider": "",
+      "remainDistance": 50,
+      "remainTime": 60,
+      "tollFare": 0
+    },
+    "reason": "probe_exception",
+    "failureType": "IllegalArgumentException",
+    "status": "FAILED",
+    "finishedAt": 1793898469136,
+    "routeStartedObserved": false,
+    "routingCompletedObserved": false,
+    "routeRequestCount": 0,
+    "navigationScreenRequestCount": 0,
+    "tripRequestCount": 0,
+    "nativeRouteStartCallbackCount": 0,
+    "events": [
+      {
+        "event": "connected",
+        "at": 1793898468058,
+        "session": 1
+      },
+      {
+        "query": 1,
+        "event": "getDestinationInfo",
+        "at": 1793898468058,
+        "session": 1
+      },
+      {
+        "query": 1,
+        "destination": {
+          "latitude": 37.41289678,
+          "longitude": 127.09383464,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "42dot",
+          "address": "수정구 시흥동",
+          "poiId": "36khp37hh8gqcm5nqhe5",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 50,
+          "remainTime": 60,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793898469112,
+        "session": 1
+      },
+      {
+        "event": "connected",
+        "at": 1793898469119,
+        "session": 3
+      }
+    ]
+  }
+}

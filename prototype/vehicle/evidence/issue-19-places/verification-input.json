@@ -1,0 +1,39 @@
+{
+  "base": "3a4c734093406bcb54e8c33bffeb9c0661f6720d",
+  "sourceCommit": "9d0bfcedc5644b30856f6112b9be444f4030664f",
+  "sourceStage": "builder/trip-build",
+  "capabilityVerdict": "PARTIAL",
+  "independentVerdict": "Recorded on exact final evidence head in PR; this file does not substitute for independent verification",
+  "acceptanceEvidence": {
+    "AC1": [
+      "builder/sdk-public-summary.json",
+      "builder/sdk-public/manifest.json",
+      "builder/official-documents/manifest.json"
+    ],
+    "AC2": [
+      "root/ui/search-cafe-A.json",
+      "root/ui/foreground-fuel-A-activity.json",
+      "root/ui/foreground-restaurant-B-activity.json"
+    ],
+    "AC3": [
+      "root/ui/cafe-bookmark-address-A.json",
+      "root/ui/fuel-bookmark-address-A.json",
+      "root/ui/restaurant-bookmark-address-B.json",
+      "root/ui/cafe-public-route-A.json",
+      "root/ui/cafe-coordinate-route-A.json"
+    ],
+    "AC4": [
+      "../../../../docs/product/general-place-discovery.md",
+      "root/ui/cafe-trip-A.json",
+      "root/ui/restaurant-trip-B.json"
+    ],
+    "AC5": [
+      "builder/trip-build/command.json",
+      "builder/trip-build/source-manifest.json",
+      "root/trip-driver-installed-emulator-5570.json",
+      "root/trip-driver-installed-emulator-5572.json",
+      "root/final-preservation.json",
+      "PR exact-head independent review"
+    ]
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "checkedAt": "2026-11-05T16:10:41.235183+00:00",
+  "sdkVersion": "NaviHelper3.0.5 / navi-data3.0.4",
+  "artifacts": [
+    {
+      "artifact": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/gradle-user/caches/modules-2/files-2.1/ai.pleos.playground/NaviHelper/3.0.5/a7b78be7cdbe0942a009d4f8781f7d99f20d7ece/NaviHelper-3.0.5.aar",
+      "sha256": "15fadd11c7c611b1abdf7ebf9ce91f2a6ce2728e60b4e38b4343e11bb9c12e97",
+      "classesJarSha256": "1802e8a1f4f68706765133157b170f62b76b0164a528a2f43550a896f7915d31",
+      "classCount": 52
+    },
+    {
+      "artifact": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/gradle-user/caches/modules-2/files-2.1/ai.pleos.playground/navi-data/3.0.4/53a3d251642b357d367f41b1d2e4b7c016e04b13/navi-data-3.0.4.aar",
+      "sha256": "7ca00e592134b53237a48cc3b7864063ecc5e2885465e3ce9c8c2a29789a2e2b",
+      "classesJarSha256": "ca863405741cb9b77a9cef2aec43bec30eab63876ba9ff6c6860ec8a8f24fe3b",
+      "classCount": 177
+    }
+  ],
+  "methodDeclarations": [
+    "NaviHelper.requestNavigationScreen(NavigationScreenRequest): void",
+    "NavigationScreenRequest.SearchPlace(String keyword)",
+    "NavigationScreenRequest.POIDetailPopup(String poiId, String poiProvider)",
+    "NaviHelper.getBookmarkInfo(): void",
+    "NaviHelperEventListener.onBookmarkInfo(List<BookmarkInfo>): void",
+    "NaviHelper.getRecentDestinationInfo(): void",
+    "NaviHelperEventListener.onRecentDestinationInfo(List<RecentDestinationInfo>): void",
+    "NaviHelper.requestRoute(RouteInfo): void",
+    "NaviHelper.getDestinationInfo(): void",
+    "NaviHelperEventListener.onDestinationInfo(DestinationInfo): void"
+  ],
+  "searchResultContract": "No keyword/POI result method or selection callback in inspected documented NaviHelper entry point and listener. SearchPlace input has only keyword; not a result-receiver API. No inference about other SDK versions or uninspected Android intents.",
+  "excluded": "Public getter returning InternalApi is not treated as supported search and was not invoked or inspected. No private or vendor APK inspection.",
+  "verificationCommands": [
+    {
+      "argv": [
+        "/private/tmp/pleos-vehicle-tools-20261105/jdk/jdk-21.0.13+9/Contents/Home/bin/javap",
+        "-public",
+        "-classpath",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/sdk-public/NaviHelper-3.0.5.classes.jar:/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/sdk-public/navi-data-3.0.4.classes.jar",
+        "ai.pleos.playground.navi.helper.NaviHelper",
+        "ai.pleos.playground.navi.helper.listener.NaviHelperEventListener",
+        "ai.pleos.playground.navi.data.RouteInfo",
+        "ai.pleos.playground.navi.data.DestinationInfo",
+        "ai.pleos.playground.navi.data.BookmarkInfo",
+        "ai.pleos.playground.navi.data.RecentDestinationInfo"
+      ],
+      "exitCode": 0,
+      "stderrEmpty": true,
+      "correction": "Initial javap included nonexistent constants.NavigationScreen; it returned exit 0 with class-not-found stderr. This rerun uses exact declared classes. SearchPlace/POIDetailPopup are in javap-screen-public.txt."
+    },
+    {
+      "argv": [
+        "/private/tmp/pleos-vehicle-tools-20261105/jdk/jdk-21.0.13+9/Contents/Home/bin/javap",
+        "-public",
+        "-classpath",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/sdk-public/NaviHelper-3.0.5.classes.jar:/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/sdk-public/navi-data-3.0.4.classes.jar",
+        "ai.pleos.playground.navi.data.NavigationScreenRequest",
+        "ai.pleos.playground.navi.data.NavigationScreenRequest$SearchPlace",
+        "ai.pleos.playground.navi.data.NavigationScreenRequest$POIDetailPopup",
+        "ai.pleos.playground.navi.data.RecentDestinationInfo",
+        "ai.pleos.playground.navi.data.BookmarkInfo"
+      ],
+      "exitCode": 0,
+      "stderrEmpty": true
+    },
+    {
+      "argv": [
+        "/private/tmp/pleos-vehicle-tools-20261105/jdk/jdk-21.0.13+9/Contents/Home/bin/javap",
+        "-public",
+        "-classpath",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/sdk-public/NaviHelper-3.0.5.classes.jar:/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/sdk-public/navi-data-3.0.4.classes.jar",
+        "ai.pleos.playground.navi.data.RoutePointInfo",
+        "ai.pleos.playground.navi.data.RouteWithWaypointsRequest",
+        "ai.pleos.playground.navi.constants.RoutePointSettingType",
+        "ai.pleos.playground.navi.constants.RoutePointPoiType",
+        "ai.pleos.playground.navi.constants.RoutePointType"
+      ],
+      "exitCode": 0,
+      "stderrEmpty": true
+    },
+    {
+      "argv": [
+        "/private/tmp/pleos-vehicle-tools-20261105/jdk/jdk-21.0.13+9/Contents/Home/bin/javap",
+        "-public",
+        "-classpath",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/sdk-public/NaviHelper-3.0.5.classes.jar:/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/sdk-public/navi-data-3.0.4.classes.jar",
+        "ai.pleos.playground.navi.data.RouteStartInfo",
+        "ai.pleos.playground.navi.data.RoutePointInfo"
+      ],
+      "exitCode": 0,
+      "stderrEmpty": true
+    },
+    {
+      "argv": [
+        "/private/tmp/pleos-vehicle-tools-20261105/jdk/jdk-21.0.13+9/Contents/Home/bin/javap",
+        "-public",
+        "-classpath",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/sdk-public/NaviHelper-3.0.5.classes.jar:/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/sdk-public/navi-data-3.0.4.classes.jar",
+        "ai.pleos.playground.navi.data.TripRequest",
+        "ai.pleos.playground.navi.data.TripInfo",
+        "ai.pleos.playground.navi.data.RouteStateInfo"
+      ],
+      "exitCode": 0,
+      "stderrEmpty": true,
+      "scope": "Bounded read-only check of documented information request models; no runtime request, route mutation or private inspection"
+    },
+    {
+      "argv": [
+        "/private/tmp/pleos-vehicle-tools-20261105/jdk/jdk-21.0.13+9/Contents/Home/bin/javap",
+        "-public",
+        "-classpath",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/sdk-public/NaviHelper-3.0.5.classes.jar:/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/sdk-public/navi-data-3.0.4.classes.jar",
+        "ai.pleos.playground.navi.data.TripSummary"
+      ],
+      "exitCode": 0,
+      "stderrEmpty": true
+    }
+  ],
+  "publicSignatureOutputHashes": {
+    "javap-supported-public.txt": "bbbc443141b83037d061b89c011662575e74e1894f567e4dacf917fc4046aabd",
+    "javap-screen-public.txt": "39fb0123126840137e7ee5a1d821fa81cdd93fd236a5dde8a9f8959cf003ccad",
+    "javap-routepoint-public.txt": "7562c322aaa4f9d05f185c2e7b7186c850232bde2344b90efcab13fa2979b4e3",
+    "javap-routestart-public.txt": "a9d970e633290da4bc270601bae5833f3f8a59fc49c09e64014753c126eadd97",
+    "javap-trip-public.txt": "cb08daee51e3a4218a88ead99fc1bd6927c737bf089cbbd272ba7c692fe6ba36",
+    "javap-tripsummary-public.txt": "2cf39e689727c51187bdc81cf32eb4f3de84246bc6e52822594f0a8d3d3e2f10"
+  },
+  "bookmarkSerializedFields": [
+    "name",
+    "latitude",
+    "longitude",
+    "address",
+    "displayLatitude",
+    "displayLongitude",
+    "poiId",
+    "poiSubId",
+    "poiProvider"
+  ],
+  "bookmarkPrivacy": "Only exact operator public-name allowlist entries serialize fields; all other entries are counted only.",
+  "waypointAlternative": "RouteWithWaypointsRequest.destination is RouteInfo, not RoutePointInfo. RoutePointSettingType is AUTO/MANUAL and RoutePointPoiType is NORMAL/EV_CHARGING; neither documents coordinate-only routing or keyword-result callbacks.",
+  "bookmarkAddressCorrection": "Public BookmarkInfo.getAddress exists. Earlier cafe observation did not serialize it because the original probe allowlist boundary included only names, coordinates and POI fields; it was not an absent SDK field.",
+  "routeStartInfo": {
+    "fields": [
+      "duration:Int",
+      "distance:Int",
+      "tollFare:Int",
+      "name:String",
+      "remainDestinationChargingValue:Int"
+    ],
+    "missing": [
+      "target coordinates",
+      "poiId",
+      "poiSubId",
+      "poiProvider",
+      "nested destination",
+      "client request ID"
+    ],
+    "officialDescriptionOfName": "destination or starting point; not a request-bound target identity"
+  },
+  "coordinateSemantics": {
+    "models": [
+      "BookmarkInfo",
+      "DestinationInfo",
+      "RouteInfo"
+    ],
+    "latitudeLongitude": "General geographic position definitions in official class documentation",
+    "displayCoordinates": "Map display coordinates",
+    "unconfirmed": "No entrance/road-connection/canonicalization mapping or coordinate equality guarantee was found in the inspected class documentation. Entrance explanation is inference only.",
+    "observedCafeStrictResult": "FAILED, approximately51.03m coordinate gap; no identity/tolerance relaxation"
+  },
+  "tripInformationPath": {
+    "request": "TripRequest(latitude:Double, longitude:Double, poiId:String, poiName:String, poiSubId:String?)",
+    "method": "NaviHelper.requestTrip(TripRequest):void, NAVI_ROUTE normal",
+    "response": "onTripInfo -> TripInfo.summary.routePoints:List<RoutePointInfo>",
+    "missingInRoutePoint": [
+      "provider",
+      "sub-ID",
+      "request ID"
+    ],
+    "semanticGuarantees": "No unchanged-guidance or canonical-target promise found in inspected method/class documentation",
+    "runtime": "A cafe and B restaurant returned one actual DESTINATION point with matching name/ID, routeRequests0/tripRequests1/nativeRouteStartCallbacks0 and unchanged actual42dot after callback. Cafe Trip coordinates differ from BOTH original bookmark and observed requestRoute target, so not a canonical-target solution."
+  }
+}

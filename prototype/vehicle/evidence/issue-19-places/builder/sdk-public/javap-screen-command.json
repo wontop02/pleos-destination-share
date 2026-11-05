@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/private/tmp/pleos-vehicle-tools-20261105/jdk/jdk-21.0.13+9/Contents/Home/bin/javap",
+    "-public",
+    "-classpath",
+    "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/sdk-public/NaviHelper-3.0.5.classes.jar:/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/general-places-20261106/builder/sdk-public/navi-data-3.0.4.classes.jar",
+    "ai.pleos.playground.navi.data.NavigationScreenRequest",
+    "ai.pleos.playground.navi.data.NavigationScreenRequest$SearchPlace",
+    "ai.pleos.playground.navi.data.NavigationScreenRequest$POIDetailPopup",
+    "ai.pleos.playground.navi.data.RecentDestinationInfo",
+    "ai.pleos.playground.navi.data.BookmarkInfo"
+  ],
+  "exitCode": 0,
+  "stderrEmpty": true
+}
