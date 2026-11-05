@@ -8,6 +8,7 @@ sealed class CurrentDestination {
     data class Absent(val observedAt: Long) : CurrentDestination()
     data class Failed(val reason: String) : CurrentDestination()
 }
+enum class AutomaticMode { OFF, LEADER, FOLLOWER }
 enum class ApplyPhase { IDLE, CONNECTING, REQUESTED, ROUTING, VERIFYING, CONFIRMED, FAILED, TIMED_OUT, CANCELLED }
 data class PendingRouteConfirmation(val id: Long, val revision: Long, val target: Destination,
     val deadline: Long, val routingCompletedObserved: Boolean)
@@ -23,6 +24,7 @@ data class VehicleState(
     val sharing: Boolean = false,
     val confirmedAt: Long? = null,
     val routingCompletedObserved: Boolean = false,
+    val automatic: AutomaticMode = AutomaticMode.OFF,
 )
 
 /**
@@ -47,6 +49,12 @@ class VehicleCoordinator(
     private var lastConfirmedRevision = -1L
     private var lastConfirmation: PendingRouteConfirmation? = null
     private var disposed = false
+    private var autoDue = Long.MAX_VALUE
+    private var autoObserveAt = Long.MAX_VALUE
+    private var autoAttemptedRevision = -1L
+    private var reconnectPending: PendingRouteConfirmation? = null
+    private var observedForPublish: Destination? = null
+    private var hasObservedForPublish = false
     private enum class Purpose { OBSERVE, SHARE, VERIFY }
     private data class Read(val id: Long, val purpose: Purpose, val room: Long, val deadline: Long, var dirty: Boolean = false)
     private data class Operation(val id: Long, val room: Long, val revision: Long, val target: Destination,
@@ -59,6 +67,33 @@ class VehicleCoordinator(
         nativeEpoch += 1 // Fence queued callbacks before asking the SDK to remove the listener.
         read = null
         gateway.release()
+    }
+
+    /** Consent is volatile and role-bound; persistence/UI attachment cannot call this implicitly. */
+    fun startAutomatic(): Boolean {
+        if (disposed || !state.roomConnected || state.automatic != AutomaticMode.OFF) return false
+        autoAttemptedRevision = -1
+        hasObservedForPublish = false
+        update(state.copy(automatic = if (state.host) AutomaticMode.LEADER else AutomaticMode.FOLLOWER,
+            message = if (state.host) "동행 시작 · 순정 목적지 자동 공유 중" else "자동 따르기 시작 · 최신 목적지를 자동 적용합니다."))
+        trace("automaticStart")
+        autoDue = clock() + 300
+        autoObserveAt = clock()
+        if (state.connection == NativeConnection.DISCONNECTED || state.connection == NativeConnection.FAILED) startSession()
+        return true
+    }
+
+    fun stopAutomatic() {
+        if (disposed) return
+        update(state.copy(automatic = AutomaticMode.OFF))
+        autoDue = Long.MAX_VALUE; autoObserveAt = Long.MAX_VALUE
+        reconnectPending = null; hasObservedForPublish = false
+        operation = null; lastConfirmation = null; lastConfirmedRevision = -1
+        retire()
+        update(state.copy(connection = NativeConnection.DISCONNECTED, current = CurrentDestination.Unknown,
+            applying = ApplyPhase.CANCELLED, sharing = false, confirmedAt = null,
+            message = "자동 동행 중지 · 순정 안내는 유지됩니다."))
+        trace("automaticStop")
     }
 
     fun connect() {
@@ -131,23 +166,31 @@ class VehicleCoordinator(
         }
     }
 
-    fun attachRoom(host: Boolean, revision: Long, destination: Destination?): Long {
+    fun attachRoom(host: Boolean, revision: Long, destination: Destination?, keepAutomatic: Boolean = false): Long {
         require(revision >= 0)
+        if (!keepAutomatic && state.automatic != AutomaticMode.OFF) stopAutomatic()
         roomEpoch += 1
         invalidateApply("공유방 변경으로 이전 확인을 중지했습니다.")
         lastConfirmedRevision = -1
         update(state.copy(roomConnected = true, host = host, revision = revision, shared = destination, sharing = false))
+        if (keepAutomatic && state.automatic != AutomaticMode.OFF) {
+            val pending = reconnectPending; reconnectPending = null
+            if (pending != null && pending.revision == revision && pending.target == destination) resumeConfirmation(pending)
+            autoDue = clock() + 300; autoObserveAt = clock()
+        }
         return roomEpoch
     }
 
     fun detachRoom(epoch: Long = roomEpoch) {
         if (epoch != roomEpoch) return
+        if (state.automatic != AutomaticMode.OFF) stopAutomatic()
         roomEpoch += 1
         invalidateApply("공유방 연결 종료 · 순정 안내는 별도로 유지됩니다.")
         update(state.copy(roomConnected = false, host = false, shared = null, revision = -1, sharing = false))
     }
 
     fun suspendRoom() {
+        reconnectPending = if (state.automatic == AutomaticMode.FOLLOWER) confirmationSnapshot() else null
         roomEpoch += 1
         invalidateApply("공유방 재연결 중 · 이전 적용 확인을 중지했습니다.")
         update(state.copy(roomConnected = false, sharing = false, message = "공유방 재연결 중 · 마지막 받은 목적지"))
@@ -155,9 +198,21 @@ class VehicleCoordinator(
 
     fun receive(epoch: Long, revision: Long, destination: Destination?) {
         if (!state.roomConnected || epoch != roomEpoch || revision <= state.revision) return
-        invalidateApply("새 공유 목적지 수신 · 직접 적용해 주세요.")
-        update(state.copy(revision = revision, shared = destination,
-            message = if (destination == null) "공유 목적지가 지워졌습니다. 순정 안내는 변경하지 않았습니다." else "새 공유 목적지 수신 · 직접 적용해 주세요."))
+        val unchanged = destination == state.shared
+        if (unchanged && state.automatic == AutomaticMode.FOLLOWER) {
+            operation = operation?.copy(revision = revision)
+            if (lastConfirmedRevision == state.revision) lastConfirmedRevision = revision
+            lastConfirmation = lastConfirmation?.copy(revision = revision)
+            if (autoAttemptedRevision == state.revision) autoAttemptedRevision = revision
+            update(state.copy(revision = revision))
+        } else {
+            invalidateApply("새 공유 목적지 수신 · 이전 확인 중지")
+            update(state.copy(revision = revision, shared = destination,
+                message = if (destination == null) "공유 목적지 없음 · 순정 안내 유지 · 자동 따르기 대기"
+                    else if (state.automatic == AutomaticMode.FOLLOWER) "새 공유 목적지 수신 · 자동 적용 대기"
+                    else "새 공유 목적지 수신 · 직접 적용해 주세요."))
+            if (state.automatic == AutomaticMode.FOLLOWER) autoDue = clock() + 300
+        }
         trace("roomDestination")
     }
 
@@ -196,7 +251,9 @@ class VehicleCoordinator(
     fun shareFinished(epoch: Long, revision: Long, destination: Destination?, success: Boolean) {
         if (!state.roomConnected || epoch != roomEpoch) return
         if (success) receive(epoch, revision, destination)
-        update(state.copy(sharing = false, message = if (success) "공유방 서버 저장 완료 · 차량 적용은 각 참여자가 확인합니다." else "공유 실패 · 순정 내비는 변경하지 않았습니다."))
+        update(state.copy(sharing = false, message = if (success) "공유방 서버 저장 완료 · 참여 차량에 전달됨" else "공유 실패 · 순정 내비는 변경하지 않았습니다."))
+        trace(if (success) "shareStored" else "shareFailed")
+        if (success && state.automatic == AutomaticMode.LEADER) publishObserved()
     }
 
     fun applyShared() {
@@ -246,6 +303,18 @@ class VehicleCoordinator(
 
     private fun onChange() {
         trace("onDestinationChanged")
+        if (state.automatic == AutomaticMode.LEADER && operation == null) {
+            if (read != null) read!!.dirty = true
+            autoObserveAt = clock() + 300
+            return
+        }
+        if (operation == null && state.automatic == AutomaticMode.FOLLOWER) {
+            recentConfirmation()?.let { pending ->
+                lastConfirmation = null; lastConfirmedRevision = -1
+                resumeConfirmation(pending) // Late route events still require a fresh strict read.
+                return
+            }
+        }
         if (state.applying == ApplyPhase.CONFIRMED) {
             update(state.copy(applying = ApplyPhase.IDLE, confirmedAt = null))
         }
@@ -315,21 +384,44 @@ class VehicleCoordinator(
             }
             Purpose.OBSERVE -> {
                 if (state.shared?.matchesNative(destination) != true) lastConfirmedRevision = -1
-                update(state.copy(message = "현재 순정 목적지 조회 완료 · 자동 공유하지 않습니다."))
+                if (state.automatic == AutomaticMode.LEADER) {
+                    observedForPublish = destination; hasObservedForPublish = true
+                    autoObserveAt = clock() + 15_000
+                    publishObserved()
+                } else update(state.copy(message = "현재 순정 목적지 조회 완료 · 자동 공유하지 않습니다."))
             }
         }
+    }
+
+    private fun publishObserved() {
+        if (state.automatic != AutomaticMode.LEADER || !state.host || !state.roomConnected ||
+            state.sharing || !hasObservedForPublish || observedForPublish == state.shared) return
+        update(state.copy(sharing = true, message = "실제 순정 목적지 변경 자동 공유 중"))
+        trace("automaticPublish")
+        publish(roomEpoch, observedForPublish)
+    }
+
+    private fun recentConfirmation(): PendingRouteConfirmation? = lastConfirmation?.takeIf {
+        state.roomConnected && state.revision == it.revision && state.shared == it.target && clock() < it.deadline
     }
 
     private fun onCancelled() {
         trace("onRouteCancelled")
         val active = operation
+        val recent = if (active == null) recentConfirmation() else null
         lastConfirmation = null
         lastConfirmedRevision = -1
+        if (recent != null) {
+            // A read can match the existing route before its late replacement-cancel callback.
+            // Re-observe this exact recent intent; never restore success or issue another route.
+            resumeConfirmation(recent)
+            return
+        }
         // This global callback can describe cancellation of the previous route during replacement.
         // Keep the original intent/deadline, retire its listener, and observe without re-requesting.
         if (active?.requested == true) operation = active.copy(resumeOnly = true,
             earlierCompletionObserved = state.routingCompletedObserved, nextPollAt = Long.MAX_VALUE)
-        update(state.copy(confirmedAt = null, sharing = false))
+        update(state.copy(confirmedAt = null, sharing = if (state.automatic == AutomaticMode.LEADER) state.sharing else false))
         startSession()
     }
 
@@ -340,6 +432,11 @@ class VehicleCoordinator(
             trace("discardCrossedRead")
             beginRead(if (operation != null) Purpose.VERIFY else pendingRead.purpose)
             return
+        }
+        if (pendingRead.purpose == Purpose.OBSERVE && state.automatic == AutomaticMode.LEADER) {
+            observedForPublish = null; hasObservedForPublish = true
+            autoObserveAt = clock() + 15_000
+            publishObserved()
         }
         lastConfirmedRevision = -1
         lastConfirmation = null
@@ -376,6 +473,7 @@ class VehicleCoordinator(
         operation = null
         lastConfirmation = null
         retire()
+        if (state.automatic != AutomaticMode.OFF) autoObserveAt = clock() + 5_000
         update(state.copy(connection = NativeConnection.FAILED, current = CurrentDestination.Failed(message), sharing = false,
             applying = if (wasApplying) { if (timeout) ApplyPhase.TIMED_OUT else ApplyPhase.FAILED }
                 else if (state.applying == ApplyPhase.CONFIRMED) ApplyPhase.IDLE else state.applying,
@@ -384,6 +482,21 @@ class VehicleCoordinator(
 
     fun tick() {
         if (disposed) return
+        if (state.roomConnected && state.automatic != AutomaticMode.OFF && operation == null) {
+            if (state.connection == NativeConnection.FAILED && clock() >= autoObserveAt) {
+                autoObserveAt = clock() + 5_000; startSession(); return
+            }
+            if (state.automatic == AutomaticMode.LEADER && state.connection == NativeConnection.CONNECTED &&
+                read == null && clock() >= autoObserveAt) {
+                autoObserveAt = clock() + 15_000; beginRead(Purpose.OBSERVE); return
+            }
+            if (state.automatic == AutomaticMode.FOLLOWER && clock() >= autoDue && state.shared != null &&
+                autoAttemptedRevision != state.revision) {
+                autoDue = Long.MAX_VALUE; autoAttemptedRevision = state.revision
+                trace("automaticApply")
+                applyShared()
+            }
+        }
         when {
             operation?.let { clock() >= it.deadline } == true -> { trace("routeTimeout"); nativeFailure("45초 동안 순정 목적지 일치를 확인하지 못했습니다. 다시 연결해 확인해 주세요.", true) }
             state.connection == NativeConnection.CONNECTING && clock() >= connectDeadline -> nativeFailure("순정 내비 연결 시간 초과 · Pleos 서비스가 필요합니다.", true)
@@ -398,6 +511,7 @@ class VehicleCoordinator(
     fun stop() {
         if (disposed) return
         disposed = true
+        state = state.copy(automatic = AutomaticMode.OFF)
         operation = null
         retire()
     }

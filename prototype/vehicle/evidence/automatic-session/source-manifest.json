@@ -1,0 +1,321 @@
+{
+  "issue": 14,
+  "base": "7d9dcc053c8dfe2b8ce1f22fef3c17b9c8c54856",
+  "branch": "be/issue-14-vehicle-auto-follow",
+  "status": "uncommitted-runtime-freeze-2",
+  "frozenAt": "2026-11-05T06:18:17.067600+00:00",
+  "runtimeSourceSha256": "76c4350628c272f0c04d6405b2819c732954ab9a6ef2db405ed36d925034e0cb",
+  "allBuildInputsSha256": "72af78492463b80978ad5882ea229114c94ce4db5bd7e0eb2de0fda9dc93a5a9",
+  "runtimeFiles": [
+    {
+      "path": "prototype/server.mjs",
+      "sha256": "963a66b23dbaa62aa46459639b7d499a8c1dac22af679d58c544fcd214a8bc35",
+      "bytes": 22029
+    },
+    {
+      "path": "prototype/vehicle/app/build.gradle.kts",
+      "sha256": "46a1c420cf64b1585b18b5deb21e751c0717ce3aa500de70acfb4ea1fec31914",
+      "bytes": 1094
+    },
+    {
+      "path": "prototype/vehicle/app/src/main/AndroidManifest.xml",
+      "sha256": "e497a1a702dba170d7e1387e48bfa3502573b3fc6eb1c767a487781b84d80908",
+      "bytes": 2012
+    },
+    {
+      "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/ConvoySessionService.kt",
+      "sha256": "ad6b249ec92f9869f38acc96e788e7dfcd11321bdd33098420477c7f816b1cd1",
+      "bytes": 8314
+    },
+    {
+      "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/EvidenceJournal.kt",
+      "sha256": "2c3ab669d843618602ca321bf0ab923bffc16ae301c4bde7dcf59c37d73bd594",
+      "bytes": 1851
+    },
+    {
+      "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt",
+      "sha256": "95db09586b3712b7199544b038210c4e6049f13223f39be7def023208841ba98",
+      "bytes": 16249
+    },
+    {
+      "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/NaviDestinationNormalizer.kt",
+      "sha256": "761246ba9603c6804e5bbaa650f5701c6974247e302177b1fa56884ae335be76",
+      "bytes": 1403
+    },
+    {
+      "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PendingConfirmationCache.kt",
+      "sha256": "63ddd55cc998f98df10cea90ea5fad9ea30aad8e607a628e37efe5b2fa4db68e",
+      "bytes": 906
+    },
+    {
+      "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PleosNavigationGateway.kt",
+      "sha256": "31646d5e085b05a1e78eb6696ebfaa71dc27d396950401d43a279f76eacbfe58",
+      "bytes": 4138
+    },
+    {
+      "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/RoomHttpClient.kt",
+      "sha256": "ec467996aebbbfc95062f5f1b5aab66f435920e87493b0a1b315c6fcbcdb9e40",
+      "bytes": 6780
+    },
+    {
+      "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/RoomProtocol.kt",
+      "sha256": "eff06663dfdca2b5e0ba9db5842d481d16038e4b5671d927b63c2bcdf1246115",
+      "bytes": 5563
+    },
+    {
+      "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/SecureSessionStore.kt",
+      "sha256": "f22e61dd394abf7ec0d17d99d1e5bfeda35dd76f490c391df7c8833344c2f932",
+      "bytes": 3541
+    },
+    {
+      "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehicleSession.kt",
+      "sha256": "f087d9b6677312539a63a5d64200a21cc0cf1d689783d653fe8beefc348ba1f0",
+      "bytes": 13689
+    },
+    {
+      "path": "prototype/vehicle/app/src/main/res/values/styles.xml",
+      "sha256": "008550c35f7aca0409d7785f5b0a52956e34b79e9e66fc0f6845f415b8c26523",
+      "bytes": 996
+    },
+    {
+      "path": "prototype/vehicle/app/src/main/res/xml/data_extraction_rules.xml",
+      "sha256": "09e5cf26d18437bf29da8d9d211bfcd55a16be99ec68bbaa72fa23fa08130b4b",
+      "bytes": 230
+    },
+    {
+      "path": "prototype/vehicle/app/src/main/res/xml/network_security_config.xml",
+      "sha256": "9187f485f22fde712aea8de5243664710440a9ee08e9f1b172978eef96a15001",
+      "bytes": 342
+    },
+    {
+      "path": "prototype/vehicle/build.gradle.kts",
+      "sha256": "343f11fd15ec542f26c476725da69b23cdea22fb25ef19ffed45a4fdb7b0d4dc",
+      "bytes": 172
+    },
+    {
+      "path": "prototype/vehicle/core/build.gradle.kts",
+      "sha256": "4b3e0487ca08869e788dd91a4adf8104005a7836895729a4387d499dcd845d60",
+      "bytes": 303
+    },
+    {
+      "path": "prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/Destination.kt",
+      "sha256": "8758dedc1980fab8fedbeb3428714e42bb29afc7cf23fb7a8f66fe094e1785d3",
+      "bytes": 1949
+    },
+    {
+      "path": "prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/NavigationGateway.kt",
+      "sha256": "2b23e6904048bd71a5bdf766d4afa2d036765b59cbc967f86444aee8ad2a60e2",
+      "bytes": 632
+    },
+    {
+      "path": "prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/VehicleCoordinator.kt",
+      "sha256": "eaa078790290f0c68f7b8af28c77b07029c20e1c76ac7587b79e6724925dac02",
+      "bytes": 28110
+    },
+    {
+      "path": "prototype/vehicle/gradle/wrapper/gradle-wrapper.jar",
+      "sha256": "2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046",
+      "bytes": 43583
+    },
+    {
+      "path": "prototype/vehicle/gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "3256e6a4bacbb04787b346d74b418734b03246092a15703cf2acd926c4b00e90",
+      "bytes": 340
+    },
+    {
+      "path": "prototype/vehicle/gradle.properties",
+      "sha256": "d5f372c6d46ad7c8d33f714bfae564eb5e1d73a159c495df9bc782b33e3567c2",
+      "bytes": 100
+    },
+    {
+      "path": "prototype/vehicle/gradlew",
+      "sha256": "a3648413b47ef77af21d5ebc36c687c7d103aaef3e17f33de7d4f080a6f300a3",
+      "bytes": 8762
+    },
+    {
+      "path": "prototype/vehicle/gradlew.bat",
+      "sha256": "57931b17dd228e5c24dac90e815d0bf82477e831a4618dfab4136f5446b42a9f",
+      "bytes": 2966
+    },
+    {
+      "path": "prototype/vehicle/nativeDriver/build.gradle.kts",
+      "sha256": "a51c0e3986e5e594e4d65e9104d3e78f83a21edbeacb307e03049370e301cb93",
+      "bytes": 615
+    },
+    {
+      "path": "prototype/vehicle/nativeDriver/src/main/AndroidManifest.xml",
+      "sha256": "f277482f5585abc19fade70334fd2070c733fc7a1df166884d28c7d02af07c91",
+      "bytes": 590
+    },
+    {
+      "path": "prototype/vehicle/nativeDriver/src/main/kotlin/ai/pleos/destinations/driver/NativeDestinationDriver.kt",
+      "sha256": "d9e4ad030817b4b2a232d7a474b2340c6e979ad1f10f8359c99510d4db733ad3",
+      "bytes": 12149
+    },
+    {
+      "path": "prototype/vehicle/settings.gradle.kts",
+      "sha256": "bdf96cace1a96f293384387352093c4f29f51568e3046ea4a5afaa8cdbfe1732",
+      "bytes": 489
+    }
+  ],
+  "testFiles": [
+    {
+      "path": "prototype/vehicle/app/src/androidTest/AndroidManifest.xml",
+      "sha256": "02d17101d59fd8db06bd474f120651ce117b33023cf96c81066b0ed94981c3f1",
+      "bytes": 270
+    },
+    {
+      "path": "prototype/vehicle/app/src/androidTest/kotlin/ai/pleos/destinations/vehicle/NaviSdkProbe.kt",
+      "sha256": "252fa4d417df5770214c1ed945d14520b3ff9a15ce6cbd40eb46464d6ab2d5f2",
+      "bytes": 12692
+    },
+    {
+      "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/NaviDestinationNormalizerTest.kt",
+      "sha256": "725a0f8fedf512db7d4b7334632a20332974f228fc1c07d050c755f3df8597e6",
+      "bytes": 2982
+    },
+    {
+      "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/PendingConfirmationCacheTest.kt",
+      "sha256": "450b00782e11f5fe577b4c3a70e59ff68e2c2bdfc22943b8bc4f7a495b798c59",
+      "bytes": 1560
+    },
+    {
+      "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/RoomHttpClientTest.kt",
+      "sha256": "19332b3ba189a9d76930c3bf1cb7914c71091a4ffa57d141d0c394816c0f93eb",
+      "bytes": 7007
+    },
+    {
+      "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/RoomProtocolTest.kt",
+      "sha256": "0cba8c76d77ae5a66fef1ab92eb4861576d8b5b43fff2694a43c425ce057222b",
+      "bytes": 3749
+    },
+    {
+      "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/SdkRouteMappingTest.kt",
+      "sha256": "42a74a41ec510bc198acaadc119e8b10f6b252946de0f82cb7610480c406f0d4",
+      "bytes": 1644
+    },
+    {
+      "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VehicleSessionTest.kt",
+      "sha256": "1beaa01eb704ad98253af572fd99f4cdc35add1f7c1d40b18b2503acca9e8fe3",
+      "bytes": 9892
+    },
+    {
+      "path": "prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/VehicleAutomationTest.kt",
+      "sha256": "ba736aa987e897ed266e76ad6bdf16370a5f731beab94649bbfeaeb2f245ed79",
+      "bytes": 18146
+    },
+    {
+      "path": "prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/VehicleCoordinatorTest.kt",
+      "sha256": "7885dbe6e0dc8c6dac222d035ead793fa50941fc6c0fc9d254f2333787fbc794",
+      "bytes": 25100
+    }
+  ],
+  "apks": [
+    {
+      "module": "app",
+      "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-2/app-debug.apk",
+      "sha256": "f96663e4da4ab428e9656841b0d2e4bbce592008e712eb0e79a0e9af8ee57fe4",
+      "bytes": 6234215
+    },
+    {
+      "module": "probe",
+      "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-2/app-debug-androidTest.apk",
+      "sha256": "d6fae10675031385048cf4b6ae769dd46ddabe6824fe390fa096046e3cc78a7c",
+      "bytes": 30522
+    },
+    {
+      "module": "nativeDriver",
+      "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-2/nativeDriver-debug.apk",
+      "sha256": "d71239e388a415489aa163f7d7a809eb9d0cfbf92ed94d6f786f66eb1a5a406f",
+      "bytes": 5866084
+    }
+  ],
+  "testReports": [
+    {
+      "suite": "ai.pleos.destinations.vehicle.NaviDestinationNormalizerTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "time": 0.012,
+      "sha256": "3f302f33445d0ad410627186e17516b94dee87bfd65c50f1f37fd7b7e36322de"
+    },
+    {
+      "suite": "ai.pleos.destinations.vehicle.RoomHttpClientTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "time": 1.069,
+      "sha256": "d5e2949b1edba0105dd0b2adb307fe04268bf39e5639e3a51eb8fe935c01603c"
+    },
+    {
+      "suite": "ai.pleos.destinations.vehicle.SdkRouteMappingTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "time": 0.006,
+      "sha256": "281c1a2846b4e0db6516e88a2af2410d6c27bd3323852f5bed772c8eb3ab6997"
+    },
+    {
+      "suite": "ai.pleos.destinations.vehicle.RoomProtocolTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "time": 0.005,
+      "sha256": "6dd9ed52c2f8ad9e558099e3539accb8279ea81e53c38f85c3fdd09449b3fe75"
+    },
+    {
+      "suite": "ai.pleos.destinations.vehicle.VehicleSessionTest",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "time": 0.041,
+      "sha256": "8dcfdb81048f22a7df4bd2f85bfcfe9dcec315b02d4e44d17dfee319fd4171ce"
+    },
+    {
+      "suite": "ai.pleos.destinations.vehicle.PendingConfirmationCacheTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "time": 0.001,
+      "sha256": "5aae44d93f6c7b87c796529f1fe98af87ee51cae1be60d0c1ee41fdbd03d2acd"
+    },
+    {
+      "suite": "ai.pleos.destinations.core.VehicleAutomationTest",
+      "tests": 29,
+      "failures": 0,
+      "errors": 0,
+      "time": 0.019,
+      "sha256": "8e2627700c1af941819a2df441f281ca1b29443ba0dd623f244034e8cc4b7ccb"
+    },
+    {
+      "suite": "ai.pleos.destinations.core.VehicleCoordinatorTest",
+      "tests": 42,
+      "failures": 0,
+      "errors": 0,
+      "time": 0.006,
+      "sha256": "aacb9dfdfa140970d40c299c8b0522f3d54d81dfa2700b86aef0c4f5766f96f1"
+    }
+  ],
+  "nodeTests": {
+    "tests": 76,
+    "pass": 76,
+    "exit": 0,
+    "logSha256": "8f2b10a43c7a4dfd6c3e22984edac5c04d36f5e7061f9fb344bde25c3fa24e98"
+  },
+  "gradle": {
+    "exit": 0,
+    "logSha256": "796be21c4e158739ef154dee748b55633830278974c6fafaa76aa8bd74455c64"
+  },
+  "serverChanged": false,
+  "supersedes": {
+    "freeze": 1,
+    "runtimeSourceSha256": "1df2d1d0249be942cb8ac86a9706ca9a41aa16597240a9e13f9ce6056f151354",
+    "changedBuildInputs": [
+      "prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/VehicleCoordinator.kt",
+      "prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/VehicleAutomationTest.kt"
+    ],
+    "reason": "Root real emulator reproduced confirmation followed by late global route cancellation that lost confirmation state. Re-observe the same scoped recent intent by fresh strict query, preserving original deadline and issuing no new route."
+  },
+  "runtimeEvidenceStatus": "AC5 pending root new opt-in two-official-emulator execution on freeze 2",
+  "scope": "No ADB/UI executed by builder. Prior #12 and freeze-1 historical evidence preserved."
+}

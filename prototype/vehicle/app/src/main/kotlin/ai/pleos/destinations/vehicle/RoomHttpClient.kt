@@ -75,7 +75,7 @@ class RoomHttpClient(baseUrl: String) : AutoCloseable {
         } finally { active.remove(connection); connection.disconnect() }
     }
 
-    /** Blocking reader. The owner runs this on its dedicated worker and closes it on Activity stop. */
+    /** Blocking reader. The service owns its worker; UI detach never closes an automatic feed. */
     fun events(credentials: RoomCredentials, event: (String, JSONObject) -> Unit) {
         val connection = connection("GET", "${roomPath(credentials)}/events", credentials.token)
         connection.readTimeout = 25_000
@@ -100,8 +100,16 @@ class RoomHttpClient(baseUrl: String) : AutoCloseable {
     }
 
     override fun close() {
-        closed.set(true)
-        synchronized(active) { active.toList() }.forEach { it.disconnect() }
+        if (!closed.compareAndSet(false, true)) return
+        val connections = synchronized(active) { active.toList().also { active.clear() } }
+        if (connections.isEmpty()) return
+        // Some HTTP implementations wait for a pending SSE read inside disconnect(). Never let
+        // that block the service main thread: consent/generation is fenced synchronously by owner.
+        // Every read/connect already has a finite timeout; this one-shot closer owns no retries.
+        Thread({ connections.forEach { runCatching { it.disconnect() } } }, "convoy-http-close").apply {
+            isDaemon = true
+            start()
+        }
     }
 }
 

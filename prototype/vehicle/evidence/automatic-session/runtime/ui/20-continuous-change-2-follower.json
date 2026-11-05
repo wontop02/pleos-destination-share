@@ -1,0 +1,70 @@
+{
+  "hostAt": "2026-11-05T06:31:45.966132+00:00",
+  "serial": "emulator-5572",
+  "mode": "query",
+  "seconds": 5.745,
+  "productionPidBefore": "4948",
+  "productionPidAfter": "4948",
+  "productionProcessUnchanged": true,
+  "result": {
+    "sdk": "ai.pleos.playground:NaviHelper:3.0.5",
+    "mode": "query",
+    "startedAt": 1793860303631,
+    "targetPackage": "ai.pleos.destinations.driver",
+    "processId": 20860,
+    "initialDestination": {
+      "latitude": 37.41289678,
+      "longitude": 127.09383464,
+      "displayLatitude": null,
+      "displayLongitude": null,
+      "name": "42dot",
+      "address": "수정구 시흥동",
+      "poiId": "36khp37hh8gqcm5nqhe5",
+      "poiSubId": null,
+      "poiSubIdMissing": true,
+      "poiProvider": "",
+      "remainDistance": 50,
+      "remainTime": 60,
+      "tollFare": 0
+    },
+    "reason": "actual_destination_callback_received",
+    "status": "OBSERVED",
+    "finishedAt": 1793860305652,
+    "routeStartedObserved": false,
+    "routingCompletedObserved": false,
+    "events": [
+      {
+        "event": "connected",
+        "at": 1793860304076,
+        "session": 1
+      },
+      {
+        "query": 1,
+        "event": "getDestinationInfo",
+        "at": 1793860304076,
+        "session": 1
+      },
+      {
+        "query": 1,
+        "destination": {
+          "latitude": 37.41289678,
+          "longitude": 127.09383464,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "42dot",
+          "address": "수정구 시흥동",
+          "poiId": "36khp37hh8gqcm5nqhe5",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 50,
+          "remainTime": 60,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793860305645,
+        "session": 1
+      }
+    ]
+  }
+}

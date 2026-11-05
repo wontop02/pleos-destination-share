@@ -16,9 +16,17 @@
 
 2026-11-05 사용자가 “Pleos 차량 앱부터 ㄱㄱ. 기존처럼 이슈 → be/ 브랜치 → PR로 진행하고, 순정 내비 목적지 공유·변경부터 검증해줘.”라고 지시했다. 이 실행 묶음은 [#12](https://github.com/wontop02/pleos-destination-share/issues/12) 하나다. [차량 앱](../../prototype/vehicle/README.md)은 `main`의 공통 서버를 사용하며 미병합 휴대폰 앱과 독립적으로 진행한다.
 
-대표의 현재 순정 목적지 조회·명시적 공유, 다른 회원의 최신 목적지 수신·명시적 적용, 실제 순정 목적지 후속 조회의 일치를 검사한다. 자동 공유·자동 따르기, AI/STT/TTS, 차량 원음/PTT, 티맵·카카오 연동은 제공하지 않는다. 기존 v1의 이름·좌표 요청/응답을 보존하고 optional Pleos 메타데이터, 명시적 공유값 삭제, 선택적 버전 경합 검사만 확장한다. 계약은 [차량 문서](../../prototype/vehicle/README.md#목적지-api-하위-호환-확장)를 따른다.
+대표의 현재 순정 목적지 조회·명시적 공유, 다른 회원의 최신 목적지 수신·명시적 적용, 실제 순정 목적지 후속 조회의 일치를 검사한다. #12의 범위에는 자동 공유·자동 따르기, AI/STT/TTS, 차량 원음/PTT, 티맵·카카오 연동이 없었다. 기존 v1의 이름·좌표 요청/응답을 보존하고 optional Pleos 메타데이터, 명시적 공유값 삭제, 선택적 버전 경합 검사만 확장한다. 계약은 [차량 문서](../../prototype/vehicle/README.md#목적지-api-하위-호환-확장)를 따른다.
 
 공식 Pleos 환경 두 대의 실제 내비 실증과 별도 verifier가 필수다. 앱·서버 테스트, 일반 Android, 가짜 gateway, SDK 호출 전송은 실증의 대체 증거가 아니다. 미확인 조건은 [검증 기록](../../prototype/vehicle/evidence/verification.md)에 남기며 Draft/BLOCKED를 유지한다. 보안 권한 확대, 가입·결제, 공개 배포는 승인 범위에 포함하지 않는다.
+
+## 별도 승인: 앱 복귀 없는 자동 동행
+
+2026-11-05 사용자가 자동 따르기를 한 번 켜면 순정 내비 화면에서 목적지 자동 공유·변경·실제 반영 확인까지 끝내도록 지시했다. 새 실행 묶음은 [#14](https://github.com/wontop02/pleos-destination-share/issues/14) 하나이며 #12/PR #13의 main `7d9dcc053c8dfe2b8ce1f22fef3c17b9c8c54856`을 기준으로 한다. 앞선 #6/#7/#8·#12 묶음은 보존한다.
+
+기본 꺼짐, 대표/참여자의 별도 명시 동의, Activity와 독립된 specialUse FGS, 진행 알림과 중지, 최신 버전 자동 적용·실제 조회 strict match를 구현한다. 같은 인증 API·암호화 저장을 사용하며 서버 변경은 없다. 역할별 제어·수명·권한·회귀·두 공식 차량 15분 연속 실증 조건은 [자동 동행 계약](vehicle-auto-follow.md)을 따른다. 재진입 0회·10분 이후 변경·중지 후 요청 0회·정확한 APK/source 해시를 직접 확인해야 AC5를 통과한다. 실제 플랫폼/SDK 문제로 실패하면 Draft/BLOCKED이며 기준을 낮추지 않는다.
+
+동결 2 실제 실행에서 두 공식 에뮬레이터가 907.743초 동안 순정 내비 전경과 같은 PID·foreground 서비스 epoch를 유지했고 Activity 재진입은 A/B 0회였다. 10분 이후를 포함한 세 변경 각각 B 새 요청 한 번과 실제 native strict match를 확인했다. 실제 알림 중지 후 새 A 변경 작업 완료 뒤 77.967521208초 동안 B 새 요청·재진입은 0회이고 기존 목적지를 유지했다. [시각·버전·해시와 실행 기록](../../prototype/vehicle/evidence/automatic-session/verification.md)을 별도 verifier가 검토할 차례다. 실차·탐색 완료 이벤트·specialUse 배포 심사 승인은 검증하지 않았다.
 
 ## 현재 결정
 

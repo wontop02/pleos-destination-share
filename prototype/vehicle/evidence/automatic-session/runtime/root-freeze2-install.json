@@ -1,0 +1,19 @@
+{
+  "at": "2026-11-05T06:20:16.038550+00:00",
+  "manifest": "builder/freeze-2/source-manifest.json",
+  "sourceHashMismatch": 0,
+  "receipts": [
+    {
+      "serial": "emulator-5570",
+      "appSHA256": "f96663e4da4ab428e9656841b0d2e4bbce592008e712eb0e79a0e9af8ee57fe4",
+      "driverSHA256": "d71239e388a415489aa163f7d7a809eb9d0cfbf92ed94d6f786f66eb1a5a406f",
+      "launch": "Starting: Intent { cmp=ai.pleos.destinations.vehicle/.MainActivity }\nStatus: ok\nLaunchState: COLD\nActivity: ai.pleos.destinations.vehicle/.MainActivity\nTotalTime: 4606\nWaitTime: 4622\nComplete\n"
+    },
+    {
+      "serial": "emulator-5572",
+      "appSHA256": "f96663e4da4ab428e9656841b0d2e4bbce592008e712eb0e79a0e9af8ee57fe4",
+      "driverSHA256": "d71239e388a415489aa163f7d7a809eb9d0cfbf92ed94d6f786f66eb1a5a406f",
+      "launch": "Starting: Intent { cmp=ai.pleos.destinations.vehicle/.MainActivity }\nStatus: ok\nLaunchState: COLD\nActivity: ai.pleos.destinations.vehicle/.MainActivity\nTotalTime: 9551\nWaitTime: 9815\nComplete\n"
+    }
+  ]
+}

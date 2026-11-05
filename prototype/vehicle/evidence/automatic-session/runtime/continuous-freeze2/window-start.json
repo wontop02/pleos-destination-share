@@ -1,0 +1,96 @@
+{
+  "at": "2026-11-05T06:25:58.594303+00:00",
+  "hostMonotonic": 2.700818041,
+  "deviceUptimeSeconds": {
+    "leader": 13196.94,
+    "follower": 12764.09
+  },
+  "baseline": {
+    "leader": {
+      "hostAt": "2026-11-05T06:25:56.730966+00:00",
+      "hostMonotonic": 0.837510666,
+      "serial": "emulator-5570",
+      "pid": "20878",
+      "topResumed": [
+        "topResumedActivity=ActivityRecord{eb0228e u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}",
+        "topResumedActivity=ActivityRecord{1ed968a u10 ai.umos.drivingview/.DrivingViewActivity t1000005}",
+        "topResumedActivity=ActivityRecord{8cfa86e u10 ai.umos.homescreen/.HomeActivity t1000003}",
+        "ResumedActivity: ActivityRecord{eb0228e u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}"
+      ],
+      "ownActivityStates": [
+        "state=STOPPED delayedResume=false finishing=false"
+      ],
+      "nativeForeground": true,
+      "ownResumed": false,
+      "serviceForeground": true,
+      "serviceDetails": [
+        "* ServiceRecord{79dd83c u10 ai.pleos.destinations.vehicle/.ConvoySessionService}",
+        "app=ProcessRecord{ff4b919 20878:ai.pleos.destinations.vehicle/u10a174}",
+        "isForeground=true foregroundId=1401 types=40000000 foregroundNoti=Notification(channel=convoy-coordination shortcut=null contentView=null vibrate=null sound=null defaults=0x0 flags=0x6a color=0x00000000 category=service actions=1 vis=PRIVATE)",
+        "startRequested=true delayedStop=false stopIfKilled=true callStart=true lastStartId=1"
+      ],
+      "session": {
+        "at": 1793859942519,
+        "event": "sessionState",
+        "serviceEpoch": 12836184,
+        "roomEpoch": 1,
+        "revision": 1,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 0,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false
+      }
+    },
+    "follower": {
+      "hostAt": "2026-11-05T06:25:57.668397+00:00",
+      "hostMonotonic": 1.774948833,
+      "serial": "emulator-5572",
+      "pid": "4948",
+      "topResumed": [
+        "topResumedActivity=ActivityRecord{92d1725 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}",
+        "topResumedActivity=ActivityRecord{1c0b597 u10 ai.umos.drivingview/.DrivingViewActivity t1000005}",
+        "topResumedActivity=ActivityRecord{4f5c857 u10 ai.umos.homescreen/.HomeActivity t1000003}",
+        "ResumedActivity: ActivityRecord{92d1725 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}"
+      ],
+      "ownActivityStates": [
+        "state=STOPPED delayedResume=false finishing=false"
+      ],
+      "nativeForeground": true,
+      "ownResumed": false,
+      "serviceForeground": true,
+      "serviceDetails": [
+        "* ServiceRecord{6bbaa40 u10 ai.pleos.destinations.vehicle/.ConvoySessionService}",
+        "app=ProcessRecord{5a1e606 4948:ai.pleos.destinations.vehicle/u10a174}",
+        "isForeground=true foregroundId=1401 types=40000000 foregroundNoti=Notification(channel=convoy-coordination shortcut=null contentView=null vibrate=null sound=null defaults=0x0 flags=0x6a color=0x00000000 category=service actions=1 vis=PRIVATE)",
+        "startRequested=true delayedStop=false stopIfKilled=true callStart=true lastStartId=1"
+      ],
+      "session": {
+        "at": 1793859829961,
+        "event": "sessionState",
+        "serviceEpoch": 12421167,
+        "roomEpoch": 1,
+        "revision": 1,
+        "role": "member",
+        "automatic": "FOLLOWER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 0,
+        "confirmedAtElapsed": 12635500,
+        "routingCompletedObserved": false
+      }
+    }
+  },
+  "scheduledChangesSeconds": [
+    20,
+    300,
+    630
+  ],
+  "minimumSeconds": 900,
+  "apkSHA256": "f96663e4da4ab428e9656841b0d2e4bbce592008e712eb0e79a0e9af8ee57fe4",
+  "driverSHA256": "d71239e388a415489aa163f7d7a809eb9d0cfbf92ed94d6f786f66eb1a5a406f"
+}
