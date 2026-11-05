@@ -1,0 +1,10 @@
+{
+  "command": [
+    "npm",
+    "test"
+  ],
+  "exit": 0,
+  "tests": 76,
+  "pass": 76,
+  "fail": 0
+}

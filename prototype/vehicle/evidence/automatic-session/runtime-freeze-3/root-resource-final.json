@@ -1,0 +1,90 @@
+{
+  "at": "2026-11-05T07:47:14.394007+00:00",
+  "resources": [
+    {
+      "hostAt": "2026-11-05T07:47:12.401397+00:00",
+      "hostMonotonic": 0.817209541,
+      "serial": "emulator-5570",
+      "pid": "24562",
+      "topResumed": [
+        "topResumedActivity=ActivityRecord{eb0228e u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}",
+        "topResumedActivity=ActivityRecord{1ed968a u10 ai.umos.drivingview/.DrivingViewActivity t1000005}",
+        "topResumedActivity=ActivityRecord{8cfa86e u10 ai.umos.homescreen/.HomeActivity t1000003}",
+        "ResumedActivity: ActivityRecord{eb0228e u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}"
+      ],
+      "ownActivityStates": [
+        "state=STOPPED delayedResume=false finishing=false"
+      ],
+      "nativeForeground": true,
+      "ownResumed": false,
+      "serviceForeground": false,
+      "serviceDetails": [],
+      "session": {
+        "at": 1793864772666,
+        "event": "serviceDestroy",
+        "serviceEpoch": 16526086,
+        "roomEpoch": 2,
+        "revision": -1,
+        "role": "member",
+        "automatic": "OFF",
+        "applying": "CANCELLED",
+        "connection": "DISCONNECTED",
+        "roomConnected": false,
+        "uiCount": 0,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false
+      }
+    },
+    {
+      "hostAt": "2026-11-05T07:47:13.217399+00:00",
+      "hostMonotonic": 1.6317495,
+      "serial": "emulator-5572",
+      "pid": "10889",
+      "topResumed": [
+        "topResumedActivity=ActivityRecord{92d1725 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}",
+        "topResumedActivity=ActivityRecord{1c0b597 u10 ai.umos.drivingview/.DrivingViewActivity t1000005}",
+        "topResumedActivity=ActivityRecord{4f5c857 u10 ai.umos.homescreen/.HomeActivity t1000003}",
+        "ResumedActivity: ActivityRecord{92d1725 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000006}"
+      ],
+      "ownActivityStates": [
+        "state=STOPPED delayedResume=false finishing=false"
+      ],
+      "nativeForeground": true,
+      "ownResumed": false,
+      "serviceForeground": false,
+      "serviceDetails": [],
+      "session": {
+        "at": 1793864597004,
+        "event": "serviceDestroy",
+        "serviceEpoch": 16132415,
+        "roomEpoch": 2,
+        "revision": -1,
+        "role": "member",
+        "automatic": "OFF",
+        "applying": "CANCELLED",
+        "connection": "DISCONNECTED",
+        "roomConnected": false,
+        "uiCount": 0,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false
+      }
+    }
+  ],
+  "environment": [
+    {
+      "serial": "emulator-5570",
+      "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+      "API": "34",
+      "foregroundUser": "10"
+    },
+    {
+      "serial": "emulator-5572",
+      "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+      "API": "34",
+      "foregroundUser": "10"
+    }
+  ],
+  "ADBPort": 5041,
+  "owner": "root",
+  "returnedTo": "root after stopped two sessions"
+}

@@ -47,12 +47,12 @@
 - Variants and states: 연결/재연결/종료, 녹음/전송/실패, 자동 재생 꺼짐/켜짐/거절, 최신/오래된 원음.
 - Token/component ownership: prototype/public/의 CSS 변수와 UI 코드.
 - Vehicle tokens: `prototype/vehicle/app/src/main/res/values/`가 색상·간격·글꼴 크기를 소유한다. 시스템 View, 20sp 본문, 56dp 이상 버튼, 화면 내 세로 스크롤을 사용한다.
-- Vehicle automatic controls: 기존 버튼·본문·상태 텍스트 패턴을 확장한다. 대표의 자동 공유 동의와 참여자의 자동 적용 동의를 역할별 문구로 구분한다. 진행 알림에는 역할·연결/확인 상태와 '동행 중지'를 표시하며 인증·초대 비밀·좌표는 넣지 않는다.
+- Vehicle automatic controls: 기존 버튼·본문·상태 텍스트 패턴을 확장한다. 대표의 자동 공유 동의와 참여자의 자동 적용 동의를 역할별 문구로 구분한다. 진행 알림은 실제 계산한 연결/확인 상태를 표준 제목의 맨 앞에 표시하고 동행·역할을 뒤에 둔다. 대비가 낮은 중복 본문은 사용하지 않으며 '동행 중지'를 유지한다. 인증·초대 비밀·좌표는 넣지 않는다.
 
 ## Accessibility
 - Target standard: WCAG 2.2 AA를 목표로 기본 접근성을 검토한다. 인증을 의미하지 않는다.
 - Keyboard/focus behavior: 모든 입력에 label, 키보드 조작과 명확한 포커스.
-- Contrast/readability: 고대비 본문과 상태 텍스트.
+- Contrast/readability: 고대비 본문과 상태 텍스트. 차량 진행 알림은 실제 Pleos SystemUI 화면에서 제목의 상태·역할과 중지를 읽을 수 있는지 검증한다. 표준 Notification API 사용만으로 가독성을 충족했다고 간주하지 않는다.
 - Screen-reader semantics: 제목 구조, 상태 aria-live, 의미 있는 버튼 이름.
 - Reduced motion and sensory considerations: 자동 소리는 명시적 선택 후에만 재생하고 즉시 중지할 수 있다.
 

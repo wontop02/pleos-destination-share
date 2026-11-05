@@ -1,0 +1,3 @@
+package: ai.pleos.destinations.vehicle.probe
+uses-permission: name='pleos.car.permission.NAVI_ROUTE'
+uses-permission: name='pleos.car.permission.NAVI_ROUTE_SEARCH'

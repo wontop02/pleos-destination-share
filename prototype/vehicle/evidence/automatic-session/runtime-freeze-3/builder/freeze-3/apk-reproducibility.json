@@ -1,0 +1,595 @@
+{
+  "comparison": "freeze-2 to freeze-3 public APK reproducibility",
+  "scope": "The driver source/build inputs are unchanged. Its complete ZIP entry bytes and timestamps are unchanged; container layout/signing-block padding can change the whole-file hash. The app changes only its service DEX entry for the authorized notification construction edit.",
+  "modules": [
+    {
+      "module": "app",
+      "before": {
+        "sha256": "f96663e4da4ab428e9656841b0d2e4bbce592008e712eb0e79a0e9af8ee57fe4",
+        "bytes": 6234215,
+        "zipEntries": 54,
+        "compressedPayloadBytes": 6027618,
+        "centralDirectoryOffset": 6229364,
+        "signingBlock": {
+          "offset": 6225268,
+          "bytes": 4096,
+          "sha256": "7b3a3685d4eaeb956d19164317f032abe1dcdad63f3c67ff3bf872cd6b64a771"
+        },
+        "metadataAndPaddingBytes": 206597
+      },
+      "after": {
+        "sha256": "264605564a27d7cdc05578769d509b1c28220917cdf7dc605df43437e11cc216",
+        "bytes": 6040330,
+        "zipEntries": 54,
+        "compressedPayloadBytes": 6027378,
+        "centralDirectoryOffset": 6035479,
+        "signingBlock": {
+          "offset": 6031383,
+          "bytes": 4096,
+          "sha256": "46edd2fffdce00ea2fd899b8e46565386b1eea79be36e934742934b5059c4358"
+        },
+        "metadataAndPaddingBytes": 12952
+      },
+      "entryNamesEqual": true,
+      "entryOrderEqual": false,
+      "entryTimestampDifferences": [],
+      "entryByteDifferences": [
+        {
+          "entry": "classes4.dex",
+          "beforeBytes": 134892,
+          "afterBytes": 134652,
+          "beforeSha256": "f6e9cd921b05611336a581476bc7deb041e86dec8979eddf6e7f5a011230d03a",
+          "afterSha256": "06015baf26beeae7447fc534ad77a7d474d09d0c4d96a7055c04a4932af72c27"
+        }
+      ],
+      "entryOffsetDifferences": [
+        {
+          "entry": "AndroidManifest.xml",
+          "beforeOffset": 5982884,
+          "afterOffset": 5984440
+        },
+        {
+          "entry": "DebugProbesKt.bin",
+          "beforeOffset": 6017080,
+          "afterOffset": 6018636
+        },
+        {
+          "entry": "META-INF/androidx.annotation_annotation-experimental.version",
+          "beforeOffset": 6017909,
+          "afterOffset": 6019465
+        },
+        {
+          "entry": "META-INF/androidx.arch.core_core-runtime.version",
+          "beforeOffset": 6018006,
+          "afterOffset": 6019562
+        },
+        {
+          "entry": "META-INF/androidx.core_core-ktx.version",
+          "beforeOffset": 6018090,
+          "afterOffset": 6019646
+        },
+        {
+          "entry": "META-INF/androidx.core_core.version",
+          "beforeOffset": 6018166,
+          "afterOffset": 6019722
+        },
+        {
+          "entry": "META-INF/androidx.lifecycle_lifecycle-runtime.version",
+          "beforeOffset": 6018238,
+          "afterOffset": 6019794
+        },
+        {
+          "entry": "META-INF/androidx.versionedparcelable_versionedparcelable.version",
+          "beforeOffset": 6018330,
+          "afterOffset": 6019886
+        },
+        {
+          "entry": "META-INF/kotlinx_coroutines_android.version",
+          "beforeOffset": 6018434,
+          "afterOffset": 6019990
+        },
+        {
+          "entry": "META-INF/kotlinx_coroutines_core.version",
+          "beforeOffset": 6018513,
+          "afterOffset": 6020069
+        },
+        {
+          "entry": "META-INF/services/kotlinx.coroutines.CoroutineExceptionHandler",
+          "beforeOffset": 6018589,
+          "afterOffset": 6020145
+        },
+        {
+          "entry": "META-INF/services/kotlinx.coroutines.internal.MainDispatcherFactory",
+          "beforeOffset": 6018731,
+          "afterOffset": 6020287
+        },
+        {
+          "entry": "classes2.dex",
+          "beforeOffset": 5849180,
+          "afterOffset": 5773972
+        },
+        {
+          "entry": "classes3.dex",
+          "beforeOffset": 5834440,
+          "afterOffset": 5835004
+        },
+        {
+          "entry": "classes4.dex",
+          "beforeOffset": 6090332,
+          "afterOffset": 5849744
+        },
+        {
+          "entry": "kotlin/annotation/annotation.kotlin_builtins",
+          "beforeOffset": 6018877,
+          "afterOffset": 6020433
+        },
+        {
+          "entry": "kotlin/collections/collections.kotlin_builtins",
+          "beforeOffset": 6019512,
+          "afterOffset": 6021068
+        },
+        {
+          "entry": "kotlin/coroutines/coroutines.kotlin_builtins",
+          "beforeOffset": 6021109,
+          "afterOffset": 6022665
+        },
+        {
+          "entry": "kotlin/internal/internal.kotlin_builtins",
+          "beforeOffset": 6021340,
+          "afterOffset": 6022896
+        },
+        {
+          "entry": "kotlin/kotlin.kotlin_builtins",
+          "beforeOffset": 6021804,
+          "afterOffset": 6023360
+        },
+        {
+          "entry": "kotlin/ranges/ranges.kotlin_builtins",
+          "beforeOffset": 6027115,
+          "afterOffset": 6028671
+        },
+        {
+          "entry": "kotlin/reflect/reflect.kotlin_builtins",
+          "beforeOffset": 6028473,
+          "afterOffset": 6030029
+        },
+        {
+          "entry": "res/drawable-hdpi-v4/notification_bg_low_normal.9.png",
+          "beforeOffset": 5984885,
+          "afterOffset": 5986441
+        },
+        {
+          "entry": "res/drawable-hdpi-v4/notification_bg_low_pressed.9.png",
+          "beforeOffset": 5985180,
+          "afterOffset": 5986736
+        },
+        {
+          "entry": "res/drawable-hdpi-v4/notification_bg_normal.9.png",
+          "beforeOffset": 5985489,
+          "afterOffset": 5987045
+        },
+        {
+          "entry": "res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png",
+          "beforeOffset": 5985780,
+          "afterOffset": 5987336
+        },
+        {
+          "entry": "res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png",
+          "beforeOffset": 5986093,
+          "afterOffset": 5987649
+        },
+        {
+          "entry": "res/drawable-mdpi-v4/notification_bg_low_normal.9.png",
+          "beforeOffset": 5986291,
+          "afterOffset": 5987847
+        },
+        {
+          "entry": "res/drawable-mdpi-v4/notification_bg_low_pressed.9.png",
+          "beforeOffset": 5986591,
+          "afterOffset": 5988147
+        },
+        {
+          "entry": "res/drawable-mdpi-v4/notification_bg_normal.9.png",
+          "beforeOffset": 5986899,
+          "afterOffset": 5988455
+        },
+        {
+          "entry": "res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png",
+          "beforeOffset": 5987195,
+          "afterOffset": 5988751
+        },
+        {
+          "entry": "res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png",
+          "beforeOffset": 5987507,
+          "afterOffset": 5989063
+        },
+        {
+          "entry": "res/drawable-v21/notification_action_background.xml",
+          "beforeOffset": 5987694,
+          "afterOffset": 5989250
+        },
+        {
+          "entry": "res/drawable-xhdpi-v4/notification_bg_low_normal.9.png",
+          "beforeOffset": 5988242,
+          "afterOffset": 5989798
+        },
+        {
+          "entry": "res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png",
+          "beforeOffset": 5988549,
+          "afterOffset": 5990105
+        },
+        {
+          "entry": "res/drawable-xhdpi-v4/notification_bg_normal.9.png",
+          "beforeOffset": 5988888,
+          "afterOffset": 5990444
+        },
+        {
+          "entry": "res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png",
+          "beforeOffset": 5989189,
+          "afterOffset": 5990745
+        },
+        {
+          "entry": "res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png",
+          "beforeOffset": 5989527,
+          "afterOffset": 5991083
+        },
+        {
+          "entry": "res/drawable/notification_bg.xml",
+          "beforeOffset": 5989754,
+          "afterOffset": 5991310
+        },
+        {
+          "entry": "res/drawable/notification_bg_low.xml",
+          "beforeOffset": 5990068,
+          "afterOffset": 5991624
+        },
+        {
+          "entry": "res/drawable/notification_icon_background.xml",
+          "beforeOffset": 5990385,
+          "afterOffset": 5991941
+        },
+        {
+          "entry": "res/drawable/notification_tile_bg.xml",
+          "beforeOffset": 5990644,
+          "afterOffset": 5992200
+        },
+        {
+          "entry": "res/layout-v21/notification_action.xml",
+          "beforeOffset": 5990884,
+          "afterOffset": 5992440
+        },
+        {
+          "entry": "res/layout-v21/notification_action_tombstone.xml",
+          "beforeOffset": 5991437,
+          "afterOffset": 5992993
+        },
+        {
+          "entry": "res/layout-v21/notification_template_custom_big.xml",
+          "beforeOffset": 5992051,
+          "afterOffset": 5993607
+        },
+        {
+          "entry": "res/layout-v21/notification_template_icon_group.xml",
+          "beforeOffset": 5992918,
+          "afterOffset": 5994474
+        },
+        {
+          "entry": "res/layout/custom_dialog.xml",
+          "beforeOffset": 5993418,
+          "afterOffset": 5994974
+        },
+        {
+          "entry": "res/layout/notification_template_part_chronometer.xml",
+          "beforeOffset": 5993785,
+          "afterOffset": 5995341
+        },
+        {
+          "entry": "res/layout/notification_template_part_time.xml",
+          "beforeOffset": 5994128,
+          "afterOffset": 5995684
+        },
+        {
+          "entry": "res/xml/data_extraction_rules.xml",
+          "beforeOffset": 5994466,
+          "afterOffset": 5996022
+        },
+        {
+          "entry": "res/xml/network_security_config.xml",
+          "beforeOffset": 5994750,
+          "afterOffset": 5996306
+        },
+        {
+          "entry": "resources.arsc",
+          "beforeOffset": 5995077,
+          "afterOffset": 5996633
+        }
+      ],
+      "beforePublicCertificateSha256": [
+        "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1"
+      ],
+      "afterPublicCertificateSha256": [
+        "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1"
+      ],
+      "publicCertificateEqual": true,
+      "method": "Read only public APK ZIP payload/metadata/signing-block bytes and existing apksigner verification output. No private keys, credentials, or settings were accessed."
+    },
+    {
+      "module": "nativeDriver",
+      "before": {
+        "sha256": "d71239e388a415489aa163f7d7a809eb9d0cfbf92ed94d6f786f66eb1a5a406f",
+        "bytes": 5866084,
+        "zipEntries": 51,
+        "compressedPayloadBytes": 5852373,
+        "centralDirectoryOffset": 5861451,
+        "signingBlock": {
+          "offset": 5857355,
+          "bytes": 4096,
+          "sha256": "584d7631dda2196dac91e5131ac741179bfbf450102268ed687c1fa2962f80a8"
+        },
+        "metadataAndPaddingBytes": 13711
+      },
+      "after": {
+        "sha256": "8e534886360623b27aede4c49f8fdc1c33b8d89bd2e0b6d2b4949fa59e397ea9",
+        "bytes": 5864932,
+        "zipEntries": 51,
+        "compressedPayloadBytes": 5852373,
+        "centralDirectoryOffset": 5860299,
+        "signingBlock": {
+          "offset": 5856203,
+          "bytes": 4096,
+          "sha256": "1a843a19164991244dac1aeab99296b3d257297dd109ad5728d489727cfbca7b"
+        },
+        "metadataAndPaddingBytes": 12559
+      },
+      "entryNamesEqual": true,
+      "entryOrderEqual": false,
+      "entryTimestampDifferences": [],
+      "entryByteDifferences": [],
+      "entryOffsetDifferences": [
+        {
+          "entry": "AndroidManifest.xml",
+          "beforeOffset": 5812536,
+          "afterOffset": 5811384
+        },
+        {
+          "entry": "DebugProbesKt.bin",
+          "beforeOffset": 5844608,
+          "afterOffset": 5843456
+        },
+        {
+          "entry": "META-INF/androidx.annotation_annotation-experimental.version",
+          "beforeOffset": 5845437,
+          "afterOffset": 5844285
+        },
+        {
+          "entry": "META-INF/androidx.arch.core_core-runtime.version",
+          "beforeOffset": 5845534,
+          "afterOffset": 5844382
+        },
+        {
+          "entry": "META-INF/androidx.core_core-ktx.version",
+          "beforeOffset": 5845618,
+          "afterOffset": 5844466
+        },
+        {
+          "entry": "META-INF/androidx.core_core.version",
+          "beforeOffset": 5845694,
+          "afterOffset": 5844542
+        },
+        {
+          "entry": "META-INF/androidx.lifecycle_lifecycle-runtime.version",
+          "beforeOffset": 5845766,
+          "afterOffset": 5844614
+        },
+        {
+          "entry": "META-INF/androidx.versionedparcelable_versionedparcelable.version",
+          "beforeOffset": 5845858,
+          "afterOffset": 5844706
+        },
+        {
+          "entry": "META-INF/kotlinx_coroutines_android.version",
+          "beforeOffset": 5845962,
+          "afterOffset": 5844810
+        },
+        {
+          "entry": "META-INF/kotlinx_coroutines_core.version",
+          "beforeOffset": 5846041,
+          "afterOffset": 5844889
+        },
+        {
+          "entry": "META-INF/services/kotlinx.coroutines.CoroutineExceptionHandler",
+          "beforeOffset": 5846117,
+          "afterOffset": 5844965
+        },
+        {
+          "entry": "META-INF/services/kotlinx.coroutines.internal.MainDispatcherFactory",
+          "beforeOffset": 5846259,
+          "afterOffset": 5845107
+        },
+        {
+          "entry": "kotlin/annotation/annotation.kotlin_builtins",
+          "beforeOffset": 5846405,
+          "afterOffset": 5845253
+        },
+        {
+          "entry": "kotlin/collections/collections.kotlin_builtins",
+          "beforeOffset": 5847040,
+          "afterOffset": 5845888
+        },
+        {
+          "entry": "kotlin/coroutines/coroutines.kotlin_builtins",
+          "beforeOffset": 5848637,
+          "afterOffset": 5847485
+        },
+        {
+          "entry": "kotlin/internal/internal.kotlin_builtins",
+          "beforeOffset": 5848868,
+          "afterOffset": 5847716
+        },
+        {
+          "entry": "kotlin/kotlin.kotlin_builtins",
+          "beforeOffset": 5849332,
+          "afterOffset": 5848180
+        },
+        {
+          "entry": "kotlin/ranges/ranges.kotlin_builtins",
+          "beforeOffset": 5854643,
+          "afterOffset": 5853491
+        },
+        {
+          "entry": "kotlin/reflect/reflect.kotlin_builtins",
+          "beforeOffset": 5856001,
+          "afterOffset": 5854849
+        },
+        {
+          "entry": "res/drawable-hdpi-v4/notification_bg_low_normal.9.png",
+          "beforeOffset": 5813801,
+          "afterOffset": 5812649
+        },
+        {
+          "entry": "res/drawable-hdpi-v4/notification_bg_low_pressed.9.png",
+          "beforeOffset": 5814096,
+          "afterOffset": 5812944
+        },
+        {
+          "entry": "res/drawable-hdpi-v4/notification_bg_normal.9.png",
+          "beforeOffset": 5814405,
+          "afterOffset": 5813253
+        },
+        {
+          "entry": "res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png",
+          "beforeOffset": 5814696,
+          "afterOffset": 5813544
+        },
+        {
+          "entry": "res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png",
+          "beforeOffset": 5815009,
+          "afterOffset": 5813857
+        },
+        {
+          "entry": "res/drawable-mdpi-v4/notification_bg_low_normal.9.png",
+          "beforeOffset": 5815207,
+          "afterOffset": 5814055
+        },
+        {
+          "entry": "res/drawable-mdpi-v4/notification_bg_low_pressed.9.png",
+          "beforeOffset": 5815507,
+          "afterOffset": 5814355
+        },
+        {
+          "entry": "res/drawable-mdpi-v4/notification_bg_normal.9.png",
+          "beforeOffset": 5815815,
+          "afterOffset": 5814663
+        },
+        {
+          "entry": "res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png",
+          "beforeOffset": 5816111,
+          "afterOffset": 5814959
+        },
+        {
+          "entry": "res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png",
+          "beforeOffset": 5816423,
+          "afterOffset": 5815271
+        },
+        {
+          "entry": "res/drawable-v21/notification_action_background.xml",
+          "beforeOffset": 5816610,
+          "afterOffset": 5815458
+        },
+        {
+          "entry": "res/drawable-xhdpi-v4/notification_bg_low_normal.9.png",
+          "beforeOffset": 5817158,
+          "afterOffset": 5816006
+        },
+        {
+          "entry": "res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png",
+          "beforeOffset": 5817465,
+          "afterOffset": 5816313
+        },
+        {
+          "entry": "res/drawable-xhdpi-v4/notification_bg_normal.9.png",
+          "beforeOffset": 5817804,
+          "afterOffset": 5816652
+        },
+        {
+          "entry": "res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png",
+          "beforeOffset": 5818105,
+          "afterOffset": 5816953
+        },
+        {
+          "entry": "res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png",
+          "beforeOffset": 5818443,
+          "afterOffset": 5817291
+        },
+        {
+          "entry": "res/drawable/notification_bg.xml",
+          "beforeOffset": 5818670,
+          "afterOffset": 5817518
+        },
+        {
+          "entry": "res/drawable/notification_bg_low.xml",
+          "beforeOffset": 5818984,
+          "afterOffset": 5817832
+        },
+        {
+          "entry": "res/drawable/notification_icon_background.xml",
+          "beforeOffset": 5819301,
+          "afterOffset": 5818149
+        },
+        {
+          "entry": "res/drawable/notification_tile_bg.xml",
+          "beforeOffset": 5819559,
+          "afterOffset": 5818407
+        },
+        {
+          "entry": "res/layout-v21/notification_action.xml",
+          "beforeOffset": 5819799,
+          "afterOffset": 5818647
+        },
+        {
+          "entry": "res/layout-v21/notification_action_tombstone.xml",
+          "beforeOffset": 5820352,
+          "afterOffset": 5819200
+        },
+        {
+          "entry": "res/layout-v21/notification_template_custom_big.xml",
+          "beforeOffset": 5820966,
+          "afterOffset": 5819814
+        },
+        {
+          "entry": "res/layout-v21/notification_template_icon_group.xml",
+          "beforeOffset": 5821833,
+          "afterOffset": 5820681
+        },
+        {
+          "entry": "res/layout/custom_dialog.xml",
+          "beforeOffset": 5822333,
+          "afterOffset": 5821181
+        },
+        {
+          "entry": "res/layout/notification_template_part_chronometer.xml",
+          "beforeOffset": 5822700,
+          "afterOffset": 5821548
+        },
+        {
+          "entry": "res/layout/notification_template_part_time.xml",
+          "beforeOffset": 5823042,
+          "afterOffset": 5821890
+        },
+        {
+          "entry": "resources.arsc",
+          "beforeOffset": 5823380,
+          "afterOffset": 5822228
+        }
+      ],
+      "beforePublicCertificateSha256": [
+        "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1"
+      ],
+      "afterPublicCertificateSha256": [
+        "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1"
+      ],
+      "publicCertificateEqual": true,
+      "method": "Read only public APK ZIP payload/metadata/signing-block bytes and existing apksigner verification output. No private keys, credentials, or settings were accessed."
+    }
+  ]
+}

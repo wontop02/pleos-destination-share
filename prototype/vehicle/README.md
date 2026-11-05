@@ -30,9 +30,9 @@ APK는 `app/build/outputs/apk/debug/app-debug.apk`에 생성된다. 애플리케
 
 기한은 연결 15초·조회 8초·각 목적지 확인 45초다. `onRouteCancelled`는 기존 안내 교체에서도 발생하므로 새 listener 세션의 조회만 재개하고 원래 45초 기한을 유지한다. 실패한 같은 버전을 무한 경로 요청하지 않는다. 네트워크 재연결은 최신 인증 snapshot을 받고 이미 전송한 같은 작업은 새 조회로 확인한다. 명시 중지는 즉시 epoch·SDK listener·timer·동의를 무효화한다. 일부 HTTP 구현에서 SSE `disconnect()`가 read를 기다리므로, 닫힌 transport의 유한 timeout 정리만 일회성 별도 스레드에서 수행한다.
 
-FGS 유형·권한·정확한 수명과 검증 한계는 [자동 동행 문서](../../docs/product/vehicle-auto-follow.md)에 기록한다. 동결 2의 두 공식 에뮬레이터 실행은 907.743초 동안 Activity 재진입 A/B 0회, 순정 내비 전경과 같은 PID·FGS epoch를 유지했다. 공개 목적지 변경 세 번(시작 후 24.436·302.358·633.147초) 각각 B 요청 한 번과 실제 native strict match를 기록했다. 실제 알림 중지 후 새 A 변경 작업이 끝난 뒤 77.967521208초 동안 B 새 요청·재진입은 0회이고 기존 실제 목적지를 유지했다. 상세 시각·버전·소스/APK 해시는 [실행 기록](evidence/automatic-session/verification.md)을 따른다.
+FGS 유형·권한·정확한 수명과 검증 한계는 [자동 동행 문서](../../docs/product/vehicle-auto-follow.md)에 기록한다. 동결 3의 두 공식 에뮬레이터 실행은 908.721초 동안 55쌍의 관찰과 journal에서 Activity 재진입 A/B 0회, 순정 내비 전경과 같은 PID·FGS epoch를 유지했다. 공개 목적지 변경 세 번(시작 후 23.099·304.198·633.089초)은 공유 revision 15·17·19에서 각각 B 요청 한 번과 실제 native strict match로 이어졌다. 상태 우선 알림 제목의 실제 대비는 14.3904483:1이며 읽기 어려운 중복 본문은 없다. 실제 알림 중지 후 새 A 변경 작업이 끝난 뒤 81.347894375초 동안 B 새 요청·재진입은 0회이고 기존 실제 목적지를 유지했다. 상세 시각·버전·소스/APK 해시는 [실행 기록](evidence/automatic-session/verification.md)을 따른다.
 
-현재 **독립 verifier 검증 대기**이며 전체 승인으로 표시하지 않는다. 실차, `onRoutingCompleted` 수신, specialUse 스토어/배포 심사는 검증하지 않았다. 자동 모드에는 45초 앱 복귀 요구가 없고, 작업별 실제 목적지 확인의 원래 45초 기한은 유지한다.
+동결 2의 독립 판정은 알림 상태 가독성 F1로 **전체 FAIL**이었다. 그 기능 실증 907.743초와 실패 원본은 별도로 보존한다. 동결 3의 위 수치는 총괄이 새 APK에서 관찰한 결과이며 새 head의 독립 판정을 대신하지 않는다. 최종 독립 판정과 병합 상태는 [PR #15](https://github.com/wontop02/pleos-destination-share/pull/15)를 참조한다. 실차, `onRoutingCompleted` 수신, specialUse 스토어/배포 심사는 검증하지 않았다. 자동 모드에는 45초 앱 복귀 요구가 없고, 작업별 실제 목적지 확인의 원래 45초 기한은 유지한다.
 
 ## 수동 동작: 전용 Pleos 두 대에서 실행
 

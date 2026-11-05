@@ -1,0 +1,58 @@
+{
+  "status": "builder handoff only; native contrast and fresh run pending",
+  "changedWorkspacePaths": [
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/ConvoySessionService.kt",
+    "DESIGN.md",
+    "README.md",
+    "docs/product/README.md",
+    "docs/product/vehicle-auto-follow.md",
+    "prototype/vehicle/README.md",
+    "prototype/vehicle/evidence/automatic-session/verification.md",
+    "prototype/vehicle/evidence/automatic-session/source-manifest.json",
+    "prototype/vehicle/evidence/automatic-session/source-manifest-freeze-2.json"
+  ],
+  "changedWorkspacePathCount": 9,
+  "runtimeChanged": 1,
+  "testsChanged": 0,
+  "documentationChanged": 6,
+  "currentManifestChanged": 1,
+  "historicalManifestAdded": 1,
+  "uncommittedByBuilder": true,
+  "gitGhAdbUiUsed": false,
+  "newChecks": {
+    "node": 76,
+    "core": 71,
+    "app": 26,
+    "failed": 0,
+    "buildExit": 0,
+    "lintErrors": 0,
+    "apkInspectionExit": 0,
+    "inputCount": 40,
+    "inputMismatch": [],
+    "apkCount": 3
+  },
+  "runtimeSourceSha256": "f9215df3cff1ac036a3ce4d7a5ec44ff20064060bb30dc74001afa4142cf316b",
+  "allBuildInputsSha256": "7036d13a14dda56a79481282f77f211fb24f4ab1bba6b15c6304bc91f0ee707a",
+  "apks": [
+    {
+      "module": "app",
+      "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/app-debug.apk",
+      "sha256": "264605564a27d7cdc05578769d509b1c28220917cdf7dc605df43437e11cc216",
+      "bytes": 6040330
+    },
+    {
+      "module": "probe",
+      "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/app-debug-androidTest.apk",
+      "sha256": "d6fae10675031385048cf4b6ae769dd46ddabe6824fe390fa096046e3cc78a7c",
+      "bytes": 30522
+    },
+    {
+      "module": "nativeDriver",
+      "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/nativeDriver-debug.apk",
+      "sha256": "8e534886360623b27aede4c49f8fdc1c33b8d89bd2e0b6d2b4949fa59e397ea9",
+      "bytes": 5864932
+    }
+  ],
+  "baselineHead": "0b92a6b4df1fb97c811842d0f0b455ccc9e5590b",
+  "finalStatusReference": "https://github.com/wontop02/pleos-destination-share/pull/15"
+}

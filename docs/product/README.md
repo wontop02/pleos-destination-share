@@ -26,7 +26,7 @@
 
 기본 꺼짐, 대표/참여자의 별도 명시 동의, Activity와 독립된 specialUse FGS, 진행 알림과 중지, 최신 버전 자동 적용·실제 조회 strict match를 구현한다. 같은 인증 API·암호화 저장을 사용하며 서버 변경은 없다. 역할별 제어·수명·권한·회귀·두 공식 차량 15분 연속 실증 조건은 [자동 동행 계약](vehicle-auto-follow.md)을 따른다. 재진입 0회·10분 이후 변경·중지 후 요청 0회·정확한 APK/source 해시를 직접 확인해야 AC5를 통과한다. 실제 플랫폼/SDK 문제로 실패하면 Draft/BLOCKED이며 기준을 낮추지 않는다.
 
-동결 2 실제 실행에서 두 공식 에뮬레이터가 907.743초 동안 순정 내비 전경과 같은 PID·foreground 서비스 epoch를 유지했고 Activity 재진입은 A/B 0회였다. 10분 이후를 포함한 세 변경 각각 B 새 요청 한 번과 실제 native strict match를 확인했다. 실제 알림 중지 후 새 A 변경 작업 완료 뒤 77.967521208초 동안 B 새 요청·재진입은 0회이고 기존 목적지를 유지했다. [시각·버전·해시와 실행 기록](../../prototype/vehicle/evidence/automatic-session/verification.md)을 별도 verifier가 검토할 차례다. 실차·탐색 완료 이벤트·specialUse 배포 심사 승인은 검증하지 않았다.
+동결 3 실제 실행에서 두 공식 에뮬레이터가 908.721초·55쌍의 관찰 동안 순정 내비 전경과 같은 PID·foreground 서비스 epoch를 유지했고 Activity 재진입은 A/B 0회였다. 10분 이후를 포함한 세 변경 각각 B 새 요청 한 번과 실제 native strict match를 확인했다. 상태 우선 알림 제목은 실제 대비 14.3904483:1로 표시됐다. 실제 알림 중지 후 새 A 변경 작업 완료 뒤 81.347894375초 동안 B 새 요청·재진입은 0회이고 기존 목적지를 유지했다. [시각·버전·해시와 실행 기록](../../prototype/vehicle/evidence/automatic-session/verification.md)은 이 총괄 관찰과 동결 2의 907.743초 기능 실증·독립 F1 전체 FAIL을 구분한다. 최종 독립 판정과 병합 상태는 [PR #15](https://github.com/wontop02/pleos-destination-share/pull/15)를 참조한다. 실차·탐색 완료 이벤트·specialUse 배포 심사 승인은 검증하지 않았다.
 
 ## 현재 결정
 

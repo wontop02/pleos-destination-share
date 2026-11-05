@@ -129,7 +129,7 @@ class ConvoySessionService : Service() {
         val open = PendingIntent.getActivity(this, 2, Intent(this, MainActivity::class.java),
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         return Notification.Builder(this, CHANNEL).setSmallIcon(android.R.drawable.ic_menu_compass)
-            .setContentTitle("동행 중 · $role").setContentText(status).setStyle(Notification.BigTextStyle().bigText(status))
+            .setContentTitle("$status · 동행 중 · $role")
             .setContentIntent(open).setOngoing(true).setOnlyAlertOnce(true).setCategory(Notification.CATEGORY_SERVICE)
             .addAction(Notification.Action.Builder(null, "동행 중지", stop).build()).build()
     }

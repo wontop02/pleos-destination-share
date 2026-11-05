@@ -1,11 +1,12 @@
 {
   "issue": 14,
   "base": "7d9dcc053c8dfe2b8ce1f22fef3c17b9c8c54856",
+  "baselineHead": "0b92a6b4df1fb97c811842d0f0b455ccc9e5590b",
   "branch": "be/issue-14-vehicle-auto-follow",
-  "status": "uncommitted-runtime-freeze-2",
-  "frozenAt": "2026-11-05T06:18:17.067600+00:00",
-  "runtimeSourceSha256": "76c4350628c272f0c04d6405b2819c732954ab9a6ef2db405ed36d925034e0cb",
-  "allBuildInputsSha256": "72af78492463b80978ad5882ea229114c94ce4db5bd7e0eb2de0fda9dc93a5a9",
+  "status": "uncommitted-runtime-freeze-3",
+  "frozenAt": "2026-11-05T07:19:25.276683+00:00",
+  "runtimeSourceSha256": "f9215df3cff1ac036a3ce4d7a5ec44ff20064060bb30dc74001afa4142cf316b",
+  "allBuildInputsSha256": "7036d13a14dda56a79481282f77f211fb24f4ab1bba6b15c6304bc91f0ee707a",
   "runtimeFiles": [
     {
       "path": "prototype/server.mjs",
@@ -24,8 +25,8 @@
     },
     {
       "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/ConvoySessionService.kt",
-      "sha256": "ad6b249ec92f9869f38acc96e788e7dfcd11321bdd33098420477c7f816b1cd1",
-      "bytes": 8314
+      "sha256": "4bf931e81d7bb28850f2f283bb08a55aabcb4766391c1fbd776436fcc42ccfe8",
+      "bytes": 8248
     },
     {
       "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/EvidenceJournal.kt",
@@ -113,6 +114,11 @@
       "bytes": 28110
     },
     {
+      "path": "prototype/vehicle/gradle.properties",
+      "sha256": "d5f372c6d46ad7c8d33f714bfae564eb5e1d73a159c495df9bc782b33e3567c2",
+      "bytes": 100
+    },
+    {
       "path": "prototype/vehicle/gradle/wrapper/gradle-wrapper.jar",
       "sha256": "2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046",
       "bytes": 43583
@@ -121,11 +127,6 @@
       "path": "prototype/vehicle/gradle/wrapper/gradle-wrapper.properties",
       "sha256": "3256e6a4bacbb04787b346d74b418734b03246092a15703cf2acd926c4b00e90",
       "bytes": 340
-    },
-    {
-      "path": "prototype/vehicle/gradle.properties",
-      "sha256": "d5f372c6d46ad7c8d33f714bfae564eb5e1d73a159c495df9bc782b33e3567c2",
-      "bytes": 100
     },
     {
       "path": "prototype/vehicle/gradlew",
@@ -213,21 +214,21 @@
   "apks": [
     {
       "module": "app",
-      "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-2/app-debug.apk",
-      "sha256": "f96663e4da4ab428e9656841b0d2e4bbce592008e712eb0e79a0e9af8ee57fe4",
-      "bytes": 6234215
+      "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/app-debug.apk",
+      "sha256": "264605564a27d7cdc05578769d509b1c28220917cdf7dc605df43437e11cc216",
+      "bytes": 6040330
     },
     {
       "module": "probe",
-      "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-2/app-debug-androidTest.apk",
+      "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/app-debug-androidTest.apk",
       "sha256": "d6fae10675031385048cf4b6ae769dd46ddabe6824fe390fa096046e3cc78a7c",
       "bytes": 30522
     },
     {
       "module": "nativeDriver",
-      "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-2/nativeDriver-debug.apk",
-      "sha256": "d71239e388a415489aa163f7d7a809eb9d0cfbf92ed94d6f786f66eb1a5a406f",
-      "bytes": 5866084
+      "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-auto-follow-20261105/builder/freeze-3/nativeDriver-debug.apk",
+      "sha256": "8e534886360623b27aede4c49f8fdc1c33b8d89bd2e0b6d2b4949fa59e397ea9",
+      "bytes": 5864932
     }
   ],
   "testReports": [
@@ -236,40 +237,40 @@
       "tests": 6,
       "failures": 0,
       "errors": 0,
-      "time": 0.012,
-      "sha256": "3f302f33445d0ad410627186e17516b94dee87bfd65c50f1f37fd7b7e36322de"
+      "time": 0.02,
+      "sha256": "11e972cc96def22306e0f1e8ed4291bee90d0ee70fc812793abdca1da81b0618"
     },
     {
       "suite": "ai.pleos.destinations.vehicle.RoomHttpClientTest",
       "tests": 3,
       "failures": 0,
       "errors": 0,
-      "time": 1.069,
-      "sha256": "d5e2949b1edba0105dd0b2adb307fe04268bf39e5639e3a51eb8fe935c01603c"
+      "time": 1.101,
+      "sha256": "cdce1be4a437d1a1f58f0fc26a1475ad2e59c53358735cfc20f8f7906a5567ef"
     },
     {
       "suite": "ai.pleos.destinations.vehicle.SdkRouteMappingTest",
       "tests": 3,
       "failures": 0,
       "errors": 0,
-      "time": 0.006,
-      "sha256": "281c1a2846b4e0db6516e88a2af2410d6c27bd3323852f5bed772c8eb3ab6997"
+      "time": 0.005,
+      "sha256": "2c51244a08c8aacecea25320d09ae98fb19cf94a0fe9642f227bb8c02a72b13d"
     },
     {
       "suite": "ai.pleos.destinations.vehicle.RoomProtocolTest",
       "tests": 6,
       "failures": 0,
       "errors": 0,
-      "time": 0.005,
-      "sha256": "6dd9ed52c2f8ad9e558099e3539accb8279ea81e53c38f85c3fdd09449b3fe75"
+      "time": 0.006,
+      "sha256": "17ac2476119b0e6f2d190cdc87c2947afc88340d1a0d5c3ca4c3f85970ffbf94"
     },
     {
       "suite": "ai.pleos.destinations.vehicle.VehicleSessionTest",
       "tests": 5,
       "failures": 0,
       "errors": 0,
-      "time": 0.041,
-      "sha256": "8dcfdb81048f22a7df4bd2f85bfcfe9dcec315b02d4e44d17dfee319fd4171ce"
+      "time": 0.063,
+      "sha256": "73c6540e4b26aca7a07c21e6feadfb268de3039e7319bda11a41bea3ef2f9a4f"
     },
     {
       "suite": "ai.pleos.destinations.vehicle.PendingConfirmationCacheTest",
@@ -277,45 +278,61 @@
       "failures": 0,
       "errors": 0,
       "time": 0.001,
-      "sha256": "5aae44d93f6c7b87c796529f1fe98af87ee51cae1be60d0c1ee41fdbd03d2acd"
+      "sha256": "a48f459f19738bea3ebcce8eba71877a8ac5f1a9221df983f2b0788c4fa7cbca"
     },
     {
       "suite": "ai.pleos.destinations.core.VehicleAutomationTest",
       "tests": 29,
       "failures": 0,
       "errors": 0,
-      "time": 0.019,
-      "sha256": "8e2627700c1af941819a2df441f281ca1b29443ba0dd623f244034e8cc4b7ccb"
+      "time": 0.036,
+      "sha256": "a1df2849232e8ce5c9bc7bc897848c42fc29a5c6308c7f11c2e62902e8ff7b45"
     },
     {
       "suite": "ai.pleos.destinations.core.VehicleCoordinatorTest",
       "tests": 42,
       "failures": 0,
       "errors": 0,
-      "time": 0.006,
-      "sha256": "aacb9dfdfa140970d40c299c8b0522f3d54d81dfa2700b86aef0c4f5766f96f1"
+      "time": 0.011,
+      "sha256": "563ae14e1131152d916c61da72a41fc29b1c0076d50027d645642007d4827350"
     }
   ],
   "nodeTests": {
     "tests": 76,
     "pass": 76,
     "exit": 0,
-    "logSha256": "8f2b10a43c7a4dfd6c3e22984edac5c04d36f5e7061f9fb344bde25c3fa24e98"
+    "logSha256": "cf758878763a7c038e8c05e451b7091a4847f294a441cd3a1b214073ca91efb2"
   },
   "gradle": {
     "exit": 0,
-    "logSha256": "796be21c4e158739ef154dee748b55633830278974c6fafaa76aa8bd74455c64"
+    "logSha256": "08d78fc2428177ce1edfaf173a9b4aef69cd1d52b6a0907ba4574841b843c068"
+  },
+  "lint": {
+    "app": {
+      "errors": 0,
+      "warnings": 5
+    },
+    "nativeDriver": {
+      "errors": 0,
+      "warnings": 2
+    }
+  },
+  "apkInspection": {
+    "checks": 12,
+    "exit": 0,
+    "commandsSha256": "0555da105c776c61d68b04749f988afdf136409e1a646114d525098326d2999d"
   },
   "serverChanged": false,
   "supersedes": {
-    "freeze": 1,
-    "runtimeSourceSha256": "1df2d1d0249be942cb8ac86a9706ca9a41aa16597240a9e13f9ce6056f151354",
+    "freeze": 2,
+    "sourceManifestSha256": "a5bfcef798928a8b64ef1323e56f69b78dfc5f94a052f19b1d3d5db5a3eddae4",
+    "runtimeSourceSha256": "76c4350628c272f0c04d6405b2819c732954ab9a6ef2db405ed36d925034e0cb",
     "changedBuildInputs": [
-      "prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/VehicleCoordinator.kt",
-      "prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/VehicleAutomationTest.kt"
+      "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/ConvoySessionService.kt"
     ],
-    "reason": "Root real emulator reproduced confirmation followed by late global route cancellation that lost confirmation state. Re-observe the same scoped recent intent by fresh strict query, preserving original deadline and issuing no new route."
+    "reason": "Independent F1: actual Pleos notification body status had 1.138967:1 contrast. Keep the existing status calculation, place it first in the standard title with role, and remove the duplicate body. Actual new screenshot/continuity verification remains required."
   },
-  "runtimeEvidenceStatus": "AC5 pending root new opt-in two-official-emulator execution on freeze 2",
-  "scope": "No ADB/UI executed by builder. Prior #12 and freeze-1 historical evidence preserved."
+  "runtimeEvidenceStatus": "PENDING at freeze-3 builder handoff: actual notification contrast, fresh 15-minute official two-emulator execution, stop-negative check, and independent exact-head verdict",
+  "finalStatusReference": "https://github.com/wontop02/pleos-destination-share/pull/15",
+  "scope": "One runtime notification builder-line change; no new tests, SDK policy, permissions, server changes, ADB/UI, or Git mutations by builder. Freeze-1/2 and prior #12 evidence preserved."
 }
