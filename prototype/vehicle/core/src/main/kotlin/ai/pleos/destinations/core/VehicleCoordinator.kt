@@ -58,6 +58,7 @@ class VehicleCoordinator(
     private var pendingProposalHeld = false
     val proposalPublicationHeld: Boolean get() = pendingProposalHeld || proposalRevision >= 0
     private var proposalRevision = -1L
+    private var acceptedAutomaticRevision = -1L
     private enum class Purpose { OBSERVE, SHARE, VERIFY }
     private data class Read(val id: Long, val purpose: Purpose, val room: Long, val deadline: Long, var dirty: Boolean = false)
     private data class Operation(val id: Long, val room: Long, val revision: Long, val target: Destination,
@@ -81,7 +82,7 @@ class VehicleCoordinator(
         if (state.sharing) update(state.copy(sharing = false))
         if (acceptedRevision != null) {
             proposalRevision = acceptedRevision
-            autoAttemptedRevision = acceptedRevision // Only the bound explicit consent may apply it.
+            rememberAcceptedRevision(acceptedRevision)
         }
         trace("proposalPublicationHeld")
     }
@@ -108,10 +109,24 @@ class VehicleCoordinator(
         trace("acceptedProposalReleased")
     }
 
+    /** Historical accepted state is never new generic follower consent, even after stop/reconnect. */
+    fun rememberAcceptedRevision(revision: Long) {
+        require(revision >= 0)
+        acceptedAutomaticRevision = revision
+        autoAttemptedRevision = revision
+    }
+
+    /** The session calls this only when discarding the room/member identity, not on suspension. */
+    fun forgetRoomProposalHistory() {
+        acceptedAutomaticRevision = -1
+        autoAttemptedRevision = -1
+        releaseProposalProtection()
+    }
+
     /** Consent is volatile and role-bound; persistence/UI attachment cannot call this implicitly. */
     fun startAutomatic(): Boolean {
         if (disposed || !state.roomConnected || state.automatic != AutomaticMode.OFF) return false
-        autoAttemptedRevision = proposalRevision
+        autoAttemptedRevision = if (acceptedAutomaticRevision == state.revision) acceptedAutomaticRevision else -1
         hasObservedForPublish = false
         update(state.copy(automatic = if (state.host) AutomaticMode.LEADER else AutomaticMode.FOLLOWER,
             message = if (state.host) "동행 시작 · 순정 목적지 자동 공유 중" else "자동 따르기 시작 · 최신 목적지를 자동 적용합니다."))
@@ -546,7 +561,7 @@ class VehicleCoordinator(
                 autoObserveAt = clock() + 15_000; beginRead(Purpose.OBSERVE); return
             }
             if (state.automatic == AutomaticMode.FOLLOWER && clock() >= autoDue && state.shared != null &&
-                autoAttemptedRevision != state.revision) {
+                state.revision != acceptedAutomaticRevision && autoAttemptedRevision != state.revision) {
                 autoDue = Long.MAX_VALUE; autoAttemptedRevision = state.revision
                 trace("automaticApply")
                 applyShared()

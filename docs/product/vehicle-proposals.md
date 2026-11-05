@@ -47,7 +47,7 @@
 
 대기/확정 프레임은 coordinator에 목적지를 전달하거나 native 조회를 시작하기 **전에** 대표 publication을 보류한다. 이전 관측값과 공유 중 플래그를 지우고, publication generation으로 아직 실행되지 않은 이전 전송과 늦은 결과를 차단한다. 이미 HTTP 바이트를 보낸 작업은 서버 revision CAS로 보호한다. 그 작업이 수락보다 먼저 저장되면 제안이 무효화되고, 수락보다 늦으면 409로 확정을 덮어쓰지 못한다. accepted revision은 일반 자동 따르기의 적용 경로에서도 차단해 버튼 권한 경로와 중복되지 않는다.
 
-대기 제안 보류와 수락한 목적지 보호는 별도 수명이다. 새 제안의 거절·만료·회원 변경 무효화는 대기 보류만 풀고 이전 수락 실패의 보호는 유지한다. 성공은 원래 45초 창 뒤 해당 accepted revision의 보호만 풀며, 그 사이 시작한 새 pending 보류는 유지한다. 반영/확인 실패는 이전 목적지 재공유를 계속 막으며 명시 재시도의 성공 정책 또는 `자동 공유 다시 시작`을 기다린다. 같은 프로세스의 완료·명시 해제는 후속 snapshot의 같은 출처로 다시 잠그지 않는다. 기존 직접 공유/공유 지우기는 별도 명시 변경이며 보류를 해제한다.
+대기 제안 보류와 수락한 목적지 보호는 별도 수명이다. 새 제안의 거절·만료·회원 변경 무효화는 대기 보류만 풀고 이전 수락 실패의 보호는 유지한다. 성공은 원래 45초 창 뒤 해당 accepted revision의 보호만 풀며, 그 사이 시작한 새 pending 보류는 유지한다. 반영/확인 실패는 이전 목적지 재공유를 계속 막으며 명시 재시도의 성공 정책 또는 `자동 공유 다시 시작`을 기다린다. 같은 프로세스의 완료·명시 해제는 후속 snapshot의 같은 출처로 자동 공유를 다시 잠그지 않는다. 이 publication 수명과 별도로, accepted revision은 일반 자동 따르기의 새 권한이 되지 않도록 차단한다. 성공한 45초 창 종료·중지·동일 방 재연결·automatic OFF 재연결 뒤에도 같은 출처는 새 경로를 만들지 않는다. 명시적인 현재 목적지 재적용/재시도와 더 최신 목적지 의도만 새 작업을 시작할 수 있다. 방·회원 인증을 지울 때 replay 기록을 함께 버리므로 다른 방의 같은 숫자 revision을 차단하지 않는다. 기존 직접 공유/공유 지우기는 별도 명시 변경이며 보류를 해제한다.
 
 ## 검증과 증거
 
@@ -67,5 +67,9 @@ cd prototype/vehicle
 동결 1 독립 검증에서는 이전 수락 실패의 보호를 다음 제안 종료가 풀어 버리는 결함과, 과거 중복 요청이 현재 sequence에 다른 proposal을 반환하는 결함이 재현됐다. 추가로 latest 제안이 과거 수락 출처를 가린 cold resume에서 새 경로가 생기는 경계도 재현했다. 동결 2는 pending/accepted 보호 수명과 accepted 출처를 분리하고 현재 프레임/별도 요청 결과를 구현했다. 실제 HTTP의 거절·만료·회원 변경·cold resume RED 검사를 GREEN으로 전환했으며, 독립 검증의 원본 2개 검사도 외부 source set 그대로 재실행해 통과했다. 이는 새 head의 독립 최종 판정을 대신하지 않는다.
 
 동결 2 전체 검사 결과: Node 90개, core 81개, app JVM 43개(총 214개)가 실패/오류/skip 없이 통과했다. 원본 독립 재현 2개는 별도 targeted replay에서도 통과했다. 앱 debug·androidTest·driver 빌드와 app/driver lint는 모두 exit 0이며 lint 경고는 기존 app 7개·driver 2개, 오류 0개다. 동결 1 APK·입력·실패/정상 실행 원본을 보존하고 동결 2 산출물은 같은 builder 경로의 `freeze-2/`에 별도로 고정한다.
+
+동결 2의 추가 독립 검사에서는 성공한 수락 작업의 45초 보호가 끝난 뒤 중지·재연결·일반 자동 따르기 시작이 같은 과거 경로를 다시 요청하는 결함이 재현됐다. 동결 3은 accepted replay revision을 publication 보호와 분리해 유지하고, 같은 ID의 snapshot에서도 이를 다시 확인한다. 같은 방의 중지/재연결은 기록을 보존하고 방·회원 인증을 지울 때만 버린다. 중지 경로와 automatic OFF 재연결 경로를 먼저 RED로 재현한 뒤 명시 재시도, 새 accepted ID/revision, 최신 직접 목적지와 다른 방의 같은 revision이 정상 동작하는 GREEN 회귀를 확인했다.
+
+동결 3 전체 검사 결과: Node 90개·core 83개·app JVM 47개(총 220개)가 실패/오류/skip 없이 통과했다. 독립 VerifierStopReplayTest 원본도 외부 source set에서 별도로 통과했다. 앱·계측·driver 빌드와 lint exit 0, 오류 0, 경고 app 7개·driver 2개다. 동결 1/2 원본을 보존하며 최종 산출물은 `builder/freeze-3/`에 고정한다. Journal schema·버튼명·서버 API는 동결 2와 같다. 새 head의 실제 AC5와 최종 독립 판정은 총괄이 별도로 수행한다.
 
 Builder는 구현/HTTP/JVM/build/lint만 담당한다. 총괄은 전용 ADB5041, 기존 emulator-5570/5572, user10과 새 loopback4186에서 새 APK의 실제 두 차량 AC5를 수행한다. 입력/설치 APK 해시, 정확한 base/head, 버튼·순정 화면, 원시 명령과 별도 verifier가 필요하다. 이번 구현 문서는 AC5 실행·지도 복구·실차·배포 심사 완료를 주장하지 않는다. 이전 `prototype/vehicle/evidence/**`는 byte-for-byte 보존하며 새 원시 산출물은 작업 전용 artifact 경로에 보관한다.

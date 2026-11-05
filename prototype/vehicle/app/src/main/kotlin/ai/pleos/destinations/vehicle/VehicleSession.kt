@@ -226,6 +226,8 @@ class VehicleSession(
         val accepted = update.acceptedProposal ?: p?.takeIf {
             it.status == "accepted" && it.acceptedRevision == update.revision && it.destination == update.destination
         }
+        // Replay authority is independent of whether publication protection already completed.
+        if (accepted != null) coordinator.rememberAcceptedRevision(update.revision)
         // Retained provenance must not re-arm protection already completed/reset in this process.
         if (accepted != null && (acceptedProposal?.id != accepted.id || acceptedProposal?.acceptedRevision != accepted.acceptedRevision)) {
             holdPublication(update.revision)
@@ -387,7 +389,7 @@ class VehicleSession(
     fun forget(localOnly: Boolean) {
         val reason = roomMessage
         stopAutomatic(); storage.clear(); credentials = null; proposal = null; acceptedProposal = null; proposalDeadline = 0
-        coordinator.releaseProposalProtection()
+        coordinator.forgetRoomProposalHistory()
         roomMessage = reason
         if (localOnly) roomMessage = "이 기기 인증 정보를 지웠습니다. 서버 권한은 종료 또는 최대 6시간 만료 전까지 남을 수 있습니다."
         emit()

@@ -111,4 +111,24 @@ class VehicleProposalProtectionTest {
         assertEquals(listOf(first), f.published); assertEquals(listOf(second), f.gateway.routes)
     }
 
+    @Test fun completingOrResettingPublicationDoesNotRestoreGenericAcceptedApplyAuthority() {
+        for (complete in listOf(true, false)) {
+            val f = Fixture(false); f.accepted(); f.gateway.latest.connected()
+            f.gateway.latest.routingCompleted(); f.gateway.latest.destinationInfo(second)
+            if (complete) f.coordinator.completeAcceptedProposalProtection(2) else f.coordinator.releaseProposalProtection()
+            f.coordinator.stopAutomatic(); f.coordinator.suspendRoom(); f.coordinator.attachRoom(false, 2, second)
+            f.coordinator.connect(); f.gateway.latest.connected(); f.gateway.latest.destinationInfo(second)
+            f.coordinator.startAutomatic(); f.advance(); f.gateway.latest.connected()
+            assertEquals(listOf(second), f.gateway.routes)
+            f.coordinator.applyShared(); f.gateway.latest.connected()
+            assertEquals(listOf(second, second), f.gateway.routes)
+        }
+    }
+    @Test fun discardingRoomIdentityDoesNotFenceTheSameRevisionInAnotherRoom() {
+        val f = Fixture(false); f.coordinator.protectProposal(1); f.coordinator.releaseProposalProtection()
+        f.coordinator.detachRoom(); f.coordinator.forgetRoomProposalHistory()
+        f.coordinator.attachRoom(false, 1, second); f.coordinator.startAutomatic(); f.advance(); f.gateway.latest.connected()
+        assertEquals(listOf(second), f.gateway.routes)
+    }
+
 }

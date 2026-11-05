@@ -356,4 +356,80 @@ class VehicleProposalSessionTest {
         }
     }
 
+    private fun completedAgreementRequiresExplicitRetryAfterReconnect(stop: Boolean) {
+        serverTime(0)
+        RoomHttpClient(base).use { api ->
+            val host = api.create("대표 완료 후 재연결").first
+            val member = api.join(host.roomId, host.inviteSecret!!, "참여 완료 후 재연결").first
+            Runtime(host).use { a -> Runtime(member).use { b ->
+                pending(a, b); accept(a, b); a.requested(); b.requested(); a.match(); b.match()
+                val acceptedId = b.session.acceptedProposal!!.id
+                if (stop) b.session.startAutomatic()
+                a.advance(45_000); b.advance(45_000)
+                assertFalse(b.session.hasProposalLease); assertFalse(b.session.coordinator.proposalPublicationHeld)
+                if (stop) b.session.stopAutomatic()
+                b.session.reconnectRoom(); b.until { b.session.state.roomConnected && !b.session.busy }
+                b.gateway.latest.connected(); b.gateway.latest.destinationInfo(second)
+                assertEquals(acceptedId, b.session.acceptedProposal!!.id)
+                b.session.startAutomatic(); b.advance(); b.gateway.latest.connected()
+                assertEquals("A completed accepted snapshot cannot restore generic apply authority after reconnect, stop=$stop", listOf(second), b.gateway.routes)
+                b.session.retryAcceptedProposal(); b.requested(); b.match()
+                assertEquals(listOf(second, second), b.gateway.routes)
+                assertEquals(ApplyPhase.CONFIRMED, b.session.state.applying)
+                assertEquals(1L, api.snapshot(host).update.revision)
+            } }
+            api.leave(host)
+        }
+    }
+    @Test fun completedAgreementDoesNotReplayAfterStopReconnectAndGenericStart() = completedAgreementRequiresExplicitRetryAfterReconnect(true)
+    @Test fun completedAgreementDoesNotReplayAfterOffModeReconnectAndGenericStart() = completedAgreementRequiresExplicitRetryAfterReconnect(false)
+    @Test fun replayFenceAllowsANewExplicitAcceptedIdAndANewerDirectDestination() {
+        serverTime(0)
+        RoomHttpClient(base).use { api ->
+            val host = api.create("대표 새 수락 ID").first
+            val member = api.join(host.roomId, host.inviteSecret!!, "참여 새 수락 ID").first
+            Runtime(host).use { a -> Runtime(member).use { b ->
+                pending(a, b); accept(a, b); a.requested(); b.requested(); a.match(); b.match()
+                val oldId = b.session.acceptedProposal!!.id
+                a.advance(45_000); b.advance(45_000)
+                b.session.stopAutomatic(); b.session.reconnectRoom(); b.until { b.session.state.roomConnected && !b.session.busy }
+                b.gateway.latest.connected(); b.gateway.latest.destinationInfo(second)
+                b.session.startAutomatic(); b.advance(); b.gateway.latest.connected()
+                assertEquals(listOf(second), b.gateway.routes)
+                pending(a, b, first); assertNotEquals(oldId, b.session.proposal!!.id)
+                accept(a, b); a.requested(); b.requested(); a.match(first); b.match(first)
+                assertEquals(listOf(second, first), b.gateway.routes)
+                api.publish(host, second, 2)
+                b.until { b.session.state.revision == 3L }; b.advance(); b.requested(); b.match(second)
+                assertEquals(listOf(second, first, second), b.gateway.routes)
+                assertEquals(ApplyPhase.CONFIRMED, b.session.state.applying)
+            } }
+            api.leave(host)
+        }
+    }
+
+    @Test fun forgettingOldRoomDoesNotFenceANewRoomsDirectDestinationAtTheSameRevision() {
+        serverTime(0)
+        RoomHttpClient(base).use { api ->
+            val oldHost = api.create("이전 방 대표").first
+            val member = api.join(oldHost.roomId, oldHost.inviteSecret!!, "이전 방 참여").first
+            val p = api.propose(oldHost, "a".repeat(24), second, "이전 방 수락", 0).proposal!!
+            api.respond(member, p, true)
+            val newHost = api.create("새 방 대표").first; api.publish(newHost, first, 0)
+            Runtime(member).use { r ->
+                r.session.startAutomatic(); r.advance(); r.gateway.latest.connected()
+                assertTrue(r.gateway.routes.isEmpty()); assertEquals(1L, r.session.state.revision)
+                r.session.forget(true)
+                r.session.submit(true, base, "새 방 참여", newHost.roomId, newHost.inviteSecret!!)
+                r.until { r.session.state.roomConnected && !r.session.busy && r.session.credentials?.roomId == newHost.roomId }
+                r.gateway.latest.connected(); r.gateway.latest.destinationInfo(second)
+                assertNull(r.session.acceptedProposal); assertEquals(1L, r.session.state.revision)
+                r.session.startAutomatic(); r.advance(); r.requested(); r.match(first)
+                assertEquals(listOf(first), r.gateway.routes)
+                assertEquals(ApplyPhase.CONFIRMED, r.session.state.applying)
+            }
+            api.leave(newHost); api.leave(oldHost)
+        }
+    }
+
 }
