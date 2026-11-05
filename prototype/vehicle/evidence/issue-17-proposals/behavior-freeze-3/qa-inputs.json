@@ -1,0 +1,18 @@
+{
+  "purpose": "Freeze root QA inputs before final scenarios; source files are unmodified production build inputs",
+  "files": {
+    "qa.py": "fea9a9ff2e9e3b24b04af6e58b96ef509a3c0798352977990329cfe53fbad890",
+    "root-ui-tools.py": "f29a1123a5f3c52b5a64e59173cbeb2fa3078e63ce61e390089b5a827a84386e",
+    "driver.py": "925698956185ba9c871440051da3a970082471ff55275996f9bda644ff34aa55",
+    "deploy-freeze.py": "281857c4af2ffd560353ce0225a6818042c0574d625e6e4c40f2540ec097dbf4",
+    "setup-final3-baseline.py": "18058f107a3900401c119820bf5af280d4e1b05c9b3b32fcd649d379c8c973b2",
+    "create-room.py": "c4a5e7a4fe9552003ef8db9943636b1e930620d1af6a4fe95d718e4547b584c2",
+    "run-final-qa.py": "1f0855cbcf51378c68f8e29de2af27544e1f76206ad243d054583f2e72a8a488",
+    "negative-case.py": "c9ad5bfe90f269bbcc12c089ce0dcae1c14ca527447a3f49c41c13cc3002b0b9",
+    "accept-case.py": "e0f2a2d0f1699b9d3efa9775c50e4b9e81858581ce58a5a25291946b5dc4b411",
+    "enable-automatic.py": "0b5e648ce010f1ca923c15f10db31a00e7eb88b6fe13b3b77140901cc60ed084",
+    "stop-reconnect-case.py": "aa159beb6b9b01c545535635cb3191c0aa0fba519c2a2e6ffad18895254ebe0f",
+    "summarize-final.py": "02e9f53e40a7e25170b1d0bfc6c59d0d71efff43e4458a0934ff00a3a3f72c3f",
+    "collect-runtime-freeze3.py": "59d74fe17d4eb220870a96fda34e0a7f94c49ff7b25c73e897f3e6a9e5873940"
+  }
+}

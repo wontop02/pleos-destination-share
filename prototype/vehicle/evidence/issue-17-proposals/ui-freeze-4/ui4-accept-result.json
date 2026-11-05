@@ -1,0 +1,360 @@
+{
+  "case": "ui4-accept",
+  "pass": true,
+  "proposalId": "1700fa97f1eed9a2733c33ed",
+  "proposer": "A",
+  "target": "42dot",
+  "startedAtEpochMs": 1793891915988,
+  "acceptBeforeTapEpochMs": 1793891944625,
+  "endedAtEpochMs": 1793891997299,
+  "vehicles": {
+    "A": {
+      "serial": "emulator-5570",
+      "revisionBefore": 4,
+      "revisionAfter": 5,
+      "automaticBefore": "LEADER",
+      "requestRouteCount": 1,
+      "requestEvents": [
+        {
+          "at": 1793891948013,
+          "event": "requestRoute",
+          "nativeEpoch": 2,
+          "operation": 6,
+          "matched": null
+        }
+      ],
+      "destinationMatches": [
+        {
+          "at": 1793891957339,
+          "event": "destinationMatch",
+          "nativeEpoch": 3,
+          "operation": 6,
+          "matched": true
+        }
+      ],
+      "confirmedBackground": {
+        "hostEpochMs": 1793891957356,
+        "state": {
+          "at": 1793891957340,
+          "event": "sessionState",
+          "serviceEpoch": 10777385,
+          "roomEpoch": 1,
+          "revision": 5,
+          "role": "host",
+          "automatic": "LEADER",
+          "applying": "CONFIRMED",
+          "connection": "CONNECTED",
+          "roomConnected": true,
+          "uiCount": 0,
+          "confirmedAtElapsed": 10890874,
+          "routingCompletedObserved": false,
+          "proposalLease": true,
+          "proposalBusy": false,
+          "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+          "proposalPublicationHeld": true,
+          "acceptedProposalId": "1700fa97f1eed9a2733c33ed",
+          "acceptedProposalVersion": 2,
+          "acceptedProposalRevision": 5,
+          "proposal": {
+            "id": "1700fa97f1eed9a2733c33ed",
+            "version": 2,
+            "status": "accepted",
+            "candidateName": "42dot",
+            "candidatePoiId": "36khp37hh8gqcm5nqhe5",
+            "proposerId": "c48a3b98dfd2b35d1778a90c",
+            "baseRevision": 4,
+            "createdAt": 1793891926741,
+            "expiresAt": 1793892046741,
+            "acceptedRevision": 5,
+            "responses": [
+              {
+                "memberId": "c48a3b98dfd2b35d1778a90c",
+                "response": "accepted"
+              },
+              {
+                "memberId": "4244a68d8d0c06a61cece188",
+                "response": "accepted"
+              }
+            ]
+          }
+        },
+        "foreground": [
+          "topResumedActivity=ActivityRecord{27e5d07 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000024}",
+          "topResumedActivity=ActivityRecord{5084158 u10 ai.umos.drivingview/.DrivingViewActivity t1000020}",
+          "topResumedActivity=ActivityRecord{2b28843 u10 ai.umos.homescreen/.HomeActivity t1000018}"
+        ]
+      },
+      "actualNative": {
+        "hostAt": "2026-11-05T15:19:21.840497+00:00",
+        "serial": "emulator-5570",
+        "mode": "query",
+        "seconds": 3.440065125,
+        "command": {
+          "argv": [
+            "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+            "-P",
+            "5041",
+            "-s",
+            "emulator-5570",
+            "shell",
+            "am",
+            "instrument",
+            "--user",
+            "10",
+            "-w",
+            "-r",
+            "-e",
+            "mode",
+            "query",
+            "ai.pleos.destinations.driver/.NativeDestinationDriver"
+          ],
+          "exitCode": 0
+        },
+        "productionPidBefore": "29112",
+        "productionPidAfter": "29112",
+        "productionProcessUnchanged": true,
+        "result": {
+          "sdk": "ai.pleos.playground:NaviHelper:3.0.5",
+          "mode": "query",
+          "startedAt": 1793891960644,
+          "targetPackage": "ai.pleos.destinations.driver",
+          "processId": 20686,
+          "initialDestination": {
+            "latitude": 37.41289678,
+            "longitude": 127.09383464,
+            "displayLatitude": null,
+            "displayLongitude": null,
+            "name": "42dot",
+            "address": "수정구 시흥동",
+            "poiId": "36khp37hh8gqcm5nqhe5",
+            "poiSubId": null,
+            "poiSubIdMissing": true,
+            "poiProvider": "",
+            "remainDistance": 50,
+            "remainTime": 60,
+            "tollFare": 0
+          },
+          "reason": "actual_destination_callback_received",
+          "status": "OBSERVED",
+          "finishedAt": 1793891962106,
+          "routeStartedObserved": false,
+          "routingCompletedObserved": false,
+          "events": [
+            {
+              "event": "connected",
+              "at": 1793891961020,
+              "session": 1
+            },
+            {
+              "query": 1,
+              "event": "getDestinationInfo",
+              "at": 1793891961020,
+              "session": 1
+            },
+            {
+              "query": 1,
+              "destination": {
+                "latitude": 37.41289678,
+                "longitude": 127.09383464,
+                "displayLatitude": null,
+                "displayLongitude": null,
+                "name": "42dot",
+                "address": "수정구 시흥동",
+                "poiId": "36khp37hh8gqcm5nqhe5",
+                "poiSubId": null,
+                "poiSubIdMissing": true,
+                "poiProvider": "",
+                "remainDistance": 50,
+                "remainTime": 60,
+                "tollFare": 0
+              },
+              "event": "onDestinationInfo",
+              "at": 1793891962091,
+              "session": 1
+            }
+          ]
+        }
+      },
+      "ownAppReentriesAfterAccept": 0,
+      "finalForeground": [
+        "topResumedActivity=ActivityRecord{27e5d07 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000024}",
+        "topResumedActivity=ActivityRecord{5084158 u10 ai.umos.drivingview/.DrivingViewActivity t1000020}",
+        "topResumedActivity=ActivityRecord{2b28843 u10 ai.umos.homescreen/.HomeActivity t1000018}"
+      ]
+    },
+    "B": {
+      "serial": "emulator-5572",
+      "revisionBefore": 4,
+      "revisionAfter": 5,
+      "automaticBefore": "FOLLOWER",
+      "requestRouteCount": 1,
+      "requestEvents": [
+        {
+          "at": 1793891946911,
+          "event": "requestRoute",
+          "nativeEpoch": 2,
+          "operation": 2,
+          "matched": null
+        }
+      ],
+      "destinationMatches": [
+        {
+          "at": 1793891955606,
+          "event": "destinationMatch",
+          "nativeEpoch": 3,
+          "operation": 2,
+          "matched": true
+        }
+      ],
+      "confirmedBackground": {
+        "hostEpochMs": 1793891956119,
+        "state": {
+          "at": 1793891955606,
+          "event": "sessionState",
+          "serviceEpoch": 6395520,
+          "roomEpoch": 1,
+          "revision": 5,
+          "role": "member",
+          "automatic": "FOLLOWER",
+          "applying": "CONFIRMED",
+          "connection": "CONNECTED",
+          "roomConnected": true,
+          "uiCount": 0,
+          "confirmedAtElapsed": 6499136,
+          "routingCompletedObserved": false,
+          "proposalLease": true,
+          "proposalBusy": false,
+          "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+          "proposalPublicationHeld": true,
+          "acceptedProposalId": "1700fa97f1eed9a2733c33ed",
+          "acceptedProposalVersion": 2,
+          "acceptedProposalRevision": 5,
+          "proposal": {
+            "id": "1700fa97f1eed9a2733c33ed",
+            "version": 2,
+            "status": "accepted",
+            "candidateName": "42dot",
+            "candidatePoiId": "36khp37hh8gqcm5nqhe5",
+            "proposerId": "c48a3b98dfd2b35d1778a90c",
+            "baseRevision": 4,
+            "createdAt": 1793891926741,
+            "expiresAt": 1793892046741,
+            "acceptedRevision": 5,
+            "responses": [
+              {
+                "memberId": "c48a3b98dfd2b35d1778a90c",
+                "response": "accepted"
+              },
+              {
+                "memberId": "4244a68d8d0c06a61cece188",
+                "response": "accepted"
+              }
+            ]
+          }
+        },
+        "foreground": [
+          "topResumedActivity=ActivityRecord{bffea99 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000126}",
+          "topResumedActivity=ActivityRecord{bbc6980 u10 ai.umos.drivingview/.DrivingViewActivity t1000125}",
+          "topResumedActivity=ActivityRecord{81cdd90 u10 ai.umos.homescreen/.HomeActivity t1000123}"
+        ]
+      },
+      "actualNative": {
+        "hostAt": "2026-11-05T15:19:30.983380+00:00",
+        "serial": "emulator-5572",
+        "mode": "query",
+        "seconds": 4.397155791,
+        "command": {
+          "argv": [
+            "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+            "-P",
+            "5041",
+            "-s",
+            "emulator-5572",
+            "shell",
+            "am",
+            "instrument",
+            "--user",
+            "10",
+            "-w",
+            "-r",
+            "-e",
+            "mode",
+            "query",
+            "ai.pleos.destinations.driver/.NativeDestinationDriver"
+          ],
+          "exitCode": 0
+        },
+        "productionPidBefore": "30400",
+        "productionPidAfter": "30400",
+        "productionProcessUnchanged": true,
+        "result": {
+          "sdk": "ai.pleos.playground:NaviHelper:3.0.5",
+          "mode": "query",
+          "startedAt": 1793891969162,
+          "targetPackage": "ai.pleos.destinations.driver",
+          "processId": 23843,
+          "initialDestination": {
+            "latitude": 37.41289678,
+            "longitude": 127.09383464,
+            "displayLatitude": null,
+            "displayLongitude": null,
+            "name": "42dot",
+            "address": "수정구 시흥동",
+            "poiId": "36khp37hh8gqcm5nqhe5",
+            "poiSubId": null,
+            "poiSubIdMissing": true,
+            "poiProvider": "",
+            "remainDistance": 50,
+            "remainTime": 60,
+            "tollFare": 0
+          },
+          "reason": "actual_destination_callback_received",
+          "status": "OBSERVED",
+          "finishedAt": 1793891970704,
+          "routeStartedObserved": false,
+          "routingCompletedObserved": false,
+          "events": [
+            {
+              "event": "connected",
+              "at": 1793891969672,
+              "session": 1
+            },
+            {
+              "query": 1,
+              "event": "getDestinationInfo",
+              "at": 1793891969672,
+              "session": 1
+            },
+            {
+              "query": 1,
+              "destination": {
+                "latitude": 37.41289678,
+                "longitude": 127.09383464,
+                "displayLatitude": null,
+                "displayLongitude": null,
+                "name": "42dot",
+                "address": "수정구 시흥동",
+                "poiId": "36khp37hh8gqcm5nqhe5",
+                "poiSubId": null,
+                "poiSubIdMissing": true,
+                "poiProvider": "",
+                "remainDistance": 50,
+                "remainTime": 60,
+                "tollFare": 0
+              },
+              "event": "onDestinationInfo",
+              "at": 1793891970700,
+              "session": 1
+            }
+          ]
+        }
+      },
+      "ownAppReentriesAfterAccept": 0,
+      "finalForeground": [
+        "topResumedActivity=ActivityRecord{bffea99 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000126}",
+        "topResumedActivity=ActivityRecord{bbc6980 u10 ai.umos.drivingview/.DrivingViewActivity t1000125}",
+        "topResumedActivity=ActivityRecord{81cdd90 u10 ai.umos.homescreen/.HomeActivity t1000123}"
+      ]
+    }
+  }
+}

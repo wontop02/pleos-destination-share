@@ -1,0 +1,408 @@
+{
+  "pass": true,
+  "head": "7ccf38229f68a7c980f2ff8c9506cc34508688dc",
+  "acceptedCase": "ui4-accept-result.json",
+  "observations": [
+    {
+      "vehicle": "A",
+      "phase": "confirmedForeground",
+      "primary": "순정 목적지 일치 확인 완료\n마지막 확인 시각 오전 7:19:17",
+      "state": {
+        "at": 1793892302197,
+        "event": "sessionState",
+        "serviceEpoch": 10777385,
+        "roomEpoch": 1,
+        "revision": 5,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 10890874,
+        "routingCompletedObserved": false,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": "1700fa97f1eed9a2733c33ed",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 5,
+        "proposal": {
+          "id": "1700fa97f1eed9a2733c33ed",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "42dot",
+          "candidatePoiId": "36khp37hh8gqcm5nqhe5",
+          "proposerId": "c48a3b98dfd2b35d1778a90c",
+          "baseRevision": 4,
+          "createdAt": 1793891926741,
+          "expiresAt": 1793892046741,
+          "acceptedRevision": 5,
+          "responses": [
+            {
+              "memberId": "c48a3b98dfd2b35d1778a90c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "4244a68d8d0c06a61cece188",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "vehicle": "A",
+      "phase": "afterManualAndPeriodicQuery-0",
+      "primary": "순정 목적지 일치 확인 완료\n마지막 확인 시각 오전 7:19:17",
+      "nativeLoadingTextAlsoObserved": false,
+      "state": {
+        "at": 1793892321698,
+        "event": "sessionState",
+        "serviceEpoch": 10777385,
+        "roomEpoch": 1,
+        "revision": 5,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 10890874,
+        "routingCompletedObserved": false,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": "1700fa97f1eed9a2733c33ed",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 5,
+        "proposal": {
+          "id": "1700fa97f1eed9a2733c33ed",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "42dot",
+          "candidatePoiId": "36khp37hh8gqcm5nqhe5",
+          "proposerId": "c48a3b98dfd2b35d1778a90c",
+          "baseRevision": 4,
+          "createdAt": 1793891926741,
+          "expiresAt": 1793892046741,
+          "acceptedRevision": 5,
+          "responses": [
+            {
+              "memberId": "c48a3b98dfd2b35d1778a90c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "4244a68d8d0c06a61cece188",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "vehicle": "A",
+      "phase": "afterManualAndPeriodicQuery-1",
+      "primary": "순정 목적지 일치 확인 완료\n마지막 확인 시각 오전 7:19:17",
+      "nativeLoadingTextAlsoObserved": false,
+      "state": {
+        "at": 1793892321698,
+        "event": "sessionState",
+        "serviceEpoch": 10777385,
+        "roomEpoch": 1,
+        "revision": 5,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 10890874,
+        "routingCompletedObserved": false,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": "1700fa97f1eed9a2733c33ed",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 5,
+        "proposal": {
+          "id": "1700fa97f1eed9a2733c33ed",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "42dot",
+          "candidatePoiId": "36khp37hh8gqcm5nqhe5",
+          "proposerId": "c48a3b98dfd2b35d1778a90c",
+          "baseRevision": 4,
+          "createdAt": 1793891926741,
+          "expiresAt": 1793892046741,
+          "acceptedRevision": 5,
+          "responses": [
+            {
+              "memberId": "c48a3b98dfd2b35d1778a90c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "4244a68d8d0c06a61cece188",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "vehicle": "A",
+      "phase": "afterManualAndPeriodicQuery-2",
+      "primary": "순정 목적지 일치 확인 완료\n마지막 확인 시각 오전 7:19:17",
+      "nativeLoadingTextAlsoObserved": false,
+      "state": {
+        "at": 1793892321698,
+        "event": "sessionState",
+        "serviceEpoch": 10777385,
+        "roomEpoch": 1,
+        "revision": 5,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 10890874,
+        "routingCompletedObserved": false,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": "1700fa97f1eed9a2733c33ed",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 5,
+        "proposal": {
+          "id": "1700fa97f1eed9a2733c33ed",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "42dot",
+          "candidatePoiId": "36khp37hh8gqcm5nqhe5",
+          "proposerId": "c48a3b98dfd2b35d1778a90c",
+          "baseRevision": 4,
+          "createdAt": 1793891926741,
+          "expiresAt": 1793892046741,
+          "acceptedRevision": 5,
+          "responses": [
+            {
+              "memberId": "c48a3b98dfd2b35d1778a90c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "4244a68d8d0c06a61cece188",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "vehicle": "B",
+      "phase": "confirmedForeground",
+      "primary": "순정 목적지 일치 확인 완료\n마지막 확인 시각 오전 12:19:15",
+      "state": {
+        "at": 1793892336565,
+        "event": "activityStartAttach",
+        "serviceEpoch": 6395520,
+        "roomEpoch": 1,
+        "revision": 5,
+        "role": "member",
+        "automatic": "FOLLOWER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 6499136,
+        "routingCompletedObserved": false,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": "1700fa97f1eed9a2733c33ed",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 5,
+        "proposal": {
+          "id": "1700fa97f1eed9a2733c33ed",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "42dot",
+          "candidatePoiId": "36khp37hh8gqcm5nqhe5",
+          "proposerId": "c48a3b98dfd2b35d1778a90c",
+          "baseRevision": 4,
+          "createdAt": 1793891926741,
+          "expiresAt": 1793892046741,
+          "acceptedRevision": 5,
+          "responses": [
+            {
+              "memberId": "c48a3b98dfd2b35d1778a90c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "4244a68d8d0c06a61cece188",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "vehicle": "B",
+      "phase": "afterManualAndPeriodicQuery-0",
+      "primary": "순정 목적지 일치 확인 완료\n마지막 확인 시각 오전 12:19:15",
+      "nativeLoadingTextAlsoObserved": false,
+      "state": {
+        "at": 1793892350376,
+        "event": "sessionState",
+        "serviceEpoch": 6395520,
+        "roomEpoch": 1,
+        "revision": 5,
+        "role": "member",
+        "automatic": "FOLLOWER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 6499136,
+        "routingCompletedObserved": false,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": "1700fa97f1eed9a2733c33ed",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 5,
+        "proposal": {
+          "id": "1700fa97f1eed9a2733c33ed",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "42dot",
+          "candidatePoiId": "36khp37hh8gqcm5nqhe5",
+          "proposerId": "c48a3b98dfd2b35d1778a90c",
+          "baseRevision": 4,
+          "createdAt": 1793891926741,
+          "expiresAt": 1793892046741,
+          "acceptedRevision": 5,
+          "responses": [
+            {
+              "memberId": "c48a3b98dfd2b35d1778a90c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "4244a68d8d0c06a61cece188",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "vehicle": "B",
+      "phase": "afterManualAndPeriodicQuery-1",
+      "primary": "순정 목적지 일치 확인 완료\n마지막 확인 시각 오전 12:19:15",
+      "nativeLoadingTextAlsoObserved": false,
+      "state": {
+        "at": 1793892350376,
+        "event": "sessionState",
+        "serviceEpoch": 6395520,
+        "roomEpoch": 1,
+        "revision": 5,
+        "role": "member",
+        "automatic": "FOLLOWER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 6499136,
+        "routingCompletedObserved": false,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": "1700fa97f1eed9a2733c33ed",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 5,
+        "proposal": {
+          "id": "1700fa97f1eed9a2733c33ed",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "42dot",
+          "candidatePoiId": "36khp37hh8gqcm5nqhe5",
+          "proposerId": "c48a3b98dfd2b35d1778a90c",
+          "baseRevision": 4,
+          "createdAt": 1793891926741,
+          "expiresAt": 1793892046741,
+          "acceptedRevision": 5,
+          "responses": [
+            {
+              "memberId": "c48a3b98dfd2b35d1778a90c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "4244a68d8d0c06a61cece188",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "vehicle": "B",
+      "phase": "afterManualAndPeriodicQuery-2",
+      "primary": "순정 목적지 일치 확인 완료\n마지막 확인 시각 오전 12:19:15",
+      "nativeLoadingTextAlsoObserved": false,
+      "state": {
+        "at": 1793892350376,
+        "event": "sessionState",
+        "serviceEpoch": 6395520,
+        "roomEpoch": 1,
+        "revision": 5,
+        "role": "member",
+        "automatic": "FOLLOWER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 6499136,
+        "routingCompletedObserved": false,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": "1700fa97f1eed9a2733c33ed",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 5,
+        "proposal": {
+          "id": "1700fa97f1eed9a2733c33ed",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "42dot",
+          "candidatePoiId": "36khp37hh8gqcm5nqhe5",
+          "proposerId": "c48a3b98dfd2b35d1778a90c",
+          "baseRevision": 4,
+          "createdAt": 1793891926741,
+          "expiresAt": 1793892046741,
+          "acceptedRevision": 5,
+          "responses": [
+            {
+              "memberId": "c48a3b98dfd2b35d1778a90c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "4244a68d8d0c06a61cece188",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "completedCardPersistsAfterManualAndPeriodicQueries": true,
+  "initialHostAttempt": "verify-ui-command.log",
+  "scriptSha256": "34a3434fbc76f3a9f9431eec94ec38947d3f176e9496075eeb2df9d9ea616b63"
+}

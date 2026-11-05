@@ -1,0 +1,55 @@
+{
+  "pass": true,
+  "head": "7ccf38229f68a7c980f2ff8c9506cc34508688dc",
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/vehicle-proposals-20261105/root/freeze4-ui/enable-automatic.py",
+        "final4"
+      ],
+      "exitCode": 0,
+      "log": "enable-automatic-command.log"
+    },
+    {
+      "argv": [
+        "python3",
+        "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/vehicle-proposals-20261105/root/freeze4-ui/accept-case.py",
+        "ui4-accept",
+        "A",
+        "42dot"
+      ],
+      "exitCode": 0,
+      "log": "accept-case-command.log"
+    },
+    {
+      "argv": [
+        "python3",
+        "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/vehicle-proposals-20261105/root/freeze4-ui/verify-ui.py"
+      ],
+      "exitCode": 1,
+      "log": "verify-ui-command.log"
+    },
+    {
+      "argv": [
+        "python3",
+        "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/vehicle-proposals-20261105/root/freeze4-ui/verify-ui-retry.py"
+      ],
+      "exitCode": 0,
+      "log": "verify-ui-retry-command.log",
+      "supersedes": "verify-ui.py host foreground/newline comparison attempt",
+      "scriptSha256": "34a3434fbc76f3a9f9431eec94ec38947d3f176e9496075eeb2df9d9ea616b63"
+    }
+  ],
+  "reusedF3RuntimeHead": "7c8e616d6c274f0aad0b0048cc2a30af52223788",
+  "unchangedProductInputs": 59,
+  "initialHostAttemptFailurePreserved": true,
+  "collector": {
+    "finishedAt": "2026-11-05T15:27:48.319358+00:00",
+    "readErrors": 0,
+    "sourceGenerations": {
+      "emulator-5570": 0,
+      "emulator-5572": 1
+    }
+  }
+}

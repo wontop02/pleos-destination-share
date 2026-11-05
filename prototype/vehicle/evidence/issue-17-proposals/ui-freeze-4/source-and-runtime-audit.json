@@ -1,0 +1,14 @@
+{
+  "head": "7ccf38229f68a7c980f2ff8c9506cc34508688dc",
+  "reusedBehaviorHead": "7c8e616d6c274f0aad0b0048cc2a30af52223788",
+  "changedInputs": [
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt"
+  ],
+  "unchangedInputs": 59,
+  "requestCountThroughUiRefresh": {
+    "A": 1,
+    "B": 1
+  },
+  "falseCompletionOnColdHistoricalSnapshot": false,
+  "completedPrimaryPersistsAfterRefresh": true
+}
