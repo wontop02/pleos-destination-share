@@ -1,0 +1,62 @@
+{
+  "base": "875c353f9918981571908bda7e47b800ceff7897",
+  "head": "7c8e616d6c274f0aad0b0048cc2a30af52223788",
+  "serverSha256": "68262b644a2ff22d753fb6ebedf05ec6c9064e66b863d4d5419e09940ca45929",
+  "serverPid": 25798,
+  "port": 4186,
+  "installed": [
+    {
+      "serial": "emulator-5570",
+      "user": 10,
+      "package": "ai.pleos.destinations.vehicle",
+      "file": "app-debug.apk",
+      "inputSha256": "f4316376ea901a00fb8f147797c6ba5e8bb74f22e0882d821266c126a1fef9c3",
+      "installedBaseSha256": "f4316376ea901a00fb8f147797c6ba5e8bb74f22e0882d821266c126a1fef9c3"
+    },
+    {
+      "serial": "emulator-5570",
+      "user": 10,
+      "package": "ai.pleos.destinations.driver",
+      "file": "nativeDriver-debug.apk",
+      "inputSha256": "8e534886360623b27aede4c49f8fdc1c33b8d89bd2e0b6d2b4949fa59e397ea9",
+      "installedBaseSha256": "8e534886360623b27aede4c49f8fdc1c33b8d89bd2e0b6d2b4949fa59e397ea9"
+    },
+    {
+      "serial": "emulator-5572",
+      "user": 10,
+      "package": "ai.pleos.destinations.vehicle",
+      "file": "app-debug.apk",
+      "inputSha256": "f4316376ea901a00fb8f147797c6ba5e8bb74f22e0882d821266c126a1fef9c3",
+      "installedBaseSha256": "f4316376ea901a00fb8f147797c6ba5e8bb74f22e0882d821266c126a1fef9c3"
+    },
+    {
+      "serial": "emulator-5572",
+      "user": 10,
+      "package": "ai.pleos.destinations.driver",
+      "file": "nativeDriver-debug.apk",
+      "inputSha256": "8e534886360623b27aede4c49f8fdc1c33b8d89bd2e0b6d2b4949fa59e397ea9",
+      "installedBaseSha256": "8e534886360623b27aede4c49f8fdc1c33b8d89bd2e0b6d2b4949fa59e397ea9"
+    }
+  ],
+  "sourceInputsVerified": 60,
+  "casesPassed": [
+    "final3-reject",
+    "final3-expire",
+    "final3-accept-off",
+    "final3-reverse-off",
+    "final3-accept-auto",
+    "final3-stop-reconnect"
+  ],
+  "caseCount": 6,
+  "runtimeTraceRows": 405,
+  "claims": {
+    "twoApprovedVirtualVehiclesOnly": true,
+    "eachAcceptedRequestCount": 1,
+    "eachNegativeRequestCount": 0,
+    "ownAppReentryAfterAccept": 0,
+    "strictActualDestinationConfirmed": true,
+    "mapRenderingFixed": false,
+    "routingCompletedClaimed": false,
+    "physicalVehicleClaimed": false
+  }
+}

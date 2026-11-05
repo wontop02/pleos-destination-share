@@ -1,0 +1,198 @@
+[
+  {
+    "argv": [
+      "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+      "-P",
+      "5041",
+      "-s",
+      "emulator-5570",
+      "shell",
+      "am",
+      "get-current-user"
+    ],
+    "exitCode": 0,
+    "stdout": "10",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+      "-P",
+      "5041",
+      "-s",
+      "emulator-5570",
+      "install",
+      "--user",
+      "10",
+      "-r",
+      "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/vehicle-proposals-20261105/builder/freeze-4/app-debug.apk"
+    ],
+    "exitCode": 0,
+    "stdout": "Performing Streamed Install\nSuccess",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+      "-P",
+      "5041",
+      "-s",
+      "emulator-5570",
+      "shell",
+      "pm",
+      "path",
+      "--user",
+      "10",
+      "ai.pleos.destinations.vehicle"
+    ],
+    "exitCode": 0,
+    "stdout": "package:/data/app/~~13jylS0phI3NvH1YJ5O_KA==/ai.pleos.destinations.vehicle-wdVKhNexULsVRZIhYl_KFA==/base.apk",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+      "-P",
+      "5041",
+      "-s",
+      "emulator-5570",
+      "shell",
+      "sha256sum",
+      "/data/app/~~13jylS0phI3NvH1YJ5O_KA==/ai.pleos.destinations.vehicle-wdVKhNexULsVRZIhYl_KFA==/base.apk"
+    ],
+    "exitCode": 0,
+    "stdout": "e855437d1c7a44eb5612d56e564d44da3c16b95cd92f5ff7284e34c62e1e4db9  /data/app/~~13jylS0phI3NvH1YJ5O_KA==/ai.pleos.destinations.vehicle-wdVKhNexULsVRZIhYl_KFA==/base.apk",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+      "-P",
+      "5041",
+      "-s",
+      "emulator-5570",
+      "shell",
+      "pm",
+      "path",
+      "--user",
+      "10",
+      "ai.pleos.destinations.driver"
+    ],
+    "exitCode": 0,
+    "stdout": "package:/data/app/~~xFhFLotXEDIC0qBamj8ppg==/ai.pleos.destinations.driver-qp10Xv893tNG-Bi3bGIi6A==/base.apk",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+      "-P",
+      "5041",
+      "-s",
+      "emulator-5570",
+      "shell",
+      "sha256sum",
+      "/data/app/~~xFhFLotXEDIC0qBamj8ppg==/ai.pleos.destinations.driver-qp10Xv893tNG-Bi3bGIi6A==/base.apk"
+    ],
+    "exitCode": 0,
+    "stdout": "8e534886360623b27aede4c49f8fdc1c33b8d89bd2e0b6d2b4949fa59e397ea9  /data/app/~~xFhFLotXEDIC0qBamj8ppg==/ai.pleos.destinations.driver-qp10Xv893tNG-Bi3bGIi6A==/base.apk",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+      "-P",
+      "5041",
+      "-s",
+      "emulator-5572",
+      "shell",
+      "am",
+      "get-current-user"
+    ],
+    "exitCode": 0,
+    "stdout": "10",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+      "-P",
+      "5041",
+      "-s",
+      "emulator-5572",
+      "install",
+      "--user",
+      "10",
+      "-r",
+      "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/vehicle-proposals-20261105/builder/freeze-4/app-debug.apk"
+    ],
+    "exitCode": 0,
+    "stdout": "Performing Streamed Install\nSuccess",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+      "-P",
+      "5041",
+      "-s",
+      "emulator-5572",
+      "shell",
+      "pm",
+      "path",
+      "--user",
+      "10",
+      "ai.pleos.destinations.vehicle"
+    ],
+    "exitCode": 0,
+    "stdout": "package:/data/app/~~qLnnKbSmS7m7cBd9RaA_2A==/ai.pleos.destinations.vehicle-OFoE4muJEgzkSnI4MVyO3A==/base.apk",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+      "-P",
+      "5041",
+      "-s",
+      "emulator-5572",
+      "shell",
+      "sha256sum",
+      "/data/app/~~qLnnKbSmS7m7cBd9RaA_2A==/ai.pleos.destinations.vehicle-OFoE4muJEgzkSnI4MVyO3A==/base.apk"
+    ],
+    "exitCode": 0,
+    "stdout": "e855437d1c7a44eb5612d56e564d44da3c16b95cd92f5ff7284e34c62e1e4db9  /data/app/~~qLnnKbSmS7m7cBd9RaA_2A==/ai.pleos.destinations.vehicle-OFoE4muJEgzkSnI4MVyO3A==/base.apk",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+      "-P",
+      "5041",
+      "-s",
+      "emulator-5572",
+      "shell",
+      "pm",
+      "path",
+      "--user",
+      "10",
+      "ai.pleos.destinations.driver"
+    ],
+    "exitCode": 0,
+    "stdout": "package:/data/app/~~qAyqzduns18kpHalurLuIQ==/ai.pleos.destinations.driver-ve0dCKMmCUQAXSm5h6WRJQ==/base.apk",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+      "-P",
+      "5041",
+      "-s",
+      "emulator-5572",
+      "shell",
+      "sha256sum",
+      "/data/app/~~qAyqzduns18kpHalurLuIQ==/ai.pleos.destinations.driver-ve0dCKMmCUQAXSm5h6WRJQ==/base.apk"
+    ],
+    "exitCode": 0,
+    "stdout": "8e534886360623b27aede4c49f8fdc1c33b8d89bd2e0b6d2b4949fa59e397ea9  /data/app/~~qAyqzduns18kpHalurLuIQ==/ai.pleos.destinations.driver-ve0dCKMmCUQAXSm5h6WRJQ==/base.apk",
+    "stderr": ""
+  }
+]

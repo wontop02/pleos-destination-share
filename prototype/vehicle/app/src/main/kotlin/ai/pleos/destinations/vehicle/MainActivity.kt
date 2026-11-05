@@ -68,6 +68,18 @@ class MainActivity : Activity() {
     private lateinit var reconnectRoomButton: Button
     private lateinit var createButton: Button
     private lateinit var joinButton: Button
+    private lateinit var proposalText: TextView
+    private lateinit var proposalStatus: TextView
+    private lateinit var placeButton: Button
+    private lateinit var reasonInput: EditText
+    private lateinit var proposeButton: Button
+    private lateinit var acceptButton: Button
+    private lateinit var rejectButton: Button
+    private lateinit var retryProposalButton: Button
+    private lateinit var resetProposalButton: Button
+    private var selectedPlace = 0
+    private var displayedProposal: DestinationProposal? = null
+    private var afterNotificationPermission: (() -> Unit)? = null
 
     override fun onCreate(savedInstanceState: Bundle?) { super.onCreate(savedInstanceState); buildScreen(); render(VehicleState()) }
     override fun onStart() {
@@ -85,11 +97,23 @@ class MainActivity : Activity() {
             requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 14)
         } else service?.requestAutomaticFromUi()
     }
+    private fun proposalAction(action: (VehicleSession) -> Unit) {
+        val start = { service?.requestProposalFromUi(action); Unit }
+        if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            afterNotificationPermission = start
+            requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 17)
+        } else start()
+    }
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 14) {
             if (grantResults.firstOrNull() == PackageManager.PERMISSION_GRANTED) service?.requestAutomaticFromUi()
             else messageText.text = "진행 상태와 중지를 표시하려면 알림을 허용한 뒤 자동 동행을 시작해 주세요."
+        }
+        if (requestCode == 17) {
+            val action = afterNotificationPermission; afterNotificationPermission = null
+            if (grantResults.firstOrNull() == PackageManager.PERMISSION_GRANTED) action?.invoke()
+            else proposalStatus.text = "제안 진행과 중지를 표시하려면 알림을 허용한 뒤 다시 선택해 주세요."
         }
     }
     private fun submit(join: Boolean) {
@@ -137,7 +161,36 @@ class MainActivity : Activity() {
         }
         autoStartButton.text = if (credentials?.role == "host") "동행 시작 · 자동 공유" else "자동 따르기 시작"
         autoStartButton.isEnabled = credentials != null && !busy && !leaving && state.automatic == AutomaticMode.OFF
-        autoStopButton.isEnabled = state.automatic != AutomaticMode.OFF || service?.session?.pendingAutomatic == true
+        autoStopButton.isEnabled = state.automatic != AutomaticMode.OFF || service?.session?.pendingAutomatic == true || service?.session?.hasProposalLease == true
+        val session = service?.session
+        val p = session?.proposal; displayedProposal = p
+        val accepted = session?.acceptedProposal
+        proposalText.text = p?.let { value ->
+            "후보 ${value.destination.name}\n이유 ${value.reason}\n제안자 ${value.proposer.name}\n" +
+                value.responses.joinToString(" · ") { vote -> "${vote.member.name}: ${when (vote.response) { "accepted" -> "수락"; "rejected" -> "거절"; else -> "대기" }}" } +
+                "\n제안 버전 ${value.version} · 최대 120초 응답"
+        } ?: "진행 중인 제안 없음 · 현재 순정 안내 유지"
+        if (accepted != null && accepted.id != p?.id) proposalText.append("\n수락한 공유 목적지 ${accepted.destination.name} · 공유 버전 ${accepted.acceptedRevision}")
+        val lastConfirmedAt = state.confirmedAt
+        proposalStatus.text = if (p != null && accepted != null && p.status == "accepted" && p.id == accepted.id &&
+            accepted.acceptedRevision == state.revision && accepted.destination == state.shared && state.roomConnected &&
+            state.applying == ApplyPhase.CONFIRMED && lastConfirmedAt != null) {
+            "순정 목적지 일치 확인 완료\n마지막 확인 시각 ${time(lastConfirmedAt)}"
+        } else {
+            (session?.proposalMessage ?: "공유방 연결 후 제안할 수 있습니다.") +
+                if (accepted?.acceptedRevision == state.revision && p?.status != "pending") "\n${state.message}" else ""
+        }
+        proposeButton.isEnabled = session?.canPropose == true
+        placeButton.isEnabled = session?.proposalBusy != true
+        reasonInput.isEnabled = session?.proposalBusy != true
+        val responseEnabled = p != null && session.canRespond(p.id, p.version)
+        acceptButton.isEnabled = responseEnabled; rejectButton.isEnabled = responseEnabled
+        acceptButton.visibility = if (p?.status == "pending") View.VISIBLE else View.GONE
+        rejectButton.visibility = acceptButton.visibility
+        retryProposalButton.visibility = if (accepted?.acceptedRevision == state.revision && p?.status != "pending") View.VISIBLE else View.GONE
+        retryProposalButton.isEnabled = state.roomConnected && session?.hasProposalLease == false && !busy && !leaving
+        resetProposalButton.visibility = if (state.host && session?.coordinator?.proposalPublicationHeld == true && p?.status != "pending") View.VISIBLE else View.GONE
+        resetProposalButton.isEnabled = session?.hasProposalLease == false
         val manual = state.automatic == AutomaticMode.OFF
         val applying = state.applying in listOf(ApplyPhase.CONNECTING, ApplyPhase.REQUESTED, ApplyPhase.ROUTING, ApplyPhase.VERIFYING)
         connectButton.isEnabled = service != null && state.connection != NativeConnection.CONNECTING && !applying
@@ -199,11 +252,37 @@ class MainActivity : Activity() {
         scroll.addView(root)
         root.addView(text("동행 목적지", true))
         root.addView(text("정차 또는 동승자 조작용 · 자동 동행은 명시적으로 시작합니다."))
+        card(root, "목적지 변경 제안").apply {
+            addView(text("전원 수락 뒤 양쪽 순정 내비에 반영합니다. 대기·거절·만료 동안 현재 안내를 유지합니다."))
+            proposalText = text(""); addView(proposalText)
+            proposalStatus = text(""); proposalStatus.accessibilityLiveRegion = View.ACCESSIBILITY_LIVE_REGION_POLITE; addView(proposalStatus)
+            placeButton = button("프로토타입 공개 장소 · ${PrototypePlaces.all[selectedPlace].name}") {
+                AlertDialog.Builder(this@MainActivity).setTitle("프로토타입 공개 장소 · 일반 검색 아님")
+                    .setSingleChoiceItems(PrototypePlaces.all.map { it.name }.toTypedArray(), selectedPlace) { dialog, index ->
+                        selectedPlace = index; placeButton.text = "프로토타입 공개 장소 · ${PrototypePlaces.all[index].name}"; dialog.dismiss()
+                    }.setNegativeButton("닫기", null).show()
+            }
+            reasonInput = field("제안 이유 · 최대 200자", "동행 목적지를 함께 변경해요.")
+            reasonInput.filters = arrayOf(android.text.InputFilter.LengthFilter(200))
+            proposeButton = button("이 장소로 변경 제안") {
+                val target = PrototypePlaces.all[selectedPlace]; val reason = reasonInput.text.toString().trim()
+                proposalAction { it.propose(target, reason) }
+            }
+            acceptButton = button("제안 수락 · 전원 동의 시 반영") {
+                displayedProposal?.let { p -> proposalAction { it.respond(p.id, p.version, true) } }
+            }
+            rejectButton = button("제안 거절 · 현재 안내 유지") {
+                displayedProposal?.let { p -> proposalAction { it.respond(p.id, p.version, false) } }
+            }
+            retryProposalButton = button("수락한 목적지 다시 적용") { proposalAction { it.retryAcceptedProposal() } }
+            addView(text("수락한 목적지 반영 실패 시 직접 다시 적용할 수 있습니다. 자동 공유를 다시 시작하면 이후 대표의 순정 목적지 변경을 다시 공유합니다."))
+            resetProposalButton = button("자동 공유 다시 시작") { service?.manual { it.resetProposalProtection() } }
+        }
         card(root, "자동 동행").apply {
             autoText = text(""); autoText.accessibilityLiveRegion = View.ACCESSIBILITY_LIVE_REGION_POLITE; addView(autoText)
             addView(text("대표는 순정 목적지 변경을 자동 공유합니다. 참여자는 최신 목적지와 이후 변경의 자동 적용에 동의합니다. 내비 화면에서도 진행 알림으로 확인·중지할 수 있습니다."))
             autoStartButton = button("동행 시작") { automaticStart() }
-            autoStopButton = button("자동 동행 중지") { service?.stopAutomatic() }
+            autoStopButton = button("동행·제안 중지") { service?.stopAutomatic() }
         }
         card(root, "현재 순정 내비").apply {
             nativeText = text(""); addView(nativeText)

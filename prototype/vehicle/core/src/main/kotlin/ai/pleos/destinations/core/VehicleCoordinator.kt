@@ -55,6 +55,10 @@ class VehicleCoordinator(
     private var reconnectPending: PendingRouteConfirmation? = null
     private var observedForPublish: Destination? = null
     private var hasObservedForPublish = false
+    private var pendingProposalHeld = false
+    val proposalPublicationHeld: Boolean get() = pendingProposalHeld || proposalRevision >= 0
+    private var proposalRevision = -1L
+    private var acceptedAutomaticRevision = -1L
     private enum class Purpose { OBSERVE, SHARE, VERIFY }
     private data class Read(val id: Long, val purpose: Purpose, val room: Long, val deadline: Long, var dirty: Boolean = false)
     private data class Operation(val id: Long, val room: Long, val revision: Long, val target: Destination,
@@ -69,10 +73,60 @@ class VehicleCoordinator(
         gateway.release()
     }
 
+    /** Called before processing a pending/accepted room frame, including the initial snapshot. */
+    fun protectProposal(acceptedRevision: Long? = null) {
+        if (acceptedRevision == null) pendingProposalHeld = true else pendingProposalHeld = false
+        hasObservedForPublish = false
+        // The HTTP request may already exist, but it cannot keep a new explicit apply blocked.
+        // Its revision CAS and the session's publication generation fence its eventual result.
+        if (state.sharing) update(state.copy(sharing = false))
+        if (acceptedRevision != null) {
+            proposalRevision = acceptedRevision
+            rememberAcceptedRevision(acceptedRevision)
+        }
+        trace("proposalPublicationHeld")
+    }
+
+    /** Success window ended or the user explicitly reset protection; take a fresh native read. */
+    fun releaseProposalProtection() {
+        pendingProposalHeld = false; proposalRevision = -1
+        hasObservedForPublish = false; autoObserveAt = clock()
+        trace("proposalPublicationReleased")
+    }
+
+    /** A later unsuccessful candidate cannot release an earlier accepted target's protection. */
+    fun releasePendingProposalProtection() {
+        pendingProposalHeld = false
+        hasObservedForPublish = false; autoObserveAt = clock()
+        trace("pendingProposalReleased")
+    }
+
+    /** Complete only this successful accepted operation; a newer pending hold stays active. */
+    fun completeAcceptedProposalProtection(revision: Long) {
+        if (proposalRevision != revision) return
+        proposalRevision = -1
+        hasObservedForPublish = false; autoObserveAt = clock()
+        trace("acceptedProposalReleased")
+    }
+
+    /** Historical accepted state is never new generic follower consent, even after stop/reconnect. */
+    fun rememberAcceptedRevision(revision: Long) {
+        require(revision >= 0)
+        acceptedAutomaticRevision = revision
+        autoAttemptedRevision = revision
+    }
+
+    /** The session calls this only when discarding the room/member identity, not on suspension. */
+    fun forgetRoomProposalHistory() {
+        acceptedAutomaticRevision = -1
+        autoAttemptedRevision = -1
+        releaseProposalProtection()
+    }
+
     /** Consent is volatile and role-bound; persistence/UI attachment cannot call this implicitly. */
     fun startAutomatic(): Boolean {
         if (disposed || !state.roomConnected || state.automatic != AutomaticMode.OFF) return false
-        autoAttemptedRevision = -1
+        autoAttemptedRevision = if (acceptedAutomaticRevision == state.revision) acceptedAutomaticRevision else -1
         hasObservedForPublish = false
         update(state.copy(automatic = if (state.host) AutomaticMode.LEADER else AutomaticMode.FOLLOWER,
             message = if (state.host) "동행 시작 · 순정 목적지 자동 공유 중" else "자동 따르기 시작 · 최신 목적지를 자동 적용합니다."))
@@ -168,12 +222,13 @@ class VehicleCoordinator(
 
     fun attachRoom(host: Boolean, revision: Long, destination: Destination?, keepAutomatic: Boolean = false): Long {
         require(revision >= 0)
+        if (proposalRevision >= 0 && revision > proposalRevision) completeAcceptedProposalProtection(proposalRevision)
         if (!keepAutomatic && state.automatic != AutomaticMode.OFF) stopAutomatic()
         roomEpoch += 1
         invalidateApply("공유방 변경으로 이전 확인을 중지했습니다.")
         lastConfirmedRevision = -1
         update(state.copy(roomConnected = true, host = host, revision = revision, shared = destination, sharing = false))
-        if (keepAutomatic && state.automatic != AutomaticMode.OFF) {
+        if (keepAutomatic) {
             val pending = reconnectPending; reconnectPending = null
             if (pending != null && pending.revision == revision && pending.target == destination) resumeConfirmation(pending)
             autoDue = clock() + 300; autoObserveAt = clock()
@@ -189,8 +244,8 @@ class VehicleCoordinator(
         update(state.copy(roomConnected = false, host = false, shared = null, revision = -1, sharing = false))
     }
 
-    fun suspendRoom() {
-        reconnectPending = if (state.automatic == AutomaticMode.FOLLOWER) confirmationSnapshot() else null
+    fun suspendRoom(preserveConfirmation: Boolean = false) {
+        reconnectPending = if (preserveConfirmation || state.automatic == AutomaticMode.FOLLOWER) confirmationSnapshot() else null
         roomEpoch += 1
         invalidateApply("공유방 재연결 중 · 이전 적용 확인을 중지했습니다.")
         update(state.copy(roomConnected = false, sharing = false, message = "공유방 재연결 중 · 마지막 받은 목적지"))
@@ -198,6 +253,7 @@ class VehicleCoordinator(
 
     fun receive(epoch: Long, revision: Long, destination: Destination?) {
         if (!state.roomConnected || epoch != roomEpoch || revision <= state.revision) return
+        if (proposalRevision >= 0 && revision > proposalRevision) completeAcceptedProposalProtection(proposalRevision)
         val unchanged = destination == state.shared
         if (unchanged && state.automatic == AutomaticMode.FOLLOWER) {
             operation = operation?.copy(revision = revision)
@@ -238,18 +294,21 @@ class VehicleCoordinator(
         if (state.connection != NativeConnection.CONNECTED) {
             update(state.copy(message = "순정 내비 연결 후 현재 목적지를 조회해 공유해 주세요.")); return
         }
+        releaseProposalProtection() // Explicit direct sharing replaces the agreed target.
         update(state.copy(sharing = true))
         beginRead(Purpose.SHARE)
     }
 
     fun clearShared() {
         if (!state.roomConnected || !state.host || state.sharing || operation != null || read != null || state.shared == null) return
+        releaseProposalProtection()
         update(state.copy(sharing = true, message = "공유 목적지 지우는 중 · 순정 안내는 유지됩니다."))
         publish(roomEpoch, null)
     }
 
     fun shareFinished(epoch: Long, revision: Long, destination: Destination?, success: Boolean) {
         if (!state.roomConnected || epoch != roomEpoch) return
+        if (proposalPublicationHeld && (!success || revision <= state.revision)) return
         if (success) receive(epoch, revision, destination)
         update(state.copy(sharing = false, message = if (success) "공유방 서버 저장 완료 · 참여 차량에 전달됨" else "공유 실패 · 순정 내비는 변경하지 않았습니다."))
         trace(if (success) "shareStored" else "shareFailed")
@@ -267,6 +326,7 @@ class VehicleCoordinator(
             update(state.copy(message = "이 공유 목적지는 이미 일치를 확인했습니다. 다시 요청하지 않았습니다.")); return
         }
         operation = Operation(++nextId, roomEpoch, state.revision, target, clock() + 45_000)
+        if (state.automatic == AutomaticMode.FOLLOWER) autoAttemptedRevision = state.revision
         lastConfirmation = null
         update(state.copy(applying = ApplyPhase.CONNECTING, confirmedAt = null))
         startSession() // A new listener cannot accept queued callbacks from the previous session.
@@ -303,6 +363,13 @@ class VehicleCoordinator(
 
     private fun onChange() {
         trace("onDestinationChanged")
+        if (operation == null && proposalRevision == state.revision) {
+            recentConfirmation()?.let { pending ->
+                lastConfirmation = null; lastConfirmedRevision = -1
+                resumeConfirmation(pending)
+                return
+            }
+        }
         if (state.automatic == AutomaticMode.LEADER && operation == null) {
             if (read != null) read!!.dirty = true
             autoObserveAt = clock() + 300
@@ -357,6 +424,9 @@ class VehicleCoordinator(
         when (pendingRead.purpose) {
             Purpose.SHARE -> {
                 if (pendingRead.room != roomEpoch || !state.roomConnected || !state.host) return
+                if (proposalPublicationHeld) {
+                    update(state.copy(sharing = false, message = "제안 진행 중 · 이전 목적지 공유 보류")); return
+                }
                 if (destination == state.shared) {
                     update(state.copy(sharing = false, message = "같은 목적지가 이미 공유되어 있습니다. 다시 전송하지 않았습니다."))
                 } else {
@@ -395,7 +465,7 @@ class VehicleCoordinator(
 
     private fun publishObserved() {
         if (state.automatic != AutomaticMode.LEADER || !state.host || !state.roomConnected ||
-            state.sharing || !hasObservedForPublish || observedForPublish == state.shared) return
+            proposalPublicationHeld || state.sharing || !hasObservedForPublish || observedForPublish == state.shared) return
         update(state.copy(sharing = true, message = "실제 순정 목적지 변경 자동 공유 중"))
         trace("automaticPublish")
         publish(roomEpoch, observedForPublish)
@@ -491,7 +561,7 @@ class VehicleCoordinator(
                 autoObserveAt = clock() + 15_000; beginRead(Purpose.OBSERVE); return
             }
             if (state.automatic == AutomaticMode.FOLLOWER && clock() >= autoDue && state.shared != null &&
-                autoAttemptedRevision != state.revision) {
+                state.revision != acceptedAutomaticRevision && autoAttemptedRevision != state.revision) {
                 autoDue = Long.MAX_VALUE; autoAttemptedRevision = state.revision
                 trace("automaticApply")
                 applyShared()

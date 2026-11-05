@@ -1,0 +1,162 @@
+{
+  "freeze": "freeze-4",
+  "createdAt": "2026-11-05T15:13:19.563643+00:00",
+  "base": "875c353f9918981571908bda7e47b800ceff7897",
+  "head": "7ccf38229f68a7c980f2ff8c9506cc34508688dc",
+  "previousFreezeHead": "7c8e616d6c274f0aad0b0048cc2a30af52223788",
+  "noProductionEditsAfterFreeze": true,
+  "files": {
+    "apk-entry-delta-from-freeze-3.json": {
+      "sha256": "f3ea192cd602376416254d814f92aff3b706e9cad8fcf1d66ee24d3f8b9fc787",
+      "bytes": 73
+    },
+    "apk-inspection-commands.json": {
+      "sha256": "3ed5a2f8551930c1a059406eed96027eaf5970fbdf6b1a763d84590fcd34aa2a",
+      "bytes": 4493
+    },
+    "app-TEST-ai.pleos.destinations.vehicle.NaviDestinationNormalizerTest.xml": {
+      "sha256": "e10d63cecfe42afdbd4b78c9c82d834bd145f99fa4ec4532ff01240f2bcd4e23",
+      "bytes": 1322
+    },
+    "app-TEST-ai.pleos.destinations.vehicle.PendingConfirmationCacheTest.xml": {
+      "sha256": "a0f048d85bfd286bc62a99a7ff38ad2e527a67a1f1a9f3bf9b192517f3e2f098",
+      "bytes": 836
+    },
+    "app-TEST-ai.pleos.destinations.vehicle.RoomHttpClientTest.xml": {
+      "sha256": "9711042697710285926acef153f7d2f74a24dd087796a3ce5e3de23a97aba3fd",
+      "bytes": 839
+    },
+    "app-TEST-ai.pleos.destinations.vehicle.RoomProtocolTest.xml": {
+      "sha256": "fc39efa5a2ef6a2ae8ce47426c3422d2c4cefdfba7ac20d2c653afecbea42d45",
+      "bytes": 1794
+    },
+    "app-TEST-ai.pleos.destinations.vehicle.SdkRouteMappingTest.xml": {
+      "sha256": "25d965fd5e8b73907e86bb000eefb5cc38bc48132957445646ede160d683fc01",
+      "bytes": 810
+    },
+    "app-TEST-ai.pleos.destinations.vehicle.VehicleProposalSessionTest.xml": {
+      "sha256": "3b73eecda3060354d7bba54dbe7e8a40cd9d7012ded1e916f0efc6733eab3da0",
+      "bytes": 3413
+    },
+    "app-TEST-ai.pleos.destinations.vehicle.VehicleSessionTest.xml": {
+      "sha256": "76980d55af74b102a46a43532093ac524c5427467ffe171c42fa43e648c4abca",
+      "bytes": 2135
+    },
+    "app-debug-androidTest.apk": {
+      "sha256": "d6fae10675031385048cf4b6ae769dd46ddabe6824fe390fa096046e3cc78a7c",
+      "bytes": 30522
+    },
+    "app-debug-androidTest.apk-badging.txt": {
+      "sha256": "5716c9c33ce48317f5bd64b347d96480c08b9d4931e3727cbbb7d8d54c4bad85",
+      "bytes": 715
+    },
+    "app-debug-androidTest.apk-permissions.txt": {
+      "sha256": "82d6034470bdfcd0a4b4da54a99ed7f02567e7530b05d9a9c58818f6806b042b",
+      "bytes": 164
+    },
+    "app-debug-androidTest.apk-signer.txt": {
+      "sha256": "d021c90de64e598ead5d2c02257847136998e3429db786cca38a657089ccdf2f",
+      "bytes": 307
+    },
+    "app-debug-androidTest.apk-xmltree.txt": {
+      "sha256": "495f5b653d114f5c656edf67edf8a4f8c1f4b2ee52f42ee2c14020ea996a34eb",
+      "bytes": 2070
+    },
+    "app-debug.apk": {
+      "sha256": "e855437d1c7a44eb5612d56e564d44da3c16b95cd92f5ff7284e34c62e1e4db9",
+      "bytes": 6292295
+    },
+    "app-debug.apk-badging.txt": {
+      "sha256": "943aa6b50289073a1c07794445e6a64a87ebdf0d9df99c13748d345feed4fd2f",
+      "bytes": 5766
+    },
+    "app-debug.apk-permissions.txt": {
+      "sha256": "fbfa3165138d5913caff65903d533c13351e0a89bcaae06093b655fc618b56be",
+      "bytes": 408
+    },
+    "app-debug.apk-signer.txt": {
+      "sha256": "d021c90de64e598ead5d2c02257847136998e3429db786cca38a657089ccdf2f",
+      "bytes": 307
+    },
+    "app-debug.apk-xmltree.txt": {
+      "sha256": "b1572f07c5058aad563924489a1d5aad6613aff133cb5a9898ce663772fd6d9c",
+      "bytes": 7549
+    },
+    "app-lint-results-debug.txt": {
+      "sha256": "7b1a5bcf8f8fead7fd77cc940c8943f799f936dafec5fd31513682e7e1f68f3b",
+      "bytes": 4101
+    },
+    "app-lint-results-debug.xml": {
+      "sha256": "aaebfacb67d179d8be3d6e0bce144d38ce524a026443d65f3ef239ddd069ebe8",
+      "bytes": 8129
+    },
+    "checks.json": {
+      "sha256": "35670ac5eaf7eb5c91645e4ef0c5224f958093047b6307d19aafea53ca0d4792",
+      "bytes": 2505
+    },
+    "core-TEST-ai.pleos.destinations.core.VehicleAutomationTest.xml": {
+      "sha256": "294f0ed8ce3fe77cd89d0b8c0579d6ee6caa54f9aba50368326bf61a2a1d9938",
+      "bytes": 4850
+    },
+    "core-TEST-ai.pleos.destinations.core.VehicleCoordinatorTest.xml": {
+      "sha256": "9ee79dfb9cfdeb5e35283d542eb918129be5f70a89106e0da9422d989dc2d48e",
+      "bytes": 6972
+    },
+    "core-TEST-ai.pleos.destinations.core.VehicleProposalProtectionTest.xml": {
+      "sha256": "472859aea2ea787ab189dd0b7f752e26871c8c98959a867ca6db62563c199dbb",
+      "bytes": 2394
+    },
+    "gradle-freeze-4-command.json": {
+      "sha256": "fd01fc3166522114a357f64d8d25e0bd137467f8ab26275d6c594a78d9e51079",
+      "bytes": 438
+    },
+    "gradle-freeze-4.log": {
+      "sha256": "ebead10233bde8eb852b0ba9e7ba188c3d102afd287c41832effca88d6c48ec7",
+      "bytes": 9318
+    },
+    "nativeDriver-debug.apk": {
+      "sha256": "8e534886360623b27aede4c49f8fdc1c33b8d89bd2e0b6d2b4949fa59e397ea9",
+      "bytes": 5864932
+    },
+    "nativeDriver-debug.apk-badging.txt": {
+      "sha256": "b90d064a1330887a80b192bc3461847ea023250e8f36db6c8435cf1af02594c8",
+      "bytes": 5275
+    },
+    "nativeDriver-debug.apk-permissions.txt": {
+      "sha256": "0f4ab3d0e59d4ba882b58f376b09eb44900e1c21d45f2659667efac8174d6b82",
+      "bytes": 157
+    },
+    "nativeDriver-debug.apk-signer.txt": {
+      "sha256": "d021c90de64e598ead5d2c02257847136998e3429db786cca38a657089ccdf2f",
+      "bytes": 307
+    },
+    "nativeDriver-debug.apk-xmltree.txt": {
+      "sha256": "bef52fae3dcbb125f018895781dee1fa745bbe2cc23c6e671743886d5825db26",
+      "bytes": 4101
+    },
+    "nativeDriver-lint-results-debug.txt": {
+      "sha256": "d68a1af45e4db354d51ff246eee80adf57dafb467b6f9c31d0f647e9068401a1",
+      "bytes": 2329
+    },
+    "nativeDriver-lint-results-debug.xml": {
+      "sha256": "4cb37f8dcacc093f6458bebc67fcab5d1d8195fd1ee6e470bca6816bc554ce68",
+      "bytes": 3164
+    },
+    "npm-freeze-4-command.json": {
+      "sha256": "34947bd3838093fbe49370612ae3a785343e1d3ad5246b37e75137f31d4436d9",
+      "bytes": 101
+    },
+    "npm-freeze-4.log": {
+      "sha256": "b2c47f048dd79f46259af17f6dfec21a72a37f0caac576ce1588d8e321f2df13",
+      "bytes": 9613
+    },
+    "scope-check-freeze-4.json": {
+      "sha256": "f65c6483d858dde178edb6615e2553d66537b0679a5f29cd63f3441b38fd2dc4",
+      "bytes": 924
+    },
+    "source-manifest.json": {
+      "sha256": "5e4911a02aa53608036a019456b03e349ec7a80f648a44620e58341be9c3bffc",
+      "bytes": 8839
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "pass": true,
+  "sameLiveServiceEpochThroughoutStopReconnect": 5224494,
+  "sameProductionPidThroughout": "31505",
+  "foregroundUiCountDuringStopReconnect": 1,
+  "backgroundUiCountAfterRestart": 0,
+  "extraRouteRequestsAfterStopReconnect": 0,
+  "initialGenericAutomaticStartHistoricalRequests": {
+    "A": 0,
+    "B": 0
+  },
+  "acceptedProposalId": "868db2e57324bce267f2219b",
+  "revision": 4
+}

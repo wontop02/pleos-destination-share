@@ -1,0 +1,110 @@
+{
+  "core": {
+    "suites": [
+      {
+        "name": "ai.pleos.destinations.core.VehicleAutomationTest",
+        "tests": "29",
+        "skipped": "0",
+        "failures": "0",
+        "errors": "0"
+      },
+      {
+        "name": "ai.pleos.destinations.core.VehicleCoordinatorTest",
+        "tests": "42",
+        "skipped": "0",
+        "failures": "0",
+        "errors": "0"
+      },
+      {
+        "name": "ai.pleos.destinations.core.VehicleProposalProtectionTest",
+        "tests": "12",
+        "skipped": "0",
+        "failures": "0",
+        "errors": "0"
+      }
+    ],
+    "tests": 83,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "app": {
+    "suites": [
+      {
+        "name": "ai.pleos.destinations.vehicle.NaviDestinationNormalizerTest",
+        "tests": "6",
+        "skipped": "0",
+        "failures": "0",
+        "errors": "0"
+      },
+      {
+        "name": "ai.pleos.destinations.vehicle.PendingConfirmationCacheTest",
+        "tests": "3",
+        "skipped": "0",
+        "failures": "0",
+        "errors": "0"
+      },
+      {
+        "name": "ai.pleos.destinations.vehicle.RoomHttpClientTest",
+        "tests": "3",
+        "skipped": "0",
+        "failures": "0",
+        "errors": "0"
+      },
+      {
+        "name": "ai.pleos.destinations.vehicle.RoomProtocolTest",
+        "tests": "9",
+        "skipped": "0",
+        "failures": "0",
+        "errors": "0"
+      },
+      {
+        "name": "ai.pleos.destinations.vehicle.SdkRouteMappingTest",
+        "tests": "3",
+        "skipped": "0",
+        "failures": "0",
+        "errors": "0"
+      },
+      {
+        "name": "ai.pleos.destinations.vehicle.VehicleProposalSessionTest",
+        "tests": "18",
+        "skipped": "0",
+        "failures": "0",
+        "errors": "0"
+      },
+      {
+        "name": "ai.pleos.destinations.vehicle.VehicleSessionTest",
+        "tests": "5",
+        "skipped": "0",
+        "failures": "0",
+        "errors": "0"
+      }
+    ],
+    "tests": 47,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "appLint": {
+    "errors": 0,
+    "warnings": 6
+  },
+  "nativeDriverLint": {
+    "errors": 0,
+    "warnings": 2
+  },
+  "node": {
+    "tests": 90,
+    "pass": 90,
+    "fail": 0,
+    "skipped": 0
+  },
+  "primaryTests": 220,
+  "testClassesInProductionApk": {
+    "VerifierAdversarialTest": false,
+    "VerifierHistoricalCommitTest": false,
+    "VerifierStopReplayTest": false,
+    "VehicleProposalSessionTest": false,
+    "VehicleProposalProtectionTest": false
+  }
+}

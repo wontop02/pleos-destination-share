@@ -18,7 +18,7 @@
         <service android:name=".ConvoySessionService" android:exported="false"
             android:stopWithTask="true" android:foregroundServiceType="specialUse">
             <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
-                android:value="User-initiated ongoing convoy coordination: while native navigation is visible, share the leader vehicle's actual destination changes and apply and verify the latest shared destination only for a member who explicitly enabled automatic following. A visible ongoing notification provides immediate stop. No location tracking, media playback, or connected-device work is performed." />
+                android:value="User-initiated ongoing convoy coordination: while native navigation is visible, share the leader vehicle's actual destination changes and apply and verify the latest shared destination for a member who explicitly enabled automatic following. Independently, a member's explicit destination proposal or acceptance keeps coordination alive only for that proposal's 120-second consent window and an issued operation's original 45-second native destination verification window. A visible ongoing notification provides immediate stop. No location tracking, media playback, or connected-device work is performed." />
         </service>
         <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>

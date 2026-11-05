@@ -1,0 +1,30 @@
+[
+  {
+    "argv": [
+      "python3",
+      "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/vehicle-proposals-20261105/root/freeze4-ui/enable-automatic.py",
+      "final4"
+    ],
+    "exitCode": 0,
+    "log": "enable-automatic-command.log"
+  },
+  {
+    "argv": [
+      "python3",
+      "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/vehicle-proposals-20261105/root/freeze4-ui/accept-case.py",
+      "ui4-accept",
+      "A",
+      "42dot"
+    ],
+    "exitCode": 0,
+    "log": "accept-case-command.log"
+  },
+  {
+    "argv": [
+      "python3",
+      "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/vehicle-proposals-20261105/root/freeze4-ui/verify-ui.py"
+    ],
+    "exitCode": 1,
+    "log": "verify-ui-command.log"
+  }
+]

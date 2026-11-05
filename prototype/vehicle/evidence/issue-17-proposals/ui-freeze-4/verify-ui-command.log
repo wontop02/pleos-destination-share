@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/vehicle-proposals-20261105/root/freeze4-ui/verify-ui.py", line 12, in <module>
+    assert len(primary)==1 and '실제 순정 목적지 일치 확인 전' not in '\n'.join(texts)
+AssertionError
