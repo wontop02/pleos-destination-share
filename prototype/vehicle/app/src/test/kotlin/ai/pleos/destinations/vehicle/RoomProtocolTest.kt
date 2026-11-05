@@ -7,6 +7,44 @@ import org.junit.Assert.*
 import org.junit.Test
 
 class RoomProtocolTest {
+    private fun pendingFrame(): JSONObject = JSONObject("""{
+        "revision":0,"sequence":2,"destination":null,"serverTime":1000,
+        "proposal":{"id":"cccccccccccccccccccccccc","version":1,"status":"pending",
+        "destination":{"name":"42dot","latitude":37.41289678,"longitude":127.09383464,
+        "pleos":{"poiId":"36khp37hh8gqcm5nqhe5","poiSubId":null,"address":"수정구 시흥동","poiProvider":"","displayLatitude":null,"displayLongitude":null}},
+        "reason":"함께 변경","proposer":{"id":"aaaaaaaaaaaaaaaaaaaaaaaa","name":"차량 A"},
+        "createdAt":1000,"expiresAt":121000,"baseRevision":0,"acceptedRevision":null,"endedAt":null,"invalidatedBy":null,
+        "responses":[{"member":{"id":"aaaaaaaaaaaaaaaaaaaaaaaa","name":"차량 A"},"response":"accepted","respondedAt":1000},
+        {"member":{"id":"bbbbbbbbbbbbbbbbbbbbbbbb","name":"차량 B"},"response":"pending","respondedAt":null}]}}
+    """)
+    @Test fun optionalPendingAndAtomicAcceptedProposalMetadataRoundTripWithoutPromotingCandidate() {
+        val body = pendingFrame(); val pending = RoomProtocol.update(body)
+        assertNull(pending.destination); assertEquals(0L, pending.revision)
+        assertEquals("42dot", pending.proposal!!.destination.name); assertTrue(pending.hasProposal)
+        val p = body.getJSONObject("proposal")
+        p.put("status", "accepted").put("version", 2).put("acceptedRevision", 1).put("endedAt", 2000)
+        p.getJSONArray("responses").getJSONObject(1).put("response", "accepted").put("respondedAt", 2000)
+        body.put("destination", p.getJSONObject("destination")).put("revision", 1).put("sequence", 3).put("serverTime", 2000)
+        val accepted = RoomProtocol.update(body)
+        assertEquals(accepted.destination, accepted.proposal!!.destination); assertEquals(1L, accepted.proposal!!.acceptedRevision)
+        body.remove("proposal"); body.remove("serverTime")
+        assertFalse(RoomProtocol.update(body).hasProposal)
+    }
+    @Test fun malformedOrUnboundedProposalCannotGrantVehicleAuthority() {
+        val changes: List<(JSONObject) -> Unit> = listOf(
+            { it.put("version", 1.5) }, { it.put("expiresAt", 121001) }, { it.put("reason", "x".repeat(201)) },
+            { it.put("status", "accepted").put("acceptedRevision", 1).put("endedAt", 2000) },
+            { it.remove("acceptedRevision") }, { it.getJSONArray("responses").getJSONObject(1).remove("respondedAt") },
+            { it.getJSONArray("responses").put(it.getJSONArray("responses").getJSONObject(0)) },
+            { it.put("acceptedRevision", 1) }, { it.put("status", "rejected").put("endedAt", 2000) },
+        )
+        for (change in changes) {
+            val body = pendingFrame(); change(body.getJSONObject("proposal"))
+            assertThrows(Exception::class.java) { RoomProtocol.update(body) }
+        }
+        val noTime = pendingFrame(); noTime.remove("serverTime")
+        assertThrows(Exception::class.java) { RoomProtocol.update(noTime) }
+    }
     @Test fun metadataRoundTripPreservesActualNullableSubIdAndDisplayCoordinates() {
         val value = Destination("공개 예제", 37.48544722, 127.03636666,
             PleosMetadata("public-poi", null, "공개 주소", "", 37.485, 127.036))
