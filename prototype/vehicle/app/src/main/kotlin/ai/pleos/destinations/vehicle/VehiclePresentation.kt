@@ -58,19 +58,19 @@ internal object VehiclePresentation {
     }
 
     fun places(state: SavedPlacesState?, connected: Boolean): String = when {
-        !connected -> "내비 연결이 필요해요. 설정에서 연결해 주세요."
+        !connected -> "저장한 장소 선택을 누르면 장소를 불러와요."
         state == null -> "이 내비에서는 저장한 장소를 불러올 수 없어요."
         state.phase == SavedPlacesPhase.LOADING -> "저장한 장소를 불러오는 중이에요"
-        state.phase == SavedPlacesPhase.READY -> "불러온 목록이에요. 새로 저장한 곳은 설정에서 내비를 다시 연결해 주세요."
-        state.phase == SavedPlacesPhase.EMPTY -> "저장한 장소가 없어요. 내비에서 ☆로 저장한 뒤 다시 연결해 주세요."
-        state.phase == SavedPlacesPhase.INVALID -> "사용할 수 있는 장소 정보가 없어요. 내비를 다시 연결해 주세요."
-        state.phase == SavedPlacesPhase.FAILED -> "장소를 불러오지 못했어요. 내비를 다시 연결해 주세요."
-        state.phase == SavedPlacesPhase.RECONNECT_REQUIRED -> "불러오기가 끝났거나 취소됐어요. 설정에서 내비를 다시 연결해 주세요."
+        state.phase == SavedPlacesPhase.READY -> "불러온 목록이에요. 새로 저장한 곳은 ‘목록 새로 불러오기’를 눌러 주세요."
+        state.phase == SavedPlacesPhase.EMPTY -> "저장한 장소가 없어요. 내비에서 ☆로 저장한 뒤 다시 불러와 주세요."
+        state.phase == SavedPlacesPhase.INVALID -> "사용할 수 있는 장소 정보가 없어요. 저장한 장소를 확인한 뒤 다시 불러와 주세요."
+        state.phase == SavedPlacesPhase.FAILED -> "장소를 불러오지 못했어요. 다시 불러와 주세요."
+        state.phase == SavedPlacesPhase.RECONNECT_REQUIRED -> "다시 불러와 장소를 선택해 주세요."
         else -> "이름과 주소를 확인한 뒤 장소를 선택해 주세요."
     }
 
     fun reason(raw: String): String? {
-        val value = raw.trim().ifEmpty { "이 장소로 목적지 변경을 제안합니다." }
+        val value = raw.trim().ifEmpty { "이곳으로 함께 가요." }
         return value.takeIf { it.length <= 200 && it.none { char -> char.code < 32 || char.code == 127 } }
     }
 }

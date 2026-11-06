@@ -23,6 +23,7 @@
     <item name="reject_proposal" type="id" />
     <item name="home_recovery" type="id" />
     <item name="select_saved_place" type="id" />
+    <item name="reload_saved_places" type="id" />
     <item name="saved_places_status" type="id" />
     <item name="selected_place_name" type="id" />
     <item name="selected_place_address" type="id" />

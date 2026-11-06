@@ -14,9 +14,11 @@
 
 `목적지 바꾸기 → 저장한 장소 선택 → 선택 장소 확인과 이유(선택) → 제안 보내기` 순서다. 선택 단계의 `내비에 ☆ 저장한 장소만 보여요.`가 지원 범위를 설명한다. 이름과 주소를 함께 보여 주는 기존 immutable saved-place snapshot에서 장소를 명시적으로 선택한다. `제안 보내기` 전에는 제안이나 경로 요청을 보내지 않는다.
 
-이유는 선택 사항이며 빈 입력은 `이 장소로 목적지 변경을 제안합니다.`라는 사실적인 기본 문구를 사용한다. 제안은 기존 controller의 현재 snapshot·선택 객체를 재검사한 뒤 `proposeSelectedPlace()`로 보낸다. 알림 권한을 기다리는 동안 snapshot이나 선택이 바뀌면 전송하지 않는다. 예제는 하단의 `예제 장소`에서 별도로 선택하며 기존 공개 exact-point 장소만 사용한다.
+이유는 선택 사항이며 빈 입력은 `이곳으로 함께 가요.`라는 기본 제안 문구를 사용한다. 제안은 기존 controller의 현재 snapshot·선택 객체를 재검사한 뒤 `proposeSelectedPlace()`로 보낸다. 알림 권한을 기다리는 동안 snapshot이나 선택이 바뀌면 전송하지 않는다. 예제는 하단의 `예제 장소`에서 별도로 선택하며 기존 공개 exact-point 장소만 사용한다.
 
-불러오기 중·빈 목록·지원 정보 없음·실패·취소 상태는 다음 행동을 설명한다. 이미 읽은 목록은 `저장한 장소 다시 선택 · 불러온 목록`으로 표시한다. 새 장소가 목록에 반영되려면 설정에서 사용자가 내비를 다시 연결해야 한다. 화면 진입·목록 재열기는 native reconnect를 호출하지 않는다. 한 연결당 한 번 읽는 기존 제한과 8초 timeout을 유지한다. 취소, 작성 화면 이탈, Activity 중지와 방/회원/내비 epoch 변경은 기존 controller 규칙에 따라 선택을 무효화한다.
+불러오기 중·빈 목록·지원 정보 없음·실패·취소 상태는 작성 화면에서 다음 행동을 설명한다. 취소하거나 한 번 사용한 연결에서 다시 읽어야 할 때 주 행동은 `다시 불러오기`다. 이미 읽은 목록은 `저장한 장소 다시 선택 · 불러온 목록`으로 열며, 새로 저장한 장소를 읽는 별도 행동은 `목록 새로 불러오기`다. 사용자가 이 행동을 누른 경우에만 기존 coordinator를 다시 연결하고 새로 연결된 내비의 첫 목적지 조회가 끝난 뒤 장소를 한 번 읽는다. 화면 진입·목록 재열기만으로 native reconnect나 새 읽기를 만들지 않는다. 한 연결당 한 번 읽는 기존 제한과 8초 timeout을 유지한다. 취소, 작성 화면 이탈, Activity 중지와 방/회원/내비 epoch 변경은 기존 controller 규칙에 따라 선택을 무효화한다.
+
+`PlacesLoadIntent`는 이 명시적 불러오기 의도만 Activity 메모리에 보관한다. 방/회원/room epoch/작성 화면 generation과 첫 eligible native snapshot에 묶고, 새 연결의 destination read 중에는 기다린다. 경로 적용·현재 조회·장소 읽기·공유·제안 lease·자동 시작 대기 중에는 새 갱신을 시작하지 않는다. 대기 중 다른 작업, 페이지 이탈, 중지, 방/회원/epoch 변경, 새 native snapshot, 연결 실패 또는 25초 상한은 의도를 폐기한다. 이 helper는 경로 요청·제안 전송·자동 동의·FGS lease를 소유하거나 생성하지 않는다. cold start에서 복원하지 않으며 실패 후 늦은 연결도 장소를 읽지 않는다. 홈이나 설정으로 이동해도 이미 명시적으로 요청한 내비 연결 자체를 강제로 중지하지는 않지만, 그 뒤 장소 읽기를 이어가지 않는다.
 
 View는 Activity 생성 시 한 번 만든다. 관찰 상태가 바뀔 때 텍스트와 enabled/visibility만 갱신하며 이유·차량 이름·방 입력을 tick마다 다시 설정하지 않는다. 페이지 이동은 서비스에 재연결하거나 세션을 재생성하지 않는다.
 
@@ -42,7 +44,7 @@ View는 Activity 생성 시 한 번 만든다. 관찰 상태가 바뀔 때 텍�
 
 콘텐츠는 최대 1120dp 폭으로 가운데 배치하고 세로 스크롤한다. 긴 이름·주소는 줄바꿈하며 font scale을 고정하거나 줄이지 않는다. 제안 응답은 주소보다 앞에 배치해 주요 동작의 접근을 우선한다. 실제 Pleos viewport, fontScale 1.3과 긴 텍스트의 가독성·응답 위치는 총괄의 실제 기기 캡처로 확인하며 JVM 테스트나 빌드 성공만으로 통과를 주장하지 않는다.
 
-`VehiclePresentationTest`는 현재 대상/accepted revision/실제 identity guard, 연결 소실, route 이벤트의 false success, 실제 coordinator 중지 상태와 선택 이유의 protocol 제한을 검사한다. 기존 core/app 회귀는 세션·동의·stale/중복·정확한 place/exact 의미를 계속 검사한다. 두 차량 실제 요청 횟수와 45초 이후 연속 수명, 생성·참여·복구와 최종 화면의 증거는 고정 source/APK에서 별도로 확인한다.
+`VehiclePresentationTest`는 현재 대상/accepted revision/실제 identity guard, 연결 소실, route 이벤트의 false success, 실제 coordinator 중지 상태와 선택 이유의 protocol 제한을 검사한다. `PlacesLoadIntentTest`는 명시적 입력 없는 무동작, 캐시 재열기와 새 읽기 구분, 목적지 조회 종료 후 한 번 읽기, 방/회원/화면/native generation 및 중지·실패·충돌에 따른 취소를 검사한다. 기존 core/app 회귀는 세션·동의·stale/중복·정확한 place/exact 의미를 계속 검사한다. 두 차량 실제 요청 횟수와 45초 이후 연속 수명, 생성·참여·복구와 최종 화면의 증거는 고정 source/APK에서 별도로 확인한다.
 
 주요 접근 가능한 View ID는 다음과 같다. 각 ID는 실제 사용자 조작과 표시 View에만 부여한다.
 
@@ -51,7 +53,7 @@ View는 Activity 생성 시 한 번 만든다. 관찰 상태가 바뀔 때 텍�
 | 홈 | `home_page`, `connection_status`, `shared_place_name`, `shared_place_address`, `destination_status` |
 | 주요 행동 | `change_destination`, `start_convoy`, `stop_convoy`, `nav_settings`, `nav_home`, `home_recovery` |
 | 제안 응답 | `proposal_card`, `proposal_name`, `proposal_reason`, `proposal_proposer`, `proposal_status`, `accept_proposal`, `reject_proposal` |
-| 작성 | `compose_page`, `select_saved_place`, `saved_places_status`, `selected_place_name`, `selected_place_address`, `proposal_reason_input`, `send_proposal`, `example_places` |
+| 작성 | `compose_page`, `select_saved_place`, `reload_saved_places`, `saved_places_status`, `selected_place_name`, `selected_place_address`, `proposal_reason_input`, `send_proposal`, `example_places` |
 | 실제 목록 | `saved_place_choices`, 반복하는 `saved_place_choice`, `saved_places_cancel` |
 | 설정 | `settings_page`, `reconnect_room`, `reconnect_native`, `refresh_native`, `retry_accepted`, `reset_protection`, `developer_details` |
 | 수동·방 관리 | `manual_share`, `manual_apply`, `clear_shared`, `invitation`, `leave_room`, `forget_room` |

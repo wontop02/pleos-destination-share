@@ -77,6 +77,7 @@ class MainActivity : Activity() {
     private lateinit var rejectButton: Button
     private lateinit var placesStatus: TextView
     private lateinit var selectPlacesButton: Button
+    private lateinit var reloadPlacesButton: Button
     private lateinit var selectedName: TextView
     private lateinit var selectedAddress: TextView
     private lateinit var cancelPlacesButton: Button
@@ -118,6 +119,9 @@ class MainActivity : Activity() {
     private var lastPendingId: String? = null
     private var lastRoomKey: String? = null
     private var localNotice: String? = null
+    private val placesLoadIntent = PlacesLoadIntent { SystemClock.elapsedRealtime() }
+    private var composeGeneration = 0L
+    private var placesLoadFailed = false
     private var afterNotificationPermission: (() -> Unit)? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -129,6 +133,7 @@ class MainActivity : Activity() {
         bound = bindService(Intent(this, ConvoySessionService::class.java), connection, BIND_AUTO_CREATE)
     }
     override fun onStop() {
+        placesLoadIntent.cancel(); composeGeneration += 1; placesLoadFailed = false
         pickerRequested = false; closePicker(); selectedExample = null
         service?.manual { it.savedPlaces?.cancel() }
         service?.detachUi(observer); service = null
@@ -173,6 +178,7 @@ class MainActivity : Activity() {
     private fun navigate(next: Page) { showPage(next); renderCurrent() }
     private fun showPage(next: Page) {
         val previous = page; page = next
+        if (previous != next && (previous == Page.COMPOSE || next == Page.COMPOSE)) composeGeneration += 1
         pages.forEach { (key, view) -> view.visibility = if (key == next) View.VISIBLE else View.GONE }
         pageTitle.text = when (next) {
             Page.HOME, Page.WELCOME -> "동행"
@@ -183,6 +189,7 @@ class MainActivity : Activity() {
         backButton.visibility = if (next == Page.HOME || next == Page.WELCOME) View.GONE else View.VISIBLE
         settingsButton.visibility = if (next == Page.SETTINGS) View.GONE else View.VISIBLE
         if (previous == Page.COMPOSE && next != Page.COMPOSE) {
+            placesLoadIntent.cancel(); placesLoadFailed = false
             pickerRequested = false; closePicker(); selectedExample = null
             service?.manual { it.savedPlaces?.cancel() }
         }
@@ -196,10 +203,12 @@ class MainActivity : Activity() {
         val accepted = owner?.acceptedProposal
         val roomKey = credentials?.let { "${it.roomId}/${it.memberId}" }
         if (roomKey != lastRoomKey) {
+            placesLoadIntent.cancel(); placesLoadFailed = false
             lastRoomKey = roomKey; selectedExample = null
             closePicker(); pickerRequested = false; localNotice = null
         }
         if (p?.status == "pending" && p.id != lastPendingId) {
+            placesLoadIntent.cancel(); placesLoadFailed = false
             lastPendingId = p.id
             selectedExample = null; closePicker(); pickerRequested = false
             if (page != Page.COMPOSE) service?.manual { it.savedPlaces?.cancel() }
@@ -302,17 +311,32 @@ class MainActivity : Activity() {
 
     private fun renderComposer(state: VehicleState, owner: VehicleSession?, proposalError: Boolean) {
         val controller = owner?.savedPlaces
+        val context = placesContext(state, owner)
+        when (placesLoadIntent.observe(context)) {
+            PlacesLoadIntent.Action.LOAD -> { loadPlaces(owner); return }
+            PlacesLoadIntent.Action.FAILED -> { pickerRequested = false; placesLoadFailed = true }
+            PlacesLoadIntent.Action.CANCELLED -> { pickerRequested = false; placesLoadFailed = context.scope != null }
+            else -> Unit
+        }
         val saved = controller?.state
         val selected = selectedExample ?: saved?.selected
         selectedName.text = selected?.name ?: "장소를 선택해 주세요"
         selectedAddress.text = selected?.pleos?.address ?: "선택한 이름과 주소가 여기에 보여요"
         placesStatus.text = localNotice ?: if (proposalError) "전송을 확인하지 못했어요. 홈에서 제안을 확인하거나 설정에서 다시 연결해 주세요."
+            else if (placesLoadIntent.waiting) "장소를 불러오는 중이에요"
+            else if (placesLoadFailed) "장소를 불러오지 못했어요. 다시 불러와 주세요."
             else if (owner?.proposalBusy == true) "제안을 보내는 중이에요"
             else VehiclePresentation.places(saved, state.connection == NativeConnection.CONNECTED)
-        selectPlacesButton.text = if (saved?.phase == SavedPlacesPhase.READY) "저장한 장소 다시 선택 · 불러온 목록" else "저장한 장소 선택"
-        selectPlacesButton.isEnabled = controller?.canLoad == true && owner.canPropose
-        cancelPlacesButton.visibility = if (saved?.phase == SavedPlacesPhase.LOADING || selected != null) View.VISIBLE else View.GONE
-        cancelPlacesButton.text = if (saved?.phase == SavedPlacesPhase.LOADING) "불러오기 취소" else "선택 취소"
+        selectPlacesButton.text = when {
+            saved?.phase == SavedPlacesPhase.READY -> "저장한 장소 다시 선택 · 불러온 목록"
+            placesLoadFailed || saved?.phase in listOf(SavedPlacesPhase.RECONNECT_REQUIRED, SavedPlacesPhase.EMPTY, SavedPlacesPhase.INVALID, SavedPlacesPhase.FAILED) -> "다시 불러오기"
+            else -> "저장한 장소 선택"
+        }
+        selectPlacesButton.isEnabled = placesLoadIntent.canRequest(context)
+        reloadPlacesButton.visibility = if (saved?.phase == SavedPlacesPhase.READY) View.VISIBLE else View.GONE
+        reloadPlacesButton.isEnabled = placesLoadIntent.canRequest(context)
+        cancelPlacesButton.visibility = if (placesLoadIntent.waiting || saved?.phase == SavedPlacesPhase.LOADING || selected != null) View.VISIBLE else View.GONE
+        cancelPlacesButton.text = if (placesLoadIntent.waiting || saved?.phase == SavedPlacesPhase.LOADING) "불러오기 취소" else "선택 취소"
         sendButton.isEnabled = selected != null && owner?.canPropose == true
         reasonInput.isEnabled = owner?.proposalBusy != true
         examplesButton.isEnabled = owner?.canPropose == true
@@ -320,6 +344,34 @@ class MainActivity : Activity() {
         if (page == Page.COMPOSE && pickerRequested && saved?.phase == SavedPlacesPhase.READY && pickerDialog == null && shownSnapshot != saved.snapshot) {
             shownSnapshot = saved.snapshot; showSavedPlaces(controller, saved)
         }
+    }
+
+    private fun placesContext(state: VehicleState, owner: VehicleSession?) = PlacesLoadContext(
+        credentials?.takeIf { page == Page.COMPOSE && state.roomConnected }?.let {
+            PlacesLoadScope(it.roomId, it.memberId, owner?.coordinator?.roomEpoch ?: -1, composeGeneration)
+        }, state, owner?.savedPlaces?.state, owner?.savedPlaces?.canLoad == true,
+        owner?.canPropose == true, owner?.hasProposalLease == true, owner?.pendingAutomatic == true)
+
+    private fun requestPlaces(refresh: Boolean = false) {
+        val owner = session ?: return
+        val action = placesLoadIntent.begin(placesContext(owner.state, owner), refresh)
+        if (action == PlacesLoadIntent.Action.NONE) return
+        selectedExample = null; localNotice = null; placesLoadFailed = false
+        pickerRequested = true; shownSnapshot = -1L
+        when (action) {
+            PlacesLoadIntent.Action.LOAD -> loadPlaces(owner)
+            PlacesLoadIntent.Action.RECONNECT -> service?.manual {
+                if (it.savedPlaces?.state?.selected != null || it.savedPlaces?.state?.phase == SavedPlacesPhase.READY) it.savedPlaces?.cancel()
+                it.coordinator.connect()
+            }
+            else -> Unit
+        }
+        renderCurrent()
+    }
+
+    private fun loadPlaces(owner: VehicleSession?) {
+        if (owner == null || session !== owner || page != Page.COMPOSE) { pickerRequested = false; return }
+        service?.manual { if (it.savedPlaces?.load() != true) { pickerRequested = false; placesLoadFailed = true } }
     }
 
     private fun sendProposal() {
@@ -440,7 +492,7 @@ class MainActivity : Activity() {
         backButton = ui.button("홈으로", R.id.nav_home) { navigate(if (credentials == null) Page.WELCOME else Page.HOME) }
         header.addView(backButton, LinearLayout.LayoutParams(-2, -2).apply { rightMargin = ui.dp(24) })
         pageTitle = ui.text("동행", true); header.addView(pageTitle, LinearLayout.LayoutParams(0, -2, 1f))
-        stopButton = ui.button("동행 중지", R.id.stop_convoy, Role.DANGER) { service?.stopAutomatic() }
+        stopButton = ui.button("동행 중지", R.id.stop_convoy, Role.DANGER) { placesLoadIntent.cancel(); pickerRequested = false; service?.stopAutomatic() }
         header.addView(stopButton, LinearLayout.LayoutParams(-2, -2).apply { rightMargin = ui.dp(16) })
         settingsButton = ui.button("설정", R.id.nav_settings) { navigate(Page.SETTINGS) }; header.addView(settingsButton)
         root.addView(header)
@@ -487,13 +539,12 @@ class MainActivity : Activity() {
         val card = ui.card(root)
         ui.add(card, ui.text("1  장소 선택", true))
         ui.add(card, ui.text("내비에 ☆ 저장한 장소만 보여요.").apply { setTextColor(ui.color(R.color.muted)) }, 12)
-        selectPlacesButton = ui.button("저장한 장소 선택", R.id.select_saved_place, Role.PRIMARY) {
-            selectedExample = null; pickerRequested = true; shownSnapshot = -1L
-            service?.manual { if (it.savedPlaces?.load() != true) pickerRequested = false }
-        }; ui.add(card, selectPlacesButton, 24)
+        selectPlacesButton = ui.button("저장한 장소 선택", R.id.select_saved_place, Role.PRIMARY) { requestPlaces() }; ui.add(card, selectPlacesButton, 24)
         placesStatus = ui.text(id = R.id.saved_places_status).apply { setTextColor(ui.color(R.color.muted)); accessibilityLiveRegion = View.ACCESSIBILITY_LIVE_REGION_POLITE }
         ui.add(card, placesStatus, 16)
+        reloadPlacesButton = ui.button("목록 새로 불러오기", R.id.reload_saved_places) { requestPlaces(refresh = true) }; ui.add(card, reloadPlacesButton, 12)
         cancelPlacesButton = ui.button("선택 취소", R.id.cancel_place_selection) {
+            placesLoadIntent.cancel(); placesLoadFailed = false
             pickerRequested = false; closePicker(); selectedExample = null; service?.manual { it.savedPlaces?.cancel() }
         }; ui.add(card, cancelPlacesButton, 12)
         val preview = ui.card(root)
