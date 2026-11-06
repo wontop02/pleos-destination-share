@@ -1,0 +1,136 @@
+{
+  "devices": {
+    "emulator-5570": {
+      "fontScale": "null",
+      "ownAppConsentEnded": true,
+      "dataCleared": false,
+      "foreground": [
+        "topResumedActivity=ActivityRecord{63d5c78 u10 ai.umos.drivingview/.DrivingViewActivity t1000064}",
+        "topResumedActivity=ActivityRecord{5c4c62b u10 ai.umos.homescreen/.HomeActivity t1000062}"
+      ]
+    },
+    "emulator-5572": {
+      "fontScale": "null",
+      "ownAppConsentEnded": true,
+      "dataCleared": false,
+      "foreground": [
+        "topResumedActivity=ActivityRecord{d433ebb u10 ai.umos.drivingview/.DrivingViewActivity t1000145}",
+        "topResumedActivity=ActivityRecord{d08b45c u10 ai.umos.maps.android.navigation.app/.MainActivity t1000144}",
+        "topResumedActivity=ActivityRecord{8cbff0f u10 ai.umos.homescreen/.HomeActivity t1000132}"
+      ]
+    }
+  },
+  "checkpoints": {
+    "emulator-5570": {
+      "serial": "emulator-5570",
+      "journalLineOffset": 407,
+      "hostAt": "2026-11-06T08:52:21.177796+00:00",
+      "state": {
+        "at": 1793955043165,
+        "event": "activityStartAttach",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 1,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "TIMED_OUT",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "a5e4642f320525b0702311ce",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 1,
+        "proposal": {
+          "id": "a5e4642f320525b0702311ce",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "d2afad030338969693bf7e92",
+          "baseRevision": 0,
+          "createdAt": 1793954846716,
+          "expiresAt": 1793954966716,
+          "acceptedRevision": 1,
+          "responses": [
+            {
+              "memberId": "d2afad030338969693bf7e92",
+              "response": "accepted"
+            },
+            {
+              "memberId": "1b7e44fe366fecbcdae27e7e",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    },
+    "emulator-5572": {
+      "serial": "emulator-5572",
+      "journalLineOffset": 184,
+      "hostAt": "2026-11-06T08:52:23.362013+00:00",
+      "state": {
+        "at": 1793954894691,
+        "event": "sessionState",
+        "serviceEpoch": 10463713,
+        "roomEpoch": 1,
+        "revision": 1,
+        "role": "member",
+        "automatic": "FOLLOWER",
+        "applying": "TIMED_OUT",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 0,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "a5e4642f320525b0702311ce",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 1,
+        "proposal": {
+          "id": "a5e4642f320525b0702311ce",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "d2afad030338969693bf7e92",
+          "baseRevision": 0,
+          "createdAt": 1793954846716,
+          "expiresAt": 1793954966716,
+          "acceptedRevision": 1,
+          "responses": [
+            {
+              "memberId": "d2afad030338969693bf7e92",
+              "response": "accepted"
+            },
+            {
+              "memberId": "1b7e44fe366fecbcdae27e7e",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "routeCounts": {
+    "emulator-5570": 0,
+    "emulator-5572": 0
+  },
+  "trace": {
+    "emulator-5570": [],
+    "emulator-5572": []
+  },
+  "causation": "Not proven; observed native loading/blank after font reconfiguration."
+}

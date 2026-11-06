@@ -1,0 +1,126 @@
+{
+  "phase": "C3 final-source preliminary verification; not final all-AC verdict",
+  "base": "d03c6f0bd952fd2a0a0ebc376a6e8091e1c77a35",
+  "sourceHead": "3502929d569262253440fa3241ff90cffe57c859",
+  "role": "Separate-context builtin default agent following .codex/agents/verifier.toml; custom role not exposed",
+  "issueSha256": "c22ba57ab59a96a405e62b7b1619fd22535d85ef9bf9c763abef6483227183f6",
+  "findings": [],
+  "sourceStatus": "No blocking source defect found",
+  "reviewedDelta": {
+    "changedFromC2": [
+      "docs/product/vehicle-ui.md",
+      "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt",
+      "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehiclePresentation.kt",
+      "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VehiclePresentationTest.kt"
+    ],
+    "status": "Actual CurrentDestination.Loading projects WORKING after route/apply phase precedence; old CONFIRMED metadata cannot make it SUCCESS. Strict confirmedCurrentTarget predicate is unchanged. CANCELLED remains neutral once no read is active.",
+    "recovery": "MainActivity uses pure showRecovery; pending, live apply and Loading hide recovery; SUCCESS/WORKING hide it; attention or current accepted noncancelled neutral targets may recover. No runtime/session action added.",
+    "regression": "New routineReadAfterConfirmation test proves old CONFIRMED + Loading has no success/recovery; real unconfirmed observation restores recovery, while confirmed target does not.",
+    "previousAudit": "C2 explicit-only saved-place refresh and scope/conflict/cancellation review retained; implementation is byte-unchanged in C3."
+  },
+  "sourceScopeAndManifest": {
+    "base": "d03c6f0bd952fd2a0a0ebc376a6e8091e1c77a35",
+    "sourceHead": "3502929d569262253440fa3241ff90cffe57c859",
+    "sourceArchiveSha256": "8f52ccc889d9d989587ce0e03c3b00074cced6022e352a23c64efe8c51a46418",
+    "sourceFiles": 702,
+    "manifestExactMatch": true,
+    "allTrackedPathsMatchManifest": true,
+    "baselineFileCount": 695,
+    "unownedBaselineMismatches": [],
+    "changedFiles": [
+      "DESIGN.md",
+      "docs/product/vehicle-ui.md",
+      "prototype/vehicle/README.md",
+      "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt",
+      "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PlacesLoadIntent.kt",
+      "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehiclePresentation.kt",
+      "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehicleViews.kt",
+      "prototype/vehicle/app/src/main/res/values/ids.xml",
+      "prototype/vehicle/app/src/main/res/values/styles.xml",
+      "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/PlacesLoadIntentTest.kt",
+      "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VehiclePresentationTest.kt"
+    ],
+    "gitStatusBefore": "",
+    "scopedDiffCheckExit": 0,
+    "scopedDiffCheck": ""
+  },
+  "independentBuild": {
+    "base": "d03c6f0bd952fd2a0a0ebc376a6e8091e1c77a35",
+    "sourceHead": "3502929d569262253440fa3241ff90cffe57c859",
+    "command": [
+      "gradle",
+      "--offline",
+      "--no-daemon",
+      "--max-workers=1",
+      "-Dorg.gradle.jvmargs=-Xmx1024m -XX:MaxMetaspaceSize=384m",
+      "-Pkotlin.compiler.execution.strategy=in-process",
+      ":core:test",
+      ":app:testDebugUnitTest",
+      ":app:assembleDebug",
+      ":app:lintDebug"
+    ],
+    "sourceArchive": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/simple-ui-20261106/verifier/independent-3502929-1/source",
+    "timeoutSeconds": 600,
+    "toolchainConfigSha256": "c2006d27c12e2ceddc60629f4028bdd3b84b988a0a793562436a0a40f735c5dd",
+    "startedAt": "2026-11-06T08:08:57.992547+00:00",
+    "exitCode": 0,
+    "elapsedSeconds": 38.889,
+    "tests": {
+      "core": {
+        "tests": 93,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "app": {
+        "tests": 76,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "lint": {
+      "Warning": 12
+    },
+    "independentApkSha256": "1848928a1ed0677855c3c777333efa611a3d2b7d7b75c8841429e7dd197cffec",
+    "apkComparison": {
+      "frozenApkSha256": "623d103c6768762451f2113ffde35fa99351c5458b2de711f5d9a7d857664195",
+      "independentApkSha256": "1848928a1ed0677855c3c777333efa611a3d2b7d7b75c8841429e7dd197cffec",
+      "wholeArchiveHashesEqual": false,
+      "frozenOnlyEntries": [],
+      "independentOnlyEntries": [],
+      "contentDifferentEntries": [],
+      "entryOrderIdentical": false,
+      "entryCount": 54,
+      "frozenSignatureExit": 0,
+      "frozenCertificateSha256": [
+        "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1"
+      ],
+      "independentSignatureExit": 0,
+      "independentCertificateSha256": [
+        "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1"
+      ]
+    },
+    "gitStatusAfter": "",
+    "currentHeadAfter": "3502929d569262253440fa3241ff90cffe57c859"
+  },
+  "independentlyExecutedTaskLines": [
+    "> Task :core:test",
+    "> Task :app:testDebugUnitTest",
+    "> Task :app:assembleDebug",
+    "> Task :app:lintDebug",
+    "BUILD SUCCESSFUL in 38s",
+    "55 actionable tasks: 55 executed"
+  ],
+  "runtimePending": [
+    "Root C3 installed frozen APK hash on both approved devices",
+    "Root C3 actual UI/long-content/fontScale/focus state evidence",
+    "Root C3 two-car proposal negative/accepted native request counts, >45-second native foreground observation, consent/cold/recovery",
+    "Final tracked evidence head with immutable public proof"
+  ],
+  "limitations": [
+    "No device or UI operations performed by verifier. Root runtime records will be inspected independently before final verdict.",
+    "C1 and C2 device records remain provisional for C3.",
+    "Whole APK hash differs due ZIP packaging order; all 54 listed entries byte-identical and same valid signature certificate. Whole-archive reproducibility is not claimed."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "user": 10,
+  "original": {
+    "emulator-5570": "1.0",
+    "emulator-5572": "1.0"
+  },
+  "note": "OS currently materializes the default as1.0; preserve the values observed on explicit resume."
+}

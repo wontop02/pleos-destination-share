@@ -1,0 +1,18 @@
+{
+  "command": [
+    "gradle",
+    "--offline",
+    "--no-daemon",
+    "--max-workers=1",
+    "-Dorg.gradle.jvmargs=-Xmx1536m -XX:MaxMetaspaceSize=512m",
+    ":core:test",
+    ":app:testDebugUnitTest",
+    ":app:assembleDebug",
+    ":app:lintDebug"
+  ],
+  "exitCode": 0,
+  "elapsedSeconds": 27.655,
+  "timeoutSeconds": 600,
+  "error": null,
+  "toolchainConfigSha256": "c2006d27c12e2ceddc60629f4028bdd3b84b988a0a793562436a0a40f735c5dd"
+}

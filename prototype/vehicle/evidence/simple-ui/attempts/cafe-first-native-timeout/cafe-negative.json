@@ -1,0 +1,1480 @@
+{
+  "checkpoints": {
+    "emulator-5570": {
+      "serial": "emulator-5570",
+      "journalLineOffset": 150,
+      "hostAt": "2026-11-06T08:42:15.655176+00:00",
+      "state": {
+        "at": 1793954524612,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      }
+    },
+    "emulator-5572": {
+      "serial": "emulator-5572",
+      "journalLineOffset": 58,
+      "hostAt": "2026-11-06T08:42:16.945520+00:00",
+      "state": {
+        "at": 1793954503958,
+        "event": "coordinationServiceStart",
+        "serviceEpoch": 10463713,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "member",
+        "automatic": "FOLLOWER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      }
+    }
+  },
+  "selection": {
+    "place": "가든서비스",
+    "entryButton": "저장한 장소 선택",
+    "reasonReadbackLength": 200,
+    "inputRetainedAcrossActualCallbacks": true
+  },
+  "pending": {
+    "id": "40b5d2407ea7d7d418575f6f",
+    "version": 1,
+    "status": "pending",
+    "candidateName": "가든서비스",
+    "candidatePoiId": "36khp2h36p68cm5nqhec",
+    "proposerId": "d2afad030338969693bf7e92",
+    "baseRevision": 0,
+    "createdAt": 1793954641657,
+    "expiresAt": 1793954761657,
+    "acceptedRevision": null,
+    "responses": [
+      {
+        "memberId": "d2afad030338969693bf7e92",
+        "response": "accepted"
+      },
+      {
+        "memberId": "1b7e44fe366fecbcdae27e7e",
+        "response": "pending"
+      }
+    ]
+  },
+  "rejected": {
+    "id": "40b5d2407ea7d7d418575f6f",
+    "version": 2,
+    "status": "rejected",
+    "candidateName": "가든서비스",
+    "candidatePoiId": "36khp2h36p68cm5nqhec",
+    "proposerId": "d2afad030338969693bf7e92",
+    "baseRevision": 0,
+    "createdAt": 1793954641657,
+    "expiresAt": 1793954761657,
+    "acceptedRevision": null,
+    "responses": [
+      {
+        "memberId": "d2afad030338969693bf7e92",
+        "response": "accepted"
+      },
+      {
+        "memberId": "1b7e44fe366fecbcdae27e7e",
+        "response": "rejected"
+      }
+    ]
+  },
+  "routeCounts": {
+    "emulator-5570": 0,
+    "emulator-5572": 0
+  },
+  "trace": {
+    "emulator-5570": [
+      {
+        "at": 1793954539824,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      {
+        "at": 1793954540061,
+        "event": "getDestinationInfo",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954540435,
+        "event": "onDestinationInfoAbsent",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954540436,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      {
+        "at": 1793954555521,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      {
+        "at": 1793954555636,
+        "event": "getDestinationInfo",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954555776,
+        "event": "onDestinationInfoAbsent",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954555778,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      {
+        "at": 1793954570786,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      {
+        "at": 1793954570896,
+        "event": "getDestinationInfo",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954571078,
+        "event": "onDestinationInfoAbsent",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954571081,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      {
+        "at": 1793954586410,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      {
+        "at": 1793954586490,
+        "event": "getDestinationInfo",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954586750,
+        "event": "onDestinationInfoAbsent",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954586751,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      {
+        "at": 1793954601904,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      {
+        "at": 1793954601982,
+        "event": "getDestinationInfo",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954602034,
+        "event": "onDestinationInfoAbsent",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954602035,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      {
+        "at": 1793954617157,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      {
+        "at": 1793954617233,
+        "event": "getDestinationInfo",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954617347,
+        "event": "onDestinationInfoAbsent",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954617348,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      {
+        "at": 1793954632537,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      {
+        "at": 1793954632638,
+        "event": "getDestinationInfo",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954632710,
+        "event": "onDestinationInfoAbsent",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954632711,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      {
+        "at": 1793954641539,
+        "event": "proposalPublicationHeld",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954641540,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": true,
+        "proposalBusy": true,
+        "proposalMessage": "제안 보내는 중 · 순정 안내 유지",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      {
+        "at": 1793954641785,
+        "event": "proposalPublicationHeld",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954641787,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": true,
+        "proposalBusy": true,
+        "proposalMessage": "제안 대기 · 전원 수락 전에는 순정 안내를 유지합니다.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": {
+          "id": "40b5d2407ea7d7d418575f6f",
+          "version": 1,
+          "status": "pending",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "d2afad030338969693bf7e92",
+          "baseRevision": 0,
+          "createdAt": 1793954641657,
+          "expiresAt": 1793954761657,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "d2afad030338969693bf7e92",
+              "response": "accepted"
+            },
+            {
+              "memberId": "1b7e44fe366fecbcdae27e7e",
+              "response": "pending"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793954641976,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": true,
+        "proposalBusy": false,
+        "proposalMessage": "제안 대기 · 전원 수락 전에는 순정 안내를 유지합니다.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": {
+          "id": "40b5d2407ea7d7d418575f6f",
+          "version": 1,
+          "status": "pending",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "d2afad030338969693bf7e92",
+          "baseRevision": 0,
+          "createdAt": 1793954641657,
+          "expiresAt": 1793954761657,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "d2afad030338969693bf7e92",
+              "response": "accepted"
+            },
+            {
+              "memberId": "1b7e44fe366fecbcdae27e7e",
+              "response": "pending"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793954647865,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": true,
+        "proposalBusy": false,
+        "proposalMessage": "제안 대기 · 전원 수락 전에는 순정 안내를 유지합니다.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": {
+          "id": "40b5d2407ea7d7d418575f6f",
+          "version": 1,
+          "status": "pending",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "d2afad030338969693bf7e92",
+          "baseRevision": 0,
+          "createdAt": 1793954641657,
+          "expiresAt": 1793954761657,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "d2afad030338969693bf7e92",
+              "response": "accepted"
+            },
+            {
+              "memberId": "1b7e44fe366fecbcdae27e7e",
+              "response": "pending"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793954647990,
+        "event": "getDestinationInfo",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954648121,
+        "event": "onDestinationInfoAbsent",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954648122,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": true,
+        "proposalBusy": false,
+        "proposalMessage": "제안 대기 · 전원 수락 전에는 순정 안내를 유지합니다.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": {
+          "id": "40b5d2407ea7d7d418575f6f",
+          "version": 1,
+          "status": "pending",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "d2afad030338969693bf7e92",
+          "baseRevision": 0,
+          "createdAt": 1793954641657,
+          "expiresAt": 1793954761657,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "d2afad030338969693bf7e92",
+              "response": "accepted"
+            },
+            {
+              "memberId": "1b7e44fe366fecbcdae27e7e",
+              "response": "pending"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793954663340,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": true,
+        "proposalBusy": false,
+        "proposalMessage": "제안 대기 · 전원 수락 전에는 순정 안내를 유지합니다.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": {
+          "id": "40b5d2407ea7d7d418575f6f",
+          "version": 1,
+          "status": "pending",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "d2afad030338969693bf7e92",
+          "baseRevision": 0,
+          "createdAt": 1793954641657,
+          "expiresAt": 1793954761657,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "d2afad030338969693bf7e92",
+              "response": "accepted"
+            },
+            {
+              "memberId": "1b7e44fe366fecbcdae27e7e",
+              "response": "pending"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793954663568,
+        "event": "getDestinationInfo",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954663717,
+        "event": "onDestinationInfoAbsent",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954663719,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": true,
+        "proposalBusy": false,
+        "proposalMessage": "제안 대기 · 전원 수락 전에는 순정 안내를 유지합니다.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": {
+          "id": "40b5d2407ea7d7d418575f6f",
+          "version": 1,
+          "status": "pending",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "d2afad030338969693bf7e92",
+          "baseRevision": 0,
+          "createdAt": 1793954641657,
+          "expiresAt": 1793954761657,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "d2afad030338969693bf7e92",
+              "response": "accepted"
+            },
+            {
+              "memberId": "1b7e44fe366fecbcdae27e7e",
+              "response": "pending"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793954678896,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": true,
+        "proposalBusy": false,
+        "proposalMessage": "제안 대기 · 전원 수락 전에는 순정 안내를 유지합니다.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": {
+          "id": "40b5d2407ea7d7d418575f6f",
+          "version": 1,
+          "status": "pending",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "d2afad030338969693bf7e92",
+          "baseRevision": 0,
+          "createdAt": 1793954641657,
+          "expiresAt": 1793954761657,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "d2afad030338969693bf7e92",
+              "response": "accepted"
+            },
+            {
+              "memberId": "1b7e44fe366fecbcdae27e7e",
+              "response": "pending"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793954679085,
+        "event": "getDestinationInfo",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954679176,
+        "event": "onDestinationInfoAbsent",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954679178,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": true,
+        "proposalBusy": false,
+        "proposalMessage": "제안 대기 · 전원 수락 전에는 순정 안내를 유지합니다.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": {
+          "id": "40b5d2407ea7d7d418575f6f",
+          "version": 1,
+          "status": "pending",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "d2afad030338969693bf7e92",
+          "baseRevision": 0,
+          "createdAt": 1793954641657,
+          "expiresAt": 1793954761657,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "d2afad030338969693bf7e92",
+              "response": "accepted"
+            },
+            {
+              "memberId": "1b7e44fe366fecbcdae27e7e",
+              "response": "pending"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793954690458,
+        "event": "pendingProposalReleased",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954690472,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "제안 거절 · 현재 순정 안내 유지",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": {
+          "id": "40b5d2407ea7d7d418575f6f",
+          "version": 2,
+          "status": "rejected",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "d2afad030338969693bf7e92",
+          "baseRevision": 0,
+          "createdAt": 1793954641657,
+          "expiresAt": 1793954761657,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "d2afad030338969693bf7e92",
+              "response": "accepted"
+            },
+            {
+              "memberId": "1b7e44fe366fecbcdae27e7e",
+              "response": "rejected"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793954690641,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "제안 거절 · 현재 순정 안내 유지",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": {
+          "id": "40b5d2407ea7d7d418575f6f",
+          "version": 2,
+          "status": "rejected",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "d2afad030338969693bf7e92",
+          "baseRevision": 0,
+          "createdAt": 1793954641657,
+          "expiresAt": 1793954761657,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "d2afad030338969693bf7e92",
+              "response": "accepted"
+            },
+            {
+              "memberId": "1b7e44fe366fecbcdae27e7e",
+              "response": "rejected"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793954690691,
+        "event": "getDestinationInfo",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954690748,
+        "event": "onDestinationInfoAbsent",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954690749,
+        "event": "sessionState",
+        "serviceEpoch": 9074580,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "제안 거절 · 현재 순정 안내 유지",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": {
+          "id": "40b5d2407ea7d7d418575f6f",
+          "version": 2,
+          "status": "rejected",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "d2afad030338969693bf7e92",
+          "baseRevision": 0,
+          "createdAt": 1793954641657,
+          "expiresAt": 1793954761657,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "d2afad030338969693bf7e92",
+              "response": "accepted"
+            },
+            {
+              "memberId": "1b7e44fe366fecbcdae27e7e",
+              "response": "rejected"
+            }
+          ]
+        }
+      }
+    ],
+    "emulator-5572": [
+      {
+        "at": 1793954626111,
+        "event": "proposalPublicationHeld",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954626121,
+        "event": "sessionState",
+        "serviceEpoch": 10463713,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "member",
+        "automatic": "FOLLOWER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "새 목적지 제안 · 수락 또는 거절해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": {
+          "id": "40b5d2407ea7d7d418575f6f",
+          "version": 1,
+          "status": "pending",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "d2afad030338969693bf7e92",
+          "baseRevision": 0,
+          "createdAt": 1793954641657,
+          "expiresAt": 1793954761657,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "d2afad030338969693bf7e92",
+              "response": "accepted"
+            },
+            {
+              "memberId": "1b7e44fe366fecbcdae27e7e",
+              "response": "pending"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793954674403,
+        "event": "proposalPublicationHeld",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954674408,
+        "event": "sessionState",
+        "serviceEpoch": 10463713,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "member",
+        "automatic": "FOLLOWER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": true,
+        "proposalBusy": true,
+        "proposalMessage": "거절 보내는 중 · 순정 안내 유지",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": {
+          "id": "40b5d2407ea7d7d418575f6f",
+          "version": 1,
+          "status": "pending",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "d2afad030338969693bf7e92",
+          "baseRevision": 0,
+          "createdAt": 1793954641657,
+          "expiresAt": 1793954761657,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "d2afad030338969693bf7e92",
+              "response": "accepted"
+            },
+            {
+              "memberId": "1b7e44fe366fecbcdae27e7e",
+              "response": "pending"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793954674694,
+        "event": "pendingProposalReleased",
+        "nativeEpoch": 1,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793954674695,
+        "event": "sessionState",
+        "serviceEpoch": 10463713,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "member",
+        "automatic": "FOLLOWER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": true,
+        "proposalBusy": true,
+        "proposalMessage": "제안 거절 · 현재 순정 안내 유지",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": {
+          "id": "40b5d2407ea7d7d418575f6f",
+          "version": 2,
+          "status": "rejected",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "d2afad030338969693bf7e92",
+          "baseRevision": 0,
+          "createdAt": 1793954641657,
+          "expiresAt": 1793954761657,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "d2afad030338969693bf7e92",
+              "response": "accepted"
+            },
+            {
+              "memberId": "1b7e44fe366fecbcdae27e7e",
+              "response": "rejected"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793954674764,
+        "event": "sessionState",
+        "serviceEpoch": 10463713,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "member",
+        "automatic": "FOLLOWER",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "제안 거절 · 현재 순정 안내 유지",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": {
+          "id": "40b5d2407ea7d7d418575f6f",
+          "version": 2,
+          "status": "rejected",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "d2afad030338969693bf7e92",
+          "baseRevision": 0,
+          "createdAt": 1793954641657,
+          "expiresAt": 1793954761657,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "d2afad030338969693bf7e92",
+              "response": "accepted"
+            },
+            {
+              "memberId": "1b7e44fe366fecbcdae27e7e",
+              "response": "rejected"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "source": "ui/cafe-source.json",
+  "states": {
+    "emulator-5570": {
+      "at": 1793954705994,
+      "event": "sessionState",
+      "serviceEpoch": 9074580,
+      "roomEpoch": 1,
+      "revision": 0,
+      "role": "host",
+      "automatic": "LEADER",
+      "applying": "IDLE",
+      "connection": "CONNECTED",
+      "roomConnected": true,
+      "uiCount": 1,
+      "confirmedAtElapsed": null,
+      "routingCompletedObserved": false,
+      "confirmationKind": null,
+      "sharedKind": null,
+      "proposalLease": false,
+      "proposalBusy": false,
+      "proposalMessage": "제안 거절 · 현재 순정 안내 유지",
+      "proposalPublicationHeld": false,
+      "acceptedProposalId": null,
+      "acceptedProposalVersion": null,
+      "acceptedProposalRevision": null,
+      "proposal": {
+        "id": "40b5d2407ea7d7d418575f6f",
+        "version": 2,
+        "status": "rejected",
+        "candidateName": "가든서비스",
+        "candidatePoiId": "36khp2h36p68cm5nqhec",
+        "proposerId": "d2afad030338969693bf7e92",
+        "baseRevision": 0,
+        "createdAt": 1793954641657,
+        "expiresAt": 1793954761657,
+        "acceptedRevision": null,
+        "responses": [
+          {
+            "memberId": "d2afad030338969693bf7e92",
+            "response": "accepted"
+          },
+          {
+            "memberId": "1b7e44fe366fecbcdae27e7e",
+            "response": "rejected"
+          }
+        ]
+      }
+    },
+    "emulator-5572": {
+      "at": 1793954674764,
+      "event": "sessionState",
+      "serviceEpoch": 10463713,
+      "roomEpoch": 1,
+      "revision": 0,
+      "role": "member",
+      "automatic": "FOLLOWER",
+      "applying": "IDLE",
+      "connection": "CONNECTED",
+      "roomConnected": true,
+      "uiCount": 1,
+      "confirmedAtElapsed": null,
+      "routingCompletedObserved": false,
+      "confirmationKind": null,
+      "sharedKind": null,
+      "proposalLease": false,
+      "proposalBusy": false,
+      "proposalMessage": "제안 거절 · 현재 순정 안내 유지",
+      "proposalPublicationHeld": false,
+      "acceptedProposalId": null,
+      "acceptedProposalVersion": null,
+      "acceptedProposalRevision": null,
+      "proposal": {
+        "id": "40b5d2407ea7d7d418575f6f",
+        "version": 2,
+        "status": "rejected",
+        "candidateName": "가든서비스",
+        "candidatePoiId": "36khp2h36p68cm5nqhec",
+        "proposerId": "d2afad030338969693bf7e92",
+        "baseRevision": 0,
+        "createdAt": 1793954641657,
+        "expiresAt": 1793954761657,
+        "acceptedRevision": null,
+        "responses": [
+          {
+            "memberId": "d2afad030338969693bf7e92",
+            "response": "accepted"
+          },
+          {
+            "memberId": "1b7e44fe366fecbcdae27e7e",
+            "response": "rejected"
+          }
+        ]
+      }
+    }
+  }
+}

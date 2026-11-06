@@ -1,0 +1,22 @@
+{
+  "sourceHead": "3502929d569262253440fa3241ff90cffe57c859",
+  "verdict": "STOPPED",
+  "failed": {
+    "script": "setup-room.py",
+    "args": [],
+    "log": "setup-room.log",
+    "startedAt": "2026-11-06T08:10:35.691535+00:00",
+    "endedAt": "2026-11-06T08:13:47.427067+00:00",
+    "exitCode": 1
+  },
+  "completed": [
+    {
+      "script": "setup-room.py",
+      "args": [],
+      "log": "setup-room.log",
+      "startedAt": "2026-11-06T08:10:35.691535+00:00",
+      "endedAt": "2026-11-06T08:13:47.427067+00:00",
+      "exitCode": 1
+    }
+  ]
+}

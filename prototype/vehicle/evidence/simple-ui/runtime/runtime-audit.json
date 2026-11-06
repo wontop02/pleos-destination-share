@@ -1,0 +1,152 @@
+{
+  "sourceHead": "3502929d569262253440fa3241ff90cffe57c859",
+  "apkSha256": "623d103c6768762451f2113ffde35fa99351c5458b2de711f5d9a7d857664195",
+  "initialRoomCreationAndJoin": true,
+  "cases": {
+    "cafe": {
+      "place": "가든서비스",
+      "pendingAndRejectedRequests": {
+        "emulator-5570": 0,
+        "emulator-5572": 0
+      },
+      "acceptedRequests": {
+        "emulator-5570": 1,
+        "emulator-5572": 1
+      },
+      "nativeWindowSeconds": 62.070409,
+      "continuousNativeWindow": {
+        "emulator-5570": {
+          "observations": 31,
+          "processPid": "2627",
+          "serviceEpoch": 220457
+        },
+        "emulator-5572": {
+          "observations": 31,
+          "processPid": "21856",
+          "serviceEpoch": 11679431
+        }
+      },
+      "actualReadOnlyNativeDestinations": {
+        "emulator-5570": {
+          "latitude": 37.412475,
+          "longitude": 127.09534722,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "가든서비스",
+          "address": "수정구 시흥동",
+          "poiId": "36khp2h36p68cm5nqhec",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 60,
+          "remainTime": 60,
+          "tollFare": 0
+        },
+        "emulator-5572": {
+          "latitude": 37.412475,
+          "longitude": 127.09534722,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "가든서비스",
+          "address": "수정구 시흥동",
+          "poiId": "36khp2h36p68cm5nqhec",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 60,
+          "remainTime": 60,
+          "tollFare": 0
+        }
+      }
+    },
+    "restaurant": {
+      "place": "청계산담백미",
+      "pendingAndRejectedRequests": {
+        "emulator-5570": 0,
+        "emulator-5572": 0
+      },
+      "acceptedRequests": {
+        "emulator-5570": 1,
+        "emulator-5572": 1
+      },
+      "nativeWindowSeconds": 51.733855,
+      "continuousNativeWindow": {
+        "emulator-5570": {
+          "observations": 26,
+          "processPid": "2627",
+          "serviceEpoch": 220457
+        },
+        "emulator-5572": {
+          "observations": 26,
+          "processPid": "21856",
+          "serviceEpoch": 11679431
+        }
+      },
+      "actualReadOnlyNativeDestinations": {
+        "emulator-5570": {
+          "latitude": 37.40924444,
+          "longitude": 127.09810833,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "청계산담백미",
+          "address": "수정구 금토동",
+          "poiId": "36khp2h5fjcfcm5nqhe3",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 830,
+          "remainTime": 300,
+          "tollFare": 0
+        },
+        "emulator-5572": {
+          "latitude": 37.40924444,
+          "longitude": 127.09810833,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "청계산담백미",
+          "address": "수정구 금토동",
+          "poiId": "36khp2h5fjcfcm5nqhe3",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 830,
+          "remainTime": 300,
+          "tollFare": 0
+        }
+      }
+    }
+  },
+  "noActionChecks": {
+    "navigation-no-action": {
+      "emulator-5570": 0,
+      "emulator-5572": 0
+    },
+    "settings-active-cancel": {
+      "emulator-5570": 0,
+      "emulator-5572": 0
+    },
+    "explicit-stop-restart": {
+      "emulator-5570": 0,
+      "emulator-5572": 0
+    },
+    "cold-no-implicit-action": {
+      "emulator-5570": 0,
+      "emulator-5572": 0
+    },
+    "long-place-no-send": {
+      "emulator-5570": 0,
+      "emulator-5572": 0
+    },
+    "final-demo-ready": {
+      "emulator-5570": 0,
+      "emulator-5572": 0
+    }
+  },
+  "fontScalesRestored": {
+    "emulator-5570": "1.0",
+    "emulator-5572": "1.0"
+  },
+  "coldConsentRevocation": true,
+  "collectorReadErrorsOutsideConfirmedWindows": 48,
+  "verdict": "PASS"
+}

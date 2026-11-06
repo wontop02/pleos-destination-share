@@ -1,0 +1,15 @@
+{
+  "phase": "STOPPED",
+  "completed": [
+    {
+      "script": "proposal-cases.py",
+      "args": [
+        "cafe"
+      ],
+      "log": "cafe.log",
+      "startedAt": "2026-11-06T11:27:55.990586+00:00",
+      "endedAt": "2026-11-06T11:28:05.584709+00:00",
+      "exitCode": 1
+    }
+  ]
+}

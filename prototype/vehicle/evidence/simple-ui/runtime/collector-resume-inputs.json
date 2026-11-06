@@ -1,0 +1,29 @@
+{
+  "at": "2026-11-06T11:22:23.337898+00:00",
+  "previousStop": {
+    "finishedAt": "2026-11-06T08:57:07.161506+00:00",
+    "readErrors": 39,
+    "sourceGenerations": {
+      "emulator-5570": 0,
+      "emulator-5572": 0
+    }
+  },
+  "userExplicitResume": true,
+  "noObservationDuringPauseClaimed": true,
+  "devices": {
+    "emulator-5570": {
+      "priorOccurrences": 421,
+      "currentOccurrences": 469,
+      "pausedUncollectedOccurrences": 48,
+      "prefixExactlyMatches": true,
+      "rawSha256": "e58ecd2bc7bf67a9488d17d8762fbbeae338d5282f45b310ec8085789bc0e7d7"
+    },
+    "emulator-5572": {
+      "priorOccurrences": 198,
+      "currentOccurrences": 214,
+      "pausedUncollectedOccurrences": 16,
+      "prefixExactlyMatches": true,
+      "rawSha256": "47394ac84d4a3774c9d1ddc688f8ba005d4149191f7eafcd40c735939eafe606"
+    }
+  }
+}

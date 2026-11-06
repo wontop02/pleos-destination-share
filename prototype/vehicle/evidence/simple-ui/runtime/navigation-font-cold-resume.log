@@ -1,0 +1,11 @@
+Active settings/danger-cancel/stop/cold resume PASS,0 implicit routes
+Traceback (most recent call last):
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/simple-ui-20261106/root/navigation-font-cold-resume.py", line 43, in <module>
+    for s in S:tap(s,'start_convoy')
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/simple-ui-20261106/root/navigation-font-cold-resume.py", line 4, in tap
+    def tap(s,n,scroll=False):u['tap'](s,n,scroll)
+  File "ui-tools.py", line 29, in tap
+    n=by_id(s,name,scroll)
+  File "ui-tools.py", line 27, in by_id
+    raise RuntimeError('Visible product resource not found: '+name)
+RuntimeError: Visible product resource not found: start_convoy

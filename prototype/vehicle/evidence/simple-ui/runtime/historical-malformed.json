@@ -1,0 +1,54 @@
+{
+  "emulator-5570": [
+    {
+      "lineIndex": 686,
+      "sha256": "73e103c20a3b7756a60e3a6c93a71f064cd49d99e5f81170aac328cbd59f51df",
+      "parseableSegmentTimes": [
+        1793881140820
+      ],
+      "predatesCutoverAt": 1793886800000
+    }
+  ],
+  "emulator-5572": [
+    {
+      "lineIndex": 865,
+      "sha256": "f7c1cc12dce8c713d48761cfc15cf163ff19f973434fe1e01b24faf72b035b07",
+      "parseableSegmentTimes": [
+        1793873691346
+      ],
+      "predatesCutoverAt": 1793886800000
+    },
+    {
+      "lineIndex": 908,
+      "sha256": "b3cef22c93a85acfa647feafe21a50aea88a2ae66885c4aa94b8ebd01b7e9acb",
+      "parseableSegmentTimes": [
+        1793874505440
+      ],
+      "predatesCutoverAt": 1793886800000
+    },
+    {
+      "lineIndex": 951,
+      "sha256": "9b42ef31d0ce4ff1fd82b7b5879f793491a8e558b85d4d021b2a2f25df11774e",
+      "parseableSegmentTimes": [
+        1793875774916
+      ],
+      "predatesCutoverAt": 1793886800000
+    },
+    {
+      "lineIndex": 994,
+      "sha256": "ea67d4efaa3a591888fb6c98ab75f216f8f7f7347b6e65eb028badf5c966ad50",
+      "parseableSegmentTimes": [
+        1793875993805
+      ],
+      "predatesCutoverAt": 1793886800000
+    },
+    {
+      "lineIndex": 1048,
+      "sha256": "fb46642945e8d5880bd24be47e06d18d39bb74b30969c37de508b4101e884a19",
+      "parseableSegmentTimes": [
+        1793877515895
+      ],
+      "predatesCutoverAt": 1793886800000
+    }
+  ]
+}

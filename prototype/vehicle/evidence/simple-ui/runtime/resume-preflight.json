@@ -1,0 +1,14 @@
+{
+  "at": "2026-11-06T11:23:16.333816+00:00",
+  "sourceHead": "3502929d569262253440fa3241ff90cffe57c859",
+  "devices": {
+    "emulator-5570": {
+      "installedApkSha256": "623d103c6768762451f2113ffde35fa99351c5458b2de711f5d9a7d857664195",
+      "user": "10"
+    },
+    "emulator-5572": {
+      "installedApkSha256": "623d103c6768762451f2113ffde35fa99351c5458b2de711f5d9a7d857664195",
+      "user": "10"
+    }
+  }
+}

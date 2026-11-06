@@ -1,0 +1,14 @@
+{"serial": "emulator-5570", "mode": "bookmarks", "status": "OBSERVED", "reason": "allowlisted_public_bookmark_fields_observed", "seconds": 3.9303116250000003, "routeRequests": 0, "saved": "cafe-source.json"}
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 4.724260708999999, "routeRequests": 0, "saved": "cafe-pending-native-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 7.546289375, "routeRequests": 0, "saved": "cafe-pending-native-emulator-5572.json"}
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 3.3266547089999996, "routeRequests": 0, "saved": "cafe-rejected-native-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 4.767587541, "routeRequests": 0, "saved": "cafe-rejected-native-emulator-5572.json"}
+cafe pending/reject0 native requests, unchanged actual guidance
+Traceback (most recent call last):
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/simple-ui-20261106/root/proposal-cases.py", line 77, in <module>
+    if sys.argv[1]=='cafe':accept_case('cafe',A,B,'가든서비스')
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/simple-ui-20261106/root/proposal-cases.py", line 57, in accept_case
+    q.wait(lambda:all(u['state'](s)['applying']=='CONFIRMED' and u['state'](s)['confirmationKind']=='pleos_place' and u['state'](s)['uiCount']==0 and u['state'](s)['revision']==accepted['acceptedRevision'] for s in S),50)
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/simple-ui-20261106/root/qa.py", line 31, in wait
+    raise RuntimeError('QA condition timed out')
+RuntimeError: QA condition timed out

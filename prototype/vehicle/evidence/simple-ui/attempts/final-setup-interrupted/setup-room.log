@@ -1,0 +1,16 @@
+Vehicle-A new simple room form ready
+Vehicle-B new simple room form ready
+Traceback (most recent call last):
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/simple-ui-20261106/root/setup-room.py", line 22, in <module>
+    tap(A,'submit_room',True)
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/simple-ui-20261106/root/setup-room.py", line 3, in tap
+    def tap(s,n,scroll=False):u['tap'](s,n,scroll)
+  File "ui-tools.py", line 29, in tap
+    n=by_id(s,name,scroll)
+  File "ui-tools.py", line 21, in by_id
+    t=tree(s);nodes=list(t.iter('node'))
+  File "ui-tools.py", line 15, in tree
+    def tree(s):return q.U['dump'](s)[1]
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/simple-ui-20261106/root/root-ui-tools.py", line 17, in dump
+    return text,E.fromstring(text[text.index('<?xml'):text.index('</hierarchy>')+12])
+ValueError: substring not found

@@ -1,0 +1,7 @@
+{"serial": "emulator-5570", "mode": "bookmarks", "status": "BLOCKED", "reason": "initial_query_unanswered_bookmark_query_not_sent", "seconds": 9.288087, "routeRequests": 0, "saved": "cafe-source.json"}
+Traceback (most recent call last):
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/simple-ui-20261106/root/proposal-cases.py", line 77, in <module>
+    if sys.argv[1]=='cafe':accept_case('cafe',A,B,'가든서비스')
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/simple-ui-20261106/root/proposal-cases.py", line 37, in accept_case
+    assert len(source['result']['bookmarkObservation']['entries'])==1
+KeyError: 'bookmarkObservation'

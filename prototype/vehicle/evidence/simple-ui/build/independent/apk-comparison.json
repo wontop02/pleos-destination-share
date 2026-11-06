@@ -1,0 +1,18 @@
+{
+  "frozenApkSha256": "623d103c6768762451f2113ffde35fa99351c5458b2de711f5d9a7d857664195",
+  "independentApkSha256": "1848928a1ed0677855c3c777333efa611a3d2b7d7b75c8841429e7dd197cffec",
+  "wholeArchiveHashesEqual": false,
+  "frozenOnlyEntries": [],
+  "independentOnlyEntries": [],
+  "contentDifferentEntries": [],
+  "entryOrderIdentical": false,
+  "entryCount": 54,
+  "frozenSignatureExit": 0,
+  "frozenCertificateSha256": [
+    "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1"
+  ],
+  "independentSignatureExit": 0,
+  "independentCertificateSha256": [
+    "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1"
+  ]
+}

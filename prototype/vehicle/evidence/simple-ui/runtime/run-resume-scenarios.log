@@ -1,0 +1,4 @@
+proposal-cases.py ['cafe'] exit 0
+proposal-cases.py ['restaurant'] exit 0
+finish-ui-qa.py [] exit 0
+audit-final-runtime.py [] exit 0
