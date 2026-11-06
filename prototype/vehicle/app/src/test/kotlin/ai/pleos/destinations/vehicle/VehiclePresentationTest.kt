@@ -56,6 +56,22 @@ class VehiclePresentationTest {
         }
     }
 
+    @Test fun routineReadAfterConfirmationIsWorkingWithoutRecoveryOrNewSuccess() {
+        val prior = confirmed()
+        assertTrue(VehiclePresentation.confirmedCurrentTarget(prior, accepted()))
+        val reading = prior.copy(current = CurrentDestination.Loading)
+        assertEquals(ApplyPhase.CONFIRMED, reading.applying)
+        assertFalse(VehiclePresentation.confirmedCurrentTarget(reading, accepted()))
+        assertEquals(StatusTone.WORKING, VehiclePresentation.destinationStatus(reading, accepted()).tone)
+        assertFalse(VehiclePresentation.showRecovery(reading, accepted(), pending = false))
+        assertFalse(VehiclePresentation.showRecovery(reading.copy(applying = ApplyPhase.REQUESTED), accepted(), pending = false))
+        val unconfirmed = prior.copy(current = CurrentDestination.Present(PrototypePlaces.all.last(), 31),
+            applying = ApplyPhase.IDLE, confirmedAt = null, confirmation = null)
+        assertEquals(StatusTone.NEUTRAL, VehiclePresentation.destinationStatus(unconfirmed, accepted()).tone)
+        assertTrue(VehiclePresentation.showRecovery(unconfirmed, accepted(), pending = false))
+        assertFalse(VehiclePresentation.showRecovery(prior, accepted(), pending = false))
+    }
+
     @Test fun placeConfirmationAllowsDifferentEntranceCoordinatesButRequiresIdentity() {
         val otherEntrance = exact.copy(latitude = exact.latitude + 0.001, longitude = exact.longitude + 0.001)
         assertTrue(VehiclePresentation.confirmedCurrentTarget(confirmed(actual = otherEntrance), accepted()))

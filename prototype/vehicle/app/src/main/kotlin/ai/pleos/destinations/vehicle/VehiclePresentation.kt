@@ -26,19 +26,29 @@ internal object VehiclePresentation {
     }
 
     fun destinationStatus(state: VehicleState, accepted: DestinationProposal?): DestinationStatus = when {
-        state.applying == ApplyPhase.CANCELLED -> DestinationStatus("목적지 확인을 멈췄어요. 내비 안내는 그대로예요.", StatusTone.NEUTRAL)
+        state.applying == ApplyPhase.CANCELLED && state.current != CurrentDestination.Loading ->
+            DestinationStatus("목적지 확인을 멈췄어요. 내비 안내는 그대로예요.", StatusTone.NEUTRAL)
         !state.roomConnected -> DestinationStatus("연결이 끊겼어요. 설정에서 다시 연결해 주세요.", StatusTone.ATTENTION)
         state.connection == NativeConnection.FAILED -> DestinationStatus("내비에 연결하지 못했어요. 설정에서 다시 연결해 주세요.", StatusTone.ATTENTION)
         confirmedCurrentTarget(state, accepted) -> DestinationStatus("내비에서 목적지를 확인했어요", StatusTone.SUCCESS)
         state.applying in listOf(ApplyPhase.CONNECTING, ApplyPhase.REQUESTED, ApplyPhase.ROUTING) ->
             DestinationStatus("내비에 반영 중", StatusTone.WORKING)
         state.applying == ApplyPhase.VERIFYING -> DestinationStatus("내비에서 목적지를 확인하고 있어요", StatusTone.WORKING)
+        state.current == CurrentDestination.Loading -> DestinationStatus("내비 목적지 확인 중", StatusTone.WORKING)
         state.applying in listOf(ApplyPhase.FAILED, ApplyPhase.TIMED_OUT) ->
             DestinationStatus("내비 반영을 확인하지 못했어요. 다시 시도해 주세요.", StatusTone.ATTENTION)
         state.sharing -> DestinationStatus("함께 가는 곳을 공유하고 있어요", StatusTone.WORKING)
         currentAcceptedTarget(state, accepted) -> DestinationStatus("수락한 목적지예요. 필요하면 다시 반영해 주세요.", StatusTone.NEUTRAL)
         state.shared == null -> DestinationStatus("목적지를 바꾸거나 동행을 시작해 주세요", StatusTone.NEUTRAL)
         else -> DestinationStatus("함께 정한 목적지예요. 내비 반영은 아직 확인 전이에요.", StatusTone.NEUTRAL)
+    }
+
+    fun showRecovery(state: VehicleState, accepted: DestinationProposal?, pending: Boolean,
+        status: DestinationStatus = destinationStatus(state, accepted)): Boolean {
+        val applying = state.applying in listOf(ApplyPhase.CONNECTING, ApplyPhase.REQUESTED, ApplyPhase.ROUTING, ApplyPhase.VERIFYING)
+        if (pending || applying || state.current == CurrentDestination.Loading) return false
+        return status.tone == StatusTone.ATTENTION || status.tone == StatusTone.NEUTRAL &&
+            state.applying != ApplyPhase.CANCELLED && currentAcceptedTarget(state, accepted)
     }
 
     fun connection(state: VehicleState, hasRoom: Boolean): String {

@@ -268,7 +268,7 @@ class MainActivity : Activity() {
         val currentAccepted = VehiclePresentation.currentAcceptedTarget(state, accepted)
         val retryAllowed = currentAccepted && !pending && state.roomConnected && owner?.hasProposalLease == false && !busy && !leaving && owner.proposalBusy == false
         val manualApply = state.automatic == AutomaticMode.OFF && state.roomConnected && state.shared?.canRequestRoute == true && !state.sharing && !applying
-        recoveryButton.visibility = if (!pending && (status.tone == StatusTone.ATTENTION || currentAccepted && status.tone != StatusTone.SUCCESS)) View.VISIBLE else View.GONE
+        recoveryButton.visibility = if (VehiclePresentation.showRecovery(state, accepted, pending, status)) View.VISIBLE else View.GONE
         recoveryButton.text = if (!state.roomConnected || state.connection == NativeConnection.FAILED) "연결 확인" else "다시 반영"
         recoveryButton.isEnabled = !state.roomConnected || state.connection == NativeConnection.FAILED || retryAllowed || manualApply
         renderComposer(state, owner, proposalError)
