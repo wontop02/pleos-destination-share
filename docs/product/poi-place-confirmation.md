@@ -25,7 +25,7 @@
 | 주소 | 경기도 성남시 수정구 창업로40번길 6 | 수정구 시흥동 |
 | ID / sub-ID / provider | 36khp2h36p68cm5nqhec / null / `""` | 동일 |
 
-약 51m 차이는 기존 exact 검증이 올바르게 거부한다. 첫 RED는 실제 `VehicleCoordinator.applyShared → requestRoute → 후속 destinationInfo` seam에 이 입력을 고정하고, 기존에 유일한 exact 의미로 장소 확인을 기대하면 `VERIFYING`에 남는다는 기능 공백을 재현했다. exact matcher의 결함이 아니다. 같은 seam의 GREEN은 명시적인 `pleos_place` 요청만 장소 설정을 확인하며 원본과 실제 지점을 각각 보존한다. 기존 exact 모드는 계속 실패한다.
+약 51m 차이는 기존 exact 검증이 올바르게 거부한다. 첫 RED는 실제 `VehicleCoordinator.applyShared → requestRoute → 후속 destinationInfo` seam에 같은 이름·좌표·식별 정보를 고정하고, 기존에 유일한 exact 의미로 장소 확인을 기대하면 `VERIFYING`에 남는다는 기능 공백을 재현했다. exact matcher의 결함이 아니다. 같은 seam의 GREEN은 명시적인 `pleos_place` 요청만 장소 설정을 확인하며 원본과 실제 지점을 각각 보존한다. 기존 exact 모드는 계속 실패한다. 최초 RED의 주소 내부 공백은 누락되어 있었으며, #21 후속 정정에서 현재 회귀와 위 표를 원본 주소 바이트로 맞췄다. 최초 RAW와 freeze-1은 변경하지 않았다.
 
 두 번째 RED는 선택 장소 확인 후 45초 보호가 끝나고 같은 방을 재연결했을 때, 잃은 로컬 확인 marker와 구조적으로 다른 좌표 때문에 자동 공유가 새 revision을 만드는 문제를 재현한다. 새 코드의 자동 공유 합치기는 지원하는 선택 기대와 **새 실제 조회**의 완전한 장소 식별에만 적용한다. 재연결·중지/재시작·cold 관측에서도 불필요한 원본 덮어쓰기와 재적용을 막는다. 이 합치기는 확인 권한이 아니며 `CONFIRMED`, 확인 시각, typed confirmation을 만들지 않는다. 실제 다른 장소 식별이나 기존 exact 좌표 변경은 기존 자동 공유로 처리한다.
 
