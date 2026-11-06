@@ -23,7 +23,7 @@ class SdkRouteMappingTest {
 
     @Test fun selectedPlaceRouteUsesTheOriginalBookmarkFieldsWithoutLearningTheObservedGuidancePoint() {
         val selected = Destination("가든서비스", 37.41255277, 127.09591666,
-            PleosMetadata("36khp2h36p68cm5nqhec", null, "경기도 성남시 수정구 창업로40번길6", "", null, null),
+            PleosMetadata("36khp2h36p68cm5nqhec", null, "경기도 성남시 수정구 창업로40번길 6", "", null, null),
             DestinationKind.PLEOS_PLACE, PlaceSource.PLEOS_BOOKMARK)
         val sdk = sdkRouteInfo(selected)
         assertEquals(37.41255277, sdk.latitude, 0.0); assertEquals(127.09591666, sdk.longitude, 0.0)

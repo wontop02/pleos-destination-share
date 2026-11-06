@@ -5,10 +5,10 @@ import org.junit.Test
 
 class PlaceIntentSafetyTest {
     private val source = Destination("가든서비스", 37.41255277, 127.09591666,
-        PleosMetadata("36khp2h36p68cm5nqhec", null, "경기도 성남시 수정구 창업로40번길6", "", null, null),
+        PleosMetadata("36khp2h36p68cm5nqhec", null, "경기도 성남시 수정구 창업로40번길 6", "", null, null),
         DestinationKind.PLEOS_PLACE, PlaceSource.PLEOS_BOOKMARK)
     private val actual = Destination(source.name, 37.412475, 127.09534722,
-        source.pleos!!.copy(address = "수정구시흥동"))
+        source.pleos!!.copy(address = "수정구 시흥동"))
     private class Gateway : NavigationGateway {
         val listeners = mutableListOf<NavigationGateway.Listener>()
         val routes = mutableListOf<Destination>()

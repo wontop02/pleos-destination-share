@@ -22,7 +22,7 @@
 |---|---|---|
 | 이름 | 가든서비스 | 가든서비스 |
 | 좌표 | 37.41255277, 127.09591666 | 37.412475, 127.09534722 |
-| 주소 | 경기도 성남시 수정구 창업로40번길6 | 수정구시흥동 |
+| 주소 | 경기도 성남시 수정구 창업로40번길 6 | 수정구 시흥동 |
 | ID / sub-ID / provider | 36khp2h36p68cm5nqhec / null / `""` | 동일 |
 
 약 51m 차이는 기존 exact 검증이 올바르게 거부한다. 첫 RED는 실제 `VehicleCoordinator.applyShared → requestRoute → 후속 destinationInfo` seam에 이 입력을 고정하고, 기존에 유일한 exact 의미로 장소 확인을 기대하면 `VERIFYING`에 남는다는 기능 공백을 재현했다. exact matcher의 결함이 아니다. 같은 seam의 GREEN은 명시적인 `pleos_place` 요청만 장소 설정을 확인하며 원본과 실제 지점을 각각 보존한다. 기존 exact 모드는 계속 실패한다.

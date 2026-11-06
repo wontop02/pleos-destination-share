@@ -146,9 +146,9 @@ class VehicleProposalSessionTest {
     @Test fun selectedCafeSurvivesRealHttpConsentAndDistinctGuidanceWithoutLoopsOrHistoricalReplay() {
         serverTime(0)
         val cafe = Destination("가든서비스", 37.41255277, 127.09591666,
-            PleosMetadata("36khp2h36p68cm5nqhec", null, "경기도 성남시 수정구 창업로40번길6", "", null, null),
+            PleosMetadata("36khp2h36p68cm5nqhec", null, "경기도 성남시 수정구 창업로40번길 6", "", null, null),
             DestinationKind.PLEOS_PLACE, PlaceSource.PLEOS_BOOKMARK)
-        val guidance = Destination(cafe.name, 37.412475, 127.09534722, cafe.pleos!!.copy(address = "수정구시흥동"))
+        val guidance = Destination(cafe.name, 37.412475, 127.09534722, cafe.pleos!!.copy(address = "수정구 시흥동"))
         RoomHttpClient(base).use { api ->
             val host = api.create("대표 장소").first; val member = api.join(host.roomId, host.inviteSecret!!, "참여 장소").first
             Runtime(host).use { a -> Runtime(member).use { b ->

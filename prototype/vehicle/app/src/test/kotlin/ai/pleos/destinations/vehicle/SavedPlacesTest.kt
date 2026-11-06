@@ -10,7 +10,7 @@ import org.junit.Test
 
 class SavedPlacesTest {
     private fun bookmark() = BookmarkInfo(name = "가든서비스", latitude = 37.41255277, longitude = 127.09591666,
-        poiId = "36khp2h36p68cm5nqhec", poiSubId = null, address = "경기도 성남시 수정구 창업로40번길6",
+        poiId = "36khp2h36p68cm5nqhec", poiSubId = null, address = "경기도 성남시 수정구 창업로40번길 6",
         category = BookmarkType.values().first(), poiProvider = "", displayLatitude = null, displayLongitude = null)
     private val place get() = savedPlaces(listOf(bookmark()))!!.single()
     private class Gateway : SavedPlacesGateway {

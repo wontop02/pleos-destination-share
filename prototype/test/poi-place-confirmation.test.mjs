@@ -4,7 +4,7 @@ import { events, runningApp } from './support.mjs';
 
 const cafe = { name: '가든서비스', latitude: 37.41255277, longitude: 127.09591666,
   kind: 'pleos_place', source: 'pleos_bookmark',
-  pleos: { poiId: '36khp2h36p68cm5nqhec', poiSubId: null, address: '경기도 성남시 수정구 창업로40번길6',
+  pleos: { poiId: '36khp2h36p68cm5nqhec', poiSubId: null, address: '경기도 성남시 수정구 창업로40번길 6',
     poiProvider: '', displayLatitude: null, displayLongitude: null } };
 const path = (who) => `/api/rooms/${who.roomId}`;
 const propose = (app, who, destination, n = 1, revision = 0) => app.call('POST', `${path(who)}/proposals`, {
