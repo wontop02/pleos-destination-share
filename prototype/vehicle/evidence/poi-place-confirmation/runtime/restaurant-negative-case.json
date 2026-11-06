@@ -1,0 +1,886 @@
+{
+  "selection": {
+    "name": "청계산담백미",
+    "label": "청계산담백미\n경기도 성남시 수정구 달래내로 22",
+    "actualSdkListSource": "restaurant-source"
+  },
+  "source": "ui/restaurant-source.json",
+  "checkpoints": {
+    "emulator-5570": {
+      "serial": "emulator-5570",
+      "journalLineOffset": 202,
+      "hostAt": "2026-11-06T06:20:30.453161+00:00",
+      "state": {
+        "at": 1793946021157,
+        "event": "sessionState",
+        "serviceEpoch": 82792,
+        "roomEpoch": 2,
+        "revision": 2,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 563267,
+        "routingCompletedObserved": false,
+        "confirmationKind": "pleos_place",
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": "1a9d10ef54300281785213ee",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "1a9d10ef54300281785213ee",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "1a6e43c63a155d1c8fc36478",
+          "baseRevision": 1,
+          "createdAt": 1793945834002,
+          "expiresAt": 1793945954002,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "1a6e43c63a155d1c8fc36478",
+              "response": "accepted"
+            },
+            {
+              "memberId": "f4b112c05b4946cb5eae4efd",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    },
+    "emulator-5572": {
+      "serial": "emulator-5572",
+      "journalLineOffset": 138,
+      "hostAt": "2026-11-06T06:20:32.041133+00:00",
+      "state": {
+        "at": 1793945961041,
+        "event": "activityStartAttach",
+        "serviceEpoch": 1725778,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "member",
+        "automatic": "FOLLOWER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 1941647,
+        "routingCompletedObserved": false,
+        "confirmationKind": "pleos_place",
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": "1a9d10ef54300281785213ee",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "1a9d10ef54300281785213ee",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "1a6e43c63a155d1c8fc36478",
+          "baseRevision": 1,
+          "createdAt": 1793945834002,
+          "expiresAt": 1793945954002,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "1a6e43c63a155d1c8fc36478",
+              "response": "accepted"
+            },
+            {
+              "memberId": "f4b112c05b4946cb5eae4efd",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "pending": {
+    "id": "44f31a43157c86d1238a2a81",
+    "version": 1,
+    "status": "pending",
+    "candidateName": "청계산담백미",
+    "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+    "proposerId": "f4b112c05b4946cb5eae4efd",
+    "baseRevision": 2,
+    "createdAt": 1793946039053,
+    "expiresAt": 1793946159053,
+    "acceptedRevision": null,
+    "responses": [
+      {
+        "memberId": "1a6e43c63a155d1c8fc36478",
+        "response": "pending"
+      },
+      {
+        "memberId": "f4b112c05b4946cb5eae4efd",
+        "response": "accepted"
+      }
+    ]
+  },
+  "pendingRouteCounts": {
+    "emulator-5570": 0,
+    "emulator-5572": 0
+  },
+  "rejected": {
+    "id": "44f31a43157c86d1238a2a81",
+    "version": 2,
+    "status": "rejected",
+    "candidateName": "청계산담백미",
+    "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+    "proposerId": "f4b112c05b4946cb5eae4efd",
+    "baseRevision": 2,
+    "createdAt": 1793946039053,
+    "expiresAt": 1793946159053,
+    "acceptedRevision": null,
+    "responses": [
+      {
+        "memberId": "1a6e43c63a155d1c8fc36478",
+        "response": "rejected"
+      },
+      {
+        "memberId": "f4b112c05b4946cb5eae4efd",
+        "response": "accepted"
+      }
+    ]
+  },
+  "rejectedRouteCounts": {
+    "emulator-5570": 0,
+    "emulator-5572": 0
+  },
+  "trace": {
+    "emulator-5570": [
+      {
+        "at": 1793946036409,
+        "event": "sessionState",
+        "serviceEpoch": 82792,
+        "roomEpoch": 2,
+        "revision": 2,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 563267,
+        "routingCompletedObserved": false,
+        "confirmationKind": "pleos_place",
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": "1a9d10ef54300281785213ee",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "1a9d10ef54300281785213ee",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "1a6e43c63a155d1c8fc36478",
+          "baseRevision": 1,
+          "createdAt": 1793945834002,
+          "expiresAt": 1793945954002,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "1a6e43c63a155d1c8fc36478",
+              "response": "accepted"
+            },
+            {
+              "memberId": "f4b112c05b4946cb5eae4efd",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793946036438,
+        "event": "getDestinationInfo",
+        "nativeEpoch": 6,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793946037458,
+        "event": "onDestinationInfo",
+        "nativeEpoch": 6,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793946037459,
+        "event": "sessionState",
+        "serviceEpoch": 82792,
+        "roomEpoch": 2,
+        "revision": 2,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 563267,
+        "routingCompletedObserved": false,
+        "confirmationKind": "pleos_place",
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": "1a9d10ef54300281785213ee",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "1a9d10ef54300281785213ee",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "1a6e43c63a155d1c8fc36478",
+          "baseRevision": 1,
+          "createdAt": 1793945834002,
+          "expiresAt": 1793945954002,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "1a6e43c63a155d1c8fc36478",
+              "response": "accepted"
+            },
+            {
+              "memberId": "f4b112c05b4946cb5eae4efd",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793946039196,
+        "event": "proposalPublicationHeld",
+        "nativeEpoch": 6,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793946039198,
+        "event": "sessionState",
+        "serviceEpoch": 82792,
+        "roomEpoch": 2,
+        "revision": 2,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 563267,
+        "routingCompletedObserved": false,
+        "confirmationKind": "pleos_place",
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "새 목적지 제안 · 수락 또는 거절해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "1a9d10ef54300281785213ee",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "44f31a43157c86d1238a2a81",
+          "version": 1,
+          "status": "pending",
+          "candidateName": "청계산담백미",
+          "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+          "proposerId": "f4b112c05b4946cb5eae4efd",
+          "baseRevision": 2,
+          "createdAt": 1793946039053,
+          "expiresAt": 1793946159053,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "1a6e43c63a155d1c8fc36478",
+              "response": "pending"
+            },
+            {
+              "memberId": "f4b112c05b4946cb5eae4efd",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793946052719,
+        "event": "sessionState",
+        "serviceEpoch": 82792,
+        "roomEpoch": 2,
+        "revision": 2,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 563267,
+        "routingCompletedObserved": false,
+        "confirmationKind": "pleos_place",
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "새 목적지 제안 · 수락 또는 거절해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "1a9d10ef54300281785213ee",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "44f31a43157c86d1238a2a81",
+          "version": 1,
+          "status": "pending",
+          "candidateName": "청계산담백미",
+          "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+          "proposerId": "f4b112c05b4946cb5eae4efd",
+          "baseRevision": 2,
+          "createdAt": 1793946039053,
+          "expiresAt": 1793946159053,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "1a6e43c63a155d1c8fc36478",
+              "response": "pending"
+            },
+            {
+              "memberId": "f4b112c05b4946cb5eae4efd",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793946052744,
+        "event": "getDestinationInfo",
+        "nativeEpoch": 6,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793946052975,
+        "event": "proposalPublicationHeld",
+        "nativeEpoch": 6,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793946052976,
+        "event": "sessionState",
+        "serviceEpoch": 82792,
+        "roomEpoch": 2,
+        "revision": 2,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 563267,
+        "routingCompletedObserved": false,
+        "confirmationKind": "pleos_place",
+        "sharedKind": "pleos_place",
+        "proposalLease": true,
+        "proposalBusy": true,
+        "proposalMessage": "거절 보내는 중 · 순정 안내 유지",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "1a9d10ef54300281785213ee",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "44f31a43157c86d1238a2a81",
+          "version": 1,
+          "status": "pending",
+          "candidateName": "청계산담백미",
+          "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+          "proposerId": "f4b112c05b4946cb5eae4efd",
+          "baseRevision": 2,
+          "createdAt": 1793946039053,
+          "expiresAt": 1793946159053,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "1a6e43c63a155d1c8fc36478",
+              "response": "pending"
+            },
+            {
+              "memberId": "f4b112c05b4946cb5eae4efd",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793946053021,
+        "event": "pendingProposalReleased",
+        "nativeEpoch": 6,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793946053022,
+        "event": "sessionState",
+        "serviceEpoch": 82792,
+        "roomEpoch": 2,
+        "revision": 2,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 563267,
+        "routingCompletedObserved": false,
+        "confirmationKind": "pleos_place",
+        "sharedKind": "pleos_place",
+        "proposalLease": true,
+        "proposalBusy": true,
+        "proposalMessage": "제안 거절 · 현재 순정 안내 유지",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": "1a9d10ef54300281785213ee",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "44f31a43157c86d1238a2a81",
+          "version": 2,
+          "status": "rejected",
+          "candidateName": "청계산담백미",
+          "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+          "proposerId": "f4b112c05b4946cb5eae4efd",
+          "baseRevision": 2,
+          "createdAt": 1793946039053,
+          "expiresAt": 1793946159053,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "1a6e43c63a155d1c8fc36478",
+              "response": "rejected"
+            },
+            {
+              "memberId": "f4b112c05b4946cb5eae4efd",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793946053042,
+        "event": "sessionState",
+        "serviceEpoch": 82792,
+        "roomEpoch": 2,
+        "revision": 2,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 563267,
+        "routingCompletedObserved": false,
+        "confirmationKind": "pleos_place",
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "제안 거절 · 현재 순정 안내 유지",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": "1a9d10ef54300281785213ee",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "44f31a43157c86d1238a2a81",
+          "version": 2,
+          "status": "rejected",
+          "candidateName": "청계산담백미",
+          "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+          "proposerId": "f4b112c05b4946cb5eae4efd",
+          "baseRevision": 2,
+          "createdAt": 1793946039053,
+          "expiresAt": 1793946159053,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "1a6e43c63a155d1c8fc36478",
+              "response": "rejected"
+            },
+            {
+              "memberId": "f4b112c05b4946cb5eae4efd",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793946053759,
+        "event": "onDestinationInfo",
+        "nativeEpoch": 6,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793946053759,
+        "event": "sessionState",
+        "serviceEpoch": 82792,
+        "roomEpoch": 2,
+        "revision": 2,
+        "role": "host",
+        "automatic": "LEADER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 563267,
+        "routingCompletedObserved": false,
+        "confirmationKind": "pleos_place",
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "제안 거절 · 현재 순정 안내 유지",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": "1a9d10ef54300281785213ee",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "44f31a43157c86d1238a2a81",
+          "version": 2,
+          "status": "rejected",
+          "candidateName": "청계산담백미",
+          "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+          "proposerId": "f4b112c05b4946cb5eae4efd",
+          "baseRevision": 2,
+          "createdAt": 1793946039053,
+          "expiresAt": 1793946159053,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "1a6e43c63a155d1c8fc36478",
+              "response": "rejected"
+            },
+            {
+              "memberId": "f4b112c05b4946cb5eae4efd",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    ],
+    "emulator-5572": [
+      {
+        "at": 1793946023337,
+        "event": "proposalPublicationHeld",
+        "nativeEpoch": 3,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793946023348,
+        "event": "sessionState",
+        "serviceEpoch": 1725778,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "member",
+        "automatic": "FOLLOWER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 1941647,
+        "routingCompletedObserved": false,
+        "confirmationKind": "pleos_place",
+        "sharedKind": "pleos_place",
+        "proposalLease": true,
+        "proposalBusy": true,
+        "proposalMessage": "제안 보내는 중 · 순정 안내 유지",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "1a9d10ef54300281785213ee",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "1a9d10ef54300281785213ee",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "1a6e43c63a155d1c8fc36478",
+          "baseRevision": 1,
+          "createdAt": 1793945834002,
+          "expiresAt": 1793945954002,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "1a6e43c63a155d1c8fc36478",
+              "response": "accepted"
+            },
+            {
+              "memberId": "f4b112c05b4946cb5eae4efd",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793946023451,
+        "event": "proposalPublicationHeld",
+        "nativeEpoch": 3,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793946023452,
+        "event": "sessionState",
+        "serviceEpoch": 1725778,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "member",
+        "automatic": "FOLLOWER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 1941647,
+        "routingCompletedObserved": false,
+        "confirmationKind": "pleos_place",
+        "sharedKind": "pleos_place",
+        "proposalLease": true,
+        "proposalBusy": true,
+        "proposalMessage": "제안 대기 · 전원 수락 전에는 순정 안내를 유지합니다.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "1a9d10ef54300281785213ee",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "44f31a43157c86d1238a2a81",
+          "version": 1,
+          "status": "pending",
+          "candidateName": "청계산담백미",
+          "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+          "proposerId": "f4b112c05b4946cb5eae4efd",
+          "baseRevision": 2,
+          "createdAt": 1793946039053,
+          "expiresAt": 1793946159053,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "1a6e43c63a155d1c8fc36478",
+              "response": "pending"
+            },
+            {
+              "memberId": "f4b112c05b4946cb5eae4efd",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793946023482,
+        "event": "sessionState",
+        "serviceEpoch": 1725778,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "member",
+        "automatic": "FOLLOWER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 1941647,
+        "routingCompletedObserved": false,
+        "confirmationKind": "pleos_place",
+        "sharedKind": "pleos_place",
+        "proposalLease": true,
+        "proposalBusy": false,
+        "proposalMessage": "제안 대기 · 전원 수락 전에는 순정 안내를 유지합니다.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "1a9d10ef54300281785213ee",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "44f31a43157c86d1238a2a81",
+          "version": 1,
+          "status": "pending",
+          "candidateName": "청계산담백미",
+          "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+          "proposerId": "f4b112c05b4946cb5eae4efd",
+          "baseRevision": 2,
+          "createdAt": 1793946039053,
+          "expiresAt": 1793946159053,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "1a6e43c63a155d1c8fc36478",
+              "response": "pending"
+            },
+            {
+              "memberId": "f4b112c05b4946cb5eae4efd",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      {
+        "at": 1793946037283,
+        "event": "pendingProposalReleased",
+        "nativeEpoch": 3,
+        "operation": 0,
+        "matched": null
+      },
+      {
+        "at": 1793946037284,
+        "event": "sessionState",
+        "serviceEpoch": 1725778,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "member",
+        "automatic": "FOLLOWER",
+        "applying": "CONFIRMED",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": 1941647,
+        "routingCompletedObserved": false,
+        "confirmationKind": "pleos_place",
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "제안 거절 · 현재 순정 안내 유지",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": "1a9d10ef54300281785213ee",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "44f31a43157c86d1238a2a81",
+          "version": 2,
+          "status": "rejected",
+          "candidateName": "청계산담백미",
+          "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+          "proposerId": "f4b112c05b4946cb5eae4efd",
+          "baseRevision": 2,
+          "createdAt": 1793946039053,
+          "expiresAt": 1793946159053,
+          "acceptedRevision": null,
+          "responses": [
+            {
+              "memberId": "1a6e43c63a155d1c8fc36478",
+              "response": "rejected"
+            },
+            {
+              "memberId": "f4b112c05b4946cb5eae4efd",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "states": {
+    "emulator-5570": {
+      "at": 1793946053759,
+      "event": "sessionState",
+      "serviceEpoch": 82792,
+      "roomEpoch": 2,
+      "revision": 2,
+      "role": "host",
+      "automatic": "LEADER",
+      "applying": "CONFIRMED",
+      "connection": "CONNECTED",
+      "roomConnected": true,
+      "uiCount": 1,
+      "confirmedAtElapsed": 563267,
+      "routingCompletedObserved": false,
+      "confirmationKind": "pleos_place",
+      "sharedKind": "pleos_place",
+      "proposalLease": false,
+      "proposalBusy": false,
+      "proposalMessage": "제안 거절 · 현재 순정 안내 유지",
+      "proposalPublicationHeld": false,
+      "acceptedProposalId": "1a9d10ef54300281785213ee",
+      "acceptedProposalVersion": 2,
+      "acceptedProposalRevision": 2,
+      "proposal": {
+        "id": "44f31a43157c86d1238a2a81",
+        "version": 2,
+        "status": "rejected",
+        "candidateName": "청계산담백미",
+        "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+        "proposerId": "f4b112c05b4946cb5eae4efd",
+        "baseRevision": 2,
+        "createdAt": 1793946039053,
+        "expiresAt": 1793946159053,
+        "acceptedRevision": null,
+        "responses": [
+          {
+            "memberId": "1a6e43c63a155d1c8fc36478",
+            "response": "rejected"
+          },
+          {
+            "memberId": "f4b112c05b4946cb5eae4efd",
+            "response": "accepted"
+          }
+        ]
+      }
+    },
+    "emulator-5572": {
+      "at": 1793946037284,
+      "event": "sessionState",
+      "serviceEpoch": 1725778,
+      "roomEpoch": 1,
+      "revision": 2,
+      "role": "member",
+      "automatic": "FOLLOWER",
+      "applying": "CONFIRMED",
+      "connection": "CONNECTED",
+      "roomConnected": true,
+      "uiCount": 1,
+      "confirmedAtElapsed": 1941647,
+      "routingCompletedObserved": false,
+      "confirmationKind": "pleos_place",
+      "sharedKind": "pleos_place",
+      "proposalLease": false,
+      "proposalBusy": false,
+      "proposalMessage": "제안 거절 · 현재 순정 안내 유지",
+      "proposalPublicationHeld": false,
+      "acceptedProposalId": "1a9d10ef54300281785213ee",
+      "acceptedProposalVersion": 2,
+      "acceptedProposalRevision": 2,
+      "proposal": {
+        "id": "44f31a43157c86d1238a2a81",
+        "version": 2,
+        "status": "rejected",
+        "candidateName": "청계산담백미",
+        "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+        "proposerId": "f4b112c05b4946cb5eae4efd",
+        "baseRevision": 2,
+        "createdAt": 1793946039053,
+        "expiresAt": 1793946159053,
+        "acceptedRevision": null,
+        "responses": [
+          {
+            "memberId": "1a6e43c63a155d1c8fc36478",
+            "response": "rejected"
+          },
+          {
+            "memberId": "f4b112c05b4946cb5eae4efd",
+            "response": "accepted"
+          }
+        ]
+      }
+    }
+  }
+}

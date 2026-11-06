@@ -1,0 +1,9 @@
+{
+  "command": [
+    "node",
+    "--test",
+    "prototype/test/poi-place-confirmation.test.mjs"
+  ],
+  "exit": 0,
+  "elapsedSeconds": 0.41
+}

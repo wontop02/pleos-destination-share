@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/lifetime-case.py", line 28, in <module>
+    assert all(q.state(s)['uiCount']==0 and q.state(s)['revision']==revision for s in S)
+AssertionError

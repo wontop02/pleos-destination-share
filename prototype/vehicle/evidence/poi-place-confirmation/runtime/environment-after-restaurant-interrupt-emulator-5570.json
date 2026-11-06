@@ -1,0 +1,30 @@
+{
+  "serial": "emulator-5570",
+  "checks": {
+    "uptime": {
+      "exit": 0,
+      "out": "841.98 119.30",
+      "err": ""
+    },
+    "disk": {
+      "exit": 0,
+      "out": "Filesystem       1K-blocks    Used Available Use% Mounted on\n/dev/block/dm-42   6082144 2577768   3362164  44% /data/user/0",
+      "err": ""
+    },
+    "memory": {
+      "exit": 0,
+      "out": "MemTotal:        4017048 kB\nMemFree:          423788 kB\nMemAvailable:    1750904 kB\nSwapTotal:       3012780 kB\nSwapFree:        2837932 kB",
+      "err": ""
+    },
+    "user": {
+      "exit": 0,
+      "out": "10",
+      "err": ""
+    },
+    "reason": {
+      "exit": 0,
+      "out": "reboot,shell",
+      "err": ""
+    }
+  }
+}

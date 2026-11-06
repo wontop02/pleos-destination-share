@@ -1,0 +1,8 @@
+Vehicle-A room form ready
+Vehicle-B room form ready
+Traceback (most recent call last):
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/create-room.py", line 12, in <module>
+    q.wait(lambda:q.state(A)['roomConnected'] and q.state(A)['role']=='host')
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/qa.py", line 31, in wait
+    raise RuntimeError('QA condition timed out')
+RuntimeError: QA condition timed out

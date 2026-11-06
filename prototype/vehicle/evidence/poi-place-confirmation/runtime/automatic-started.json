@@ -1,0 +1,97 @@
+{
+  "states": {
+    "emulator-5570": {
+      "at": 1793945750412,
+      "event": "sessionState",
+      "serviceEpoch": 82792,
+      "roomEpoch": 2,
+      "revision": 1,
+      "role": "host",
+      "automatic": "LEADER",
+      "applying": "CONFIRMED",
+      "connection": "CONNECTED",
+      "roomConnected": true,
+      "uiCount": 1,
+      "confirmedAtElapsed": 312614,
+      "routingCompletedObserved": false,
+      "confirmationKind": "exact_point",
+      "sharedKind": "exact_point",
+      "proposalLease": false,
+      "proposalBusy": false,
+      "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+      "proposalPublicationHeld": false,
+      "acceptedProposalId": "3a49d74873ae3b004113778c",
+      "acceptedProposalVersion": 2,
+      "acceptedProposalRevision": 1,
+      "proposal": {
+        "id": "3a49d74873ae3b004113778c",
+        "version": 2,
+        "status": "accepted",
+        "candidateName": "42dot",
+        "candidatePoiId": "36khp37hh8gqcm5nqhe5",
+        "proposerId": "1a6e43c63a155d1c8fc36478",
+        "baseRevision": 0,
+        "createdAt": 1793945579892,
+        "expiresAt": 1793945699892,
+        "acceptedRevision": 1,
+        "responses": [
+          {
+            "memberId": "1a6e43c63a155d1c8fc36478",
+            "response": "accepted"
+          },
+          {
+            "memberId": "f4b112c05b4946cb5eae4efd",
+            "response": "accepted"
+          }
+        ]
+      }
+    },
+    "emulator-5572": {
+      "at": 1793945737318,
+      "event": "coordinationServiceStart",
+      "serviceEpoch": 1725778,
+      "roomEpoch": 1,
+      "revision": 1,
+      "role": "member",
+      "automatic": "FOLLOWER",
+      "applying": "IDLE",
+      "connection": "CONNECTED",
+      "roomConnected": true,
+      "uiCount": 1,
+      "confirmedAtElapsed": null,
+      "routingCompletedObserved": false,
+      "confirmationKind": null,
+      "sharedKind": "exact_point",
+      "proposalLease": false,
+      "proposalBusy": false,
+      "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+      "proposalPublicationHeld": true,
+      "acceptedProposalId": "3a49d74873ae3b004113778c",
+      "acceptedProposalVersion": 2,
+      "acceptedProposalRevision": 1,
+      "proposal": {
+        "id": "3a49d74873ae3b004113778c",
+        "version": 2,
+        "status": "accepted",
+        "candidateName": "42dot",
+        "candidatePoiId": "36khp37hh8gqcm5nqhe5",
+        "proposerId": "1a6e43c63a155d1c8fc36478",
+        "baseRevision": 0,
+        "createdAt": 1793945579892,
+        "expiresAt": 1793945699892,
+        "acceptedRevision": 1,
+        "responses": [
+          {
+            "memberId": "1a6e43c63a155d1c8fc36478",
+            "response": "accepted"
+          },
+          {
+            "memberId": "f4b112c05b4946cb5eae4efd",
+            "response": "accepted"
+          }
+        ]
+      }
+    }
+  },
+  "purpose": "Explicit automatic opt-in before place cases; outside legacy proposal route window"
+}

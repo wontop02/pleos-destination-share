@@ -1,0 +1,10 @@
+{
+  "sha256": {
+    "restaurant-retry.py": "8a3f2c1be265740f0af58c8faf3cef9fe0fb9fbbbb3c6822c1edd5930cd484f3",
+    "cases.py": "cc4ea73977266f644dec6dcdd3fc4760944b0c56477fa0164b387960a8069025",
+    "qa.py": "91452e0cdbb2ee9c6bdb994e3febdfb494f0b02a16d69f48057ee9ae1f59d800",
+    "root-ui-tools.py": "f29a1123a5f3c52b5a64e59173cbeb2fa3078e63ce61e390089b5a827a84386e",
+    "probe.py": "8ca94d82c0d66a9404b46ff0c2d9bb60dc0e46f859a1498b95fcbe68947e8e24"
+  },
+  "case": "Fresh explicit selection and proposal after interrupted pending proposal expired; actual source re-read; no old consent reused."
+}

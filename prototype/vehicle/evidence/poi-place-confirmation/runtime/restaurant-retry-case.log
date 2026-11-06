@@ -1,0 +1,12 @@
+{"serial": "emulator-5572", "mode": "bookmarks", "status": "OBSERVED", "reason": "allowlisted_public_bookmark_fields_observed", "seconds": 3.576839125, "routeRequests": 0, "saved": "restaurant-retry-source.json"}
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 1.231643166, "routeRequests": 0, "saved": "restaurant-retry-before-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 1.926157167, "routeRequests": 0, "saved": "restaurant-retry-before-emulator-5572.json"}
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 0.837157958, "routeRequests": 0, "saved": "restaurant-retry-pending-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 1.852453042, "routeRequests": 0, "saved": "restaurant-retry-pending-emulator-5572.json"}
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 1.000088334, "routeRequests": 0, "saved": "restaurant-retry-rejected-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 1.796835834, "routeRequests": 0, "saved": "restaurant-retry-rejected-emulator-5572.json"}
+restaurant-retry pending/reject0 routes and native target unchanged
+restaurant-retry accepted and place-confirmed; leaving native screen 50s
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 5.317273708, "routeRequests": 0, "saved": "restaurant-retry-accepted-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 3.258321708, "routeRequests": 0, "saved": "restaurant-retry-accepted-emulator-5572.json"}
+restaurant-retry full native identity confirmed, source retained, one route each, native screen stable

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ai.pleos.destinations.vehicle.RoomProtocolTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-11-06T06:14:25" hostname="wontop-MacBookAir.local" time="0.017">
+  <properties/>
+  <testcase name="credentialsStringNeverDisclosesBearerOrInvite" classname="ai.pleos.destinations.vehicle.RoomProtocolTest" time="0.0"/>
+  <testcase name="malformedOrUnboundedProposalCannotGrantVehicleAuthority" classname="ai.pleos.destinations.vehicle.RoomProtocolTest" time="0.007"/>
+  <testcase name="retainedAcceptedProvenanceIsIndependentOfLatestCandidateAndMustMatchSharedRevisionAndTarget" classname="ai.pleos.destinations.vehicle.RoomProtocolTest" time="0.002"/>
+  <testcase name="malformedPayloadCannotBecomeAnEmptyDestinationOrTruncatedRevision" classname="ai.pleos.destinations.vehicle.RoomProtocolTest" time="0.0"/>
+  <testcase name="sseHandlesCommentsCrLfMultilineDataAndDoesNotRequireUrlCredentials" classname="ai.pleos.destinations.vehicle.RoomProtocolTest" time="0.002"/>
+  <testcase name="missingDestinationOrMetadataFieldIsRejectedInsteadOfInterpretedAsDeletionOrNull" classname="ai.pleos.destinations.vehicle.RoomProtocolTest" time="0.0"/>
+  <testcase name="selectedModeRoundTripsAndUnknownOrUnscopedModesFailClosed" classname="ai.pleos.destinations.vehicle.RoomProtocolTest" time="0.004"/>
+  <testcase name="baseUrlRejectsNonLoopbackCredentialsQueryFragmentAndRelativePaths" classname="ai.pleos.destinations.vehicle.RoomProtocolTest" time="0.0"/>
+  <testcase name="optionalPendingAndAtomicAcceptedProposalMetadataRoundTripWithoutPromotingCandidate" classname="ai.pleos.destinations.vehicle.RoomProtocolTest" time="0.001"/>
+  <testcase name="metadataRoundTripPreservesActualNullableSubIdAndDisplayCoordinates" classname="ai.pleos.destinations.vehicle.RoomProtocolTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

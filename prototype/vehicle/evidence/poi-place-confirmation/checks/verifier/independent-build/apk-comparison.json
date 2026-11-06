@@ -1,0 +1,9 @@
+{
+  "frozenApkSha256": "5845c358d2a63c4ead083c699d94446d0353f3fcedc92f6afb8c0521832cc35a",
+  "independentApkSha256": "5d87bd26483beafb7d57cc2a7cb3758e2e791dd80850853b40373e274537997a",
+  "frozenEntries": 54,
+  "independentEntries": 54,
+  "entriesWithContentDifference": [],
+  "entriesWithContentOrMetadataDifference": {},
+  "inspectionScope": "ZIP entry names, sizes, hashes and metadata only; no SDK implementation disassembly or execution."
+}

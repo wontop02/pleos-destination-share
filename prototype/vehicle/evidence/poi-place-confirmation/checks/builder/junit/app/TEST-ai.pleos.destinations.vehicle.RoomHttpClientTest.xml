@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ai.pleos.destinations.vehicle.RoomHttpClientTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-06T06:02:44" hostname="wontop-MacBookAir.local" time="1.112">
+  <properties/>
+  <testcase name="nativeHttpDoesNotFollowRedirectsAndNeverForwardsBearerToRedirectTarget" classname="ai.pleos.destinations.vehicle.RoomHttpClientTest" time="1.038"/>
+  <testcase name="actualLoopbackMemberGetsLatestPoiSnapshotAndCannotPublishOrReadOtherRoom" classname="ai.pleos.destinations.vehicle.RoomHttpClientTest" time="0.052"/>
+  <testcase name="actualAuthenticatedSseDeliversRevisionThenClearAndReconnectSnapshot" classname="ai.pleos.destinations.vehicle.RoomHttpClientTest" time="0.021"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

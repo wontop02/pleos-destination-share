@@ -1,0 +1,19 @@
+{
+  "at": "2026-11-06T06:18:59.324219+00:00",
+  "sourceHead": "a26b9419804874052329001ad86e60ff1bccb42c",
+  "note": "Captured before restaurant/lifetime runs and while cafe70s read-only wait; cafe loaded same QA helper/case bytes. Legacy late-capture attempt used the pre-fast-find helper described in log; physical legacy count audit uses immutable occurrence journals and independent oracle.",
+  "sha256": {
+    "qa.py": "91452e0cdbb2ee9c6bdb994e3febdfb494f0b02a16d69f48057ee9ae1f59d800",
+    "root-ui-tools.py": "f29a1123a5f3c52b5a64e59173cbeb2fa3078e63ce61e390089b5a827a84386e",
+    "cases.py": "cc4ea73977266f644dec6dcdd3fc4760944b0c56477fa0164b387960a8069025",
+    "lifetime-case.py": "73301b0eae079c956e093c6bb853cd9b7174129cf7762df7df31391b90dacbeb",
+    "probe.py": "8ca94d82c0d66a9404b46ff0c2d9bb60dc0e46f859a1498b95fcbe68947e8e24",
+    "collect-runtime.py": "252bb81f4853c24cc82beb499ff46b8911f291f59a8f77bca832fce26ed987a9",
+    "create-room.py": "2e6ff1c56335cbb7dca44e75ab28998b9fe162b04ee8c3922b82f2c037ebd827",
+    "finish-room.py": "43e15f82043f6ab2f1992edac9648f8cd803e63ebc98f44e7c201a3171cc0ae9",
+    "rebind-source.py": "5efa98693bdce9847b9e7c487d79dc655c34099905db736187bf174e914a8311",
+    "bootstrap.py": "e215d0ea328f4ae49f00e3b7d511dc6c3538f0fed1ea98026e708d2669248b84",
+    "launch-owned.py": "fb3fecc9b32ad1fed62ec9edca7bb8df49b016598a7e03da8bfe9ba75b699b35",
+    "cases-before-legacy-capture-correction.py": "cc4ea73977266f644dec6dcdd3fc4760944b0c56477fa0164b387960a8069025"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "at": "2026-11-06T06:07:08.657124+00:00",
+  "records": [
+    {
+      "serial": "emulator-5570",
+      "sourceHash": "de10abe2d6224c5851c9f9c92f6b0088bcaf89c0e66560f6d5cc7ff5366fc44f",
+      "preservedAt": "no_backup/navigation-events.issue21-preqa-de10abe2d622.jsonl",
+      "malformedRows": [
+        {
+          "line": 348,
+          "sha256": "7fdce9d1863954068a79391a7aa8e52e0534218f12a884d314c793e13dbd25bf",
+          "length": 2631
+        }
+      ],
+      "runtimeCasesStarted": false
+    },
+    {
+      "serial": "emulator-5572",
+      "sourceHash": "3663b4dd1bb1c26b843e34f2cd7598669a44d6cfd6a58d6c62e59611984b344c",
+      "preservedAt": "no_backup/navigation-events.issue21-preqa-3663b4dd1bb1.jsonl",
+      "malformedRows": [],
+      "runtimeCasesStarted": false
+    }
+  ],
+  "collectorCorrectlyStoppedBeforeAnyCase": true
+}

@@ -1,0 +1,32 @@
+{"serial": "emulator-5572", "mode": "bookmarks", "status": "OBSERVED", "reason": "allowlisted_public_bookmark_fields_observed", "seconds": 4.13367825, "routeRequests": 0, "saved": "restaurant-source.json"}
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 2.052309834, "routeRequests": 0, "saved": "restaurant-before-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 1.592360375, "routeRequests": 0, "saved": "restaurant-before-emulator-5572.json"}
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 1.5869397909999998, "routeRequests": 0, "saved": "restaurant-pending-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 1.885488334, "routeRequests": 0, "saved": "restaurant-pending-emulator-5572.json"}
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 1.6638273330000002, "routeRequests": 0, "saved": "restaurant-rejected-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 1.712969916, "routeRequests": 0, "saved": "restaurant-rejected-emulator-5572.json"}
+restaurant pending/reject0 routes and native target unchanged
+Traceback (most recent call last):
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/cases.py", line 110, in <module>
+    elif mode=='restaurant':place('restaurant',B,A,'청계산담백미',50)
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/cases.py", line 82, in place
+    c=checks();submit(proposer,name);accepted=accept(responder)
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/cases.py", line 32, in submit
+    q.show(s);q.findtap(s,'이 장소로 변경 제안');return waitproposal('pending',candidate)
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/cases.py", line 26, in waitproposal
+    q.wait(lambda:all(q.state(s)['proposal'] is not None and q.state(s)['proposal']['status']==status and (candidate is None or q.state(s)['proposal']['candidateName']==candidate) for s in S),30)
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/qa.py", line 29, in wait
+    if predicate():return
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/cases.py", line 26, in <lambda>
+    q.wait(lambda:all(q.state(s)['proposal'] is not None and q.state(s)['proposal']['status']==status and (candidate is None or q.state(s)['proposal']['candidateName']==candidate) for s in S),30)
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/cases.py", line 26, in <genexpr>
+    q.wait(lambda:all(q.state(s)['proposal'] is not None and q.state(s)['proposal']['status']==status and (candidate is None or q.state(s)['proposal']['candidateName']==candidate) for s in S),30)
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/qa.py", line 32, in state
+    def state(s):return valid(json.loads(U['private_text'](s,'no_backup/session-state.json')))
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/root-ui-tools.py", line 57, in private_text
+    user=shell(serial,'am','get-current-user').decode().strip()
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/root-ui-tools.py", line 14, in shell
+    def shell(serial,*args): return adb(serial,'shell',shlex.join(args))
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/root-ui-tools.py", line 12, in adb
+    if result.returncode: raise RuntimeError('owned emulator operation failed: '+str(result.returncode))
+RuntimeError: owned emulator operation failed: 20

@@ -1,0 +1,19 @@
+{
+  "issue": 21,
+  "branch": "be/issue-21-poi-confirmation",
+  "base": "ff3e6a15067ee8285c83f318ec715899ed3f4364",
+  "worktree": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-21-poi-confirmation",
+  "frozenIssueBatch": [
+    21
+  ],
+  "customRolesExposed": false,
+  "roleExecution": "Built-in worker/default with repository role instructions",
+  "deviceOwner": "root",
+  "serverPort": 4188,
+  "preserveServers": [
+    4180,
+    4182,
+    4184,
+    4186
+  ]
+}

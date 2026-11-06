@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/create-room.py", line 5, in <module>
+    q.show(s)
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/qa.py", line 24, in show
+    wait(lambda:any('ai.pleos.destinations.vehicle/.MainActivity' in x for x in foreground(s)),20)
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/qa.py", line 31, in wait
+    raise RuntimeError('QA condition timed out')
+RuntimeError: QA condition timed out

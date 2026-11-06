@@ -1,0 +1,10 @@
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 11.45476275, "routeRequests": 0, "saved": "legacy-exact-actual-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 6.295458458000001, "routeRequests": 0, "saved": "legacy-exact-actual-emulator-5572.json"}
+Traceback (most recent call last):
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/cases.py", line 108, in <module>
+    if mode=='baseline':baseline()
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/cases.py", line 61, in baseline
+    q.show(s);visible_contains(s,'순정 목적지 좌표 일치 확인');q.U['capture'](s,'legacy-exact-confirmed-'+s)
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/cases.py", line 24, in visible_contains
+    raise RuntimeError('Expected visible confirmation missing')
+RuntimeError: Expected visible confirmation missing

@@ -1,0 +1,781 @@
+{
+  "allCompressedPayloadsIdentical": true,
+  "compressedPayloadDifferences": [],
+  "layout": {
+    "frozen": {
+      "entries": {
+        "META-INF/com/android/build/gradle/app-metadata.properties": {
+          "localHeaderOffset": 0,
+          "localNameBytes": 57,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "bdb5abe15afcc3e608b25e2ebd99e78e4fba25a4b22726695cf5faed3651a4e3",
+          "payloadEnd": 138
+        },
+        "classes.dex": {
+          "localHeaderOffset": 138,
+          "localNameBytes": 11,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "d0291e867f25721bdda226714899bd30edff8cf6c8bc8bc7e6372751aa622578",
+          "payloadEnd": 5773972
+        },
+        "classes2.dex": {
+          "localHeaderOffset": 5773972,
+          "localNameBytes": 12,
+          "localExtraBytes": 2,
+          "compressedPayloadSha256": "a38586fee3fd26fc0772f5bb8d441de79ffe5b51dc15252c8f2a251096bde035",
+          "payloadEnd": 5845188
+        },
+        "classes3.dex": {
+          "localHeaderOffset": 5845188,
+          "localNameBytes": 12,
+          "localExtraBytes": 2,
+          "compressedPayloadSha256": "21fb40efff7e144685e637408ae74606b2585aa0153097ff407d92938fcd36f6",
+          "payloadEnd": 5859928
+        },
+        "AndroidManifest.xml": {
+          "localHeaderOffset": 6080524,
+          "localNameBytes": 19,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "360471b56003a589d2441f878374c7c5451a1388f4b06a651b033edc28d76d2b",
+          "payloadEnd": 6082656
+        },
+        "res/drawable-hdpi-v4/notification_bg_low_normal.9.png": {
+          "localHeaderOffset": 6082656,
+          "localNameBytes": 53,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "21f0b55280be10b187ceff8edef4a5a7047683e6e9fcf47de410aa3839f41094",
+          "payloadEnd": 6082952
+        },
+        "res/drawable-hdpi-v4/notification_bg_low_pressed.9.png": {
+          "localHeaderOffset": 6082952,
+          "localNameBytes": 54,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "42aee0b03883e94df5e543348a397d1302c1b8221895871a83b81899f5a9647b",
+          "payloadEnd": 6083261
+        },
+        "res/drawable-hdpi-v4/notification_bg_normal.9.png": {
+          "localHeaderOffset": 6083261,
+          "localNameBytes": 49,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "0c6328c7b2420570a7ec38b3beb3bac9a29d895ac1ab7239315aba7266418593",
+          "payloadEnd": 6083552
+        },
+        "res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png": {
+          "localHeaderOffset": 6083552,
+          "localNameBytes": 57,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "18b328d8017e677d5aad3dbd66bae356b5cac978c6f0670938ea648e51d0eb66",
+          "payloadEnd": 6083865
+        },
+        "res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png": {
+          "localHeaderOffset": 6083865,
+          "localNameBytes": 58,
+          "localExtraBytes": 3,
+          "compressedPayloadSha256": "8430ec003e003f3f2ba2f78d48fd150e25407667e530e82e87a7d4841c0fd676",
+          "payloadEnd": 6084063
+        },
+        "res/drawable-mdpi-v4/notification_bg_low_normal.9.png": {
+          "localHeaderOffset": 6084063,
+          "localNameBytes": 53,
+          "localExtraBytes": 2,
+          "compressedPayloadSha256": "2f7fbda0ba6e53e9a47e2fc0e24e32c447c613a5808c2d6285dc651e83a07ad7",
+          "payloadEnd": 6084363
+        },
+        "res/drawable-mdpi-v4/notification_bg_low_pressed.9.png": {
+          "localHeaderOffset": 6084363,
+          "localNameBytes": 54,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "e17761ed280edd93d7141bd504b70f9e9e15a8652288d9e6333bf4ce964ef844",
+          "payloadEnd": 6084671
+        },
+        "res/drawable-mdpi-v4/notification_bg_normal.9.png": {
+          "localHeaderOffset": 6084671,
+          "localNameBytes": 49,
+          "localExtraBytes": 2,
+          "compressedPayloadSha256": "a8676a1793ac8310ffb12986232df66df092d29c242aeedc2b73556c010d38dc",
+          "payloadEnd": 6084967
+        },
+        "res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png": {
+          "localHeaderOffset": 6084967,
+          "localNameBytes": 57,
+          "localExtraBytes": 2,
+          "compressedPayloadSha256": "99c14d6855b8be296d58017d3751b8dc849c47b6d1d80ab614ff9075080e461b",
+          "payloadEnd": 6085279
+        },
+        "res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png": {
+          "localHeaderOffset": 6085279,
+          "localNameBytes": 58,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "0d773e62c756422313262846c787e58f67e0ee87e45e1ae9942002e816c4cb9e",
+          "payloadEnd": 6085466
+        },
+        "res/drawable-v21/notification_action_background.xml": {
+          "localHeaderOffset": 6085466,
+          "localNameBytes": 51,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "4cd6706f67b694d7da8e53b1ce49b2c1a8eac3bd4361a36aa5c1b5ad9514e3b5",
+          "payloadEnd": 6086014
+        },
+        "res/drawable-xhdpi-v4/notification_bg_low_normal.9.png": {
+          "localHeaderOffset": 6086014,
+          "localNameBytes": 54,
+          "localExtraBytes": 2,
+          "compressedPayloadSha256": "3e09afa21c45372c035598c017c8fb405a6d678e6cb84dc857581cb3b40e482d",
+          "payloadEnd": 6086321
+        },
+        "res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png": {
+          "localHeaderOffset": 6086321,
+          "localNameBytes": 55,
+          "localExtraBytes": 2,
+          "compressedPayloadSha256": "20343222f9f79dd565c3a2248494d452e70820ac1c437173c38badd45f962afd",
+          "payloadEnd": 6086660
+        },
+        "res/drawable-xhdpi-v4/notification_bg_normal.9.png": {
+          "localHeaderOffset": 6086660,
+          "localNameBytes": 50,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "559bf783d765c02338e97952bdc9c6689c7ff99090b8c9813369118da8b080f0",
+          "payloadEnd": 6086961
+        },
+        "res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png": {
+          "localHeaderOffset": 6086961,
+          "localNameBytes": 58,
+          "localExtraBytes": 3,
+          "compressedPayloadSha256": "d27af435101ca4cbec0c840bd30687918cd39eb83aab1487420855623a45998b",
+          "payloadEnd": 6087299
+        },
+        "res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png": {
+          "localHeaderOffset": 6087299,
+          "localNameBytes": 59,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "b44eeda34d7a529c2fe55719eb098fa29707caa91d18de06a7a775d6e6bcf973",
+          "payloadEnd": 6087526
+        },
+        "res/drawable/notification_bg.xml": {
+          "localHeaderOffset": 6087526,
+          "localNameBytes": 32,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "100a82cc5d385e13b609b12c28d0ef92c78a7461e00fb24cac3d0b403b4bb332",
+          "payloadEnd": 6087840
+        },
+        "res/drawable/notification_bg_low.xml": {
+          "localHeaderOffset": 6087840,
+          "localNameBytes": 36,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "825c2d84a7ef43e09abbd8a526194f95bac36823829f1d98ec61d82a6a230ede",
+          "payloadEnd": 6088157
+        },
+        "res/drawable/notification_icon_background.xml": {
+          "localHeaderOffset": 6088157,
+          "localNameBytes": 45,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "046b454ca22984ccff06054c6dccfeab9ac65388ca92938068d506230018b663",
+          "payloadEnd": 6088416
+        },
+        "res/drawable/notification_tile_bg.xml": {
+          "localHeaderOffset": 6088416,
+          "localNameBytes": 37,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "fc41777e3d5581b86ec5944cbedd0dbc1b211c90f53a930f58fbc9a41b8501a5",
+          "payloadEnd": 6088656
+        },
+        "res/layout-v21/notification_action.xml": {
+          "localHeaderOffset": 6088656,
+          "localNameBytes": 38,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "13e326ea34e0763ed7e48c5a65f140323c8f510c9530486639e244eb3b5c6840",
+          "payloadEnd": 6089209
+        },
+        "res/layout-v21/notification_action_tombstone.xml": {
+          "localHeaderOffset": 6089209,
+          "localNameBytes": 48,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "e594460b83ef95d85dbda81ff012d5996b660cee675bc728c92ce6cad398aaf1",
+          "payloadEnd": 6089823
+        },
+        "res/layout-v21/notification_template_custom_big.xml": {
+          "localHeaderOffset": 6089823,
+          "localNameBytes": 51,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "18766bf7b38f633517fd433da69e4a8f7ad585192961640e147b7804855836fb",
+          "payloadEnd": 6090690
+        },
+        "res/layout-v21/notification_template_icon_group.xml": {
+          "localHeaderOffset": 6090690,
+          "localNameBytes": 51,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "a639e957575500df6cf5942ea0c0e241ecfe74a1fb55cccc9cf44183ce0adaf4",
+          "payloadEnd": 6091190
+        },
+        "res/layout/custom_dialog.xml": {
+          "localHeaderOffset": 6091190,
+          "localNameBytes": 28,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "51e1a53c258c246c6aece68e383c333c2af4ba926cbf36b92bbf0189bdc3a4fb",
+          "payloadEnd": 6091557
+        },
+        "res/layout/notification_template_part_chronometer.xml": {
+          "localHeaderOffset": 6091557,
+          "localNameBytes": 53,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "7db7b9526241273a1df81643e2d1da453ec1d629d904acf0a075088cbb09a23e",
+          "payloadEnd": 6091900
+        },
+        "res/layout/notification_template_part_time.xml": {
+          "localHeaderOffset": 6091900,
+          "localNameBytes": 46,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "c75369b52e44f5101393160c543759df68e80f16ed242c008807e022ff7498ca",
+          "payloadEnd": 6092238
+        },
+        "res/xml/data_extraction_rules.xml": {
+          "localHeaderOffset": 6092238,
+          "localNameBytes": 33,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "8a0fff208209a27628e7c130e8a067dc2155700495dfbef41a0fafcf086be4b4",
+          "payloadEnd": 6092522
+        },
+        "res/xml/network_security_config.xml": {
+          "localHeaderOffset": 6092522,
+          "localNameBytes": 35,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "157aeeed7644e14cb9746d0a93f3cc21de7edd1c314a0354c7163f935c4285e3",
+          "payloadEnd": 6092849
+        },
+        "resources.arsc": {
+          "localHeaderOffset": 6092849,
+          "localNameBytes": 14,
+          "localExtraBytes": 3,
+          "compressedPayloadSha256": "fe6079d0abd8739247ad8e62a7421adbe8b9726a1302c43b95f06d453c239c8f",
+          "payloadEnd": 6114852
+        },
+        "DebugProbesKt.bin": {
+          "localHeaderOffset": 6114852,
+          "localNameBytes": 17,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "44f7e92ace722349eb6d2ce976104cd44ce17220b3ead4845ec576bad8f6e1e9",
+          "payloadEnd": 6115681
+        },
+        "META-INF/androidx.annotation_annotation-experimental.version": {
+          "localHeaderOffset": 6115681,
+          "localNameBytes": 60,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "1575e1af4a95f12f70b4ee6a6adce8160953d93ea17dc2611b90883ccc3ad3b8",
+          "payloadEnd": 6115778
+        },
+        "META-INF/androidx.arch.core_core-runtime.version": {
+          "localHeaderOffset": 6115778,
+          "localNameBytes": 48,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "c89b87c262e9d5ffd20e73aac74a1772adcc9f5a21682cc33adcf5086e5fef5c",
+          "payloadEnd": 6115862
+        },
+        "META-INF/androidx.core_core-ktx.version": {
+          "localHeaderOffset": 6115862,
+          "localNameBytes": 39,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "3eb1ef94b5890ca727158b106142685c8733b0ace5bcb4cf3f0ac14f9f0643f4",
+          "payloadEnd": 6115938
+        },
+        "META-INF/androidx.core_core.version": {
+          "localHeaderOffset": 6115938,
+          "localNameBytes": 35,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "3eb1ef94b5890ca727158b106142685c8733b0ace5bcb4cf3f0ac14f9f0643f4",
+          "payloadEnd": 6116010
+        },
+        "META-INF/androidx.lifecycle_lifecycle-runtime.version": {
+          "localHeaderOffset": 6116010,
+          "localNameBytes": 53,
+          "localExtraBytes": 3,
+          "compressedPayloadSha256": "ad8650bc9057d9dfd809961b69dbad640c288d809fa44437d44d83d3b118c821",
+          "payloadEnd": 6116102
+        },
+        "META-INF/androidx.versionedparcelable_versionedparcelable.version": {
+          "localHeaderOffset": 6116102,
+          "localNameBytes": 65,
+          "localExtraBytes": 3,
+          "compressedPayloadSha256": "cc52f678848b814373757b460383bf61960e4943c203735adde0a350b3e50989",
+          "payloadEnd": 6116206
+        },
+        "META-INF/kotlinx_coroutines_android.version": {
+          "localHeaderOffset": 6116206,
+          "localNameBytes": 43,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "f267ab0a5247499879a39c4b98d7d2ac4c72119b3345699d39ccb168dfa154f1",
+          "payloadEnd": 6116285
+        },
+        "META-INF/kotlinx_coroutines_core.version": {
+          "localHeaderOffset": 6116285,
+          "localNameBytes": 40,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "f267ab0a5247499879a39c4b98d7d2ac4c72119b3345699d39ccb168dfa154f1",
+          "payloadEnd": 6116361
+        },
+        "META-INF/services/kotlinx.coroutines.CoroutineExceptionHandler": {
+          "localHeaderOffset": 6116361,
+          "localNameBytes": 62,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "ac3a610054e7a6b71e286b8bb9bf4288c49cd26bc5eef8758e0d39ede6fe4f03",
+          "payloadEnd": 6116503
+        },
+        "META-INF/services/kotlinx.coroutines.internal.MainDispatcherFactory": {
+          "localHeaderOffset": 6116503,
+          "localNameBytes": 67,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "a0bcc3f9cbaffc5f263313a70dd952b5bbf5bc8dcb85c97b75baec9e64878128",
+          "payloadEnd": 6116649
+        },
+        "kotlin/annotation/annotation.kotlin_builtins": {
+          "localHeaderOffset": 6116649,
+          "localNameBytes": 44,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "5d6f18301caba09631c7118895e56e6093cb8bd4b5fa2d74dab6d2582c735c1d",
+          "payloadEnd": 6117284
+        },
+        "kotlin/collections/collections.kotlin_builtins": {
+          "localHeaderOffset": 6117284,
+          "localNameBytes": 46,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "e2ed122fc26620e725fc46488478b016a0c1ac7241a1cab1b11c59061fc8a9c6",
+          "payloadEnd": 6118881
+        },
+        "kotlin/coroutines/coroutines.kotlin_builtins": {
+          "localHeaderOffset": 6118881,
+          "localNameBytes": 44,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "746d14a82fdcbc82b5ae296a8fda6c0abbb2ee9dcf7263b335fbdb854ea96bd6",
+          "payloadEnd": 6119112
+        },
+        "kotlin/internal/internal.kotlin_builtins": {
+          "localHeaderOffset": 6119112,
+          "localNameBytes": 40,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "bc8c60df56c01d8f876fc63b9809c105fee0303bb99b1306ba3f7c77e7f5cf3d",
+          "payloadEnd": 6119576
+        },
+        "kotlin/kotlin.kotlin_builtins": {
+          "localHeaderOffset": 6119576,
+          "localNameBytes": 29,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "37fd22cd07836666a518c9ef9d8dfdb3bf3e9e3a781e12d4273ff942d0585636",
+          "payloadEnd": 6124887
+        },
+        "kotlin/ranges/ranges.kotlin_builtins": {
+          "localHeaderOffset": 6124887,
+          "localNameBytes": 36,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "0380ee5a1a2465a31b58ac599cd0edca405cdd0790aff241fb74d0022dcfaefe",
+          "payloadEnd": 6126245
+        },
+        "kotlin/reflect/reflect.kotlin_builtins": {
+          "localHeaderOffset": 6126245,
+          "localNameBytes": 38,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "d8475d098fb2582fc95887efcbfc59733e7c40c28d1ba3b5026b24ca8c59621f",
+          "payloadEnd": 6127599
+        },
+        "classes4.dex": {
+          "localHeaderOffset": 6127599,
+          "localNameBytes": 12,
+          "localExtraBytes": 3,
+          "compressedPayloadSha256": "4dc3bcdfb117a66d76a96a6cfe86addb52388c5f3490f5f628c0b8ae50726ef1",
+          "payloadEnd": 6348604
+        }
+      },
+      "gapsBeforeAndBetweenEntries": [
+        {
+          "start": 5859928,
+          "end": 6080524,
+          "bytes": 220596
+        }
+      ],
+      "totalGapBytes": 220596
+    },
+    "independent": {
+      "entries": {
+        "META-INF/com/android/build/gradle/app-metadata.properties": {
+          "localHeaderOffset": 0,
+          "localNameBytes": 57,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "bdb5abe15afcc3e608b25e2ebd99e78e4fba25a4b22726695cf5faed3651a4e3",
+          "payloadEnd": 138
+        },
+        "classes.dex": {
+          "localHeaderOffset": 138,
+          "localNameBytes": 11,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "d0291e867f25721bdda226714899bd30edff8cf6c8bc8bc7e6372751aa622578",
+          "payloadEnd": 5773972
+        },
+        "classes2.dex": {
+          "localHeaderOffset": 5773972,
+          "localNameBytes": 12,
+          "localExtraBytes": 2,
+          "compressedPayloadSha256": "a38586fee3fd26fc0772f5bb8d441de79ffe5b51dc15252c8f2a251096bde035",
+          "payloadEnd": 5845188
+        },
+        "classes3.dex": {
+          "localHeaderOffset": 5845188,
+          "localNameBytes": 12,
+          "localExtraBytes": 2,
+          "compressedPayloadSha256": "21fb40efff7e144685e637408ae74606b2585aa0153097ff407d92938fcd36f6",
+          "payloadEnd": 5859928
+        },
+        "classes4.dex": {
+          "localHeaderOffset": 5859928,
+          "localNameBytes": 12,
+          "localExtraBytes": 2,
+          "compressedPayloadSha256": "4dc3bcdfb117a66d76a96a6cfe86addb52388c5f3490f5f628c0b8ae50726ef1",
+          "payloadEnd": 6080932
+        },
+        "AndroidManifest.xml": {
+          "localHeaderOffset": 6080932,
+          "localNameBytes": 19,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "360471b56003a589d2441f878374c7c5451a1388f4b06a651b033edc28d76d2b",
+          "payloadEnd": 6083064
+        },
+        "res/drawable-hdpi-v4/notification_bg_low_normal.9.png": {
+          "localHeaderOffset": 6083064,
+          "localNameBytes": 53,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "21f0b55280be10b187ceff8edef4a5a7047683e6e9fcf47de410aa3839f41094",
+          "payloadEnd": 6083360
+        },
+        "res/drawable-hdpi-v4/notification_bg_low_pressed.9.png": {
+          "localHeaderOffset": 6083360,
+          "localNameBytes": 54,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "42aee0b03883e94df5e543348a397d1302c1b8221895871a83b81899f5a9647b",
+          "payloadEnd": 6083669
+        },
+        "res/drawable-hdpi-v4/notification_bg_normal.9.png": {
+          "localHeaderOffset": 6083669,
+          "localNameBytes": 49,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "0c6328c7b2420570a7ec38b3beb3bac9a29d895ac1ab7239315aba7266418593",
+          "payloadEnd": 6083960
+        },
+        "res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png": {
+          "localHeaderOffset": 6083960,
+          "localNameBytes": 57,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "18b328d8017e677d5aad3dbd66bae356b5cac978c6f0670938ea648e51d0eb66",
+          "payloadEnd": 6084273
+        },
+        "res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png": {
+          "localHeaderOffset": 6084273,
+          "localNameBytes": 58,
+          "localExtraBytes": 3,
+          "compressedPayloadSha256": "8430ec003e003f3f2ba2f78d48fd150e25407667e530e82e87a7d4841c0fd676",
+          "payloadEnd": 6084471
+        },
+        "res/drawable-mdpi-v4/notification_bg_low_normal.9.png": {
+          "localHeaderOffset": 6084471,
+          "localNameBytes": 53,
+          "localExtraBytes": 2,
+          "compressedPayloadSha256": "2f7fbda0ba6e53e9a47e2fc0e24e32c447c613a5808c2d6285dc651e83a07ad7",
+          "payloadEnd": 6084771
+        },
+        "res/drawable-mdpi-v4/notification_bg_low_pressed.9.png": {
+          "localHeaderOffset": 6084771,
+          "localNameBytes": 54,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "e17761ed280edd93d7141bd504b70f9e9e15a8652288d9e6333bf4ce964ef844",
+          "payloadEnd": 6085079
+        },
+        "res/drawable-mdpi-v4/notification_bg_normal.9.png": {
+          "localHeaderOffset": 6085079,
+          "localNameBytes": 49,
+          "localExtraBytes": 2,
+          "compressedPayloadSha256": "a8676a1793ac8310ffb12986232df66df092d29c242aeedc2b73556c010d38dc",
+          "payloadEnd": 6085375
+        },
+        "res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png": {
+          "localHeaderOffset": 6085375,
+          "localNameBytes": 57,
+          "localExtraBytes": 2,
+          "compressedPayloadSha256": "99c14d6855b8be296d58017d3751b8dc849c47b6d1d80ab614ff9075080e461b",
+          "payloadEnd": 6085687
+        },
+        "res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png": {
+          "localHeaderOffset": 6085687,
+          "localNameBytes": 58,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "0d773e62c756422313262846c787e58f67e0ee87e45e1ae9942002e816c4cb9e",
+          "payloadEnd": 6085874
+        },
+        "res/drawable-v21/notification_action_background.xml": {
+          "localHeaderOffset": 6085874,
+          "localNameBytes": 51,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "4cd6706f67b694d7da8e53b1ce49b2c1a8eac3bd4361a36aa5c1b5ad9514e3b5",
+          "payloadEnd": 6086422
+        },
+        "res/drawable-xhdpi-v4/notification_bg_low_normal.9.png": {
+          "localHeaderOffset": 6086422,
+          "localNameBytes": 54,
+          "localExtraBytes": 2,
+          "compressedPayloadSha256": "3e09afa21c45372c035598c017c8fb405a6d678e6cb84dc857581cb3b40e482d",
+          "payloadEnd": 6086729
+        },
+        "res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png": {
+          "localHeaderOffset": 6086729,
+          "localNameBytes": 55,
+          "localExtraBytes": 2,
+          "compressedPayloadSha256": "20343222f9f79dd565c3a2248494d452e70820ac1c437173c38badd45f962afd",
+          "payloadEnd": 6087068
+        },
+        "res/drawable-xhdpi-v4/notification_bg_normal.9.png": {
+          "localHeaderOffset": 6087068,
+          "localNameBytes": 50,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "559bf783d765c02338e97952bdc9c6689c7ff99090b8c9813369118da8b080f0",
+          "payloadEnd": 6087369
+        },
+        "res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png": {
+          "localHeaderOffset": 6087369,
+          "localNameBytes": 58,
+          "localExtraBytes": 3,
+          "compressedPayloadSha256": "d27af435101ca4cbec0c840bd30687918cd39eb83aab1487420855623a45998b",
+          "payloadEnd": 6087707
+        },
+        "res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png": {
+          "localHeaderOffset": 6087707,
+          "localNameBytes": 59,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "b44eeda34d7a529c2fe55719eb098fa29707caa91d18de06a7a775d6e6bcf973",
+          "payloadEnd": 6087934
+        },
+        "res/drawable/notification_bg.xml": {
+          "localHeaderOffset": 6087934,
+          "localNameBytes": 32,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "100a82cc5d385e13b609b12c28d0ef92c78a7461e00fb24cac3d0b403b4bb332",
+          "payloadEnd": 6088248
+        },
+        "res/drawable/notification_bg_low.xml": {
+          "localHeaderOffset": 6088248,
+          "localNameBytes": 36,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "825c2d84a7ef43e09abbd8a526194f95bac36823829f1d98ec61d82a6a230ede",
+          "payloadEnd": 6088565
+        },
+        "res/drawable/notification_icon_background.xml": {
+          "localHeaderOffset": 6088565,
+          "localNameBytes": 45,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "046b454ca22984ccff06054c6dccfeab9ac65388ca92938068d506230018b663",
+          "payloadEnd": 6088824
+        },
+        "res/drawable/notification_tile_bg.xml": {
+          "localHeaderOffset": 6088824,
+          "localNameBytes": 37,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "fc41777e3d5581b86ec5944cbedd0dbc1b211c90f53a930f58fbc9a41b8501a5",
+          "payloadEnd": 6089064
+        },
+        "res/layout-v21/notification_action.xml": {
+          "localHeaderOffset": 6089064,
+          "localNameBytes": 38,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "13e326ea34e0763ed7e48c5a65f140323c8f510c9530486639e244eb3b5c6840",
+          "payloadEnd": 6089617
+        },
+        "res/layout-v21/notification_action_tombstone.xml": {
+          "localHeaderOffset": 6089617,
+          "localNameBytes": 48,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "e594460b83ef95d85dbda81ff012d5996b660cee675bc728c92ce6cad398aaf1",
+          "payloadEnd": 6090231
+        },
+        "res/layout-v21/notification_template_custom_big.xml": {
+          "localHeaderOffset": 6090231,
+          "localNameBytes": 51,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "18766bf7b38f633517fd433da69e4a8f7ad585192961640e147b7804855836fb",
+          "payloadEnd": 6091098
+        },
+        "res/layout-v21/notification_template_icon_group.xml": {
+          "localHeaderOffset": 6091098,
+          "localNameBytes": 51,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "a639e957575500df6cf5942ea0c0e241ecfe74a1fb55cccc9cf44183ce0adaf4",
+          "payloadEnd": 6091598
+        },
+        "res/layout/custom_dialog.xml": {
+          "localHeaderOffset": 6091598,
+          "localNameBytes": 28,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "51e1a53c258c246c6aece68e383c333c2af4ba926cbf36b92bbf0189bdc3a4fb",
+          "payloadEnd": 6091965
+        },
+        "res/layout/notification_template_part_chronometer.xml": {
+          "localHeaderOffset": 6091965,
+          "localNameBytes": 53,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "7db7b9526241273a1df81643e2d1da453ec1d629d904acf0a075088cbb09a23e",
+          "payloadEnd": 6092308
+        },
+        "res/layout/notification_template_part_time.xml": {
+          "localHeaderOffset": 6092308,
+          "localNameBytes": 46,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "c75369b52e44f5101393160c543759df68e80f16ed242c008807e022ff7498ca",
+          "payloadEnd": 6092646
+        },
+        "res/xml/data_extraction_rules.xml": {
+          "localHeaderOffset": 6092646,
+          "localNameBytes": 33,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "8a0fff208209a27628e7c130e8a067dc2155700495dfbef41a0fafcf086be4b4",
+          "payloadEnd": 6092930
+        },
+        "res/xml/network_security_config.xml": {
+          "localHeaderOffset": 6092930,
+          "localNameBytes": 35,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "157aeeed7644e14cb9746d0a93f3cc21de7edd1c314a0354c7163f935c4285e3",
+          "payloadEnd": 6093257
+        },
+        "resources.arsc": {
+          "localHeaderOffset": 6093257,
+          "localNameBytes": 14,
+          "localExtraBytes": 3,
+          "compressedPayloadSha256": "fe6079d0abd8739247ad8e62a7421adbe8b9726a1302c43b95f06d453c239c8f",
+          "payloadEnd": 6115260
+        },
+        "DebugProbesKt.bin": {
+          "localHeaderOffset": 6115260,
+          "localNameBytes": 17,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "44f7e92ace722349eb6d2ce976104cd44ce17220b3ead4845ec576bad8f6e1e9",
+          "payloadEnd": 6116089
+        },
+        "META-INF/androidx.annotation_annotation-experimental.version": {
+          "localHeaderOffset": 6116089,
+          "localNameBytes": 60,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "1575e1af4a95f12f70b4ee6a6adce8160953d93ea17dc2611b90883ccc3ad3b8",
+          "payloadEnd": 6116186
+        },
+        "META-INF/androidx.arch.core_core-runtime.version": {
+          "localHeaderOffset": 6116186,
+          "localNameBytes": 48,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "c89b87c262e9d5ffd20e73aac74a1772adcc9f5a21682cc33adcf5086e5fef5c",
+          "payloadEnd": 6116270
+        },
+        "META-INF/androidx.core_core-ktx.version": {
+          "localHeaderOffset": 6116270,
+          "localNameBytes": 39,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "3eb1ef94b5890ca727158b106142685c8733b0ace5bcb4cf3f0ac14f9f0643f4",
+          "payloadEnd": 6116346
+        },
+        "META-INF/androidx.core_core.version": {
+          "localHeaderOffset": 6116346,
+          "localNameBytes": 35,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "3eb1ef94b5890ca727158b106142685c8733b0ace5bcb4cf3f0ac14f9f0643f4",
+          "payloadEnd": 6116418
+        },
+        "META-INF/androidx.lifecycle_lifecycle-runtime.version": {
+          "localHeaderOffset": 6116418,
+          "localNameBytes": 53,
+          "localExtraBytes": 3,
+          "compressedPayloadSha256": "ad8650bc9057d9dfd809961b69dbad640c288d809fa44437d44d83d3b118c821",
+          "payloadEnd": 6116510
+        },
+        "META-INF/androidx.versionedparcelable_versionedparcelable.version": {
+          "localHeaderOffset": 6116510,
+          "localNameBytes": 65,
+          "localExtraBytes": 3,
+          "compressedPayloadSha256": "cc52f678848b814373757b460383bf61960e4943c203735adde0a350b3e50989",
+          "payloadEnd": 6116614
+        },
+        "META-INF/kotlinx_coroutines_android.version": {
+          "localHeaderOffset": 6116614,
+          "localNameBytes": 43,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "f267ab0a5247499879a39c4b98d7d2ac4c72119b3345699d39ccb168dfa154f1",
+          "payloadEnd": 6116693
+        },
+        "META-INF/kotlinx_coroutines_core.version": {
+          "localHeaderOffset": 6116693,
+          "localNameBytes": 40,
+          "localExtraBytes": 1,
+          "compressedPayloadSha256": "f267ab0a5247499879a39c4b98d7d2ac4c72119b3345699d39ccb168dfa154f1",
+          "payloadEnd": 6116769
+        },
+        "META-INF/services/kotlinx.coroutines.CoroutineExceptionHandler": {
+          "localHeaderOffset": 6116769,
+          "localNameBytes": 62,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "ac3a610054e7a6b71e286b8bb9bf4288c49cd26bc5eef8758e0d39ede6fe4f03",
+          "payloadEnd": 6116911
+        },
+        "META-INF/services/kotlinx.coroutines.internal.MainDispatcherFactory": {
+          "localHeaderOffset": 6116911,
+          "localNameBytes": 67,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "a0bcc3f9cbaffc5f263313a70dd952b5bbf5bc8dcb85c97b75baec9e64878128",
+          "payloadEnd": 6117057
+        },
+        "kotlin/annotation/annotation.kotlin_builtins": {
+          "localHeaderOffset": 6117057,
+          "localNameBytes": 44,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "5d6f18301caba09631c7118895e56e6093cb8bd4b5fa2d74dab6d2582c735c1d",
+          "payloadEnd": 6117692
+        },
+        "kotlin/collections/collections.kotlin_builtins": {
+          "localHeaderOffset": 6117692,
+          "localNameBytes": 46,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "e2ed122fc26620e725fc46488478b016a0c1ac7241a1cab1b11c59061fc8a9c6",
+          "payloadEnd": 6119289
+        },
+        "kotlin/coroutines/coroutines.kotlin_builtins": {
+          "localHeaderOffset": 6119289,
+          "localNameBytes": 44,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "746d14a82fdcbc82b5ae296a8fda6c0abbb2ee9dcf7263b335fbdb854ea96bd6",
+          "payloadEnd": 6119520
+        },
+        "kotlin/internal/internal.kotlin_builtins": {
+          "localHeaderOffset": 6119520,
+          "localNameBytes": 40,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "bc8c60df56c01d8f876fc63b9809c105fee0303bb99b1306ba3f7c77e7f5cf3d",
+          "payloadEnd": 6119984
+        },
+        "kotlin/kotlin.kotlin_builtins": {
+          "localHeaderOffset": 6119984,
+          "localNameBytes": 29,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "37fd22cd07836666a518c9ef9d8dfdb3bf3e9e3a781e12d4273ff942d0585636",
+          "payloadEnd": 6125295
+        },
+        "kotlin/ranges/ranges.kotlin_builtins": {
+          "localHeaderOffset": 6125295,
+          "localNameBytes": 36,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "0380ee5a1a2465a31b58ac599cd0edca405cdd0790aff241fb74d0022dcfaefe",
+          "payloadEnd": 6126653
+        },
+        "kotlin/reflect/reflect.kotlin_builtins": {
+          "localHeaderOffset": 6126653,
+          "localNameBytes": 38,
+          "localExtraBytes": 0,
+          "compressedPayloadSha256": "d8475d098fb2582fc95887efcbfc59733e7c40c28d1ba3b5026b24ca8c59621f",
+          "payloadEnd": 6128007
+        }
+      },
+      "gapsBeforeAndBetweenEntries": [],
+      "totalGapBytes": 0
+    }
+  },
+  "conclusion": "All 54 decompressed entries and all compressed payload byte sequences match exactly. APK container placement/gaps and the corresponding signing block differ; full APK byte identity is not claimed. Runtime binding remains the frozen installed APK."
+}
