@@ -1,0 +1,213 @@
+{"hostAt": "2026-11-06T08:10:35.718306+00:00", "hostMonotonic": 0.018616791, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T08:10:51.287158+00:00", "hostMonotonic": 15.587249125, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T08:11:05.415425+00:00", "hostMonotonic": 29.71538975, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T08:11:11.414833+00:00", "hostMonotonic": 35.714787791, "event": "uiAction", "serial": "emulator-5570", "resource": "nav_settings"}
+{"hostAt": "2026-11-06T08:11:22.142571+00:00", "hostMonotonic": 46.4423945, "event": "uiAction", "serial": "emulator-5570", "resource": "forget_room"}
+{"hostAt": "2026-11-06T08:11:26.873762+00:00", "hostMonotonic": 51.173581583, "event": "button", "serial": "emulator-5570", "label": "연결 지우기"}
+{"hostAt": "2026-11-06T08:11:32.930676+00:00", "hostMonotonic": 57.230391958, "event": "uiAction", "serial": "emulator-5570", "resource": "nav_home"}
+{"hostAt": "2026-11-06T08:11:50.210819+00:00", "hostMonotonic": 74.510367208, "event": "uiAction", "serial": "emulator-5570", "resource": "create_room_entry"}
+{"hostAt": "2026-11-06T08:12:13.242745+00:00", "hostMonotonic": 97.542112458, "event": "uiAction", "serial": "emulator-5570", "resource": "server_details"}
+{"hostAt": "2026-11-06T08:12:29.495423+00:00", "hostMonotonic": 113.794670625, "event": "uiAction", "serial": "emulator-5570", "resource": "server_details"}
+{"hostAt": "2026-11-06T08:12:29.852712+00:00", "hostMonotonic": 114.151887208, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T08:12:35.923173+00:00", "hostMonotonic": 120.222356166, "event": "uiAction", "serial": "emulator-5572", "resource": "nav_settings"}
+{"hostAt": "2026-11-06T08:12:40.565351+00:00", "hostMonotonic": 124.864474791, "event": "uiAction", "serial": "emulator-5572", "resource": "forget_room"}
+{"hostAt": "2026-11-06T08:12:45.363595+00:00", "hostMonotonic": 129.662680958, "event": "button", "serial": "emulator-5572", "label": "연결 지우기"}
+{"hostAt": "2026-11-06T08:12:50.421416+00:00", "hostMonotonic": 134.720424875, "event": "uiAction", "serial": "emulator-5572", "resource": "nav_home"}
+{"hostAt": "2026-11-06T08:13:02.912794+00:00", "hostMonotonic": 147.211741416, "event": "uiAction", "serial": "emulator-5572", "resource": "join_room_entry"}
+{"hostAt": "2026-11-06T08:13:20.986246+00:00", "hostMonotonic": 165.285050625, "event": "uiAction", "serial": "emulator-5572", "resource": "server_details"}
+{"hostAt": "2026-11-06T08:13:37.140742+00:00", "hostMonotonic": 181.439361208, "event": "uiAction", "serial": "emulator-5572", "resource": "server_details"}
+{"hostAt": "2026-11-06T08:25:25.562589+00:00", "hostMonotonic": 0.026551916, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T08:25:40.651656+00:00", "hostMonotonic": 15.115309791, "event": "uiAction", "serial": "emulator-5570", "resource": "create_room_entry"}
+{"hostAt": "2026-11-06T08:26:00.040510+00:00", "hostMonotonic": 34.50427925, "event": "uiAction", "serial": "emulator-5570", "resource": "server_details"}
+{"hostAt": "2026-11-06T08:26:16.227311+00:00", "hostMonotonic": 50.69124025, "event": "uiAction", "serial": "emulator-5570", "resource": "server_details"}
+{"hostAt": "2026-11-06T08:26:16.581029+00:00", "hostMonotonic": 51.044930416, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T08:26:21.888779+00:00", "hostMonotonic": 56.352766708, "event": "setupResumedAfterProductProcessLoss", "serial": "emulator-5570", "sourceHead": "3502929d569262253440fa3241ff90cffe57c859", "noRoomHadBeenSubmitted": true}
+{"hostAt": "2026-11-06T08:26:25.548107+00:00", "hostMonotonic": 60.012185958, "event": "uiAction", "serial": "emulator-5570", "resource": "submit_room"}
+{"hostAt": "2026-11-06T08:26:31.563138+00:00", "hostMonotonic": 66.027175958, "event": "uiAction", "serial": "emulator-5570", "resource": "nav_settings"}
+{"hostAt": "2026-11-06T08:26:35.841767+00:00", "hostMonotonic": 70.305847, "event": "uiAction", "serial": "emulator-5570", "resource": "invitation"}
+{"hostAt": "2026-11-06T08:26:47.723764+00:00", "hostMonotonic": 82.187966875, "event": "button", "serial": "emulator-5570", "label": "닫기"}
+{"hostAt": "2026-11-06T08:26:52.017129+00:00", "hostMonotonic": 86.481299125, "event": "uiAction", "serial": "emulator-5570", "resource": "nav_home"}
+{"hostAt": "2026-11-06T08:27:18.602625+00:00", "hostMonotonic": 113.06704275, "event": "uiAction", "serial": "emulator-5572", "resource": "submit_room"}
+{"hostAt": "2026-11-06T08:31:01.112683+00:00", "hostMonotonic": 11.656013916, "event": "uiAction", "serial": "emulator-5570", "resource": "nav_settings"}
+{"hostAt": "2026-11-06T08:31:28.752148+00:00", "hostMonotonic": 39.295641416, "event": "uiAction", "serial": "emulator-5570", "resource": "developer_details"}
+{"hostAt": "2026-11-06T08:31:40.842250+00:00", "hostMonotonic": 51.385812791, "event": "uiAction", "serial": "emulator-5570", "resource": "developer_details"}
+{"hostAt": "2026-11-06T08:31:46.115521+00:00", "hostMonotonic": 56.659330916, "event": "uiAction", "serial": "emulator-5570", "resource": "nav_home"}
+{"hostAt": "2026-11-06T08:31:51.465619+00:00", "hostMonotonic": 62.009286666, "event": "uiAction", "serial": "emulator-5572", "resource": "nav_settings"}
+{"hostAt": "2026-11-06T08:32:18.958444+00:00", "hostMonotonic": 89.5023295, "event": "uiAction", "serial": "emulator-5572", "resource": "nav_home"}
+{"hostAt": "2026-11-06T08:32:24.126297+00:00", "hostMonotonic": 94.670214625, "event": "uiAction", "serial": "emulator-5570", "resource": "change_destination"}
+{"hostAt": "2026-11-06T08:33:13.479885+00:00", "hostMonotonic": 144.024214416, "event": "uiAction", "serial": "emulator-5570", "resource": "select_saved_place"}
+{"hostAt": "2026-11-06T08:33:27.697496+00:00", "hostMonotonic": 158.242004958, "event": "uiAction", "serial": "emulator-5570", "resource": "saved_places_cancel"}
+{"hostAt": "2026-11-06T08:33:47.123135+00:00", "hostMonotonic": 177.667689875, "event": "uiAction", "serial": "emulator-5570", "resource": "select_saved_place"}
+{"hostAt": "2026-11-06T08:34:01.342408+00:00", "hostMonotonic": 191.887114458, "event": "uiAction", "serial": "emulator-5570", "resource": "saved_places_cancel"}
+{"hostAt": "2026-11-06T08:34:11.148034+00:00", "hostMonotonic": 201.692813291, "event": "uiAction", "serial": "emulator-5570", "resource": "nav_home"}
+{"hostAt": "2026-11-06T08:34:25.907108+00:00", "hostMonotonic": 216.451960625, "event": "uiAction", "serial": "emulator-5570", "resource": "start_convoy"}
+{"hostAt": "2026-11-06T08:34:30.721587+00:00", "hostMonotonic": 221.266516125, "event": "uiAction", "serial": "emulator-5572", "resource": "start_convoy"}
+{"hostAt": "2026-11-06T08:37:00.653156+00:00", "hostMonotonic": 2.912649625, "event": "resumeAfterAbsentBaseline", "reason": "No current host native destination; follower cannot confirm a nonexistent shared target. No product mutation or route injection."}
+{"hostAt": "2026-11-06T08:37:10.880405+00:00", "hostMonotonic": 13.134618875, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T08:37:17.837519+00:00", "hostMonotonic": 20.091754833, "event": "uiAction", "serial": "emulator-5570", "resource": "nav_settings"}
+{"hostAt": "2026-11-06T08:37:23.052782+00:00", "hostMonotonic": 25.307070625, "event": "uiAction", "serial": "emulator-5570", "resource": "leave_room"}
+{"hostAt": "2026-11-06T08:37:28.055304+00:00", "hostMonotonic": 30.309614833, "event": "button", "serial": "emulator-5570", "label": "취소"}
+{"hostAt": "2026-11-06T08:37:33.258568+00:00", "hostMonotonic": 35.512946375, "event": "uiAction", "serial": "emulator-5570", "resource": "nav_home"}
+{"hostAt": "2026-11-06T08:37:33.618278+00:00", "hostMonotonic": 35.872649041, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T08:37:39.604599+00:00", "hostMonotonic": 41.859174458, "event": "uiAction", "serial": "emulator-5572", "resource": "nav_settings"}
+{"hostAt": "2026-11-06T08:37:44.290235+00:00", "hostMonotonic": 46.544691666, "event": "uiAction", "serial": "emulator-5572", "resource": "leave_room"}
+{"hostAt": "2026-11-06T08:37:48.850844+00:00", "hostMonotonic": 51.105338791, "event": "button", "serial": "emulator-5572", "label": "취소"}
+{"hostAt": "2026-11-06T08:37:53.923916+00:00", "hostMonotonic": 56.178537583, "event": "uiAction", "serial": "emulator-5572", "resource": "nav_home"}
+{"hostAt": "2026-11-06T08:38:07.711243+00:00", "hostMonotonic": 69.965933291, "event": "uiAction", "serial": "emulator-5570", "resource": "stop_convoy"}
+{"hostAt": "2026-11-06T08:38:21.918240+00:00", "hostMonotonic": 84.172979583, "event": "uiAction", "serial": "emulator-5570", "resource": "start_convoy"}
+{"hostAt": "2026-11-06T08:38:36.715262+00:00", "hostMonotonic": 98.970177125, "event": "explicitOwnAppColdStop", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T08:38:37.651023+00:00", "hostMonotonic": 99.905886083, "event": "explicitOwnAppColdStop", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T08:38:37.652176+00:00", "hostMonotonic": 99.907006583, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T08:38:43.193034+00:00", "hostMonotonic": 105.447979291, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T08:39:20.211456+00:00", "hostMonotonic": 142.466671416, "event": "ownedFontScale", "serial": "emulator-5570", "value": 1.3}
+{"hostAt": "2026-11-06T08:39:20.213891+00:00", "hostMonotonic": 142.469045833, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T08:39:28.463267+00:00", "hostMonotonic": 150.718541708, "event": "ownedFontScale", "serial": "emulator-5572", "value": 1.3}
+{"hostAt": "2026-11-06T08:39:28.464228+00:00", "hostMonotonic": 150.719452041, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T08:40:53.926810+00:00", "hostMonotonic": 0.03906525, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T08:41:38.052253+00:00", "hostMonotonic": 5.754183, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T08:41:48.287275+00:00", "hostMonotonic": 15.989303583, "event": "uiAction", "serial": "emulator-5570", "resource": "start_convoy"}
+{"hostAt": "2026-11-06T08:41:48.641665+00:00", "hostMonotonic": 16.343675083, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T08:41:59.165014+00:00", "hostMonotonic": 26.867158625, "event": "uiAction", "serial": "emulator-5572", "resource": "start_convoy"}
+{"hostAt": "2026-11-06T08:42:15.135084+00:00", "hostMonotonic": 4.195536041, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "bookmarks", "stem": "cafe-source", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T08:42:17.203473+00:00", "hostMonotonic": 6.308422791, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T08:42:27.509514+00:00", "hostMonotonic": 16.614655875, "event": "uiAction", "serial": "emulator-5570", "resource": "change_destination"}
+{"hostAt": "2026-11-06T08:43:29.695708+00:00", "hostMonotonic": 78.801212333, "event": "uiAction", "serial": "emulator-5570", "resource": "select_saved_place"}
+{"hostAt": "2026-11-06T08:43:40.688464+00:00", "hostMonotonic": 89.794097583, "event": "explicitPublicPlaceSelection", "serial": "emulator-5570", "name": "가든서비스", "case": "cafe"}
+{"hostAt": "2026-11-06T08:44:01.463089+00:00", "hostMonotonic": 110.568858833, "event": "uiAction", "serial": "emulator-5570", "resource": "send_proposal"}
+{"hostAt": "2026-11-06T08:44:05.077272+00:00", "hostMonotonic": 114.183197791, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T08:44:37.455473+00:00", "hostMonotonic": 5.145426875, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "cafe-pending-native-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T08:44:45.418846+00:00", "hostMonotonic": 7.934587583, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "cafe-pending-native-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T08:44:50.018273+00:00", "hostMonotonic": 159.124435208, "event": "uiAction", "serial": "emulator-5572", "resource": "reject_proposal"}
+{"hostAt": "2026-11-06T08:44:56.723628+00:00", "hostMonotonic": 3.579145708, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "cafe-rejected-native-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T08:45:02.098479+00:00", "hostMonotonic": 5.354298958, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "cafe-rejected-native-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T08:45:05.179144+00:00", "hostMonotonic": 174.285363375, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T08:45:12.381971+00:00", "hostMonotonic": 181.488273125, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T08:45:25.325488+00:00", "hostMonotonic": 194.431907958, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T08:45:35.519973+00:00", "hostMonotonic": 204.626502125, "event": "uiAction", "serial": "emulator-5570", "resource": "change_destination"}
+{"hostAt": "2026-11-06T08:46:57.861402+00:00", "hostMonotonic": 286.968613166, "event": "uiAction", "serial": "emulator-5570", "resource": "select_saved_place"}
+{"hostAt": "2026-11-06T08:47:07.934842+00:00", "hostMonotonic": 297.042080166, "event": "explicitPublicPlaceSelection", "serial": "emulator-5570", "name": "가든서비스", "case": "cafe-retry"}
+{"hostAt": "2026-11-06T08:47:26.396984+00:00", "hostMonotonic": 315.504359708, "event": "uiAction", "serial": "emulator-5570", "resource": "send_proposal"}
+{"hostAt": "2026-11-06T08:47:30.516941+00:00", "hostMonotonic": 319.624295833, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T08:47:35.945451+00:00", "hostMonotonic": 325.052905041, "event": "uiAction", "serial": "emulator-5572", "resource": "accept_proposal"}
+{"hostAt": "2026-11-06T08:47:42.398986+00:00", "hostMonotonic": 331.5066035, "event": "nativeNavigationForeground", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T08:47:42.902547+00:00", "hostMonotonic": 332.010556791, "event": "nativeNavigationForeground", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T08:50:42.858614+00:00", "hostMonotonic": 3.265718458, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T08:52:23.581501+00:00", "hostMonotonic": 3.478255, "event": "explicitOwnAppStopForNativeRecovery", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T08:52:23.722549+00:00", "hostMonotonic": 3.619304375, "event": "restoreOwnedFontBeforeNativeRecovery", "serial": "emulator-5570", "original": "null"}
+{"hostAt": "2026-11-06T08:52:24.902902+00:00", "hostMonotonic": 4.799697416, "event": "restartOwnedVirtualNativeNavigation", "serial": "emulator-5570", "dataCleared": false}
+{"hostAt": "2026-11-06T08:52:25.028169+00:00", "hostMonotonic": 4.9249335, "event": "nativeNavigationForeground", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T08:52:25.925833+00:00", "hostMonotonic": 5.822744291, "event": "explicitOwnAppStopForNativeRecovery", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T08:52:26.190867+00:00", "hostMonotonic": 6.08764, "event": "restoreOwnedFontBeforeNativeRecovery", "serial": "emulator-5572", "original": "null"}
+{"hostAt": "2026-11-06T08:52:27.439483+00:00", "hostMonotonic": 7.336311125, "event": "restartOwnedVirtualNativeNavigation", "serial": "emulator-5572", "dataCleared": false}
+{"hostAt": "2026-11-06T08:52:34.179636+00:00", "hostMonotonic": 14.07677325, "event": "nativeNavigationForeground", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T08:56:10.980113+00:00", "hostMonotonic": 2.337998791, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T08:56:29.569843+00:00", "hostMonotonic": 20.9253695, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T11:23:02.365889+00:00", "hostMonotonic": 2.55497775, "event": "ownedFontScaleResume", "serial": "emulator-5570", "value": 1.3}
+{"hostAt": "2026-11-06T11:23:02.366433+00:00", "hostMonotonic": 2.555509458, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:23:52.593106+00:00", "hostMonotonic": 0.041596958, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:24:18.735019+00:00", "hostMonotonic": 2.273527875, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:24:21.944847+00:00", "hostMonotonic": 5.483393541, "event": "uiAction", "serial": "emulator-5570", "resource": "change_destination"}
+{"hostAt": "2026-11-06T11:24:26.989233+00:00", "hostMonotonic": 10.527828333, "event": "uiAction", "serial": "emulator-5570", "resource": "select_saved_place"}
+{"hostAt": "2026-11-06T11:24:31.888305+00:00", "hostMonotonic": 15.426937708, "event": "explicitLongPublicPlaceSelection", "serial": "emulator-5570", "name": "HD현대오일뱅크 세종주유소"}
+{"hostAt": "2026-11-06T11:24:38.951756+00:00", "hostMonotonic": 22.490587291, "event": "uiAction", "serial": "emulator-5570", "resource": "nav_home"}
+{"hostAt": "2026-11-06T11:24:42.197174+00:00", "hostMonotonic": 25.735892708, "event": "explicitOwnAppStopAfterFontProbe", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:24:46.600545+00:00", "hostMonotonic": 30.139350958, "event": "nativeNavigationForeground", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:24:46.601853+00:00", "hostMonotonic": 30.140600166, "event": "restoreOwnedFontAfterLongPlace", "serial": "emulator-5570", "original": "1.0", "nativeDataCleared": false}
+{"hostAt": "2026-11-06T11:24:46.602203+00:00", "hostMonotonic": 30.140939875, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:25:28.021242+00:00", "hostMonotonic": 2.334688541, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:27:04.903648+00:00", "hostMonotonic": 3.270703416, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:27:08.162524+00:00", "hostMonotonic": 6.529626458, "event": "uiAction", "serial": "emulator-5570", "resource": "nav_settings"}
+{"hostAt": "2026-11-06T11:27:11.314272+00:00", "hostMonotonic": 9.681398791, "event": "uiAction", "serial": "emulator-5570", "resource": "reconnect_native"}
+{"hostAt": "2026-11-06T11:27:13.910611+00:00", "hostMonotonic": 12.277743625, "event": "button", "serial": "emulator-5570", "label": "다시 연결"}
+{"hostAt": "2026-11-06T11:27:16.431952+00:00", "hostMonotonic": 14.799116291, "event": "uiAction", "serial": "emulator-5570", "resource": "nav_home"}
+{"hostAt": "2026-11-06T11:27:16.785182+00:00", "hostMonotonic": 15.152354416, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:27:19.781644+00:00", "hostMonotonic": 18.1488385, "event": "uiAction", "serial": "emulator-5570", "resource": "start_convoy"}
+{"hostAt": "2026-11-06T11:27:20.141093+00:00", "hostMonotonic": 18.508281708, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T11:27:25.625774+00:00", "hostMonotonic": 23.993016625, "event": "uiAction", "serial": "emulator-5572", "resource": "start_convoy"}
+{"hostAt": "2026-11-06T11:28:05.564040+00:00", "hostMonotonic": 9.517138583, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "bookmarks", "stem": "cafe-source", "status": "BLOCKED"}
+{"hostAt": "2026-11-06T11:29:25.055984+00:00", "hostMonotonic": 3.021651333, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "native-health-B", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T11:29:26.702992+00:00", "hostMonotonic": 3.51645075, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:29:30.467773+00:00", "hostMonotonic": 7.281291291, "event": "uiAction", "serial": "emulator-5570", "resource": "stop_convoy"}
+{"hostAt": "2026-11-06T11:29:30.820686+00:00", "hostMonotonic": 7.634175, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T11:29:34.238399+00:00", "hostMonotonic": 11.051936375, "event": "uiAction", "serial": "emulator-5572", "resource": "stop_convoy"}
+{"hostAt": "2026-11-06T11:29:39.532491+00:00", "hostMonotonic": 16.346119375, "event": "rebootOwnedVirtualCar", "serial": "emulator-5570", "userDataWiped": false}
+{"hostAt": "2026-11-06T11:29:54.018697+00:00", "hostMonotonic": 0.262391083, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:30:44.461879+00:00", "hostMonotonic": 8.938821875, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "native-health-A-reboot", "status": "BLOCKED"}
+{"hostAt": "2026-11-06T11:32:03.097361+00:00", "hostMonotonic": 0.164639916, "event": "ownedVirtualHomeAfterReboot", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:32:06.992320+00:00", "hostMonotonic": 2.89113125, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "native-health-A-after-launch", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T11:33:19.872838+00:00", "hostMonotonic": 3.874934583, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:33:25.213895+00:00", "hostMonotonic": 9.216070083, "event": "uiAction", "serial": "emulator-5570", "resource": "start_convoy"}
+{"hostAt": "2026-11-06T11:33:25.573537+00:00", "hostMonotonic": 9.57567775, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T11:33:29.222511+00:00", "hostMonotonic": 13.224722125, "event": "uiAction", "serial": "emulator-5572", "resource": "start_convoy"}
+{"hostAt": "2026-11-06T11:35:57.796767+00:00", "hostMonotonic": 3.45609325, "event": "restoreOwnedLoopbackReverseAfterReboot", "serial": "emulator-5570", "port": 4190}
+{"hostAt": "2026-11-06T11:35:57.797408+00:00", "hostMonotonic": 3.456715666, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:36:00.996343+00:00", "hostMonotonic": 6.655699041, "event": "uiAction", "serial": "emulator-5570", "resource": "nav_settings"}
+{"hostAt": "2026-11-06T11:36:03.905865+00:00", "hostMonotonic": 9.565250416, "event": "uiAction", "serial": "emulator-5570", "resource": "reconnect_room"}
+{"hostAt": "2026-11-06T11:36:07.038035+00:00", "hostMonotonic": 12.697448208, "event": "uiAction", "serial": "emulator-5570", "resource": "nav_home"}
+{"hostAt": "2026-11-06T11:36:10.049100+00:00", "hostMonotonic": 15.708537666, "event": "uiAction", "serial": "emulator-5570", "resource": "start_convoy"}
+{"hostAt": "2026-11-06T11:36:25.908535+00:00", "hostMonotonic": 1.250754, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "bookmarks", "stem": "cafe-source", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T11:36:29.209189+00:00", "hostMonotonic": 4.642295083, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:36:34.637065+00:00", "hostMonotonic": 10.070240666, "event": "uiAction", "serial": "emulator-5570", "resource": "change_destination"}
+{"hostAt": "2026-11-06T11:36:44.896532+00:00", "hostMonotonic": 20.329785958, "event": "uiAction", "serial": "emulator-5570", "resource": "select_saved_place"}
+{"hostAt": "2026-11-06T11:36:50.054196+00:00", "hostMonotonic": 25.487491916, "event": "explicitPublicPlaceSelection", "serial": "emulator-5570", "name": "가든서비스", "case": "cafe"}
+{"hostAt": "2026-11-06T11:37:00.572048+00:00", "hostMonotonic": 36.005437375, "event": "uiAction", "serial": "emulator-5570", "resource": "send_proposal"}
+{"hostAt": "2026-11-06T11:37:02.211049+00:00", "hostMonotonic": 37.644448416, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T11:37:20.111123+00:00", "hostMonotonic": 1.000281458, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "cafe-pending-native-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T11:37:21.496140+00:00", "hostMonotonic": 1.366216666, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "cafe-pending-native-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T11:37:23.822617+00:00", "hostMonotonic": 59.2563005, "event": "uiAction", "serial": "emulator-5572", "resource": "reject_proposal"}
+{"hostAt": "2026-11-06T11:37:26.282198+00:00", "hostMonotonic": 1.033574, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "cafe-rejected-native-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T11:37:27.768535+00:00", "hostMonotonic": 1.466674, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "cafe-rejected-native-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T11:37:29.828348+00:00", "hostMonotonic": 65.261973, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:37:33.455250+00:00", "hostMonotonic": 68.888909166, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T11:37:41.114778+00:00", "hostMonotonic": 76.548501875, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:37:46.720189+00:00", "hostMonotonic": 82.153993833, "event": "uiAction", "serial": "emulator-5570", "resource": "change_destination"}
+{"hostAt": "2026-11-06T11:37:56.365285+00:00", "hostMonotonic": 91.799164, "event": "uiAction", "serial": "emulator-5570", "resource": "select_saved_place"}
+{"hostAt": "2026-11-06T11:38:01.715855+00:00", "hostMonotonic": 97.149772166, "event": "explicitPublicPlaceSelection", "serial": "emulator-5570", "name": "가든서비스", "case": "cafe-retry"}
+{"hostAt": "2026-11-06T11:38:11.973400+00:00", "hostMonotonic": 107.407405833, "event": "uiAction", "serial": "emulator-5570", "resource": "send_proposal"}
+{"hostAt": "2026-11-06T11:38:13.595126+00:00", "hostMonotonic": 109.029132708, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T11:38:16.781006+00:00", "hostMonotonic": 112.215047958, "event": "uiAction", "serial": "emulator-5572", "resource": "accept_proposal"}
+{"hostAt": "2026-11-06T11:38:18.797118+00:00", "hostMonotonic": 114.231191916, "event": "nativeNavigationForeground", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:38:19.168197+00:00", "hostMonotonic": 114.6022525, "event": "nativeNavigationForeground", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T11:38:35.619890+00:00", "hostMonotonic": 131.054119958, "event": "confirmedNativeWindowStart", "case": "cafe", "proposalId": "bb7d966b399555a63d1d85ec"}
+{"hostAt": "2026-11-06T11:39:37.690299+00:00", "hostMonotonic": 193.125105916, "event": "confirmedNativeWindowEnd", "case": "cafe", "proposalId": "bb7d966b399555a63d1d85ec"}
+{"hostAt": "2026-11-06T11:39:41.808561+00:00", "hostMonotonic": 4.098320958, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "cafe-accepted-native-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T11:39:47.289146+00:00", "hostMonotonic": 5.449882708, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "cafe-accepted-native-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T11:40:01.639898+00:00", "hostMonotonic": 217.074841666, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:40:13.176931+00:00", "hostMonotonic": 228.611986083, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T11:40:27.078798+00:00", "hostMonotonic": 3.344510708, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "bookmarks", "stem": "restaurant-source", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T11:40:30.954242+00:00", "hostMonotonic": 7.317208541, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T11:40:36.695613+00:00", "hostMonotonic": 13.058654875, "event": "uiAction", "serial": "emulator-5572", "resource": "change_destination"}
+{"hostAt": "2026-11-06T11:40:47.697668+00:00", "hostMonotonic": 24.060797875, "event": "uiAction", "serial": "emulator-5572", "resource": "select_saved_place"}
+{"hostAt": "2026-11-06T11:40:53.940146+00:00", "hostMonotonic": 30.303359208, "event": "explicitPublicPlaceSelection", "serial": "emulator-5572", "name": "청계산담백미", "case": "restaurant"}
+{"hostAt": "2026-11-06T11:41:04.519787+00:00", "hostMonotonic": 40.883062791, "event": "uiAction", "serial": "emulator-5572", "resource": "send_proposal"}
+{"hostAt": "2026-11-06T11:41:06.191138+00:00", "hostMonotonic": 42.554415333, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:41:25.486179+00:00", "hostMonotonic": 2.417240041, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "restaurant-pending-native-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T11:41:27.899950+00:00", "hostMonotonic": 2.3887165, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "restaurant-pending-native-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T11:41:30.527354+00:00", "hostMonotonic": 66.890851, "event": "uiAction", "serial": "emulator-5570", "resource": "reject_proposal"}
+{"hostAt": "2026-11-06T11:41:34.421262+00:00", "hostMonotonic": 2.548451333, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "restaurant-rejected-native-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T11:41:36.683716+00:00", "hostMonotonic": 2.242963708, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "restaurant-rejected-native-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T11:41:40.315454+00:00", "hostMonotonic": 76.679013916, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:41:44.067836+00:00", "hostMonotonic": 80.431429208, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T11:41:51.584418+00:00", "hostMonotonic": 87.948078458, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T11:41:57.386818+00:00", "hostMonotonic": 93.750570291, "event": "uiAction", "serial": "emulator-5572", "resource": "change_destination"}
+{"hostAt": "2026-11-06T11:42:07.540441+00:00", "hostMonotonic": 103.904256875, "event": "uiAction", "serial": "emulator-5572", "resource": "select_saved_place"}
+{"hostAt": "2026-11-06T11:42:13.746429+00:00", "hostMonotonic": 110.110298916, "event": "explicitPublicPlaceSelection", "serial": "emulator-5572", "name": "청계산담백미", "case": "restaurant-retry"}
+{"hostAt": "2026-11-06T11:42:24.232007+00:00", "hostMonotonic": 120.595965041, "event": "uiAction", "serial": "emulator-5572", "resource": "send_proposal"}
+{"hostAt": "2026-11-06T11:42:26.135396+00:00", "hostMonotonic": 122.499363666, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:42:29.545777+00:00", "hostMonotonic": 125.909827625, "event": "uiAction", "serial": "emulator-5570", "resource": "accept_proposal"}
+{"hostAt": "2026-11-06T11:42:32.409126+00:00", "hostMonotonic": 128.773173875, "event": "nativeNavigationForeground", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:42:32.555459+00:00", "hostMonotonic": 128.919516666, "event": "nativeNavigationForeground", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T11:42:43.054964+00:00", "hostMonotonic": 139.419121125, "event": "confirmedNativeWindowStart", "case": "restaurant", "proposalId": "a2de2d73637934b22db935b4"}
+{"hostAt": "2026-11-06T11:43:34.788819+00:00", "hostMonotonic": 191.153472708, "event": "confirmedNativeWindowEnd", "case": "restaurant", "proposalId": "a2de2d73637934b22db935b4"}
+{"hostAt": "2026-11-06T11:43:37.877714+00:00", "hostMonotonic": 3.069747083, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "restaurant-accepted-native-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T11:43:41.246125+00:00", "hostMonotonic": 3.331439541, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "restaurant-accepted-native-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T11:43:52.414403+00:00", "hostMonotonic": 208.779104375, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:44:02.073188+00:00", "hostMonotonic": 218.437993125, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T11:44:15.001843+00:00", "hostMonotonic": 3.522534833, "event": "restoreOwnedFontScale", "serial": "emulator-5570", "original": "1.0"}
+{"hostAt": "2026-11-06T11:44:15.002496+00:00", "hostMonotonic": 3.52316475, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T11:44:18.464827+00:00", "hostMonotonic": 6.985565, "event": "uiAction", "serial": "emulator-5570", "resource": "change_destination"}
+{"hostAt": "2026-11-06T11:44:24.631768+00:00", "hostMonotonic": 13.152714208, "event": "uiAction", "serial": "emulator-5570", "resource": "nav_home"}
+{"hostAt": "2026-11-06T11:44:36.918236+00:00", "hostMonotonic": 25.439132208, "event": "restoreOwnedFontScale", "serial": "emulator-5572", "original": "1.0"}
+{"hostAt": "2026-11-06T11:44:36.920923+00:00", "hostMonotonic": 25.441796541, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T11:44:40.720470+00:00", "hostMonotonic": 29.241408541, "event": "uiAction", "serial": "emulator-5572", "resource": "change_destination"}
+{"hostAt": "2026-11-06T11:44:46.382572+00:00", "hostMonotonic": 34.903545833, "event": "uiAction", "serial": "emulator-5572", "resource": "nav_home"}

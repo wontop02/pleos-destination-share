@@ -1,0 +1,5 @@
+{
+  "intendedLength": 200,
+  "observedLength": 200,
+  "scope": "Read back before bookmark callbacks; retention compares observed bytes, not assumed shell injection."
+}

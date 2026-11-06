@@ -1,0 +1,13 @@
+{
+  "issue": 23,
+  "base": "d03c6f0bd952fd2a0a0ebc376a6e8091e1c77a35",
+  "branch": "be/issue-23-simple-vehicle-ui",
+  "worktree": "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/issue-23-simple-vehicle-ui",
+  "startedAt": "2026-11-06T07:01:45.164406+00:00",
+  "batch": [
+    23
+  ],
+  "builderRole": "builtin worker following repository builder contract; custom role not exposed",
+  "verifierRole": "separate-context builtin default following verifier contract",
+  "raw": "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/simple-ui-20261106"
+}

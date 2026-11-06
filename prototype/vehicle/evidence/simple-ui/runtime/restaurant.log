@@ -1,0 +1,9 @@
+{"serial": "emulator-5572", "mode": "bookmarks", "status": "OBSERVED", "reason": "allowlisted_public_bookmark_fields_observed", "seconds": 3.161139709, "routeRequests": 0, "saved": "restaurant-source.json"}
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 2.219172625, "routeRequests": 0, "saved": "restaurant-pending-native-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 2.254415917, "routeRequests": 0, "saved": "restaurant-pending-native-emulator-5572.json"}
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 2.3513873750000003, "routeRequests": 0, "saved": "restaurant-rejected-native-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 1.9996396250000001, "routeRequests": 0, "saved": "restaurant-rejected-native-emulator-5572.json"}
+restaurant pending/reject0 native requests, unchanged actual guidance
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 2.8800487500000003, "routeRequests": 0, "saved": "restaurant-accepted-native-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 3.106386875, "routeRequests": 0, "saved": "restaurant-accepted-native-emulator-5572.json"}
+restaurant actual place confirmed once per car, native window>45s stable, clear home success

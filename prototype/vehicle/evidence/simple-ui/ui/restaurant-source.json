@@ -1,0 +1,186 @@
+{
+  "hostAt": "2026-11-06T11:40:27.076629+00:00",
+  "serial": "emulator-5572",
+  "user": 10,
+  "command": {
+    "argv": [
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+      "-P",
+      "5041",
+      "-s",
+      "emulator-5572",
+      "shell",
+      "am instrument --user 10 -w -r -e mode bookmarks -e publicNamesJson '[\"청계산담백미\"]' ai.pleos.destinations.driver/.NativeDestinationDriver"
+    ],
+    "exitCode": 0
+  },
+  "seconds": 3.161139709,
+  "productionPidBefore": "21856",
+  "productionPidAfter": "21856",
+  "productionProcessUnchanged": true,
+  "result": {
+    "sdk": "ai.pleos.playground:NaviHelper:3.0.5",
+    "mode": "bookmarks",
+    "startedAt": 1793965223870,
+    "targetPackage": "ai.pleos.destinations.driver",
+    "processId": 4857,
+    "initialDestination": {
+      "latitude": 37.412475,
+      "longitude": 127.09534722,
+      "displayLatitude": null,
+      "displayLongitude": null,
+      "name": "가든서비스",
+      "address": "수정구 시흥동",
+      "poiId": "36khp2h36p68cm5nqhec",
+      "poiSubId": null,
+      "poiSubIdMissing": true,
+      "poiProvider": "",
+      "remainDistance": 60,
+      "remainTime": 60,
+      "tollFare": 0
+    },
+    "publicNameAllowlist": [
+      "청계산담백미"
+    ],
+    "bookmarkObservation": {
+      "query": 2,
+      "callbackSource": "NaviHelperEventListener.onBookmarkInfo",
+      "entryCount": 3,
+      "allowlistedEntryCount": 1,
+      "omittedEntryCount": 2,
+      "entries": [
+        {
+          "name": "청계산담백미",
+          "latitude": 37.40931388,
+          "longitude": 127.09780277,
+          "address": "경기도 성남시 수정구 달래내로 22",
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "poiId": "36khp2h5fjcfcm5nqhe3",
+          "poiSubId": null,
+          "poiProvider": ""
+        }
+      ],
+      "exactPublicNameFilterApplied": true,
+      "event": "onBookmarkInfo",
+      "at": 1793965225087,
+      "session": 1
+    },
+    "postBookmarkDestination": {
+      "latitude": 37.412475,
+      "longitude": 127.09534722,
+      "displayLatitude": null,
+      "displayLongitude": null,
+      "name": "가든서비스",
+      "address": "수정구 시흥동",
+      "poiId": "36khp2h36p68cm5nqhec",
+      "poiSubId": null,
+      "poiSubIdMissing": true,
+      "poiProvider": "",
+      "remainDistance": 60,
+      "remainTime": 60,
+      "tollFare": 0
+    },
+    "destinationIdentityUnchanged": true,
+    "reason": "allowlisted_public_bookmark_fields_observed",
+    "status": "OBSERVED",
+    "finishedAt": 1793965226102,
+    "routeStartedObserved": false,
+    "routingCompletedObserved": false,
+    "routeRequestCount": 0,
+    "navigationScreenRequestCount": 0,
+    "tripRequestCount": 0,
+    "nativeRouteStartCallbackCount": 0,
+    "events": [
+      {
+        "event": "connected",
+        "at": 1793965223938,
+        "session": 1
+      },
+      {
+        "query": 1,
+        "event": "getDestinationInfo",
+        "at": 1793965223938,
+        "session": 1
+      },
+      {
+        "query": 1,
+        "destination": {
+          "latitude": 37.412475,
+          "longitude": 127.09534722,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "가든서비스",
+          "address": "수정구 시흥동",
+          "poiId": "36khp2h36p68cm5nqhec",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 60,
+          "remainTime": 60,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793965225027,
+        "session": 1
+      },
+      {
+        "query": 2,
+        "event": "getBookmarkInfo",
+        "at": 1793965225028,
+        "session": 1
+      },
+      {
+        "query": 2,
+        "callbackSource": "NaviHelperEventListener.onBookmarkInfo",
+        "entryCount": 3,
+        "allowlistedEntryCount": 1,
+        "omittedEntryCount": 2,
+        "entries": [
+          {
+            "name": "청계산담백미",
+            "latitude": 37.40931388,
+            "longitude": 127.09780277,
+            "address": "경기도 성남시 수정구 달래내로 22",
+            "displayLatitude": null,
+            "displayLongitude": null,
+            "poiId": "36khp2h5fjcfcm5nqhe3",
+            "poiSubId": null,
+            "poiProvider": ""
+          }
+        ],
+        "exactPublicNameFilterApplied": true,
+        "event": "onBookmarkInfo",
+        "at": 1793965225087,
+        "session": 1
+      },
+      {
+        "query": 3,
+        "event": "getDestinationInfo",
+        "at": 1793965225087,
+        "session": 1
+      },
+      {
+        "query": 3,
+        "destination": {
+          "latitude": 37.412475,
+          "longitude": 127.09534722,
+          "displayLatitude": null,
+          "displayLongitude": null,
+          "name": "가든서비스",
+          "address": "수정구 시흥동",
+          "poiId": "36khp2h36p68cm5nqhec",
+          "poiSubId": null,
+          "poiSubIdMissing": true,
+          "poiProvider": "",
+          "remainDistance": 60,
+          "remainTime": 60,
+          "tollFare": 0
+        },
+        "event": "onDestinationInfo",
+        "at": 1793965226095,
+        "session": 1
+      }
+    ]
+  }
+}

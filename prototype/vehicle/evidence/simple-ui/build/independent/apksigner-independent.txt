@@ -1,0 +1,22 @@
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): false
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: C=US, O=Android, CN=Android Debug
+Signer #1 certificate SHA-256 digest: 75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1
+Signer #1 certificate SHA-1 digest: 92a8e251201f2b8c26722e4e8b6033377f832e25
+Signer #1 certificate MD5 digest: 32e73e07ae0f2987fd941bd0e46f0417
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 2048
+Signer #1 public key SHA-256 digest: 9b0391baaaf64cfb775c5ddca615896a63d851ec785fb6299bbec4e1b50aa405
+Signer #1 public key SHA-1 digest: 793cbeb0ee7ee06fec030b27a15a18ada7d0355b
+Signer #1 public key MD5 digest: a450a142a9459b8214de7542ff5a9ee6
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::loadLibrary has been called by org.conscrypt.NativeLibraryUtil in an unnamed module (file:/Users/wontop/Documents/ChatGPT/%ed%98%84%eb%8c%80%20%eb%aa%a8%eb%b9%84%ec%8a%a4%20%ed%95%b4%ec%bb%a4%ed%86%a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/build-tools/35.0.0/lib/apksigner.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+

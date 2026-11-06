@@ -1,0 +1,59 @@
+{
+  "freeze": 3,
+  "base": "d03c6f0bd952fd2a0a0ebc376a6e8091e1c77a35",
+  "head": "3502929d569262253440fa3241ff90cffe57c859",
+  "previousHead": "aa2047992d677b0b8b1f6a596db7d20639d54ca9",
+  "previousApkSha256": "b2aefd9213d3992119e73c0d845860d19888de023f65745a5c6d525690bd3de5",
+  "branch": "be/issue-23-simple-vehicle-ui",
+  "sourceFiles": 702,
+  "changedFiles": [
+    "DESIGN.md",
+    "docs/product/vehicle-ui.md",
+    "prototype/vehicle/README.md",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PlacesLoadIntent.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehiclePresentation.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehicleViews.kt",
+    "prototype/vehicle/app/src/main/res/values/ids.xml",
+    "prototype/vehicle/app/src/main/res/values/styles.xml",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/PlacesLoadIntentTest.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VehiclePresentationTest.kt"
+  ],
+  "changedFromPrevious": [
+    "docs/product/vehicle-ui.md",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehiclePresentation.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VehiclePresentationTest.kt"
+  ],
+  "sourceManifestSha256": "dbde065061c0b3f37f24b466ef566e21796bc002ef4bc18d5c6133eae802be18",
+  "buildInputsSha256": "e1e33977a35cf3d02273ecb891dd7f4330007c157f9d869153053d0d4e68ceb4",
+  "apk": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/simple-ui-20261106/builder/freeze-3/app-debug.apk",
+  "apkSha256": "623d103c6768762451f2113ffde35fa99351c5458b2de711f5d9a7d857664195",
+  "tests": {
+    "core": {
+      "tests": 93,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 76,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "lint": {
+    "Fatal": 0,
+    "Error": 0,
+    "Warning": 12,
+    "Information": 0
+  },
+  "buildExitCode": 0,
+  "coreTask": "UP-TO-DATE; unchanged core and initial 93-test passing result retained",
+  "baselineFileCount": 695,
+  "unownedBaselineMismatches": [],
+  "runtimeVisualAC4": "root owns actual final C3 device evidence; builder did not run devices",
+  "twoCarAC5": "root owns actual final C3 two-car runtime evidence",
+  "sourceFrozen": true
+}

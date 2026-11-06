@@ -4,7 +4,7 @@
 - Status: Active
 - Last refreshed: 2026-11-06
 - Primary product surfaces: 공유방 웹 시연, Pleos 차량 목적지 앱(#12 수동·#14 자동 동행), 후속 iPhone·Android 네이티브 앱.
-- Evidence reviewed: 사용자 원음·잠금 수신 요구, 상위 폴더의 DESIGN.md·GLOSSARY.md·development/implementation-plan.md·prototype/public/. 상위 원본은 변경하지 않는다.
+- Evidence reviewed: 사용자 원음·잠금 수신 요구, 상위 폴더의 DESIGN.md·GLOSSARY.md·development/implementation-plan.md·prototype/public/, 차량 MainActivity·SavedPlacesController·VehicleSession, #23의 실제 Pleos 화면과 승인된 단순화 요구. 기존 홈은 진단·제안·설정이 한 화면에 섞여 핵심 행동이 아래로 밀려 있었다. 상위 원본은 변경하지 않는다.
 
 ## Brand
 - Personality: 차분하고 명확한 동행 도구.
@@ -15,7 +15,7 @@
 - Goals: 공유방에서 목적지와 최대 15초 원음을 주고받는다. 최종 휴대폰 수신은 내비 사용·화면 잠금 중에도 지원하는 네이티브 경로를 검증한다.
 - Non-goals: 자체 지도 엔진, 위치 궤적 추적, 음성 합성, 공개 배포, Pleos 미검증 이벤트를 실제 연동으로 표시하는 동작.
 - Success signals: 별도 참여자의 목적지 수신과 인증된 원음 바이트 전달·재생. 브라우저 결과는 잠금 수신의 증거가 아니다.
-- Vehicle scope: 기존 직접 공유·적용을 유지한다. 자동 동행은 기본 꺼짐이다. 대표는 '동행 시작 · 자동 공유', 참여자는 '자동 따르기 시작'을 한 번 명시적으로 선택한다. 활성 세션은 순정 내비 화면에서도 목적지 변경 공유·최신값 적용·실제 조회 일치 확인을 계속한다. SDK 요청 전송, 경로 탐색 이벤트, 후속 목적지 일치 확인을 구분한다.
+- Vehicle scope: 기존 직접 공유·적용을 설정에서 유지한다. 자동 동행은 기본 꺼짐이다. 홈의 '동행 시작'은 역할별 자동 공유/자동 반영 설명과 함께 명시적으로 선택한다. 활성 세션은 순정 내비 화면에서도 목적지 변경 공유·최신값 적용·실제 조회 일치 확인을 계속한다. SDK 요청 전송, 경로 탐색 이벤트, 후속 목적지 일치 확인을 구분한다.
 
 ## Personas and jobs
 - Primary personas: 여러 차량으로 이동하는 가족·친구와 동승자.
@@ -25,7 +25,7 @@
 ## Information architecture
 - Primary navigation: 공유방 생성·참여, 연결된 공유방.
 - Core routes/screens: 연결 전 시작 화면, 연결 후 목적지·원음·초대·나가기 영역.
-- Vehicle screens: 순정 내비 연결 상태, 현재 순정 목적지와 조회, 공유방 생성·참여, 역할별 자동 동행 시작·중지와 상태, 받은 목적지와 수동 적용, 초대 정보와 나가기. 정차 또는 동승자가 조작한다. 차량 앱은 음성 기능을 포함하지 않는다.
+- Vehicle screens: 홈 / 목적지 바꾸기 / 설정 / 동행 만들기·참여. 홈은 '동행'·설정, 짧은 연결/자동 상태, '함께 가는 곳'의 이름·주소·실제 반영 상태, '목적지 바꾸기', '동행 시작/중지' 순서다. 진행 중 제안은 현재 목적지 대신 최상단 주 행동으로 이름·이유·제안자와 나란한 '수락'/'거절'을 보여 준다. 제안자는 '기다리는 중'을 본다. 설정은 초대·연결 복구·수동 공유/적용·수락한 목적지 재시도·방 관리·접힌 개발 상세를 소유한다. 정차 또는 동승자가 조작하며 음성 기능은 포함하지 않는다.
 - Content hierarchy: 연결 상태, 받은 목적지, 말하기, 새 원음, 공유방 관리.
 
 ## Design principles
@@ -47,7 +47,8 @@
 - Variants and states: 연결/재연결/종료, 녹음/전송/실패, 자동 재생 꺼짐/켜짐/거절, 최신/오래된 원음.
 - Token/component ownership: prototype/public/의 CSS 변수와 UI 코드.
 - Vehicle tokens: `prototype/vehicle/app/src/main/res/values/`가 색상·간격·글꼴 크기를 소유한다. 시스템 View, 20sp 본문, 56dp 이상 버튼, 화면 내 세로 스크롤을 사용한다.
-- Vehicle automatic controls: 기존 버튼·본문·상태 텍스트 패턴을 확장한다. 대표의 자동 공유 동의와 참여자의 자동 적용 동의를 역할별 문구로 구분한다. 진행 알림은 실제 계산한 연결/확인 상태를 표준 제목의 맨 앞에 표시하고 동행·역할을 뒤에 둔다. 대비가 낮은 중복 본문은 사용하지 않으며 '동행 중지'를 유지한다. 인증·초대 비밀·좌표는 넣지 않는다.
+- Vehicle automatic controls: 홈의 '동행 시작' 옆에 대표는 '내비 목적지를 함께 공유해요', 참여자는 '함께 가는 곳을 내비에 반영해요'를 표시한다. 중지는 자동 모드와 제안 lease에 연결된 실제 중지 동작을 유지하고 모든 하위 화면에서도 접근 가능하다. 진행 알림은 실제 계산한 연결/확인 상태를 표준 제목의 맨 앞에 표시하고 동행·역할을 뒤에 둔다. 인증·초대 비밀·좌표는 넣지 않는다.
+- Vehicle visual system: 밝은 회색 바탕, 흰색 20dp 둥근 카드, 짙은 ink, 파란색 주 행동, 테두리 보조 행동, 빨간색 위험 행동을 공통 resource token과 View helper로 관리한다. 제목 32–36sp, 본문/버튼 20sp, 버튼 최소 높이 56dp, 8dp 간격 단위와 24–32dp 바깥 여백. 상태는 색과 문구를 함께 표시한다. 홈에는 긴 설명·좌표·SDK·버전·예제 선택을 두지 않는다.
 
 ## Accessibility
 - Target standard: WCAG 2.2 AA를 목표로 기본 접근성을 검토한다. 인증을 의미하지 않는다.
@@ -58,7 +59,7 @@
 
 ## Responsive behavior
 - Supported breakpoints/devices: 320px 이상 웹 화면, iPhone Safari·Android Chrome의 전경 검증.
-- Layout adaptations: 작은 화면에서 입력과 버튼을 한 열로 배치한다.
+- Layout adaptations: 작은 화면에서 입력과 버튼을 한 열로 배치한다. 차량 화면은 시스템 좌측 차량 패널과 순정 지도를 재구현하지 않는다. 앱의 실제 가용 폭과 fontScale 1.3에서 긴 이름·주소는 줄바꿈하고 세로 스크롤을 제공한다. 홈의 기본 행동과 제안 응답은 정상 Pleos 첫 viewport에 보이고, 수락/거절은 같은 행에 충분한 touch target을 가진다.
 - Touch/hover differences: 주요 조작 높이 48px 이상, hover에만 의존하지 않는다.
 
 ## Interaction states
@@ -87,7 +88,7 @@
 
 ## Vehicle destination proposal contract (#17)
 - Evidence: `prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt`, `ConvoySessionService.kt`, `RoomProtocol.kt`, `prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/VehicleCoordinator.kt`, and the public POIs in `prototype/vehicle/nativeDriver/src/main/kotlin/ai/pleos/destinations/driver/NativeDestinationDriver.kt`.
-- Placement and tokens: a destination proposal card sits above automatic convoy controls. Reuse the existing 20sp body, 56dp buttons, colors and vertical scroll. Show the proposer, bounded public-place selector (42dot / 소프트웨어드림센터), editable preset reason, each frozen member's response and expiry. Label the selector “프로토타입 공개 장소”; do not imply general search.
+- Placement and tokens: the home foregrounds a pending proposal with its name, address, reason, proposer and side-by-side accept/reject actions. The proposer sees a waiting status. Use the vehicle tokens above. The primary change flow is a separate saved-place composer with an explicit selection preview, optional reason and '제안 보내기'. Public prototype places (42dot / 소프트웨어드림센터) remain under a secondary '예제 장소' entry in the composer; never show a fixture selector on home or imply general search. Detailed votes, expiry and original metadata belong in settings/details.
 - State flow: no proposal → sending → pending (proposer already consents) → accepted only after every frozen member accepts → server committed → native request / actual follow-up query / strict destination match, or separate failure. Rejected, expired at 120 seconds, membership invalidated, newer direct destination and room closed never change the candidate into the shared/native destination. Stale cards and duplicate taps cannot send a second operation.
 - Protocol: authenticated creation uses a volatile client proposal ID and expected destination revision. A response is bound to proposal ID, its displayed version and the base revision; the server records only the caller's vote. One pending proposal per room; retained proposal records and inputs are bounded. Accepted proposal plus committed destination/revision use one sequence and one atomic destination SSE frame; snapshot and legacy v1 destination responses remain compatible.
 - Consent and lifetime: proposing or accepting is explicit consent for that room/member/proposal and its 120-second lifetime only. The existing specialUse foreground service owns this bounded proposal lease plus at most the issued operation's original 45-second confirmation window, independent of automatic mode. UI detach does not interrupt verification. Reconnect may observe an already issued operation, never issue it again; process loss, notification stop, task removal and leave revoke consent. Historical accepted snapshots are display-only; retry must be explicit.
@@ -95,11 +96,11 @@
 - Assumptions: proposal records live only in the bounded in-memory local server; the application is a stationary/passenger prototype. A single-member room satisfies unanimous consent immediately. No AI, voice, mobile work, general POI search or map repair is included. SDK transmission and server acceptance are never labeled native completion; map drawing and onRoutingCompleted are not success evidence.
 
 ## Saved place selection and confirmation (#21)
-- Entry: the proposal card adds “저장한 장소 불러오기”. Users save a place with ☆ in native navigation, return, load, then explicitly select a name/address from an immutable list snapshot. Only “이 장소로 변경 제안” sends that selected candidate. Keep the existing public prototype selector available for exact-point regression; add no category fixtures or invented search callbacks.
-- Meaning: “선택한 장소 확인” checks complete supported Pleos place identity after unanimous consent and a fresh native destination query. “좌표 일치 확인” keeps the original exact-point criteria. Show the original selected name/address/coordinates separately from the current native guidance name/address/coordinates. Place success says “선택한 장소로 목적지 설정 확인”; it does not claim identical coordinates, entrance, route or completed calculation.
+- Entry: '목적지 바꾸기 → 저장한 장소 선택 → 선택 장소 확인과 이유(선택) → 제안 보내기'. Explain '내비에 ☆ 저장한 장소만 보여요.' Users explicitly select a name/address from an immutable list snapshot. Only '제안 보내기' sends that selected candidate. Empty reason uses a factual generic default. Keep the existing public prototype selector under '예제 장소' for exact-point regression; add no category fixtures or invented search callbacks.
+- Meaning: place identity is checked only after unanimous consent and a fresh native destination query. Exact-point verification keeps the original criteria. Home success says '내비에서 목적지를 확인했어요' only for the current connected target and actual guarded confirmation; old accepted records, same names, connection or route-start events never create success. This does not claim identical coordinates, entrance, route or completed calculation. Original selection and current native metadata remain separately available in collapsed developer details.
 - Support assumption: NaviHelper 3.0.5 public BookmarkInfo only, preserving source `pleos_bookmark`, explicit native provider `""`, nonblank POI ID, nullable sub-ID, exact name and full original metadata. Unknown source/provider/mode and incomplete metadata are rejected. Public POI ID/sub-ID descriptions establish map identity, not canonical coordinate equality; support remains limited to the current SDK/environment and two-car runtime verification.
-- States: idle → loading (one 8-second read, duplicate taps disabled) → immutable choices / empty / invalid metadata / failed. Cancellation, timeout, UI exit, room/member change and native reconnect invalidate choices/selection. Each native connection reads at most once because callbacks have no request ID, even for delayed duplicates. A ready list reopens as “저장한 장소 다시 선택 · 불러온 목록”; newly saved places require reconnect. Unsupported entries are omitted individually without logging; an entirely invalid or oversized list fails closed. An unanswered or cancelled read cannot be retried in the same native connection; show “순정 내비를 다시 연결한 뒤 불러와 주세요.” Existing explicit reconnect establishes a new epoch. No new foreground lease or permission exists for reading places.
-- Layout: reuse proposal card, 20sp body, 56dp buttons and vertical scroll. Choice dialog uses 20sp rows and at least 56dp touch targets; show name and address together. Loading/cancel/error text uses product language; SDK/source/protocol names stay in developer docs.
+- States: idle → loading (one 8-second read, duplicate taps disabled) → immutable choices / empty / invalid metadata / failed. Cancellation, timeout, UI exit, room/member change and native reconnect invalidate choices/selection. Each native connection reads at most once because callbacks have no request ID, even for delayed duplicates. A ready list reopens as “저장한 장소 다시 선택 · 불러온 목록”. Unsupported entries are omitted individually without logging; an entirely invalid or oversized list fails closed. The composer offers an explicit '다시 불러오기' after a cancelled/spent/failed read, and '목록 새로 불러오기' for cached data. That tap alone may use the existing native reconnect and one fresh read; there is no instruction to hunt through technical settings. No new foreground lease or permission exists for reading places.
+- Layout: the composer uses a stable native View page, 20sp body, 56dp buttons and vertical scroll. Choice dialog uses 20sp rows and at least 56dp touch targets; show name and address together. Loading/empty/error/cancel states explain the next action in product language. Opening a page or reopening a cached list never reconnects, reloads, requests a route or grants consent. Explicit refresh is disabled during route/read/sharing/proposal conflicts. Its volatile UI intent is bound to room/member/room epoch/page generation and the newly eligible native snapshot, waits for the initial destination read to finish, then reads places once. Exit, cold start, stop, scope/native-generation change, failure or conflicting work cancels that intent; it never submits a proposal. UI renders do not clear in-progress text input. New pending proposals invalidate the visible composer choice and response controls always use their displayed proposal ID/version.
 - Lifetime: the service owns the shared native helper/listener and read-only place state. Selection is valid only in its current room/member/native epoch and UI lifetime. No bookmark list is written to the journal/server. Normal proposal consent, 120-second expiry, original 45-second confirmation deadline, replay/version/stop/reconnect guards remain authoritative.
 
 ## Open questions

@@ -1,0 +1,3 @@
+# Iteration 1, preserved before usability correction
+
+Installed source36ea125/APKd737. First visual and create/join succeeded. Navigation smoke stopped at an invalid assumption: intended200W ADB input was not read back before callbacks; later observed89W. No product text-erasure claim made. The baseline focus helper timed out because smoke never reached automatic opt-in; no later UI was touched. No fontScale/cold or accepted-route case was run in this iteration. Current helper was chunked afterward; copied scripts are archival and are not asserted to be a pre-run freeze. Final-version evidence is collected separately.

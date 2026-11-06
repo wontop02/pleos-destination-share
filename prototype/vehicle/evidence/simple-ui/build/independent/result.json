@@ -1,0 +1,60 @@
+{
+  "base": "d03c6f0bd952fd2a0a0ebc376a6e8091e1c77a35",
+  "sourceHead": "3502929d569262253440fa3241ff90cffe57c859",
+  "command": [
+    "gradle",
+    "--offline",
+    "--no-daemon",
+    "--max-workers=1",
+    "-Dorg.gradle.jvmargs=-Xmx1024m -XX:MaxMetaspaceSize=384m",
+    "-Pkotlin.compiler.execution.strategy=in-process",
+    ":core:test",
+    ":app:testDebugUnitTest",
+    ":app:assembleDebug",
+    ":app:lintDebug"
+  ],
+  "sourceArchive": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/simple-ui-20261106/verifier/independent-3502929-1/source",
+  "timeoutSeconds": 600,
+  "toolchainConfigSha256": "c2006d27c12e2ceddc60629f4028bdd3b84b988a0a793562436a0a40f735c5dd",
+  "startedAt": "2026-11-06T08:08:57.992547+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 38.889,
+  "tests": {
+    "core": {
+      "tests": 93,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 76,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "lint": {
+    "Warning": 12
+  },
+  "independentApkSha256": "1848928a1ed0677855c3c777333efa611a3d2b7d7b75c8841429e7dd197cffec",
+  "apkComparison": {
+    "frozenApkSha256": "623d103c6768762451f2113ffde35fa99351c5458b2de711f5d9a7d857664195",
+    "independentApkSha256": "1848928a1ed0677855c3c777333efa611a3d2b7d7b75c8841429e7dd197cffec",
+    "wholeArchiveHashesEqual": false,
+    "frozenOnlyEntries": [],
+    "independentOnlyEntries": [],
+    "contentDifferentEntries": [],
+    "entryOrderIdentical": false,
+    "entryCount": 54,
+    "frozenSignatureExit": 0,
+    "frozenCertificateSha256": [
+      "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1"
+    ],
+    "independentSignatureExit": 0,
+    "independentCertificateSha256": [
+      "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1"
+    ]
+  },
+  "gitStatusAfter": "",
+  "currentHeadAfter": "3502929d569262253440fa3241ff90cffe57c859"
+}

@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="canvas">#F2F6F6</color>
-    <color name="ink">#172D31</color>
-    <color name="primary">#006B63</color>
-    <color name="muted">#465C61</color>
+    <color name="canvas">#F2F4F8</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="ink">#17243B</color>
+    <color name="primary">#175CD3</color>
+    <color name="muted">#526078</color>
+    <color name="border">#D5DDE9</color>
+    <color name="primary_tint">#EAF1FF</color>
+    <color name="success">#116C50</color>
+    <color name="success_tint">#EAF6EF</color>
+    <color name="danger">#B42332</color>
+    <color name="danger_tint">#FFF1F2</color>
+    <color name="disabled">#E6EAF0</color>
+    <color name="disabled_ink">#647086</color>
     <dimen name="space">16dp</dimen>
+    <dimen name="space_small">8dp</dimen>
+    <dimen name="page_padding">32dp</dimen>
+    <dimen name="card_padding">28dp</dimen>
+    <dimen name="card_radius">20dp</dimen>
+    <dimen name="control_radius">12dp</dimen>
+    <dimen name="content_width">1120dp</dimen>
     <dimen name="body_size">20sp</dimen>
-    <dimen name="title_size">28sp</dimen>
+    <dimen name="title_size">34sp</dimen>
+    <dimen name="destination_size">36sp</dimen>
     <dimen name="button_height">56dp</dimen>
     <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
         <item name="android:fontFamily">sans</item>

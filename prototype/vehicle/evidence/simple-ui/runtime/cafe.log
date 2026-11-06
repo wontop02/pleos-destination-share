@@ -1,0 +1,9 @@
+{"serial": "emulator-5570", "mode": "bookmarks", "status": "OBSERVED", "reason": "allowlisted_public_bookmark_fields_observed", "seconds": 1.1128277500000001, "routeRequests": 0, "saved": "cafe-source.json"}
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 0.858398958, "routeRequests": 0, "saved": "cafe-pending-native-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 1.189025416, "routeRequests": 0, "saved": "cafe-pending-native-emulator-5572.json"}
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 0.8957863750000001, "routeRequests": 0, "saved": "cafe-rejected-native-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 1.281203291, "routeRequests": 0, "saved": "cafe-rejected-native-emulator-5572.json"}
+cafe pending/reject0 native requests, unchanged actual guidance
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 3.887457042, "routeRequests": 0, "saved": "cafe-accepted-native-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 5.213698083, "routeRequests": 0, "saved": "cafe-accepted-native-emulator-5572.json"}
+cafe actual place confirmed once per car, native window>45s stable, clear home success

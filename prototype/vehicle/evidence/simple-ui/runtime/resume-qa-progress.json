@@ -1,0 +1,41 @@
+{
+  "phase": "PASS",
+  "completed": [
+    {
+      "script": "proposal-cases.py",
+      "args": [
+        "cafe"
+      ],
+      "log": "cafe.log",
+      "startedAt": "2026-11-06T11:36:24.548571+00:00",
+      "endedAt": "2026-11-06T11:40:23.618689+00:00",
+      "exitCode": 0
+    },
+    {
+      "script": "proposal-cases.py",
+      "args": [
+        "restaurant"
+      ],
+      "log": "restaurant.log",
+      "startedAt": "2026-11-06T11:40:23.619842+00:00",
+      "endedAt": "2026-11-06T11:44:11.462057+00:00",
+      "exitCode": 0
+    },
+    {
+      "script": "finish-ui-qa.py",
+      "args": [],
+      "log": "finish-ui-qa.log",
+      "startedAt": "2026-11-06T11:44:11.463918+00:00",
+      "endedAt": "2026-11-06T11:45:01.938825+00:00",
+      "exitCode": 0
+    },
+    {
+      "script": "audit-final-runtime.py",
+      "args": [],
+      "log": "runtime-audit.log",
+      "startedAt": "2026-11-06T11:45:01.940446+00:00",
+      "endedAt": "2026-11-06T11:45:02.083212+00:00",
+      "exitCode": 0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "at": "2026-11-06T08:07:32.173877+00:00",
+  "base": "d03c6f0bd952fd2a0a0ebc376a6e8091e1c77a35",
+  "sourceHead": "3502929d569262253440fa3241ff90cffe57c859",
+  "apk": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/simple-ui-20261106/builder/freeze-3/app-debug.apk",
+  "apkSha256": "623d103c6768762451f2113ffde35fa99351c5458b2de711f5d9a7d857664195",
+  "nonUiProductionUnchanged": [
+    "prototype/vehicle/core",
+    "prototype/vehicle/nativeDriver",
+    "prototype/server.mjs",
+    "prototype/lib",
+    "prototype/vehicle/app/src/main/AndroidManifest.xml",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehicleSession.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PleosNavigationGateway.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/RoomProtocol.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/SecureSessionStore.kt"
+  ],
+  "devices": [
+    {
+      "serial": "emulator-5570",
+      "avd": "Pleos12Leader",
+      "user": 10,
+      "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+      "installArgv": [
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+        "-P",
+        "5041",
+        "-s",
+        "emulator-5570",
+        "install",
+        "--user",
+        "10",
+        "-t",
+        "-r",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/simple-ui-20261106/builder/freeze-3/app-debug.apk"
+      ],
+      "installExit": 0,
+      "installedApkSha256": "623d103c6768762451f2113ffde35fa99351c5458b2de711f5d9a7d857664195",
+      "driverApkSha256": "470c696a36d17c04089073a4ed4b6c33cd03e0630608601ee9d8085c29be7ad7",
+      "oldJournalSha256": "3707bedcf2ff5dc5cbff3de68ee4924ecb532cfb36768a7746621ac78d124784",
+      "oldJournalPreservedAt": "no_backup/navigation-events.before-simple-ui-3707bedcf2ff.jsonl",
+      "oldJournalMalformedRows": [],
+      "oldJournalExcludedFromNewCaseCounts": true
+    },
+    {
+      "serial": "emulator-5572",
+      "avd": "Pleos12Follower",
+      "user": 10,
+      "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+      "installArgv": [
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+        "-P",
+        "5041",
+        "-s",
+        "emulator-5572",
+        "install",
+        "--user",
+        "10",
+        "-t",
+        "-r",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/simple-ui-20261106/builder/freeze-3/app-debug.apk"
+      ],
+      "installExit": 0,
+      "installedApkSha256": "623d103c6768762451f2113ffde35fa99351c5458b2de711f5d9a7d857664195",
+      "driverApkSha256": "470c696a36d17c04089073a4ed4b6c33cd03e0630608601ee9d8085c29be7ad7",
+      "oldJournalSha256": "7cabab322b8c40981356c5e619207ee9433350cb5a60a4cec1976c6777a467c4",
+      "oldJournalPreservedAt": "no_backup/navigation-events.before-simple-ui-7cabab322b8c.jsonl",
+      "oldJournalMalformedRows": [],
+      "oldJournalExcludedFromNewCaseCounts": true
+    }
+  ]
+}

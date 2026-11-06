@@ -1,0 +1,62 @@
+{
+  "emulator-5570": {
+    "serial": "emulator-5570",
+    "journalLineOffset": 12,
+    "hostAt": "2026-11-06T08:11:02.270237+00:00",
+    "state": {
+      "at": 1793952650490,
+      "event": "sessionState",
+      "serviceEpoch": 7359843,
+      "roomEpoch": 1,
+      "revision": 0,
+      "role": "host",
+      "automatic": "OFF",
+      "applying": "IDLE",
+      "connection": "CONNECTED",
+      "roomConnected": true,
+      "uiCount": 1,
+      "confirmedAtElapsed": null,
+      "routingCompletedObserved": false,
+      "confirmationKind": null,
+      "sharedKind": null,
+      "proposalLease": false,
+      "proposalBusy": false,
+      "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+      "proposalPublicationHeld": false,
+      "acceptedProposalId": null,
+      "acceptedProposalVersion": null,
+      "acceptedProposalRevision": null,
+      "proposal": null
+    }
+  },
+  "emulator-5572": {
+    "serial": "emulator-5572",
+    "journalLineOffset": 12,
+    "hostAt": "2026-11-06T08:11:05.079723+00:00",
+    "state": {
+      "at": 1793952642529,
+      "event": "sessionState",
+      "serviceEpoch": 8747909,
+      "roomEpoch": 1,
+      "revision": 0,
+      "role": "member",
+      "automatic": "OFF",
+      "applying": "IDLE",
+      "connection": "CONNECTED",
+      "roomConnected": true,
+      "uiCount": 1,
+      "confirmedAtElapsed": null,
+      "routingCompletedObserved": false,
+      "confirmationKind": null,
+      "sharedKind": null,
+      "proposalLease": false,
+      "proposalBusy": false,
+      "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+      "proposalPublicationHeld": false,
+      "acceptedProposalId": null,
+      "acceptedProposalVersion": null,
+      "acceptedProposalRevision": null,
+      "proposal": null
+    }
+  }
+}
