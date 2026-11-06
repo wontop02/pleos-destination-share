@@ -1,0 +1,30 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.11.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :core:checkKotlinGradlePluginConfigurationErrors
+> Task :core:compileKotlin UP-TO-DATE
+> Task :core:compileJava NO-SOURCE
+> Task :core:processResources NO-SOURCE
+> Task :core:classes UP-TO-DATE
+> Task :core:processTestResources NO-SOURCE
+> Task :core:compileTestKotlin
+> Task :core:compileTestJava NO-SOURCE
+> Task :core:testClasses UP-TO-DATE
+
+> Task :core:test FAILED
+
+PlaceIntentSafetyTest > samePlaceCoalescesAfterReconnectRestartAndColdObservationWithoutManufacturingConfirmation FAILED
+    java.lang.AssertionError at PlaceIntentSafetyTest.kt:155
+
+1 test completed, 1 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':core:test'.
+> There were failing tests. See the report at: file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/issue-21-poi-confirmation/prototype/vehicle/core/build/reports/tests/test/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 6s
+4 actionable tasks: 3 executed, 1 up-to-date

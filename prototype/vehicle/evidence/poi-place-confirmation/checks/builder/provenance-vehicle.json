@@ -1,0 +1,13 @@
+{
+  "command": [
+    "/private/tmp/pleos-vehicle-tools-20261105/gradle/gradle-8.11.1/bin/gradle",
+    "--no-daemon",
+    "--offline",
+    ":core:test",
+    ":app:testDebugUnitTest",
+    ":app:assembleDebug",
+    ":app:lintDebug"
+  ],
+  "exit": 0,
+  "elapsedSeconds": 28.17
+}

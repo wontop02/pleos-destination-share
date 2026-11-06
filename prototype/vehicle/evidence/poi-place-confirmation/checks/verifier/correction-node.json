@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "npm",
+    "test"
+  ],
+  "cwd": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-21-poi-confirmation",
+  "head": "a26b9419804874052329001ad86e60ff1bccb42c",
+  "exitCode": 0,
+  "elapsedSeconds": 17.372,
+  "log": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/correction-node.log",
+  "logSha256": "19e8238b38aece65d7cd17de51f2c4f6eddd48a271d57d547a13585a8fc4d3a8"
+}

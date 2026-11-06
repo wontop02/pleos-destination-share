@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ai.pleos.destinations.core.VehicleAutomationTest" tests="29" skipped="0" failures="0" errors="0" timestamp="2026-11-06T06:02:40" hostname="wontop-MacBookAir.local" time="0.01">
+  <properties/>
+  <testcase name="sameRoomReconnectResumesExistingRequestByFreshQueryNotRoute" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.002"/>
+  <testcase name="cancellationQueryOnlyCanConfirmWithoutAppReturnOrAnotherRoute" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="stopFencesConnectedCallbacksDestinationEventsAndTimers" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="invalidOrTimedOutReadNeverPublishesNull" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="failedAutomaticRevisionDoesNotLoopRequestsWithoutANewIntent" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.001"/>
+  <testcase name="rapidRevisionsBeforeCoalescingRequestOnlyLatestTarget" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="leaderLongRunningBoundedPollDoesNotAmplifyIdenticalNativeValues" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="recentConfirmationThenCancelWrongFreshReadDoesNotRestoreOldSuccess" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.001"/>
+  <testcase name="recentConfirmationThenLateCancelRequiresFreshMatchWithoutAnotherRoute" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="onlyActualCompleteAbsentReadCanAutoClearSharedValue" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.001"/>
+  <testcase name="lateDestinationChangeAfterConfirmationAlsoNeedsFreshQueryOnlyMatch" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="recentConfirmationThenCancelUnansweredFreshReadIsFailureNotSuccessOrAbsence" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.001"/>
+  <testcase name="followerOptInAppliesLatestOnceAndOnlyActualStrictReadConfirms" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="differentRoomAttachRevokesConsentAndStaleEpochCannotStartRequest" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="defaultOffNeverSharesOrAppliesOnNativeAndRoomEvents" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="newerTargetAfterConfirmationFencesItsLateCancellationAndOldFreshRead" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.001"/>
+  <testcase name="stopThenExplicitStartCreatesFreshConsentAndFencesOldSession" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="cancellationDuringReplacementResumesQueryOnlyWithOriginalDeadline" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="recentConfirmationSnapshotAdoptsIdenticalNewRevisionBeforeLateCancel" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="sharedNullWaitsWithoutCancellingNativeGuidanceOrIssuingRoute" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.001"/>
+  <testcase name="stopOrLeaveDuringRecentConfirmationRecheckFencesAllLateCallbacks" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="repeatedPostConfirmationCancelsNeverExtendOriginalDeadline" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="explicitLeaderStartReadsAndPreservesActualNullMetadata" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.001"/>
+  <testcase name="identicalHigherRevisionAdoptsPendingOperationWithoutRerequest" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="recentConfirmationThenCancelEmptyFreshReadAndLateTargetNeverConfirms" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="newerTargetRetiresEarlierPendingListenerAndOldRoomRevision" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="expiredRecentConfirmationCannotBeRevivedByCancelAndMatchingObservation" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.001"/>
+  <testcase name="leaderPublishesLatestObservationAfterEarlierPublishCompletes" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <testcase name="leaderEventBurstCoalescesAndSameValueDoesNotRepublish" classname="ai.pleos.destinations.core.VehicleAutomationTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,10 @@
+{
+  "command": [
+    "node",
+    "--test",
+    "prototype/test/poi-place-confirmation.test.mjs"
+  ],
+  "exit": 1,
+  "output": "Could not find 'prototype/test/poi-place-confirmation.test.mjs'",
+  "cause": "Preceding rg no-match exit1 skipped shell && heredoc creation. No production test ran. Created file and reran."
+}

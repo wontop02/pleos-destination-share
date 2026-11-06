@@ -1,0 +1,4 @@
+Stop/reconnect/restart automatic: same selected source revision,0 routes,55s native screen
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 3.5767743750000003, "routeRequests": 0, "saved": "cold-resume-actual-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 2.64360125, "routeRequests": 0, "saved": "cold-resume-actual-emulator-5572.json"}
+Cold process resume: no stale confirmation, no acceptance replay, selected source stable,0 routes

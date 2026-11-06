@@ -1,0 +1,4 @@
+{
+  "sha256": "248e988675739ba6e3db7c3a8c19c50a535872b48da4069fddb9d169e9a2030e",
+  "note": "Exact reconstruction of the new baseline test as executed before adding intent; original legacy matcher rejection is correct. Missing selected-place intent is the feature gap."
+}

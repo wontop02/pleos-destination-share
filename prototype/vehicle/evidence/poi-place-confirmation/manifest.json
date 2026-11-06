@@ -1,0 +1,1118 @@
+{
+  "base": "ff3e6a15067ee8285c83f318ec715899ed3f4364",
+  "sourceHead": "a26b9419804874052329001ad86e60ff1bccb42c",
+  "branch": "be/issue-21-poi-confirmation",
+  "issue": 21,
+  "pullRequest": 22,
+  "apkSha256": "5845c358d2a63c4ead083c699d94446d0353f3fcedc92f6afb8c0521832cc35a",
+  "createdAt": "2026-11-06T06:34:19.105598+00:00",
+  "runtimeAudit": "runtime/runtime-audit.json",
+  "scope": "Approved two Pleos virtual cars only; no phones or real vehicle, vendor private logs, tokens, accounts, payment, mail or deployment.",
+  "sourceVersusEvidence": "Final Git head adds this evidence directory only after sourceHead; final verifier must audit that exact head separately.",
+  "files": [
+    {
+      "path": "inputs/issue.md",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/issue.md",
+      "sha256": "5956066fa005d300a9aac4a6494d9be8d6ea31f5b7d8a459f08bb8b452329904",
+      "bytes": 6804
+    },
+    {
+      "path": "inputs/run.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/run.json",
+      "sha256": "42636844fcf921c557c49ba58e2b3cd814119f42a5440a7cb5f12f8c99fd2af5",
+      "bytes": 522
+    },
+    {
+      "path": "checks/builder/manifest.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/manifest.json",
+      "sha256": "e4bc7a66d7e4999977d26f142e19074ebe1fa1829dbae92beb56f7bc01ee31db",
+      "bytes": 4825
+    },
+    {
+      "path": "checks/builder/source-sha256.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/source-sha256.json",
+      "sha256": "a269f8461b0a5972c24516d0a1973c933443fb376ad7caae8177f2cb4abb3d8c",
+      "bytes": 6531
+    },
+    {
+      "path": "checks/builder/baseline-preservation.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/baseline-preservation.json",
+      "sha256": "cc87f804ca8277f4e2e4f3cadbb6eca3a281728eb47eb4ec2effaa4184c9851a",
+      "bytes": 1637
+    },
+    {
+      "path": "checks/builder/lint-results-debug.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/lint-results-debug.xml",
+      "sha256": "96f7afdb83a5c0fd9ca77bc7f1a82d486735863f09f802f92e492cb66799353a",
+      "bytes": 8171
+    },
+    {
+      "path": "checks/builder/lint-results-debug.txt",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/lint-results-debug.txt",
+      "sha256": "ca059f1d3d87c2df29a1c77f469f3a0f5385e2640af109a6ccb4791d1a12ee27",
+      "bytes": 4143
+    },
+    {
+      "path": "checks/builder/junit/core/TEST-ai.pleos.destinations.core.SelectedPlaceConfirmationTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/junit/core/TEST-ai.pleos.destinations.core.SelectedPlaceConfirmationTest.xml",
+      "sha256": "60b0a24b216927cbd1a9900a4c3ea5b8668f064a00016cc8a0fa3deffc5407ea",
+      "bytes": 516
+    },
+    {
+      "path": "checks/builder/junit/core/TEST-ai.pleos.destinations.core.VehicleAutomationTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/junit/core/TEST-ai.pleos.destinations.core.VehicleAutomationTest.xml",
+      "sha256": "1ecd13eddf7b22cc135c0cc5f9ba218fd1bd0a0d931d065304320e8433ce7cea",
+      "bytes": 4843
+    },
+    {
+      "path": "checks/builder/junit/core/TEST-ai.pleos.destinations.core.VehicleCoordinatorTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/junit/core/TEST-ai.pleos.destinations.core.VehicleCoordinatorTest.xml",
+      "sha256": "2f59a981d14a6eb9db25d7a44240c28e3daef618397bccb870916bbd224aaded",
+      "bytes": 6969
+    },
+    {
+      "path": "checks/builder/junit/core/TEST-ai.pleos.destinations.core.PlaceIntentSafetyTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/junit/core/TEST-ai.pleos.destinations.core.PlaceIntentSafetyTest.xml",
+      "sha256": "0185cd60abcaa93534ed3d4ccb4ea0abd310bcb54cd4a6c6b25e0184f02e8d85",
+      "bytes": 1862
+    },
+    {
+      "path": "checks/builder/junit/core/TEST-ai.pleos.destinations.core.VehicleProposalProtectionTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/junit/core/TEST-ai.pleos.destinations.core.VehicleProposalProtectionTest.xml",
+      "sha256": "7a315285959b2319fe7e6abed064075f12b997f2099b2f5f51b92aca5779395c",
+      "bytes": 2392
+    },
+    {
+      "path": "checks/builder/junit/app/TEST-ai.pleos.destinations.vehicle.VehicleProposalSessionTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/junit/app/TEST-ai.pleos.destinations.vehicle.VehicleProposalSessionTest.xml",
+      "sha256": "07952aad30cc723d7c229b1acc308668ab89ade0b93e528036c4d008b8896498",
+      "bytes": 3758
+    },
+    {
+      "path": "checks/builder/junit/app/TEST-ai.pleos.destinations.vehicle.NaviDestinationNormalizerTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/junit/app/TEST-ai.pleos.destinations.vehicle.NaviDestinationNormalizerTest.xml",
+      "sha256": "91e8f68edd5e78144407c7a750c93bd32fc34edf10c2fd14684c3df64c62c9e3",
+      "bytes": 1325
+    },
+    {
+      "path": "checks/builder/junit/app/TEST-ai.pleos.destinations.vehicle.RoomHttpClientTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/junit/app/TEST-ai.pleos.destinations.vehicle.RoomHttpClientTest.xml",
+      "sha256": "80b3603c5d200925e91b50693a605fe05de5ad06ae3a686a5b090465cae3604a",
+      "bytes": 839
+    },
+    {
+      "path": "checks/builder/junit/app/TEST-ai.pleos.destinations.vehicle.SdkRouteMappingTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/junit/app/TEST-ai.pleos.destinations.vehicle.SdkRouteMappingTest.xml",
+      "sha256": "ae637b81ac2694a8eb861c8e221ba7ebd1e760bea6c614780b59a511bf518488",
+      "bytes": 991
+    },
+    {
+      "path": "checks/builder/junit/app/TEST-ai.pleos.destinations.vehicle.RoomProtocolTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/junit/app/TEST-ai.pleos.destinations.vehicle.RoomProtocolTest.xml",
+      "sha256": "d6401a5f6a992c0fe738beb831092ce8797f21985bf106ef5465136f0b898a20",
+      "bytes": 1950
+    },
+    {
+      "path": "checks/builder/junit/app/TEST-ai.pleos.destinations.vehicle.SavedPlacesTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/junit/app/TEST-ai.pleos.destinations.vehicle.SavedPlacesTest.xml",
+      "sha256": "cc1c0e59ca775e066410444ae258e889a0c2f7fc198a3dd0529b1674d715d2a3",
+      "bytes": 1592
+    },
+    {
+      "path": "checks/builder/junit/app/TEST-ai.pleos.destinations.vehicle.VehicleSessionTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/junit/app/TEST-ai.pleos.destinations.vehicle.VehicleSessionTest.xml",
+      "sha256": "22fc7b8cee729ed8c3e04a3efad2ab53bba2d24699585e3073dfbfe6b572c510",
+      "bytes": 2135
+    },
+    {
+      "path": "checks/builder/junit/app/TEST-ai.pleos.destinations.vehicle.PendingConfirmationCacheTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/junit/app/TEST-ai.pleos.destinations.vehicle.PendingConfirmationCacheTest.xml",
+      "sha256": "aacbeb99495c3f5b2f9f441e17348eee3f4eda5ea5dd4fc5aa4277b9dfb47a1d",
+      "bytes": 840
+    },
+    {
+      "path": "checks/builder/handoff.md",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/handoff.md",
+      "sha256": "363d948387c40544342af6239bf65beb904cfe1a589c7a5028ebe1e4ae5f407f",
+      "bytes": 8273
+    },
+    {
+      "path": "checks/builder/handoff-2.md",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/handoff-2.md",
+      "sha256": "9e2b12d9620dc83f78d30895bd3ebc51bc17aaf352f803f0082624155983991d",
+      "bytes": 3370
+    },
+    {
+      "path": "checks/builder/full-node.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/full-node.json",
+      "sha256": "4a449285cb2d4037208d8c6430178f6b1d265ddede40ac4aeacc04d75df43f6d",
+      "bytes": 83
+    },
+    {
+      "path": "checks/builder/full-node.log",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/full-node.log",
+      "sha256": "3d8cdb689c0ecbf4b1c7b692234a6baa7b329b844b53ded1b874868e92304c45",
+      "bytes": 10096
+    },
+    {
+      "path": "checks/builder/provenance-node.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/provenance-node.json",
+      "sha256": "c90426953ac012b6b7b21c9003e8616ccfed52bcbeea7cd75d4993dc8afd2768",
+      "bytes": 141
+    },
+    {
+      "path": "checks/builder/provenance-node.log",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/provenance-node.log",
+      "sha256": "d2f366851f534041c586db432a1af9ddd1c4c5eb7ab480fffac46b467539ba60",
+      "bytes": 624
+    },
+    {
+      "path": "checks/builder/provenance-vehicle.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/provenance-vehicle.json",
+      "sha256": "b37c1b65148be160f68f7444f7550b61da8a27d2a84ce8ccfa362e881ff411fb",
+      "bytes": 275
+    },
+    {
+      "path": "checks/builder/provenance-vehicle.log",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/provenance-vehicle.log",
+      "sha256": "83ecc20e403718aa2e5506821bd5f49ba16a0ce48aea6f2ba8cd084bac964e72",
+      "bytes": 3564
+    },
+    {
+      "path": "checks/builder/baseline-red.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/baseline-red.json",
+      "sha256": "21e89baa804bd4785572512ff0f81b76ad3ef725b3b8c80e9e1e453e2499d775",
+      "bytes": 274
+    },
+    {
+      "path": "checks/builder/baseline-red.log",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/baseline-red.log",
+      "sha256": "445dbcb6be9605b38b7ac53b590617c0a151c39cf4819cfe75581f08edb36f46",
+      "bytes": 1341
+    },
+    {
+      "path": "checks/builder/baseline-red-source.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/baseline-red-source.json",
+      "sha256": "d1b462aae27f54241d96e04dc2cb7d1ea4f344c963dd6085fd06e7759212a5a4",
+      "bytes": 272
+    },
+    {
+      "path": "checks/builder/baseline-red-source.kt",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/baseline-red-source.kt",
+      "sha256": "248e988675739ba6e3db7c3a8c19c50a535872b48da4069fddb9d169e9a2030e",
+      "bytes": 2115
+    },
+    {
+      "path": "checks/builder/baseline-red.junit.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/baseline-red.junit.xml",
+      "sha256": "f595383de0f93c1d443ea3c748aafebe652118f0431085526e04127845d14e41",
+      "bytes": 4759
+    },
+    {
+      "path": "checks/builder/publication-lifetime-red.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/publication-lifetime-red.json",
+      "sha256": "3685e386b75d7b41328654bf5e57440a41fae1f7f647e3d55c781823684e91b6",
+      "bytes": 357
+    },
+    {
+      "path": "checks/builder/publication-lifetime-red.log",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/publication-lifetime-red.log",
+      "sha256": "3e33e2bcb3663f6872dd0736ebc99b6ffe0aee43e2122f2ae4cc780eedc272c8",
+      "bytes": 1378
+    },
+    {
+      "path": "checks/builder/publication-lifetime-red.junit.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/publication-lifetime-red.junit.xml",
+      "sha256": "50d4bdbf835b5ad04124aff62f2085e17b7d25064c677008fca2ce2043a60fa6",
+      "bytes": 4577
+    },
+    {
+      "path": "checks/builder/node-first-attempt.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/node-first-attempt.json",
+      "sha256": "86ea9a2b5c317b1d33d2b2fd856097121af581e5948b6d4728192a5df50b9520",
+      "bytes": 319
+    },
+    {
+      "path": "checks/builder/run-check.py",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/run-check.py",
+      "sha256": "7b65057346bc97bf63e616cbb5574fd48f2df8126c37eabaa92dbcf87c1045a0",
+      "bytes": 629
+    },
+    {
+      "path": "checks/builder/run-build.py",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/run-build.py",
+      "sha256": "00b7f64052985173a9d8adbe87d13259db837377b6d68eaa0bf79acc3f9cd3d7",
+      "bytes": 1048
+    },
+    {
+      "path": "checks/verifier/source-review.md",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/source-review.md",
+      "sha256": "9f2310268db4d5f051032cb09ed7ef3fa4550cf98dbaf068047642cb70c76a37",
+      "bytes": 9731
+    },
+    {
+      "path": "checks/verifier/source-correction-review.md",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/source-correction-review.md",
+      "sha256": "644531c67669caa30237279e2c6262aa489fc202ce83504f4161811ab833e754",
+      "bytes": 5439
+    },
+    {
+      "path": "checks/verifier/independent-build-review.md",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-review.md",
+      "sha256": "d0645755d8c1babc7927e82d06fa2063c6f9914c355fd6e4101dc53161f6b7ff",
+      "bytes": 5087
+    },
+    {
+      "path": "checks/verifier/source-integrity.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/source-integrity.json",
+      "sha256": "bd52c495021560f50ae72516f163429427c11cd393a64fcf7f90535057dba470",
+      "bytes": 15816
+    },
+    {
+      "path": "checks/verifier/correction-integrity.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/correction-integrity.json",
+      "sha256": "79bb2b54b2b12c4199be9b124be93bb4165a87127407856bcf01b9655a639d0f",
+      "bytes": 14858
+    },
+    {
+      "path": "checks/verifier/correction-node.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/correction-node.json",
+      "sha256": "5b81980f30c4f49544fc87ab3969397e9be95f65b5cf0a67929bd2ae13bd9d9b",
+      "bytes": 561
+    },
+    {
+      "path": "checks/verifier/correction-node.log",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/correction-node.log",
+      "sha256": "19e8238b38aece65d7cd17de51f2c4f6eddd48a271d57d547a13585a8fc4d3a8",
+      "bytes": 10151
+    },
+    {
+      "path": "checks/verifier/independent-build/inputs.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/inputs.json",
+      "sha256": "fd0105672e39dfca97ab00365e8f12d939b84695963341957d3d36940b13b100",
+      "bytes": 12642
+    },
+    {
+      "path": "checks/verifier/independent-build/result.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/result.json",
+      "sha256": "6cd0c7fc6c4ceb2c1201ae286bdfce9393ad7e4e9860dd311d942ed30757f3a6",
+      "bytes": 1425
+    },
+    {
+      "path": "checks/verifier/independent-build/gradle.log",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/gradle.log",
+      "sha256": "5e9aacfd3bf3f30ba365874184c416b33cffe03e48374b6b766bf758e51a28c9",
+      "bytes": 4181
+    },
+    {
+      "path": "checks/verifier/independent-build/preparation-failure.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/preparation-failure.json",
+      "sha256": "d904923a4f77b1e98df2bb7bc470596830c88b01bd27aa3d61611696e7487974",
+      "bytes": 322
+    },
+    {
+      "path": "checks/verifier/independent-build/apk-comparison.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/apk-comparison.json",
+      "sha256": "2d7741b961ae899f3a45b8259e2047bfb7e17f8274242c882d2be1ca19e2ebec",
+      "bytes": 445
+    },
+    {
+      "path": "checks/verifier/independent-build/apk-layout-comparison.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/apk-layout-comparison.json",
+      "sha256": "2d425aee14f67ce7e6d3d27761bec1fc61512a89d254e4d113edb8f9a84b59b6",
+      "bytes": 34106
+    },
+    {
+      "path": "checks/verifier/independent-build/apk-signing-container-comparison.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/apk-signing-container-comparison.json",
+      "sha256": "77f9d3aa7e8e7d06f9e123ee637b1fb28e8adb699572b2492a2c9f5525ac0b2b",
+      "bytes": 1985
+    },
+    {
+      "path": "checks/verifier/independent-build/junit/core/TEST-ai.pleos.destinations.core.SelectedPlaceConfirmationTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/source/prototype/vehicle/core/build/test-results/test/TEST-ai.pleos.destinations.core.SelectedPlaceConfirmationTest.xml",
+      "sha256": "daba03d84cc3f33e192bdb4427256017e05297f4e66f2b40f5c526ba81abb381",
+      "bytes": 516
+    },
+    {
+      "path": "checks/verifier/independent-build/junit/core/TEST-ai.pleos.destinations.core.VehicleAutomationTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/source/prototype/vehicle/core/build/test-results/test/TEST-ai.pleos.destinations.core.VehicleAutomationTest.xml",
+      "sha256": "020d7d76f3d01a50d245d48f042d792c21c5b0ab20fea12b48aca66e1de7d105",
+      "bytes": 4844
+    },
+    {
+      "path": "checks/verifier/independent-build/junit/core/TEST-ai.pleos.destinations.core.VehicleCoordinatorTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/source/prototype/vehicle/core/build/test-results/test/TEST-ai.pleos.destinations.core.VehicleCoordinatorTest.xml",
+      "sha256": "d9fa0a26f06548c6621b5f43db6c607acd1354b10d585ef948873e440571c4cf",
+      "bytes": 6974
+    },
+    {
+      "path": "checks/verifier/independent-build/junit/core/TEST-ai.pleos.destinations.core.PlaceIntentSafetyTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/source/prototype/vehicle/core/build/test-results/test/TEST-ai.pleos.destinations.core.PlaceIntentSafetyTest.xml",
+      "sha256": "6bf93b30828de6b20cf32bfcc3fbde63a035a476b2d3cce534668b484b50a7ae",
+      "bytes": 1865
+    },
+    {
+      "path": "checks/verifier/independent-build/junit/core/TEST-ai.pleos.destinations.core.VehicleProposalProtectionTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/source/prototype/vehicle/core/build/test-results/test/TEST-ai.pleos.destinations.core.VehicleProposalProtectionTest.xml",
+      "sha256": "ae626c17345cfd880c2952936d1d014387c87c8838d4946febdefb80610e09e3",
+      "bytes": 2398
+    },
+    {
+      "path": "checks/verifier/independent-build/junit/app/TEST-ai.pleos.destinations.vehicle.VehicleProposalSessionTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/source/prototype/vehicle/app/build/test-results/testDebugUnitTest/TEST-ai.pleos.destinations.vehicle.VehicleProposalSessionTest.xml",
+      "sha256": "864ea135d8b26d3d9dc50def9513a3d45dc3af53988e68a4f902f7fd00b595de",
+      "bytes": 3758
+    },
+    {
+      "path": "checks/verifier/independent-build/junit/app/TEST-ai.pleos.destinations.vehicle.NaviDestinationNormalizerTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/source/prototype/vehicle/app/build/test-results/testDebugUnitTest/TEST-ai.pleos.destinations.vehicle.NaviDestinationNormalizerTest.xml",
+      "sha256": "0d525e1522d6f37539784d3b6a7d54bfc51589bf15b996f746858fed77fefbc7",
+      "bytes": 1321
+    },
+    {
+      "path": "checks/verifier/independent-build/junit/app/TEST-ai.pleos.destinations.vehicle.RoomHttpClientTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/source/prototype/vehicle/app/build/test-results/testDebugUnitTest/TEST-ai.pleos.destinations.vehicle.RoomHttpClientTest.xml",
+      "sha256": "fe7feb8730443c3bacb859e55c2de2aa18fa1ff7c2162e42e19fed5d44a60453",
+      "bytes": 839
+    },
+    {
+      "path": "checks/verifier/independent-build/junit/app/TEST-ai.pleos.destinations.vehicle.SdkRouteMappingTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/source/prototype/vehicle/app/build/test-results/testDebugUnitTest/TEST-ai.pleos.destinations.vehicle.SdkRouteMappingTest.xml",
+      "sha256": "b4fb291f5c77d07ffaa4f054854410f2e8d77997d62ff23b9213d9e1d3fa6cc8",
+      "bytes": 993
+    },
+    {
+      "path": "checks/verifier/independent-build/junit/app/TEST-ai.pleos.destinations.vehicle.RoomProtocolTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/source/prototype/vehicle/app/build/test-results/testDebugUnitTest/TEST-ai.pleos.destinations.vehicle.RoomProtocolTest.xml",
+      "sha256": "fdacd31b8dd92a0830f962cc71c38e609a3c4dab3ce2834e5a5dde0c2f5440ac",
+      "bytes": 1942
+    },
+    {
+      "path": "checks/verifier/independent-build/junit/app/TEST-ai.pleos.destinations.vehicle.SavedPlacesTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/source/prototype/vehicle/app/build/test-results/testDebugUnitTest/TEST-ai.pleos.destinations.vehicle.SavedPlacesTest.xml",
+      "sha256": "a4a76208dced46c31cbe5f2b2b8397cfbd29622ca43197c5ee667e43c627bbb4",
+      "bytes": 1590
+    },
+    {
+      "path": "checks/verifier/independent-build/junit/app/TEST-ai.pleos.destinations.vehicle.VehicleSessionTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/source/prototype/vehicle/app/build/test-results/testDebugUnitTest/TEST-ai.pleos.destinations.vehicle.VehicleSessionTest.xml",
+      "sha256": "8ac29c9fab0d4e071ede26e893e605fb28be192a214b286db4f829811ffc04f1",
+      "bytes": 2135
+    },
+    {
+      "path": "checks/verifier/independent-build/junit/app/TEST-ai.pleos.destinations.vehicle.PendingConfirmationCacheTest.xml",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/source/prototype/vehicle/app/build/test-results/testDebugUnitTest/TEST-ai.pleos.destinations.vehicle.PendingConfirmationCacheTest.xml",
+      "sha256": "c39118cf4c003830f8543da7d115d399314df950bef70fe5fd233622366fa5a0",
+      "bytes": 836
+    },
+    {
+      "path": "runtime/actions.jsonl",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/actions.jsonl",
+      "sha256": "ed4b44b6ba05a641de2af1811d188415787a6f668f7520cbb3ffca7ec1b9c84c",
+      "bytes": 23601
+    },
+    {
+      "path": "runtime/observations.jsonl",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/observations.jsonl",
+      "sha256": "494801ced9565af21c6c1b5a1f8ed1c079aa10f2e1646b6a889ee2f4a2467af7",
+      "bytes": 1929271
+    },
+    {
+      "path": "runtime/emulator-5570-journal.jsonl",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/emulator-5570-journal.jsonl",
+      "sha256": "4b461b2d7fded2ef4629951c87536ea101788e48943d1ccdabafc8439fd66d36",
+      "bytes": 357217
+    },
+    {
+      "path": "runtime/emulator-5572-journal.jsonl",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/emulator-5572-journal.jsonl",
+      "sha256": "e3aa481f9813fa99b0a9a5602f13cdde9ca99ac508c27629f8e19feb2415dd8f",
+      "bytes": 209320
+    },
+    {
+      "path": "runtime/collector-result.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/collector-result.json",
+      "sha256": "f3921155221445a108396e897c5c02a44fb72a655e7bbe306207eb46efe66fad",
+      "bytes": 133
+    },
+    {
+      "path": "runtime/installed.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/installed.json",
+      "sha256": "9af2b173a1a3efd13aff8346561edb9790a2a131bb1898dcce27ff315eeefdaf",
+      "bytes": 2174
+    },
+    {
+      "path": "runtime/runtime-source-binding.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/runtime-source-binding.json",
+      "sha256": "92c5971e8c6710d68feaf58dce76e2aae8921c5649aa10de8273bdf35531fc28",
+      "bytes": 832
+    },
+    {
+      "path": "runtime/emulators-launched.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/emulators-launched.json",
+      "sha256": "269ebc7110895d02d9f8f8ad22e6accf9ffb180aa4b2074fdc03d0b49fbf4e8d",
+      "bytes": 1639
+    },
+    {
+      "path": "runtime/owned-server.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/owned-server.json",
+      "sha256": "68adefc19d34e4bc95746526b3ef41d3780c0f3f68eaf913ed59b6711477c7c9",
+      "bytes": 456
+    },
+    {
+      "path": "runtime/fresh-room.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/fresh-room.json",
+      "sha256": "a0bec3f2990803eb9afd5dbfa9e34a75561a4c05a66f15982166b601ae3f0d81",
+      "bytes": 1718
+    },
+    {
+      "path": "runtime/automatic-started.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/automatic-started.json",
+      "sha256": "f6e7c879d4f297eefb2eee9904ad85d42a18eef17e1590dcb4fad1457fdd2623",
+      "bytes": 3035
+    },
+    {
+      "path": "runtime/legacy-exact-case.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/legacy-exact-case.json",
+      "sha256": "81bb5fc053217b8dc4cca14a1690ab9a5c9e95880a119bd41a2924e3f88e689a",
+      "bytes": 7394
+    },
+    {
+      "path": "runtime/legacy-exact-case.log",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/legacy-exact-case.log",
+      "sha256": "2497c7930568a75f4f029618bcfdc6d2c0deb1b45973cbe34a006e9891ed35eb",
+      "bytes": 1348
+    },
+    {
+      "path": "runtime/cafe-negative-case.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/cafe-negative-case.json",
+      "sha256": "d0a34e25548c2c28dc30574d146ec7350262d53625428446d8f897f59d630253",
+      "bytes": 27603
+    },
+    {
+      "path": "runtime/cafe-accept-case.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/cafe-accept-case.json",
+      "sha256": "af3cb26d55d13d7f2a42a82e3de78d6a0b5bf644218cd0afd2063330218dab39",
+      "bytes": 122229
+    },
+    {
+      "path": "runtime/cafe-case.log",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/cafe-case.log",
+      "sha256": "70474856d0daa2d2304a004a171e5a1e1cd9e639f7419427b34e719aacb05aef",
+      "bytes": 2086
+    },
+    {
+      "path": "runtime/restaurant-negative-case.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/restaurant-negative-case.json",
+      "sha256": "5d269de112f30329d13989d0358104e6632a30f9ec63fc022de9cc7404eeb75a",
+      "bytes": 27761
+    },
+    {
+      "path": "runtime/restaurant-case.log",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/restaurant-case.log",
+      "sha256": "f15e8bef3c817e944aa0ff1e84700f12293db2e238cb59d1afa2f7ec68c0f2ab",
+      "bytes": 5041
+    },
+    {
+      "path": "runtime/restaurant-retry-negative-case.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/restaurant-retry-negative-case.json",
+      "sha256": "f92c00a611a5f70d3a0ba80635bdae9317f37994c944b13b8c413bcb09fe4d65",
+      "bytes": 27613
+    },
+    {
+      "path": "runtime/restaurant-retry-accept-case.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/restaurant-retry-accept-case.json",
+      "sha256": "3de091a1ae8ef330c4040356a7029b80d95e59075272053386b5a20c14de083f",
+      "bytes": 112444
+    },
+    {
+      "path": "runtime/restaurant-retry-case.log",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/restaurant-retry-case.log",
+      "sha256": "03f665925b018751806235a00083f45475e8cb010c63ef826dd1f2d5ef190ce9",
+      "bytes": 2195
+    },
+    {
+      "path": "runtime/restaurant-retry-inputs.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/restaurant-retry-inputs.json",
+      "sha256": "27db58ba5c462cf5fdba6c7e3abceac578cca971ffd58a54af52f0765a7abfe9",
+      "bytes": 598
+    },
+    {
+      "path": "runtime/lifetime-checkpoints.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/lifetime-checkpoints.json",
+      "sha256": "bd1ec02d874d11dbc611dcb75ac5fb4dad86cd0bfc84d089558873217d60432f",
+      "bytes": 3224
+    },
+    {
+      "path": "runtime/lifetime-inputs.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/lifetime-inputs.json",
+      "sha256": "14cef05da5c6bebb7d4fe857b1d864ee2038718d8482522c0eb0cb3f2a2aca15",
+      "bytes": 454
+    },
+    {
+      "path": "runtime/stop-reconnect-case.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/stop-reconnect-case.json",
+      "sha256": "b0381a33fd9fa14154fd2315bd22135530623897e5213cca5d760ccaf79feab6",
+      "bytes": 74002
+    },
+    {
+      "path": "runtime/cold-resume-checkpoints.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/cold-resume-checkpoints.json",
+      "sha256": "57e78dff060c725e7aa7f4ca5b78b8028d8dd2984a018db124ed51dd00114deb",
+      "bytes": 3224
+    },
+    {
+      "path": "runtime/cold-resume-case.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/cold-resume-case.json",
+      "sha256": "7e493047709c232d5c12d0f08708811acca39743ac3aa27e181dc1b01a08d593",
+      "bytes": 57592
+    },
+    {
+      "path": "runtime/lifetime-case.log",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/lifetime-case.log",
+      "sha256": "35ea9c867520969c01eb43aaf44ba2eeb27ad6863bf8e94fb3dc795396cfa865",
+      "bytes": 617
+    },
+    {
+      "path": "runtime/runtime-audit.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/runtime-audit.json",
+      "sha256": "e1ec07c735416763050bf1c9abf184837eb8b4883af35c4b639a0a1829c702ac",
+      "bytes": 3639
+    },
+    {
+      "path": "runtime/qa-inputs-frozen.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/qa-inputs-frozen.json",
+      "sha256": "7abb3ff1f0da8a9de0fddb587103573efbbdc5d1a73932809c9d58b4dcf041e3",
+      "bytes": 1510
+    },
+    {
+      "path": "runtime/final-demo-ready.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/final-demo-ready.json",
+      "sha256": "c649413ced14bce607bd8182f59b0ff4ecdddebe36e5a06a2c27ebd2ba9b2913",
+      "bytes": 20733
+    },
+    {
+      "path": "runtime/environment-after-restaurant-interrupt-emulator-5570.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/environment-after-restaurant-interrupt-emulator-5570.json",
+      "sha256": "66004511308cf1c445fa0b35e56e2dea945f403712a1669bd1120621d1e6951e",
+      "bytes": 704
+    },
+    {
+      "path": "runtime/environment-after-restaurant-interrupt-emulator-5572.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/environment-after-restaurant-interrupt-emulator-5572.json",
+      "sha256": "d2ca30bac1ab7f544380a5dec5ee6f1d0b7e6a8c7ffddfbb1f628a8f6213c76c",
+      "bytes": 699
+    },
+    {
+      "path": "runtime/scripts/qa.py",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/qa.py",
+      "sha256": "91452e0cdbb2ee9c6bdb994e3febdfb494f0b02a16d69f48057ee9ae1f59d800",
+      "bytes": 5397
+    },
+    {
+      "path": "runtime/scripts/root-ui-tools.py",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/root-ui-tools.py",
+      "sha256": "f29a1123a5f3c52b5a64e59173cbeb2fa3078e63ce61e390089b5a827a84386e",
+      "bytes": 4241
+    },
+    {
+      "path": "runtime/scripts/cases.py",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/cases.py",
+      "sha256": "cc4ea73977266f644dec6dcdd3fc4760944b0c56477fa0164b387960a8069025",
+      "bytes": 7248
+    },
+    {
+      "path": "runtime/scripts/lifetime-case.py",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/lifetime-case.py",
+      "sha256": "1e24a0c6ffc60badb8ae51d376cc60d1b2bbe47f29ecfbd223f34a86f8a6b35b",
+      "bytes": 3998
+    },
+    {
+      "path": "runtime/scripts/restaurant-retry.py",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/restaurant-retry.py",
+      "sha256": "8a3f2c1be265740f0af58c8faf3cef9fe0fb9fbbbb3c6822c1edd5930cd484f3",
+      "bytes": 1161
+    },
+    {
+      "path": "runtime/scripts/probe.py",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/probe.py",
+      "sha256": "8ca94d82c0d66a9404b46ff0c2d9bb60dc0e46f859a1498b95fcbe68947e8e24",
+      "bytes": 2687
+    },
+    {
+      "path": "runtime/scripts/collect-runtime.py",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/collect-runtime.py",
+      "sha256": "252bb81f4853c24cc82beb499ff46b8911f291f59a8f77bca832fce26ed987a9",
+      "bytes": 4125
+    },
+    {
+      "path": "runtime/scripts/create-room.py",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/create-room.py",
+      "sha256": "2e6ff1c56335cbb7dca44e75ab28998b9fe162b04ee8c3922b82f2c037ebd827",
+      "bytes": 1851
+    },
+    {
+      "path": "runtime/scripts/finish-room.py",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/finish-room.py",
+      "sha256": "43e15f82043f6ab2f1992edac9648f8cd803e63ebc98f44e7c201a3171cc0ae9",
+      "bytes": 1457
+    },
+    {
+      "path": "runtime/scripts/rebind-source.py",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/rebind-source.py",
+      "sha256": "5efa98693bdce9847b9e7c487d79dc655c34099905db736187bf174e914a8311",
+      "bytes": 1691
+    },
+    {
+      "path": "runtime/scripts/audit-runtime.py",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/audit-runtime.py",
+      "sha256": "8abc134c784c049b86064c44acda8b74fc37e1ff4986ec4bfac796dd375e79bd",
+      "bytes": 5719
+    },
+    {
+      "path": "runtime/scripts/cases-before-legacy-capture-correction.py",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/cases-before-legacy-capture-correction.py",
+      "sha256": "cc4ea73977266f644dec6dcdd3fc4760944b0c56477fa0164b387960a8069025",
+      "bytes": 7248
+    },
+    {
+      "path": "runtime/scripts/curate.py",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/curate.py",
+      "sha256": "030b819d4acbb321019cc219110331a7888da6539df637828768692cf0c124fd",
+      "bytes": 11895
+    },
+    {
+      "path": "runtime/scripts/prepare-final-demo.py",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/prepare-final-demo.py",
+      "sha256": "f1ac373a58b766d3d6989e6472d43dc7765e29382ffc4acdb7e9d48b79043bda",
+      "bytes": 2125
+    },
+    {
+      "path": "runtime/interruptions/preqa-attempt-1/manifest.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/preqa-attempt-1/manifest.json",
+      "sha256": "b103830984701b11417503f5e8026be8c27453bc40ec1a344240b7e086b36af1",
+      "bytes": 840
+    },
+    {
+      "path": "runtime/interruptions/preqa-attempt-1/create-room.log",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/preqa-attempt-1/create-room.log",
+      "sha256": "23f6461968ac7ed6f21207302b2cde49832e7831c681d515271c1573b7ea7aef",
+      "bytes": 641
+    },
+    {
+      "path": "runtime/interruptions/preqa-attempt-1/collector.log",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/preqa-attempt-1/collector.log",
+      "sha256": "2e11e2d138dd76f0f3723a7758e25fdb7a2e8c426edfe726c398a32dc731c4b8",
+      "bytes": 1486
+    },
+    {
+      "path": "runtime/interruptions/create-room-attempt-2.log",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/create-room-attempt-2.log",
+      "sha256": "ba812603ef56ccbc425cce45f5f9d2085108bd83cab03fa4a9c4a8e3674842a3",
+      "bytes": 828
+    },
+    {
+      "path": "runtime/interruptions/create-room.log",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/create-room.log",
+      "sha256": "ca10e8c6596eb1825a44d66513ffbd5c1f054ca0d804a1555dcb18943dab912e",
+      "bytes": 652
+    },
+    {
+      "path": "runtime/interruptions/finish-room.log",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/finish-room.log",
+      "sha256": "3c15e83dedede00185c0b756eadd365b5b420e34607b0b02c1619ebd99b9cc75",
+      "bytes": 57
+    },
+    {
+      "path": "runtime/interruptions/lifetime-ui-wait/lifetime-case.log",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/lifetime-interrupted/lifetime-case.log",
+      "sha256": "5d0ccb894087ff82bf13a5303dae947a446495c42751383d257bed9494e4e9ae",
+      "bytes": 348
+    },
+    {
+      "path": "runtime/interruptions/lifetime-ui-wait/lifetime-checkpoints.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/lifetime-interrupted/lifetime-checkpoints.json",
+      "sha256": "fdea36727f4d19208faf24b0bc164796c6d3aa7cf1db416bbdc1e43b74cb62c1",
+      "bytes": 3183
+    },
+    {
+      "path": "runtime/interruptions/lifetime-ui-wait/lifetime-case.py",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/lifetime-interrupted/lifetime-case.py",
+      "sha256": "bbbdc81555b7964fb127eeebe9577689aeea4aa9288b111513ab989c46888f6f",
+      "bytes": 3880
+    },
+    {
+      "path": "runtime/interruptions/lifetime-ui-wait/lifetime-inputs.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/lifetime-interrupted/lifetime-inputs.json",
+      "sha256": "12390880dc088e8b1485c60d84c441582d341876fbe9c622d8a6581edf99f7fc",
+      "bytes": 454
+    },
+    {
+      "path": "runtime/ui/final-shared-source-emulator-5572.xml.txt",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/final-shared-source-emulator-5572.xml.txt",
+      "sha256": "c4e5cebf3bfdd80dfe19c120dd952bd12f4d5d5047d970c4e208aaa9f17c189b",
+      "bytes": 9910
+    },
+    {
+      "path": "runtime/ui/restaurant-retry-before-emulator-5570.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-retry-before-emulator-5570.json",
+      "sha256": "7aec5bda8c771d86c94479b519243c9540d1df09f0bb629399ead80e23f6712a",
+      "bytes": 2295
+    },
+    {
+      "path": "runtime/ui/restaurant-retry-native-confirmed-emulator-5570.xml.txt",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-retry-native-confirmed-emulator-5570.xml.txt",
+      "sha256": "04c81fb50f724d1bac9cf8b9068c673279770a868bd48464a31b8426d958b441",
+      "bytes": 11294
+    },
+    {
+      "path": "runtime/ui/cafe-place-confirmed-emulator-5572.xml.txt",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cafe-place-confirmed-emulator-5572.xml.txt",
+      "sha256": "25b4eef74efd0e5b89c49fcbd89c9d81bd3f6a5293a9c77008b63101a782acb6",
+      "bytes": 10861
+    },
+    {
+      "path": "runtime/ui/cafe-pending-emulator-5570.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cafe-pending-emulator-5570.json",
+      "sha256": "8163e66e6ac16d2b9f914c529e6682476faee926127991d663b28836e1ee38cc",
+      "bytes": 2434
+    },
+    {
+      "path": "runtime/ui/final-shared-source-emulator-5570.png",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/final-shared-source-emulator-5570.png",
+      "sha256": "2c94c8266385016b0733b2d877465d447ad003cd6e99e6b43a40e975b3fc5fa7",
+      "bytes": 372760
+    },
+    {
+      "path": "runtime/ui/restaurant-retry-rejected-emulator-5572.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-retry-rejected-emulator-5572.json",
+      "sha256": "400b23a4f0caaf3954669d20389a94e0838338de5000b30fc7fbbea26145ded2",
+      "bytes": 2443
+    },
+    {
+      "path": "runtime/ui/restaurant-retry-accepted-emulator-5572.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-retry-accepted-emulator-5572.json",
+      "sha256": "668724bf41adf8f33ed77e848747b660cbef211efea99fd228999fb25ca774a4",
+      "bytes": 2457
+    },
+    {
+      "path": "runtime/ui/cafe-native-confirmed-emulator-5572.xml.txt",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cafe-native-confirmed-emulator-5572.xml.txt",
+      "sha256": "0635f376151ffbaa283d0b83822b6f2dff4096dbf5573a4ea1de8a79bb86c772",
+      "bytes": 10590
+    },
+    {
+      "path": "runtime/ui/cafe-accepted-emulator-5572.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cafe-accepted-emulator-5572.json",
+      "sha256": "b4c3c51122c7ec61ed6217bc82c3291de92e6ac6288b033f0db29f0da2e547b3",
+      "bytes": 2443
+    },
+    {
+      "path": "runtime/ui/cafe-rejected-emulator-5572.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cafe-rejected-emulator-5572.json",
+      "sha256": "91147f63ba79e9d40069c7fe2327a531a0eb429575e577ea6df33a1429e09613",
+      "bytes": 2427
+    },
+    {
+      "path": "runtime/ui/legacy-exact-actual-emulator-5570.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/legacy-exact-actual-emulator-5570.json",
+      "sha256": "7c44fe8708d068e0c89f3c9a2eedc144d65ec38348542aad75e8044e95435470",
+      "bytes": 2427
+    },
+    {
+      "path": "runtime/ui/cold-resume-actual-emulator-5570.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cold-resume-actual-emulator-5570.json",
+      "sha256": "2b57d8e9e8bebe9f4b192d7d6a6b8cd99362a9a70c1d986c8d25b42bca00694c",
+      "bytes": 2466
+    },
+    {
+      "path": "runtime/ui/final-shared-source-emulator-5572.png",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/final-shared-source-emulator-5572.png",
+      "sha256": "63cec00cb5f7c22166d38d75b0449288fa9c1f43e84446c0a7a27c1477346f12",
+      "bytes": 382331
+    },
+    {
+      "path": "runtime/ui/cafe-native-confirmed-emulator-5570.xml.txt",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cafe-native-confirmed-emulator-5570.xml.txt",
+      "sha256": "905c3f60a9165844b157d7fdc163841e2439c36119d2b31edb577cadd7a04800",
+      "bytes": 10591
+    },
+    {
+      "path": "runtime/ui/final-demo-cafe-source.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/final-demo-cafe-source.json",
+      "sha256": "b87d9863437a1ae4507dc621e90160d2f27033febc2186127f9a1bf04edcca2f",
+      "bytes": 5399
+    },
+    {
+      "path": "runtime/ui/restaurant-retry-pending-emulator-5570.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-retry-pending-emulator-5570.json",
+      "sha256": "0dd3fae83afb34f942340d3cdc756c7d611ab2649f1180b05f965873ac6ed198",
+      "bytes": 2295
+    },
+    {
+      "path": "runtime/ui/restaurant-rejected-emulator-5570.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-rejected-emulator-5570.json",
+      "sha256": "e784933dc5effae6946317ffd5189296f1defa08cbbaf60b3eb2c62ed7e4ce67",
+      "bytes": 2450
+    },
+    {
+      "path": "runtime/ui/restaurant-pending-emulator-5572.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-pending-emulator-5572.json",
+      "sha256": "fd8b460da82defe2d03942745ad58080210b27449e5636bc61b66d3c8512e681",
+      "bytes": 2443
+    },
+    {
+      "path": "runtime/ui/restaurant-before-emulator-5570.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-before-emulator-5570.json",
+      "sha256": "9a23e985f5d8f826deef17e7a74fdfb129f8cc1e9129e74fa7f86592cee70cd3",
+      "bytes": 2443
+    },
+    {
+      "path": "runtime/ui/cafe-place-confirmed-emulator-5570.xml.txt",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cafe-place-confirmed-emulator-5570.xml.txt",
+      "sha256": "8de1c74df2dc85077fdd29e1812e674e771983aa6b6b0563ce73a2d46254bdf8",
+      "bytes": 11240
+    },
+    {
+      "path": "runtime/ui/restaurant-retry-native-confirmed-emulator-5572.xml.txt",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-retry-native-confirmed-emulator-5572.xml.txt",
+      "sha256": "45df5178b96d00bf0f819da77f137ef4ef8f971c3e5e9c90eb170b97d54e1ec6",
+      "bytes": 11293
+    },
+    {
+      "path": "runtime/ui/final-shared-source-emulator-5570.xml.txt",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/final-shared-source-emulator-5570.xml.txt",
+      "sha256": "3f7b32abcddd4f382062ceffae58bf6a345fdbd331d39823c4d3c4217a0c6e44",
+      "bytes": 9895
+    },
+    {
+      "path": "runtime/ui/final-demo-ready-emulator-5570.png",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/final-demo-ready-emulator-5570.png",
+      "sha256": "4df72c570c79aaad070070d22dd254e0604a3d062756056a4f64f2e7da640861",
+      "bytes": 452302
+    },
+    {
+      "path": "runtime/ui/final-demo-ready-emulator-5572.png",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/final-demo-ready-emulator-5572.png",
+      "sha256": "20d216712b41f6f5b16d605a8ea94b8957734e52948562e244dad1d6b979d290",
+      "bytes": 443630
+    },
+    {
+      "path": "runtime/ui/cafe-before-emulator-5570.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cafe-before-emulator-5570.json",
+      "sha256": "390d685f5780abcaecae71649ef8a6a28811adbb9c0c3c0cf7095b912ccfe2ee",
+      "bytes": 2434
+    },
+    {
+      "path": "runtime/ui/restaurant-retry-place-confirmed-emulator-5570.xml.txt",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-retry-place-confirmed-emulator-5570.xml.txt",
+      "sha256": "58238355b8343c7e70a423a9643c1113432dc6829c72a9cacfd889c70a94c05a",
+      "bytes": 10827
+    },
+    {
+      "path": "runtime/ui/final-native-actual-emulator-5570.xml.txt",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/final-native-actual-emulator-5570.xml.txt",
+      "sha256": "72b48ebbefbf1ea514193bc72a9162a0494e897a76cc6584c3534249ce8a9781",
+      "bytes": 10238
+    },
+    {
+      "path": "runtime/ui/restaurant-retry-pending-emulator-5572.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-retry-pending-emulator-5572.json",
+      "sha256": "7932a96e188430ec6b5b416bcdaeb0d35e883cbcb59a19a17c3799e37d10b841",
+      "bytes": 2443
+    },
+    {
+      "path": "runtime/ui/restaurant-pending-emulator-5570.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-pending-emulator-5570.json",
+      "sha256": "259572a413c9df2f4a202cb4fbf73acf244a7213750a36d1f69d5158a3dcde87",
+      "bytes": 2450
+    },
+    {
+      "path": "runtime/ui/legacy-exact-confirmed-emulator-5570.png",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/legacy-exact-confirmed-emulator-5570.png",
+      "sha256": "999bb9924c782ea1af4011598a7d0ad5ba5d2046b6faa5371159addd38843a43",
+      "bytes": 415250
+    },
+    {
+      "path": "runtime/ui/restaurant-rejected-emulator-5572.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-rejected-emulator-5572.json",
+      "sha256": "32429d3f58dc7296e7e36decb0c404320534e7d62e2a3b5e13e620662e40ad5c",
+      "bytes": 2443
+    },
+    {
+      "path": "runtime/ui/restaurant-source.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-source.json",
+      "sha256": "8af4b363ec56a54252cb8836151650d3d91989ab4a16eaa23b1c2a7c250595a3",
+      "bytes": 5373
+    },
+    {
+      "path": "runtime/ui/cafe-source.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cafe-source.json",
+      "sha256": "35ac222a99a52e642e35f2a7c355bafe51db0209418cbfb5de2f7d9999b56b00",
+      "bytes": 5345
+    },
+    {
+      "path": "runtime/ui/cafe-place-confirmed-emulator-5572.png",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cafe-place-confirmed-emulator-5572.png",
+      "sha256": "c958b98e3c8baf8f540bc802898d0cf7e4feba017143ecd8906bc60814e85c2e",
+      "bytes": 441442
+    },
+    {
+      "path": "runtime/ui/restaurant-before-emulator-5572.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-before-emulator-5572.json",
+      "sha256": "d743c11e20a1e1a1b8cbfd48b29a991c8924e3238606d363a6241a910e1c1377",
+      "bytes": 2443
+    },
+    {
+      "path": "runtime/ui/cafe-place-confirmed-emulator-5570.png",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cafe-place-confirmed-emulator-5570.png",
+      "sha256": "a9da53abfe6776e4e456b27a5d6ecc11b71a1dd6f6b6f810ee1e8bf06c9e422e",
+      "bytes": 429995
+    },
+    {
+      "path": "runtime/ui/final-demo-ready-emulator-5570.xml.txt",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/final-demo-ready-emulator-5570.xml.txt",
+      "sha256": "6e301bd6cecaa09e9219783da137fbcd072f9c5423503c401dbccd62d7f5ce61",
+      "bytes": 10348
+    },
+    {
+      "path": "runtime/ui/cafe-before-emulator-5572.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cafe-before-emulator-5572.json",
+      "sha256": "163f593773ef54569c6d55c1dcad5597dd44f8e3d01e4315872f365ec56f84c8",
+      "bytes": 2434
+    },
+    {
+      "path": "runtime/ui/final-native-actual-emulator-5572.png",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/final-native-actual-emulator-5572.png",
+      "sha256": "63cec00cb5f7c22166d38d75b0449288fa9c1f43e84446c0a7a27c1477346f12",
+      "bytes": 382331
+    },
+    {
+      "path": "runtime/ui/cafe-pending-emulator-5572.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cafe-pending-emulator-5572.json",
+      "sha256": "9b1bc9312910b4c63e4e7ab31d28a605e722e400168ceb9490894662a9ecf417",
+      "bytes": 2427
+    },
+    {
+      "path": "runtime/ui/restaurant-retry-before-emulator-5572.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-retry-before-emulator-5572.json",
+      "sha256": "099b9249e4acc632a4bbc98b639044fead8ab55dae08d9e1af0b47c798f77275",
+      "bytes": 2442
+    },
+    {
+      "path": "runtime/ui/restaurant-retry-place-confirmed-emulator-5572.png",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-retry-place-confirmed-emulator-5572.png",
+      "sha256": "a3bd3d28a7622038996d214f9b8bf60b0903fbafe239f40e6ac397c08601b2e6",
+      "bytes": 440592
+    },
+    {
+      "path": "runtime/ui/final-demo-ready-emulator-5572.xml.txt",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/final-demo-ready-emulator-5572.xml.txt",
+      "sha256": "a18403d5ff308f57825ab8d1c020a72bd13aa2dfb2c3194fdcd5a39d558e5c39",
+      "bytes": 10934
+    },
+    {
+      "path": "runtime/ui/restaurant-retry-place-confirmed-emulator-5570.png",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-retry-place-confirmed-emulator-5570.png",
+      "sha256": "2195b59e41555553282c5e471429a5fc6f21906beabef48c7eca9c932ec193f1",
+      "bytes": 438013
+    },
+    {
+      "path": "runtime/ui/final-native-actual-emulator-5570.png",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/final-native-actual-emulator-5570.png",
+      "sha256": "2869c8170100fb377d901af723e157936174fcc9e0a12c6c283995986069981d",
+      "bytes": 382728
+    },
+    {
+      "path": "runtime/ui/restaurant-retry-accepted-emulator-5570.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-retry-accepted-emulator-5570.json",
+      "sha256": "499933ba63fd2444e3995d24befabcace1090e4cda1e34ba567efe632fd755c2",
+      "bytes": 2459
+    },
+    {
+      "path": "runtime/ui/final-native-actual-emulator-5572.xml.txt",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/final-native-actual-emulator-5572.xml.txt",
+      "sha256": "c4e5cebf3bfdd80dfe19c120dd952bd12f4d5d5047d970c4e208aaa9f17c189b",
+      "bytes": 9910
+    },
+    {
+      "path": "runtime/ui/restaurant-retry-place-confirmed-emulator-5572.xml.txt",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-retry-place-confirmed-emulator-5572.xml.txt",
+      "sha256": "7c8141d49057dde5509fdc133b3d7232d78ecaa37076853528f06163322053e3",
+      "bytes": 10861
+    },
+    {
+      "path": "runtime/ui/restaurant-retry-source.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-retry-source.json",
+      "sha256": "650f181bc89d088c6c20436caaebba29eb59640a1bf608d15ebc54298b7da41e",
+      "bytes": 5374
+    },
+    {
+      "path": "runtime/ui/restaurant-retry-native-confirmed-emulator-5572.png",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-retry-native-confirmed-emulator-5572.png",
+      "sha256": "7090b80b14b1f7cb3ef8a10fb290cfa0a3cf9903de0397a268a5658e04b6f9a2",
+      "bytes": 342051
+    },
+    {
+      "path": "runtime/ui/restaurant-retry-rejected-emulator-5570.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-retry-rejected-emulator-5570.json",
+      "sha256": "a574bfca32418a13b7660a6eeae5c7c495b6b99c262e45997f8d5793de70cf35",
+      "bytes": 2295
+    },
+    {
+      "path": "runtime/ui/legacy-exact-confirmed-emulator-5570.xml.txt",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/legacy-exact-confirmed-emulator-5570.xml.txt",
+      "sha256": "582265b94174e880b42fb518d1c42d798c305b8fbf4dcfaca20c421e3890e35f",
+      "bytes": 11505
+    },
+    {
+      "path": "runtime/ui/cafe-native-confirmed-emulator-5570.png",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cafe-native-confirmed-emulator-5570.png",
+      "sha256": "3382e37c596364d91cdf3286cd1962b5d7cb4f59432f937af5bbf6094aff9154",
+      "bytes": 324414
+    },
+    {
+      "path": "runtime/ui/cafe-native-confirmed-emulator-5572.png",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cafe-native-confirmed-emulator-5572.png",
+      "sha256": "da0d76719d267f69aa562cf128c23544dc80aee4ba3b09ef68e455d31bfbdc15",
+      "bytes": 325323
+    },
+    {
+      "path": "runtime/ui/cold-resume-actual-emulator-5572.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cold-resume-actual-emulator-5572.json",
+      "sha256": "a56d1991335831db781e0a0d12dafd92402bd3c1468e485e179a045918c1e0cb",
+      "bytes": 2456
+    },
+    {
+      "path": "runtime/ui/legacy-exact-actual-emulator-5572.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/legacy-exact-actual-emulator-5572.json",
+      "sha256": "a2faf1296e923859693d64ab23ff3c96a7fd4357d91fdd77d55b87f74f010679",
+      "bytes": 2432
+    },
+    {
+      "path": "runtime/ui/restaurant-retry-native-confirmed-emulator-5570.png",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/restaurant-retry-native-confirmed-emulator-5570.png",
+      "sha256": "2555a9d0893fab31334c03887edeaac3a4274aa5e4e827988f08f28ec382858a",
+      "bytes": 342201
+    },
+    {
+      "path": "runtime/ui/cafe-rejected-emulator-5570.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cafe-rejected-emulator-5570.json",
+      "sha256": "f3564490fdfa584373999f0a787189b9a51ac22efd49235a8feccefefd007cbb",
+      "bytes": 2427
+    },
+    {
+      "path": "runtime/ui/cafe-accepted-emulator-5570.json",
+      "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/ui/cafe-accepted-emulator-5570.json",
+      "sha256": "48324bfcbf6a4506c7157abbfa1f959ac1df5c426741bfdbecf987ebe56f52bf",
+      "bytes": 2450
+    }
+  ],
+  "generatedFiles": [
+    "README.md",
+    "manifest.json"
+  ],
+  "oldArtifactsPreserved": true,
+  "exclusions": "APK/SDK binaries, environment files, invitation secrets, credentials and full bookmark lists are not copied. Precase corrupted journal bytes stay in original RAW quarantine; their hashes and failure provenance are included."
+}

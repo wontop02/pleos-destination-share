@@ -1,0 +1,50 @@
+{
+  "files": {
+    "frozen": {
+      "size": 6357551,
+      "signatureBlockStart": 6348604,
+      "signatureBlockEnd": 6352700,
+      "signatureBlockSize": 4096,
+      "signatureBlockSha256": "85b029c3b6bc9d1cdd5fe90ae20c4775b96c9b84ce31544ecf17373e21e64ba5",
+      "beforeSignatureBlockSha256": "26628a987dbe24b0553432be5b3332f55ab088c4e9d71ae88a48470a714a7192",
+      "centralDirectoryBeforeEocdSha256": "8689ebb6dedc7df702591340d705dc9b9e0cffb3e82fbaf23a35502cd68def92",
+      "eocdSha256": "abdeaac5130f1b2106e0bb0812786994d778c8334304db806a86bf020e0013ed",
+      "pairs": [
+        {
+          "id": "0x7109871a",
+          "length": 1390,
+          "sha256": "8d098eae64ee0756f208f960d1dbe00e69a6fcc9c80dae661bb77bb75fb6a1ec"
+        },
+        {
+          "id": "0x42726577",
+          "length": 2650,
+          "sha256": "4551b8baec05d94b8a55b0bb31ab10b8521ce44b178c3ad9a2b760c708e463a4"
+        }
+      ]
+    },
+    "independent": {
+      "size": 6136954,
+      "signatureBlockStart": 6128007,
+      "signatureBlockEnd": 6132103,
+      "signatureBlockSize": 4096,
+      "signatureBlockSha256": "e27364c1837ba836517377f4952bca4e1bcfcca8070bd613ccbf2e1868f76714",
+      "beforeSignatureBlockSha256": "d72b71bc1ac67e3c4edb41003e38df052a096739d739d9ef925c75d21c7dae1f",
+      "centralDirectoryBeforeEocdSha256": "77b41ea35644de21f5e18a4634384f444efe2522ea50a366376b9fbfba29dc9e",
+      "eocdSha256": "c810637b633b0d985e7160ecd40c9d9ffcea81754371608e3c7b294c434858c4",
+      "pairs": [
+        {
+          "id": "0x7109871a",
+          "length": 1390,
+          "sha256": "f1c43063e5d665d0316e8d1f95c098acfeddea165d15b8f3b13c174f4bf71837"
+        },
+        {
+          "id": "0x42726577",
+          "length": 2650,
+          "sha256": "4551b8baec05d94b8a55b0bb31ab10b8521ce44b178c3ad9a2b760c708e463a4"
+        }
+      ]
+    }
+  },
+  "onlySigningBlockDiffers": false,
+  "scope": "Public APK ZIP/signature container metadata only; no private key or SDK implementation inspected."
+}

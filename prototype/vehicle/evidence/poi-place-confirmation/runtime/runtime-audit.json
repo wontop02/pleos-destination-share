@@ -1,0 +1,110 @@
+{
+  "sourceHead": "a26b9419804874052329001ad86e60ff1bccb42c",
+  "apkSha256": "5845c358d2a63c4ead083c699d94446d0353f3fcedc92f6afb8c0521832cc35a",
+  "cases": {
+    "legacyExact": {
+      "routeCounts": {
+        "emulator-5570": 1,
+        "emulator-5572": 1
+      },
+      "pendingRouteCounts": {
+        "emulator-5570": 0,
+        "emulator-5572": 0
+      },
+      "lateCaptureLimitation": "Manual OFF proposal lease expires after45s. B was reopened after expiry and correctly did not retain a live confirmation. Both fresh pre-expiry confirmations and actual native queries are independently retained; no UI success inferred from later IDLE."
+    },
+    "cafe": {
+      "source": {
+        "name": "가든서비스",
+        "latitude": 37.41255277,
+        "longitude": 127.09591666,
+        "address": "경기도 성남시 수정구 창업로40번길 6",
+        "displayLatitude": null,
+        "displayLongitude": null,
+        "poiId": "36khp2h36p68cm5nqhec",
+        "poiSubId": null,
+        "poiProvider": ""
+      },
+      "nativeWindowStart": "2026-11-06T06:17:23.559645+00:00",
+      "nativeWindowEnd": "2026-11-06T06:18:53.080647+00:00",
+      "auditedWindowSeconds": 89.521002,
+      "timedHoldSeconds": 71.49651833299998,
+      "vehicles": {
+        "emulator-5570": {
+          "sourceToGuidanceMeters": 51.03105344414919,
+          "nativeIdentityMatched": true,
+          "routeRequests": 1,
+          "observedProcessPid": "8326",
+          "serviceEpoch": 82792,
+          "nativeScreenSamples": 38,
+          "maxSampleGapSeconds": 3.055151
+        },
+        "emulator-5572": {
+          "sourceToGuidanceMeters": 51.03105344414919,
+          "nativeIdentityMatched": true,
+          "routeRequests": 1,
+          "observedProcessPid": "5768",
+          "serviceEpoch": 1725778,
+          "nativeScreenSamples": 38,
+          "maxSampleGapSeconds": 3.300769
+        }
+      },
+      "pendingAndRejectedRoutes": 0
+    },
+    "restaurant-retry": {
+      "source": {
+        "name": "청계산담백미",
+        "latitude": 37.40931388,
+        "longitude": 127.09780277,
+        "address": "경기도 성남시 수정구 달래내로 22",
+        "displayLatitude": null,
+        "displayLongitude": null,
+        "poiId": "36khp2h5fjcfcm5nqhe3",
+        "poiSubId": null,
+        "poiProvider": ""
+      },
+      "nativeWindowStart": "2026-11-06T06:25:57.315326+00:00",
+      "nativeWindowEnd": "2026-11-06T06:27:04.397335+00:00",
+      "auditedWindowSeconds": 67.082009,
+      "timedHoldSeconds": 52.06237458400001,
+      "vehicles": {
+        "emulator-5570": {
+          "sourceToGuidanceMeters": 28.071087102758,
+          "nativeIdentityMatched": true,
+          "routeRequests": 1,
+          "observedProcessPid": "24303",
+          "serviceEpoch": 934752,
+          "nativeScreenSamples": 35,
+          "maxSampleGapSeconds": 2.413885
+        },
+        "emulator-5572": {
+          "sourceToGuidanceMeters": 28.071087102758,
+          "nativeIdentityMatched": true,
+          "routeRequests": 1,
+          "observedProcessPid": "5768",
+          "serviceEpoch": 1725778,
+          "nativeScreenSamples": 34,
+          "maxSampleGapSeconds": 2.540818
+        }
+      },
+      "pendingAndRejectedRoutes": 0
+    },
+    "stop-reconnect": {
+      "routeCounts": {
+        "emulator-5570": 0,
+        "emulator-5572": 0
+      },
+      "nativeScreenSeconds": 58.896291584000004,
+      "revision": 3
+    },
+    "cold-resume": {
+      "routeCounts": {
+        "emulator-5570": 0,
+        "emulator-5572": 0
+      },
+      "nativeScreenSeconds": 62.53109720799999,
+      "revision": 3
+    }
+  },
+  "verdict": "PASS"
+}

@@ -1,0 +1,20 @@
+{
+  "at": "2026-11-06T06:10:26.159022+00:00",
+  "sourceHead": "a26b9419804874052329001ad86e60ff1bccb42c",
+  "runtimeStartupHead": "72b778d69651a2b6e836e5bada4246f8d16a3633",
+  "reason": "Only tests/docs changed after installation; production inputs and APK are byte-identical. Original startup/install records retained.",
+  "productionDelta": [],
+  "apkSha256": "5845c358d2a63c4ead083c699d94446d0353f3fcedc92f6afb8c0521832cc35a",
+  "freeze": "../builder/freeze-2/manifest.json",
+  "originalInstalledRecord": "installed.json",
+  "devices": {
+    "emulator-5570": {
+      "installedApkSha256": "5845c358d2a63c4ead083c699d94446d0353f3fcedc92f6afb8c0521832cc35a",
+      "user": 10
+    },
+    "emulator-5572": {
+      "installedApkSha256": "5845c358d2a63c4ead083c699d94446d0353f3fcedc92f6afb8c0521832cc35a",
+      "user": 10
+    }
+  }
+}

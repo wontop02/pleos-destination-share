@@ -1,0 +1,12 @@
+{"serial": "emulator-5570", "mode": "bookmarks", "status": "OBSERVED", "reason": "allowlisted_public_bookmark_fields_observed", "seconds": 2.1691260839999997, "routeRequests": 0, "saved": "cafe-source.json"}
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 2.0936747920000003, "routeRequests": 0, "saved": "cafe-before-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 2.1586777919999998, "routeRequests": 0, "saved": "cafe-before-emulator-5572.json"}
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 1.9202622499999997, "routeRequests": 0, "saved": "cafe-pending-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 1.735431958, "routeRequests": 0, "saved": "cafe-pending-emulator-5572.json"}
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 1.820696417, "routeRequests": 0, "saved": "cafe-rejected-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 1.705843792, "routeRequests": 0, "saved": "cafe-rejected-emulator-5572.json"}
+cafe pending/reject0 routes and native target unchanged
+cafe accepted and place-confirmed; leaving native screen 70s
+{"serial": "emulator-5570", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 11.590300916999999, "routeRequests": 0, "saved": "cafe-accepted-emulator-5570.json"}
+{"serial": "emulator-5572", "mode": "query", "status": "OBSERVED", "reason": "actual_destination_callback_received", "seconds": 8.447183125, "routeRequests": 0, "saved": "cafe-accepted-emulator-5572.json"}
+cafe full native identity confirmed, source retained, one route each, native screen stable

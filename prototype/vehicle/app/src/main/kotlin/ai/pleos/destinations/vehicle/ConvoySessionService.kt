@@ -137,7 +137,8 @@ class ConvoySessionService : Service() {
             session.proposalBusy -> "제안 응답 확인 중 · 순정 안내 유지"
             session.hasProposalLease && !session.hasProposalOperation -> "제안 대기 · 전원 수락 전 안내 유지"
             session.hasProposalLease -> when (state.applying) {
-                ai.pleos.destinations.core.ApplyPhase.CONFIRMED -> "순정 목적지 일치 확인"
+                ai.pleos.destinations.core.ApplyPhase.CONFIRMED -> if (state.confirmationKind == ai.pleos.destinations.core.DestinationKind.PLEOS_PLACE)
+                    "선택한 장소로 목적지 설정 확인" else "순정 목적지 좌표 일치 확인"
                 ai.pleos.destinations.core.ApplyPhase.FAILED -> "순정 반영 실패 · 직접 재시도 필요"
                 ai.pleos.destinations.core.ApplyPhase.TIMED_OUT -> "순정 확인 시간 초과 · 직접 재시도 필요"
                 ai.pleos.destinations.core.ApplyPhase.REQUESTED -> "수락 확정 · 순정 요청 전송"
@@ -147,7 +148,8 @@ class ConvoySessionService : Service() {
             state.automatic == AutomaticMode.LEADER -> if (state.sharing) "목적지 변경 공유 중" else "순정 목적지 변경 대기"
             state.shared == null -> "공유 목적지 대기 · 순정 안내 유지"
             else -> when (state.applying) {
-                ai.pleos.destinations.core.ApplyPhase.CONFIRMED -> "순정 목적지 일치 확인"
+                ai.pleos.destinations.core.ApplyPhase.CONFIRMED -> if (state.confirmationKind == ai.pleos.destinations.core.DestinationKind.PLEOS_PLACE)
+                    "선택한 장소로 목적지 설정 확인" else "순정 목적지 좌표 일치 확인"
                 ai.pleos.destinations.core.ApplyPhase.REQUESTED -> "순정 내비 요청 전송 · 일치 확인 전"
                 ai.pleos.destinations.core.ApplyPhase.ROUTING -> "경로 탐색 중 · 일치 확인 전"
                 ai.pleos.destinations.core.ApplyPhase.VERIFYING -> "실제 순정 목적지 확인 중"

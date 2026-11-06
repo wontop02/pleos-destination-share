@@ -3,6 +3,7 @@ package ai.pleos.destinations.vehicle
 import ai.pleos.destinations.core.AutomaticMode
 import ai.pleos.destinations.core.ApplyPhase
 import ai.pleos.destinations.core.Destination
+import ai.pleos.destinations.core.DestinationKind
 import ai.pleos.destinations.core.NavigationGateway
 import ai.pleos.destinations.core.NativeConnection
 import ai.pleos.destinations.core.VehicleCoordinator
@@ -30,6 +31,7 @@ class VehicleSession(
 ) {
     private val observers = linkedSetOf<(VehicleSession) -> Unit>()
     val coordinator = VehicleCoordinator(gateway, clock, { emit() }, ::publish, evidence)
+    val savedPlaces = (gateway as? SavedPlacesGateway)?.let { SavedPlacesController(it, clock, ::emit) }
     val state: VehicleState get() = coordinator.state
     var credentials: RoomCredentials? = null; private set
     var busy = false; private set
@@ -70,7 +72,12 @@ class VehicleSession(
 
     fun observe(observer: (VehicleSession) -> Unit) { observers.add(observer); observer(this) }
     fun removeObserver(observer: (VehicleSession) -> Unit) { observers.remove(observer) }
-    private fun emit() { observers.toList().forEach { it(this) } }
+    private fun emit() {
+        savedPlaces?.scope(credentials?.takeIf { state.roomConnected && !busy && !leaving && !closed }?.let {
+            PlaceScope(it.roomId, it.memberId, coordinator.roomEpoch)
+        })
+        observers.toList().forEach { it(this) }
+    }
     fun start() {
         if (started || closed) return
         started = true
@@ -293,8 +300,14 @@ class VehicleSession(
         emit()
     }
 
+    fun proposeSelectedPlace(reason: String) {
+        val target = savedPlaces?.state?.selected ?: return
+        propose(target, reason)
+    }
+
     fun propose(target: Destination, reason: String) {
         val identity = credentials ?: return; val api = client ?: return
+        if (target.kind == DestinationKind.PLEOS_PLACE && savedPlaces?.state?.selected !== target) return
         if (!canPropose || !target.canRequestRoute || reason.isBlank() || reason.length > 200 || reason.any { it.code < 32 || it.code == 127 }) return
         val id = ByteArray(12).also { SecureRandom().nextBytes(it) }.joinToString("") { "%02x".format(it.toInt() and 255) }
         val revision = state.revision
@@ -361,6 +374,7 @@ class VehicleSession(
     /** Fences pending I/O before closing transports, SDK listeners, timers, and consent. */
     fun stopAutomatic() {
         if (closed) return
+        savedPlaces?.cancel()
         lifecycleEpoch += 1; pendingAutomatic = false
         consent = null; proposalBusy = false; proposalDeadline = 0
         proposalMessage = "동행 중지 · 제안 동의와 적용 권한 종료 · 순정 안내 유지"
@@ -397,6 +411,7 @@ class VehicleSession(
     fun tick() {
         if (closed) return
         coordinator.tick()
+        savedPlaces?.tick()
         consent?.let { live ->
             val deadline = if (live.issued) live.operationDeadline else live.deadline
             if (clock() >= deadline) {
@@ -412,6 +427,7 @@ class VehicleSession(
         if (state.automatic == AutomaticMode.OFF && consent?.issued != true) coordinator.confirmationSnapshot()?.let { pending ->
             credentials?.let { PendingConfirmationCache.save(it.roomId, it.memberId, pending) }
         }
+        savedPlaces?.cancel()
         closed = true; lifecycleEpoch += 1; pendingAutomatic = false; consent = null; proposalBusy = false
         stopFeed(); temporaryClient?.close(); temporaryClient = null
         coordinator.stop(); observers.clear(); workers.shutdownNow()

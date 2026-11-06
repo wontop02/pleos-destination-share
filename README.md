@@ -37,3 +37,5 @@ node harness/cli.js status --repo-root . --run demo
 ```
 
 예제 이슈는 가상 자료입니다. 로컬 큐는 기존 harness/docs 정책과 `.harness/` 체크포인트를 유지합니다. 제품 이슈는 총괄이 직접 관리하며 추가 하네스 자동화가 앱 개발을 막지 않습니다. 명령과 복구는 [로컬 큐 사용법](docs/harness/queue.md)을 따릅니다.
+
+저장한 일반 장소의 명시 선택·제안과 장소/좌표 확인 의미는 [일반 장소 확인 계약](docs/product/poi-place-confirmation.md)에 기록한다. 실제 차량 증거와 로컬 회귀 결과를 구분한다.

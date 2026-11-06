@@ -40,13 +40,13 @@ function personName(body) {
   return body.name.trim();
 }
 // Optional Pleos fields preserve the original three-field destination response for v1 clients.
-function destinationBody(body) {
+function destinationBody(body, { allowPlace = false } = {}) {
   const keys = body && typeof body === 'object' && !Array.isArray(body) ? Object.keys(body) : [];
   const expectedRevision = body?.expectedRevision;
   if (expectedRevision !== undefined && (!Number.isSafeInteger(expectedRevision) || expectedRevision < 0)) {
     reject(400, 'invalid_destination', '목적지 버전이 올바르지 않습니다.');
   }
-  const allowed = ['name', 'latitude', 'longitude', 'pleos', 'expectedRevision'];
+  const allowed = ['name', 'latitude', 'longitude', 'pleos', 'expectedRevision', 'kind', 'source'];
   const coordinate = (value, min, max) => typeof value === 'number' && Number.isFinite(value) && value >= min && value <= max;
   const text = (value, max, empty = false) => typeof value === 'string' && value.length <= max &&
     (empty || !!value.trim()) && !/[\u0000-\u001f\u007f]/u.test(value);
@@ -70,8 +70,20 @@ function destinationBody(body) {
     }
     pleos = { ...value };
   }
+  const kind = Object.hasOwn(body, 'kind') ? body.kind : 'exact_point';
+  if (!['exact_point', 'pleos_place'].includes(kind) ||
+      (kind === 'exact_point' && Object.hasOwn(body, 'source'))) {
+    reject(400, 'invalid_destination', '목적지 확인 방식이 올바르지 않습니다.');
+  }
+  if (kind === 'pleos_place' && (!allowPlace || body.source !== 'pleos_bookmark' ||
+      !pleos || pleos.poiProvider !== '' || !pleos.poiId.trim() || pleos.poiId !== pleos.poiId.trim() ||
+      (pleos.poiSubId !== null && (!pleos.poiSubId.trim() || pleos.poiSubId !== pleos.poiSubId.trim())) ||
+      !pleos.address.trim() || body.name !== body.name.trim())) {
+    reject(400, 'invalid_destination', '지원하는 저장 장소의 전체 정보가 필요합니다.');
+  }
   return { destination: { name: body.name.trim(), latitude: body.latitude, longitude: body.longitude,
-    ...(pleos === undefined ? {} : { pleos }) }, expectedRevision };
+    ...(pleos === undefined ? {} : { pleos }),
+    ...(kind === 'pleos_place' ? { kind, source: body.source } : {}) }, expectedRevision };
 }
 function bearer(req) {
   const match = /^Bearer ([A-Za-z0-9_-]{43})$/.exec(req.headers.authorization ?? '');
@@ -365,7 +377,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
             !Number.isSafeInteger(body.expectedRevision) || body.expectedRevision < 0 ||
             typeof body.reason !== 'string' || !body.reason.trim() || body.reason.length > 200 ||
             /[\u0000-\u001f\u007f]/u.test(body.reason)) reject(400, 'invalid_proposal', '제안 ID·버전·이유를 확인해 주세요.');
-        const { destination } = destinationBody(body.destination);
+        const { destination } = destinationBody(body.destination, { allowPlace: true });
         if (!destination?.pleos?.poiId.trim() || destination.pleos.poiSubId === '') {
           reject(400, 'invalid_proposal', '적용 가능한 순정 POI 후보가 필요합니다.');
         }

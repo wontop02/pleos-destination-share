@@ -1,0 +1,45 @@
+{
+  "sourceHead": "a26b9419804874052329001ad86e60ff1bccb42c",
+  "argv": [
+    "/private/tmp/pleos-vehicle-tools-20261105/gradle/gradle-8.11.1/bin/gradle",
+    "--no-daemon",
+    "--offline",
+    "--max-workers=1",
+    "-Dorg.gradle.jvmargs=-Xmx768m -XX:MaxMetaspaceSize=512m -Dfile.encoding=UTF-8",
+    "-Pkotlin.compiler.execution.strategy=in-process",
+    ":core:test",
+    ":app:testDebugUnitTest",
+    ":app:assembleDebug",
+    ":app:lintDebug"
+  ],
+  "cwd": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/verifier/independent-build-a26b941/source/prototype/vehicle",
+  "exitCode": 0,
+  "timedOut": false,
+  "timeoutSeconds": 240,
+  "elapsedSeconds": 97.498,
+  "logSha256": "5e9aacfd3bf3f30ba365874184c416b33cffe03e48374b6b766bf758e51a28c9",
+  "isolatedArchive": true,
+  "configuredEnvironmentPrinted": false,
+  "junit": {
+    "core": {
+      "tests": 93,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 59,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "lint": {
+    "Warning": 6
+  },
+  "apkSha256": "5d87bd26483beafb7d57cc2a7cb3758e2e791dd80850853b40373e274537997a",
+  "apkMatchesFrozenRuntime": false,
+  "worktreeHeadAfter": "a26b9419804874052329001ad86e60ff1bccb42c",
+  "worktreeStatusAfter": "",
+  "inputHashesUnchangedAfter": true
+}

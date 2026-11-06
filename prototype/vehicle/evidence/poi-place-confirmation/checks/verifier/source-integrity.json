@@ -1,0 +1,555 @@
+{
+  "base": "ff3e6a15067ee8285c83f318ec715899ed3f4364",
+  "head": "72b778d69651a2b6e836e5bada4246f8d16a3633",
+  "actualHead": "72b778d69651a2b6e836e5bada4246f8d16a3633",
+  "worktreeStatus": "",
+  "baseTracked": 504,
+  "headTracked": 510,
+  "unchangedBasePaths": 486,
+  "modifiedBasePaths": [
+    "DESIGN.md",
+    "GLOSSARY.md",
+    "README.md",
+    "prototype/server.mjs",
+    "prototype/vehicle/README.md",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/ConvoySessionService.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/EvidenceJournal.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/NaviDestinationNormalizer.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PleosNavigationGateway.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/RoomProtocol.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehicleSession.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/NaviDestinationNormalizerTest.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/RoomProtocolTest.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/SdkRouteMappingTest.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VehicleProposalSessionTest.kt",
+    "prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/Destination.kt",
+    "prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/VehicleCoordinator.kt"
+  ],
+  "addedPaths": [
+    "docs/product/poi-place-confirmation.md",
+    "prototype/test/poi-place-confirmation.test.mjs",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/SavedPlaces.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/SavedPlacesTest.kt",
+    "prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/PlaceIntentSafetyTest.kt",
+    "prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/SelectedPlaceConfirmationTest.kt"
+  ],
+  "oldEvidencePaths": 411,
+  "oldEvidenceModified": [],
+  "manifestChangedPathsMatchesDiff": true,
+  "sourceInputCount": 45,
+  "sourceHashMismatches": [],
+  "frozenDiffMatchesGitDiff": true,
+  "frozenDiffSha256": "af5b803dfa540da53dc41df3e5ce8aa64a06197a5e1860bd49b6905181f4bc1e",
+  "matcherBodyIdentical": true,
+  "matcherSha256WithoutTrailingNewline": "68f2e65204ff887967ca57b3d100768267da9f72f01980da79ac1c5af9930d91",
+  "matcherSha256WithTrailingNewline": "2c1a1d0e786db9dd52211638984fd48b936c67b24b996bc1ff1923445dabb4b5",
+  "apkSha256": "5845c358d2a63c4ead083c699d94446d0353f3fcedc92f6afb8c0521832cc35a",
+  "sourceManifestSha256": "4087c75a2d5abb3021cf981ae6dc177162104bca9b1318dcb3616f40df82e056",
+  "frozenJUnit": {
+    "core": {
+      "files": 5,
+      "tests": 93,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "files": 8,
+      "tests": 59,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "lintIssues": {
+    "Warning": 6
+  },
+  "diffCheck": "",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-r",
+        "-z",
+        "ff3e6a15067ee8285c83f318ec715899ed3f4364"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.039
+    },
+    {
+      "argv": [
+        "git",
+        "ls-tree",
+        "-r",
+        "-z",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.023
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:DESIGN.md"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:GLOSSARY.md"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.025
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:README.md"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:docs/product/poi-place-confirmation.md"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/server.mjs"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/test/poi-place-confirmation.test.mjs"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/README.md"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/build.gradle.kts"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/androidTest/AndroidManifest.xml"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/androidTest/kotlin/ai/pleos/destinations/vehicle/NaviSdkProbe.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.013
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/main/AndroidManifest.xml"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/ConvoySessionService.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/EvidenceJournal.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.018
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/NaviDestinationNormalizer.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.017
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PendingConfirmationCache.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.013
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PleosNavigationGateway.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PrototypePlaces.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/RoomHttpClient.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/RoomProtocol.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/SavedPlaces.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/SecureSessionStore.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehicleSession.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/main/res/values/styles.xml"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/main/res/xml/data_extraction_rules.xml"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/main/res/xml/network_security_config.xml"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.021
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/NaviDestinationNormalizerTest.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/PendingConfirmationCacheTest.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/RoomHttpClientTest.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/RoomProtocolTest.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/SavedPlacesTest.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.013
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/SdkRouteMappingTest.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VehicleProposalSessionTest.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VehicleSessionTest.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/build.gradle.kts"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/core/build.gradle.kts"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.013
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/Destination.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/NavigationGateway.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.013
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/VehicleCoordinator.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.013
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/PlaceIntentSafetyTest.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.013
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/SelectedPlaceConfirmationTest.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/VehicleAutomationTest.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/VehicleCoordinatorTest.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/VehicleProposalProtectionTest.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/settings.gradle.kts"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.015
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "ff3e6a15067ee8285c83f318ec715899ed3f4364:prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/Destination.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.016
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633:prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/Destination.kt"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.018
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.014
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.043
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "ff3e6a15067ee8285c83f318ec715899ed3f4364",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.029
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "ff3e6a15067ee8285c83f318ec715899ed3f4364",
+        "72b778d69651a2b6e836e5bada4246f8d16a3633"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.024
+    }
+  ]
+}

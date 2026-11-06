@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/create-room.py", line 8, in <module>
+    q.find(s,'로컬 서버 주소');q.U['field'](s,'로컬 서버 주소','http://127.0.0.1:4188')
+  File "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/root/qa.py", line 79, in find
+    raise RuntimeError('control not found: '+label)
+RuntimeError: control not found: 로컬 서버 주소

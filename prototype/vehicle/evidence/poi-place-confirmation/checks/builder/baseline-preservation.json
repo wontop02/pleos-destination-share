@@ -1,0 +1,29 @@
+{
+  "baselineTracked": 504,
+  "unchanged": 486,
+  "changed": [
+    "DESIGN.md",
+    "GLOSSARY.md",
+    "README.md",
+    "prototype/server.mjs",
+    "prototype/vehicle/README.md",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/ConvoySessionService.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/EvidenceJournal.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/NaviDestinationNormalizer.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PleosNavigationGateway.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/RoomProtocol.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehicleSession.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/NaviDestinationNormalizerTest.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/RoomProtocolTest.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/SdkRouteMappingTest.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VehicleProposalSessionTest.kt",
+    "prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/Destination.kt",
+    "prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/VehicleCoordinator.kt"
+  ],
+  "missing": [],
+  "unownedChanges": [],
+  "oldEvidenceTracked": 411,
+  "oldEvidenceChanged": [],
+  "strictMatcherSha256": "68f2e65204ff887967ca57b3d100768267da9f72f01980da79ac1c5af9930d91"
+}

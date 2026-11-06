@@ -1,0 +1,12 @@
+✔ selected bookmark meaning and immutable source survive authenticated proposal, unanimous commit and reconnect SSE (62.454292ms)
+✔ direct native sharing rejects selected meaning while legacy and explicit exact points stay compatible (19.131209ms)
+✔ unknown or missing kind/source, incomplete identity and invalid geography fail closed before proposal creation (26.445958ms)
+✔ reject, expiry and stale acceptance never commit a selected place; later candidates preserve accepted meaning (14.077667ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 296.112333

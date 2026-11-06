@@ -1,0 +1,7 @@
+{
+  "exitCode": 1,
+  "error": "TypeError: extractall() got an unexpected keyword argument 'filter'",
+  "reason": "Host Python tarfile lacks the filter parameter.",
+  "gradleStarted": false,
+  "fix": "Validate all trusted Git archive members as ordinary relative files/directories, then extract using the supported API."
+}

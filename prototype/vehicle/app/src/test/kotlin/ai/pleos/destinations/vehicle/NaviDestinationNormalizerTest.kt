@@ -45,6 +45,7 @@ class NaviDestinationNormalizerTest {
     @Test fun realPoiFieldsAndNullableSubIdArePreservedWithoutFallback() {
         val value = empty().copy(name = "42dot", latitude = 37.48544722, longitude = 127.03636666,
             address = "서울시 강남구 남부순환로 2621", poiId = "36khp37hh8gqcm5nqhe5", poiSubId = "0")
+        assertEquals(NativeDestinationResult.Invalid, NaviDestinationNormalizer.normalize(value.copy(name = " ${value.name}")))
         val result = NaviDestinationNormalizer.normalize(value) as NativeDestinationResult.Present
         assertTrue(result.destination.canRequestRoute)
         assertEquals("0", result.destination.pleos!!.poiSubId)

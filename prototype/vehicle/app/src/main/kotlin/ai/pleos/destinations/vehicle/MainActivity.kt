@@ -24,6 +24,7 @@ import ai.pleos.destinations.core.ApplyPhase
 import ai.pleos.destinations.core.AutomaticMode
 import ai.pleos.destinations.core.CurrentDestination
 import ai.pleos.destinations.core.Destination
+import ai.pleos.destinations.core.DestinationKind
 import ai.pleos.destinations.core.NativeConnection
 import ai.pleos.destinations.core.VehicleState
 import java.text.DateFormat
@@ -77,6 +78,13 @@ class MainActivity : Activity() {
     private lateinit var rejectButton: Button
     private lateinit var retryProposalButton: Button
     private lateinit var resetProposalButton: Button
+    private lateinit var savedPlacesText: TextView
+    private lateinit var savedPlacesButton: Button
+    private lateinit var cancelPlacesButton: Button
+    private var pickerDialog: AlertDialog? = null
+    private var pickerRequested = false
+    private var useSavedPlace = false
+    private var shownSnapshot = -1L
     private var selectedPlace = 0
     private var displayedProposal: DestinationProposal? = null
     private var afterNotificationPermission: (() -> Unit)? = null
@@ -87,6 +95,9 @@ class MainActivity : Activity() {
         bound = bindService(Intent(this, ConvoySessionService::class.java), connection, BIND_AUTO_CREATE)
     }
     override fun onStop() {
+        pickerRequested = false
+        val oldDialog = pickerDialog; pickerDialog = null; oldDialog?.dismiss()
+        service?.manual { it.savedPlaces?.cancel() }
         service?.detachUi(observer); service = null
         if (bound) { unbindService(connection); bound = false }
         inviteInput.text.clear()
@@ -141,7 +152,7 @@ class MainActivity : Activity() {
         currentText.text = when (val current = state.current) {
             CurrentDestination.Unknown -> "현재 목적지 미조회"
             CurrentDestination.Loading -> "현재 목적지 조회 중"
-            is CurrentDestination.Present -> destinationText(current.value) + "\n조회 시각 " + time(current.observedAt)
+            is CurrentDestination.Present -> destinationText(current.value, showMeaning = false) + "\n조회 시각 " + time(current.observedAt)
             is CurrentDestination.Absent -> "순정 목적지 없음 · 실제 조회 응답 확인"
             is CurrentDestination.Failed -> "목적지 조회 실패 · ${current.reason}"
         }
@@ -166,7 +177,9 @@ class MainActivity : Activity() {
         val p = session?.proposal; displayedProposal = p
         val accepted = session?.acceptedProposal
         proposalText.text = p?.let { value ->
-            "후보 ${value.destination.name}\n이유 ${value.reason}\n제안자 ${value.proposer.name}\n" +
+            "후보 ${value.destination.name}\n${value.destination.pleos?.address}\n" +
+                (if (value.destination.kind == DestinationKind.PLEOS_PLACE) "선택한 장소 확인 · 안내 지점은 차량별로 다를 수 있습니다.\n" else "좌표 일치 확인 방식\n") +
+                "이유 ${value.reason}\n제안자 ${value.proposer.name}\n" +
                 value.responses.joinToString(" · ") { vote -> "${vote.member.name}: ${when (vote.response) { "accepted" -> "수락"; "rejected" -> "거절"; else -> "대기" }}" } +
                 "\n제안 버전 ${value.version} · 최대 120초 응답"
         } ?: "진행 중인 제안 없음 · 현재 순정 안내 유지"
@@ -175,12 +188,24 @@ class MainActivity : Activity() {
         proposalStatus.text = if (p != null && accepted != null && p.status == "accepted" && p.id == accepted.id &&
             accepted.acceptedRevision == state.revision && accepted.destination == state.shared && state.roomConnected &&
             state.applying == ApplyPhase.CONFIRMED && lastConfirmedAt != null) {
-            "순정 목적지 일치 확인 완료\n마지막 확인 시각 ${time(lastConfirmedAt)}"
+            "${confirmationLabel(state)}\n마지막 확인 시각 ${time(lastConfirmedAt)}"
         } else {
             (session?.proposalMessage ?: "공유방 연결 후 제안할 수 있습니다.") +
                 if (accepted?.acceptedRevision == state.revision && p?.status != "pending") "\n${state.message}" else ""
         }
-        proposeButton.isEnabled = session?.canPropose == true
+        val places = session?.savedPlaces
+        savedPlacesText.text = places?.state?.message ?: "순정 내비 연결 후 저장한 장소를 불러와 주세요."
+        places?.state?.selected?.let { savedPlacesText.append("\n선택 원본\n${destinationText(it)}\n선택한 장소 확인 · 안내 좌표는 차량별로 다를 수 있습니다.") }
+        savedPlacesButton.text = if (places?.state?.phase == SavedPlacesPhase.READY) "저장한 장소 다시 선택 · 불러온 목록" else "저장한 장소 불러오기"
+        savedPlacesButton.isEnabled = places?.canLoad == true && session.canPropose
+        cancelPlacesButton.visibility = if (places?.state?.phase == SavedPlacesPhase.LOADING || places?.state?.selected != null) View.VISIBLE else View.GONE
+        if (pickerDialog != null && places?.state?.phase != SavedPlacesPhase.READY) {
+            val previous = pickerDialog; pickerDialog = null; previous?.dismiss()
+        }
+        if (pickerRequested && places?.state?.phase == SavedPlacesPhase.READY && pickerDialog == null && shownSnapshot != places.state.snapshot) {
+            shownSnapshot = places.state.snapshot; showSavedPlaces(places, places.state)
+        }
+        proposeButton.isEnabled = session?.canPropose == true && (!useSavedPlace || places?.state?.selected != null)
         placeButton.isEnabled = session?.proposalBusy != true
         reasonInput.isEnabled = session?.proposalBusy != true
         val responseEnabled = p != null && session.canRespond(p.id, p.version)
@@ -213,7 +238,29 @@ class MainActivity : Activity() {
     }
 
     private fun time(elapsed: Long): String = DateFormat.getTimeInstance().format(Date(System.currentTimeMillis() - (SystemClock.elapsedRealtime() - elapsed)))
-    private fun destinationText(value: Destination) = "${value.name}\n위도 ${value.latitude} · 경도 ${value.longitude}"
+    private fun confirmationLabel(state: VehicleState) = if (state.confirmationKind == DestinationKind.PLEOS_PLACE)
+        "선택한 장소로 목적지 설정 확인" else "순정 목적지 좌표 일치 확인"
+    private fun destinationText(value: Destination, showMeaning: Boolean = true) = "${value.name}\n${value.pleos?.address ?: "주소 없음"}\n위도 ${value.latitude} · 경도 ${value.longitude}" +
+        if (!showMeaning) "" else if (value.kind == DestinationKind.PLEOS_PLACE) "\n선택한 장소 원본 · 장소 확인 방식" else "\n좌표 일치 확인 방식"
+    private fun showSavedPlaces(controller: SavedPlacesController, snapshot: SavedPlacesState) {
+        pickerRequested = false
+        var selected = false
+        val choices = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(dp(16), dp(8), dp(16), dp(8)) }
+        val scroll = ScrollView(this).apply { addView(choices) }
+        val dialog = AlertDialog.Builder(this).setTitle("저장한 장소 선택").setView(scroll).setNegativeButton("선택 취소", null).create()
+        pickerDialog = dialog
+        snapshot.choices.forEach { place -> choices.button("${place.name}\n${place.pleos?.address}") {
+            selected = true
+            if (controller.select(snapshot.snapshot, place)) useSavedPlace = true
+            pickerDialog = null; dialog.dismiss()
+        } }
+        dialog.setOnDismissListener {
+            if (pickerDialog === dialog) pickerDialog = null
+            if (!selected) controller.cancel(snapshot.snapshot)
+        }
+        dialog.show()
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).apply { textSize = 20f; minHeight = resources.getDimensionPixelSize(R.dimen.button_height) }
+    }
     private fun dp(value: Int) = (value * resources.displayMetrics.density).toInt()
     private fun text(value: String, title: Boolean = false) = TextView(this).apply {
         text = value
@@ -259,14 +306,25 @@ class MainActivity : Activity() {
             placeButton = button("프로토타입 공개 장소 · ${PrototypePlaces.all[selectedPlace].name}") {
                 AlertDialog.Builder(this@MainActivity).setTitle("프로토타입 공개 장소 · 일반 검색 아님")
                     .setSingleChoiceItems(PrototypePlaces.all.map { it.name }.toTypedArray(), selectedPlace) { dialog, index ->
+                        useSavedPlace = false; service?.manual { it.savedPlaces?.cancel() }
                         selectedPlace = index; placeButton.text = "프로토타입 공개 장소 · ${PrototypePlaces.all[index].name}"; dialog.dismiss()
                     }.setNegativeButton("닫기", null).show()
+            }
+            addView(text("순정 내비에서 장소를 ☆로 저장한 뒤 돌아와 불러오세요. 이름과 주소를 확인해 선택하면 제안할 수 있습니다."))
+            savedPlacesText = text(""); savedPlacesText.accessibilityLiveRegion = View.ACCESSIBILITY_LIVE_REGION_POLITE; addView(savedPlacesText)
+            savedPlacesButton = button("저장한 장소 불러오기") {
+                pickerRequested = true; shownSnapshot = -1L; useSavedPlace = true
+                service?.manual { if (it.savedPlaces?.load() != true) pickerRequested = false }
+            }
+            cancelPlacesButton = button("장소 불러오기 / 선택 취소") {
+                pickerRequested = false; service?.manual { it.savedPlaces?.cancel() }
             }
             reasonInput = field("제안 이유 · 최대 200자", "동행 목적지를 함께 변경해요.")
             reasonInput.filters = arrayOf(android.text.InputFilter.LengthFilter(200))
             proposeButton = button("이 장소로 변경 제안") {
                 val target = PrototypePlaces.all[selectedPlace]; val reason = reasonInput.text.toString().trim()
-                proposalAction { it.propose(target, reason) }
+                val saved = useSavedPlace
+                proposalAction { if (saved) it.proposeSelectedPlace(reason) else it.propose(target, reason) }
             }
             acceptButton = button("제안 수락 · 전원 동의 시 반영") {
                 displayedProposal?.let { p -> proposalAction { it.respond(p.id, p.version, true) } }
@@ -284,7 +342,7 @@ class MainActivity : Activity() {
             autoStartButton = button("동행 시작") { automaticStart() }
             autoStopButton = button("동행·제안 중지") { service?.stopAutomatic() }
         }
-        card(root, "현재 순정 내비").apply {
+        card(root, "현재 순정 내비 · 실제 안내 지점").apply {
             nativeText = text(""); addView(nativeText)
             currentText = text(""); addView(currentText)
             connectButton = button("순정 내비 연결 / 다시 연결") { service?.manual { it.coordinator.connect() } }

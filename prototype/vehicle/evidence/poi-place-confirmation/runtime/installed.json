@@ -1,0 +1,51 @@
+{
+  "sourceHead": "72b778d69651a2b6e836e5bada4246f8d16a3633",
+  "devices": [
+    {
+      "serial": "emulator-5570",
+      "user": 10,
+      "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+      "appApkSha256": "5845c358d2a63c4ead083c699d94446d0353f3fcedc92f6afb8c0521832cc35a",
+      "driverApkSha256": "470c696a36d17c04089073a4ed4b6c33cd03e0630608601ee9d8085c29be7ad7",
+      "installArgv": [
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+        "-P",
+        "5041",
+        "-s",
+        "emulator-5570",
+        "install",
+        "--user",
+        "10",
+        "-t",
+        "-r",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-1/app-debug.apk"
+      ],
+      "installExitCode": 0,
+      "explicitAppStoppedBeforeInstall": true,
+      "reversePort": 4188
+    },
+    {
+      "serial": "emulator-5572",
+      "user": 10,
+      "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+      "appApkSha256": "5845c358d2a63c4ead083c699d94446d0353f3fcedc92f6afb8c0521832cc35a",
+      "driverApkSha256": "470c696a36d17c04089073a4ed4b6c33cd03e0630608601ee9d8085c29be7ad7",
+      "installArgv": [
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+        "-P",
+        "5041",
+        "-s",
+        "emulator-5572",
+        "install",
+        "--user",
+        "10",
+        "-t",
+        "-r",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-1/app-debug.apk"
+      ],
+      "installExitCode": 0,
+      "explicitAppStoppedBeforeInstall": true,
+      "reversePort": 4188
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 package ai.pleos.destinations.vehicle
 
 import ai.pleos.destinations.core.Destination
+import ai.pleos.destinations.core.DestinationKind
+import ai.pleos.destinations.core.PlaceSource
 import ai.pleos.destinations.core.PleosMetadata
 import org.json.JSONObject
 import org.junit.Assert.*
@@ -53,6 +55,37 @@ class RoomProtocolTest {
         val legacy = value.copy(pleos = null)
         assertFalse(RoomProtocol.destinationJson(legacy).has("pleos"))
         assertEquals(legacy, RoomProtocol.destination(RoomProtocol.destinationJson(legacy)))
+    }
+
+    @Test fun selectedModeRoundTripsAndUnknownOrUnscopedModesFailClosed() {
+        val selected = PrototypePlaces.all[0].copy(kind = DestinationKind.PLEOS_PLACE, source = PlaceSource.PLEOS_BOOKMARK)
+        val json = RoomProtocol.destinationJson(selected)
+        assertEquals(selected, RoomProtocol.destination(json))
+        assertEquals("pleos_place", json.getString("kind")); assertEquals("pleos_bookmark", json.getString("source"))
+        val changes: List<(JSONObject) -> Unit> = listOf(
+            { it.put("kind", "future") }, { it.put("kind", JSONObject.NULL) }, { it.put("kind", 2) },
+            { it.remove("kind") }, { it.remove("source") }, { it.put("source", "external") },
+            { it.put("kind", "exact_point") }, { it.getJSONObject("pleos").remove("poiProvider") },
+            { it.getJSONObject("pleos").remove("poiSubId") }, { it.getJSONObject("pleos").put("poiId", "") },
+            { it.getJSONObject("pleos").put("poiProvider", "Google") },
+        )
+        changes.forEach { change ->
+            val invalid = JSONObject(json.toString()); change(invalid)
+            assertThrows(Exception::class.java) { RoomProtocol.destination(invalid) }
+        }
+        val frame = pendingFrame(); frame.getJSONObject("proposal").put("destination", json)
+        assertEquals(selected, RoomProtocol.update(frame).proposal!!.destination)
+        frame.put("destination", json).put("revision", 1)
+        assertThrows(Exception::class.java) { RoomProtocol.update(frame) }
+        val p = frame.getJSONObject("proposal").put("status", "accepted").put("version", 2).put("acceptedRevision", 1).put("endedAt", 2000)
+        p.getJSONArray("responses").getJSONObject(1).put("response", "accepted").put("respondedAt", 2000)
+        assertEquals(selected, RoomProtocol.update(frame).destination)
+        frame.put("acceptedProposal", p).put("proposal", JSONObject.NULL)
+        assertEquals(selected, RoomProtocol.update(frame).acceptedProposal!!.destination)
+        frame.put("acceptedProposal", JSONObject.NULL)
+        assertThrows(Exception::class.java) { RoomProtocol.update(frame) }
+        val legacy = RoomProtocol.destinationJson(PrototypePlaces.all[0]); assertFalse(legacy.has("kind"))
+        assertEquals(DestinationKind.EXACT_POINT, RoomProtocol.destination(legacy).kind)
     }
 
     @Test fun baseUrlRejectsNonLoopbackCredentialsQueryFragmentAndRelativePaths() {

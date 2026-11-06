@@ -21,6 +21,8 @@ class EvidenceJournal(context: Context) {
                 .put("roomConnected", state.roomConnected).put("uiCount", uiCount)
                 .put("confirmedAtElapsed", state.confirmedAt ?: JSONObject.NULL)
                 .put("routingCompletedObserved", state.routingCompletedObserved)
+                .put("confirmationKind", state.confirmationKind?.wire ?: JSONObject.NULL)
+                .put("sharedKind", state.shared?.kind?.wire ?: JSONObject.NULL)
                 .put("proposalLease", proposalLease).put("proposalBusy", proposalBusy)
                 .put("proposalMessage", proposalMessage).put("proposalPublicationHeld", publicationHeld)
                 .put("acceptedProposalId", acceptedProposal?.id ?: JSONObject.NULL)

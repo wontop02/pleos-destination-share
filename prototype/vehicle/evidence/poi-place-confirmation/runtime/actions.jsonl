@@ -1,0 +1,140 @@
+{"hostAt": "2026-11-06T06:02:18.878540+00:00", "hostMonotonic": 0.05544075, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:04:49.973151+00:00", "hostMonotonic": 0.136195416, "event": "ownedUser10Restored", "serial": "emulator-5570", "previousUser": "0"}
+{"hostAt": "2026-11-06T06:05:02.930925+00:00", "hostMonotonic": 0.023712791, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:07:22.465829+00:00", "hostMonotonic": 0.027164875, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:08:04.144206+00:00", "hostMonotonic": 0.038541208, "event": "ownedVirtualDeviceReboot", "serial": "emulator-5570", "reason": "Activity service disappeared and virtual user10 repeatedly stopped before any AC5 case"}
+{"hostAt": "2026-11-06T06:09:26.618977+00:00", "hostMonotonic": 0.352328791, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:10:01.711804+00:00", "hostMonotonic": 0.042689708, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:10:12.032634+00:00", "hostMonotonic": 10.362795416, "event": "button", "serial": "emulator-5570", "label": "이 기기 연결 지우기"}
+{"hostAt": "2026-11-06T06:10:29.633628+00:00", "hostMonotonic": 27.963903875, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:10:42.765673+00:00", "hostMonotonic": 41.096034958, "event": "button", "serial": "emulator-5572", "label": "이 기기 연결 지우기"}
+{"hostAt": "2026-11-06T06:11:00.833267+00:00", "hostMonotonic": 59.16374775, "event": "button", "serial": "emulator-5570", "label": "대표 차량으로 공유방 만들기"}
+{"hostAt": "2026-11-06T06:11:42.049407+00:00", "hostMonotonic": 0.287415625, "event": "dedicatedReverseRestoredAfterReboot", "port": 4188, "serials": ["emulator-5570", "emulator-5572"]}
+{"hostAt": "2026-11-06T06:11:45.136462+00:00", "hostMonotonic": 2.972433791, "event": "button", "serial": "emulator-5570", "label": "대표 차량으로 공유방 만들기"}
+{"hostAt": "2026-11-06T06:11:48.709008+00:00", "hostMonotonic": 6.544219208, "event": "button", "serial": "emulator-5570", "label": "초대 정보 보기"}
+{"hostAt": "2026-11-06T06:11:54.096136+00:00", "hostMonotonic": 11.93137625, "event": "button", "serial": "emulator-5570", "label": "닫기"}
+{"hostAt": "2026-11-06T06:12:14.297695+00:00", "hostMonotonic": 32.133072958, "event": "button", "serial": "emulator-5572", "label": "공유방 참여"}
+{"hostAt": "2026-11-06T06:12:14.945676+00:00", "hostMonotonic": 32.781045875, "event": "freshRoomJoined", "roomId": "b2f7d4df3abf3c312f7f7a86", "port": 4188, "invitationTransferredInMemoryOnly": true}
+{"hostAt": "2026-11-06T06:12:24.592075+00:00", "hostMonotonic": 3.266495291, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:12:52.933781+00:00", "hostMonotonic": 31.60838875, "event": "button", "serial": "emulator-5570", "label": "프로토타입 공개 장소 · 42dot"}
+{"hostAt": "2026-11-06T06:12:56.216237+00:00", "hostMonotonic": 34.890875458, "event": "button", "serial": "emulator-5570", "label": "42dot"}
+{"hostAt": "2026-11-06T06:12:56.571822+00:00", "hostMonotonic": 35.24644775, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:12:59.766217+00:00", "hostMonotonic": 38.440872458, "event": "button", "serial": "emulator-5570", "label": "이 장소로 변경 제안"}
+{"hostAt": "2026-11-06T06:13:04.062173+00:00", "hostMonotonic": 42.736858458, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:13:07.146157+00:00", "hostMonotonic": 45.820868833, "event": "button", "serial": "emulator-5572", "label": "제안 수락 · 전원 동의 시 반영"}
+{"hostAt": "2026-11-06T06:13:32.845383+00:00", "hostMonotonic": 12.118421583, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "legacy-exact-actual-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:13:39.561820+00:00", "hostMonotonic": 6.686534125, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "legacy-exact-actual-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:13:43.112979+00:00", "hostMonotonic": 81.787942916, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:13:52.943354+00:00", "hostMonotonic": 91.618370875, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:15:45.441592+00:00", "hostMonotonic": 0.039847083, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:15:49.013555+00:00", "hostMonotonic": 3.6115945, "event": "button", "serial": "emulator-5570", "label": "동행 시작 · 자동 공유"}
+{"hostAt": "2026-11-06T06:15:49.367114+00:00", "hostMonotonic": 3.965124958, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:15:52.665262+00:00", "hostMonotonic": 7.26345475, "event": "button", "serial": "emulator-5572", "label": "자동 따르기 시작"}
+{"hostAt": "2026-11-06T06:16:22.895468+00:00", "hostMonotonic": 2.305637416, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "bookmarks", "stem": "cafe-source", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:16:22.901679+00:00", "hostMonotonic": 2.391959708, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:16:26.113960+00:00", "hostMonotonic": 5.604046875, "event": "button", "serial": "emulator-5570", "label": "저장한 장소 불러오기"}
+{"hostAt": "2026-11-06T06:16:31.341453+00:00", "hostMonotonic": 10.831561791, "event": "explicitSavedPlaceSelection", "serial": "emulator-5570", "name": "가든서비스", "label": "가든서비스\n경기도 성남시 수정구 창업로40번길 6"}
+{"hostAt": "2026-11-06T06:16:36.349475+00:00", "hostMonotonic": 2.262885583, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "cafe-before-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:16:38.675668+00:00", "hostMonotonic": 2.3076955, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "cafe-before-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:16:38.681942+00:00", "hostMonotonic": 18.172094583, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:16:41.715893+00:00", "hostMonotonic": 21.206082458, "event": "button", "serial": "emulator-5570", "label": "이 장소로 변경 제안"}
+{"hostAt": "2026-11-06T06:16:48.411225+00:00", "hostMonotonic": 2.090179875, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "cafe-pending-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:16:50.295419+00:00", "hostMonotonic": 1.866005625, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "cafe-pending-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:16:51.312363+00:00", "hostMonotonic": 30.802580833, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:16:54.328792+00:00", "hostMonotonic": 33.819060416, "event": "button", "serial": "emulator-5572", "label": "제안 거절 · 현재 안내 유지"}
+{"hostAt": "2026-11-06T06:16:57.371983+00:00", "hostMonotonic": 1.940862625, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "cafe-rejected-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:16:59.222329+00:00", "hostMonotonic": 1.830509125, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "cafe-rejected-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:17:08.082959+00:00", "hostMonotonic": 47.573312041, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:17:13.875443+00:00", "hostMonotonic": 53.365845291, "event": "button", "serial": "emulator-5570", "label": "이 장소로 변경 제안"}
+{"hostAt": "2026-11-06T06:17:15.300379+00:00", "hostMonotonic": 54.790775458, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:17:18.415545+00:00", "hostMonotonic": 57.906010958, "event": "button", "serial": "emulator-5572", "label": "제안 수락 · 전원 동의 시 반영"}
+{"hostAt": "2026-11-06T06:17:20.336830+00:00", "hostMonotonic": 59.827414416, "event": "nativeNavigationForeground", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:17:20.559645+00:00", "hostMonotonic": 60.050081416, "event": "nativeNavigationForeground", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:18:54.080647+00:00", "hostMonotonic": 11.912775375, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "cafe-accepted-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:19:02.917062+00:00", "hostMonotonic": 8.800310833, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "cafe-accepted-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:19:21.835011+00:00", "hostMonotonic": 181.326287375, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:19:35.337174+00:00", "hostMonotonic": 194.828531666, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:20:22.076034+00:00", "hostMonotonic": 4.397327583, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "bookmarks", "stem": "restaurant-source", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:20:22.080358+00:00", "hostMonotonic": 4.622605166, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:20:25.153542+00:00", "hostMonotonic": 7.695636958, "event": "button", "serial": "emulator-5572", "label": "저장한 장소 불러오기"}
+{"hostAt": "2026-11-06T06:20:29.941341+00:00", "hostMonotonic": 12.4834485, "event": "explicitSavedPlaceSelection", "serial": "emulator-5572", "name": "청계산담백미", "label": "청계산담백미\n경기도 성남시 수정구 달래내로 22"}
+{"hostAt": "2026-11-06T06:20:34.299101+00:00", "hostMonotonic": 2.175132791, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "restaurant-before-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:20:36.008841+00:00", "hostMonotonic": 1.694023875, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "restaurant-before-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:20:36.012626+00:00", "hostMonotonic": 18.554769375, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:20:38.935175+00:00", "hostMonotonic": 21.477354583, "event": "button", "serial": "emulator-5572", "label": "이 장소로 변경 제안"}
+{"hostAt": "2026-11-06T06:20:44.815376+00:00", "hostMonotonic": 1.699957916, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "restaurant-pending-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:20:46.804275+00:00", "hostMonotonic": 1.974591541, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "restaurant-pending-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:20:49.836803+00:00", "hostMonotonic": 32.37903075, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:20:52.840326+00:00", "hostMonotonic": 35.382600083, "event": "button", "serial": "emulator-5570", "label": "제안 거절 · 현재 안내 유지"}
+{"hostAt": "2026-11-06T06:20:55.514619+00:00", "hostMonotonic": 1.779357916, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "restaurant-rejected-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:20:57.335326+00:00", "hostMonotonic": 1.805539291, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "restaurant-rejected-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:21:02.127627+00:00", "hostMonotonic": 44.669946375, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:21:05.175430+00:00", "hostMonotonic": 47.717793291, "event": "button", "serial": "emulator-5572", "label": "이 장소로 변경 제안"}
+{"hostAt": "2026-11-06T06:23:37.912049+00:00", "hostMonotonic": 0.262364666, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:24:32.747888+00:00", "hostMonotonic": 0.070250375, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:24:37.080044+00:00", "hostMonotonic": 4.401890375, "event": "button", "serial": "emulator-5570", "label": "동행 시작 · 자동 공유"}
+{"hostAt": "2026-11-06T06:24:40.984150+00:00", "hostMonotonic": 8.30615675, "event": "restaurantRetryAfterEnvironmentRecovery", "sourceHead": "a26b9419804874052329001ad86e60ff1bccb42c", "originalAttemptPreserved": true}
+{"hostAt": "2026-11-06T06:24:44.742125+00:00", "hostMonotonic": 3.7376615, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "bookmarks", "stem": "restaurant-retry-source", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:24:44.747988+00:00", "hostMonotonic": 12.069879458, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:25:04.698985+00:00", "hostMonotonic": 32.021033458, "event": "button", "serial": "emulator-5572", "label": "저장한 장소 다시 선택 · 불러온 목록"}
+{"hostAt": "2026-11-06T06:25:10.106549+00:00", "hostMonotonic": 37.428623041, "event": "explicitSavedPlaceSelection", "serial": "emulator-5572", "name": "청계산담백미", "label": "청계산담백미\n경기도 성남시 수정구 달래내로 22"}
+{"hostAt": "2026-11-06T06:25:14.953308+00:00", "hostMonotonic": 1.423613958, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "restaurant-retry-before-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:25:17.008799+00:00", "hostMonotonic": 2.035522291, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "restaurant-retry-before-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:25:17.015202+00:00", "hostMonotonic": 44.3373235, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:25:20.066542+00:00", "hostMonotonic": 47.388686083, "event": "button", "serial": "emulator-5572", "label": "이 장소로 변경 제안"}
+{"hostAt": "2026-11-06T06:25:25.707367+00:00", "hostMonotonic": 0.980559333, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "restaurant-retry-pending-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:25:27.698826+00:00", "hostMonotonic": 1.972606958, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "restaurant-retry-pending-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:25:29.232921+00:00", "hostMonotonic": 56.555129666, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:25:33.896908+00:00", "hostMonotonic": 61.219170416, "event": "button", "serial": "emulator-5570", "label": "제안 거절 · 현재 안내 유지"}
+{"hostAt": "2026-11-06T06:25:36.508688+00:00", "hostMonotonic": 1.123336333, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "restaurant-retry-rejected-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:25:38.439996+00:00", "hostMonotonic": 1.912468625, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "restaurant-retry-rejected-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:25:43.107290+00:00", "hostMonotonic": 70.429566958, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:25:46.497857+00:00", "hostMonotonic": 73.820171291, "event": "button", "serial": "emulator-5572", "label": "이 장소로 변경 제안"}
+{"hostAt": "2026-11-06T06:25:48.142840+00:00", "hostMonotonic": 75.465147833, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:25:51.831515+00:00", "hostMonotonic": 79.153868708, "event": "button", "serial": "emulator-5570", "label": "제안 수락 · 전원 동의 시 반영"}
+{"hostAt": "2026-11-06T06:25:54.107890+00:00", "hostMonotonic": 81.430249, "event": "nativeNavigationForeground", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:25:54.315326+00:00", "hostMonotonic": 81.637703708, "event": "nativeNavigationForeground", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:27:05.397335+00:00", "hostMonotonic": 5.657318333, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "restaurant-retry-accepted-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:27:08.845934+00:00", "hostMonotonic": 3.420928916, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "restaurant-retry-accepted-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:27:22.208817+00:00", "hostMonotonic": 169.531783875, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:27:29.500769+00:00", "hostMonotonic": 176.8237975, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:27:51.574721+00:00", "hostMonotonic": 4.079588833, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:27:54.874808+00:00", "hostMonotonic": 7.379720333, "event": "button", "serial": "emulator-5570", "label": "동행·제안 중지"}
+{"hostAt": "2026-11-06T06:27:55.230300+00:00", "hostMonotonic": 7.735198, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:27:58.379229+00:00", "hostMonotonic": 10.884167333, "event": "button", "serial": "emulator-5572", "label": "동행·제안 중지"}
+{"hostAt": "2026-11-06T06:28:05.225047+00:00", "hostMonotonic": 17.730053958, "event": "button", "serial": "emulator-5570", "label": "순정 내비 연결 / 다시 연결"}
+{"hostAt": "2026-11-06T06:28:08.490999+00:00", "hostMonotonic": 20.996001541, "event": "button", "serial": "emulator-5570", "label": "공유방 다시 연결"}
+{"hostAt": "2026-11-06T06:28:14.241683+00:00", "hostMonotonic": 26.746727916, "event": "button", "serial": "emulator-5572", "label": "순정 내비 연결 / 다시 연결"}
+{"hostAt": "2026-11-06T06:28:17.705693+00:00", "hostMonotonic": 30.210847333, "event": "button", "serial": "emulator-5572", "label": "공유방 다시 연결"}
+{"hostAt": "2026-11-06T06:28:21.313423+00:00", "hostMonotonic": 33.818517, "event": "button", "serial": "emulator-5570", "label": "동행 시작 · 자동 공유"}
+{"hostAt": "2026-11-06T06:28:24.147946+00:00", "hostMonotonic": 36.653049291, "event": "button", "serial": "emulator-5572", "label": "자동 따르기 시작"}
+{"hostAt": "2026-11-06T06:28:25.144294+00:00", "hostMonotonic": 37.649398541, "event": "nativeNavigationForeground", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:28:25.611907+00:00", "hostMonotonic": 38.117033333, "event": "nativeNavigationForeground", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:29:21.135291+00:00", "hostMonotonic": 6.404711958, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:29:25.109733+00:00", "hostMonotonic": 10.379198125, "event": "button", "serial": "emulator-5570", "label": "동행·제안 중지"}
+{"hostAt": "2026-11-06T06:29:25.462032+00:00", "hostMonotonic": 10.731474583, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:29:29.004981+00:00", "hostMonotonic": 14.274469916, "event": "button", "serial": "emulator-5572", "label": "동행·제안 중지"}
+{"hostAt": "2026-11-06T06:29:32.672620+00:00", "hostMonotonic": 17.942119875, "event": "button", "serial": "emulator-5570", "label": "순정 내비 연결 / 다시 연결"}
+{"hostAt": "2026-11-06T06:29:35.879864+00:00", "hostMonotonic": 21.149395875, "event": "button", "serial": "emulator-5570", "label": "공유방 다시 연결"}
+{"hostAt": "2026-11-06T06:29:38.764594+00:00", "hostMonotonic": 24.034145958, "event": "button", "serial": "emulator-5572", "label": "순정 내비 연결 / 다시 연결"}
+{"hostAt": "2026-11-06T06:29:42.017601+00:00", "hostMonotonic": 27.287172, "event": "button", "serial": "emulator-5572", "label": "공유방 다시 연결"}
+{"hostAt": "2026-11-06T06:29:45.643764+00:00", "hostMonotonic": 30.913358625, "event": "button", "serial": "emulator-5570", "label": "동행 시작 · 자동 공유"}
+{"hostAt": "2026-11-06T06:29:48.442188+00:00", "hostMonotonic": 33.7117965, "event": "button", "serial": "emulator-5572", "label": "자동 따르기 시작"}
+{"hostAt": "2026-11-06T06:29:49.569173+00:00", "hostMonotonic": 34.838819958, "event": "nativeNavigationForeground", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:29:49.940144+00:00", "hostMonotonic": 35.20978025, "event": "nativeNavigationForeground", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:30:55.158848+00:00", "hostMonotonic": 100.408694333, "event": "explicitOwnAppColdStop", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:30:55.799747+00:00", "hostMonotonic": 101.049567833, "event": "explicitOwnAppColdStop", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:30:55.800451+00:00", "hostMonotonic": 101.050193166, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:30:58.791300+00:00", "hostMonotonic": 104.04075075, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:31:04.931768+00:00", "hostMonotonic": 110.180715166, "event": "button", "serial": "emulator-5570", "label": "동행 시작 · 자동 공유"}
+{"hostAt": "2026-11-06T06:31:07.831778+00:00", "hostMonotonic": 113.080542, "event": "button", "serial": "emulator-5572", "label": "자동 따르기 시작"}
+{"hostAt": "2026-11-06T06:31:09.085230+00:00", "hostMonotonic": 114.33392875, "event": "nativeNavigationForeground", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:31:09.685217+00:00", "hostMonotonic": 114.93388025, "event": "nativeNavigationForeground", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:32:05.024023+00:00", "hostMonotonic": 3.824145625, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "query", "stem": "cold-resume-actual-emulator-5570", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:32:07.873367+00:00", "hostMonotonic": 2.826879333, "event": "publicSdkProbe", "serial": "emulator-5572", "mode": "query", "stem": "cold-resume-actual-emulator-5572", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:32:31.828274+00:00", "hostMonotonic": 3.886923458, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:32:50.774178+00:00", "hostMonotonic": 22.83280375, "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-06T06:33:11.770684+00:00", "hostMonotonic": 3.111854375, "event": "publicSdkProbe", "serial": "emulator-5570", "mode": "bookmarks", "stem": "final-demo-cafe-source", "status": "OBSERVED"}
+{"hostAt": "2026-11-06T06:33:11.777231+00:00", "hostMonotonic": 43.835824125, "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-06T06:33:23.540304+00:00", "hostMonotonic": 55.598881291, "event": "button", "serial": "emulator-5570", "label": "저장한 장소 불러오기"}
+{"hostAt": "2026-11-06T06:33:28.417373+00:00", "hostMonotonic": 60.475929333, "event": "explicitSavedPlaceSelection", "serial": "emulator-5570", "name": "가든서비스", "label": "가든서비스\n경기도 성남시 수정구 창업로40번길 6"}

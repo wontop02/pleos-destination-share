@@ -1,0 +1,12 @@
+{
+  "pid": 5884,
+  "port": 4188,
+  "host": "127.0.0.1",
+  "argv": [
+    "/opt/homebrew/bin/node",
+    "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-21-poi-confirmation/prototype/server.mjs"
+  ],
+  "sourceHead": "72b778d69651a2b6e836e5bada4246f8d16a3633",
+  "serverSha256": "883f38356f2a8b3835b3e66f007eac9ad99a4584ddf6f7678cd3a28233d1ac8e",
+  "startedAt": "2026-11-06T05:55:20.751570+00:00"
+}

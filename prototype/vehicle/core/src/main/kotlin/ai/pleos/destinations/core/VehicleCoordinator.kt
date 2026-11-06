@@ -12,6 +12,8 @@ enum class AutomaticMode { OFF, LEADER, FOLLOWER }
 enum class ApplyPhase { IDLE, CONNECTING, REQUESTED, ROUTING, VERIFYING, CONFIRMED, FAILED, TIMED_OUT, CANCELLED }
 data class PendingRouteConfirmation(val id: Long, val revision: Long, val target: Destination,
     val deadline: Long, val routingCompletedObserved: Boolean)
+data class DestinationConfirmation(val kind: DestinationKind, val source: Destination,
+    val actual: Destination, val observedAt: Long)
 data class VehicleState(
     val connection: NativeConnection = NativeConnection.DISCONNECTED,
     val current: CurrentDestination = CurrentDestination.Unknown,
@@ -25,7 +27,11 @@ data class VehicleState(
     val confirmedAt: Long? = null,
     val routingCompletedObserved: Boolean = false,
     val automatic: AutomaticMode = AutomaticMode.OFF,
-)
+    val confirmation: DestinationConfirmation? = null,
+) {
+    val confirmationKind: DestinationKind? get() =
+        confirmation?.kind?.takeIf { applying == ApplyPhase.CONFIRMED && confirmedAt != null }
+}
 
 /**
  * The SDK has no request IDs or source timestamps. Keep one read in flight; discard a read
@@ -65,7 +71,11 @@ class VehicleCoordinator(
         val deadline: Long, var requested: Boolean = false, var nextPollAt: Long = Long.MAX_VALUE,
         val resumeOnly: Boolean = false, val earlierCompletionObserved: Boolean = false)
 
-    private fun update(next: VehicleState) { state = next; changed(next) }
+    private fun update(next: VehicleState) {
+        state = if (next.confirmedAt == null || next.applying != ApplyPhase.CONFIRMED ||
+            !next.roomConnected || next.confirmation?.source != next.shared) next.copy(confirmation = null) else next
+        changed(state)
+    }
     private fun trace(event: String, matched: Boolean? = null) = evidence(event, nativeEpoch, operation?.id ?: 0, matched)
     private fun retire() {
         nativeEpoch += 1 // Fence queued callbacks before asking the SDK to remove the listener.
@@ -322,7 +332,7 @@ class VehicleCoordinator(
             update(state.copy(message = "순정 POI 정보가 없는 목적지입니다. 대표 차량에서 다시 공유해 주세요.")); return
         }
         if (lastConfirmedRevision == state.revision &&
-            (state.current as? CurrentDestination.Present)?.value?.let { target.matchesNative(it) } == true) {
+            (state.current as? CurrentDestination.Present)?.value?.let { target.matchesRequestedDestination(it) } == true) {
             update(state.copy(message = "이 공유 목적지는 이미 일치를 확인했습니다. 다시 요청하지 않았습니다.")); return
         }
         operation = Operation(++nextId, roomEpoch, state.revision, target, clock() + 45_000)
@@ -417,7 +427,7 @@ class VehicleCoordinator(
             beginRead(if (operation != null) Purpose.VERIFY else pendingRead.purpose)
             return
         }
-        val lostConfirmation = state.applying == ApplyPhase.CONFIRMED && state.shared?.matchesNative(destination) != true
+        val lostConfirmation = state.applying == ApplyPhase.CONFIRMED && state.shared?.matchesRequestedDestination(destination) != true
         update(state.copy(current = CurrentDestination.Present(destination, clock()),
             applying = if (lostConfirmation) ApplyPhase.IDLE else state.applying,
             confirmedAt = if (lostConfirmation) null else state.confirmedAt))
@@ -437,7 +447,7 @@ class VehicleCoordinator(
             Purpose.VERIFY -> {
                 val active = operation ?: return
                 if (active.room != roomEpoch || active.revision != state.revision || !active.requested) return
-                val matched = active.target.matchesNative(destination)
+                val matched = active.target.matchesRequestedDestination(destination)
                 trace("destinationMatch", matched)
                 if (matched) {
                     lastConfirmedRevision = active.revision
@@ -445,7 +455,9 @@ class VehicleCoordinator(
                         active.deadline, state.routingCompletedObserved)
                     operation = null
                     update(state.copy(applying = ApplyPhase.CONFIRMED, confirmedAt = clock(),
-                        message = if (state.routingCompletedObserved) "순정 목적지 일치 확인 · 탐색 완료 이벤트 수신"
+                        confirmation = DestinationConfirmation(active.target.kind, active.target, destination, clock()),
+                        message = if (active.target.kind == DestinationKind.PLEOS_PLACE) "선택한 장소로 목적지 설정 확인 · 안내 지점은 차량별로 다를 수 있습니다."
+                            else if (state.routingCompletedObserved) "순정 목적지 일치 확인 · 탐색 완료 이벤트 수신"
                             else "순정 목적지 일치 확인 · 확인 시점에 탐색 완료 이벤트 미수신"))
                 } else {
                     active.nextPollAt = clock() + 2_000
@@ -453,7 +465,7 @@ class VehicleCoordinator(
                 }
             }
             Purpose.OBSERVE -> {
-                if (state.shared?.matchesNative(destination) != true) lastConfirmedRevision = -1
+                if (state.shared?.matchesRequestedDestination(destination) != true) lastConfirmedRevision = -1
                 if (state.automatic == AutomaticMode.LEADER) {
                     observedForPublish = destination; hasObservedForPublish = true
                     autoObserveAt = clock() + 15_000
@@ -466,6 +478,10 @@ class VehicleCoordinator(
     private fun publishObserved() {
         if (state.automatic != AutomaticMode.LEADER || !state.host || !state.roomConnected ||
             proposalPublicationHeld || state.sharing || !hasObservedForPublish || observedForPublish == state.shared) return
+        val observed = observedForPublish
+        // Publication coalescing is not confirmation authority. A fresh observation of the
+        // selected shared place must not rewrite its immutable source after reconnect/cold resume.
+        if (state.shared?.kind == DestinationKind.PLEOS_PLACE && observed != null && state.shared?.matchesRequestedDestination(observed) == true) return
         update(state.copy(sharing = true, message = "실제 순정 목적지 변경 자동 공유 중"))
         trace("automaticPublish")
         publish(roomEpoch, observedForPublish)

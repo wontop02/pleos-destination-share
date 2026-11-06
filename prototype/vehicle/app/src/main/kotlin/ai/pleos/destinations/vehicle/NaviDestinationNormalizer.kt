@@ -19,7 +19,7 @@ object NaviDestinationNormalizer {
             info.remainTime == 0 && info.tollFare == 0
         if (empty) return NativeDestinationResult.Absent
         return try {
-            NativeDestinationResult.Present(Destination(info.name.trim(), info.latitude, info.longitude,
+            NativeDestinationResult.Present(Destination(info.name, info.latitude, info.longitude,
                 PleosMetadata(info.poiId, info.poiSubId, info.address, info.poiProvider,
                     info.displayLatitude, info.displayLongitude)))
         } catch (_: IllegalArgumentException) { NativeDestinationResult.Invalid }

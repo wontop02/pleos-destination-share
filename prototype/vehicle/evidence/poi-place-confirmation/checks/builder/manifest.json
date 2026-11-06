@@ -1,0 +1,96 @@
+{
+  "base": "ff3e6a15067ee8285c83f318ec715899ed3f4364",
+  "head": "a26b9419804874052329001ad86e60ff1bccb42c",
+  "branch": "be/issue-21-poi-confirmation",
+  "apk": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/poi-place-confirmation-20261106/builder/freeze-2/app-debug.apk",
+  "apkSha256": "5845c358d2a63c4ead083c699d94446d0353f3fcedc92f6afb8c0521832cc35a",
+  "changedFiles": [
+    "DESIGN.md",
+    "GLOSSARY.md",
+    "README.md",
+    "docs/product/poi-place-confirmation.md",
+    "prototype/server.mjs",
+    "prototype/test/poi-place-confirmation.test.mjs",
+    "prototype/vehicle/README.md",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/ConvoySessionService.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/EvidenceJournal.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/NaviDestinationNormalizer.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PleosNavigationGateway.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/RoomProtocol.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/SavedPlaces.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehicleSession.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/NaviDestinationNormalizerTest.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/RoomProtocolTest.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/SavedPlacesTest.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/SdkRouteMappingTest.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VehicleProposalSessionTest.kt",
+    "prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/Destination.kt",
+    "prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/VehicleCoordinator.kt",
+    "prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/PlaceIntentSafetyTest.kt",
+    "prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/SelectedPlaceConfirmationTest.kt"
+  ],
+  "sourceFiles": 45,
+  "sourceManifestSha256": "a269f8461b0a5972c24516d0a1973c933443fb376ad7caae8177f2cb4abb3d8c",
+  "node": {
+    "scope": "targeted changed Node fixture",
+    "tests": 4,
+    "pass": 4,
+    "fail": 0,
+    "skipped": 0,
+    "commandArtifact": "../provenance-node.json",
+    "previousFullSuite": {
+      "head": "72b778d69651a2b6e836e5bada4246f8d16a3633",
+      "tests": 94,
+      "pass": 94,
+      "fail": 0,
+      "skipped": 0,
+      "commandArtifact": "../full-node.json",
+      "rerunAtCorrectedHead": false
+    }
+  },
+  "junit": {
+    "core": {
+      "tests": 93,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 59,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "lint": {
+    "Warning": 6
+  },
+  "nativeDriverChanged": false,
+  "actualDeviceValidation": "NOT RUN BY BUILDER: owned by root (AC5)",
+  "originalMatcherBodyUnchanged": true,
+  "strictMatcherSha256": "68f2e65204ff887967ca57b3d100768267da9f72f01980da79ac1c5af9930d91",
+  "status": "",
+  "previousHead": "72b778d69651a2b6e836e5bada4246f8d16a3633",
+  "previousFreeze": "freeze-1",
+  "correctionDeltaFiles": [
+    "docs/product/poi-place-confirmation.md",
+    "prototype/test/poi-place-confirmation.test.mjs",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/SavedPlacesTest.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/SdkRouteMappingTest.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VehicleProposalSessionTest.kt",
+    "prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/PlaceIntentSafetyTest.kt",
+    "prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/SelectedPlaceConfirmationTest.kt"
+  ],
+  "productionInputsUnchangedFromPrevious": true,
+  "apkIdenticalToPreviousFreeze": true,
+  "currentChecks": {
+    "vehicle": "../provenance-vehicle.json",
+    "node": "../provenance-node.json"
+  },
+  "currentCheckTiming": "Kotlin/Node tests and APK/lint executed after exact address corrections, followed only by a documentation provenance disclosure commit; no production or test inputs changed afterward.",
+  "firstRedProvenance": "Original RED omitted internal address spaces. Original RAW/freeze-1 remains immutable; corrected tests/docs use exact issue19 address bytes.",
+  "gradleRunsForCorrection": 1,
+  "appAssembleTask": "UP-TO-DATE; identical production APK, not a changed runtime artifact",
+  "oldFreezePreserved": true
+}
