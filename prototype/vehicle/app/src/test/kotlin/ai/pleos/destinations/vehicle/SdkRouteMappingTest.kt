@@ -1,6 +1,8 @@
 package ai.pleos.destinations.vehicle
 
 import ai.pleos.destinations.core.Destination
+import ai.pleos.destinations.core.DestinationKind
+import ai.pleos.destinations.core.PlaceSource
 import ai.pleos.destinations.core.PleosMetadata
 import org.junit.Assert.*
 import org.junit.Test
@@ -17,6 +19,18 @@ class SdkRouteMappingTest {
         assertEquals(value.pleos!!.address, sdk.address); assertEquals(value.pleos!!.poiProvider, sdk.poiProvider)
         assertNull(value.pleos!!.poiSubId)
         assertTrue(RoomProtocol.destinationJson(value).getJSONObject("pleos").isNull("poiSubId"))
+    }
+
+    @Test fun selectedPlaceRouteUsesTheOriginalBookmarkFieldsWithoutLearningTheObservedGuidancePoint() {
+        val selected = Destination("가든서비스", 37.41255277, 127.09591666,
+            PleosMetadata("36khp2h36p68cm5nqhec", null, "경기도 성남시 수정구 창업로40번길6", "", null, null),
+            DestinationKind.PLEOS_PLACE, PlaceSource.PLEOS_BOOKMARK)
+        val sdk = sdkRouteInfo(selected)
+        assertEquals(37.41255277, sdk.latitude, 0.0); assertEquals(127.09591666, sdk.longitude, 0.0)
+        assertEquals(selected.pleos!!.address, sdk.address); assertEquals(selected.name, sdk.poiName)
+        assertEquals(selected.pleos!!.poiId, sdk.poiId); assertEquals("", sdk.poiProvider)
+        assertEquals("", sdk.poiSubId); assertNull(selected.pleos!!.poiSubId)
+        assertEquals(selected, RoomProtocol.destination(RoomProtocol.destinationJson(selected)))
     }
 
     @Test fun actualSubIdsArePreservedWithoutSubstitutingAZeroOrEmptyValue() {

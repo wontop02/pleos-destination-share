@@ -7,6 +7,7 @@ import ai.pleos.destinations.core.Destination
 import ai.pleos.destinations.core.NavigationGateway
 import ai.pleos.playground.navi.constants.NaviErrorCode
 import ai.pleos.playground.navi.constants.RouteOption
+import ai.pleos.playground.navi.data.BookmarkInfo
 import ai.pleos.playground.navi.data.DestinationInfo
 import ai.pleos.playground.navi.data.RouteInfo
 import ai.pleos.playground.navi.data.RouteStartInfo
@@ -14,10 +15,13 @@ import ai.pleos.playground.navi.helper.NaviHelper
 import ai.pleos.playground.navi.helper.listener.NaviHelperEventListener
 
 /** Production adapter. No simulated SDK, fallback route service, or injected test listener. */
-class PleosNavigationGateway(private val context: Context) : NavigationGateway {
+class PleosNavigationGateway(private val context: Context) : NavigationGateway, SavedPlacesGateway {
     private val main = Handler(Looper.getMainLooper())
     private var generation = 0L
     private var helper: NaviHelper? = null
+    private var placesListener: SavedPlacesGateway.Listener? = null
+    override fun savedPlacesListener(listener: SavedPlacesGateway.Listener) { placesListener = listener }
+    override fun readSavedPlaces() { checkNotNull(helper).getBookmarkInfo() }
     private var eventListener: NaviHelperEventListener? = null
 
     override fun connect(listener: NavigationGateway.Listener) {
@@ -35,15 +39,18 @@ class PleosNavigationGateway(private val context: Context) : NavigationGateway {
                     NativeDestinationResult.Invalid -> listener.invalidDestination()
                 }
             }
+            override fun onBookmarkInfo(bookmarkInfoList: List<BookmarkInfo>) = deliver {
+                placesListener?.bookmarks(epoch, savedPlaces(bookmarkInfoList))
+            }
             override fun onRouteStarted(routeStartInfo: RouteStartInfo) = deliver { listener.routeStarted() }
             override fun onRoutingCompleted() = deliver { listener.routingCompleted() }
             override fun onRouteCancelled() = deliver { listener.routeCancelled() }
-            override fun onError(errorCode: NaviErrorCode) = deliver { listener.error(errorCode.name) }
+            override fun onError(errorCode: NaviErrorCode) = deliver { placesListener?.bookmarkFailure(epoch); listener.error(errorCode.name) }
         }
         eventListener = events
         sdk.initialize(onConnected = {
             deliver {
-                try { sdk.addListener(events); listener.connected() }
+                try { sdk.addListener(events); placesListener?.nativeSession(epoch, true); listener.connected() }
                 catch (_: Exception) { listener.failed() }
             }
         }, onFailed = { deliver { listener.failed() } })
@@ -57,6 +64,7 @@ class PleosNavigationGateway(private val context: Context) : NavigationGateway {
 
     override fun release() {
         generation += 1
+        placesListener?.nativeSession(generation, false)
         val previous = helper
         val previousListener = eventListener
         helper = null

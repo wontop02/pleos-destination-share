@@ -141,3 +141,9 @@ adb -P 5041 -s emulator-5570 shell am instrument --user 10 -w -r -e mode route-4
 bearer·초대 비밀은 Authorization 헤더로만 보낸다. 앱은 주소에 userinfo/query/fragment가 없는 명시적 포트의 loopback HTTP만 허용하고 redirect를 따르지 않는다. 세션은 앱 `noBackupFilesDir`의 AES-GCM 암호문과 AndroidKeyStore 키로 저장한다. 백업·기기 이전과 입력 view-state 저장을 끈다. 해독 실패 또는 명시적 연결 지우기는 저장 정보를 제거한다. 네트워크 문제로 서버 탈퇴를 확인할 수 없을 때 로컬 정보만 지우면 서버 권한은 종료 또는 6시간 만료 전까지 남을 수 있다.
 
 앱의 사설 `noBackupFilesDir/navigation-events.jsonl`은 이벤트명, 시각, SDK/서비스/방 세션·작업 번호, revision·역할·자동 상태·연결·확인·UI attach 수·일치 여부만 보관한다. 최신 같은 상태의 비밀 없는 snapshot은 `session-state.json`이다. #17은 `proposal-state.json`에도 공개 후보명/POI ID, proposal ID/version/status, base/accepted revision, 회원 ID별 응답과 lease·busy·publication 보류를 기록한다. 이유·회원 이름·토큰·초대 비밀·개인 키·일반 순정 목적지 이름/주소/좌표를 기록하지 않는다. journal은 최대 약 512KiB로 제한한다. 원본 vendor 파일·캐시·APK·장치 원본 로그는 Git에 넣지 않는다. 저장소에는 환경·명령·exit·공식 출처·해시·검증 결과를 선별해 기록한다.
+
+## 저장한 일반 장소 (#21)
+
+공유방 연결 후 제안 카드에서 “저장한 장소 불러오기”를 누르고 이름·주소를 확인해 선택한 뒤 “이 장소로 변경 제안”을 누른다. 장소는 순정 내비의 ☆로 먼저 저장한다. 불러온 목록은 같은 연결에서 다시 선택할 수 있으며 새로 저장한 항목은 “순정 내비 연결 / 다시 연결” 후 읽는다. 8초 시간 초과·취소·공유방/회원 변경도 재연결 후 다시 불러온다. 북마크 목록은 서버나 journal에 기록하지 않는다.
+
+일반 장소는 “선택한 장소로 목적지 설정 확인”, 기존 순정/공개 예제는 “좌표 일치 확인” 방식이다. 원본 선택 좌표와 차량별 실제 안내 지점은 다를 수 있다. 전원 수락 전에는 경로를 요청하지 않으며, 요청 전송/경로 이벤트만으로 성공 표시하지 않는다. [지원 조건·모델·검증 계약](../../docs/product/poi-place-confirmation.md)을 따른다.

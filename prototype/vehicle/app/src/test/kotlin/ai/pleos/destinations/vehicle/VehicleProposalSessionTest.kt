@@ -3,6 +3,9 @@ package ai.pleos.destinations.vehicle
 import ai.pleos.destinations.core.ApplyPhase
 import ai.pleos.destinations.core.AutomaticMode
 import ai.pleos.destinations.core.Destination
+import ai.pleos.destinations.core.DestinationKind
+import ai.pleos.destinations.core.PlaceSource
+import ai.pleos.destinations.core.PleosMetadata
 import ai.pleos.destinations.core.NavigationGateway
 import org.junit.AfterClass
 import org.junit.Assert.*
@@ -44,7 +47,13 @@ class VehicleProposalSessionTest {
     }
     private val first = PrototypePlaces.all[0]
     private val second = PrototypePlaces.all[1]
-    private class Gateway : NavigationGateway {
+    private class Gateway : NavigationGateway, SavedPlacesGateway {
+        lateinit var places: SavedPlacesGateway.Listener
+        var placeReads = 0
+        var placeEpoch = 0L
+        override fun savedPlacesListener(listener: SavedPlacesGateway.Listener) { places = listener }
+        override fun readSavedPlaces() { placeReads++ }
+
         val listeners = mutableListOf<NavigationGateway.Listener>()
         val routes = mutableListOf<Destination>()
         var reads = 0
@@ -52,7 +61,7 @@ class VehicleProposalSessionTest {
         override fun connect(listener: NavigationGateway.Listener) { listeners.add(listener) }
         override fun readDestination() { reads++ }
         override fun requestRoute(destination: Destination) { routes.add(destination) }
-        override fun release() {}
+        override fun release() { places.nativeSession(++placeEpoch, false) }
     }
     private class Storage(var identity: RoomCredentials?) : SessionStorage {
         override fun load() = LoadedSession(identity, false)
@@ -90,6 +99,14 @@ class VehicleProposalSessionTest {
         }
         fun drain() { while (true) (queue.poll() ?: break).invoke() }
         fun advance(ms: Long = 300) { now += ms; session.tick() }
+        fun selectPlace(value: Destination): Destination {
+            gateway.places.nativeSession(++gateway.placeEpoch, true)
+            val picker = session.savedPlaces!!
+            assertTrue(picker.load()); gateway.places.bookmarks(gateway.placeEpoch, listOf(value))
+            val snapshot = picker.state
+            assertTrue(picker.select(snapshot.snapshot, snapshot.choices.single()))
+            return picker.state.selected!!
+        }
         fun requested() { gateway.latest.connected(); assertEquals(ApplyPhase.REQUESTED, session.state.applying) }
         fun match(target: Destination = second) { gateway.latest.routingCompleted(); gateway.latest.destinationInfo(target) }
         override fun close() { session.close(); drain(); PendingConfirmationCache.clear() }
@@ -126,6 +143,80 @@ class VehicleProposalSessionTest {
             } }; api.leave(host)
         }
     }
+    @Test fun selectedCafeSurvivesRealHttpConsentAndDistinctGuidanceWithoutLoopsOrHistoricalReplay() {
+        serverTime(0)
+        val cafe = Destination("가든서비스", 37.41255277, 127.09591666,
+            PleosMetadata("36khp2h36p68cm5nqhec", null, "경기도 성남시 수정구 창업로40번길6", "", null, null),
+            DestinationKind.PLEOS_PLACE, PlaceSource.PLEOS_BOOKMARK)
+        val guidance = Destination(cafe.name, 37.412475, 127.09534722, cafe.pleos!!.copy(address = "수정구시흥동"))
+        RoomHttpClient(base).use { api ->
+            val host = api.create("대표 장소").first; val member = api.join(host.roomId, host.inviteSecret!!, "참여 장소").first
+            Runtime(host).use { a -> Runtime(member).use { b ->
+                // An arbitrary selected DTO without a current picker selection cannot propose.
+                a.session.propose(cafe, "선택 없는 요청"); a.drain(); assertNull(api.snapshot(host).update.proposal)
+                a.session.startAutomatic(); b.session.startAutomatic()
+                val selected = a.selectPlace(cafe)
+                a.session.proposeSelectedPlace("카페에서 함께 만나요.")
+                a.until { a.session.proposal?.status == "pending" && !a.session.proposalBusy }
+                b.until { b.session.proposal?.id == a.session.proposal?.id }
+                assertEquals(selected, b.session.proposal!!.destination)
+                assertTrue(a.gateway.routes.isEmpty()); assertTrue(b.gateway.routes.isEmpty())
+                assertNull(api.snapshot(host).update.destination)
+                accept(a, b); a.requested(); b.requested(); a.match(guidance); b.match(guidance)
+                for (runtime in listOf(a, b)) {
+                    assertEquals(DestinationKind.PLEOS_PLACE, runtime.session.state.confirmationKind)
+                    assertEquals(cafe, runtime.session.state.confirmation!!.source)
+                    assertEquals(guidance, runtime.session.state.confirmation!!.actual)
+                    assertEquals(listOf(cafe), runtime.gateway.routes)
+                    assertNull(runtime.session.savedPlaces!!.state.selected)
+                }
+                repeat(4) {
+                    a.advance(16_000); b.advance(16_000)
+                    a.gateway.latest.destinationInfo(guidance); b.gateway.latest.destinationInfo(guidance)
+                    a.drain(); b.drain()
+                }
+                assertFalse(a.session.hasProposalLease); assertFalse(b.session.hasProposalLease)
+                assertEquals(1L, api.snapshot(host).update.revision)
+                a.session.reconnectRoom(); a.until { !a.session.busy && a.session.state.roomConnected }
+                a.advance(15_000); a.gateway.latest.destinationInfo(guidance); a.drain()
+                assertNull(a.session.state.confirmationKind) // observation coalesces, never restores success.
+                assertEquals(1L, api.snapshot(host).update.revision)
+                b.session.stopAutomatic(); b.session.reconnectRoom(); b.until { !b.session.busy && b.session.state.roomConnected }
+                b.session.startAutomatic(); b.gateway.latest.connected(); b.advance(20_000); b.gateway.latest.destinationInfo(guidance)
+                assertEquals(1, b.gateway.routes.size); assertNull(b.session.state.confirmationKind)
+            } }
+            Runtime(host).use { cold ->
+                cold.session.startAutomatic(); cold.advance(); cold.gateway.latest.destinationInfo(guidance); cold.drain()
+                assertTrue(cold.gateway.routes.isEmpty()); assertNull(cold.session.state.confirmationKind)
+                assertEquals(1L, api.snapshot(host).update.revision)
+            }
+            api.leave(host)
+        }
+    }
+
+    @Test fun selectedCafeRejectAndExpiredAcceptanceNeverIssueRoutes() {
+        serverTime(0)
+        val cafe = first.copy(kind = DestinationKind.PLEOS_PLACE, source = PlaceSource.PLEOS_BOOKMARK)
+        RoomHttpClient(base).use { api ->
+            val host = api.create("대표 장소 거절").first; val member = api.join(host.roomId, host.inviteSecret!!, "참여 장소 거절").first
+            Runtime(host).use { a -> Runtime(member).use { b ->
+                a.selectPlace(cafe); a.session.proposeSelectedPlace("선택 장소 변경")
+                a.until { a.session.proposal?.status == "pending" && !a.session.proposalBusy }
+                b.until { b.session.proposal?.id == a.session.proposal?.id }
+                val rejected = b.session.proposal!!; b.session.respond(rejected.id, rejected.version, false)
+                a.until { a.session.proposal?.status == "rejected" }; b.until { !b.session.proposalBusy }
+                b.selectPlace(cafe); b.session.proposeSelectedPlace("다시 선택")
+                b.until { b.session.proposal?.status == "pending" && !b.session.proposalBusy }
+                a.until { a.session.proposal?.id == b.session.proposal?.id }
+                val expired = a.session.proposal!!; serverTime(expired.expiresAt)
+                a.advance(120_000); b.advance(120_000); a.session.respond(expired.id, expired.version, true)
+                a.until { a.session.proposal?.status == "expired" }; b.until { b.session.proposal?.status == "expired" }
+                assertTrue(a.gateway.routes.isEmpty()); assertTrue(b.gateway.routes.isEmpty())
+                assertEquals(0L, api.snapshot(host).update.revision)
+            } }; api.leave(host)
+        }
+    }
+
     @Test fun reverseMemberProposalAndHostAcceptanceUseTheSameBoundConsent() {
         serverTime(0)
         RoomHttpClient(base).use { api ->

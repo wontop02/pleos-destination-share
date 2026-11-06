@@ -18,13 +18,39 @@ data class PleosMetadata(
     }
 }
 
-data class Destination(val name: String, val latitude: Double, val longitude: Double, val pleos: PleosMetadata? = null) {
+enum class DestinationKind(val wire: String) { EXACT_POINT("exact_point"), PLEOS_PLACE("pleos_place") }
+enum class PlaceSource(val wire: String) { PLEOS_BOOKMARK("pleos_bookmark") }
+
+data class Destination(val name: String, val latitude: Double, val longitude: Double,
+    val pleos: PleosMetadata? = null, val kind: DestinationKind = DestinationKind.EXACT_POINT,
+    val source: PlaceSource? = null) {
     init {
         require(validText(name, 100) && name == name.trim())
         require(validCoordinates(latitude, longitude))
+        when (kind) {
+            DestinationKind.EXACT_POINT -> require(source == null)
+            DestinationKind.PLEOS_PLACE -> {
+                require(source == PlaceSource.PLEOS_BOOKMARK)
+                val metadata = requireNotNull(pleos)
+                // Only the provider actually exposed by the supported native bookmark path.
+                require(metadata.poiProvider == "" && metadata.poiId.isNotBlank())
+                require(metadata.poiId == metadata.poiId.trim())
+                require(metadata.poiSubId == null || (metadata.poiSubId.isNotBlank() && metadata.poiSubId == metadata.poiSubId.trim()))
+                require(metadata.address.isNotBlank())
+            }
+        }
     }
 
     val canRequestRoute: Boolean get() = pleos?.let { it.poiId.isNotBlank() && (it.poiSubId?.isNotBlank() ?: true) } == true
+
+    /** Request meaning only. Native observations and direct sharing always remain exact points. */
+    fun matchesRequestedDestination(actual: Destination): Boolean = when (kind) {
+        DestinationKind.EXACT_POINT -> matchesNative(actual)
+        DestinationKind.PLEOS_PLACE -> source == PlaceSource.PLEOS_BOOKMARK &&
+            actual.kind == DestinationKind.EXACT_POINT && actual.source == null &&
+            name == actual.name && pleos?.poiProvider == actual.pleos?.poiProvider &&
+            pleos?.poiId == actual.pleos?.poiId && pleos?.poiSubId == actual.pleos?.poiSubId
+    }
 
     /** Strict POI identity and ~1 m coordinate tolerance. An SDK callback alone is never a match. */
     fun matchesNative(actual: Destination): Boolean {

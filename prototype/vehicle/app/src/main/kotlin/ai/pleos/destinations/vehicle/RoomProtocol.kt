@@ -1,6 +1,8 @@
 package ai.pleos.destinations.vehicle
 
 import ai.pleos.destinations.core.Destination
+import ai.pleos.destinations.core.DestinationKind
+import ai.pleos.destinations.core.PlaceSource
 import ai.pleos.destinations.core.PleosMetadata
 import org.json.JSONObject
 import java.net.URI
@@ -92,6 +94,9 @@ object RoomProtocol {
     }
     fun destinationJson(value: Destination): JSONObject = JSONObject()
         .put("name", value.name).put("latitude", value.latitude).put("longitude", value.longitude).apply {
+            if (value.kind != DestinationKind.EXACT_POINT) {
+                put("kind", value.kind.wire); put("source", checkNotNull(value.source).wire)
+            }
             value.pleos?.let { poi -> put("pleos", JSONObject()
                 .put("poiId", poi.poiId).put("poiSubId", poi.poiSubId ?: JSONObject.NULL).put("address", poi.address)
                 .put("poiProvider", poi.poiProvider)
@@ -114,7 +119,11 @@ object RoomProtocol {
                 if (it.isNull("displayLatitude")) null else number(it, "displayLatitude"),
                 if (it.isNull("displayLongitude")) null else number(it, "displayLongitude"))
         }
-        return Destination(text(value, "name"), number(value, "latitude"), number(value, "longitude"), poi)
+        val kind = if (!value.has("kind")) DestinationKind.EXACT_POINT else
+            DestinationKind.entries.single { it.wire == text(value, "kind") }
+        val source = if (!value.has("source")) null else
+            PlaceSource.entries.single { it.wire == text(value, "source") }
+        return Destination(text(value, "name"), number(value, "latitude"), number(value, "longitude"), poi, kind, source)
     }
 
     fun update(body: JSONObject): DestinationUpdate {
@@ -126,8 +135,15 @@ object RoomProtocol {
         val hasAccepted = body.has("acceptedProposal")
         val accepted = if (hasAccepted && !body.isNull("acceptedProposal")) proposal(body.getJSONObject("acceptedProposal")) else null
         if (accepted != null) require(accepted.status == "accepted" && accepted.acceptedRevision == revision && accepted.destination == target)
+        val currentProposal = if (hasProposal && !body.isNull("proposal")) proposal(body.getJSONObject("proposal")) else null
+        if (target?.kind == DestinationKind.PLEOS_PLACE) {
+            // A direct native-sharing frame can never introduce a selected-place intent.
+            require(accepted != null || currentProposal?.let {
+                it.status == "accepted" && it.acceptedRevision == revision && it.destination == target
+            } == true)
+        }
         return DestinationUpdate(revision, sequence, target,
-            if (hasProposal && !body.isNull("proposal")) proposal(body.getJSONObject("proposal")) else null,
+            currentProposal,
             hasProposal, if (hasProposal || hasAccepted) integer(body, "serverTime") else 0, accepted, hasAccepted)
     }
 
