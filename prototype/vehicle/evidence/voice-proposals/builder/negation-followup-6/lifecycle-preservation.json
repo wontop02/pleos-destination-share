@@ -1,0 +1,107 @@
+{
+  "base": "1b78acf9b29282d9d5b103467fde3400dce5580f",
+  "changedFromAssignedHead": [
+    "docs/product/vehicle-voice-proposals.md",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VoiceDraft.kt",
+    "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VoiceDraftTest.kt"
+  ],
+  "unchangedLifecycleInputs": 23,
+  "changedLifecycleInputs": [],
+  "lifecycleHashes": {
+    "prototype/vehicle/app/src/main/AndroidManifest.xml": {
+      "freeze4": "d6ab909eaa77165b37919ded1830f4347fcd4ee5d34fdb0c3c8063529761e822",
+      "current": "d6ab909eaa77165b37919ded1830f4347fcd4ee5d34fdb0c3c8063529761e822"
+    },
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/ConvoySessionService.kt": {
+      "freeze4": "0c247880bd030656c98af5307fdd2e9caf24d2d45fab1b89edf98efbe3497883",
+      "current": "0c247880bd030656c98af5307fdd2e9caf24d2d45fab1b89edf98efbe3497883"
+    },
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/EvidenceJournal.kt": {
+      "freeze4": "bdc9f7384dc9539432cfdd5f395d3087c4a4f1b98f7bb1735830221a946f6c7f",
+      "current": "bdc9f7384dc9539432cfdd5f395d3087c4a4f1b98f7bb1735830221a946f6c7f"
+    },
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt": {
+      "freeze4": "af0d07193a5f0ae144fbb4d40d80cc29dd529bb30228ba5c9f962c1a787d5042",
+      "current": "af0d07193a5f0ae144fbb4d40d80cc29dd529bb30228ba5c9f962c1a787d5042"
+    },
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/NaviDestinationNormalizer.kt": {
+      "freeze4": "9e03ebb1631442942d5d890f42c46dab893e3e7e2525becf4d8c0e9a1eb3c792",
+      "current": "9e03ebb1631442942d5d890f42c46dab893e3e7e2525becf4d8c0e9a1eb3c792"
+    },
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PendingConfirmationCache.kt": {
+      "freeze4": "63ddd55cc998f98df10cea90ea5fad9ea30aad8e607a628e37efe5b2fa4db68e",
+      "current": "63ddd55cc998f98df10cea90ea5fad9ea30aad8e607a628e37efe5b2fa4db68e"
+    },
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PlacesLoadIntent.kt": {
+      "freeze4": "2c0c5c85c71ce49f0b5e8b56377919fbac09127b8bf66ac1fe13da4b1476c058",
+      "current": "2c0c5c85c71ce49f0b5e8b56377919fbac09127b8bf66ac1fe13da4b1476c058"
+    },
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PleosNavigationGateway.kt": {
+      "freeze4": "0e66878305ff373df34263417afb9ece625b7f20df43a10c1ade082929fc170a",
+      "current": "0e66878305ff373df34263417afb9ece625b7f20df43a10c1ade082929fc170a"
+    },
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PleosVoiceInputGateway.kt": {
+      "freeze4": "35ad95ae6e3d643da01f10a70cf54fd4e146493cad38dd0752b817f4a5917b83",
+      "current": "35ad95ae6e3d643da01f10a70cf54fd4e146493cad38dd0752b817f4a5917b83"
+    },
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PrototypePlaces.kt": {
+      "freeze4": "180970cf12bf3edd64a3b89cc3af3e694115c2004659bdb13f045919e96f9645",
+      "current": "180970cf12bf3edd64a3b89cc3af3e694115c2004659bdb13f045919e96f9645"
+    },
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/RoomHttpClient.kt": {
+      "freeze4": "c469ade02c73ef725d18361b534815757b78ab8f3366481258ede6fb321b28c1",
+      "current": "c469ade02c73ef725d18361b534815757b78ab8f3366481258ede6fb321b28c1"
+    },
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/RoomProtocol.kt": {
+      "freeze4": "1009a632b23cc239092b073a1a4086e948cf1412c0e834d62814840943622a1e",
+      "current": "1009a632b23cc239092b073a1a4086e948cf1412c0e834d62814840943622a1e"
+    },
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/SavedPlaces.kt": {
+      "freeze4": "233ebc6bebb933c0d7c1cf94dcad1881aa4e0fb289ea625d13b45862d8b30ae5",
+      "current": "233ebc6bebb933c0d7c1cf94dcad1881aa4e0fb289ea625d13b45862d8b30ae5"
+    },
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/SecureSessionStore.kt": {
+      "freeze4": "f22e61dd394abf7ec0d17d99d1e5bfeda35dd76f490c391df7c8833344c2f932",
+      "current": "f22e61dd394abf7ec0d17d99d1e5bfeda35dd76f490c391df7c8833344c2f932"
+    },
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehiclePresentation.kt": {
+      "freeze4": "625e72a3dc72f6520a83247db20dc4aefba4ccf59b7bd497e007854ee9e79cbc",
+      "current": "625e72a3dc72f6520a83247db20dc4aefba4ccf59b7bd497e007854ee9e79cbc"
+    },
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehicleSession.kt": {
+      "freeze4": "169c650a9a40daf962cbe702dea0eed4fde5c14e1883451dd6c69938922ec50d",
+      "current": "169c650a9a40daf962cbe702dea0eed4fde5c14e1883451dd6c69938922ec50d"
+    },
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehicleViews.kt": {
+      "freeze4": "163dd0bf64505664e514481d2e8f003d343a55089ee424b85e43f1d265745033",
+      "current": "163dd0bf64505664e514481d2e8f003d343a55089ee424b85e43f1d265745033"
+    },
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VoiceInput.kt": {
+      "freeze4": "f0955d732f74a7341f4bd6f1e8835c2c12a2d33249f7107c8c1030011f79d4db",
+      "current": "f0955d732f74a7341f4bd6f1e8835c2c12a2d33249f7107c8c1030011f79d4db"
+    },
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VoiceInputCleanup.kt": {
+      "freeze4": "bd8732fcb210b9dc84fbb3f3e25b9b9604288cde0caf56bae88010f351718dc4",
+      "current": "bd8732fcb210b9dc84fbb3f3e25b9b9604288cde0caf56bae88010f351718dc4"
+    },
+    "prototype/vehicle/app/src/main/res/values/ids.xml": {
+      "freeze4": "8966127938e9bbcdc521d4f6ac641437bb38725dab7942feb01e356ac7073319",
+      "current": "8966127938e9bbcdc521d4f6ac641437bb38725dab7942feb01e356ac7073319"
+    },
+    "prototype/vehicle/app/src/main/res/values/styles.xml": {
+      "freeze4": "b4e474fa58444ce481e623b2f56599bcf8b007c342f91b6217f443c1444421cd",
+      "current": "b4e474fa58444ce481e623b2f56599bcf8b007c342f91b6217f443c1444421cd"
+    },
+    "prototype/vehicle/app/src/main/res/xml/data_extraction_rules.xml": {
+      "freeze4": "09e5cf26d18437bf29da8d9d211bfcd55a16be99ec68bbaa72fa23fa08130b4b",
+      "current": "09e5cf26d18437bf29da8d9d211bfcd55a16be99ec68bbaa72fa23fa08130b4b"
+    },
+    "prototype/vehicle/app/src/main/res/xml/network_security_config.xml": {
+      "freeze4": "9187f485f22fde712aea8de5243664710440a9ee08e9f1b172978eef96a15001",
+      "current": "9187f485f22fde712aea8de5243664710440a9ee08e9f1b172978eef96a15001"
+    }
+  },
+  "currentInputsMatchFreeze6": true,
+  "frozen4AppSha256": "259c8ac483c753679c7f8ea56d1e966a813dc55ae50c6ce64bfd8b7891575a64",
+  "newAppSha256": "4868babf1e3f438d43ba51f808f7971259c75a919c4f89c15080ffe6e266264c"
+}

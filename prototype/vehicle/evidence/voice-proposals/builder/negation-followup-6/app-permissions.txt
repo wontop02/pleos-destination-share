@@ -1,0 +1,10 @@
+package: ai.pleos.destinations.vehicle
+uses-permission: name='android.permission.INTERNET'
+uses-permission: name='pleos.car.permission.NAVI_ROUTE'
+uses-permission: name='pleos.car.permission.NAVI_ROUTE_SEARCH'
+uses-permission: name='pleos.car.permission.STT_SERVICE'
+uses-permission: name='android.permission.FOREGROUND_SERVICE'
+uses-permission: name='android.permission.FOREGROUND_SERVICE_SPECIAL_USE'
+uses-permission: name='android.permission.POST_NOTIFICATIONS'
+permission: ai.pleos.destinations.vehicle.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+uses-permission: name='ai.pleos.destinations.vehicle.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'

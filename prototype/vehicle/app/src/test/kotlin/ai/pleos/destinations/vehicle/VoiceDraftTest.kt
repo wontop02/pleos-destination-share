@@ -55,4 +55,36 @@ class VoiceDraftTest {
         assertTrue(VoiceDraftAnalyzer.analyze("42dot으로 가자", PrototypePlaces.all).candidates.isEmpty())
         assertTrue(VoiceDraftAnalyzer.analyze("카페 가자", List(201) { cafe }).candidates.isEmpty())
     }
+    @Test fun prohibitionUnwillingnessAndInabilityNeverCreateAnOppositeReasonOrCandidate() {
+        listOf("카페에 들르면 안 돼", "카페에 가고 싶지 않아", "카페에 들르면 안 됩니다", "카페에 들러서는 안 된다",
+            "카페에 들르고 싶지는 않아요", "카페는 원하지 않아", "카페는 원치 않아", "카페에 못 가", "카페에 들르지 못해",
+            "카페 방문은 불가능해", "카페는 안 돼요 그래도 가자", "카페에 가고 싶지 않은데 가자",
+            "카페에 안 갈래", "카페로 안 바꿀까").forEach { text ->
+            val actual = VoiceDraftAnalyzer.analyze(text, places)
+            assertNotEquals(text, VoiceChangeIntent.CHANGE, actual.intent)
+            assertEquals(text, "", actual.reason); assertTrue(text, actual.candidates.isEmpty())
+        }
+    }
+    @Test fun explicitPositiveDesiresKeepTheOriginalStoredCandidate() {
+        listOf("카페에 들르고 싶어", "카페에 가고 싶어", "카페에 들르고 싶어요", "카페에 가고 싶어요").forEach { text ->
+            val actual = VoiceDraftAnalyzer.analyze(text, places)
+            assertEquals(text, VoiceChangeIntent.CHANGE, actual.intent)
+            assertSame(text, cafe, actual.candidates.single()); assertEquals(text, "카페에 들러요.", actual.reason)
+        }
+    }
+    @Test fun uncertainQuotedAndIncompleteActionsDoNotImplyAChange() {
+        listOf("카페에 들르면", "카페에 가고 싶은데 잘 모르겠어", "카페에 가고 싶어 라는 말의 뜻은 뭐야",
+            "카페에 가는 게 어려워", "카페에 갈 수는 없어", "카페에 가고 싶은 건 아니야", "카페는 빼고 가자").forEach { text ->
+            val actual = VoiceDraftAnalyzer.analyze(text, places)
+            assertNotEquals(text, VoiceChangeIntent.CHANGE, actual.intent)
+            assertEquals(text, "", actual.reason); assertTrue(text, actual.candidates.isEmpty())
+        }
+    }
+    @Test fun ordinaryPlaceNameSyllablesAreNotTreatedAsStandaloneNegationWords() {
+        listOf("안동카페", "연못카페").forEachIndexed { index, name ->
+            val original = place(name, "unit-positive-$index")
+            val actual = VoiceDraftAnalyzer.analyze("${name}에 가고 싶어", listOf(original))
+            assertEquals(VoiceChangeIntent.CHANGE, actual.intent); assertSame(original, actual.candidates.single())
+        }
+    }
 }

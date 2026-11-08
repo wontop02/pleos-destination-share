@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/private/tmp/pleos-vehicle-tools-20261105/jdk/jdk-21.0.13+9/Contents/Home/bin/java",
+    "-Xmx128m",
+    "-cp",
+    "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/builder/negation-fix-6/classes:/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/issue-25-voice-proposals/prototype/vehicle/app/build/tmp/kotlin-classes/debug:/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/issue-25-voice-proposals/prototype/vehicle/core/build/classes/kotlin/main:/private/tmp/pleos-vehicle-tools-20261105/gradle-user/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.25/f700a2f2b8f0d6d0fde48f56d894dc722fb029d7/kotlin-stdlib-1.9.25.jar",
+    "ai.pleos.destinations.vehicle.VoiceNegationProbe"
+  ],
+  "exit": 0,
+  "analyzerClassSha256": "2747f1aa26141778560052482373d7da2cef78de43248d341f67cb6a00ad567d"
+}
