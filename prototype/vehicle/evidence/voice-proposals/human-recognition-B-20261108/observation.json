@@ -1,0 +1,275 @@
+{
+  "observedAtUtc": "2026-11-08T12:51:34.255423+00:00",
+  "serial": "emulator-5572",
+  "user": 10,
+  "sourceHead": "105cd7ef5b47e194be1fbfd2271ba6d96c0fd32f",
+  "inputSource": "User reports live human speech using freeze7 foreground microphone UI; no new coordinator test was started",
+  "userReportedResult": "여기서 주유하고 가자",
+  "voiceEventsAfterPreviousFailedAttempt": [
+    {
+      "at": 1794139415355,
+      "event": "voice:sdkStopWaitElapsed",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794139415398,
+      "event": "voice:sdkReleased",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142240708,
+      "event": "voice:startMicrophone",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142240938,
+      "event": "voice:sdkInitializedOnDevice",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142241092,
+      "event": "voice:appMicrophoneRecording",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142241092,
+      "event": "voice:listening",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142245458,
+      "event": "voice:stopMicrophone",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142247379,
+      "event": "voice:appMicrophoneClosed",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142247379,
+      "event": "voice:endedAwaitingFinal",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142247400,
+      "event": "voice:sdkPcmCompleted",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142252549,
+      "event": "voice:sdkStartedRecognition",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142252821,
+      "event": "voice:sdkStartedRecognition",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142253088,
+      "event": "voice:sdkStartedRecognition",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142253293,
+      "event": "voice:sdkStartedRecognition",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142253413,
+      "event": "voice:endedAwaitingFinal",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142253482,
+      "event": "voice:sdkStopPending",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142253484,
+      "event": "voice:finalText",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142256524,
+      "event": "voice:sdkStopWaitElapsed",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142256750,
+      "event": "voice:sdkReleased",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    }
+  ],
+  "recordAudioAppOp": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+53s379ms ago; duration=+4s401ms\n",
+  "recordingActiveAtRead": false,
+  "limitations": "Read-only log correlation and user observation; no raw audio or transcript file read, no new device scenario or independent PASS.",
+  "installedApkSha256": "5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e",
+  "currentAttemptVoiceEvents": [
+    {
+      "at": 1794142240708,
+      "event": "voice:startMicrophone",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142240938,
+      "event": "voice:sdkInitializedOnDevice",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142241092,
+      "event": "voice:appMicrophoneRecording",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142241092,
+      "event": "voice:listening",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142245458,
+      "event": "voice:stopMicrophone",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142247379,
+      "event": "voice:appMicrophoneClosed",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142247379,
+      "event": "voice:endedAwaitingFinal",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142247400,
+      "event": "voice:sdkPcmCompleted",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142252549,
+      "event": "voice:sdkStartedRecognition",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142252821,
+      "event": "voice:sdkStartedRecognition",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142253088,
+      "event": "voice:sdkStartedRecognition",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142253293,
+      "event": "voice:sdkStartedRecognition",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142253413,
+      "event": "voice:endedAwaitingFinal",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142253482,
+      "event": "voice:sdkStopPending",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142253484,
+      "event": "voice:finalText",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142256524,
+      "event": "voice:sdkStopWaitElapsed",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794142256750,
+      "event": "voice:sdkReleased",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    }
+  ],
+  "timingMs": {
+    "recordingToStop": 4366,
+    "stopToFinal": 8026,
+    "pcmSubmissionToFinal": 6084
+  },
+  "finalReceived": true,
+  "inputWasHumanConfirmedBy": "User reply; event log carries lifecycle only, not transcript contents"
+}
