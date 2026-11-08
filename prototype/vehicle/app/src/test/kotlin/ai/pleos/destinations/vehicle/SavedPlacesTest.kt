@@ -123,4 +123,14 @@ class SavedPlacesTest {
         assertEquals(SavedPlacesPhase.RECONNECT_REQUIRED, f.controller.state.phase)
         assertFalse(f.controller.load()); assertTrue(f.controller.state.choices.isEmpty())
     }
+    @Test fun voiceRevisionDiscardsOnlyItsSelectionWithoutRefetchingOrChangingSnapshot() {
+        val f = Fixture(); f.controller.load(); f.receive(); val snapshot = f.controller.state
+        assertTrue(f.controller.select(snapshot.snapshot, snapshot.choices.single()))
+        assertFalse(f.controller.clearSelection(snapshot.snapshot - 1)); assertNotNull(f.controller.state.selected)
+        assertTrue(f.controller.clearSelection(snapshot.snapshot)); assertNull(f.controller.state.selected)
+        assertEquals(SavedPlacesPhase.READY, f.controller.state.phase)
+        assertEquals(snapshot.snapshot, f.controller.state.snapshot); assertSame(snapshot.choices, f.controller.state.choices)
+        assertEquals(1, f.gateway.requests); assertTrue(f.controller.select(snapshot.snapshot, snapshot.choices.single()))
+        f.controller.cancel(); assertFalse(f.controller.clearSelection(snapshot.snapshot))
+    }
 }

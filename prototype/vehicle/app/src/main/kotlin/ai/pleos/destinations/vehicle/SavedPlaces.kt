@@ -47,6 +47,7 @@ class SavedPlacesController(private val gateway: SavedPlacesGateway, private val
     private var usedEpoch = false
     private var deadline = 0L
     private var serial = 0L
+    val nativeEpoch: Long get() = epoch
     init { gateway.savedPlacesListener(this) }
     val canLoad: Boolean get() = connected && scope != null && state.phase != SavedPlacesPhase.LOADING &&
         (!usedEpoch || state.phase == SavedPlacesPhase.READY)
@@ -98,6 +99,12 @@ class SavedPlacesController(private val gateway: SavedPlacesGateway, private val
     fun select(snapshot: Long, value: Destination): Boolean {
         if (!connected || scope == null || state.phase != SavedPlacesPhase.READY || snapshot != state.snapshot || value !in state.choices) return false
         update(state.copy(selected = value, message = "선택한 장소 ${value.name} · 변경 제안을 눌러 전송해 주세요. 새로 저장한 장소는 순정 내비를 다시 연결한 뒤 불러와 주세요."))
+        return true
+    }
+    /** Discard a voice-derived choice without consuming or refetching the immutable list. */
+    fun clearSelection(snapshot: Long): Boolean {
+        if (snapshot != state.snapshot || state.phase != SavedPlacesPhase.READY) return false
+        if (state.selected != null) update(state.copy(selected = null))
         return true
     }
     fun cancel(snapshot: Long? = null): Boolean {

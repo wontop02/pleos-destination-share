@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" tests="20" skipped="0" failures="0" errors="0" timestamp="2026-11-08T10:41:38" hostname="wontop-MacBookAir.local" time="2.166">
+  <properties/>
+  <testcase name="laterExpiryCannotReleaseFailedAgreementProtection" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.349"/>
+  <testcase name="stopBeforeQueuedAcceptedFrameAndLateCallbacksCancelsProposalAuthority" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.023"/>
+  <testcase name="selectedCafeSurvivesRealHttpConsentAndDistinctGuidanceWithoutLoopsOrHistoricalReplay" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.034"/>
+  <testcase name="reverseMemberProposalAndHostAcceptanceUseTheSameBoundConsent" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.014"/>
+  <testcase name="issuedOperationReconnectResumesOnlyQueriesAndKeepsOriginalDeadline" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.017"/>
+  <testcase name="queuedOldLeaderPublicationCannotBlockAcceptedApplyOrCancelItsVerification" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.02"/>
+  <testcase name="forgettingOldRoomDoesNotFenceANewRoomsDirectDestinationAtTheSameRevision" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.021"/>
+  <testcase name="completedAgreementDoesNotReplayAfterOffModeReconnectAndGenericStart" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.016"/>
+  <testcase name="threeMemberPartialVoteAndMembershipInvalidationProduceNoCandidateRoutes" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.02"/>
+  <testcase name="coldResumeAcceptedSnapshotNeverRestoresConsentOrRoutesEvenOnGenericAutomaticStart" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.017"/>
+  <testcase name="laterMembershipInvalidationCannotReleaseFailedAgreementProtection" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.284"/>
+  <testcase name="rejectAndExpiryNeverRequestANativeRouteAndReleaseProposalLease" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.035"/>
+  <testcase name="replayFenceAllowsANewExplicitAcceptedIdAndANewerDirectDestination" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.031"/>
+  <testcase name="selectedCafeRejectAndExpiredAcceptanceNeverIssueRoutes" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.017"/>
+  <testcase name="activeLeaderOldObservationAndFailedAcceptedApplyCannotUndoAgreedDestination" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.014"/>
+  <testcase name="autoOffBothVehiclesApplyOnlyAfterAcceptanceAndVerifyOffscreenOnce" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.013"/>
+  <testcase name="laterRejectionCannotReleaseFailedAgreementProtection" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.277"/>
+  <testcase name="completedAgreementDoesNotReplayAfterStopReconnectAndGenericStart" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.013"/>
+  <testcase name="laterProposalCannotHideHistoricalAcceptanceOnColdAutomaticResume" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.935"/>
+  <testcase name="acceptanceAt119999msKeepsFull45SecondOperationLeaseBeyondProposalExpiry" classname="ai.pleos.destinations.vehicle.VehicleProposalSessionTest" time="0.014"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

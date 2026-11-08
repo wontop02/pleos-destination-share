@@ -9,9 +9,14 @@ import android.content.ServiceConnection
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.os.IBinder
 import android.os.SystemClock
+import android.text.Editable
 import android.text.InputFilter
+import android.text.InputType
+import android.text.TextWatcher
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
@@ -75,6 +80,29 @@ class MainActivity : Activity() {
     private lateinit var responseRow: LinearLayout
     private lateinit var acceptButton: Button
     private lateinit var rejectButton: Button
+    private lateinit var voiceInput: VoiceInputController
+    private lateinit var voiceStatus: TextView
+    private lateinit var voiceTextInput: EditText
+    private lateinit var voiceStartButton: Button
+    private lateinit var voiceStopButton: Button
+    private lateinit var voiceCancelButton: Button
+    private lateinit var voiceAnalyzeButton: Button
+    private lateinit var voiceCandidatesButton: Button
+    private lateinit var voiceSummary: TextView
+    private var updatingVoiceText = false
+    private var observingVoice = false
+    private var foreground = false
+    private var lastVoiceTextRevision = -1L
+    private data class VoiceReview(val scope: VoiceInputScope, val textRevision: Long,
+        val snapshot: Long, val draft: VoiceDraft)
+    private var voiceReview: VoiceReview? = null
+    private var voiceSelected: Destination? = null
+    private var voiceSelectedSnapshot = -1L
+    private var voicePicker = false
+    private val voiceHandler = Handler(Looper.getMainLooper())
+    private val voiceTick = object : Runnable {
+        override fun run() { if (foreground) { voiceInput.tick(); voiceHandler.postDelayed(this, 250) } }
+    }
     private lateinit var placesStatus: TextView
     private lateinit var selectPlacesButton: Button
     private lateinit var reloadPlacesButton: Button
@@ -126,13 +154,19 @@ class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val journal = EvidenceJournal(this)
+        val trace: (String) -> Unit = { event -> journal.append("voice:$event", session?.savedPlaces?.nativeEpoch ?: -1, composeGeneration, null) }
+        voiceInput = VoiceInputController(PleosVoiceInputGateway(this, trace), { SystemClock.elapsedRealtime() },
+            { if (!observingVoice && ::voiceStatus.isInitialized) renderCurrent() }, trace)
         ui = VehicleViews(this); buildScreen(); render(VehicleState())
     }
     override fun onStart() {
         super.onStart()
+        foreground = true; voiceHandler.post(voiceTick)
         bound = bindService(Intent(this, ConvoySessionService::class.java), connection, BIND_AUTO_CREATE)
     }
     override fun onStop() {
+        foreground = false; voiceHandler.removeCallbacks(voiceTick); voiceInput.observe(null); invalidateVoiceReview()
         placesLoadIntent.cancel(); composeGeneration += 1; placesLoadFailed = false
         pickerRequested = false; closePicker(); selectedExample = null
         service?.manual { it.savedPlaces?.cancel() }
@@ -189,6 +223,7 @@ class MainActivity : Activity() {
         backButton.visibility = if (next == Page.HOME || next == Page.WELCOME) View.GONE else View.VISIBLE
         settingsButton.visibility = if (next == Page.SETTINGS) View.GONE else View.VISIBLE
         if (previous == Page.COMPOSE && next != Page.COMPOSE) {
+            voiceInput.observe(null); invalidateVoiceReview()
             placesLoadIntent.cancel(); placesLoadFailed = false
             pickerRequested = false; closePicker(); selectedExample = null
             service?.manual { it.savedPlaces?.cancel() }
@@ -271,6 +306,7 @@ class MainActivity : Activity() {
         recoveryButton.visibility = if (VehiclePresentation.showRecovery(state, accepted, pending, status)) View.VISIBLE else View.GONE
         recoveryButton.text = if (!state.roomConnected || state.connection == NativeConnection.FAILED) "연결 확인" else "다시 반영"
         recoveryButton.isEnabled = !state.roomConnected || state.connection == NativeConnection.FAILED || retryAllowed || manualApply
+        renderVoice(state, owner)
         renderComposer(state, owner, proposalError)
         settingsStatus.text = VehiclePresentation.connection(state, credentials != null)
         nativeSummary.text = when (val current = state.current) {
@@ -332,18 +368,153 @@ class MainActivity : Activity() {
             placesLoadFailed || saved?.phase in listOf(SavedPlacesPhase.RECONNECT_REQUIRED, SavedPlacesPhase.EMPTY, SavedPlacesPhase.INVALID, SavedPlacesPhase.FAILED) -> "다시 불러오기"
             else -> "저장한 장소 선택"
         }
-        selectPlacesButton.isEnabled = placesLoadIntent.canRequest(context)
+        selectPlacesButton.isEnabled = !voiceInput.capturing && placesLoadIntent.canRequest(context)
         reloadPlacesButton.visibility = if (saved?.phase == SavedPlacesPhase.READY) View.VISIBLE else View.GONE
-        reloadPlacesButton.isEnabled = placesLoadIntent.canRequest(context)
+        reloadPlacesButton.isEnabled = !voiceInput.capturing && placesLoadIntent.canRequest(context)
         cancelPlacesButton.visibility = if (placesLoadIntent.waiting || saved?.phase == SavedPlacesPhase.LOADING || selected != null) View.VISIBLE else View.GONE
         cancelPlacesButton.text = if (placesLoadIntent.waiting || saved?.phase == SavedPlacesPhase.LOADING) "불러오기 취소" else "선택 취소"
-        sendButton.isEnabled = selected != null && owner?.canPropose == true
+        sendButton.isEnabled = !voiceInput.capturing && selected != null && owner?.canPropose == true
         reasonInput.isEnabled = owner?.proposalBusy != true
-        examplesButton.isEnabled = owner?.canPropose == true
+        examplesButton.isEnabled = !voiceInput.capturing && owner?.canPropose == true
         if (pickerDialog != null && saved?.phase != SavedPlacesPhase.READY) closePicker()
         if (page == Page.COMPOSE && pickerRequested && saved?.phase == SavedPlacesPhase.READY && pickerDialog == null && shownSnapshot != saved.snapshot) {
             shownSnapshot = saved.snapshot; showSavedPlaces(controller, saved)
         }
+    }
+
+    private fun currentVoiceScope(state: VehicleState, owner: VehicleSession?): VoiceInputScope? =
+        credentials?.takeIf { foreground && page == Page.COMPOSE && owner?.canPropose == true &&
+            state.connection == NativeConnection.CONNECTED && !placesLoadIntent.waiting }?.let {
+            VoiceInputScope(it.roomId, it.memberId, owner!!.coordinator.roomEpoch, composeGeneration,
+                owner.savedPlaces?.nativeEpoch ?: -1)
+        }
+
+    private fun invalidateVoiceReview() {
+        voiceReview = null
+        if (voicePicker) { voicePicker = false; closePicker() }
+        val selected = voiceSelected; val snapshot = voiceSelectedSnapshot
+        voiceSelected = null; voiceSelectedSnapshot = -1L
+        if (selected != null && session?.savedPlaces?.state?.selected === selected)
+            service?.manual { it.savedPlaces?.clearSelection(snapshot) }
+    }
+
+    private fun renderVoice(state: VehicleState, owner: VehicleSession?) {
+        observingVoice = true
+        voiceInput.observe(currentVoiceScope(state, owner))
+        observingVoice = false
+        val input = voiceInput.state
+        if (lastVoiceTextRevision != input.textRevision) {
+            lastVoiceTextRevision = input.textRevision; invalidateVoiceReview()
+        }
+        val saved = owner?.savedPlaces?.state
+        if (voiceReview?.let { it.scope != voiceInput.scope || it.snapshot != (saved?.snapshot ?: -1) ||
+                (it.draft.candidates.isNotEmpty() && saved?.phase != SavedPlacesPhase.READY) } == true) invalidateVoiceReview()
+        if (voiceTextInput.text.toString() != input.text) {
+            updatingVoiceText = true; voiceTextInput.setText(input.text); updatingVoiceText = false
+        }
+        voiceTextInput.isEnabled = voiceInput.scope != null && !voiceInput.capturing
+        voiceStartButton.isEnabled = voiceInput.scope != null && !voiceInput.capturing
+        voiceStartButton.text = if (input.text.isBlank()) "말로 작성" else "다시 말하기"
+        voiceStopButton.visibility = if (voiceInput.capturing) View.VISIBLE else View.GONE
+        voiceStopButton.isEnabled = input.phase != VoiceInputPhase.FINISHING
+        voiceCancelButton.visibility = if (input.phase != VoiceInputPhase.IDLE || input.text.isNotBlank()) View.VISIBLE else View.GONE
+        voiceAnalyzeButton.isEnabled = voiceInput.scope != null && !voiceInput.capturing &&
+            input.text.isNotBlank() && VoiceDraftAnalyzer.validText(input.text)
+        voiceStatus.text = when (input.phase) {
+            VoiceInputPhase.PREPARING -> "마이크를 준비하고 있어요. 잠시 기다려 주세요."
+            VoiceInputPhase.LISTENING -> if (input.interim.isBlank()) "듣고 있어요. 짧게 말한 뒤 말하기 끝을 눌러 주세요." else "듣고 있어요 · ${input.interim}"
+            VoiceInputPhase.FINISHING -> "들은 말을 확인하고 있어요"
+            VoiceInputPhase.READY -> "들은 말을 고칠 수 있어요. 초안을 정리한 뒤 장소를 확인해 주세요."
+            VoiceInputPhase.CANCELLED -> "음성 작성을 취소했어요. 직접 장소를 선택할 수 있어요."
+            VoiceInputPhase.FAILED -> when (input.failure) {
+                VoiceInputFailure.PERMISSION -> "마이크를 사용할 수 없어요. 직접 입력하거나 장소를 선택해 주세요."
+                VoiceInputFailure.MICROPHONE -> "마이크 소리를 받지 못했어요. 다시 말하거나 직접 입력해 주세요."
+                VoiceInputFailure.UNSUPPORTED -> "이 차량에서는 음성 인식을 사용할 수 없어요. 직접 입력하거나 장소를 선택해 주세요."
+                VoiceInputFailure.TIMEOUT -> "시간 안에 말을 확인하지 못했어요. 다시 말하거나 직접 입력해 주세요."
+                VoiceInputFailure.EMPTY -> "말을 듣지 못했어요. 다시 말하거나 직접 입력해 주세요."
+                else -> "말을 확인하지 못했어요. 다시 말하거나 직접 입력해 주세요."
+            }
+            VoiceInputPhase.IDLE -> if (voiceInput.scope == null) "내비와 동행 연결을 확인한 뒤 말로 작성할 수 있어요." else "짧게 말하면 변경할 곳과 이유의 초안을 정리해요."
+        }
+        val draft = voiceReview?.draft
+        voiceSummary.text = when {
+            draft == null -> "초안만 만들어요. 확인하고 제안 보내기를 눌러야 전송해요."
+            draft.intent == VoiceChangeIntent.NEGATED -> "변경하지 않는 말로 들었어요. 말을 고치거나 장소를 직접 선택해 주세요."
+            draft.intent == VoiceChangeIntent.UNCLEAR -> "변경할 곳을 확인해 주세요. 말을 고치거나 장소를 직접 선택할 수 있어요."
+            else -> "변경할 곳 · ${draft.clue}\n이유 초안 · ${draft.reason.ifBlank { "직접 적을 수 있어요" }}\n" +
+                if (saved?.phase != SavedPlacesPhase.READY) "저장한 장소를 불러온 뒤 초안을 다시 정리해 주세요."
+                else if (draft.candidates.isEmpty()) "이 말과 맞는 저장 장소를 찾지 못했어요. 목록에서 직접 선택해 주세요."
+                else "저장한 실제 후보 ${draft.candidates.size}곳의 이름과 주소를 확인해 주세요."
+        }
+        voiceCandidatesButton.visibility = if (draft?.candidates?.isNotEmpty() == true) View.VISIBLE else View.GONE
+        voiceCandidatesButton.isEnabled = voiceReview != null && !voiceInput.capturing
+        voiceCandidatesButton.text = "후보 확인 · ${draft?.candidates?.size ?: 0}곳"
+    }
+
+    private fun startVoice() {
+        if (voiceInput.scope == null || voiceInput.capturing) return
+        invalidateVoiceReview(); selectedExample = null; pickerRequested = false; closePicker()
+        session?.savedPlaces?.let { it.clearSelection(it.state.snapshot) }
+        voiceInput.start()
+    }
+    private fun analyzeVoice() {
+        val scope = voiceInput.scope ?: return
+        val input = voiceInput.state
+        if (voiceInput.capturing || input.text.isBlank() || !VoiceDraftAnalyzer.validText(input.text)) return
+        invalidateVoiceReview()
+        val saved = session?.savedPlaces?.state
+        val choices = saved?.takeIf { it.phase == SavedPlacesPhase.READY }?.choices ?: emptyList()
+        val draft = VoiceDraftAnalyzer.analyze(input.text, choices)
+        voiceReview = VoiceReview(scope, input.textRevision, saved?.snapshot ?: -1, draft)
+        reasonInput.setText(draft.reason)
+        renderCurrent()
+    }
+    private fun showVoiceCandidates() {
+        val review = voiceReview ?: return
+        val controller = session?.savedPlaces ?: return
+        val snapshot = controller.state
+        if (voiceInput.scope != review.scope || voiceInput.state.textRevision != review.textRevision ||
+            review.snapshot != snapshot.snapshot || snapshot.phase != SavedPlacesPhase.READY ||
+            review.draft.candidates.isEmpty()) return
+        closePicker(); voicePicker = true
+        val choices = ui.column().apply { id = R.id.voice_candidate_choices; setPadding(ui.dp(24), ui.dp(12), ui.dp(24), ui.dp(12)) }
+        val dialog = AlertDialog.Builder(this).setTitle("후보 이름과 주소 확인")
+            .setView(ScrollView(this).apply { addView(choices) }).setNegativeButton("취소", null).create()
+        pickerDialog = dialog
+        review.draft.candidates.forEach { place -> ui.add(choices, ui.button("${place.name}\n${place.pleos?.address}", R.id.voice_candidate_choice) {
+            if (voiceReview === review && voiceInput.scope == review.scope &&
+                voiceInput.state.textRevision == review.textRevision && controller.select(snapshot.snapshot, place)) {
+                selectedExample = null; voiceSelected = place; voiceSelectedSnapshot = snapshot.snapshot
+            }
+            pickerDialog = null; voicePicker = false; dialog.dismiss(); renderCurrent()
+        }, 12) }
+        dialog.setOnDismissListener { if (pickerDialog === dialog) pickerDialog = null; voicePicker = false }
+        dialog.show(); styleDialogButtons(dialog)
+    }
+
+    private fun buildVoiceComposer(root: LinearLayout) {
+        val card = ui.card(root)
+        ui.add(card, ui.text("말로 초안 작성", true))
+        ui.add(card, ui.text("정차 중이거나 동승자가 조작해 주세요. 저장한 장소에서만 골라요.").apply { setTextColor(ui.color(R.color.muted)) }, 12)
+        voiceStartButton = ui.button("말로 작성", R.id.voice_start, Role.PRIMARY) { startVoice() }; ui.add(card, voiceStartButton, 20)
+        voiceStatus = ui.text(id = R.id.voice_status).apply { accessibilityLiveRegion = View.ACCESSIBILITY_LIVE_REGION_POLITE }; ui.add(card, voiceStatus, 16)
+        voiceStopButton = ui.button("말하기 끝", R.id.voice_stop) { voiceInput.stop() }
+        voiceCancelButton = ui.button("음성 초안 지우기", R.id.voice_cancel) { voiceInput.cancel(); invalidateVoiceReview() }
+        ui.pair(card, voiceStopButton, voiceCancelButton, 12)
+        val field = ui.column(); ui.add(card, field, 20)
+        voiceTextInput = ui.field(field, "들은 말 (고칠 수 있어요)", R.id.voice_text).apply {
+            setSingleLine(false); minLines = 2; maxLines = 6
+            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE or InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
+            hint = "예: 카페 들르는 거 어때?"; filters = arrayOf(InputFilter.LengthFilter(400))
+            addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { if (!updatingVoiceText) voiceInput.edit(s?.toString() ?: "") }
+                override fun afterTextChanged(s: Editable?) = Unit
+            })
+        }
+        voiceAnalyzeButton = ui.button("초안 정리", R.id.voice_analyze) { analyzeVoice() }; ui.add(card, voiceAnalyzeButton)
+        voiceSummary = ui.text(id = R.id.voice_summary); ui.add(card, voiceSummary, 16)
+        voiceCandidatesButton = ui.button("후보 확인", R.id.voice_candidates) { showVoiceCandidates() }; ui.add(card, voiceCandidatesButton, 16)
     }
 
     private fun placesContext(state: VehicleState, owner: VehicleSession?) = PlacesLoadContext(
@@ -375,6 +546,7 @@ class MainActivity : Activity() {
     }
 
     private fun sendProposal() {
+        if (voiceInput.capturing) return
         val reason = VehiclePresentation.reason(reasonInput.text.toString())
         if (reason == null) { reasonInput.error = "줄바꿈 없이 200자 이내로 적어 주세요"; return }
         val example = selectedExample
@@ -439,7 +611,7 @@ class MainActivity : Activity() {
         val dialog = AlertDialog.Builder(this).setTitle("저장한 장소 선택").setView(scroll).setNegativeButton("선택 취소", null).create()
         pickerDialog = dialog
         snapshot.choices.forEach { place -> ui.add(choices, ui.button("${place.name}\n${place.pleos?.address}", R.id.saved_place_choice) {
-            if (controller.select(snapshot.snapshot, place)) { selected = true; selectedExample = null }
+            if (controller.select(snapshot.snapshot, place)) { selected = true; selectedExample = null; voiceSelected = null }
             pickerDialog = null; dialog.dismiss(); renderCurrent()
         }, 12) }
         dialog.setOnDismissListener {
@@ -492,7 +664,7 @@ class MainActivity : Activity() {
         backButton = ui.button("홈으로", R.id.nav_home) { navigate(if (credentials == null) Page.WELCOME else Page.HOME) }
         header.addView(backButton, LinearLayout.LayoutParams(-2, -2).apply { rightMargin = ui.dp(24) })
         pageTitle = ui.text("동행", true); header.addView(pageTitle, LinearLayout.LayoutParams(0, -2, 1f))
-        stopButton = ui.button("동행 중지", R.id.stop_convoy, Role.DANGER) { placesLoadIntent.cancel(); pickerRequested = false; service?.stopAutomatic() }
+        stopButton = ui.button("동행 중지", R.id.stop_convoy, Role.DANGER) { voiceInput.cancel(); invalidateVoiceReview(); placesLoadIntent.cancel(); pickerRequested = false; service?.stopAutomatic() }
         header.addView(stopButton, LinearLayout.LayoutParams(-2, -2).apply { rightMargin = ui.dp(16) })
         settingsButton = ui.button("설정", R.id.nav_settings) { navigate(Page.SETTINGS) }; header.addView(settingsButton)
         root.addView(header)
@@ -536,6 +708,7 @@ class MainActivity : Activity() {
         automaticStartButton = ui.button("동행 시작", R.id.start_convoy) { automaticStart() }; ui.add(root, automaticStartButton, 16)
     }
     private fun buildComposer(root: LinearLayout) {
+        buildVoiceComposer(root)
         val card = ui.card(root)
         ui.add(card, ui.text("1  장소 선택", true))
         ui.add(card, ui.text("내비에 ☆ 저장한 장소만 보여요.").apply { setTextColor(ui.color(R.color.muted)) }, 12)

@@ -56,4 +56,14 @@
     <item name="server_details" type="id" />
     <item name="submit_room" type="id" />
     <item name="room_form_status" type="id" />
+    <item name="voice_start" type="id" />
+    <item name="voice_stop" type="id" />
+    <item name="voice_cancel" type="id" />
+    <item name="voice_status" type="id" />
+    <item name="voice_text" type="id" />
+    <item name="voice_analyze" type="id" />
+    <item name="voice_summary" type="id" />
+    <item name="voice_candidates" type="id" />
+    <item name="voice_candidate_choices" type="id" />
+    <item name="voice_candidate_choice" type="id" />
 </resources>

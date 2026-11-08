@@ -1,4 +1,4 @@
-# Pleos 차량 목적지 앱 — #12 수동·#14 자동 동행·#17 제안·#23 UI
+# Pleos 차량 목적지 앱 — #12 수동·#14 자동 동행·#17 제안·#23 UI·#25 음성 초안
 
 공식 NaviHelper 3.0.5를 사용하는 Kotlin 차량 실행본이다. 대표 차량의 현재 순정 목적지를 조회해 공유방에 저장하고, 다른 회원이 받은 목적지를 직접 순정 내비에 요청한다. 경로 요청 반환이나 서버 저장을 순정 내비 변경 완료로 표시하지 않는다. 후속 `getDestinationInfo()` 응답의 이름·좌표·POI ID·sub-ID·provider가 요청과 일치해야 `순정 목적지 일치 확인`을 표시한다.
 
@@ -6,7 +6,13 @@
 
 장소 선택을 취소했거나 제안 뒤 다시 선택할 때는 작성 화면의 `다시 불러오기`를 누른다. 캐시 목록은 그대로 다시 열고, 새로 저장한 곳은 `목록 새로 불러오기`로 명시적으로 갱신한다. 이 입력만 기존 내비 연결과 한 번의 새 읽기를 요청하며, 작성 화면 진입·복귀는 연결이나 동의를 만들지 않는다. 적용·읽기 등 다른 작업 중에는 갱신하지 않는다.
 
-정차 또는 동승자가 공유방을 만들고 역할별 자동 동행을 명시적으로 시작한다. 자동 동행은 기본 꺼짐이며 기존 직접 공유·적용도 유지한다. 대표의 자동 공유와 참여자의 자동 따르기를 시작하면 순정 내비 화면에서도 공유·적용·실제 목적지 확인을 계속한다. 원음·마이크·PTT·AI/STT/TTS·외부 내비 앱 연동은 제공하지 않는다. `main`에 없는 휴대폰 앱 소스를 의존하지 않는다. [화면 계약](../../DESIGN.md), [제품 범위](../../docs/product/README.md), [#12 검증](evidence/verification.md), [#14 자동 동행 계약·검증](../../docs/product/vehicle-auto-follow.md)을 따른다.
+정차 또는 동승자가 공유방을 만들고 역할별 자동 동행을 명시적으로 시작한다. 자동 동행은 기본 꺼짐이며 기존 직접 공유·적용도 유지한다. 대표의 자동 공유와 참여자의 자동 따르기를 시작하면 순정 내비 화면에서도 공유·적용·실제 목적지 확인을 계속한다. #25는 전경에서 명시적으로 시작한 마이크 입력으로 수정 가능한 제안 초안을 만든다. 원음 전송/재생·PTT·생성형 AI·TTS·외부 내비 앱 연동은 제공하지 않는다. `main`에 없는 휴대폰 앱 소스를 의존하지 않는다. [화면 계약](../../DESIGN.md), [제품 범위](../../docs/product/README.md), [#12 검증](evidence/verification.md), [#14 자동 동행 계약·검증](../../docs/product/vehicle-auto-follow.md)을 따른다.
+
+## 음성으로 제안 초안 작성 (#25)
+
+`목적지 바꾸기 → 말로 작성 → 들은 말 확인/수정 → 초안 정리 → 실제 후보 이름·주소 확인 → 제안 보내기`를 사용한다. Pleos SpeechToText 3.3.1 ON_DEVICE와 제한된 로컬 문장 규칙을 쓴다. 실제 저장 장소 객체만 매칭하며 업종이나 좌표·ID를 만들어내지 않는다. 모호하거나 맞는 후보가 없으면 수동 장소 선택을 사용한다. 인식문/초안/후보 확인만으로 제안이나 경로를 요청하지 않고, 기존 전원 수락과 fresh native 확인을 유지한다. 입력은 작성 화면의 전경 수명에만 있고 발화/원음을 서버·journal에 저장하지 않는다. [음성 초안 계약](../../docs/product/vehicle-voice-proposals.md)을 따른다.
+
+별도 testOnly driver의 `.SpeechProbeActivity`는 실제 ON_DEVICE 초기화·마이크와 공급 PCM 파일을 구분한다. `.VehicleUiTextProbe`는 자기 package 대상 instrumentation에서 실제 보이는 차량 앱의 음성문/이유 EditText에 고정 공개 문장을 수정 입력한다. STT 결과 주입이 아니며 운영 앱을 target하지 않는다. `field=voice_text|proposal_reason_input`, `textKey=cafe|fuel|restaurant|saved-cafe|negated|long|clear`만 허용한다. UIAutomation 수정 성공과 실제 사람 발화 성공을 구분한다.
 
 ## 목적지 변경 제안
 
@@ -98,7 +104,7 @@ adb -P 5041 -s emulator-5570 shell am instrument -w -r -e mode route \
 
 ## 별도 프로세스의 실제 native driver
 
-`nativeDriver`는 `ai.pleos.destinations.driver`라는 별도 test-only 앱이다. Activity가 없고 instrumentation target도 자기 패키지다. 운영 앱의 숨은 명령, 모의 내비, 사설 SDK를 사용하지 않는다. 실제 NaviHelper 3.0.5로 공개 42dot·소프트웨어드림센터 POI를 요청하거나 실제 목적지를 조회한다. 공개 POI ID와 #12에서 관찰한 canonical 입구 좌표·nullable sub-ID를 고정한다. 임의 목적지나 인증 비밀을 인자로 받지 않는다. SDK 요청 경계에서만 null sub-ID를 빈 문자열로 전달한다.
+`nativeDriver`는 `ai.pleos.destinations.driver`라는 별도 test-only 앱이다. 기존 native instrumentation target은 자기 패키지이며, 검색/STT 전경 진단 Activity와 고정 문장 UI 수정용 자기 target instrumentation을 별도로 제공한다. 운영 앱의 숨은 명령, 모의 내비, 사설 SDK를 사용하지 않는다. 실제 NaviHelper 3.0.5로 공개 42dot·소프트웨어드림센터 POI를 요청하거나 실제 목적지를 조회한다. 공개 POI ID와 #12에서 관찰한 canonical 입구 좌표·nullable sub-ID를 고정한다. 임의 목적지나 인증 비밀을 인자로 받지 않는다. SDK 요청 경계에서만 null sub-ID를 빈 문자열로 전달한다.
 
 ```sh
 ./gradlew --no-daemon :nativeDriver:assembleDebug

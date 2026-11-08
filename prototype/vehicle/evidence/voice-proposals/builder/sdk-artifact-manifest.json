@@ -1,0 +1,12 @@
+[
+  {
+    "url": "https://nexus-playground.pleos.ai/repository/maven-releases/ai/pleos/playground/SpeechToText/3.3.1/SpeechToText-3.3.1.pom",
+    "bytes": 1098,
+    "sha256": "009757c48e8139862e5c25383ec79e11ca37b8c9a32ec6fcf810c409b33cec56"
+  },
+  {
+    "url": "https://nexus-playground.pleos.ai/repository/maven-releases/ai/pleos/playground/SpeechToText/3.3.1/SpeechToText-3.3.1.aar",
+    "bytes": 188560,
+    "sha256": "35109ad13400a7fa103cca9fabbf9b785e63a6a98b17a0698a1aef51458d37bf"
+  }
+]

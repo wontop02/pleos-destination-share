@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ai.pleos.destinations.vehicle.SavedPlacesTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-11-08T10:41:38" hostname="wontop-MacBookAir.local" time="0.046">
+  <properties/>
+  <testcase name="voiceRevisionDiscardsOnlyItsSelectionWithoutRefetchingOrChangingSnapshot" classname="ai.pleos.destinations.vehicle.SavedPlacesTest" time="0.025"/>
+  <testcase name="timeoutAndCancellationPoisonTheReadEpochAndLateCallbacksCannotSatisfyNewRequests" classname="ai.pleos.destinations.vehicle.SavedPlacesTest" time="0.0"/>
+  <testcase name="loadIsReadOnlyBoundedAndDuplicateTapCannotIssueSecondRead" classname="ai.pleos.destinations.vehicle.SavedPlacesTest" time="0.003"/>
+  <testcase name="staleDialogCancelCannotCancelANewerReadOrSelection" classname="ai.pleos.destinations.vehicle.SavedPlacesTest" time="0.0"/>
+  <testcase name="publicBookmarkNormalizationPreservesEveryOriginalFieldAndOnlySupportedPlaceMeaning" classname="ai.pleos.destinations.vehicle.SavedPlacesTest" time="0.011"/>
+  <testcase name="emptyInvalidAndFailureStatesNeverSelectOrRetryInTheAmbiguousEpoch" classname="ai.pleos.destinations.vehicle.SavedPlacesTest" time="0.001"/>
+  <testcase name="deadlineIsCheckedAtCallbackEvenWithoutATick" classname="ai.pleos.destinations.vehicle.SavedPlacesTest" time="0.0"/>
+  <testcase name="roomChangeDuringReadFencesLateResultAndRequiresExplicitNativeReconnect" classname="ai.pleos.destinations.vehicle.SavedPlacesTest" time="0.001"/>
+  <testcase name="snapshotCannotSelectAnEntryAfterCancelReconnectOrRoomMemberReplacement" classname="ai.pleos.destinations.vehicle.SavedPlacesTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ai.pleos.destinations.vehicle.NaviDestinationNormalizerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-08T10:41:36" hostname="wontop-MacBookAir.local" time="0.063">
+  <properties/>
+  <testcase name="partialMetadataOrRemainingRouteValuesCannotMatchTheEmptySentinel" classname="ai.pleos.destinations.vehicle.NaviDestinationNormalizerTest" time="0.051"/>
+  <testcase name="namedDestinationAtZeroCoordinatesIsPreservedAndMissingPoiCannotBeInvented" classname="ai.pleos.destinations.vehicle.NaviDestinationNormalizerTest" time="0.008"/>
+  <testcase name="exactOfficialEmptyResponseIsAbsence" classname="ai.pleos.destinations.vehicle.NaviDestinationNormalizerTest" time="0.001"/>
+  <testcase name="nonzeroOrInvalidCoordinatesWithEmptyFieldsAreNotDeletion" classname="ai.pleos.destinations.vehicle.NaviDestinationNormalizerTest" time="0.001"/>
+  <testcase name="blankOrPartialTextNeverBecomesAuthoritativeAbsence" classname="ai.pleos.destinations.vehicle.NaviDestinationNormalizerTest" time="0.0"/>
+  <testcase name="realPoiFieldsAndNullableSubIdArePreservedWithoutFallback" classname="ai.pleos.destinations.vehicle.NaviDestinationNormalizerTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

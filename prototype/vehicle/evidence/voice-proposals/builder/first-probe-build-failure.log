@@ -1,0 +1,28 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.11.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :nativeDriver:preBuild UP-TO-DATE
+> Task :nativeDriver:preDebugBuild UP-TO-DATE
+> Task :nativeDriver:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :nativeDriver:checkKotlinGradlePluginConfigurationErrors
+> Task :nativeDriver:checkDebugAarMetadata FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':nativeDriver:checkDebugAarMetadata'.
+> Could not resolve all files for configuration ':nativeDriver:debugRuntimeClasspath'.
+   > Could not find ai.pleos.playground.security:universal-access:0.6.0.
+     Searched in the following locations:
+       - https://dl.google.com/dl/android/maven2/ai/pleos/playground/security/universal-access/0.6.0/universal-access-0.6.0.pom
+       - https://repo.maven.apache.org/maven2/ai/pleos/playground/security/universal-access/0.6.0/universal-access-0.6.0.pom
+     Required by:
+         project :nativeDriver > ai.pleos.playground:SpeechToText:3.3.1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 11s
+2 actionable tasks: 2 executed

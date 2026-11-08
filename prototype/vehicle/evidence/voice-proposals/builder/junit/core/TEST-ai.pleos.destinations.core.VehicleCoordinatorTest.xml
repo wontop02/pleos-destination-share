@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ai.pleos.destinations.core.VehicleCoordinatorTest" tests="42" skipped="0" failures="0" errors="0" timestamp="2026-11-08T10:25:11" hostname="wontop-MacBookAir.local" time="0.014">
+  <properties/>
+  <testcase name="globalCancellationWithoutPendingAttemptDoesNotAssumeDeletion" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.002"/>
+  <testcase name="cancellationFollowedByEmptyOrWrongDestinationAndLateTargetNeverConfirms" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.001"/>
+  <testcase name="timeoutRetiresSessionAndLateSuccessfulCallbacksCannotReviveIt" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="aChangeDuringReadDiscardsCrossedResponseAndReadsAgain" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="routeCallbackAloneAndWrongDestinationNeverConfirmApplication" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.001"/>
+  <testcase name="emptyLookupDuringRouteVerificationDoesNotConfirmCancelOrPropagateDeletion" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.001"/>
+  <testcase name="leaveAfterReplacementCancellationStillFencesTheResumedLookup" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="freshProcessNeverInfersPriorSuccessFromRoomAndNativeValuesAlone" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="matchingRequiresPoiIdentityCoordinatesAndName" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="sdkAbsenceIsFailureNotEmptyDestinationOrSimulatedConnection" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="stopRemovesAllAbilityToConsumeCallbacksOrRequestMoreRoutes" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.001"/>
+  <testcase name="invalidSdkDestinationIsFailureWithoutClearingSharedValue" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="returnAfterOriginalDeadlineCannotRestoreSuccessEvenWhenNativeDestinationMatches" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="memberCannotPublishOrClearAndSharedReceiptDoesNotRequestRoute" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="unansweredLookupIsFailureAndNotNoDestination" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="roomUpdateWhileShareReadIsPendingPreventsStalePublish" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="foregroundReturnResumesOnlyFreshVerificationWithoutAnotherRouteRequest" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.001"/>
+  <testcase name="reconnectSuspendsApplicationAndRetainsOnlyLastReceivedValue" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="externalNativeChangeAllowsExplicitReapplicationOfTheSameSharedRevision" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="boundedPollingConfirmsActualDestinationWithoutPretendingCompletionCallbackWasReceived" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="nullableSourceSubIdStaysNullInModelAndRequiresStrictNullableResultMatch" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.001"/>
+  <testcase name="freshLookupWithoutChangeEventAlsoInvalidatesObsoleteConfirmation" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="responseAtDeadlineCannotConfirmEvenBeforeTheNextTimerTick" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="resumedReadKeepsOriginalDeadlineRatherThanStartingAnotherFortyFiveSeconds" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="previousRouteCancellationDuringReplacementCanConfirmOnlyFreshMatchingTargetWithoutReRequest" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.001"/>
+  <testcase name="reversedAndRepeatedRoomRevisionsCannotReplaceNewerValue" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="leaveCannotBeUndoneByResumingAnOldAttempt" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="periodicReadsStaySingleFlightAndNeverExtendTheOriginalDeadline" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="explicitShareOfEmptyLookupNeverPublishesZeroCoordinatesOrDeletesExistingSharedValue" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="crossedEmptyLookupIsDiscardedBeforeDisplayingAbsence" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.001"/>
+  <testcase name="initialAuthoritativeEmptyLookupIsAbsenceWithoutDisconnectOrPublish" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="cancellationRetiresPreviousLookupAndRequiresAuthoritativeQueryForAbsence" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="leaveInvalidatesAllPendingNativeAndHttpCallbacks" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="shareErrorDoesNotClaimNativeChangeAndCanBeExplicitlyRetried" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.001"/>
+  <testcase name="newerRoomRevisionRejectsOldConfirmationEvenForTheSameCoordinates" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="repeatedShareActionWaitsForFreshReadAndSuppressesIdenticalRepublish" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="actualRoutingCompletedEventIsRecordedSeparatelyFromDestinationMatch" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="moreRecentRoomDestinationCancelsAttemptAndOldListenerCannotCompleteNewOne" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.001"/>
+  <testcase name="connectionTimeoutFencesLateConnectedCallback" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="legacyDestinationAndMissingPoiIdentityAreNeverFilledWithInventedPoi" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="confirmedRouteCannotLoopThroughNativeEventsOrDuplicateApply" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.0"/>
+  <testcase name="nativeEventsNeverShareWithoutHostExplicitAction" classname="ai.pleos.destinations.core.VehicleCoordinatorTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
