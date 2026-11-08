@@ -91,6 +91,8 @@ class MainActivity : Activity() {
     private lateinit var voiceSummary: TextView
     private var updatingVoiceText = false
     private var observingVoice = false
+    private val voicePermission = VoicePermissionIntent()
+    private var voicePermissionNotice: String? = null
     private var foreground = false
     private var lastVoiceTextRevision = -1L
     private data class VoiceReview(val scope: VoiceInputScope, val textRevision: Long,
@@ -166,7 +168,7 @@ class MainActivity : Activity() {
         bound = bindService(Intent(this, ConvoySessionService::class.java), connection, BIND_AUTO_CREATE)
     }
     override fun onStop() {
-        foreground = false; voiceHandler.removeCallbacks(voiceTick); voiceInput.observe(null); invalidateVoiceReview()
+        foreground = false; voicePermission.cancel(); voiceHandler.removeCallbacks(voiceTick); voiceInput.observe(null); invalidateVoiceReview()
         placesLoadIntent.cancel(); composeGeneration += 1; placesLoadFailed = false
         pickerRequested = false; closePicker(); selectedExample = null
         service?.manual { it.savedPlaces?.cancel() }
@@ -201,6 +203,13 @@ class MainActivity : Activity() {
             if (grantResults.firstOrNull() == PackageManager.PERMISSION_GRANTED) service?.requestAutomaticFromUi()
             else localNotice = "알림을 허용한 뒤 동행을 시작해 주세요. 알림에서 중지할 수 있어요."
         }
+        if (requestCode == 25) {
+            val scope = session?.let { currentVoiceScope(it.state, it) }
+            val allowed = voicePermission.consume(scope, grantResults.firstOrNull() == PackageManager.PERMISSION_GRANTED &&
+                checkSelfPermission(Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED)
+            if (allowed && foreground && page == Page.COMPOSE && voiceInput.scope == scope && !voiceInput.capturing) beginVoiceCapture()
+            else voicePermissionNotice = "마이크를 허용한 뒤 말로 작성할 수 있어요. 직접 입력하거나 장소를 선택해 주세요."
+        }
         if (requestCode == 17) {
             val action = afterNotificationPermission; afterNotificationPermission = null
             if (grantResults.firstOrNull() == PackageManager.PERMISSION_GRANTED) action?.invoke()
@@ -223,7 +232,7 @@ class MainActivity : Activity() {
         backButton.visibility = if (next == Page.HOME || next == Page.WELCOME) View.GONE else View.VISIBLE
         settingsButton.visibility = if (next == Page.SETTINGS) View.GONE else View.VISIBLE
         if (previous == Page.COMPOSE && next != Page.COMPOSE) {
-            voiceInput.observe(null); invalidateVoiceReview()
+            voicePermission.cancel(); voiceInput.observe(null); invalidateVoiceReview()
             placesLoadIntent.cancel(); placesLoadFailed = false
             pickerRequested = false; closePicker(); selectedExample = null
             service?.manual { it.savedPlaces?.cancel() }
@@ -413,14 +422,14 @@ class MainActivity : Activity() {
             updatingVoiceText = true; voiceTextInput.setText(input.text); updatingVoiceText = false
         }
         voiceTextInput.isEnabled = voiceInput.scope != null && !voiceInput.capturing
-        voiceStartButton.isEnabled = voiceInput.scope != null && !voiceInput.capturing
+        voiceStartButton.isEnabled = voiceInput.scope != null && !voiceInput.capturing && !voicePermission.waiting
         voiceStartButton.text = if (input.text.isBlank()) "말로 작성" else "다시 말하기"
         voiceStopButton.visibility = if (voiceInput.capturing) View.VISIBLE else View.GONE
         voiceStopButton.isEnabled = input.phase != VoiceInputPhase.FINISHING
         voiceCancelButton.visibility = if (input.phase != VoiceInputPhase.IDLE || input.text.isNotBlank()) View.VISIBLE else View.GONE
         voiceAnalyzeButton.isEnabled = voiceInput.scope != null && !voiceInput.capturing &&
             input.text.isNotBlank() && VoiceDraftAnalyzer.validText(input.text)
-        voiceStatus.text = when (input.phase) {
+        voiceStatus.text = if (voicePermission.waiting) "마이크 사용을 허용하면 녹음을 시작해요. 녹음은 저장하지 않아요." else if (voicePermissionNotice != null && !voiceInput.capturing) voicePermissionNotice else when (input.phase) {
             VoiceInputPhase.PREPARING -> "마이크를 준비하고 있어요. 잠시 기다려 주세요."
             VoiceInputPhase.LISTENING -> if (input.interim.isBlank()) "듣고 있어요. 짧게 말한 뒤 말하기 끝을 눌러 주세요." else "듣고 있어요 · ${input.interim}"
             VoiceInputPhase.FINISHING -> "들은 말을 확인하고 있어요"
@@ -434,7 +443,7 @@ class MainActivity : Activity() {
                 VoiceInputFailure.EMPTY -> "말을 듣지 못했어요. 다시 말하거나 직접 입력해 주세요."
                 else -> "말을 확인하지 못했어요. 다시 말하거나 직접 입력해 주세요."
             }
-            VoiceInputPhase.IDLE -> if (voiceInput.scope == null) "내비와 동행 연결을 확인한 뒤 말로 작성할 수 있어요." else "짧게 말하면 변경할 곳과 이유의 초안을 정리해요."
+            VoiceInputPhase.IDLE -> if (voiceInput.scope == null) "내비와 동행 연결을 확인한 뒤 말로 작성할 수 있어요." else "마이크로 짧게 녹음해 차량 안에서 말을 확인해요. 녹음은 저장하지 않아요."
         }
         val draft = voiceReview?.draft
         voiceSummary.text = when {
@@ -452,7 +461,18 @@ class MainActivity : Activity() {
     }
 
     private fun startVoice() {
-        if (voiceInput.scope == null || voiceInput.capturing) return
+        val scope = voiceInput.scope ?: return
+        if (voiceInput.capturing || voicePermission.waiting) return
+        voicePermissionNotice = null
+        if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            voicePermission.begin(scope); renderCurrent()
+            requestPermissions(arrayOf(Manifest.permission.RECORD_AUDIO), 25)
+        } else beginVoiceCapture()
+    }
+    private fun beginVoiceCapture() {
+        val owner = session ?: return
+        if (!foreground || page != Page.COMPOSE || currentVoiceScope(owner.state, owner) != voiceInput.scope || voiceInput.capturing) return
+        voicePermissionNotice = null
         invalidateVoiceReview(); selectedExample = null; pickerRequested = false; closePicker()
         session?.savedPlaces?.let { it.clearSelection(it.state.snapshot) }
         voiceInput.start()
@@ -499,7 +519,7 @@ class MainActivity : Activity() {
         voiceStartButton = ui.button("말로 작성", R.id.voice_start, Role.PRIMARY) { startVoice() }; ui.add(card, voiceStartButton, 20)
         voiceStatus = ui.text(id = R.id.voice_status).apply { accessibilityLiveRegion = View.ACCESSIBILITY_LIVE_REGION_POLITE }; ui.add(card, voiceStatus, 16)
         voiceStopButton = ui.button("말하기 끝", R.id.voice_stop) { voiceInput.stop() }
-        voiceCancelButton = ui.button("음성 초안 지우기", R.id.voice_cancel) { voiceInput.cancel(); invalidateVoiceReview() }
+        voiceCancelButton = ui.button("음성 초안 지우기", R.id.voice_cancel) { voicePermission.cancel(); voicePermissionNotice = null; voiceInput.cancel(); invalidateVoiceReview() }
         ui.pair(card, voiceStopButton, voiceCancelButton, 12)
         val field = ui.column(); ui.add(card, field, 20)
         voiceTextInput = ui.field(field, "들은 말 (고칠 수 있어요)", R.id.voice_text).apply {
@@ -664,7 +684,7 @@ class MainActivity : Activity() {
         backButton = ui.button("홈으로", R.id.nav_home) { navigate(if (credentials == null) Page.WELCOME else Page.HOME) }
         header.addView(backButton, LinearLayout.LayoutParams(-2, -2).apply { rightMargin = ui.dp(24) })
         pageTitle = ui.text("동행", true); header.addView(pageTitle, LinearLayout.LayoutParams(0, -2, 1f))
-        stopButton = ui.button("동행 중지", R.id.stop_convoy, Role.DANGER) { voiceInput.cancel(); invalidateVoiceReview(); placesLoadIntent.cancel(); pickerRequested = false; service?.stopAutomatic() }
+        stopButton = ui.button("동행 중지", R.id.stop_convoy, Role.DANGER) { voicePermission.cancel(); voiceInput.cancel(); invalidateVoiceReview(); placesLoadIntent.cancel(); pickerRequested = false; service?.stopAutomatic() }
         header.addView(stopButton, LinearLayout.LayoutParams(-2, -2).apply { rightMargin = ui.dp(16) })
         settingsButton = ui.button("설정", R.id.nav_settings) { navigate(Page.SETTINGS) }; header.addView(settingsButton)
         root.addView(header)

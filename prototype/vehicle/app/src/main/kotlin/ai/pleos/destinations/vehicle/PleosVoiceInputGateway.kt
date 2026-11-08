@@ -1,6 +1,8 @@
 package ai.pleos.destinations.vehicle
 
+import android.Manifest
 import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
@@ -11,7 +13,7 @@ import ai.pleos.playground.stt.listener.OnInitializeListener
 import ai.pleos.playground.stt.listener.ResultListener
 import java.util.Locale
 
-/** Public SDK microphone path only. Never registers a cloud app or accepts supplied audio. */
+/** Foreground app microphone → in-memory PCM → public ON_DEVICE speech engine. */
 internal class PleosVoiceInputGateway(context: Context, private val trace: (String) -> Unit) : VoiceInputGateway {
     private val app = context.applicationContext
     private val main = Handler(Looper.getMainLooper())
@@ -19,9 +21,15 @@ internal class PleosVoiceInputGateway(context: Context, private val trace: (Stri
     private var callbacks: ResultListener? = null
     private var generation = 0L
     private var sdkGeneration = 0L
+    private var capture: VoicePcmCapture? = null
+    private var pendingPcm: ByteArray? = null
+    private var submitted = false
     private val cleanup = VoiceInputCleanup({ SystemClock.elapsedRealtime() }, trace)
     override fun start(listener: VoiceInputGateway.Listener) {
         close(); val token = generation
+        if (app.checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            listener.failed(VoiceInputFailure.PERMISSION); return
+        }
         beginWhenStopped(token, listener)
     }
     private fun beginWhenStopped(token: Long, listener: VoiceInputGateway.Listener) {
@@ -37,14 +45,14 @@ internal class PleosVoiceInputGateway(context: Context, private val trace: (Stri
         fun active() = token == generation && sdk === helper
         fun dispatch(action: () -> Unit) { main.post { if (active()) action() } }
         val results = object : ResultListener {
-            override fun onReady() { dispatch { trace("sdkReady"); listener.listening() } }
-            override fun onStartedRecognition() { dispatch { trace("sdkStartedRecognition"); listener.listening() } }
-            override fun onUpdated(stt: String, completed: Boolean) { dispatch { listener.text(stt, completed) } }
+            override fun onReady() { dispatch { trace("sdkReady") } }
+            override fun onStartedRecognition() { dispatch { trace("sdkStartedRecognition") } }
+            override fun onUpdated(stt: String, completed: Boolean) { dispatch { if (submitted) listener.text(stt, completed) } }
             override fun onUpdatedEpdData(on: Long, off: Long) = Unit
             override fun onUpdatedRms(rms: Double) = Unit
             override fun onEndedRecognition() { main.post {
                 if (cleanup.contains(token)) cleanup.ended(token)
-                else if (active()) listener.ended()
+                else if (active() && submitted) listener.ended()
             } }
             override fun onError(errorType: ErrorType) { dispatch { listener.failed(failure(errorType)) } }
         }
@@ -54,16 +62,32 @@ internal class PleosVoiceInputGateway(context: Context, private val trace: (Stri
                 trace("sdkInitializedOnDevice")
                 try {
                     helper.addListener(results); helper.setLocale(Locale.KOREA)
-                    helper.request(); trace("sdkMicrophoneRequested")
+                    submitted = false
+                    val recording = VoicePcmCapture({ AndroidVoicePcmSource(app) }, { SystemClock.elapsedRealtime() },
+                        { action -> main.post(action) },
+                        { if (active()) { trace("appMicrophoneRecording"); listener.listening() } },
+                        { bytes ->
+                            if (!active()) bytes.fill(0)
+                            else {
+                                capture = null; trace("appMicrophoneClosed"); listener.ended()
+                                if (!active()) bytes.fill(0)
+                                else try {
+                                    pendingPcm = bytes; submitted = true
+                                    helper.sendAudio(bytes); helper.completeAudioSend(); trace("sdkPcmCompleted")
+                                } catch (_: Exception) { bytes.fill(0); listener.failed(VoiceInputFailure.ENGINE) }
+                            }
+                        }, { error -> if (active()) listener.failed(error) })
+                    capture = recording; recording.start()
                 } catch (_: SecurityException) { listener.failed(VoiceInputFailure.PERMISSION) }
                 catch (_: Exception) { listener.failed(VoiceInputFailure.ENGINE) }
             } }
             override fun onFailure(errorType: ErrorType) { dispatch { listener.failed(failure(errorType)) } }
         })
     }
-    override fun stop() { sdk?.stop() }
+    override fun stop() { capture?.finish() }
     override fun close() {
         generation += 1
+        capture?.cancel(); capture = null; pendingPcm?.fill(0); pendingPcm = null; submitted = false
         val helper = sdk; sdk = null; val listener = callbacks; callbacks = null
         if (helper != null) {
             cleanup.retire(sdkGeneration, { helper.stop() }) {

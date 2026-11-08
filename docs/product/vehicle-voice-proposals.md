@@ -14,7 +14,11 @@
 
 ## SDK와 처리 위치
 
-2026-11-08 공식 문서와 Maven AAR의 공개 선언을 확인했다. `ai.pleos.playground:SpeechToText:3.3.1`의 `SpeechToText(applicationContext, Mode.ON_DEVICE)`를 명시 사용하고 `initialize → addListener → setLocale(Locale.KOREA) → request` 순서로 차량 마이크를 요청한다. 실제 `onReady` 또는 `onStartedRecognition`을 받은 뒤 듣는 중으로 표시하며, 중복 준비 신호로 기한을 늘리지 않는다. `request()` 반환은 듣기 준비 완료가 아니다. 준비 전 결과는 무시하고 `completed=true` 결과만 확정 인식문으로 사용한다. 중간 인식문은 듣는 중 표시이며 확정 초안으로 승격하지 않는다. 종료 이벤트만 오면 짧게 확정 결과를 기다리고 없으면 실패한다.
+2026-11-08 공식 문서와 Maven AAR의 공개 선언을 확인했다. 동결 7은 `SpeechToText(applicationContext, Mode.ON_DEVICE)`를 initialize/addListener/setLocale한 뒤 앱 전경의 Android AudioRecord로 PCM16LE 16kHz mono를 메모리에 캡처한다. 실제 RECORDSTATE_RECORDING 확인 뒤에만 듣는 중이다. 명시 말하기 끝 또는 15초/480000바이트 상한에서 AudioRecord를 stop/release한 뒤 공개 sendAudio/completeAudioSend로 같은 차량 내 엔진에 전달한다. SDK request() 위임 마이크로 fallback하지 않는다. 파일·Intent·백업·방 서버에 PCM을 저장하지 않는다. 확정 completed=true만 인식문으로 사용하며 SDK onEnded가 최종 결과 대기 기한을 단축하지 않는다.
+
+이 전환은 사용자 실제 B 발화에서 준비와 약 8초 CAAS 녹음은 있었으나 중간/최종/인식 시작 callback 없이 말하기 끝 3초 뒤 시간 초과된 관찰에 따른다. 같은 ON_DEVICE 엔진의 supplied PCM final은 별도 관측되었다. 이는 request 위임 마이크의 입력 전달/완료 신호/기한 중 근본 원인이 어느 것인지 확정한 증거가 아니며, 새 AudioRecord 경로의 실마이크 성공도 아니다. 실제 권한 승인·원본 음향 재현 루프·실제 인식문·물리 마이크 해제를 동결 7에서 별도 검증해야 한다.
+
+새 android.permission.RECORD_AUDIO는 앱이 직접 캡처하기 위해 필요한 dangerous runtime permission이다. 전경 작성 버튼에서만 요청하며 사용자가 거절하면 직접 입력/장소 선택을 유지한다. 승인 callback은 foreground/작성 페이지/방/회원/room epoch/native epoch/page generation을 다시 검사하고 한 번만 소비한다. 화면 이탈·중지 후 늦은 승인은 녹음을 시작하지 않는다. adb grant, 특권 우회, 새 FGS/마이크 FGS/배경 녹음은 없다. 실제 사용자 승인 전 녹음이 검증되었다고 주장하지 않는다. [AudioRecord 공식 계약](https://developer.android.com/reference/android/media/AudioRecord), [Android runtime permission](https://developer.android.com/training/permissions/requesting)
 
 공식 계약상 ON_DEVICE는 차량 내 엔진으로 처리하며 네트워크나 앱 등록이 필요 없다. 기본값 HYBRID는 서버 우선이고 앱 등록을 요구하므로 쓰지 않는다. 이 구현은 앱 등록·키 발급·유료 API·새 외부 서버를 필요로 하지 않으며 비용이 발생하는 서비스를 활성화하지 않는다. 공개 `pleos.car.permission.STT_SERVICE`를 manifest에 선언하고, 권한이나 엔진 실패는 사용자에게 표시한다. 별도 권한 부여나 특권 우회는 하지 않는다. AAR manifest의 CAAS 최소 버전은 4.1.29/4001029다. 실제 이미지 호환성과 시스템 권한 부여 상태는 실행 증거에서 확인한다.
 
@@ -27,9 +31,9 @@ Gleo Interface의 action schema/Android intent는 별도의 앱 기능 호출 �
 
 ## 수명과 동의
 
-`VoiceInputController`는 마이크 gateway·monotonic 시계·변경 알림만 받는다. 제안 API, 경로 gateway, 장소 선택과 foreground service를 소유하지 않는다. Activity 전경과 현재 작성 화면에서만 시작하며 방·회원·room epoch·화면 generation·native epoch에 묶는다. 화면 이탈, Activity 중지, 방/회원/내비 연결 교체, 새 pending 제안과 동행 중지는 발화를 지우고 UI generation을 즉시 무효화한 뒤 마이크 stop을 요청한다. SDK stop은 비동기여서 helper/listener를 바로 release하지 않는다. onEndedRecognition 또는 최대 3초 종료 대기 뒤 listener 제거와 release를 수행한다. 다음 명시 인식은 이전 정리가 끝날 때까지 준비 중으로 기다리며, 이전 release가 새 인식과 겹치지 않는다. 이 기한은 물리 마이크 종료의 증거가 아니므로 실제 appops/audio 관찰로 종료를 따로 확인한다. 지연된 초기화·중간/최종 결과·오류는 이전 generation에서 수용하지 않는다. cold start에서 초안이나 마이크 동의를 복구하지 않는다.
+`VoiceInputController`는 마이크 gateway·monotonic 시계·변경 알림만 받는다. 제안 API, 경로 gateway, 장소 선택과 foreground service를 소유하지 않는다. Activity 전경과 현재 작성 화면에서만 시작하며 방·회원·room epoch·화면 generation·native epoch에 묶는다. 화면 이탈, Activity 중지, 방/회원/내비 연결 교체, 새 pending 제안과 동행 중지는 발화를 지우고 UI generation을 즉시 무효화한 뒤 앱 AudioRecord를 즉시 stop/release한다. 캡처 worker는 nonblocking read/interrupt와 한 번의 native close로 종료하고 취소한 메모리 PCM은 지운다. SDK send는 명시 완료 뒤에만 한 번 가능하며 캡처 취소 뒤에는 0회다. SDK 엔진 stop은 비동기여서 helper/listener를 바로 release하지 않는다. onEndedRecognition 또는 최대 3초 종료 대기 뒤 listener 제거와 release를 수행한다. 다음 명시 인식은 이전 정리가 끝날 때까지 준비 중으로 기다리며, 이전 release가 새 인식과 겹치지 않는다. 이 기한은 물리 마이크 종료의 증거가 아니므로 실제 appops/audio 관찰로 종료를 따로 확인한다. 지연된 초기화·중간/최종 결과·오류는 이전 generation에서 수용하지 않는다. cold start에서 초안이나 마이크 동의를 복구하지 않는다.
 
-초기화/이전 종료 대기 10초, 실제 준비 신호 뒤 듣기 15초와 종료 뒤 최종 결과 확인 3초 상한을 사용한다. 실제 종료 이벤트 뒤에는 최대 2초만 최종 결과를 기다린다. timeout은 callback에서도 검사한다. 자동 재시도나 계속 듣기가 없다. 화면의 편집 입력은 400자로 제한하며 저장·자동완성을 끈다. 관찰 tick이 편집 중인 입력을 덮지 않는다.
+초기화/이전 엔진 종료 대기 10초, 실제 앱 녹음 상태 뒤 듣기 15초/480000바이트와 종료 뒤 최종 결과 확인 15초 상한을 사용한다. cold 엔진 PCM final이 약 9.5초 걸린 관찰을 반영했으며 실제 종료 이벤트가 결과 기한을 단축하거나 중복 이벤트가 연장하지 않는다. timeout은 callback에서도 검사한다. 자동 재시도나 계속 듣기가 없다. 화면의 편집 입력은 400자로 제한하며 저장·자동완성을 끈다. 관찰 tick이 편집 중인 입력을 덮지 않는다.
 
 후보 검토는 문장 revision과 장소 snapshot에 묶인다. 문장을 고치거나 다시 정리하면 음성으로 고른 선택을 해제하되 실제 불변 목록은 다시 조회하지 않는다. 오래된 후보 dialog는 현재 문장/scope/snapshot 검사를 통과할 수 없다. 실제 선택은 기존 `SavedPlacesController.select`, 전송은 기존 `proposeSelectedPlace`를 사용한다. 인식·정리·후보 확인만으로 제안 동의·FGS lease·경로를 만들지 않는다.
 
@@ -37,7 +41,7 @@ Gleo Interface의 action schema/Android intent는 별도의 앱 기능 호출 �
 
 ## 개인정보와 검증
 
-제품 앱은 원음 파일을 만들거나 전송하지 않으며 STT에 임의 파일을 넣는 경로도 없다. 발화·중간 인식문·전체 후보 목록은 메모리에만 둔다. journal에는 고정 음성 이벤트 이름과 기존 epoch/counter만 쓰며 인식문/이유/원음을 쓰지 않는다. 명시 제안 때 선택한 실제 장소 한 개와 사용자가 확인한 이유만 기존 인증 API로 전송한다.
+제품 앱은 원음 파일을 만들거나 방 서버/외부 공급자로 전송하지 않으며 STT에 임의 파일을 넣는 경로도 없다. 발화·중간 인식문·전체 후보 목록은 메모리에만 둔다. journal에는 고정 음성 이벤트 이름과 기존 epoch/counter만 쓰며 인식문/이유/원음을 쓰지 않는다. 명시 제안 때 선택한 실제 장소 한 개와 사용자가 확인한 이유만 기존 인증 API로 전송한다.
 
 별도 `nativeDriver`의 testOnly `SpeechProbeActivity`는 공개 SDK의 ON_DEVICE 초기화·차량 마이크·`sendAudio/completeAudioSend`를 분리하여 진단한다. PCM 입력은 작업자가 저장한 자기 앱의 고정 사설 파일 `files/speech-fixture.pcm`, 최대 15초/480000바이트다. `microphoneAudioPersisted=false`는 마이크 녹음을 저장하지 않는다는 뜻이며, 공급한 합성/녹음 fixture 파일의 저장과 구분한다. 보고서에는 해당 사설 fixture 파일명과 바이트 수를 별도 기록한다. probe도 같은 최대 3초 stop 유지 후 해제를 사용하고, 새 초기화는 이전 해제 뒤에만 수행한다. 한 초기화당 입력은 한 번이며 다음 입력은 명시적으로 다시 초기화한다. 이 경로는 운영 앱에 없다. 인식문은 probe 화면에만 표시하고 onStop에 지우며 보고서는 입력 종류·성공/오류·문자 수·RMS 존재만 기록한다. [공식 PCM API](https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/SpeechToText/sending-audio-data)
 

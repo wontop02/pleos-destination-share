@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ai.pleos.destinations.vehicle.PlacesLoadIntentTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-11-08T11:49:33" hostname="wontop-MacBookAir.local" time="0.01">
+  <properties/>
+  <testcase name="readySnapshotOpensDirectlyAndRefreshRequiresAnExplicitTap" classname="ai.pleos.destinations.vehicle.PlacesLoadIntentTest" time="0.006"/>
+  <testcase name="activeRouteReadShareProposalAndAutomaticStartFenceExplicitRefresh" classname="ai.pleos.destinations.vehicle.PlacesLoadIntentTest" time="0.0"/>
+  <testcase name="enteringOrReopeningComposerNeverCreatesReadOrReconnectIntent" classname="ai.pleos.destinations.vehicle.PlacesLoadIntentTest" time="0.001"/>
+  <testcase name="roomMemberEpochPageExitAndColdInstanceCannotResumeTheIntent" classname="ai.pleos.destinations.vehicle.PlacesLoadIntentTest" time="0.0"/>
+  <testcase name="explicitCancelFailureAndTimeoutNeverLeaveAuthorityToReadLater" classname="ai.pleos.destinations.vehicle.PlacesLoadIntentTest" time="0.001"/>
+  <testcase name="laterNativeGenerationCannotConsumeAnEarlierExplicitIntent" classname="ai.pleos.destinations.vehicle.PlacesLoadIntentTest" time="0.0"/>
+  <testcase name="previousFailureDoesNotCancelTheNewExplicitConnectionBeforeItStarts" classname="ai.pleos.destinations.vehicle.PlacesLoadIntentTest" time="0.001"/>
+  <testcase name="conflictingWorkDuringReconnectCancelsWithoutDelayedLoad" classname="ai.pleos.destinations.vehicle.PlacesLoadIntentTest" time="0.0"/>
+  <testcase name="cancelledOrRejectedFlowReadsOnceAfterNewConnectionAndItsDestinationRead" classname="ai.pleos.destinations.vehicle.PlacesLoadIntentTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

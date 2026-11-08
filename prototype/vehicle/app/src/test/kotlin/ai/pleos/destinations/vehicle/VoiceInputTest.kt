@@ -69,7 +69,7 @@ class VoiceInputTest {
         val f = Fixture(); val listener = f.begin(); listener.listening(); listener.text("카페", false)
         f.controller.stop(); f.controller.stop(); assertEquals(1, f.gateway.stops)
         assertEquals(VoiceInputPhase.FINISHING, f.controller.state.phase)
-        f.now = 3_000; f.controller.tick()
+        f.now = 15_000; f.controller.tick()
         assertEquals(VoiceInputFailure.TIMEOUT, f.controller.state.failure); assertEquals("", f.controller.state.text)
         listener.text("카페 가자", true); assertEquals("", f.controller.state.text)
     }
@@ -77,7 +77,7 @@ class VoiceInputTest {
         val preparing = Fixture(); val early = preparing.begin(); preparing.now = 10_000; early.listening()
         assertEquals(VoiceInputFailure.TIMEOUT, preparing.controller.state.failure)
         val finishing = Fixture(); val listener = finishing.begin(); listener.listening(); listener.ended()
-        finishing.now = 2_000; listener.text("카페 가자", true)
+        finishing.now = 15_000; listener.text("카페 가자", true)
         assertEquals(VoiceInputFailure.TIMEOUT, finishing.controller.state.failure)
         val capture = Fixture(); val late = capture.begin(); late.listening(); capture.now = 15_000
         late.text("늦은 말 가자", true)
@@ -97,5 +97,13 @@ class VoiceInputTest {
             val f = Fixture(); val listener = f.begin(); listener.listening(); listener.text(value, true)
             assertEquals(VoiceInputPhase.FAILED, f.controller.state.phase); assertEquals("", f.controller.state.text)
         }
+    }
+    @Test fun coldEngineFinalAndEndedKeepTheOriginalFifteenSecondResultWindow() {
+        val f = Fixture(); val listener = f.begin(); listener.listening(); f.controller.stop()
+        f.now = 9_500; listener.ended(); listener.text("카페 가자", true)
+        assertEquals(VoiceInputPhase.READY, f.controller.state.phase)
+        val timeout = Fixture(); val other = timeout.begin(); other.listening(); timeout.controller.stop()
+        timeout.now = 14_999; other.ended(); timeout.now = 15_000; timeout.controller.tick()
+        assertEquals(VoiceInputFailure.TIMEOUT, timeout.controller.state.failure)
     }
 }

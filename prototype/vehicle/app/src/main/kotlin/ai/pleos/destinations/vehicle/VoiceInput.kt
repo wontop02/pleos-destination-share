@@ -62,7 +62,7 @@ internal class VoiceInputController(private val gateway: VoiceInputGateway, priv
             override fun ended() {
                 if (!active()) return
                 if (state.phase == VoiceInputPhase.PREPARING) return
-                trace("endedAwaitingFinal"); deadline = minOf(deadline, clock() + 2_000)
+                trace("endedAwaitingFinal"); if (state.phase != VoiceInputPhase.FINISHING) deadline = clock() + 15_000
                 update(state.copy(phase = VoiceInputPhase.FINISHING))
             }
             override fun failed(reason: VoiceInputFailure) { if (active()) fail(reason) }
@@ -73,7 +73,7 @@ internal class VoiceInputController(private val gateway: VoiceInputGateway, priv
     fun stop() {
         if (!capturing || state.phase == VoiceInputPhase.FINISHING) return
         if (state.phase == VoiceInputPhase.PREPARING) { cancel(); return }
-        deadline = clock() + 3_000; trace("stopMicrophone")
+        deadline = clock() + 15_000; trace("stopMicrophone")
         update(state.copy(phase = VoiceInputPhase.FINISHING))
         try { gateway.stop() } catch (_: Exception) { fail(VoiceInputFailure.ENGINE) }
     }

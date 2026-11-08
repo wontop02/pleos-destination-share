@@ -1,0 +1,22 @@
+{
+  "assignedHead": "c5fe5e44b3e98bea1a8ff83b772ace4791245271",
+  "protectedInputs": [
+    "prototype/server.mjs",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehicleSession.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/ConvoySessionService.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/RoomProtocol.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/SavedPlaces.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/EvidenceJournal.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VoiceDraft.kt",
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VoiceInputCleanup.kt",
+    "prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/VehicleCoordinator.kt",
+    "prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/Destination.kt"
+  ],
+  "modifiedProtectedInputs": [],
+  "baselineEvidenceFiles": 846,
+  "modifiedBaselineEvidence": [],
+  "inputsMatchFreeze7": true,
+  "androidMicrophonePermissionGrantedByBuilder": false,
+  "actualCaptureAndSttVerifiedByBuilder": false,
+  "debugVoiceTags": []
+}

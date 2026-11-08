@@ -10,7 +10,7 @@
 
 ## 음성으로 제안 초안 작성 (#25)
 
-`목적지 바꾸기 → 말로 작성 → 들은 말 확인/수정 → 초안 정리 → 실제 후보 이름·주소 확인 → 제안 보내기`를 사용한다. Pleos SpeechToText 3.3.1 ON_DEVICE와 제한된 로컬 문장 규칙을 쓴다. 실제 저장 장소 객체만 매칭하며 업종이나 좌표·ID를 만들어내지 않는다. 모호하거나 맞는 후보가 없으면 수동 장소 선택을 사용한다. 인식문/초안/후보 확인만으로 제안이나 경로를 요청하지 않고, 기존 전원 수락과 fresh native 확인을 유지한다. 입력은 작성 화면의 전경 수명에만 있고 발화/원음을 서버·journal에 저장하지 않는다. [음성 초안 계약](../../docs/product/vehicle-voice-proposals.md)을 따른다.
+`목적지 바꾸기 → 말로 작성 → 들은 말 확인/수정 → 초안 정리 → 실제 후보 이름·주소 확인 → 제안 보내기`를 사용한다. 전경 AudioRecord의 15초 이내 메모리 PCM을 Pleos SpeechToText 3.3.1 ON_DEVICE sendAudio로 처리하고 제한된 로컬 문장 규칙을 쓴다. RECORD_AUDIO는 실제 사용자 runtime 승인 뒤에만 사용하며 파일/서버 저장이나 SDK request 마이크 fallback은 없다. 실제 저장 장소 객체만 매칭하며 업종이나 좌표·ID를 만들어내지 않는다. 모호하거나 맞는 후보가 없으면 수동 장소 선택을 사용한다. 인식문/초안/후보 확인만으로 제안이나 경로를 요청하지 않고, 기존 전원 수락과 fresh native 확인을 유지한다. 입력은 작성 화면의 전경 수명에만 있고 발화/원음을 서버·journal에 저장하지 않는다. [음성 초안 계약](../../docs/product/vehicle-voice-proposals.md)을 따른다.
 
 별도 testOnly driver의 `.SpeechProbeActivity`는 실제 ON_DEVICE 초기화·마이크와 공급 PCM 파일을 구분한다. `.VehicleUiTextProbe`는 자기 package 대상 instrumentation에서 실제 보이는 차량 앱의 음성문/이유 EditText에 고정 공개 문장을 수정 입력한다. STT 결과 주입이 아니며 운영 앱을 target하지 않는다. `field=voice_text|proposal_reason_input`, `textKey=cafe|fuel|restaurant|saved-cafe|negated|long|clear`만 허용한다. UIAutomation 수정 성공과 실제 사람 발화 성공을 구분한다.
 

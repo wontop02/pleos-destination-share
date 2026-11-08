@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ai.pleos.destinations.vehicle.VoiceDraftTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-11-08T11:49:38" hostname="wontop-MacBookAir.local" time="0.007">
+  <properties/>
+  <testcase name="duplicateNamesRequireAddressSelectionAndNeverSelectTheFirstAutomatically" classname="ai.pleos.destinations.vehicle.VoiceDraftTest" time="0.003"/>
+  <testcase name="exactStoredNameMatchesWithoutReplacingItsMetadataOrGuessingItsCategory" classname="ai.pleos.destinations.vehicle.VoiceDraftTest" time="0.0"/>
+  <testcase name="missingSnapshotUnknownPlaceControlCharactersAndOversizeNeverInventMetadata" classname="ai.pleos.destinations.vehicle.VoiceDraftTest" time="0.0"/>
+  <testcase name="prohibitionUnwillingnessAndInabilityNeverCreateAnOppositeReasonOrCandidate" classname="ai.pleos.destinations.vehicle.VoiceDraftTest" time="0.001"/>
+  <testcase name="uncertainQuotedAndIncompleteActionsDoNotImplyAChange" classname="ai.pleos.destinations.vehicle.VoiceDraftTest" time="0.0"/>
+  <testcase name="ordinaryPlaceNameSyllablesAreNotTreatedAsStandaloneNegationWords" classname="ai.pleos.destinations.vehicle.VoiceDraftTest" time="0.001"/>
+  <testcase name="ordinaryCafeFuelAndRestaurantUtterancesUseOnlyOriginalPlaceObjects" classname="ai.pleos.destinations.vehicle.VoiceDraftTest" time="0.001"/>
+  <testcase name="explicitPositiveDesiresKeepTheOriginalStoredCandidate" classname="ai.pleos.destinations.vehicle.VoiceDraftTest" time="0.0"/>
+  <testcase name="negativeUnclearAlternativeAndMultipleCategoryPhrasesNeverYieldCandidates" classname="ai.pleos.destinations.vehicle.VoiceDraftTest" time="0.001"/>
+  <testcase name="exactPointExamplesAndOversizedListsAreNotVoiceSearchCandidates" classname="ai.pleos.destinations.vehicle.VoiceDraftTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
