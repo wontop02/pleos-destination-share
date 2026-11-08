@@ -1,0 +1,16 @@
+{
+  "atUtc": "2026-11-08T12:14:29.755666+00:00",
+  "checks": [
+    {
+      "serial": "emulator-5570",
+      "recordAudioAppOp": "Uid mode: RECORD_AUDIO: ignore\n",
+      "running": false
+    },
+    {
+      "serial": "emulator-5572",
+      "recordAudioAppOp": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+11m18s28ms ago; duration=+5s268ms\n",
+      "running": false
+    }
+  ],
+  "purpose": "Closeout read only; no microphone or permission changes"
+}

@@ -1,0 +1,6 @@
+{
+  "exit": 1,
+  "failure": "TypeError: extractall() got an unexpected keyword argument 'filter'",
+  "cause": "Host Python tarfile does not support filter keyword; no Gradle process started.",
+  "recovery": "Validate archive member paths explicitly before extracting into the empty external source directory."
+}

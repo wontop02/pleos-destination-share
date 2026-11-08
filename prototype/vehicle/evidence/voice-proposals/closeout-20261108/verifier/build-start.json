@@ -1,0 +1,19 @@
+{
+  "head": "105cd7ef5b47e194be1fbfd2271ba6d96c0fd32f",
+  "command": [
+    "/private/tmp/pleos-vehicle-tools-20261105/gradle/gradle-8.11.1/bin/gradle",
+    "--offline",
+    "--no-daemon",
+    "--max-workers=1",
+    "-Dorg.gradle.jvmargs=-Xmx1024m -XX:MaxMetaspaceSize=384m",
+    "-Pkotlin.compiler.execution.strategy=in-process",
+    ":core:test",
+    ":app:testDebugUnitTest",
+    ":app:assembleDebug",
+    ":app:lintDebug",
+    ":nativeDriver:assembleDebug",
+    ":nativeDriver:lintDebug"
+  ],
+  "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source",
+  "archiveSha256": "3c41cc722cb6397f5c15330fd7f1e3ebc4c6f8157a1cf200ef3112a41cd67914"
+}

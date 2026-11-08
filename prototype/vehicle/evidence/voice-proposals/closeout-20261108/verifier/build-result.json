@@ -1,0 +1,45 @@
+{
+  "head": "105cd7ef5b47e194be1fbfd2271ba6d96c0fd32f",
+  "command": [
+    "/private/tmp/pleos-vehicle-tools-20261105/gradle/gradle-8.11.1/bin/gradle",
+    "--offline",
+    "--no-daemon",
+    "--max-workers=1",
+    "-Dorg.gradle.jvmargs=-Xmx1024m -XX:MaxMetaspaceSize=384m",
+    "-Pkotlin.compiler.execution.strategy=in-process",
+    ":core:test",
+    ":app:testDebugUnitTest",
+    ":app:assembleDebug",
+    ":app:lintDebug",
+    ":nativeDriver:assembleDebug",
+    ":nativeDriver:lintDebug"
+  ],
+  "exit": 0,
+  "seconds": 169.918812583,
+  "tests": {
+    "core": {
+      "tests": 93,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 105,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "lint": {
+    "app": {
+      "Warning": 13
+    },
+    "nativeDriver": {
+      "Warning": 8
+    }
+  },
+  "apk": {
+    "app": "a4e7a6d0368b66f8445661d07aa819921d8f1170fc586088ef0e54aa1a74ab7a",
+    "nativeDriver": "f457c4261f0be536cf63ef7ab0b72badfbe56dc65e1ff12dc2977e5fa716abe9"
+  }
+}

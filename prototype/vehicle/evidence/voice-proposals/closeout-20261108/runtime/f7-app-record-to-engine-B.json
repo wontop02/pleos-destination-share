@@ -1,0 +1,78 @@
+{
+  "at": "2026-11-08T12:03:32.639441+00:00",
+  "inputSource": "Mac speaker synthesized phrase into actual app AudioRecord; not human speech or PCM injection",
+  "events": [
+    {
+      "at": 1794139391803,
+      "event": "voice:startMicrophone",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794139391879,
+      "event": "voice:sdkInitializedOnDevice",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794139392061,
+      "event": "voice:appMicrophoneRecording",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794139392062,
+      "event": "voice:listening",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794139397266,
+      "event": "voice:stopMicrophone",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794139399132,
+      "event": "voice:appMicrophoneClosed",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794139399133,
+      "event": "voice:endedAwaitingFinal",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794139399170,
+      "event": "voice:sdkPcmCompleted",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794139412342,
+      "event": "voice:sdkStopPending",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794139412350,
+      "event": "voice:failureTIMEOUT",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    }
+  ],
+  "appMicrophoneAppOp": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+21s42ms ago; duration=+5s268ms",
+  "finalReceived": false
+}

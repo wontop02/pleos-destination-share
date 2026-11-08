@@ -1,0 +1,158 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.11.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :core:checkKotlinGradlePluginConfigurationErrors
+> Task :core:compileKotlin
+> Task :core:compileJava NO-SOURCE
+> Task :core:processResources NO-SOURCE
+> Task :core:classes UP-TO-DATE
+> Task :core:jar
+> Task :core:compileTestKotlin
+> Task :core:compileTestJava NO-SOURCE
+> Task :core:processTestResources NO-SOURCE
+> Task :core:testClasses UP-TO-DATE
+> Task :core:test
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:checkDebugAarMetadata
+> Task :app:generateDebugResValues
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:mergeDebugResources
+> Task :app:packageDebugResources
+> Task :app:parseDebugLocalResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugResources
+
+> Task :app:compileDebugKotlin
+w: file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt:182:62 'onBackPressed(): Unit' is deprecated. Deprecated in Java
+w: file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt:288:35 Unnecessary safe call on a non-null receiver of type VehicleSession?
+w: file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt:294:22 Unnecessary safe call on a non-null receiver of type VehicleSession?
+w: file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt:555:134 Unnecessary safe call on a non-null receiver of type SavedPlacesController?
+w: file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt:682:89 'getter for systemWindowInsetTop: Int' is deprecated. Deprecated in Java
+w: file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt:682:121 'getter for systemWindowInsetBottom: Int' is deprecated. Deprecated in Java
+w: file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VoicePcmCapture.kt:84:57 Unnecessary non-null assertion (!!) on a non-null receiver of type VoiceInputFailure
+
+> Task :app:javaPreCompileDebug
+> Task :app:compileDebugJavaWithJavac NO-SOURCE
+> Task :app:bundleDebugClassesToRuntimeJar
+> Task :app:bundleDebugClassesToCompileJar
+> Task :app:compileDebugUnitTestKotlin
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:javaPreCompileDebugUnitTest
+> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :app:processDebugJavaRes
+> Task :app:processDebugUnitTestJavaRes
+> Task :app:testDebugUnitTest
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:desugarDebugFileDependencies
+> Task :app:dexBuilderDebug
+> Task :app:mergeDebugGlobalSynthetics
+> Task :app:mergeDebugJavaResource
+> Task :app:checkDebugDuplicateClasses
+> Task :app:mergeExtDexDebug
+> Task :app:mergeLibDexDebug
+> Task :app:mergeProjectDexDebug
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugNativeLibs
+
+> Task :app:stripDebugDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libjnidispatch.so, libuacore.so.
+
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+> Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :app:generateDebugAndroidTestResValues
+> Task :app:generateDebugAndroidTestLintModel
+> Task :app:extractProguardFiles
+> Task :app:generateDebugLintReportModel
+> Task :app:generateDebugUnitTestLintModel
+> Task :app:lintAnalyzeDebug
+> Task :app:lintAnalyzeDebugAndroidTest
+> Task :app:lintAnalyzeDebugUnitTest
+
+> Task :app:lintReportDebug
+Wrote HTML report to file:///Users/wontop/Documents/ChatGPT/현대%20모비스%20해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/app/build/reports/lint-results-debug.html
+
+> Task :app:lintDebug
+> Task :nativeDriver:preBuild UP-TO-DATE
+> Task :nativeDriver:preDebugBuild UP-TO-DATE
+> Task :nativeDriver:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :nativeDriver:checkKotlinGradlePluginConfigurationErrors
+> Task :nativeDriver:checkDebugAarMetadata
+> Task :nativeDriver:generateDebugResValues
+> Task :nativeDriver:mapDebugSourceSetPaths
+> Task :nativeDriver:generateDebugResources
+> Task :nativeDriver:mergeDebugResources
+> Task :nativeDriver:packageDebugResources
+> Task :nativeDriver:parseDebugLocalResources
+> Task :nativeDriver:createDebugCompatibleScreenManifests
+> Task :nativeDriver:extractDeepLinksDebug
+> Task :nativeDriver:processDebugMainManifest
+> Task :nativeDriver:processDebugManifest
+> Task :nativeDriver:processDebugManifestForPackage
+> Task :nativeDriver:processDebugResources
+
+> Task :nativeDriver:compileDebugKotlin
+w: file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/nativeDriver/src/main/kotlin/ai/pleos/destinations/driver/NativeDestinationDriver.kt:83:50 'protectionLevel: Int' is deprecated. Deprecated in Java
+
+> Task :nativeDriver:javaPreCompileDebug
+> Task :nativeDriver:compileDebugJavaWithJavac NO-SOURCE
+> Task :nativeDriver:mergeDebugShaders
+> Task :nativeDriver:compileDebugShaders NO-SOURCE
+> Task :nativeDriver:generateDebugAssets UP-TO-DATE
+> Task :nativeDriver:mergeDebugAssets
+> Task :nativeDriver:compressDebugAssets
+> Task :nativeDriver:desugarDebugFileDependencies
+> Task :nativeDriver:dexBuilderDebug
+> Task :nativeDriver:mergeDebugGlobalSynthetics
+> Task :nativeDriver:processDebugJavaRes
+> Task :nativeDriver:mergeDebugJavaResource
+> Task :nativeDriver:checkDebugDuplicateClasses
+> Task :nativeDriver:mergeExtDexDebug
+> Task :nativeDriver:mergeLibDexDebug
+> Task :nativeDriver:mergeProjectDexDebug
+> Task :nativeDriver:mergeDebugJniLibFolders
+> Task :nativeDriver:mergeDebugNativeLibs
+
+> Task :nativeDriver:stripDebugDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libjnidispatch.so, libuacore.so.
+
+> Task :nativeDriver:validateSigningDebug
+> Task :nativeDriver:writeDebugAppMetadata
+> Task :nativeDriver:writeDebugSigningConfigVersions
+> Task :nativeDriver:packageDebug
+> Task :nativeDriver:createDebugApkListingFileRedirect
+> Task :nativeDriver:assembleDebug
+> Task :nativeDriver:bundleDebugClassesToCompileJar
+> Task :nativeDriver:preDebugAndroidTestBuild SKIPPED
+> Task :nativeDriver:generateDebugAndroidTestResValues
+> Task :nativeDriver:generateDebugAndroidTestLintModel
+> Task :nativeDriver:extractProguardFiles
+> Task :nativeDriver:generateDebugLintReportModel
+> Task :nativeDriver:preDebugUnitTestBuild UP-TO-DATE
+> Task :nativeDriver:generateDebugUnitTestLintModel
+> Task :nativeDriver:lintAnalyzeDebug
+> Task :nativeDriver:lintAnalyzeDebugAndroidTest
+> Task :nativeDriver:lintAnalyzeDebugUnitTest
+
+> Task :nativeDriver:lintReportDebug
+Wrote HTML report to file:///Users/wontop/Documents/ChatGPT/현대%20모비스%20해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/nativeDriver/build/reports/lint-results-debug.html
+
+> Task :nativeDriver:lintDebug
+
+BUILD SUCCESSFUL in 2m 48s
+104 actionable tasks: 104 executed

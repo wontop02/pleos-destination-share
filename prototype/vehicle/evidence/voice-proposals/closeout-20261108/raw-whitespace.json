@@ -1,0 +1,13 @@
+{
+  "command": "git diff --cached --check",
+  "exit": 2,
+  "exceptions": [
+    {
+      "path": "verifier/independent-gradle.log",
+      "line": 2,
+      "reason": "Original Gradle output preserved verbatim",
+      "sha256": "b86354a1e0438e625562f4267ed85acab8e6d5493f4f6a047f0a98e005303562"
+    }
+  ],
+  "productSourceModified": false
+}
