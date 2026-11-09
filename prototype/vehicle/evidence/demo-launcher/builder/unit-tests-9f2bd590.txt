@@ -1,0 +1,39 @@
+공유 서버를 확인하고 있어요.
+두 차량의 전용 연결을 확인하고 있어요.
+test_app_open_uses_launcher_intent_and_never_clear_top_or_force_stop (test_launcher.LauncherTests) ... ok
+test_boot_timeout_is_bounded_and_never_grants_or_changes_user (test_launcher.LauncherTests) ... ok
+test_client_scopes_remote_host_and_exact_serial (test_launcher.LauncherTests) ... ok
+test_cold_boot_waits_for_user10_and_restores_only_approved_host_mic (test_launcher.LauncherTests) ... ok
+test_cold_vendor_foreground_displacement_reuses_the_same_own_main_task (test_launcher.LauncherTests) ... ok
+test_concurrent_entry_returns_distinct_code_before_any_resource_actions (test_launcher.LauncherTests) ... ok
+test_conflicting_reverse_route_is_not_overwritten (test_launcher.LauncherTests) ... ok
+test_diagnostics_keep_curated_failure_and_purpose_without_private_values (test_launcher.LauncherTests) ... ok
+test_duplicate_main_and_non_resumed_product_cannot_be_ready (test_launcher.LauncherTests) ... ok
+test_environment_keeps_owned_key_but_blocks_inherited_adb_settings (test_launcher.LauncherTests) ... ok
+test_existing_adb_basename_argv_requires_approved_os_executable (test_launcher.LauncherTests) ... ok
+test_foreign_directory_and_foreign_server_still_fail_identity_guard (test_launcher.LauncherTests) ... ok
+test_foreign_server_port_never_starts_or_stops_process (test_launcher.LauncherTests) ... ok
+test_fresh_adoption_requires_exact_pid_start_time_and_os_executable (test_launcher.LauncherTests) ... ok
+test_missing_adb_is_started_only_with_explicit_loopback_and_usb_isolation (test_launcher.LauncherTests) ... ok
+test_missing_and_malformed_configuration_are_actionable_and_private (test_launcher.LauncherTests) ... ok
+test_missing_public_product_ui_times_out_without_ready_event (test_launcher.LauncherTests) ... ok
+test_partial_adoption_configuration_is_rejected (test_launcher.LauncherTests) ... ok
+test_partial_failure_cannot_publish_ready (test_launcher.LauncherTests) ... ok
+test_pid_reuse_changes_process_fingerprint (test_launcher.LauncherTests) ... ok
+test_public_ui_uses_resource_id_and_correct_pane_without_recording_text (test_launcher.LauncherTests) ... ok
+test_real_entry_supports_symlink_spaces_and_other_cwd (test_launcher.LauncherTests) ... ok
+test_real_node_cold_start_and_warm_reuse_on_isolated_port (test_launcher.LauncherTests) ... ok
+test_real_target_entry_accepts_mac_nfd_spelling_of_same_file (test_launcher.LauncherTests) ... ok
+test_restore_both_default_routes_and_preserve_existing_mappings (test_launcher.LauncherTests) ... ok
+test_resumed_own_main_without_public_ui_is_not_reopened (test_launcher.LauncherTests) ... ok
+test_still_displaced_own_main_has_three_open_bound_and_original_timeout (test_launcher.LauncherTests) ... ok
+test_unexpected_exception_logs_only_type_and_phase (test_launcher.LauncherTests) ... ok
+test_unknown_emulator_identity_and_wrong_transport_owner_are_rejected (test_launcher.LauncherTests) ... ok
+test_warm_product_page_is_preserved_without_activity_start (test_launcher.LauncherTests) ... ok
+test_warm_wrong_foreground_user_refuses_without_switch_or_spawn (test_launcher.LauncherTests) ... ok
+test_wrong_avd_port_and_wrong_source_are_rejected (test_launcher.LauncherTests) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 2.905s
+
+OK

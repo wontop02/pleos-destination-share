@@ -1,0 +1,25 @@
+{
+  "atUtc": "2026-11-09T09:31:58.315463+00:00",
+  "pass": true,
+  "filesScanned": 138,
+  "xmlCaptureGuardsPassed": [
+    "root/emulator-5572-fresh-room-home.xml",
+    "root/emulator-5572-final-warm3.xml",
+    "root/emulator-5570-fresh-room-home.xml",
+    "root/emulator-5570-cold5.xml",
+    "root/cold4-A-surface.xml",
+    "root/cold2-A-surface.xml",
+    "root/emulator-5572-final-warm3-compose-before.xml",
+    "root/emulator-5572-cold5.xml",
+    "root/emulator-5570-final-warm3.xml",
+    "root/emulator-5572-final-warm3-page-before.xml"
+  ],
+  "checks": [
+    "No credential-like JWT in packaged text",
+    "No SDK/APK/audio/key archives",
+    "No invitation or nonempty password modal in XML",
+    "EditText capture allows only exact published source hints; no populated inputs",
+    "README relative artifact references exist"
+  ],
+  "scope": "Curated source/runtime evidence, not private ignored config or key/env metadata. Original raw failures retained."
+}

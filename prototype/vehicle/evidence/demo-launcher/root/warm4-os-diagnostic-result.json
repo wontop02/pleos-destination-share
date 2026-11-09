@@ -1,0 +1,31 @@
+{
+  "startedAtUtc": "2026-11-09T08:32:11.002994+00:00",
+  "sourceSha256": "a166306def0e85b2da2b0c076b8724cae077611c37f15ecd2a3167d35f63074a",
+  "case": "warm4 actualOSentrydiagnostic, mappings left intact",
+  "openExit": 0,
+  "log": "20261109-173212-77105.jsonl",
+  "events": [
+    {
+      "at": 1794213132.766517,
+      "event": "entry",
+      "phase": "entry",
+      "launcher_sha256": "a166306def0e85b2da2b0c076b8724cae077611c37f15ecd2a3167d35f63074a",
+      "config_exists": true,
+      "configuration_only": false
+    },
+    {
+      "at": 1794213132.766809,
+      "event": "phase",
+      "phase": "configuration"
+    },
+    {
+      "at": 1794213132.768039,
+      "event": "failed",
+      "phase": "configuration",
+      "exit_code": 2,
+      "message": "실행 파일과 설정의 저장소가 다릅니다. repo_root를 확인해 주세요."
+    }
+  ],
+  "seconds": 2.081456875,
+  "pass": false
+}

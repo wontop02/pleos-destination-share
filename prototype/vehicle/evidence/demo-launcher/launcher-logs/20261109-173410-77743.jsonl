@@ -1,0 +1,3 @@
+{"at": 1794213250.420989, "event": "entry", "phase": "entry", "launcher_sha256": "a166306def0e85b2da2b0c076b8724cae077611c37f15ecd2a3167d35f63074a", "config_exists": true, "configuration_only": true}
+{"at": 1794213250.4212968, "event": "phase", "phase": "configuration"}
+{"at": 1794213250.421663, "event": "failed", "phase": "configuration", "exit_code": 2, "message": "실행 파일과 설정의 저장소가 다릅니다. repo_root를 확인해 주세요."}

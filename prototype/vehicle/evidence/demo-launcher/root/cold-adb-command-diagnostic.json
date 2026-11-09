@@ -1,0 +1,15 @@
+{
+  "atUtc": "2026-11-09T08:53:47.496166+00:00",
+  "command": [
+    "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+    "-L",
+    "tcp:127.0.0.1:5041",
+    "--one-device",
+    "PLEOS12_VIRTUAL_ONLY_NO_USB",
+    "start-server"
+  ],
+  "exit": 255,
+  "stdout": "",
+  "stderr": "11-09 17:53:47.495 82947 7340661 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5041': Connection refused\n* cannot start server on remote host\nerror: cannot connect to daemon at tcp:127.0.0.1:5041: failed to connect to '127.0.0.1:5041': Connection refused\n",
+  "environmentValuesPrinted": false
+}

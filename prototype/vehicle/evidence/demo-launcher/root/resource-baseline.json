@@ -1,0 +1,217 @@
+{
+  "processes": [
+    {
+      "pid": 47388,
+      "argv": [
+        "/Users/wontop/Documents/ChatGPT/현대",
+        "모비스",
+        "해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64",
+        "-avd",
+        "Pleos12Leader",
+        "-port",
+        "5570",
+        "-no-snapshot",
+        "-no-boot-anim",
+        "-audio",
+        "coreaudio",
+        "-gpu",
+        "host",
+        "-crash-report-mode",
+        "disabled"
+      ],
+      "started": "Mon Nov  9 11:46:38 2026"
+    },
+    {
+      "pid": 43129,
+      "argv": [
+        "/Users/wontop/Documents/ChatGPT/현대",
+        "모비스",
+        "해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64",
+        "-avd",
+        "Pleos12Follower",
+        "-port",
+        "5572",
+        "-no-snapshot",
+        "-no-boot-anim",
+        "-audio",
+        "coreaudio",
+        "-gpu",
+        "host",
+        "-crash-report-mode",
+        "disabled"
+      ],
+      "started": "Mon Nov  9 11:27:22 2026"
+    },
+    {
+      "pid": 69453,
+      "argv": [
+        "/opt/homebrew/bin/node",
+        "/Users/wontop/Documents/ChatGPT/현대",
+        "모비스",
+        "해커톤/pleos-destination-share/.harness/worktrees/issue-25-voice-proposals/prototype/server.mjs"
+      ],
+      "started": "Sun Nov  8 19:17:48 2026"
+    },
+    {
+      "pid": 94295,
+      "argv": [
+        "adb",
+        "-L",
+        "tcp:5041",
+        "fork-server",
+        "server",
+        "--reply-fd",
+        "4",
+        "--one-device",
+        "PLEOS12_VIRTUAL_ONLY_NO_USB"
+      ],
+      "started": "Thu Nov  5 11:45:48 2026"
+    },
+    {
+      "pid": 40320,
+      "argv": [
+        "/opt/homebrew/bin/node",
+        "/Users/wontop/Documents/ChatGPT/현대",
+        "모비스",
+        "해커톤/pleos-destination-share/.harness/worktrees/issue-23-simple-vehicle-ui/prototype/server.mjs"
+      ],
+      "started": "Fri Nov  6 16:09:41 2026"
+    }
+  ],
+  "devices": {
+    "emulator-5570": {
+      "user": "10",
+      "avdName": "Pleos12Leader\r\nOK",
+      "pid": "19921",
+      "recordAudioAppop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+3h27m52s195ms ago; duration=+567ms\n",
+      "state": {
+        "at": 1794201022688,
+        "event": "sessionState",
+        "serviceEpoch": 8618910,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "host",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "994d714aa66333c17676e84b",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "994d714aa66333c17676e84b",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "747ebc2fb24f7684bbf6242c",
+          "baseRevision": 1,
+          "createdAt": 1794198326888,
+          "expiresAt": 1794198446888,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "747ebc2fb24f7684bbf6242c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "93c1bad0addf52af2adf8159",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      "productRootBounds": "[853,90][2535,1300]",
+      "controlIds": [
+        "ai.pleos.destinations.vehicle:id/change_destination",
+        "ai.pleos.destinations.vehicle:id/connection_status",
+        "ai.pleos.destinations.vehicle:id/destination_status",
+        "ai.pleos.destinations.vehicle:id/home_page",
+        "ai.pleos.destinations.vehicle:id/home_recovery",
+        "ai.pleos.destinations.vehicle:id/nav_settings",
+        "ai.pleos.destinations.vehicle:id/shared_place_address",
+        "ai.pleos.destinations.vehicle:id/shared_place_name",
+        "ai.pleos.destinations.vehicle:id/start_convoy",
+        "android:id/content"
+      ]
+    },
+    "emulator-5572": {
+      "user": "10",
+      "avdName": "Pleos12Follower\r\nOK",
+      "pid": "12020",
+      "recordAudioAppop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+3h10m53s672ms ago; duration=+1s603ms\n",
+      "state": {
+        "at": 1794201036307,
+        "event": "sessionState",
+        "serviceEpoch": 9788063,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "member",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "994d714aa66333c17676e84b",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "994d714aa66333c17676e84b",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "747ebc2fb24f7684bbf6242c",
+          "baseRevision": 1,
+          "createdAt": 1794198326888,
+          "expiresAt": 1794198446888,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "747ebc2fb24f7684bbf6242c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "93c1bad0addf52af2adf8159",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      "productRootBounds": "[853,90][2535,1300]",
+      "controlIds": [
+        "ai.pleos.destinations.vehicle:id/compose_page",
+        "ai.pleos.destinations.vehicle:id/nav_home",
+        "ai.pleos.destinations.vehicle:id/nav_settings",
+        "ai.pleos.destinations.vehicle:id/proposal_reason_input",
+        "ai.pleos.destinations.vehicle:id/saved_places_status",
+        "ai.pleos.destinations.vehicle:id/select_saved_place",
+        "ai.pleos.destinations.vehicle:id/selected_place_address",
+        "ai.pleos.destinations.vehicle:id/selected_place_name",
+        "ai.pleos.destinations.vehicle:id/voice_analyze",
+        "ai.pleos.destinations.vehicle:id/voice_start",
+        "ai.pleos.destinations.vehicle:id/voice_status",
+        "ai.pleos.destinations.vehicle:id/voice_summary",
+        "ai.pleos.destinations.vehicle:id/voice_text",
+        "android:id/content"
+      ]
+    }
+  }
+}

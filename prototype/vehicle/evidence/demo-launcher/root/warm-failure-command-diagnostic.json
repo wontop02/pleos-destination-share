@@ -1,0 +1,43 @@
+{
+  "atUtc": "2026-11-09T08:17:51.088379+00:00",
+  "scope": "owned read-only command outputs; no environment dump",
+  "commands": [
+    {
+      "args": [
+        "emu",
+        "avd",
+        "name"
+      ],
+      "exit": 0,
+      "stdout": "Pleos12Leader\nOK\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "shell",
+        "getprop sys.boot_completed"
+      ],
+      "exit": 0,
+      "stdout": "1\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "shell",
+        "am get-current-user"
+      ],
+      "exit": 0,
+      "stdout": "10\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "shell",
+        "cmd user is-user-unlocked 10"
+      ],
+      "exit": 255,
+      "stdout": "Unknown command: is-user-unlocked\n",
+      "stderr": ""
+    }
+  ]
+}

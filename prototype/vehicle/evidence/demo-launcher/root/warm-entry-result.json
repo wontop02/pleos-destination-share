@@ -1,0 +1,259 @@
+{
+  "startedAtUtc": "2026-11-09T08:16:22.269009+00:00",
+  "scenario": "actual symlink .command from/tmp; deliberately missing4182 only; warm existing resources",
+  "sourceHashesBefore": {
+    "prototype/vehicle/demo/launcher.py": "faaa8001d57d75d0f2992ca558576e97f393b96393b2d4745b35e723c820e3e4",
+    "Pleos 데모 실행.command": "9eb99d3fe19a8f0f1b4f1dfc29236d3db28f9c25de73e626ceeec21c20c38ba0"
+  },
+  "before": {
+    "emulator-5570": {
+      "pid": "19921",
+      "state": {
+        "at": 1794201022688,
+        "event": "sessionState",
+        "serviceEpoch": 8618910,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "host",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "994d714aa66333c17676e84b",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "994d714aa66333c17676e84b",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "747ebc2fb24f7684bbf6242c",
+          "baseRevision": 1,
+          "createdAt": 1794198326888,
+          "expiresAt": 1794198446888,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "747ebc2fb24f7684bbf6242c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "93c1bad0addf52af2adf8159",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      "reverseList": "host-18 tcp:4192 tcp:4192\nhost-18 tcp:4182 tcp:4192\n\n"
+    },
+    "emulator-5572": {
+      "pid": "12020",
+      "state": {
+        "at": 1794201036307,
+        "event": "sessionState",
+        "serviceEpoch": 9788063,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "member",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "994d714aa66333c17676e84b",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "994d714aa66333c17676e84b",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "747ebc2fb24f7684bbf6242c",
+          "baseRevision": 1,
+          "createdAt": 1794198326888,
+          "expiresAt": 1794198446888,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "747ebc2fb24f7684bbf6242c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "93c1bad0addf52af2adf8159",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      "reverseList": "host-18 tcp:4192 tcp:4192\nhost-18 tcp:4182 tcp:4192\n\n"
+    }
+  },
+  "after": {
+    "emulator-5570": {
+      "pid": "19921",
+      "state": {
+        "at": 1794201022688,
+        "event": "sessionState",
+        "serviceEpoch": 8618910,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "host",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "994d714aa66333c17676e84b",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "994d714aa66333c17676e84b",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "747ebc2fb24f7684bbf6242c",
+          "baseRevision": 1,
+          "createdAt": 1794198326888,
+          "expiresAt": 1794198446888,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "747ebc2fb24f7684bbf6242c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "93c1bad0addf52af2adf8159",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      "reverseList": "host-18 tcp:4192 tcp:4192\n\n",
+      "newRecords": [],
+      "requestRouteOccurrences": 0,
+      "appop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+3h37m8s584ms ago; duration=+567ms\n"
+    },
+    "emulator-5572": {
+      "pid": "12020",
+      "state": {
+        "at": 1794201036307,
+        "event": "sessionState",
+        "serviceEpoch": 9788063,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "member",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "994d714aa66333c17676e84b",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "994d714aa66333c17676e84b",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "747ebc2fb24f7684bbf6242c",
+          "baseRevision": 1,
+          "createdAt": 1794198326888,
+          "expiresAt": 1794198446888,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "747ebc2fb24f7684bbf6242c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "93c1bad0addf52af2adf8159",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      "reverseList": "host-18 tcp:4192 tcp:4192\n\n",
+      "newRecords": [],
+      "requestRouteOccurrences": 0,
+      "appop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+3h20m4s294ms ago; duration=+1s603ms\n"
+    }
+  },
+  "command": [
+    "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/Pleos 데모 실행.command"
+  ],
+  "cwd": "/tmp",
+  "exit": 6,
+  "seconds": 1.572847125,
+  "resources": {
+    "version": 1,
+    "last_run": {
+      "status": "failed",
+      "at": 1794212185.389287,
+      "phase": "boot_5570",
+      "exit_code": 6
+    },
+    "server": {
+      "pid": 69453,
+      "started": "Sun Nov  8 19:17:48 2026",
+      "command_sha256": "39ede982ea78a75f40e530b30ecdc66d8bee2dddac7e0e33e6f2464603888959",
+      "executable": "/opt/homebrew/Cellar/node/25.8.1_1/bin/node",
+      "script": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-25-voice-proposals/prototype/server.mjs",
+      "sha256": "883f38356f2a8b3835b3e66f007eac9ad99a4584ddf6f7678cd3a28233d1ac8e"
+    },
+    "adb": {
+      "pid": 94295,
+      "started": "Thu Nov  5 11:45:48 2026",
+      "command_sha256": "43e714f7d29121d847658c07086dd8905e02e4d4234032120567cbff1496cda6",
+      "executable": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb"
+    }
+  },
+  "sourceHashesAfter": {
+    "prototype/vehicle/demo/launcher.py": "faaa8001d57d75d0f2992ca558576e97f393b96393b2d4745b35e723c820e3e4",
+    "Pleos 데모 실행.command": "9eb99d3fe19a8f0f1b4f1dfc29236d3db28f9c25de73e626ceeec21c20c38ba0"
+  },
+  "pass": false,
+  "error": "",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 12, in <module>\nAssertionError\n",
+  "apparatusFinallyRestored4182": [
+    "emulator-5570",
+    "emulator-5572"
+  ],
+  "finishedAtUtc": "2026-11-09T08:16:26.484819+00:00"
+}

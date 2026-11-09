@@ -1,0 +1,42 @@
+{
+  "head": "3db09e0714e86cde6c83642977500e53cec0ff0d",
+  "base": "4a9865f1b1584cb13a32f3a7022b08928ebad158",
+  "startedUtc": "2026-11-09T09:23:52.226946+00:00",
+  "durationSeconds": 4.513656333,
+  "command": [
+    "/usr/bin/python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "prototype/vehicle/demo/tests",
+    "-v"
+  ],
+  "cwd": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/demo-launcher-20261109/verifier/fresh-archive-3db09e0",
+  "exitCode": 0,
+  "archiveSha256": "c62c1797356c0dc7dd2cee199244b282fb5d5372a72fda78e6da5c2daeba07b5",
+  "files": {
+    "Pleos 데모 실행.command": {
+      "sha256": "9eb99d3fe19a8f0f1b4f1dfc29236d3db28f9c25de73e626ceeec21c20c38ba0",
+      "extractedMode": "0o775"
+    },
+    "prototype/vehicle/demo/launcher.py": {
+      "sha256": "172553d4510986da142de3b230ac0f32e517d53532b2f5079880dd0e7e53d8c0",
+      "extractedMode": "0o664"
+    },
+    "prototype/vehicle/demo/tests/test_launcher.py": {
+      "sha256": "8bf1d57428395819aa0ae58ffd99fc218032f7a23bc994a2db2d2db0e5470f79",
+      "extractedMode": "0o664"
+    },
+    "prototype/vehicle/demo/README.md": {
+      "sha256": "f4b9043e58b5dc2f5917923d5a375f48a5b802ccda54a2e8a03a7b5428199458",
+      "extractedMode": "0o664"
+    },
+    "prototype/server.mjs": {
+      "sha256": "883f38356f2a8b3835b3e66f007eac9ad99a4584ddf6f7678cd3a28233d1ac8e",
+      "extractedMode": "0o664"
+    }
+  },
+  "entryGitMode": "100755",
+  "isolation": "Fresh git archive. TMPDIR below verifier. Mock SDK/ADB fixture only. Actual Node test on OS free port with explicit exclusion of 4190/4192/5041/5570/5572; only spawned test Node child terminated after identity recheck."
+}

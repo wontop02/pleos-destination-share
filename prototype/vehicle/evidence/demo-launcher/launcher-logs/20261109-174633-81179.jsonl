@@ -1,0 +1,9 @@
+{"at": 1794213993.4338691, "event": "entry", "phase": "entry", "launcher_sha256": "be890c34f5c5b22ded0ee8b9905ba807c3e911051a7292b591d6fac99bdbe494", "config_exists": true, "configuration_only": false}
+{"at": 1794213993.433985, "event": "phase", "phase": "configuration"}
+{"at": 1794213993.4353228, "event": "phase", "phase": "adb_metadata"}
+{"at": 1794213993.43547, "event": "phase", "phase": "runtime_state"}
+{"at": 1794213993.444105, "event": "source_verified", "commit": "4a9865f1b1584cb13a32f3a7022b08928ebad158", "launcher_sha256": "be890c34f5c5b22ded0ee8b9905ba807c3e911051a7292b591d6fac99bdbe494", "server_sha256": "883f38356f2a8b3835b3e66f007eac9ad99a4584ddf6f7678cd3a28233d1ac8e", "apk_sha256": "5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e"}
+{"at": 1794213993.444129, "event": "server"}
+{"at": 1794213993.49754, "event": "server_ready", "pid": 69453, "reused": true, "source_sha256": "883f38356f2a8b3835b3e66f007eac9ad99a4584ddf6f7678cd3a28233d1ac8e"}
+{"at": 1794213993.4975822, "event": "adb"}
+{"at": 1794213993.523226, "event": "failed", "phase": "adb", "exit_code": 6, "message": "준비 명령이 실패했습니다. 로그의 실패 단계를 확인해 주세요."}

@@ -1,0 +1,197 @@
+{
+  "startedAtUtc": "2026-11-09T09:12:03.528123+00:00",
+  "scenario": "cold4 finalhead actualOSentry; bothAVD+dedicatedADB normalstop and rebuild; servers retained",
+  "head": "179ce4838b9899f1828589de7c8240dd4751b8c8",
+  "sourceSha256": "51bea95cde0bff56206f56a897d60dad7573934f6b056bb59857ea13b989773c",
+  "before": {
+    "emulator-5570": {
+      "state": {
+        "at": 1794215128830,
+        "event": "sessionState",
+        "serviceEpoch": 19079,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      "appPid": "3535",
+      "bootId": "f8f6b137-0ce0-4f9b-890f-77de48db64cf"
+    },
+    "emulator-5572": {
+      "state": {
+        "at": 1794215167909,
+        "event": "sessionState",
+        "serviceEpoch": 23042,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "member",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "FAILED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      "appPid": "3050",
+      "bootId": "d0c9eea9-e4e8-4c93-bb3d-d763d4f2554d"
+    }
+  },
+  "after": {},
+  "listenersBefore": {
+    "4190": [
+      40320
+    ],
+    "4192": [
+      69453
+    ],
+    "5041": [
+      86488
+    ],
+    "5570": [
+      86498
+    ],
+    "5572": [
+      86929
+    ]
+  },
+  "stopAcks": {
+    "emulator-5570": "OK: killing emulator, bye bye\r\nOK",
+    "emulator-5572": "OK: killing emulator, bye bye\r\nOK"
+  },
+  "adbStopExit": 0,
+  "coldAtUtc": "2026-11-09T09:12:07.314590+00:00",
+  "openExit": 0,
+  "launcherLog": "20261109-181207-89723.jsonl",
+  "launcherEvents": [
+    {
+      "at": 1794215527.652611,
+      "event": "entry",
+      "phase": "entry",
+      "launcher_sha256": "51bea95cde0bff56206f56a897d60dad7573934f6b056bb59857ea13b989773c",
+      "config_exists": true,
+      "configuration_only": false
+    },
+    {
+      "at": 1794215527.6527202,
+      "event": "phase",
+      "phase": "configuration"
+    },
+    {
+      "at": 1794215527.653714,
+      "event": "phase",
+      "phase": "adb_metadata"
+    },
+    {
+      "at": 1794215527.653855,
+      "event": "phase",
+      "phase": "runtime_state"
+    },
+    {
+      "at": 1794215527.6642308,
+      "event": "source_verified",
+      "commit": "179ce4838b9899f1828589de7c8240dd4751b8c8",
+      "launcher_sha256": "51bea95cde0bff56206f56a897d60dad7573934f6b056bb59857ea13b989773c",
+      "server_sha256": "883f38356f2a8b3835b3e66f007eac9ad99a4584ddf6f7678cd3a28233d1ac8e",
+      "apk_sha256": "5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e"
+    },
+    {
+      "at": 1794215527.664265,
+      "event": "server"
+    },
+    {
+      "at": 1794215527.742145,
+      "event": "server_ready",
+      "pid": 69453,
+      "reused": true,
+      "source_sha256": "883f38356f2a8b3835b3e66f007eac9ad99a4584ddf6f7678cd3a28233d1ac8e"
+    },
+    {
+      "at": 1794215527.7422342,
+      "event": "adb"
+    },
+    {
+      "at": 1794215527.952617,
+      "event": "adb_ready",
+      "pid": 89737,
+      "reused": false
+    },
+    {
+      "at": 1794215527.952657,
+      "event": "boot_5570"
+    },
+    {
+      "at": 1794215543.2164412,
+      "event": "vehicle_booted",
+      "avd": "Pleos12Leader",
+      "pid": 89747,
+      "reused": false,
+      "user": 10
+    },
+    {
+      "at": 1794215543.746419,
+      "event": "routes_ready",
+      "avd": "Pleos12Leader",
+      "repaired": [
+        4182,
+        4192
+      ]
+    },
+    {
+      "at": 1794215544.0519092,
+      "event": "apk_verified",
+      "avd": "Pleos12Leader",
+      "sha256": "5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e"
+    },
+    {
+      "at": 1794215544.155541,
+      "event": "app_open",
+      "avd": "Pleos12Leader",
+      "attempt": 1
+    },
+    {
+      "at": 1794215548.905111,
+      "event": "app_reopen",
+      "avd": "Pleos12Leader",
+      "attempt": 2
+    },
+    {
+      "at": 1794215604.9243462,
+      "event": "failed",
+      "phase": "app_5570",
+      "exit_code": 5,
+      "message": "차량 앱 화면의 준비 시간이 지났습니다. 권한·초대 창과 차량 pane을 확인해 주세요."
+    }
+  ],
+  "secondsToTerminal": 77.756757125,
+  "pass": false,
+  "error": "[{'at': 1794215527.652611, 'event': 'entry', 'phase': 'entry', 'launcher_sha256': '51bea95cde0bff56206f56a897d60dad7573934f6b056bb59857ea13b989773c', 'config_exists': True, 'configuration_only': False}, {'at': 1794215527.6527202, 'event': 'phase', 'phase': 'configuration'}, {'at': 1794215527.653714, 'event': 'phase', 'phase': 'adb_metadata'}, {'at': 1794215527.653855, 'event': 'phase', 'phase': 'runtime_state'}, {'at': 1794215527.6642308, 'event': 'source_verified', 'commit': '179ce4838b9899f1828589de7c8240dd4751b8c8', 'launcher_sha256': '51bea95cde0bff56206f56a897d60dad7573934f6b056bb59857ea13b989773c', 'server_sha256': '883f38356f2a8b3835b3e66f007eac9ad99a4584ddf6f7678cd3a28233d1ac8e', 'apk_sha256': '5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e'}, {'at': 1794215527.664265, 'event': 'server'}, {'at': 1794215527.742145, 'event': 'server_ready', 'pid': 69453, 'reused': True, 'source_sha256': '883f38356f2a8b3835b3e66f007eac9ad99a4584ddf6f7678cd3a28233d1ac8e'}, {'at': 1794215527.7422342, 'event': 'adb'}, {'at': 1794215527.952617, 'event': 'adb_ready', 'pid': 89737, 'reused': False}, {'at': 1794215527.952657, 'event': 'boot_5570'}, {'at': 1794215543.2164412, 'event': 'vehicle_booted', 'avd': 'Pleos12Leader', 'pid': 89747, 'reused': False, 'user': 10}, {'at': 1794215543.746419, 'event': 'routes_ready', 'avd': 'Pleos12Leader', 'repaired': [4182, 4192]}, {'at': 1794215544.0519092, 'event': 'apk_verified', 'avd': 'Pleos12Leader', 'sha256': '5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e'}, {'at': 1794215544.155541, 'event': 'app_open', 'avd': 'Pleos12Leader', 'attempt': 1}, {'at': 1794215548.905111, 'event': 'app_reopen', 'avd': 'Pleos12Leader', 'attempt': 2}, {'at': 1794215604.9243462, 'event': 'failed', 'phase': 'app_5570', 'exit_code': 5, 'message': '차량 앱 화면의 준비 시간이 지났습니다. 권한·초대 창과 차량 pane을 확인해 주세요.'}]",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 23, in <module>\nAssertionError: [{'at': 1794215527.652611, 'event': 'entry', 'phase': 'entry', 'launcher_sha256': '51bea95cde0bff56206f56a897d60dad7573934f6b056bb59857ea13b989773c', 'config_exists': True, 'configuration_only': False}, {'at': 1794215527.6527202, 'event': 'phase', 'phase': 'configuration'}, {'at': 1794215527.653714, 'event': 'phase', 'phase': 'adb_metadata'}, {'at': 1794215527.653855, 'event': 'phase', 'phase': 'runtime_state'}, {'at': 1794215527.6642308, 'event': 'source_verified', 'commit': '179ce4838b9899f1828589de7c8240dd4751b8c8', 'launcher_sha256': '51bea95cde0bff56206f56a897d60dad7573934f6b056bb59857ea13b989773c', 'server_sha256': '883f38356f2a8b3835b3e66f007eac9ad99a4584ddf6f7678cd3a28233d1ac8e', 'apk_sha256': '5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e'}, {'at': 1794215527.664265, 'event': 'server'}, {'at': 1794215527.742145, 'event': 'server_ready', 'pid': 69453, 'reused': True, 'source_sha256': '883f38356f2a8b3835b3e66f007eac9ad99a4584ddf6f7678cd3a28233d1ac8e'}, {'at': 1794215527.7422342, 'event': 'adb'}, {'at': 1794215527.952617, 'event': 'adb_ready', 'pid': 89737, 'reused': False}, {'at': 1794215527.952657, 'event': 'boot_5570'}, {'at': 1794215543.2164412, 'event': 'vehicle_booted', 'avd': 'Pleos12Leader', 'pid': 89747, 'reused': False, 'user': 10}, {'at': 1794215543.746419, 'event': 'routes_ready', 'avd': 'Pleos12Leader', 'repaired': [4182, 4192]}, {'at': 1794215544.0519092, 'event': 'apk_verified', 'avd': 'Pleos12Leader', 'sha256': '5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e'}, {'at': 1794215544.155541, 'event': 'app_open', 'avd': 'Pleos12Leader', 'attempt': 1}, {'at': 1794215548.905111, 'event': 'app_reopen', 'avd': 'Pleos12Leader', 'attempt': 2}, {'at': 1794215604.9243462, 'event': 'failed', 'phase': 'app_5570', 'exit_code': 5, 'message': '차량 앱 화면의 준비 시간이 지났습니다. 권한·초대 창과 차량 pane을 확인해 주세요.'}]\n",
+  "finishedAtUtc": "2026-11-09T09:13:25.079290+00:00"
+}

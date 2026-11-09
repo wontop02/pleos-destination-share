@@ -1,0 +1,20 @@
+{
+  "atUtc": "2026-11-09T08:29:06.753415+00:00",
+  "scope": "same actual entry, alternate canonical Unicode spelling; no live actions",
+  "cases": [
+    {
+      "form": "NFC",
+      "exists": true,
+      "exit": 0,
+      "stdout": "실행 기록: /Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/demo/logs/20261109-172906-76308.jsonl\n로컬 설정을 확인했어요.\n",
+      "stderr": ""
+    },
+    {
+      "form": "NFD",
+      "exists": true,
+      "exit": 0,
+      "stdout": "실행 기록: /Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/demo/logs/20261109-172906-76314.jsonl\n로컬 설정을 확인했어요.\n",
+      "stderr": ""
+    }
+  ]
+}

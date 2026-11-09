@@ -12,3 +12,5 @@ prototype/vehicle/**/build/
 prototype/vehicle/local.properties
 prototype/vehicle/*.jks
 prototype/vehicle/*.keystore
+.harness/demo/
+prototype/vehicle/demo/**/__pycache__/

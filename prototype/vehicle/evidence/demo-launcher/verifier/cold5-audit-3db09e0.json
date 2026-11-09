@@ -1,0 +1,119 @@
+{
+  "atUtc": "2026-11-09T09:27:22.818379+00:00",
+  "base": "4a9865f1b1584cb13a32f3a7022b08928ebad158",
+  "head": "3db09e0714e86cde6c83642977500e53cec0ff0d",
+  "sourceSha256": "172553d4510986da142de3b230ac0f32e517d53532b2f5079880dd0e7e53d8c0",
+  "artifact": "cold5-result.json",
+  "exitCode": 0,
+  "coldScenarioVerdict": "PASS",
+  "secondsToReady": 139.500862834,
+  "checks": {
+    "exactHead": true,
+    "exactLauncher": true,
+    "exactEntry": true,
+    "terminalReady": true,
+    "noFailedEvent": true,
+    "sourceEventBinds": true,
+    "existingServersPreserved": true,
+    "newDedicatedAdb": true
+  },
+  "vehicles": {
+    "emulator-5570": {
+      "checks": {
+        "freshBoot": true,
+        "newEmulatorPid": true,
+        "actualPublicPane": true,
+        "oneMainUser10Resumed": true,
+        "actualConnected": true,
+        "roleRevisionPreserved": true,
+        "automaticOff": true,
+        "noNewRoute": true,
+        "noNewVoice": true,
+        "micIdle": true,
+        "bothDefaultReverse": true,
+        "journalPrefixPreserved": true
+      },
+      "newEventCounts": {
+        "sessionState": 6,
+        "serviceCreate": 1,
+        "activityStartAttach": 1,
+        "connected": 1,
+        "getDestinationInfo": 1,
+        "onDestinationInfoAbsent": 1
+      },
+      "baseline": "emulator-5570-cold5-before.jsonl",
+      "baselineQualification": "Fresh live pre-stop A read",
+      "finalState": {
+        "role": "host",
+        "revision": 0,
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "automatic": "OFF",
+        "uiCount": 1
+      },
+      "actualUi": {
+        "page": "home",
+        "pane_verified": true
+      },
+      "appPid": "7079",
+      "bootId": "3e40b66b-004e-4640-954f-52fb5056b825"
+    },
+    "emulator-5572": {
+      "checks": {
+        "freshBoot": true,
+        "newEmulatorPid": true,
+        "actualPublicPane": true,
+        "oneMainUser10Resumed": true,
+        "actualConnected": true,
+        "roleRevisionPreserved": true,
+        "automaticOff": true,
+        "noNewRoute": true,
+        "noNewVoice": true,
+        "micIdle": true,
+        "bothDefaultReverse": true,
+        "journalPrefixPreserved": true
+      },
+      "newEventCounts": {
+        "sessionState": 6,
+        "serviceCreate": 1,
+        "activityStartAttach": 1,
+        "connected": 1,
+        "getDestinationInfo": 1,
+        "onDestinationInfoAbsent": 1
+      },
+      "baseline": "emulator-5572-cold3-after.jsonl",
+      "baselineQualification": "Last recorded cold3 while live; B is already off before this attempt. This is a preserved data prefix, not a fresh stopped-device read.",
+      "finalState": {
+        "role": "member",
+        "revision": 0,
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "automatic": "OFF",
+        "uiCount": 1
+      },
+      "actualUi": {
+        "page": "home",
+        "pane_verified": true
+      },
+      "appPid": "7274",
+      "bootId": "a43a7e9a-0175-4c3e-bff3-844d49140dc8"
+    }
+  },
+  "evidenceHashes": {
+    "cold5-result.json": "d720a97c9caac1bae9d46da75981021dec78b016938a7fab418359bf9ccd083c",
+    "emulator-5570-cold5-after.jsonl": "a79c4f2df03bb531e7888932fa1c7c1cce804734cc4436b8111f69e1e5899eef",
+    "emulator-5570-cold5-before.jsonl": "32df887b5bad3259dfb484a5b25f886e1fe86f4b951fed782cdf842a698ec3b8",
+    "emulator-5570-cold5.png": "eeac53a8fc1952dc2fbbfbf60fce7dd6857b362ffc337cffe8529f4f754ed6ec",
+    "emulator-5570-cold5.xml": "aff9a9e2077fa8f39451d17c8302bd70be1607a13e271dc883962eb2660a5604",
+    "emulator-5572-cold3-after.jsonl": "4a67abd51a7e07f5eea00c18dce85c0e1ff60d93c2267fb1ca84cda44375fce8",
+    "emulator-5572-cold5-after.jsonl": "e1edd836dfe64737ef9afbdf87131ea727dcf8305847d27bbdfb53adfe5844e6",
+    "emulator-5572-cold5.png": "07b8a99f9ac98ad176076a0335cea0b918d10789aac6fcf89c9ea7413dd2d8a3",
+    "emulator-5572-cold5.xml": "890abd3ce746921629232dc04f254ebd03cdec9150ed727a34765f3e100a4994",
+    "root-final-qa.py": "e90305e89eef6bc9f1d9c5da64460c033c04598287d05f6971f8d6ce3426236c"
+  },
+  "directVisualReview": "Verifier viewed both actual cold5 PNGs: own home in correct right vehicle pane, connected banner, host/member roles, automatic off; no modal visible. Static XML independently parsed for own page/pane.",
+  "qualification": "Follower was already off before cold5. Its baseline is explicitly the last recorded live cold3 journal prefix, not a fresh stopped-device observation. Root QA asserts absent serial/listener before OS entry. Earlier failures remain historical; exact-current-source cold5 is the passing cold run.",
+  "F1": "CLOSED by narrow source fix plus exact-source observed actual cold success",
+  "finalApproval": false,
+  "remaining": "Actual current-source warm/concurrent/default-address API artifacts, then explicit final packaged HEAD rebind."
+}

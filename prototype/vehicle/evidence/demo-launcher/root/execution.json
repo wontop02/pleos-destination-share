@@ -1,0 +1,23 @@
+{
+  "issue": 27,
+  "branch": "be/issue-27-demo-launcher",
+  "base": "4a9865f1b1584cb13a32f3a7022b08928ebad158",
+  "firstObservedClockUtc": "2026-11-09T07:59:09Z",
+  "deadlineUtc": "2026-11-09T09:49:09Z",
+  "budgetNote": "Conservative110minutes from first clock, reserving10minutes for earlier read-only preparation; never reset",
+  "scope": "Only approved one-click execution, issue27 AC1\u20135; no voice demo/video or phone/map work",
+  "phase": "implementation",
+  "priorVoiceRun": "complete and untouched; distinct newly authorized task",
+  "resourceScope": {
+    "adbPort": 5041,
+    "serials": [
+      "emulator-5570",
+      "emulator-5572"
+    ],
+    "user": 10,
+    "apiPort": 4192,
+    "old4190": "preserve",
+    "microphone": "existing approvals persist; never start recording/grant in launcher"
+  },
+  "roles": "builtin worker/default agents will follow builder/verifier TOML contracts; custom role APIs unavailable"
+}

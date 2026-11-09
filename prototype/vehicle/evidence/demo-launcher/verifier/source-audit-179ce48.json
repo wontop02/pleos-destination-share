@@ -1,0 +1,136 @@
+{
+  "atUtc": "2026-11-09T09:13:26.022520+00:00",
+  "base": "4a9865f1b1584cb13a32f3a7022b08928ebad158",
+  "head": "179ce4838b9899f1828589de7c8240dd4751b8c8",
+  "sourceReview": "source-review-179ce48.md",
+  "sourceVerdict": "FAIL after actual cold4 counterexample",
+  "findings": [
+    {
+      "id": "F1",
+      "priority": "P1",
+      "title": "Cold multi-window OEM occlusion cannot recover when own MainActivity stays RESUMED",
+      "head": "179ce4838b9899f1828589de7c8240dd4751b8c8",
+      "file": "prototype/vehicle/demo/launcher.py",
+      "line": 610,
+      "endLine": 617,
+      "observedBehavior": "Normal cold start created the approved own MainActivity in Rect(0,0–1682,1350); OEM Maps occupies the actual right vehicle pane and the public hierarchy contains no own package nodes. Android still reports the one user10 own Activity RESUMED. The code only reenters when resumed is false, so it waits the full ready timeout and never reaches the second vehicle. Exact-source cold4 emitted failed/app_5570/exit5 after 77.76s with no READY.",
+      "evidence": [
+        "cold4-final-entry-result.json",
+        "cold4-A-diagnostic.json",
+        "cold4-A-focus.json",
+        "cold4-A-surface.xml",
+        "cold4-A-surface.png"
+      ],
+      "requiredCorrection": "Account for cold OEM pane formation/occlusion before or during own app launch, with finite limits and a narrowly proven public OEM state; preserve own dialogs and warm pages. Re-run exact-source real cold start after fix.",
+      "status": "OPEN"
+    }
+  ],
+  "checks": [
+    {
+      "name": "diff-check",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "4a9865f1b1584cb13a32f3a7022b08928ebad158..179ce4838b9899f1828589de7c8240dd4751b8c8"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "git-mode",
+      "command": [
+        "git",
+        "ls-tree",
+        "-r",
+        "179ce4838b9899f1828589de7c8240dd4751b8c8",
+        "--",
+        "Pleos 데모 실행.command"
+      ],
+      "exitCode": 0,
+      "stdout": "100755 blob f193415d4dd9df53a6a6d777de69232eb7a18ae5\t\"Pleos \\353\\215\\260\\353\\252\\250 \\354\\213\\244\\355\\226\\211.command\"\n",
+      "stderr": ""
+    },
+    {
+      "name": "allowed-scope",
+      "command": [
+        "git",
+        "diff",
+        "--name-status",
+        "4a9865f1b1584cb13a32f3a7022b08928ebad158..179ce4838b9899f1828589de7c8240dd4751b8c8"
+      ],
+      "exitCode": 0,
+      "stdout": "M\t.gitignore\nA\t\"Pleos \\353\\215\\260\\353\\252\\250 \\354\\213\\244\\355\\226\\211.command\"\nM\tdocs/product/README.md\nA\tdocs/product/demo-launcher.md\nM\tprototype/vehicle/README.md\nA\tprototype/vehicle/demo/README.md\nA\tprototype/vehicle/demo/config.example.json\nA\tprototype/vehicle/demo/launcher.py\nA\tprototype/vehicle/demo/tests/test_launcher.py\n",
+      "stderr": ""
+    },
+    {
+      "name": "source-hash",
+      "command": [
+        "git",
+        "rev-parse",
+        "179ce4838b9899f1828589de7c8240dd4751b8c8:prototype/vehicle/demo/launcher.py"
+      ],
+      "exitCode": 0,
+      "stdout": "aa33b173e16895af0a89beb434da7f5c9c1c4db7\n",
+      "stderr": ""
+    }
+  ],
+  "independentTests": {
+    "head": "179ce4838b9899f1828589de7c8240dd4751b8c8",
+    "base": "4a9865f1b1584cb13a32f3a7022b08928ebad158",
+    "startedUtc": "2026-11-09T09:11:43.123637+00:00",
+    "durationSeconds": 4.482450125,
+    "command": [
+      "/usr/bin/python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "prototype/vehicle/demo/tests",
+      "-v"
+    ],
+    "cwd": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/demo-launcher-20261109/verifier/fresh-archive-179ce48",
+    "exitCode": 0,
+    "archiveSha256": "49a80945cdc280957dc385caf3f2750e8176845c7c4715c1d8b4edf0a387cff9",
+    "files": {
+      "Pleos 데모 실행.command": {
+        "sha256": "9eb99d3fe19a8f0f1b4f1dfc29236d3db28f9c25de73e626ceeec21c20c38ba0",
+        "mode": "0o775"
+      },
+      "prototype/vehicle/demo/launcher.py": {
+        "sha256": "51bea95cde0bff56206f56a897d60dad7573934f6b056bb59857ea13b989773c",
+        "mode": "0o664"
+      },
+      "prototype/vehicle/demo/tests/test_launcher.py": {
+        "sha256": "8654386350c5179702370f78ac093a2d80f827a58e547ff64a36b39812643776",
+        "mode": "0o664"
+      },
+      "prototype/server.mjs": {
+        "sha256": "883f38356f2a8b3835b3e66f007eac9ad99a4584ddf6f7678cd3a28233d1ac8e",
+        "mode": "0o664"
+      },
+      "prototype/public/index.html": {
+        "sha256": "d2fe515cdb9bd3ba0c62e83b07aa2503c49822b976402aa9e38a93b2d367cc27",
+        "mode": "0o664"
+      }
+    },
+    "isolation": "Fresh git archive. TMPDIR under verifier. Mock SDK/ADB metadata only. Real Node only on OS free port, asserted not 4190/4192/5041/5570/5572. Cleanup limited to spawned test child with fingerprint recheck."
+  },
+  "acStatus": {
+    "AC1": "FAIL observed exact-source cold4 app_5570 readiness timeout; pending cause/fix",
+    "AC2": "BLOCKED pending exact-current-source real concurrency/reuse artifacts",
+    "AC3": "BLOCKED pending current real resource-preservation artifacts; source/tests pass",
+    "AC4": "PASS for source/test evidence; real artifact packaging pending",
+    "AC5": "FAIL exact-source required cold-start did not complete in cold4"
+  },
+  "finalApproval": false,
+  "restrictionsObserved": [
+    "Read-only product/GitHub",
+    "No real ADB/AVD/server actions",
+    "No credential/meta contents read",
+    "Writes limited to verifier artifacts plus test temporary fixtures under verifier",
+    "Only spawned isolated-test Node child may be terminated"
+  ],
+  "runtimeCounterexample": "cold4-audit-179ce48.json"
+}

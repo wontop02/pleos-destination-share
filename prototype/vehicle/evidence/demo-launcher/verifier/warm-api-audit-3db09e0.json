@@ -1,0 +1,95 @@
+{
+  "atUtc": "2026-11-09T09:30:53.008301+00:00",
+  "base": "4a9865f1b1584cb13a32f3a7022b08928ebad158",
+  "head": "3db09e0714e86cde6c83642977500e53cec0ff0d",
+  "sourceSha256": "172553d4510986da142de3b230ac0f32e517d53532b2f5079880dd0e7e53d8c0",
+  "warmConcurrentVerdict": "PASS",
+  "actualEntryExitCodes": [
+    0,
+    3
+  ],
+  "secondsToTerminal": 18.224443166,
+  "checks": {
+    "exactHeadAndSource": true,
+    "actualEntryExit0And3": true,
+    "allListenersPreserved": true,
+    "actualSourceEvent": true,
+    "winnerTerminalReady": true,
+    "noOwnAppReopenOrNewInstance": true,
+    "collisionBeforeResourceActions": true,
+    "bothVehiclesMissing4182Repaired": true
+  },
+  "vehicles": {
+    "emulator-5570": {
+      "checks": {
+        "appPidUnchanged": true,
+        "bootIdUnchanged": true,
+        "roomStateUnchanged": true,
+        "actualConnected": true,
+        "oneMainUser10Resumed": true,
+        "expectedPublicPage": true,
+        "noNewJournalEvents": true,
+        "micIdle": true,
+        "bothReverse": true
+      },
+      "ui": {
+        "page": "home",
+        "pane_verified": true
+      },
+      "appPid": "7079",
+      "newEventCounts": {}
+    },
+    "emulator-5572": {
+      "checks": {
+        "appPidUnchanged": true,
+        "bootIdUnchanged": true,
+        "roomStateUnchanged": true,
+        "actualConnected": true,
+        "oneMainUser10Resumed": true,
+        "expectedPublicPage": true,
+        "noNewJournalEvents": true,
+        "micIdle": true,
+        "bothReverse": true,
+        "composeXmlPreserved": true
+      },
+      "ui": {
+        "page": "compose",
+        "pane_verified": true
+      },
+      "appPid": "7274",
+      "newEventCounts": {}
+    }
+  },
+  "apiVerdict": "PASS",
+  "apiChecks": {
+    "bothAddressesBothActualGuests": true,
+    "fourCreates201Cleanups200": true
+  },
+  "apiScope": "Four operator QA isolated room API probes: both guests at4182 and4192, POST201/DELETE200/clientexit0. Existing app room is not a probe target. This does not claim a complete manual new-room UI test. Launcher source never manages rooms.",
+  "directVisualReview": "Verifier viewed both actual warm3 PNGs and parsed own public page/pane from XML. Follower compose hierarchy exactly equals its pre-entry hierarchy.",
+  "earlierWarmAttempts": "final-warm and final-warm2 fixture/instrumentation failures are retained and not relabeled as passing launcher tests; neither provides actual launcher exit results. Passing case is final-warm3 only.",
+  "evidenceHashes": {
+    "emulator-5570-final-warm3-after.jsonl": "a79c4f2df03bb531e7888932fa1c7c1cce804734cc4436b8111f69e1e5899eef",
+    "emulator-5570-final-warm3-before.jsonl": "a79c4f2df03bb531e7888932fa1c7c1cce804734cc4436b8111f69e1e5899eef",
+    "emulator-5570-final-warm3.png": "a93e169a18fc6cc68dfea0e4fc0fb735e83d5e4edde0ee91cdf4d5f10d8c597e",
+    "emulator-5570-final-warm3.xml": "aff9a9e2077fa8f39451d17c8302bd70be1607a13e271dc883962eb2660a5604",
+    "emulator-5572-final-warm3-after.jsonl": "e621c897d355152b3f8ef2f6cdfbe31f8ec62df91a21b710175597574600406d",
+    "emulator-5572-final-warm3-before.jsonl": "e621c897d355152b3f8ef2f6cdfbe31f8ec62df91a21b710175597574600406d",
+    "emulator-5572-final-warm3-compose-before.png": "948b6e19489699a918602ea8dd823e8290139df6a6d51039a31303b8700c41a6",
+    "emulator-5572-final-warm3-compose-before.xml": "42196e193ffb5875b531afa54e5f5cdc3a7e5946d2e8a151a28fbbcf7367599c",
+    "emulator-5572-final-warm3.png": "c16f74b08d54bb8233d649aa7133bb20b2ca5e74fe7cb456a0366c95599d302f",
+    "emulator-5572-final-warm3.xml": "42196e193ffb5875b531afa54e5f5cdc3a7e5946d2e8a151a28fbbcf7367599c",
+    "final-default-api-result.json": "be1008897efcf724972dda8933dc0b1f545bce6ae06e3cdccc5aaa3319fdd931",
+    "final-warm3-0-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "final-warm3-0-stdout.txt": "d9e284479539340498f029f942168e9523a08d81d398b23dff20c1f3797728f2",
+    "final-warm3-1-stderr.txt": "d6284de8bf5f1c572b6e3b97bc13846e53c4dc08ff03449d702b31c4797b439c",
+    "final-warm3-1-stdout.txt": "2c35d5298d733019b5a4cc2073b24816b284efd33a88632060f0ca7d5da0534d",
+    "final-warm3-result.json": "d06cff4779b23b07d853fcf101747cd38c597925e7bf511520824799df8d60cc",
+    "root-default-api.py": "ef574031dc5776f4d1a6f2ca707604dc6d0044b25305729fe7193fd41c37acf9",
+    "root-final-qa.py": "899fe76fad6da846ac18cdd40e7d91e56e57dae0b38a90ff4e57efdf266a6f2a",
+    "runtime-logs/20261109-182746-95386.jsonl": "1c01848fb3af55e9c85d9afc9bad85e088228a89ceeac6ce255a511ab9b5ae5c",
+    "runtime-logs/20261109-182746-95387.jsonl": "81d794aa79fca8ff6a2ac843e107744a0d333ac9118ea4a933fe29d55d2c874e"
+  },
+  "finalApproval": false,
+  "remaining": "Final preservation probe, evidence-only packaged HEAD and explicit exact-head rebind. Post-merge merged/main/closed checks remain root-owned."
+}

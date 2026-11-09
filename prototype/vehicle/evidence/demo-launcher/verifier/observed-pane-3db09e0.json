@@ -1,0 +1,20 @@
+{
+  "head": "3db09e0714e86cde6c83642977500e53cec0ff0d",
+  "sourceSha256": "172553d4510986da142de3b230ac0f32e517d53532b2f5079880dd0e7e53d8c0",
+  "fixture": "cold4-A-surface.xml",
+  "fixtureSha256": "40ae571d757ef7e1197a8972b8d3f7ef5ddd4969597a8f68e4d346278ec40eff",
+  "command": "/usr/bin/python3, pure parser checks against actual static cold4 hierarchy and negative mutations",
+  "exitCode": 0,
+  "checks": {
+    "observed_actual_cold4_maps_surface": true,
+    "wrong_pane_refused": true,
+    "unknown_package_refused": true,
+    "own_window_node_refused": true,
+    "permission_window_refused": true,
+    "dialog_node_refused": true,
+    "password_field_refused": true,
+    "malformed_xml_refused": true,
+    "actual_maps_not_product_READY": true
+  },
+  "scope": "Static XML in memory only; no UI text persisted, no live resource commands."
+}

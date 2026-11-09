@@ -1,0 +1,102 @@
+{
+  "atUtc": "2026-11-09T08:23:52.785867+00:00",
+  "issue": 27,
+  "role": "builtin worker following builder.toml contract; not custom-role execution",
+  "base": "4a9865f1b1584cb13a32f3a7022b08928ebad158",
+  "branch": "be/issue-27-demo-launcher",
+  "state": "uncommitted changes; root owns commits/GitHub and actual runtime verification",
+  "ownedFiles": {
+    "Pleos 데모 실행.command": {
+      "sha256": "9eb99d3fe19a8f0f1b4f1dfc29236d3db28f9c25de73e626ceeec21c20c38ba0",
+      "mode": "0o755"
+    },
+    "prototype/vehicle/demo/launcher.py": {
+      "sha256": "ad91c5f3c07dbf855255a400f4e79c4e792d31158d37e4224fb5b10ff0e501c2",
+      "mode": "0o644"
+    },
+    "prototype/vehicle/demo/config.example.json": {
+      "sha256": "15b29e3c0b93dc878981e95090e404dc1d7f389324a4dae5c7a35fe84d4cb263",
+      "mode": "0o644"
+    },
+    "prototype/vehicle/demo/README.md": {
+      "sha256": "c316c6636c84a6f6da67bc123ed1d86841b890399676a5b2435b023870753c68",
+      "mode": "0o644"
+    },
+    "prototype/vehicle/demo/tests/test_launcher.py": {
+      "sha256": "9338bdfe10cc6b1a4ff0f7ae3482004d09e8526d843685019da91647a2c428fe",
+      "mode": "0o644"
+    },
+    "prototype/vehicle/README.md": {
+      "sha256": "d6119b06f6608deaa10ff6c5c4343ebcf81a2e00686bfc36676f37d466f5ef11",
+      "mode": "0o644"
+    },
+    "docs/product/README.md": {
+      "sha256": "aa1ca537fc16a89d6fe3099edc6abfc3371f9e68683dd7b2ace8c5bc90365e22",
+      "mode": "0o644"
+    },
+    "docs/product/demo-launcher.md": {
+      "sha256": "704de72b6f837cb7a61518b53c30036aa669233c15cd59c2c2af9f797b3ffdf4",
+      "mode": "0o644"
+    },
+    ".gitignore": {
+      "sha256": "99418373d7157c397cb49d7a057f870957fc842ed7cb110fa08ea521cc815ac3",
+      "mode": "0o644"
+    }
+  },
+  "checks": [
+    {
+      "name": "unit-tests",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "prototype/vehicle/demo/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/demo-launcher-20261109/builder/unit-tests.txt"
+    },
+    {
+      "name": "compile",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "py_compile",
+        "prototype/vehicle/demo/launcher.py",
+        "prototype/vehicle/demo/tests/test_launcher.py"
+      ],
+      "exit_code": 0,
+      "log": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/demo-launcher-20261109/builder/compile.txt"
+    },
+    {
+      "name": "diff-check",
+      "command": [
+        "/usr/bin/git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/demo-launcher-20261109/builder/diff-check.txt"
+    }
+  ],
+  "testCount": 25,
+  "directEvidence": [
+    "Actual executable .command from a different cwd through a symlink with spaces (configuration-only path)",
+    "Actual OS lock competing entry refuses with exit3 before resources",
+    "Isolated actual Node cold process plus warm reuse on a free loopback port; test room create201, post-reuse GET200, cleanup200; only that created child was terminated after process fingerprint validation",
+    "Configuration failures, foreign resource refusal, expected-start PID reuse refusal, daemon isolation arguments, emulator identities, cold user0 to10, warm wrong user, both reverse repairs, finite boot/UI timeout, no false ready, public resource ID/pane checks and preserved warm compose page"
+  ],
+  "notExecutedByBuilder": [
+    "Any live ADB5041 or emulator5570/5572 command",
+    "Any live server4192/4190 operation",
+    "Actual vehicle warm/cold lifecycle or real room restoration; root performs these",
+    "Independent verifier or commits/PR/merge; root owns these"
+  ],
+  "knownFixes": [
+    "First isolated Node readiness test found incorrect public asset path; fixed to prototype/public/index.html before passing runs",
+    "Root warm1 exposed unsupported cmd user is-user-unlocked; replaced with observed am get-started-user-state RUNNING_UNLOCKED output",
+    "Root warm2 passed previous launcher hash; final ad91 hash adds required adoption start fingerprint and fixed ps locale for root warm3/cold verification"
+  ]
+}

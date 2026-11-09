@@ -1,0 +1,36 @@
+{
+  "recordedAtUtc": "2026-11-09T08:08:55.170252+00:00",
+  "erratum": "resource-baseline.json argv was shlex applied to ps flat command and split spaces in path. It is not actual argv. This file preserves raw command plus OS executable path; no process environment was read.",
+  "processes": [
+    {
+      "pid": 47388,
+      "executable": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64",
+      "commandRaw": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64 -avd Pleos12Leader -port 5570 -no-snapshot -no-boot-anim -audio coreaudio -gpu host -crash-report-mode disabled",
+      "started": "Mon Nov  9 11:46:38 2026"
+    },
+    {
+      "pid": 43129,
+      "executable": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64",
+      "commandRaw": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64 -avd Pleos12Follower -port 5572 -no-snapshot -no-boot-anim -audio coreaudio -gpu host -crash-report-mode disabled",
+      "started": "Mon Nov  9 11:27:22 2026"
+    },
+    {
+      "pid": 69453,
+      "executable": "/opt/homebrew/Cellar/node/25.8.1_1/bin/node",
+      "commandRaw": "/opt/homebrew/bin/node /Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-25-voice-proposals/prototype/server.mjs",
+      "started": "Sun Nov  8 19:17:48 2026"
+    },
+    {
+      "pid": 94295,
+      "executable": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/pleos-vehicle-20261105/toolchain/sdk/platform-tools/adb",
+      "commandRaw": "adb -L tcp:5041 fork-server server --reply-fd 4 --one-device PLEOS12_VIRTUAL_ONLY_NO_USB",
+      "started": "Thu Nov  5 11:45:48 2026"
+    },
+    {
+      "pid": 40320,
+      "executable": "/opt/homebrew/Cellar/node/25.8.1_1/bin/node",
+      "commandRaw": "/opt/homebrew/bin/node /Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-23-simple-vehicle-ui/prototype/server.mjs",
+      "started": "Fri Nov  6 16:09:41 2026"
+    }
+  ]
+}

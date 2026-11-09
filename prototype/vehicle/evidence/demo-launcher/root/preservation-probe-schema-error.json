@@ -1,0 +1,5 @@
+{
+  "pass": false,
+  "scope": "Operator baseline comparison preparation before final-preservation result; no mutation",
+  "error": "KeyError command: original identity baseline stored sha256/argv fields, not launcher Host.process schema; correcting comparison and preserving this failure."
+}

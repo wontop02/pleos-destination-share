@@ -1,0 +1,26 @@
+{"at": 1794215106.741708, "event": "entry", "phase": "entry", "launcher_sha256": "9f2bd5907a58343f2164860fd29826239d1137a67a18f5b236ec3d605aa9d709", "config_exists": true, "configuration_only": false}
+{"at": 1794215106.742042, "event": "phase", "phase": "configuration"}
+{"at": 1794215106.744559, "event": "phase", "phase": "adb_metadata"}
+{"at": 1794215106.7447581, "event": "phase", "phase": "runtime_state"}
+{"at": 1794215106.7638102, "event": "source_verified", "commit": "54ad7906e2ad3eea44c3c1b82490ad42878646c7", "launcher_sha256": "9f2bd5907a58343f2164860fd29826239d1137a67a18f5b236ec3d605aa9d709", "server_sha256": "883f38356f2a8b3835b3e66f007eac9ad99a4584ddf6f7678cd3a28233d1ac8e", "apk_sha256": "5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e"}
+{"at": 1794215106.763865, "event": "server"}
+{"at": 1794215106.865494, "event": "server_ready", "pid": 69453, "reused": true, "source_sha256": "883f38356f2a8b3835b3e66f007eac9ad99a4584ddf6f7678cd3a28233d1ac8e"}
+{"at": 1794215106.86554, "event": "adb"}
+{"at": 1794215107.034389, "event": "adb_ready", "pid": 86488, "reused": false}
+{"at": 1794215107.034424, "event": "boot_5570"}
+{"at": 1794215118.043961, "event": "vehicle_booted", "avd": "Pleos12Leader", "pid": 86498, "reused": false, "user": 10}
+{"at": 1794215118.40375, "event": "routes_ready", "avd": "Pleos12Leader", "repaired": [4182, 4192]}
+{"at": 1794215118.619303, "event": "apk_verified", "avd": "Pleos12Leader", "sha256": "5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e"}
+{"at": 1794215119.384862, "event": "app_open", "avd": "Pleos12Leader", "attempt": 1}
+{"at": 1794215128.72068, "event": "app_reopen", "avd": "Pleos12Leader", "attempt": 2}
+{"at": 1794215132.516275, "event": "app_ready", "avd": "Pleos12Leader", "page": "home", "pane_verified": true, "main_activity_count": 1, "launched": true}
+{"at": 1794215132.516871, "event": "boot_5572"}
+{"at": 1794215147.28544, "event": "vehicle_booted", "avd": "Pleos12Follower", "pid": 86929, "reused": false, "user": 10}
+{"at": 1794215147.67445, "event": "routes_ready", "avd": "Pleos12Follower", "repaired": [4182, 4192]}
+{"at": 1794215147.994682, "event": "apk_verified", "avd": "Pleos12Follower", "sha256": "5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e"}
+{"at": 1794215149.971009, "event": "app_open", "avd": "Pleos12Follower", "attempt": 1}
+{"at": 1794215159.066762, "event": "app_reopen", "avd": "Pleos12Follower", "attempt": 2}
+{"at": 1794215163.2850611, "event": "app_ready", "avd": "Pleos12Follower", "page": "home", "pane_verified": true, "main_activity_count": 1, "launched": true}
+{"at": 1794215163.867744, "event": "routes_ready", "avd": "Pleos12Leader", "repaired": []}
+{"at": 1794215167.687159, "event": "routes_ready", "avd": "Pleos12Follower", "repaired": []}
+{"at": 1794215170.835377, "event": "ready"}

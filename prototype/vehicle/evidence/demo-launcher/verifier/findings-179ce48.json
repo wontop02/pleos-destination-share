@@ -1,0 +1,21 @@
+[
+  {
+    "id": "F1",
+    "priority": "P1",
+    "title": "Cold multi-window OEM occlusion cannot recover when own MainActivity stays RESUMED",
+    "head": "179ce4838b9899f1828589de7c8240dd4751b8c8",
+    "file": "prototype/vehicle/demo/launcher.py",
+    "line": 610,
+    "endLine": 617,
+    "observedBehavior": "Normal cold start created the approved own MainActivity in Rect(0,0–1682,1350); OEM Maps occupies the actual right vehicle pane and the public hierarchy contains no own package nodes. Android still reports the one user10 own Activity RESUMED. The code only reenters when resumed is false, so it waits the full ready timeout and never reaches the second vehicle. Exact-source cold4 emitted failed/app_5570/exit5 after 77.76s with no READY.",
+    "evidence": [
+      "cold4-final-entry-result.json",
+      "cold4-A-diagnostic.json",
+      "cold4-A-focus.json",
+      "cold4-A-surface.xml",
+      "cold4-A-surface.png"
+    ],
+    "requiredCorrection": "Account for cold OEM pane formation/occlusion before or during own app launch, with finite limits and a narrowly proven public OEM state; preserve own dialogs and warm pages. Re-run exact-source real cold start after fix.",
+    "status": "OPEN"
+  }
+]
