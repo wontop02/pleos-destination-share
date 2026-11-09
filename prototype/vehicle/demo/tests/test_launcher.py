@@ -433,6 +433,37 @@ class LauncherTests(unittest.TestCase):
         self.assertEqual([row["attempt"] for row in rows if row["event"] == "app_reopen"], [2, 3])
         self.assertFalse(any(row["event"] == "app_ready" for row in rows))
 
+    def test_failed_reentry_commands_consume_attempts_and_keep_spacing(self):
+        app = self.instance(mock.Mock())
+        app.installed_apk = mock.Mock()
+        app.activity = mock.Mock(side_effect=[dict(count=0, user_ok=True, resumed=False)] +
+                                [dict(count=1, user_ok=True, resumed=False)] * 30)
+        app.public_ui = mock.Mock()
+        starts = []
+        clock = {"now": 0}
+        def monotonic():
+            value = clock["now"]
+            clock["now"] += 1
+            return value
+        def shell(_vehicle, *args, **kwargs):
+            if args == ("am", "get-current-user"):
+                return "10"
+            starts.append(clock["now"])
+            if len(starts) > 1:
+                raise launcher.Failure("고정된 재진입 실패", 6)
+            return ""
+        app.shell = mock.Mock(side_effect=shell)
+        app.c["timeouts"]["ready"] = 20
+        with mock.patch.object(launcher.time, "monotonic", side_effect=monotonic), mock.patch.object(launcher.time, "sleep"):
+            with self.assertRaises(launcher.Failure) as caught:
+                app.ensure_app(self.config()["emulators"][0])
+        self.assertEqual(caught.exception.code, 5)
+        self.assertEqual(len(starts), 3)
+        self.assertTrue(all(after - before >= 3 for before, after in zip(starts, starts[1:])))
+        rows = [json.loads(line) for line in self.log.path.read_text().splitlines()]
+        self.assertEqual([row["attempt"] for row in rows if row["event"] in {"app_open", "app_reopen"}], [1, 2, 3])
+        self.assertFalse(any(row["event"] == "app_ready" for row in rows))
+
     def test_resumed_own_main_without_public_ui_is_not_reopened(self):
         app = self.instance(mock.Mock())
         app.installed_apk = mock.Mock()
@@ -461,6 +492,31 @@ class LauncherTests(unittest.TestCase):
         self.assertIn("--windowingMode", args)
         self.assertNotIn("force-stop", args)
         self.assertNotIn("clear", args)
+
+    def test_failed_state_is_saved_while_os_lock_is_still_held(self):
+        self.log.stream.close()
+        self.log.path.unlink()
+        fake = mock.Mock()
+        fake.phase = "server"
+        fake.state = {"version": 1}
+        fake.run.side_effect = launcher.Failure("고정된 준비 실패", 6)
+        probe = "import fcntl,sys\nf=open(sys.argv[1], 'a+')\ntry: fcntl.flock(f.fileno(), fcntl.LOCK_EX|fcntl.LOCK_NB)\nexcept BlockingIOError: sys.exit(3)\nsys.exit(0)"
+        def save_under_lock():
+            result = subprocess.run(["/usr/bin/python3", "-c", probe, str(self.home / "launcher.lock")],
+                                    capture_output=True, timeout=5)
+            self.assertEqual(result.returncode, 3)
+            launcher.atomic_json(self.home / "resources.json", fake.state)
+        fake.save.side_effect = save_under_lock
+        with mock.patch.object(launcher, "source_root", return_value=ROOT), \
+                mock.patch.object(launcher, "demo_home", return_value=self.home), \
+                mock.patch.object(launcher, "Launcher", return_value=fake), \
+                contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(launcher.main([]), 6)
+        fake.save.assert_called_once()
+        self.assertEqual(json.loads((self.home / "resources.json").read_text())["last_run"]["status"], "failed")
+        result = subprocess.run(["/usr/bin/python3", "-c", probe, str(self.home / "launcher.lock")],
+                                capture_output=True, timeout=5)
+        self.assertEqual(result.returncode, 0)
 
     def test_partial_failure_cannot_publish_ready(self):
         host = mock.Mock()

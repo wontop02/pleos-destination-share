@@ -589,13 +589,15 @@ class Launcher:
         last_open = float("-inf")
         def open_own_app(remaining=None):
             nonlocal open_count, last_open
-            self.shell(vehicle, "am", "start", "--user", "10", "-a", "android.intent.action.MAIN",
-                       "-c", "android.intent.category.LAUNCHER", "-f", "0x10200000", "-n", COMPONENT,
-                       "-W", "--windowingMode", "6", "--display", "0",
-                       timeout=None if remaining is None else min(self.c["timeouts"]["command"], remaining))
-            open_count += 1
-            last_open = time.monotonic()
+            open_count += 1  # Failed or timed-out commands also consume the finite attempt budget.
             self.log.event("app_open" if open_count == 1 else "app_reopen", avd=vehicle["avd"], attempt=open_count)
+            try:
+                self.shell(vehicle, "am", "start", "--user", "10", "-a", "android.intent.action.MAIN",
+                           "-c", "android.intent.category.LAUNCHER", "-f", "0x10200000", "-n", COMPONENT,
+                           "-W", "--windowingMode", "6", "--display", "0",
+                           timeout=None if remaining is None else min(self.c["timeouts"]["command"], remaining))
+            finally:
+                last_open = time.monotonic()  # Keep spacing after unsuccessful requests too.
         if not observation and not (activity["count"] == 1 and activity["resumed"]):
             open_own_app()
         def ready(remaining):
@@ -690,17 +692,21 @@ def main(argv=None):
             phase = "runtime_state"
             log.event("phase", phase=phase)
             launcher = Launcher(config, home, log)
-            launcher.run()
+            try:
+                launcher.run()
+            except Failure as error:
+                # Persist failure before releasing the OS lock; a newer run must never be overwritten.
+                launcher.state["last_run"] = {"status": "failed", "at": time.time(),
+                                              "phase": launcher.phase, "exit_code": error.code}
+                with contextlib.suppress(OSError):
+                    launcher.save()
+                raise
         return 0
     except Failure as error:
         print(str(error), file=sys.stderr, flush=True)
         if log:
             phase = launcher.phase if launcher else phase
             log.event("failed", phase=phase, exit_code=error.code, message=error.message)
-            if launcher:
-                launcher.state["last_run"] = {"status": "failed", "at": time.time(), "phase": phase, "exit_code": error.code}
-                with contextlib.suppress(OSError):
-                    launcher.save()
         return error.code
     except (OSError, ValueError, TypeError, KeyError) as error:
         print("실행 설정·기록을 처리하지 못했습니다. 로컬 설정과 실행 기록을 확인해 주세요.", file=sys.stderr, flush=True)
