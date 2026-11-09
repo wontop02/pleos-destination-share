@@ -1,0 +1,12 @@
+{
+  "atUtc": "2026-11-09T04:48:54.316809+00:00",
+  "inputSource": "actual UI fixed400char text, not STT",
+  "cases": [],
+  "pass": false,
+  "error": "Visible public product control unavailable:change_destination",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 8, in <module>\n  File \"/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-verify-20261109/qa-live.py\", line 50, in node\n    raise RuntimeError('Visible public product control unavailable:'+ident)\nRuntimeError: Visible public product control unavailable:change_destination\n",
+  "restored": {
+    "emulator-5570": "1.0",
+    "emulator-5572": "1.0"
+  }
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "module": "app",
+    "check": "signature",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/apksigner",
+      "verify",
+      "--verbose",
+      "--print-certs",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-verify-20261109/verifier/source-b883042/prototype/vehicle/app/build/outputs/apk/debug/app-debug.apk"
+    ],
+    "exit": 0,
+    "outputFile": "app-signature.txt"
+  },
+  {
+    "module": "app",
+    "check": "permissions",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+      "dump",
+      "permissions",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-verify-20261109/verifier/source-b883042/prototype/vehicle/app/build/outputs/apk/debug/app-debug.apk"
+    ],
+    "exit": 0,
+    "outputFile": "app-permissions.txt"
+  },
+  {
+    "module": "app",
+    "check": "badging",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+      "dump",
+      "badging",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-verify-20261109/verifier/source-b883042/prototype/vehicle/app/build/outputs/apk/debug/app-debug.apk"
+    ],
+    "exit": 0,
+    "outputFile": "app-badging.txt"
+  },
+  {
+    "module": "app",
+    "check": "manifest",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+      "dump",
+      "xmltree",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-verify-20261109/verifier/source-b883042/prototype/vehicle/app/build/outputs/apk/debug/app-debug.apk",
+      "AndroidManifest.xml"
+    ],
+    "exit": 0,
+    "outputFile": "app-manifest.txt"
+  },
+  {
+    "module": "nativeDriver",
+    "check": "signature",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/apksigner",
+      "verify",
+      "--verbose",
+      "--print-certs",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-verify-20261109/verifier/source-b883042/prototype/vehicle/nativeDriver/build/outputs/apk/debug/nativeDriver-debug.apk"
+    ],
+    "exit": 0,
+    "outputFile": "nativeDriver-signature.txt"
+  },
+  {
+    "module": "nativeDriver",
+    "check": "permissions",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+      "dump",
+      "permissions",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-verify-20261109/verifier/source-b883042/prototype/vehicle/nativeDriver/build/outputs/apk/debug/nativeDriver-debug.apk"
+    ],
+    "exit": 0,
+    "outputFile": "nativeDriver-permissions.txt"
+  },
+  {
+    "module": "nativeDriver",
+    "check": "badging",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+      "dump",
+      "badging",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-verify-20261109/verifier/source-b883042/prototype/vehicle/nativeDriver/build/outputs/apk/debug/nativeDriver-debug.apk"
+    ],
+    "exit": 0,
+    "outputFile": "nativeDriver-badging.txt"
+  },
+  {
+    "module": "nativeDriver",
+    "check": "manifest",
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+      "dump",
+      "xmltree",
+      "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-verify-20261109/verifier/source-b883042/prototype/vehicle/nativeDriver/build/outputs/apk/debug/nativeDriver-debug.apk",
+      "AndroidManifest.xml"
+    ],
+    "exit": 0,
+    "outputFile": "nativeDriver-manifest.txt"
+  }
+]

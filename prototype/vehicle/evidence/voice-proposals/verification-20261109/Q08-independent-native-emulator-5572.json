@@ -1,0 +1,79 @@
+{
+  "atUtc": "2026-11-09T04:28:54.382124+00:00",
+  "serial": "emulator-5572",
+  "component": "NativeDestinationDriver",
+  "arguments": {
+    "mode": "query"
+  },
+  "exit": 0,
+  "seconds": 4.845151417000001,
+  "result": {
+    "probe": {
+      "sdk": "ai.pleos.playground:NaviHelper:3.0.5",
+      "mode": "query",
+      "startedAt": 1794198532665,
+      "targetPackage": "ai.pleos.destinations.driver",
+      "processId": 7974,
+      "initialDestination": {
+        "latitude": 37.412475,
+        "longitude": 127.09534722,
+        "displayLatitude": null,
+        "displayLongitude": null,
+        "name": "가든서비스",
+        "address": "수정구 시흥동",
+        "poiId": "36khp2h36p68cm5nqhec",
+        "poiSubId": null,
+        "poiSubIdMissing": true,
+        "poiProvider": "",
+        "remainDistance": 60,
+        "remainTime": 60,
+        "tollFare": 0
+      },
+      "reason": "actual_destination_callback_received",
+      "status": "OBSERVED",
+      "finishedAt": 1794198533965,
+      "routeStartedObserved": false,
+      "routingCompletedObserved": false,
+      "routeRequestCount": 0,
+      "navigationScreenRequestCount": 0,
+      "tripRequestCount": 0,
+      "nativeRouteStartCallbackCount": 0,
+      "events": [
+        {
+          "event": "connected",
+          "at": 1794198532847,
+          "session": 1
+        },
+        {
+          "query": 1,
+          "event": "getDestinationInfo",
+          "at": 1794198532848,
+          "session": 1
+        },
+        {
+          "query": 1,
+          "destination": {
+            "latitude": 37.412475,
+            "longitude": 127.09534722,
+            "displayLatitude": null,
+            "displayLongitude": null,
+            "name": "가든서비스",
+            "address": "수정구 시흥동",
+            "poiId": "36khp2h36p68cm5nqhec",
+            "poiSubId": null,
+            "poiSubIdMissing": true,
+            "poiProvider": "",
+            "remainDistance": 60,
+            "remainTime": 60,
+            "tollFare": 0
+          },
+          "event": "onDestinationInfo",
+          "at": 1794198533953,
+          "session": 1
+        }
+      ]
+    }
+  },
+  "productionPidBefore": "19726",
+  "productionPidAfter": "19726"
+}

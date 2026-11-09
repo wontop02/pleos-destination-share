@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/private/tmp/pleos-vehicle-tools-20261105/jdk/jdk-21.0.13+9/Contents/Home/bin/javap",
+    "-public",
+    "-classpath",
+    "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-verify-20261109/verifier/sdk-public-classes.jar",
+    "ai.pleos.playground.stt.SpeechToText",
+    "ai.pleos.playground.stt.constant.Mode",
+    "ai.pleos.playground.stt.listener.ResultListener"
+  ],
+  "exit": 0,
+  "aarSha256": "35109ad13400a7fa103cca9fabbf9b785e63a6a98b17a0698a1aef51458d37bf",
+  "pomSha256": "009757c48e8139862e5c25383ec79e11ca37b8c9a32ec6fcf810c409b33cec56",
+  "observedAtUtc": "2026-11-09T03:53:38.359411+00:00",
+  "officialReferences": [
+    "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/SpeechToText/intro",
+    "https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/SpeechToText/sending-audio-data",
+    "https://developer.android.com/reference/android/media/AudioRecord",
+    "https://developer.android.com/training/permissions/requesting"
+  ]
+}

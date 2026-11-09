@@ -1,0 +1,6 @@
+{
+  "exit": 1,
+  "error": "xml.etree.ElementTree.ParseError: junk after document element: line 1, column 5561",
+  "cause": "Raw UIAutomator output has a status suffix after the hierarchy XML.",
+  "recovery": "Parse only the complete hierarchy element; retain original file/hash and record suffix separately. No source evidence modified."
+}

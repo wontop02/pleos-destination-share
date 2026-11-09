@@ -1,0 +1,1278 @@
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/README.md b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/README.md
+new file mode 100644
+index 0000000..67366ce
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/README.md
+@@ -0,0 +1,17 @@
++# Issue #25 closeout — BLOCKED
++
++Product source is frozen at `105cd7ef5b47e194be1fbfd2271ba6d96c0fd32f`, base `8b6321276f33923f24f15a8437205b6126bf92ca`. This directory is an evidence-only closeout, not a product fix or a PASS for a subsequent evidence commit. PR #26 remains Draft; issue #25 remains open and blocked. No merge was attempted.
++
++The user supplied the included timeout screenshot. The associated earlier freeze6 human attempt reached ready/listening, then timed out without a final result. It is a failed recognition observation, not a success. Freeze7 changes microphone ownership to foreground app AudioRecord, keeps bounded PCM in memory, and submits it to the vehicle-local Pleos ON_DEVICE service. User permission for Mac input and Android microphone while using the app was explicitly granted in chat. Android permission was actually granted on B through its OS UI; A's app permission remains ungranted.
++
++The latest installed freeze7 B test used synthesized speech played through the Mac speaker into the actual app microphone. It was neither human speech nor supplied-PCM injection. `runtime/f7-app-record-to-engine-B.json` records appMicrophoneRecording, appMicrophoneClosed and sdkPcmCompleted, followed by failureTIMEOUT; finalReceived is false. Microphone capture followed by service submission therefore does not establish transcription success. The cause of missing final recognition remains unresolved. Earlier public-PCM driver success belongs to a different path and is not reused as this APK's runtime PASS.
++
++The independent verifier inspected exact source HEAD and reran core93/app105 = 198 JVM tests and Node94 tests, all passing, plus app/driver assemble and lint (errors0; warnings13/8). Its already-running Gradle completed after the run deadline; the original report and dated addendum preserve this distinction. APK full hashes differ between independent and builder packaging, while all decompressed payload entries match (app886, driver883). See verifier/build-result.json, apk-payload-comparison.json and verification-review.md. Overall remains BLOCKED; static checks cannot replace device evidence.
++
++Missing required evidence includes successful latest human microphone recognition, latest cancellation/foreground exit/retry behavior on both cars, actual edited draft and saved-place candidates, fontScale1.3 and long text, and current two-car receipt/rejection/pending route0/unanimous acceptance followed by real native confirmation. No current two-car proposal was completed. No prior route observation is reused as this run's continuity proof; recovery and collector gaps remain gaps.
++
++Only dedicated ADB5041, emulator-5570/Pleos12Leader and emulator-5572/Pleos12Follower, user10 were operated. The old4190 server and original checkout were preserved; this run used separate loopback4192 and a task room. Same AVD data was preserved during A recovery; no wipe or snapshot restore occurred. The original846 evidence blobs were independently checked unchanged. Excluded phone issues #7/#8 and map issue #16 were not implemented.
++
++The repository harness limits one bundle to120minutes from2026-11-08T10:13:20Z (deadline12:13:20Z), without resetting on resume. Product changes and new tests stopped at closeout; remaining actions only preserve evidence and publish truthful blocked status. The final read-only app-op check shows no active recording on either app. B's approved host microphone input remains enabled for the pending optional user retest; Android permission and host input state are distinct. No user recording, encrypted session blob, invitation, credential, APK or generated audio fixture is included in this directory. Raw logs preserve their original whitespace.
++
++Further implementation requires an explicitly scoped new execution bundle; it must not reset this bundle's elapsed-time record. Before any merge, rerun the mandatory device scenarios and obtain independent PASS against the exact final base/head. The unfinished task is not represented as complete.
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/manifest.json b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/manifest.json
+new file mode 100644
+index 0000000..7dec4a0
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/manifest.json
+@@ -0,0 +1,95 @@
++{
++  "sourceHead": "105cd7ef5b47e194be1fbfd2271ba6d96c0fd32f",
++  "files": [
++    {
++      "path": "runtime/f7-app-record-to-engine-B.json",
++      "sha256": "12eca8e17e33ed1c296e4c1f6363be428c9b9ee79295f6c9a8a74e9c33f8a06a",
++      "bytes": 1818
++    },
++    {
++      "path": "runtime/user-reported-live-timeout-B.json",
++      "sha256": "f139641120b6c481d9aac62096bea2ecbd0a3548765a644f55516595bcb6d353",
++      "bytes": 1807
++    },
++    {
++      "path": "runtime/user-reported-timeout.png",
++      "sha256": "1d4dcc53a1587c4a525a335d4f57bb6902b8bad8117389b3516cb9c3f619ce6c",
++      "bytes": 103720
++    },
++    {
++      "path": "runtime/closeout-microphone-state.json",
++      "sha256": "a412fa83d47300e93a86431c81491f8625b8e8ff2a6f3fd893dbf5175efa3ce3",
++      "bytes": 467
++    },
++    {
++      "path": "verifier/NegativeDraftProbe.java",
++      "sha256": "d4efcde185a1e159c036f5f4f8c193b7271b7160587f85cc7fbf726cd19016e0",
++      "bytes": 984
++    },
++    {
++      "path": "verifier/apk-payload-comparison.json",
++      "sha256": "394fc3ea32abdce3bd186892531e78b325ba34216a22d6340b3a35d14b9a7ac7",
++      "bytes": 604
++    },
++    {
++      "path": "verifier/build-result.json",
++      "sha256": "4ba4d04784a71c70f6ab6a20770fe585dcab9d6044713d4851c8455b95eeccc3",
++      "bytes": 1039
++    },
++    {
++      "path": "verifier/build-start.json",
++      "sha256": "53a0e152ec6164219289c39c5dc310dbbc5e9531dac5bcf2f9a88564f4109573",
++      "bytes": 778
++    },
++    {
++      "path": "verifier/independent-gradle.log",
++      "sha256": "b86354a1e0438e625562f4267ed85acab8e6d5493f4f6a047f0a98e005303562",
++      "bytes": 9580
++    },
++    {
++      "path": "verifier/independent-node.log",
++      "sha256": "a601d0912a6f2f3130b09e5e97451e287ffa46bb374c34bd1bee511d5f7e46dc",
++      "bytes": 10132
++    },
++    {
++      "path": "verifier/integrity-audit.json",
++      "sha256": "bbf8c964d4f2285bf8c0a9ee44fdb6ef3bf5bed244ef4c2af9510e40fee08cd3",
++      "bytes": 1738
++    },
++    {
++      "path": "verifier/negative-regression.json",
++      "sha256": "a70ef9ee00fec37f636fa63f93407e1b9247c5c1f969882b070820e8c0309615",
++      "bytes": 1386
++    },
++    {
++      "path": "verifier/node-result.json",
++      "sha256": "a53eea57cc2e4306cbbe2b248d00424db67effc5808fe4ab3e68d33d2e91d960",
++      "bytes": 85
++    },
++    {
++      "path": "verifier/preparation-failure.json",
++      "sha256": "d6a96735e9653a07679c18159f1267c8125dbb9af1cae60fa2584c604d159757",
++      "bytes": 312
++    },
++    {
++      "path": "verifier/verification-result.json",
++      "sha256": "e9af56baa52ebc929419b21af411e4ae0053e3f728041f3309d66060aff4a9de",
++      "bytes": 2680
++    },
++    {
++      "path": "verifier/verification-review.md",
++      "sha256": "de5e502cac23bcdc2a339c43c6cde0e4fe22238cf7fc096c956f220ea785d763",
++      "bytes": 8518
++    },
++    {
++      "path": "README.md",
++      "sha256": "631a04b1bfe88efb2bfd0ecef73c5ac3dd965b6a4fb7a13cd3e5c9e64e20b21f",
++      "bytes": 4023
++    },
++    {
++      "path": "raw-whitespace.json",
++      "sha256": "b274fca6265bc6c3c0dec9e17fa6a05610fdcb885ba265b4542a2b2dedab692b",
++      "bytes": 337
++    }
++  ]
++}
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/raw-whitespace.json b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/raw-whitespace.json
+new file mode 100644
+index 0000000..89842be
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/raw-whitespace.json
+@@ -0,0 +1,13 @@
++{
++  "command": "git diff --cached --check",
++  "exit": 2,
++  "exceptions": [
++    {
++      "path": "verifier/independent-gradle.log",
++      "line": 2,
++      "reason": "Original Gradle output preserved verbatim",
++      "sha256": "b86354a1e0438e625562f4267ed85acab8e6d5493f4f6a047f0a98e005303562"
++    }
++  ],
++  "productSourceModified": false
++}
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/runtime/closeout-microphone-state.json b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/runtime/closeout-microphone-state.json
+new file mode 100644
+index 0000000..fc80d15
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/runtime/closeout-microphone-state.json
+@@ -0,0 +1,16 @@
++{
++  "atUtc": "2026-11-08T12:14:29.755666+00:00",
++  "checks": [
++    {
++      "serial": "emulator-5570",
++      "recordAudioAppOp": "Uid mode: RECORD_AUDIO: ignore\n",
++      "running": false
++    },
++    {
++      "serial": "emulator-5572",
++      "recordAudioAppOp": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+11m18s28ms ago; duration=+5s268ms\n",
++      "running": false
++    }
++  ],
++  "purpose": "Closeout read only; no microphone or permission changes"
++}
+\ No newline at end of file
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/runtime/f7-app-record-to-engine-B.json b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/runtime/f7-app-record-to-engine-B.json
+new file mode 100644
+index 0000000..221c18e
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/runtime/f7-app-record-to-engine-B.json
+@@ -0,0 +1,78 @@
++{
++  "at": "2026-11-08T12:03:32.639441+00:00",
++  "inputSource": "Mac speaker synthesized phrase into actual app AudioRecord; not human speech or PCM injection",
++  "events": [
++    {
++      "at": 1794139391803,
++      "event": "voice:startMicrophone",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794139391879,
++      "event": "voice:sdkInitializedOnDevice",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794139392061,
++      "event": "voice:appMicrophoneRecording",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794139392062,
++      "event": "voice:listening",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794139397266,
++      "event": "voice:stopMicrophone",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794139399132,
++      "event": "voice:appMicrophoneClosed",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794139399133,
++      "event": "voice:endedAwaitingFinal",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794139399170,
++      "event": "voice:sdkPcmCompleted",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794139412342,
++      "event": "voice:sdkStopPending",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794139412350,
++      "event": "voice:failureTIMEOUT",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    }
++  ],
++  "appMicrophoneAppOp": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+21s42ms ago; duration=+5s268ms",
++  "finalReceived": false
++}
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/runtime/user-reported-live-timeout-B.json b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/runtime/user-reported-live-timeout-B.json
+new file mode 100644
+index 0000000..641481b
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/runtime/user-reported-live-timeout-B.json
+@@ -0,0 +1,77 @@
++{
++  "inputSource": "User manually attempted voice test and supplied timeout screenshot; no successful transcription claimed",
++  "readyMarker": "2026-11-08T11:34:28.819300+00:00",
++  "voiceEvents": [
++    {
++      "at": 1794137752355,
++      "event": "voice:startMicrophone",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794137752604,
++      "event": "voice:sdkInitializedOnDevice",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794137752621,
++      "event": "voice:sdkMicrophoneRequested",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794137758238,
++      "event": "voice:sdkReady",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794137758240,
++      "event": "voice:listening",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794137766289,
++      "event": "voice:stopMicrophone",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794137769342,
++      "event": "voice:sdkStopPending",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794137769358,
++      "event": "voice:failureTIMEOUT",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794137772370,
++      "event": "voice:sdkStopWaitElapsed",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794137772579,
++      "event": "voice:sdkReleased",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    }
++  ],
++  "currentCaasRecordAppOp": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+1m49s650ms ago; duration=+8s26ms"
++}
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/runtime/user-reported-timeout.png b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/runtime/user-reported-timeout.png
+new file mode 100644
+index 0000000..eb0d782
+Binary files /dev/null and b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/runtime/user-reported-timeout.png differ
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/NegativeDraftProbe.java b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/NegativeDraftProbe.java
+new file mode 100644
+index 0000000..7425213
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/NegativeDraftProbe.java
+@@ -0,0 +1,17 @@
++import java.lang.reflect.*;
++import java.util.*;
++public class NegativeDraftProbe {
++  public static void main(String[] args) throws Exception {
++    Class<?> analyzer = Class.forName("ai.pleos.destinations.vehicle.VoiceDraftAnalyzer");
++    Object instance = analyzer.getField("INSTANCE").get(null);
++    Method analyze = analyzer.getMethod("analyze", String.class, List.class);
++    for (String text : List.of("카페에 들르면 안 돼", "카페에 가고 싶지 않아", "카페 가지 말자", "카페 들르는 거 어때?")) {
++      Object result = analyze.invoke(instance, text, Collections.emptyList());
++      Class<?> draft = result.getClass();
++      System.out.println("input=" + text);
++      System.out.println("intent=" + draft.getMethod("getIntent").invoke(result));
++      System.out.println("reason=" + draft.getMethod("getReason").invoke(result));
++      System.out.println("candidateCount=" + ((List<?>)draft.getMethod("getCandidates").invoke(result)).size());
++    }
++  }
++}
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/apk-payload-comparison.json b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/apk-payload-comparison.json
+new file mode 100644
+index 0000000..0689cd6
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/apk-payload-comparison.json
+@@ -0,0 +1,16 @@
++{
++  "app": {
++    "builderFullSha256": "5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e",
++    "independentFullSha256": "a4e7a6d0368b66f8445661d07aa819921d8f1170fc586088ef0e54aa1a74ab7a",
++    "zipEntries": 886,
++    "changedUncompressedEntries": [],
++    "payloadIdentical": true
++  },
++  "nativeDriver": {
++    "builderFullSha256": "5f99cb5355e12f9af818e1b6740aa3a4f7a9974b387de93a3f8e504639e5a4ea",
++    "independentFullSha256": "f457c4261f0be536cf63ef7ab0b72badfbe56dc65e1ff12dc2977e5fa716abe9",
++    "zipEntries": 883,
++    "changedUncompressedEntries": [],
++    "payloadIdentical": true
++  }
++}
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/build-result.json b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/build-result.json
+new file mode 100644
+index 0000000..fa06206
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/build-result.json
+@@ -0,0 +1,45 @@
++{
++  "head": "105cd7ef5b47e194be1fbfd2271ba6d96c0fd32f",
++  "command": [
++    "/private/tmp/pleos-vehicle-tools-20261105/gradle/gradle-8.11.1/bin/gradle",
++    "--offline",
++    "--no-daemon",
++    "--max-workers=1",
++    "-Dorg.gradle.jvmargs=-Xmx1024m -XX:MaxMetaspaceSize=384m",
++    "-Pkotlin.compiler.execution.strategy=in-process",
++    ":core:test",
++    ":app:testDebugUnitTest",
++    ":app:assembleDebug",
++    ":app:lintDebug",
++    ":nativeDriver:assembleDebug",
++    ":nativeDriver:lintDebug"
++  ],
++  "exit": 0,
++  "seconds": 169.918812583,
++  "tests": {
++    "core": {
++      "tests": 93,
++      "failures": 0,
++      "errors": 0,
++      "skipped": 0
++    },
++    "app": {
++      "tests": 105,
++      "failures": 0,
++      "errors": 0,
++      "skipped": 0
++    }
++  },
++  "lint": {
++    "app": {
++      "Warning": 13
++    },
++    "nativeDriver": {
++      "Warning": 8
++    }
++  },
++  "apk": {
++    "app": "a4e7a6d0368b66f8445661d07aa819921d8f1170fc586088ef0e54aa1a74ab7a",
++    "nativeDriver": "f457c4261f0be536cf63ef7ab0b72badfbe56dc65e1ff12dc2977e5fa716abe9"
++  }
++}
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/build-start.json b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/build-start.json
+new file mode 100644
+index 0000000..373990b
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/build-start.json
+@@ -0,0 +1,19 @@
++{
++  "head": "105cd7ef5b47e194be1fbfd2271ba6d96c0fd32f",
++  "command": [
++    "/private/tmp/pleos-vehicle-tools-20261105/gradle/gradle-8.11.1/bin/gradle",
++    "--offline",
++    "--no-daemon",
++    "--max-workers=1",
++    "-Dorg.gradle.jvmargs=-Xmx1024m -XX:MaxMetaspaceSize=384m",
++    "-Pkotlin.compiler.execution.strategy=in-process",
++    ":core:test",
++    ":app:testDebugUnitTest",
++    ":app:assembleDebug",
++    ":app:lintDebug",
++    ":nativeDriver:assembleDebug",
++    ":nativeDriver:lintDebug"
++  ],
++  "source": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source",
++  "archiveSha256": "3c41cc722cb6397f5c15330fd7f1e3ebc4c6f8157a1cf200ef3112a41cd67914"
++}
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/independent-gradle.log b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/independent-gradle.log
+new file mode 100644
+index 0000000..1e97ae3
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/independent-gradle.log
+@@ -0,0 +1,158 @@
++To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.11.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
++Daemon will be stopped at the end of the build 
++> Task :core:checkKotlinGradlePluginConfigurationErrors
++> Task :core:compileKotlin
++> Task :core:compileJava NO-SOURCE
++> Task :core:processResources NO-SOURCE
++> Task :core:classes UP-TO-DATE
++> Task :core:jar
++> Task :core:compileTestKotlin
++> Task :core:compileTestJava NO-SOURCE
++> Task :core:processTestResources NO-SOURCE
++> Task :core:testClasses UP-TO-DATE
++> Task :core:test
++> Task :app:checkKotlinGradlePluginConfigurationErrors
++> Task :app:preBuild UP-TO-DATE
++> Task :app:preDebugBuild UP-TO-DATE
++> Task :app:checkDebugAarMetadata
++> Task :app:generateDebugResValues
++> Task :app:mapDebugSourceSetPaths
++> Task :app:generateDebugResources
++> Task :app:mergeDebugResources
++> Task :app:packageDebugResources
++> Task :app:parseDebugLocalResources
++> Task :app:createDebugCompatibleScreenManifests
++> Task :app:extractDeepLinksDebug
++> Task :app:processDebugMainManifest
++> Task :app:processDebugManifest
++> Task :app:processDebugManifestForPackage
++> Task :app:processDebugResources
++
++> Task :app:compileDebugKotlin
++w: file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt:182:62 'onBackPressed(): Unit' is deprecated. Deprecated in Java
++w: file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt:288:35 Unnecessary safe call on a non-null receiver of type VehicleSession?
++w: file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt:294:22 Unnecessary safe call on a non-null receiver of type VehicleSession?
++w: file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt:555:134 Unnecessary safe call on a non-null receiver of type SavedPlacesController?
++w: file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt:682:89 'getter for systemWindowInsetTop: Int' is deprecated. Deprecated in Java
++w: file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt:682:121 'getter for systemWindowInsetBottom: Int' is deprecated. Deprecated in Java
++w: file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VoicePcmCapture.kt:84:57 Unnecessary non-null assertion (!!) on a non-null receiver of type VoiceInputFailure
++
++> Task :app:javaPreCompileDebug
++> Task :app:compileDebugJavaWithJavac NO-SOURCE
++> Task :app:bundleDebugClassesToRuntimeJar
++> Task :app:bundleDebugClassesToCompileJar
++> Task :app:compileDebugUnitTestKotlin
++> Task :app:preDebugUnitTestBuild UP-TO-DATE
++> Task :app:javaPreCompileDebugUnitTest
++> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
++> Task :app:processDebugJavaRes
++> Task :app:processDebugUnitTestJavaRes
++> Task :app:testDebugUnitTest
++> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
++> Task :app:mergeDebugShaders
++> Task :app:compileDebugShaders NO-SOURCE
++> Task :app:generateDebugAssets UP-TO-DATE
++> Task :app:mergeDebugAssets
++> Task :app:compressDebugAssets
++> Task :app:desugarDebugFileDependencies
++> Task :app:dexBuilderDebug
++> Task :app:mergeDebugGlobalSynthetics
++> Task :app:mergeDebugJavaResource
++> Task :app:checkDebugDuplicateClasses
++> Task :app:mergeExtDexDebug
++> Task :app:mergeLibDexDebug
++> Task :app:mergeProjectDexDebug
++> Task :app:mergeDebugJniLibFolders
++> Task :app:mergeDebugNativeLibs
++
++> Task :app:stripDebugDebugSymbols
++Unable to strip the following libraries, packaging them as they are: libjnidispatch.so, libuacore.so.
++
++> Task :app:validateSigningDebug
++> Task :app:writeDebugAppMetadata
++> Task :app:writeDebugSigningConfigVersions
++> Task :app:packageDebug
++> Task :app:createDebugApkListingFileRedirect
++> Task :app:assembleDebug
++> Task :app:preDebugAndroidTestBuild SKIPPED
++> Task :app:generateDebugAndroidTestResValues
++> Task :app:generateDebugAndroidTestLintModel
++> Task :app:extractProguardFiles
++> Task :app:generateDebugLintReportModel
++> Task :app:generateDebugUnitTestLintModel
++> Task :app:lintAnalyzeDebug
++> Task :app:lintAnalyzeDebugAndroidTest
++> Task :app:lintAnalyzeDebugUnitTest
++
++> Task :app:lintReportDebug
++Wrote HTML report to file:///Users/wontop/Documents/ChatGPT/현대%20모비스%20해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/app/build/reports/lint-results-debug.html
++
++> Task :app:lintDebug
++> Task :nativeDriver:preBuild UP-TO-DATE
++> Task :nativeDriver:preDebugBuild UP-TO-DATE
++> Task :nativeDriver:mergeDebugNativeDebugMetadata NO-SOURCE
++> Task :nativeDriver:checkKotlinGradlePluginConfigurationErrors
++> Task :nativeDriver:checkDebugAarMetadata
++> Task :nativeDriver:generateDebugResValues
++> Task :nativeDriver:mapDebugSourceSetPaths
++> Task :nativeDriver:generateDebugResources
++> Task :nativeDriver:mergeDebugResources
++> Task :nativeDriver:packageDebugResources
++> Task :nativeDriver:parseDebugLocalResources
++> Task :nativeDriver:createDebugCompatibleScreenManifests
++> Task :nativeDriver:extractDeepLinksDebug
++> Task :nativeDriver:processDebugMainManifest
++> Task :nativeDriver:processDebugManifest
++> Task :nativeDriver:processDebugManifestForPackage
++> Task :nativeDriver:processDebugResources
++
++> Task :nativeDriver:compileDebugKotlin
++w: file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/nativeDriver/src/main/kotlin/ai/pleos/destinations/driver/NativeDestinationDriver.kt:83:50 'protectionLevel: Int' is deprecated. Deprecated in Java
++
++> Task :nativeDriver:javaPreCompileDebug
++> Task :nativeDriver:compileDebugJavaWithJavac NO-SOURCE
++> Task :nativeDriver:mergeDebugShaders
++> Task :nativeDriver:compileDebugShaders NO-SOURCE
++> Task :nativeDriver:generateDebugAssets UP-TO-DATE
++> Task :nativeDriver:mergeDebugAssets
++> Task :nativeDriver:compressDebugAssets
++> Task :nativeDriver:desugarDebugFileDependencies
++> Task :nativeDriver:dexBuilderDebug
++> Task :nativeDriver:mergeDebugGlobalSynthetics
++> Task :nativeDriver:processDebugJavaRes
++> Task :nativeDriver:mergeDebugJavaResource
++> Task :nativeDriver:checkDebugDuplicateClasses
++> Task :nativeDriver:mergeExtDexDebug
++> Task :nativeDriver:mergeLibDexDebug
++> Task :nativeDriver:mergeProjectDexDebug
++> Task :nativeDriver:mergeDebugJniLibFolders
++> Task :nativeDriver:mergeDebugNativeLibs
++
++> Task :nativeDriver:stripDebugDebugSymbols
++Unable to strip the following libraries, packaging them as they are: libjnidispatch.so, libuacore.so.
++
++> Task :nativeDriver:validateSigningDebug
++> Task :nativeDriver:writeDebugAppMetadata
++> Task :nativeDriver:writeDebugSigningConfigVersions
++> Task :nativeDriver:packageDebug
++> Task :nativeDriver:createDebugApkListingFileRedirect
++> Task :nativeDriver:assembleDebug
++> Task :nativeDriver:bundleDebugClassesToCompileJar
++> Task :nativeDriver:preDebugAndroidTestBuild SKIPPED
++> Task :nativeDriver:generateDebugAndroidTestResValues
++> Task :nativeDriver:generateDebugAndroidTestLintModel
++> Task :nativeDriver:extractProguardFiles
++> Task :nativeDriver:generateDebugLintReportModel
++> Task :nativeDriver:preDebugUnitTestBuild UP-TO-DATE
++> Task :nativeDriver:generateDebugUnitTestLintModel
++> Task :nativeDriver:lintAnalyzeDebug
++> Task :nativeDriver:lintAnalyzeDebugAndroidTest
++> Task :nativeDriver:lintAnalyzeDebugUnitTest
++
++> Task :nativeDriver:lintReportDebug
++Wrote HTML report to file:///Users/wontop/Documents/ChatGPT/현대%20모비스%20해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/source/prototype/vehicle/nativeDriver/build/reports/lint-results-debug.html
++
++> Task :nativeDriver:lintDebug
++
++BUILD SUCCESSFUL in 2m 48s
++104 actionable tasks: 104 executed
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/independent-node.log b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/independent-node.log
+new file mode 100644
+index 0000000..111f2ef
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/independent-node.log
+@@ -0,0 +1,106 @@
++
++> pleos-destination-share-harness@0.0.0 test
++> node --test test/harness/*.test.js prototype/test/*.test.mjs
++
++✔ actual worklet code bounds chunks and fifteen seconds, averages input channels and outputs silence (179.625125ms)
++✔ worklet stop flushes the last partial chunk and stops capturing (2.021125ms)
++✔ cancelling a pending microphone permission releases a late stream and never creates a capture node (2.37775ms)
++✔ microphone denial and insecure context fail clearly and leave no live capture (0.516125ms)
++✔ recorder converts supplied synthetic worklet samples into valid WAV and releases tracks/context/port (10.978583ms)
++✔ sub-second capture is discarded after releasing all resources (0.660708ms)
++✔ player resolves only after ended; stop aborts a pending authenticated download (1.151792ms)
++✔ player rechecks freshness after downloading and discards a decoded clip after stop (9.085167ms)
++✔ browser audio interruption stops an active source and reports interruption rather than playback success (0.586291ms)
++✔ queue requires opt-in, ignores prior history and own voice, preserves order, and deduplicates reconnect snapshots (1.748625ms)
++✔ turning auto-play off clears every pending message; explicit re-enable waits for new voice (0.238ms)
++✔ SSE parser handles network chunk boundaries, Korean UTF-8, CRLF, multiline data, comments and persistent event ids (2.310667ms)
++✔ SSE framing refuses unbounded lines and unbounded multiline events (0.270917ms)
++✔ server clock uses request RTT conservatively and monotonic elapsed time rather than wall-clock changes (0.284292ms)
++✔ browser resampling/encoding makes actual PCM16 mono16k WAV and clamps samples safely (12.920709ms)
++✔ invitation parser accepts only this origin fragment invite, never query access credentials (0.425667ms)
++✔ NAVER handoff encodes destination/app URL once and respects documented coordinate range (1.02525ms)
++✔ two independent members get separate capabilities; invite secret cannot read a room (153.89975ms)
++✔ authenticated SSE delivers destination changes to another member and reconnect sends latest snapshot (57.673625ms)
++✔ host permission, room isolation, and destination validation reject unauthorized or malformed changes (13.711375ms)
++✔ real WAV upload, SSE, authenticated byte-for-byte receiver download, idempotency and conflict (75.362ms)
++✔ stale history remains manually downloadable but never becomes a fresh automatic event on reconnect (11.025334ms)
++✔ reconnect streams a full bounded one-hundred-message history without dropping the initial snapshot (183.3285ms)
++✔ close terminates event streams, invalidates every capability and deletes stored audio bytes (10.650542ms)
++✔ injected six-hour expiry removes bytes and terminates streams without requiring a download (5.99975ms)
++✔ request-triggered and periodic expiry also clean up unused rooms (13.146209ms)
++✔ ten uploads per rolling minute per sender; duplicates and rejected WAVs consume no quota (79.841667ms)
++✔ bounded HTTP payload rejects Content-Length and chunked overflow before storing audio (26.354333ms)
++✔ simultaneous raw audio bodies are bounded and capacity is released when a transfer finishes (6.932208ms)
++✔ global audio storage cap spans rooms; duplicates are free; closing a room releases capacity (15.500542ms)
++✔ room, member, history and concurrent stream caps are enforced (19.910584ms)
++✔ member leave invalidates only that token, stops its stream and preserves history for remaining members (7.086667ms)
++✔ same-origin browser mutations and loopback host checks; native requests may omit Origin (17.920875ms)
++✔ malformed room input, MIME, JSON, ids and paths are rejected without reflecting credentials (21.523708ms)
++✔ static browser surface has restrictive headers and all modules are served locally (97.583667ms)
++✔ selected bookmark meaning and immutable source survive authenticated proposal, unanimous commit and reconnect SSE (154.217542ms)
++✔ direct native sharing rejects selected meaning while legacy and explicit exact points stay compatible (37.541416ms)
++✔ unknown or missing kind/source, incomplete identity and invalid geography fail closed before proposal creation (41.983ms)
++✔ reject, expiry and stale acceptance never commit a selected place; later candidates preserve accepted meaning (21.138042ms)
++✔ actual authenticated HTTP and SSE preserve optional Pleos metadata to a distinct member (150.080917ms)
++✔ v1 three-field destination response stays unchanged and nullable actual SDK sub-ID is preserved (35.208875ms)
++✔ metadata and revision schema rejects malformed values without changing the destination (64.479667ms)
++✔ member and outsider cannot publish metadata or clear a host destination (14.084458ms)
++✔ concurrent CAS writes commit exactly one revision and stale clear cannot erase newer destination (12.749583ms)
++✔ explicit host clear reaches member and reconnect snapshot with a new revision (28.304792ms)
++✔ room expiry while reading a delayed vehicle body rechecks authorization before mutation (8.851333ms)
++✔ authenticated proposal stays separate; unanimous acceptance is one atomic legacy-compatible destination frame (188.993166ms)
++✔ member proposes and host accepts; duplicate creation/vote never increments destination again (36.766959ms)
++✔ three members require every remaining vote; stale version is fenced and explicit refreshed vote commits (16.270208ms)
++✔ simultaneous accept and reject is serialized; only the first response is authoritative (43.339667ms)
++✔ reject and exact 120-second expiry preserve shared destination and revision; cleanup broadcasts expiry (34.75475ms)
++✔ acceptance just before expiry commits, while a delayed vote finishing at expiry cannot commit (13.877583ms)
++✔ join, leave, and newer direct destination invalidate pending proposals without a candidate commit (10.181959ms)
++✔ old leader publication racing acceptance cannot overwrite the committed target (5.649625ms)
++✔ delayed vote reauthenticates after leave, room closure and room expiry (17.402666ms)
++✔ delayed creation cannot retain a departed identity or an expired room (9.700333ms)
++✔ authentication, own-vote schema, different room and stale base revision cannot grant consensus (12.578125ms)
++✔ one pending, bounded input/history, changed ID replay and malformed candidates are rejected (13.171708ms)
++✔ historical duplicate mutations preserve the current coherent room frame and expose their outcome separately (30.851875ms)
++✔ accepted destination provenance survives later proposal lifetimes and clears on an explicit direct update (45.372375ms)
++✔ WAV validator accepts exact one/fifteen-second boundaries and bounded unknown chunks (6.823167ms)
++✔ WAV validation rejects malformed containers and format/duration lies through actual HTTP (240.692ms)
++✔ separate CLI processes reload, block, continue, stop, resume and finish the frozen demo (3270.184875ms)
++✔ CLI archive keeps blocked batch incomplete and permits an explicit new run ID (1257.005ms)
++✔ CLI validates arguments, requires revision and treats issue strings as inert data (829.892875ms)
++✔ priority, creation time, number and cap freeze exactly five approved issues (112.169167ms)
++✔ unready, wrong approver, app kind and out-of-policy scopes are excluded with reasons (1.141208ms)
++✔ unsafe scopes, absent fields and malformed approvals are rejected before freezing (1.470792ms)
++✔ block releases one claim, skips dependents and lets independent work continue (24.733084ms)
++✔ closed metadata does not satisfy dependencies; explicit coordinator acknowledgement does (2.640875ms)
++✔ trusted initial completion list excludes completed candidates and unblocks dependencies (0.603209ms)
++✔ missing and cyclic dependencies leave independent issues usable and never complete the run (2.440542ms)
++✔ whole-run stop and explicit resume retain active claim, stop history, attempts and deadline (2.225458ms)
++✔ three claims exhaust retries without resetting attempts or silently completing (2.037291ms)
++✔ injected time expires at the fixed deadline and resume cannot extend it (1.391875ms)
++✔ checkpoint validation rejects policy, membership, revision and claim corruption (1.944625ms)
++✔ persisted state is versioned and can be loaded by another store instance (118.465125ms)
++✔ duplicate initialization and a second live run preserve the existing checkpoint (62.145459ms)
++✔ stale revisions, invalid operations and changed resume snapshot never replace a checkpoint (152.255209ms)
++✔ occupied lock fails closed and operator recovery leaves the old state readable (47.377833ms)
++✔ concurrent writers serialize and cannot spend two attempts or replace a newer revision (34.136333ms)
++✔ different run IDs also share one repository lock and one live run (31.40725ms)
++✔ archive explicitly releases unfinished work for another batch without claiming completion (222.108167ms)
++✔ deadline survives disk reload and rejected late resume preserves the stopped checkpoint (113.011458ms)
++✔ corrupt, unsupported and malformed checkpoints remain byte-for-byte untouched (140.117541ms)
++✔ interrupted temporary write is ignored, stale lock is retained and committed state is readable (41.485542ms)
++✔ unsafe run IDs fail before creating storage (1.321667ms)
++✔ storage directory symlinks cannot redirect writes outside storage (9.147958ms)
++✔ checkpoint and lock symlinks do not overwrite their outside targets (25.693584ms)
++✔ a second corrupted checkpoint or contradictory live run fails closed before any write (36.262291ms)
++✔ legacy near-hard-cap checkpoints are not truncated to make an oversized archive fit (938.849167ms)
++✔ full ordinary stop budget still permits resume and maximum escaped active-claim archive (4811.130667ms)
++✔ full ordinary budget retains expiry bookkeeping and archive headroom after the deadline (4910.178916ms)
++✔ dependency acknowledgements cannot consume reserved archive capacity (4828.36225ms)
++ℹ tests 94
++ℹ suites 0
++ℹ pass 94
++ℹ fail 0
++ℹ cancelled 0
++ℹ skipped 0
++ℹ todo 0
++ℹ duration_ms 17137.210125
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/integrity-audit.json b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/integrity-audit.json
+new file mode 100644
+index 0000000..58947db
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/integrity-audit.json
+@@ -0,0 +1,32 @@
++{
++  "base": "8b6321276f33923f24f15a8437205b6126bf92ca",
++  "head": "105cd7ef5b47e194be1fbfd2271ba6d96c0fd32f",
++  "sourceManifestFiles": 73,
++  "sourceMismatches": [],
++  "builderEvidenceHashFiles": 114,
++  "builderEvidenceHashMismatches": [],
++  "baselineEvidenceFiles": 846,
++  "baselineEvidenceMismatches": [],
++  "builderJunit": {
++    "core": {
++      "tests": 93,
++      "failures": 0,
++      "errors": 0,
++      "skipped": 0
++    },
++    "app": {
++      "tests": 105,
++      "failures": 0,
++      "errors": 0,
++      "skipped": 0
++    }
++  },
++  "productApkSha256": "5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e",
++  "driverSha256": "5f99cb5355e12f9af818e1b6740aa3a4f7a9974b387de93a3f8e504639e5a4ea",
++  "diffCheck": {
++    "exit": 2,
++    "stdout": "prototype/vehicle/evidence/voice-proposals/builder/app-pcm-followup-7/gradle.log:2: trailing whitespace.\n+Daemon will be stopped at the end of the build \nprototype/vehicle/evidence/voice-proposals/builder/driver-followup-5/gradle.log:2: trailing whitespace.\n+Daemon will be stopped at the end of the build \nprototype/vehicle/evidence/voice-proposals/builder/first-probe-build-failure.log:2: trailing whitespace.\n+Daemon will be stopped at the end of the build \nprototype/vehicle/evidence/voice-proposals/builder/gradle-freeze-4.log:2: trailing whitespace.\n+Daemon will be stopped at the end of the build \nprototype/vehicle/evidence/voice-proposals/builder/negation-followup-6/first-attempt-failed.log:2: trailing whitespace.\n+Daemon will be stopped at the end of the build \nprototype/vehicle/evidence/voice-proposals/builder/negation-followup-6/gradle.log:2: trailing whitespace.\n+Daemon will be stopped at the end of the build \n",
++    "stderr": ""
++  },
++  "gitStatus": ""
++}
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/negative-regression.json b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/negative-regression.json
+new file mode 100644
+index 0000000..9185248
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/negative-regression.json
+@@ -0,0 +1,15 @@
++{
++  "command": [
++    "/private/tmp/pleos-vehicle-tools-20261105/jdk/jdk-21.0.13+9/Contents/Home/bin/java",
++    "-Xmx64m",
++    "-XX:MaxMetaspaceSize=64m",
++    "--class-path",
++    "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-25-voice-proposals/prototype/vehicle/app/build/tmp/kotlin-classes/debug:/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-25-voice-proposals/prototype/vehicle/core/build/classes/kotlin/main:/private/tmp/pleos-vehicle-tools-20261105/gradle/gradle-8.11.1/lib/kotlin-stdlib-2.0.20.jar",
++    "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/NegativeDraftProbe.java"
++  ],
++  "exit": 0,
++  "stdout": "input=카페에 들르면 안 돼\nintent=NEGATED\nreason=\ncandidateCount=0\ninput=카페에 가고 싶지 않아\nintent=NEGATED\nreason=\ncandidateCount=0\ninput=카페 가지 말자\nintent=NEGATED\nreason=\ncandidateCount=0\ninput=카페 들르는 거 어때?\nintent=CHANGE\nreason=카페에 들러요.\ncandidateCount=0\n",
++  "stderr": "",
++  "sourceSha256": "ff7a2ab74f42fae1b5cfb4dfe481bc8b06158f50736339a6ac5f1cfab5eaf034",
++  "note": "Existing compiled latest production analyzer, not independent fresh rebuild."
++}
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/node-result.json b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/node-result.json
+new file mode 100644
+index 0000000..13b269a
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/node-result.json
+@@ -0,0 +1,8 @@
++{
++  "command": [
++    "npm",
++    "test"
++  ],
++  "exit": 0,
++  "seconds": 17.860762958
++}
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/preparation-failure.json b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/preparation-failure.json
+new file mode 100644
+index 0000000..5e51407
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/preparation-failure.json
+@@ -0,0 +1,6 @@
++{
++  "exit": 1,
++  "failure": "TypeError: extractall() got an unexpected keyword argument 'filter'",
++  "cause": "Host Python tarfile does not support filter keyword; no Gradle process started.",
++  "recovery": "Validate archive member paths explicitly before extracting into the empty external source directory."
++}
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/verification-result.json b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/verification-result.json
+new file mode 100644
+index 0000000..5110d37
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/verification-result.json
+@@ -0,0 +1,92 @@
++{
++  "overall": "BLOCKED",
++  "base": "8b6321276f33923f24f15a8437205b6126bf92ca",
++  "head": "105cd7ef5b47e194be1fbfd2271ba6d96c0fd32f",
++  "atUtc": "2026-11-08T12:13:31.466980+00:00",
++  "confirmedNewDefects": [],
++  "oldAc2Defect": "Both original negative phrases now NEGATED with blank reason; affirmative control still CHANGE.",
++  "ac": {
++    "AC1": "BLOCKED",
++    "AC2": "BLOCKED",
++    "AC3": "BLOCKED",
++    "AC4": "BLOCKED",
++    "AC5": "BLOCKED"
++  },
++  "buildAtReportTime": {
++    "state": "RUNNING",
++    "exit": null,
++    "note": "No final Gradle exit code available at report time."
++  },
++  "independentNode": {
++    "command": [
++      "npm",
++      "test"
++    ],
++    "exit": 0,
++    "seconds": 17.860762958
++  },
++  "gitHeadAtReport": "105cd7ef5b47e194be1fbfd2271ba6d96c0fd32f",
++  "gitStatusAtReport": "",
++  "buildCompletionAfterInitialReport": {
++    "head": "105cd7ef5b47e194be1fbfd2271ba6d96c0fd32f",
++    "command": [
++      "/private/tmp/pleos-vehicle-tools-20261105/gradle/gradle-8.11.1/bin/gradle",
++      "--offline",
++      "--no-daemon",
++      "--max-workers=1",
++      "-Dorg.gradle.jvmargs=-Xmx1024m -XX:MaxMetaspaceSize=384m",
++      "-Pkotlin.compiler.execution.strategy=in-process",
++      ":core:test",
++      ":app:testDebugUnitTest",
++      ":app:assembleDebug",
++      ":app:lintDebug",
++      ":nativeDriver:assembleDebug",
++      ":nativeDriver:lintDebug"
++    ],
++    "exit": 0,
++    "seconds": 169.918812583,
++    "tests": {
++      "core": {
++        "tests": 93,
++        "failures": 0,
++        "errors": 0,
++        "skipped": 0
++      },
++      "app": {
++        "tests": 105,
++        "failures": 0,
++        "errors": 0,
++        "skipped": 0
++      }
++    },
++    "lint": {
++      "app": {
++        "Warning": 13
++      },
++      "nativeDriver": {
++        "Warning": 8
++      }
++    },
++    "apk": {
++      "app": "a4e7a6d0368b66f8445661d07aa819921d8f1170fc586088ef0e54aa1a74ab7a",
++      "nativeDriver": "f457c4261f0be536cf63ef7ab0b72badfbe56dc65e1ff12dc2977e5fa716abe9"
++    }
++  },
++  "apkComparison": {
++    "app": {
++      "builderFullSha256": "5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e",
++      "independentFullSha256": "a4e7a6d0368b66f8445661d07aa819921d8f1170fc586088ef0e54aa1a74ab7a",
++      "zipEntries": 886,
++      "changedUncompressedEntries": [],
++      "payloadIdentical": true
++    },
++    "nativeDriver": {
++      "builderFullSha256": "5f99cb5355e12f9af818e1b6740aa3a4f7a9974b387de93a3f8e504639e5a4ea",
++      "independentFullSha256": "f457c4261f0be536cf63ef7ab0b72badfbe56dc65e1ff12dc2977e5fa716abe9",
++      "zipEntries": 883,
++      "changedUncompressedEntries": [],
++      "payloadIdentical": true
++    }
++  },
++  "completedAtUtc": "2026-11-08T12:14:15.415509+00:00"
++}
+diff --git a/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/verification-review.md b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/verification-review.md
+new file mode 100644
+index 0000000..5e57c1f
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/closeout-20261108/verifier/verification-review.md
+@@ -0,0 +1,43 @@
++# Issue #25 — latest independent verification
++
++**BLOCKED**, base `8b6321276f33923f24f15a8437205b6126bf92ca`, head `105cd7ef5b47e194be1fbfd2271ba6d96c0fd32f`. This is not PASS or merge approval. No new source defect was confirmed in this review. The original negation defect is corrected; the current microphone-to-engine path and mandatory two-vehicle behavior remain unverified.
++
++## Direct checks
++
++The worktree was clean at entry and report time. All 73 files in the freeze7 source manifest match current bytes, all 114 declared builder evidence hashes match, and all 846 baseline evidence blobs and working files remain unchanged. Product APK SHA-256 is `5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e`; driver is `5f99cb5355e12f9af818e1b6740aa3a4f7a9974b387de93a3f8e504639e5a4ea`. `integrity-audit.json` records these checks and raw whitespace exceptions. Actual base-to-head diff is preserved in `diff.patch`. All additional code, tests and PCM/permission documentation changes since the initial review were inspected. Product/server/navigation-consent code was not modified by this verifier.
++
++The original two negative inputs were independently invoked on the existing latest compiled production analyzer with a 64MiB JVM: both now return NEGATED, empty reason, zero candidates. The affirmative cafe control still returns CHANGE and its affirmative reason. Command exit0 and exact source hash are in `negative-regression.json`. This direct invocation is not a fresh-source rebuild. The previous head's FAIL is retained separately and is not reused as the current verdict.
++
++## Capture and permission review
++
++`AndroidVoicePcmSource.kt` checks RECORD_AUDIO before construction/start, builds AudioRecord for VOICE_RECOGNITION, 16kHz mono PCM16, validates minimum buffer and initialized/recording state, reads short arrays nonblocking, and guards stop/release with AtomicBoolean. `VoicePcmCapture.kt` owns a bounded480000-byte memory buffer and a single daemon worker. It converts each partial short read to explicit little endian, bounds samples/time, closes the source in finally before posting completion, clears memory/sample arrays, drops queued delivery after cancellation, and checks finishing around native source creation/start and each read. Stop/cancel closes the current source and interrupts the worker; no audio file/network capability exists in this class. The actual platform close remains a required runtime observation; a caught stop/release exception or trace label is not physical microphone proof.
++
++`PleosVoiceInputGateway.kt` uses ON_DEVICE, initializes/listens/sets KOREA, and begins app capture only after initialization. LISTENING now follows actual RECORDSTATE_RECORDING. It never calls SDK request as a fallback. Only the completed capture callback can set submitted and sendAudio/completeAudioSend; stale generations zero the output. Cancel increments generation, cancels capture, clears pending PCM, and retains the existing bounded SDK cleanup. SDK results require active generation and submitted=true. `VoiceInputController` allows one original15-second final wait without promotion of interim results; duplicate ended events do not extend it. Place/voice revisions, immutable candidate objects, explicit selection/send, proposal consent and strict place/exact boundaries remain intact.
++
++`VoicePermissionIntent.kt` consumes a one-shot scope match; MainActivity requests RECORD_AUDIO only from explicit voice action and rechecks actual permission, foreground, compose page, room/member/room epoch/native epoch/page generation before capture. Activity stop/page exit/cancel/convoy stop cancel pending permission authority. Runtime permission denial and unsupported/error states retain manual input. No new FGS type or background recording path was found. Actual user grant on both AVDs, scope changes during permission UI, device-specific AudioRecord stop/retry behavior and recognized final results are not established by source inspection.
++
++Official [AudioRecord API](https://developer.android.com/reference/android/media/AudioRecord) and [Android permission workflow](https://developer.android.com/training/permissions/requesting) were opened directly. Public Pleos3.3.1 AAR/API and ON_DEVICE supplied-PCM documentation were independently inspected in the prior report; the AAR/driver version did not change. These API contracts do not prove this AVD's input routing or recognition success. No private SDK implementation, credentials, raw audio or private utterances were read.
++
++## Independent execution
++
++A fresh `git archive105cd7e` was extracted only to this external verifier directory. Toolchain build-env variables were loaded without printing their values. A single offline Gradle with workers1, Xmx1024MiB/Metaspace384MiB and in-process Kotlin runs core:test, app:testDebugUnitTest, app:assembleDebug, app:lintDebug, nativeDriver:assembleDebug and nativeDriver:lintDebug. `build-start.json` records the exact command/archive hash; `independent-gradle.log` is the raw log. At report generation the final Gradle exit/result may not yet exist; `verification-result.json` captures its actual state. `build-result.json`, when produced by the already running runner, is the authoritative completed result and must be checked before claiming success. APK full-file hash and ZIP payload comparison must remain separate; independent APK comparison is pending until assemble completes.
++
++Independent npm test completed:94tests,94pass,fail/cancel/skip0,exit0. Command/time are in `node-result.json`, raw output in `independent-node.log`. Builder freeze7 JUnit XML was separately parsed: core93/app105, failures/errors/skips0. These builder198 tests are not relabeled as independently rerun tests. Initial source-copy preparation failed because host Python tarfile lacked the filter keyword; no build started on that failed attempt. Failure and explicit path-validation recovery are preserved in `preparation-failure.json`.
++
++## AC verdict and missing evidence
++
++| AC | Verdict | Why |
++|---|---|---|
++| AC1 | BLOCKED | Source guards reviewed; latest app-owned microphone actual stop/cancel/timeout/foreground exit/retry and successful final recognition not yet independently observed. |
++| AC2 | BLOCKED | Original negation defect fixed by direct class invocation; current full independent JVM completion and actual recognized/edited draft-to-real-snapshot UI evidence remain incomplete at reporting time. |
++| AC3 | BLOCKED | Source retains explicit send/unanimous/fresh-query guards; latest APK's two-car pending/reject route0 and unanimous native confirmation are not supplied as completed direct evidence. |
++| AC4 | BLOCKED |20sp/56dp/shared View system remains; latest actual Pleos recognition/edit/candidate/send/failure/cancel/long-text/fontScale1.3 evidence and completed independent build/lint remain required. |
++| AC5 | BLOCKED | Latest source/APK hashes fixed; A permission grant and current two-vehicle proposal/accept/native scenario absent. Human/microphone recognition success is not demonstrated. |
++
++The coordinator reported freeze7 acoustic capture reaching appMicrophoneRecording, appMicrophoneClosed and sdkPcmCompleted but no final before timeout; this review does not treat that communicated state as recognition success. Earlier freeze4 microphone cleanup evidence has a different microphone owner and cannot prove freeze7. No device/ADB/server/GitHub manipulation was performed here. Source/head or runtime-evidence commits require renewed binding checks. All mandatory ACs and final base/head must be directly confirmed before PASS.
++
++## Completed independent build addendum
++
++The already-running fresh archive Gradle completed after the initial report: exit0,169.918812583seconds,104tasks all executed. Independently rerun core93+app105=198tests passed with failures/errors/skips0. App and driver assemble/lint completed; lint errors0, warnings app13/driver8. Raw evidence is build-result.json and independent-gradle.log. This completion was observed after12:13UTC; it is not claimed to have completed before the coordinator's run deadline. No additional build was started.
++
++APK full-file hashes differ between builder and independent artifacts. apk-payload-comparison.json separately compares every decompressed ZIP entry and lists the actual payload differences. The full hash difference alone is not interpreted as a source behavior difference. These successful local checks do not resolve the required runtime BLOCKED conditions or authorize a PASS.
+diff --git a/prototype/vehicle/evidence/voice-proposals/human-recognition-B-20261108/README.md b/prototype/vehicle/evidence/voice-proposals/human-recognition-B-20261108/README.md
+new file mode 100644
+index 0000000..39c817a
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/human-recognition-B-20261108/README.md
+@@ -0,0 +1,9 @@
++# B human speech recognition — confirmed observation
++
++The user reported that the pending manual retry displayed the requested public test phrase, “여기서 주유하고 가자”. Read-only correlation on dedicated ADB5041/emulator-5572/user10 found the current attempt's foreground appMicrophoneRecording, stopMicrophone, appMicrophoneClosed, sdkPcmCompleted, started-recognition and finalText events, without a failure event. finalText is emitted only after the controller accepts an active, nonempty valid final and then transitions to READY. Phrase accuracy is the user's screen observation; the event log deliberately contains no recognized text. No audio or private transcript file was read or saved.
++
++The installed app APK SHA-256 was read and matches freeze7: `5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e`, corresponding to product source `105cd7ef5b47e194be1fbfd2271ba6d96c0fd32f`. Final arrived8026ms after the user's stop action and6084ms after PCM submission, within the15-second final wait. A read-only app-op check showed no active app recording. This is actual human microphone input, distinct from the earlier synthesized-speaker timeout and older supplied-PCM driver test. The earlier failures and their unknown cause remain preserved.
++
++This observation supersedes the earlier “latest human retest pending” statement only for B's successful recognition attempt. It does not prove a successful A trial, both-car cancel/foreground-exit/retry, edited draft/candidate screens, fontScale1.3/long text or two-car proposal/consent/native behavior. Overall independent verdict remains BLOCKED and PR #26 remains Draft. The historical verifier report stays bound to source105cd7e; no exact-head PASS is claimed for this evidence-only update.
++
++This was an already-pending user retry, followed by read-only observation and evidence closeout. No new product change, automated device scenario, build or test was started, and the previous120-minute bundle's deadline was not reset. The quoted sentence is the public phrase requested in chat, not an automatically collected private utterance.
+diff --git a/prototype/vehicle/evidence/voice-proposals/human-recognition-B-20261108/manifest.json b/prototype/vehicle/evidence/voice-proposals/human-recognition-B-20261108/manifest.json
+new file mode 100644
+index 0000000..68e9c39
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/human-recognition-B-20261108/manifest.json
+@@ -0,0 +1,10 @@
++[
++  {
++    "path": "observation.json",
++    "sha256": "e3ec7817d9da78e8a2a7eae971e10fa68fd7b5081429b2a2207c5effa4f3e401"
++  },
++  {
++    "path": "README.md",
++    "sha256": "ce8bf70ff0d80e4408690bd4638992060dfff2f289efbe22793ba9d7a6b10ebf"
++  }
++]
+diff --git a/prototype/vehicle/evidence/voice-proposals/human-recognition-B-20261108/observation.json b/prototype/vehicle/evidence/voice-proposals/human-recognition-B-20261108/observation.json
+new file mode 100644
+index 0000000..af5aa8c
+--- /dev/null
++++ b/prototype/vehicle/evidence/voice-proposals/human-recognition-B-20261108/observation.json
+@@ -0,0 +1,275 @@
++{
++  "observedAtUtc": "2026-11-08T12:51:34.255423+00:00",
++  "serial": "emulator-5572",
++  "user": 10,
++  "sourceHead": "105cd7ef5b47e194be1fbfd2271ba6d96c0fd32f",
++  "inputSource": "User reports live human speech using freeze7 foreground microphone UI; no new coordinator test was started",
++  "userReportedResult": "여기서 주유하고 가자",
++  "voiceEventsAfterPreviousFailedAttempt": [
++    {
++      "at": 1794139415355,
++      "event": "voice:sdkStopWaitElapsed",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794139415398,
++      "event": "voice:sdkReleased",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142240708,
++      "event": "voice:startMicrophone",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142240938,
++      "event": "voice:sdkInitializedOnDevice",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142241092,
++      "event": "voice:appMicrophoneRecording",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142241092,
++      "event": "voice:listening",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142245458,
++      "event": "voice:stopMicrophone",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142247379,
++      "event": "voice:appMicrophoneClosed",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142247379,
++      "event": "voice:endedAwaitingFinal",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142247400,
++      "event": "voice:sdkPcmCompleted",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142252549,
++      "event": "voice:sdkStartedRecognition",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142252821,
++      "event": "voice:sdkStartedRecognition",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142253088,
++      "event": "voice:sdkStartedRecognition",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142253293,
++      "event": "voice:sdkStartedRecognition",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142253413,
++      "event": "voice:endedAwaitingFinal",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142253482,
++      "event": "voice:sdkStopPending",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142253484,
++      "event": "voice:finalText",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142256524,
++      "event": "voice:sdkStopWaitElapsed",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142256750,
++      "event": "voice:sdkReleased",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    }
++  ],
++  "recordAudioAppOp": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+53s379ms ago; duration=+4s401ms\n",
++  "recordingActiveAtRead": false,
++  "limitations": "Read-only log correlation and user observation; no raw audio or transcript file read, no new device scenario or independent PASS.",
++  "installedApkSha256": "5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e",
++  "currentAttemptVoiceEvents": [
++    {
++      "at": 1794142240708,
++      "event": "voice:startMicrophone",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142240938,
++      "event": "voice:sdkInitializedOnDevice",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142241092,
++      "event": "voice:appMicrophoneRecording",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142241092,
++      "event": "voice:listening",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142245458,
++      "event": "voice:stopMicrophone",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142247379,
++      "event": "voice:appMicrophoneClosed",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142247379,
++      "event": "voice:endedAwaitingFinal",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142247400,
++      "event": "voice:sdkPcmCompleted",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142252549,
++      "event": "voice:sdkStartedRecognition",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142252821,
++      "event": "voice:sdkStartedRecognition",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142253088,
++      "event": "voice:sdkStartedRecognition",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142253293,
++      "event": "voice:sdkStartedRecognition",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142253413,
++      "event": "voice:endedAwaitingFinal",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142253482,
++      "event": "voice:sdkStopPending",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142253484,
++      "event": "voice:finalText",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142256524,
++      "event": "voice:sdkStopWaitElapsed",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    },
++    {
++      "at": 1794142256750,
++      "event": "voice:sdkReleased",
++      "nativeEpoch": 2,
++      "operation": 1,
++      "matched": null
++    }
++  ],
++  "timingMs": {
++    "recordingToStop": 4366,
++    "stopToFinal": 8026,
++    "pcmSubmissionToFinal": 6084
++  },
++  "finalReceived": true,
++  "inputWasHumanConfirmedBy": "User reply; event log carries lifecycle only, not transcript contents"
++}

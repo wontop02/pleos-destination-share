@@ -1,0 +1,22 @@
+{
+  "atUtc": "2026-11-09T03:57:55.712714+00:00",
+  "serial": "emulator-5570",
+  "component": "VehicleUiActionProbe",
+  "arguments": {
+    "resource": "nav_home",
+    "operation": "click"
+  },
+  "exit": 0,
+  "seconds": 1.2253735410000033,
+  "result": {
+    "actionAccepted": "true",
+    "bounds": "885,114,984,170",
+    "elapsedMs": "106",
+    "enabled": "true",
+    "inputSource": "public_ui_button",
+    "resource": "nav_home",
+    "visible": "true"
+  },
+  "productionPidBefore": "32650",
+  "productionPidAfter": "32650"
+}

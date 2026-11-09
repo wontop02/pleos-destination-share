@@ -1,0 +1,12 @@
+{
+  "atUtc": "2026-11-09T04:35:19.530246+00:00",
+  "serial": "emulator-5570",
+  "source": "Actual visible collapsed developer details opened through product UI",
+  "observedText": "서버 주소 http://127.0.0.1:4192\n\n현재 내비 조회\n가든서비스\n수정구 시흥동\n위도 37.412475 · 경도 127.09534722\n종류 EXACT_POINT\nPOI PleosMetadata(poiId=36khp2h36p68cm5nqhec, poiSubId=null, address=수정구 시흥동, poiProvider=, displayLatitude=null, displayLongitude=null)\n\n함께 가는 곳 · 버전 2\n가든서비스\n경기도 성남시 수정구 창업로40번길 6\n위도 37.41255277 · 경도 127.09591666\n종류 PLEOS_PLACE\nPOI PleosMetadata(poiId=36khp2h36p68cm5nqhec, poiSubId=null, address=경기도 성남시 수정구 창업로40번길 6, poiProvider=, displayLatitude=null, displayLongitude=null)\n\n선택 원본\n없음\n\n실제 확인 방식 확인 전 · 시각 없음\n현재 순정 목적지 조회 완료 · 자동 공유하지 않습니다.\n대표 차량 · 목적지 수신 연결됨\n과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.\n\n제안 상세\n버전 2 · 상태 accepted\nVoice-A: accepted\nVoice-B: accepted",
+  "sourceKindMeaning": "PLEOS_PLACE constructor requires PlaceSource.PLEOS_BOOKMARK; this source label is a code invariant, not a separately captured HTTP wire body.",
+  "nativeSourceSeparate": "Q08-independent-selected-cafe-source.json",
+  "nativeActualSeparate": [
+    "Q08-independent-native-emulator-5570.json",
+    "Q08-independent-native-emulator-5572.json"
+  ]
+}

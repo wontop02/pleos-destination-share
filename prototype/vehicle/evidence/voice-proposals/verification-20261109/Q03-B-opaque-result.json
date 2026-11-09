@@ -1,0 +1,263 @@
+{
+  "stateStopped": {
+    "at": 1794196843152,
+    "event": "serviceDestroy",
+    "serviceEpoch": 5159463,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false,
+    "confirmationKind": null,
+    "sharedKind": "pleos_place",
+    "proposalLease": false,
+    "proposalBusy": false,
+    "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+    "proposalPublicationHeld": true,
+    "acceptedProposalId": "e669d8a5dd735bef86b9ff48",
+    "acceptedProposalVersion": 2,
+    "acceptedProposalRevision": 1,
+    "proposal": {
+      "id": "e669d8a5dd735bef86b9ff48",
+      "version": 2,
+      "status": "accepted",
+      "candidateName": "청계산담백미",
+      "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+      "proposerId": "93c1bad0addf52af2adf8159",
+      "baseRevision": 0,
+      "createdAt": 1794195679869,
+      "expiresAt": 1794195799869,
+      "acceptedRevision": 1,
+      "responses": [
+        {
+          "memberId": "747ebc2fb24f7684bbf6242c",
+          "response": "accepted"
+        },
+        {
+          "memberId": "93c1bad0addf52af2adf8159",
+          "response": "accepted"
+        }
+      ]
+    }
+  },
+  "appop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+6s654ms ago; duration=+2s451ms\n",
+  "traces": {
+    "emulator-5570": [],
+    "emulator-5572": [
+      {
+        "hostAt": "2026-11-09T04:00:41.176473+00:00",
+        "serial": "emulator-5572",
+        "sourceGeneration": 0,
+        "productionPid": "19726",
+        "record": {
+          "at": 1794196840500,
+          "event": "voice:startMicrophone",
+          "nativeEpoch": 2,
+          "operation": 1,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T04:00:41.176473+00:00",
+        "serial": "emulator-5572",
+        "sourceGeneration": 0,
+        "productionPid": "19726",
+        "record": {
+          "at": 1794196840556,
+          "event": "voice:sdkInitializedOnDevice",
+          "nativeEpoch": 2,
+          "operation": 1,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T04:00:41.176473+00:00",
+        "serial": "emulator-5572",
+        "sourceGeneration": 0,
+        "productionPid": "19726",
+        "record": {
+          "at": 1794196840651,
+          "event": "voice:appMicrophoneRecording",
+          "nativeEpoch": 2,
+          "operation": 1,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T04:00:41.176473+00:00",
+        "serial": "emulator-5572",
+        "sourceGeneration": 0,
+        "productionPid": "19726",
+        "record": {
+          "at": 1794196840652,
+          "event": "voice:listening",
+          "nativeEpoch": 2,
+          "operation": 1,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T04:00:43.569663+00:00",
+        "serial": "emulator-5572",
+        "sourceGeneration": 0,
+        "productionPid": "19726",
+        "record": {
+          "at": 1794196843115,
+          "event": "voice:sdkStopPending",
+          "nativeEpoch": 2,
+          "operation": 1,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T04:00:43.569663+00:00",
+        "serial": "emulator-5572",
+        "sourceGeneration": 0,
+        "productionPid": "19726",
+        "record": {
+          "at": 1794196843117,
+          "event": "voice:scopeCleared",
+          "nativeEpoch": 2,
+          "operation": 1,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T04:00:43.569663+00:00",
+        "serial": "emulator-5572",
+        "sourceGeneration": 0,
+        "productionPid": "19726",
+        "record": {
+          "at": 1794196843134,
+          "event": "activityStopDetach",
+          "serviceEpoch": 5159463,
+          "roomEpoch": 1,
+          "revision": 1,
+          "role": "member",
+          "automatic": "OFF",
+          "applying": "IDLE",
+          "connection": "CONNECTED",
+          "roomConnected": true,
+          "uiCount": 0,
+          "confirmedAtElapsed": null,
+          "routingCompletedObserved": false,
+          "confirmationKind": null,
+          "sharedKind": "pleos_place",
+          "proposalLease": false,
+          "proposalBusy": false,
+          "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+          "proposalPublicationHeld": true,
+          "acceptedProposalId": "e669d8a5dd735bef86b9ff48",
+          "acceptedProposalVersion": 2,
+          "acceptedProposalRevision": 1,
+          "proposal": {
+            "id": "e669d8a5dd735bef86b9ff48",
+            "version": 2,
+            "status": "accepted",
+            "candidateName": "청계산담백미",
+            "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+            "proposerId": "93c1bad0addf52af2adf8159",
+            "baseRevision": 0,
+            "createdAt": 1794195679869,
+            "expiresAt": 1794195799869,
+            "acceptedRevision": 1,
+            "responses": [
+              {
+                "memberId": "747ebc2fb24f7684bbf6242c",
+                "response": "accepted"
+              },
+              {
+                "memberId": "93c1bad0addf52af2adf8159",
+                "response": "accepted"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "hostAt": "2026-11-09T04:00:43.569663+00:00",
+        "serial": "emulator-5572",
+        "sourceGeneration": 0,
+        "productionPid": "19726",
+        "record": {
+          "at": 1794196843152,
+          "event": "serviceDestroy",
+          "serviceEpoch": 5159463,
+          "roomEpoch": 1,
+          "revision": 1,
+          "role": "member",
+          "automatic": "OFF",
+          "applying": "IDLE",
+          "connection": "CONNECTED",
+          "roomConnected": true,
+          "uiCount": 0,
+          "confirmedAtElapsed": null,
+          "routingCompletedObserved": false,
+          "confirmationKind": null,
+          "sharedKind": "pleos_place",
+          "proposalLease": false,
+          "proposalBusy": false,
+          "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+          "proposalPublicationHeld": true,
+          "acceptedProposalId": "e669d8a5dd735bef86b9ff48",
+          "acceptedProposalVersion": 2,
+          "acceptedProposalRevision": 1,
+          "proposal": {
+            "id": "e669d8a5dd735bef86b9ff48",
+            "version": 2,
+            "status": "accepted",
+            "candidateName": "청계산담백미",
+            "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+            "proposerId": "93c1bad0addf52af2adf8159",
+            "baseRevision": 0,
+            "createdAt": 1794195679869,
+            "expiresAt": 1794195799869,
+            "acceptedRevision": 1,
+            "responses": [
+              {
+                "memberId": "747ebc2fb24f7684bbf6242c",
+                "response": "accepted"
+              },
+              {
+                "memberId": "93c1bad0addf52af2adf8159",
+                "response": "accepted"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "hostAt": "2026-11-09T04:00:46.758804+00:00",
+        "serial": "emulator-5572",
+        "sourceGeneration": 0,
+        "productionPid": "19726",
+        "record": {
+          "at": 1794196846122,
+          "event": "voice:sdkStopWaitElapsed",
+          "nativeEpoch": -1,
+          "operation": 2,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T04:00:46.758804+00:00",
+        "serial": "emulator-5572",
+        "sourceGeneration": 0,
+        "productionPid": "19726",
+        "record": {
+          "at": 1794196846134,
+          "event": "voice:sdkReleased",
+          "nativeEpoch": -1,
+          "operation": 2,
+          "matched": null
+        }
+      }
+    ]
+  },
+  "probeSdkInitialized": false
+}

@@ -1,0 +1,200 @@
+{
+  "state": {
+    "at": 1794196680714,
+    "event": "activityStopDetach",
+    "serviceEpoch": 5159463,
+    "roomEpoch": 1,
+    "revision": 1,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false,
+    "confirmationKind": null,
+    "sharedKind": "pleos_place",
+    "proposalLease": false,
+    "proposalBusy": false,
+    "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+    "proposalPublicationHeld": true,
+    "acceptedProposalId": "e669d8a5dd735bef86b9ff48",
+    "acceptedProposalVersion": 2,
+    "acceptedProposalRevision": 1,
+    "proposal": {
+      "id": "e669d8a5dd735bef86b9ff48",
+      "version": 2,
+      "status": "accepted",
+      "candidateName": "청계산담백미",
+      "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+      "proposerId": "93c1bad0addf52af2adf8159",
+      "baseRevision": 0,
+      "createdAt": 1794195679869,
+      "expiresAt": 1794195799869,
+      "acceptedRevision": 1,
+      "responses": [
+        {
+          "memberId": "747ebc2fb24f7684bbf6242c",
+          "response": "accepted"
+        },
+        {
+          "memberId": "93c1bad0addf52af2adf8159",
+          "response": "accepted"
+        }
+      ]
+    }
+  },
+  "appop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+1m8s180ms ago; duration=+15s70ms\n",
+  "focus": [
+    "topResumedActivity=ActivityRecord{b74d612 u10 ai.pleos.destinations.vehicle/.MainActivity t1000187}",
+    "topResumedActivity=ActivityRecord{e8fd868 u10 ai.umos.drivingview/.DrivingViewActivity t1000182}",
+    "topResumedActivity=ActivityRecord{3e9ef3e u10 ai.umos.homescreen/.HomeActivity t1000179}",
+    "ResumedActivity: ActivityRecord{b74d612 u10 ai.pleos.destinations.vehicle/.MainActivity t1000187}"
+  ],
+  "core": [
+    {
+      "hostAt": "2026-11-09T03:58:11.521528+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794196690704,
+        "event": "voice:startMicrophone",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T03:58:11.521528+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794196690784,
+        "event": "voice:sdkInitializedOnDevice",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T03:58:11.521528+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794196690914,
+        "event": "voice:appMicrophoneRecording",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T03:58:11.521528+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794196690915,
+        "event": "voice:listening",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T03:58:26.726796+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794196706012,
+        "event": "voice:appMicrophoneClosed",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T03:58:26.726796+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794196706022,
+        "event": "voice:stopMicrophone",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T03:58:26.726796+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794196706062,
+        "event": "voice:sdkPcmCompleted",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T03:58:41.617521+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794196721192,
+        "event": "voice:sdkStopPending",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T03:58:41.617521+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794196721199,
+        "event": "voice:failureTIMEOUT",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T03:58:45.065079+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794196724200,
+        "event": "voice:sdkStopWaitElapsed",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T03:58:45.065079+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794196724204,
+        "event": "voice:sdkReleased",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "atUtc": "2026-11-09T04:52:01.233041+00:00",
+  "scope": "unauthenticated invalid room-create inputs; existing room identity never supplied",
+  "cases": [
+    {
+      "serial": "emulator-5570",
+      "input": {
+        "name": []
+      },
+      "status": 400,
+      "code": "invalid_name",
+      "commandExit": 0
+    },
+    {
+      "serial": "emulator-5570",
+      "input": {
+        "name": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      },
+      "status": 400,
+      "code": "invalid_name",
+      "commandExit": 0
+    },
+    {
+      "serial": "emulator-5572",
+      "input": {
+        "name": []
+      },
+      "status": 400,
+      "code": "invalid_name",
+      "commandExit": 0
+    },
+    {
+      "serial": "emulator-5572",
+      "input": {
+        "name": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      },
+      "status": 400,
+      "code": "invalid_name",
+      "commandExit": 0
+    }
+  ],
+  "unchangedRevision": {
+    "emulator-5570": 2,
+    "emulator-5572": 2
+  },
+  "misleadingSuccess": {
+    "exit": 0,
+    "actionAccepted": false,
+    "classifiedAsProductActionSuccess": false
+  },
+  "pass": true
+}

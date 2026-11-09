@@ -1,0 +1,89 @@
+{"hostAt": "2026-11-09T03:53:21.802584+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T03:53:24.732038+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-09T03:54:53.529826+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T03:54:59.535482+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "change_destination"}
+{"hostAt": "2026-11-09T03:55:02.832072+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-09T03:55:09.163972+00:00", "event": "publicUiTap", "serial": "emulator-5572", "resource": "change_destination"}
+{"hostAt": "2026-11-09T03:55:18.817926+00:00", "event": "approvedWhileInUsePermissionUi", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T03:57:33.373239+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-09T03:57:38.475114+00:00", "event": "publicUiTap", "serial": "emulator-5572", "resource": "change_destination"}
+{"hostAt": "2026-11-09T03:57:49.183473+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T03:58:00.663728+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-09T03:58:05.704576+00:00", "event": "publicUiTap", "serial": "emulator-5572", "resource": "change_destination"}
+{"hostAt": "2026-11-09T03:58:11.351536+00:00", "event": "androidHomeDuringCapture", "serial": "emulator-5572"}
+{"hostAt": "2026-11-09T04:00:29.188293+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-09T04:00:35.707362+00:00", "event": "publicUiTap", "serial": "emulator-5572", "resource": "change_destination"}
+{"hostAt": "2026-11-09T04:00:41.053533+00:00", "event": "opaqueOwnedProbeForeground", "serial": "emulator-5572", "probeSdkInitialized": false}
+{"hostAt": "2026-11-09T04:00:49.529313+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-09T04:00:55.060079+00:00", "event": "publicUiTap", "serial": "emulator-5572", "resource": "change_destination"}
+{"hostAt": "2026-11-09T04:00:57.995872+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T04:01:03.310856+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "change_destination"}
+{"hostAt": "2026-11-09T04:01:08.726258+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "select_saved_place"}
+{"hostAt": "2026-11-09T04:01:08.986991+00:00", "event": "savedPlacesReadUiRequested", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T04:04:10.952125+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "saved_places_cancel"}
+{"hostAt": "2026-11-09T04:04:19.838011+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "voice_analyze"}
+{"hostAt": "2026-11-09T04:06:44.210235+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T04:06:49.315126+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "select_saved_place"}
+{"hostAt": "2026-11-09T04:06:55.384677+00:00", "event": "actualSavedCafeSelected", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T04:07:04.664867+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "voice_analyze"}
+{"hostAt": "2026-11-09T04:07:09.831472+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "voice_candidates"}
+{"hostAt": "2026-11-09T04:07:15.674885+00:00", "event": "explicitVoiceCafeCandidateSelected", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T04:11:17.379252+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-09T04:11:22.196988+00:00", "event": "explicitSendBegin", "case": "Q07", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T04:11:24.937262+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "send_proposal"}
+{"hostAt": "2026-11-09T04:11:44.334295+00:00", "event": "explicitRejectBegin", "case": "Q07", "serial": "emulator-5572", "proposalId": "0cdedfffc86a7036aa77396e"}
+{"hostAt": "2026-11-09T04:11:46.759166+00:00", "event": "publicUiTap", "serial": "emulator-5572", "resource": "reject_proposal"}
+{"hostAt": "2026-11-09T04:15:40.513865+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T04:15:46.356729+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "change_destination"}
+{"hostAt": "2026-11-09T04:21:17.197691+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T04:21:23.359751+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "nav_home"}
+{"hostAt": "2026-11-09T04:21:26.393889+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "change_destination"}
+{"hostAt": "2026-11-09T04:21:32.596497+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "select_saved_place"}
+{"hostAt": "2026-11-09T04:21:38.779926+00:00", "event": "actualSavedCafeSelected", "serial": "emulator-5570", "case": "Q08a"}
+{"hostAt": "2026-11-09T04:21:45.811632+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "voice_analyze"}
+{"hostAt": "2026-11-09T04:21:48.537028+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "voice_candidates"}
+{"hostAt": "2026-11-09T04:21:55.107888+00:00", "event": "explicitVoiceCafeCandidateSelected", "serial": "emulator-5570", "case": "Q08a"}
+{"hostAt": "2026-11-09T04:22:11.181881+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-09T04:25:19.483957+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-09T04:25:23.701866+00:00", "event": "explicitSendBegin", "case": "Q08b", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T04:25:26.593981+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "send_proposal"}
+{"hostAt": "2026-11-09T04:25:31.789446+00:00", "event": "explicitAcceptBegin", "case": "Q08b", "serial": "emulator-5572", "proposalId": "994d714aa66333c17676e84b"}
+{"hostAt": "2026-11-09T04:25:34.330796+00:00", "event": "publicUiTap", "serial": "emulator-5572", "resource": "accept_proposal"}
+{"hostAt": "2026-11-09T04:35:02.304077+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T04:35:06.370813+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "nav_settings"}
+{"hostAt": "2026-11-09T04:35:16.297604+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "developer_details"}
+{"hostAt": "2026-11-09T04:35:26.055082+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "nav_home"}
+{"hostAt": "2026-11-09T04:39:07.193389+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T04:39:12.430393+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "change_destination"}
+{"hostAt": "2026-11-09T04:39:19.486974+00:00", "event": "fontRecreationWhileRecording", "serial": "emulator-5570", "scale": "1.3"}
+{"hostAt": "2026-11-09T04:45:11.987144+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T04:48:29.489762+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T04:48:56.739271+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T04:49:23.436574+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T04:50:08.917896+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "voice_analyze"}
+{"hostAt": "2026-11-09T04:50:37.159885+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-09T04:51:34.985549+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-09T04:53:27.322521+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-09T04:53:33.228895+00:00", "event": "publicUiTap", "serial": "emulator-5572", "resource": "change_destination"}
+{"hostAt": "2026-11-09T04:53:49.573290+00:00", "event": "publicUiTap", "serial": "emulator-5572", "resource": "voice_analyze"}
+{"hostAt": "2026-11-09T04:53:58.929530+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T04:54:05.770489+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "change_destination"}
+{"hostAt": "2026-11-09T04:54:12.858318+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "select_saved_place"}
+{"hostAt": "2026-11-09T04:54:18.954022+00:00", "event": "actualSavedCafeSelected", "serial": "emulator-5570", "case": "Q05c-negative-prep"}
+{"hostAt": "2026-11-09T04:54:25.858440+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "voice_analyze"}
+{"hostAt": "2026-11-09T04:54:28.899794+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "voice_candidates"}
+{"hostAt": "2026-11-09T04:54:29.625880+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-09T04:54:35.436204+00:00", "event": "publicUiTap", "serial": "emulator-5572", "resource": "change_destination"}
+{"hostAt": "2026-11-09T04:54:36.158783+00:00", "event": "explicitVoiceCafeCandidateSelected", "serial": "emulator-5570", "case": "Q05c-negative-prep"}
+{"hostAt": "2026-11-09T04:55:01.016990+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "voice_analyze"}
+{"hostAt": "2026-11-09T04:55:15.239702+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-09T04:55:21.713218+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "voice_analyze"}
+{"hostAt": "2026-11-09T04:55:45.973653+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "voice_analyze"}
+{"hostAt": "2026-11-09T04:56:09.334896+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "voice_analyze"}
+{"hostAt": "2026-11-09T04:56:16.649982+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-09T04:59:00.253005+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T04:59:05.388572+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "change_destination"}
+{"hostAt": "2026-11-09T04:59:55.110253+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T05:00:00.191692+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "change_destination"}
+{"hostAt": "2026-11-09T05:00:09.292340+00:00", "event": "publicUiTap", "serial": "emulator-5570", "resource": "nav_home"}
+{"hostAt": "2026-11-09T05:00:12.979074+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5572"}

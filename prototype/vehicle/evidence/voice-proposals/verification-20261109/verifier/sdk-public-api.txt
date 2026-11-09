@@ -1,0 +1,39 @@
+Compiled from "SourceFile"
+public final class ai.pleos.playground.stt.SpeechToText {
+  public static final ai.pleos.playground.stt.SpeechToText$Companion Companion;
+  public ai.pleos.playground.stt.SpeechToText(android.content.Context, ai.pleos.playground.stt.constant.Mode);
+  public ai.pleos.playground.stt.SpeechToText(android.content.Context, ai.pleos.playground.stt.constant.Mode, int, kotlin.jvm.internal.DefaultConstructorMarker);
+  public final void initialize();
+  public final void initialize(ai.pleos.playground.stt.listener.OnInitializeListener);
+  public final void release();
+  public final void addListener(ai.pleos.playground.stt.listener.ResultListener);
+  public final void removeListener(ai.pleos.playground.stt.listener.ResultListener);
+  public final void registerApp(java.lang.String, java.lang.String, ai.pleos.playground.stt.listener.OnServerConnectionListener);
+  public final void registerApp(java.lang.String, java.lang.String, java.lang.String, kotlin.jvm.functions.Function0<kotlin.Unit>, kotlin.jvm.functions.Function1<? super java.lang.String, kotlin.Unit>);
+  public final void registerApp(java.lang.String, kotlin.jvm.functions.Function0<kotlin.Unit>, kotlin.jvm.functions.Function1<? super java.lang.String, kotlin.Unit>);
+  public final void request();
+  public final void stop();
+  public final void sendAudio(byte[]);
+  public final void completeAudioSend();
+  public final void setLocale(java.util.Locale);
+  public final ai.pleos.playground.stt.api.CallApi getCallApi();
+  public final ai.pleos.playground.stt.api.AmbientAiApi getAmbientAi();
+}
+Compiled from "SourceFile"
+public final class ai.pleos.playground.stt.constant.Mode extends java.lang.Enum<ai.pleos.playground.stt.constant.Mode> {
+  public static final ai.pleos.playground.stt.constant.Mode HYBRID;
+  public static final ai.pleos.playground.stt.constant.Mode SERVER;
+  public static final ai.pleos.playground.stt.constant.Mode ON_DEVICE;
+  public static ai.pleos.playground.stt.constant.Mode[] values();
+  public static ai.pleos.playground.stt.constant.Mode valueOf(java.lang.String);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.stt.listener.ResultListener {
+  public abstract void onUpdated(java.lang.String, boolean);
+  public abstract void onUpdatedEpdData(long, long);
+  public abstract void onStartedRecognition();
+  public abstract void onEndedRecognition();
+  public abstract void onError(ai.pleos.playground.stt.constant.ErrorType);
+  public abstract void onReady();
+  public abstract void onUpdatedRms(double);
+}

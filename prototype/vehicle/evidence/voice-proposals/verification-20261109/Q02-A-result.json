@@ -1,0 +1,88 @@
+{
+  "afterAppop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+1s843ms ago; duration=+1s569ms\n",
+  "traces": {
+    "emulator-5570": [
+      {
+        "hostAt": "2026-11-09T03:55:19.319688+00:00",
+        "serial": "emulator-5570",
+        "sourceGeneration": 0,
+        "productionPid": "32650",
+        "record": {
+          "at": 1794196518851,
+          "event": "voice:startMicrophone",
+          "nativeEpoch": 2,
+          "operation": 2,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T03:55:19.319688+00:00",
+        "serial": "emulator-5570",
+        "sourceGeneration": 0,
+        "productionPid": "32650",
+        "record": {
+          "at": 1794196519100,
+          "event": "voice:sdkInitializedOnDevice",
+          "nativeEpoch": 2,
+          "operation": 2,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T03:55:22.495119+00:00",
+        "serial": "emulator-5570",
+        "sourceGeneration": 0,
+        "productionPid": "32650",
+        "record": {
+          "at": 1794196521950,
+          "event": "voice:appMicrophoneRecording",
+          "nativeEpoch": 2,
+          "operation": 2,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T03:55:22.495119+00:00",
+        "serial": "emulator-5570",
+        "sourceGeneration": 0,
+        "productionPid": "32650",
+        "record": {
+          "at": 1794196521951,
+          "event": "voice:listening",
+          "nativeEpoch": 2,
+          "operation": 2,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T03:55:24.293694+00:00",
+        "serial": "emulator-5570",
+        "sourceGeneration": 0,
+        "productionPid": "32650",
+        "record": {
+          "at": 1794196523486,
+          "event": "voice:sdkStopPending",
+          "nativeEpoch": 2,
+          "operation": 2,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T03:55:24.293694+00:00",
+        "serial": "emulator-5570",
+        "sourceGeneration": 0,
+        "productionPid": "32650",
+        "record": {
+          "at": 1794196523488,
+          "event": "voice:cancelled",
+          "nativeEpoch": 2,
+          "operation": 2,
+          "matched": null
+        }
+      }
+    ],
+    "emulator-5572": []
+  },
+  "inputSource": "actual app microphone, no speech fixture used",
+  "audioFileSaved": false
+}

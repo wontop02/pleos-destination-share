@@ -1,0 +1,113 @@
+{
+  "atUtc": "2026-11-09T04:54:27.593308+00:00",
+  "serial": "emulator-5572",
+  "reason": "explicit retry after font Activity recreation; normal user path, no <3sec claim",
+  "before": {
+    "emulator-5570": {
+      "serial": "emulator-5570",
+      "lineOffset": 281,
+      "hostAt": "2026-11-09T04:54:28.497658+00:00",
+      "state": {
+        "at": 1794200038643,
+        "event": "activityStopDetach",
+        "serviceEpoch": 7447527,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "host",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "994d714aa66333c17676e84b",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "994d714aa66333c17676e84b",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "747ebc2fb24f7684bbf6242c",
+          "baseRevision": 1,
+          "createdAt": 1794198326888,
+          "expiresAt": 1794198446888,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "747ebc2fb24f7684bbf6242c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "93c1bad0addf52af2adf8159",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    },
+    "emulator-5572": {
+      "serial": "emulator-5572",
+      "lineOffset": 240,
+      "hostAt": "2026-11-09T04:54:28.801693+00:00",
+      "state": {
+        "at": 1794200044533,
+        "event": "sessionState",
+        "serviceEpoch": 8799808,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "member",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "994d714aa66333c17676e84b",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "994d714aa66333c17676e84b",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "747ebc2fb24f7684bbf6242c",
+          "baseRevision": 1,
+          "createdAt": 1794198326888,
+          "expiresAt": 1794198446888,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "747ebc2fb24f7684bbf6242c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "93c1bad0addf52af2adf8159",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "attempts": [],
+  "pass": false,
+  "error": "Populated form capture requires explicit public-fixture attestation",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 6, in <module>\n  File \"/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-verify-20261109/qa-live.py\", line 100, in capture\n    assert not any(n.get('class')=='android.widget.EditText' and n.get('text') for n in nodes),'Populated form capture requires explicit public-fixture attestation'\nAssertionError: Populated form capture requires explicit public-fixture attestation\n"
+}

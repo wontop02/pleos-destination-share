@@ -1,0 +1,10 @@
+{
+  "fontScale": {
+    "emulator-5570": "1.0",
+    "emulator-5572": "1.0"
+  },
+  "appops": {
+    "emulator-5570": "Uid mode: RECORD_AUDIO: ignore\n",
+    "emulator-5572": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+15h2m44s417ms ago; duration=+4s401ms\n"
+  }
+}

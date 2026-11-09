@@ -1,0 +1,189 @@
+{
+  "head": "b883042cbc9610a551b3329bb6effdd219eabd06",
+  "atUtc": "2026-11-09T04:56:52.352822+00:00",
+  "scope": "AC4 actual fontScale1.3 and long text on one actual Pleos vehicle; both vehicles not required by AC4.",
+  "finding": "A actual configured-font/400-character/top-and-bottom reachability evidence satisfies this specific AC4 item.",
+  "aggregateResultFalseReason": "Result aborted on subsequent B assumed-HOME/DrivingView apparatus assertion; do not discard the completed A evidence or mark this as a demonstrated product failure.",
+  "Acase": {
+    "serial": "emulator-5570",
+    "fontScale": "1.3",
+    "longChars": 400,
+    "disabledWithoutSelection": true,
+    "configuration": [
+      "mChangingConfigurations=false",
+      "mLastReportedMergedConfiguration={mGlobalConfig={1.0 310mcc260mnc [ko_KR] ldltr sw1440dp w1682dp h1210dp 160dpi xlrg land car finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(853, 90 - 2535, 1300) mAppBounds=Rect(853, 90 - 2535, 1300) mMaxBounds=Rect(0, 0 - 2560, 1440) mDisplayRotation=ROTATION_0 mWindowingMode=multi-window mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.104 fontWeightAdjustment=0} mOverrideConfig={1.0 310mcc260mnc [ko_KR] ldltr sw1440dp w1682dp h1210dp 160dpi xlrg land car finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(853, 90 - 2535, 1300) mAppBounds=Rect(853, 90 - 2535, 1300) mMaxBounds=Rect(0, 0 - 2560, 1440) mDisplayRotation=ROTATION_0 mWindowingMode=multi-window mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} s.3 fontWeightAdjustment=0}}",
+      "mLastConfigurationFromResources={1.0 310mcc260mnc [ko_KR] ldltr sw1440dp w1682dp h1210dp 160dpi xlrg land car finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(853, 90 - 2535, 1300) mAppBounds=Rect(853, 90 - 2535, 1300) mMaxBounds=Rect(0, 0 - 2560, 1440) mDisplayRotation=ROTATION_0 mWindowingMode=multi-window mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} s.3 fontWeightAdjustment=0}",
+      "mChangingConfigurations=false",
+      "mLastReportedMergedConfiguration={mGlobalConfig={1.3 310mcc260mnc [ko_KR] ldltr sw1440dp w2560dp h1210dp 160dpi xlrg long land car finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 2560, 1440) mAppBounds=Rect(0, 0 - 2560, 1300) mMaxBounds=Rect(0, 0 - 2560, 1440) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.635 fontWeightAdjustment=0} mOverrideConfig={1.3 310mcc260mnc [ko_KR] ldltr sw1440dp w2560dp h1210dp 160dpi xlrg long land car finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 2560, 1440) mAppBounds=Rect(0, 0 - 2560, 1300) mMaxBounds=Rect(0, 0 - 2560, 1440) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=home mAlwaysOnTop=undefined mRotation=ROTATION_0} s.12 fontWeightAdjustment=0}}",
+      "mLastConfigurationFromResources={1.3 310mcc260mnc [ko_KR] ldltr sw1440dp w2560dp h1210dp 160dpi xlrg long land car finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 2560, 1440) mAppBounds=Rect(0, 0 - 2560, 1300) mMaxBounds=Rect(0, 0 - 2560, 1440) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=home mAlwaysOnTop=undefined mRotation=ROTATION_0} s.12 fontWeightAdjustment=0}",
+      "mChangingConfigurations=false",
+      "mLastReportedMergedConfiguration={mGlobalConfig={1.3 310mcc260mnc [ko_KR] ldltr sw1440dp w853dp h1210dp 160dpi xlrg port car finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 853, 1300) mAppBounds=Rect(0, 0 - 853, 1300) mMaxBounds=Rect(0, 0 - 2560, 1440) mDisplayRotation=ROTATION_0 mWindowingMode=multi-window mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.675 fontWeightAdjustment=0} mOverrideConfig={1.3 310mcc260mnc [ko_KR] ldltr sw1440dp w853dp h1210dp 160dpi xlrg port car finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 853, 1300) mAppBounds=Rect(0, 0 - 853, 1300) mMaxBounds=Rect(0, 0 - 2560, 1440) mDisplayRotation=ROTATION_0 mWindowingMode=multi-window mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} s.2 fontWeightAdjustment=0}}",
+      "mLastConfigurationFromResources={1.3 310mcc260mnc [ko_KR] ldltr sw1440dp w853dp h1210dp 160dpi xlrg port car finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 853, 1300) mAppBounds=Rect(0, 0 - 853, 1300) mMaxBounds=Rect(0, 0 - 2560, 1440) mDisplayRotation=ROTATION_0 mWindowingMode=multi-window mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} s.2 fontWeightAdjustment=0}",
+      "mChangingConfigurations=false",
+      "mLastReportedMergedConfiguration={mGlobalConfig={1.3 310mcc260mnc [ko_KR] ldltr sw1440dp w1682dp h1210dp 160dpi xlrg land car finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(853, 90 - 2535, 1300) mAppBounds=Rect(853, 90 - 2535, 1300) mMaxBounds=Rect(0, 0 - 2560, 1440) mDisplayRotation=ROTATION_0 mWindowingMode=multi-window mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.673 fontWeightAdjustment=0} mOverrideConfig={1.3 310mcc260mnc [ko_KR] ldltr sw1440dp w1682dp h1210dp 160dpi xlrg land car finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(853, 90 - 2535, 1300) mAppBounds=Rect(853, 90 - 2535, 1300) mMaxBounds=Rect(0, 0 - 2560, 1440) mDisplayRotation=ROTATION_0 mWindowingMode=multi-window mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} s.14 fontWeightAdjustment=0}}",
+      "mLastConfigurationFromResources={1.3 310mcc260mnc [ko_KR] ldltr sw1440dp w1682dp h1210dp 160dpi xlrg land car finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(853, 90 - 2535, 1300) mAppBounds=Rect(853, 90 - 2535, 1300) mMaxBounds=Rect(0, 0 - 2560, 1440) mDisplayRotation=ROTATION_0 mWindowingMode=multi-window mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} s.8 fontWeightAdjustment=0}"
+    ],
+    "topStartBounds": "[1194,334][2194,390]",
+    "sendBounds": "[1194,1108][2194,1164]",
+    "bottomReachable": true
+  },
+  "textProbe": {
+    "atUtc": "2026-11-09T04:50:02.967142+00:00",
+    "serial": "emulator-5570",
+    "component": "VehicleUiTextProbe",
+    "arguments": {
+      "field": "voice_text",
+      "textKey": "long"
+    },
+    "exit": 0,
+    "seconds": 1.1043133340000004,
+    "result": {
+      "actionAccepted": "true",
+      "emptyOrShowingHint": "false",
+      "field": "voice_text",
+      "inputSource": "ui_edit_not_speech_recognition",
+      "readbackCharacters": "400",
+      "readbackEquals": "true",
+      "requestedCharacters": "400",
+      "success": "true",
+      "textKey": "long"
+    },
+    "productionPidBefore": "32650",
+    "productionPidAfter": "32650"
+  },
+  "parsedControls": {
+    "Q06d-emulator-5570-font13-top.xml": [
+      {
+        "id": "voice_start",
+        "class": "android.widget.Button",
+        "enabled": "true",
+        "bounds": "[1194,334][2194,390]",
+        "heightPx": 56,
+        "characters": 6,
+        "publicText": "다시 말하기"
+      },
+      {
+        "id": "voice_status",
+        "class": "android.widget.TextView",
+        "enabled": "true",
+        "bounds": "[1194,406][2194,435]",
+        "heightPx": 29,
+        "characters": 38,
+        "publicText": "들은 말을 고칠 수 있어요. 초안을 정리한 뒤 장소를 확인해 주세요."
+      },
+      {
+        "id": "voice_text",
+        "class": "android.widget.EditText",
+        "enabled": "true",
+        "bounds": "[1194,560][2194,753]",
+        "heightPx": 193,
+        "characters": 400
+      },
+      {
+        "id": "voice_analyze",
+        "class": "android.widget.Button",
+        "enabled": "true",
+        "bounds": "[1194,773][2194,829]",
+        "heightPx": 56,
+        "characters": 5,
+        "publicText": "초안 정리"
+      },
+      {
+        "id": "voice_summary",
+        "class": "android.widget.TextView",
+        "enabled": "true",
+        "bounds": "[1194,845][2194,874]",
+        "heightPx": 29,
+        "characters": 32,
+        "publicText": "초안만 만들어요. 확인하고 제안 보내기를 눌러야 전송해요."
+      },
+      {
+        "id": "select_saved_place",
+        "class": "android.widget.Button",
+        "enabled": "true",
+        "bounds": "[1194,1058][2194,1114]",
+        "heightPx": 56,
+        "characters": 9,
+        "publicText": "저장한 장소 선택"
+      }
+    ],
+    "Q06d-emulator-5570-font13-bottom.xml": [
+      {
+        "id": "voice_text",
+        "class": "android.widget.EditText",
+        "enabled": "true",
+        "bounds": "[1194,190][2194,277]",
+        "heightPx": 87,
+        "characters": 400
+      },
+      {
+        "id": "voice_analyze",
+        "class": "android.widget.Button",
+        "enabled": "true",
+        "bounds": "[1194,297][2194,353]",
+        "heightPx": 56,
+        "characters": 5,
+        "publicText": "초안 정리"
+      },
+      {
+        "id": "voice_summary",
+        "class": "android.widget.TextView",
+        "enabled": "true",
+        "bounds": "[1194,369][2194,398]",
+        "heightPx": 29,
+        "characters": 41,
+        "publicText": "변경할 곳을 확인해 주세요. 말을 고치거나 장소를 직접 선택할 수 있어요."
+      },
+      {
+        "id": "select_saved_place",
+        "class": "android.widget.Button",
+        "enabled": "true",
+        "bounds": "[1194,582][2194,638]",
+        "heightPx": 56,
+        "characters": 9,
+        "publicText": "저장한 장소 선택"
+      },
+      {
+        "id": "selected_place_name",
+        "class": "android.widget.TextView",
+        "enabled": "true",
+        "bounds": "[1194,826][2194,869]",
+        "heightPx": 43,
+        "characters": 11,
+        "publicText": "장소를 선택해 주세요"
+      },
+      {
+        "id": "proposal_reason_input",
+        "class": "android.widget.EditText",
+        "enabled": "true",
+        "bounds": "[1194,1024][2194,1080]",
+        "heightPx": 56,
+        "characters": 13,
+        "publicText": "예: 여기서 함께 쉬어요"
+      },
+      {
+        "id": "send_proposal",
+        "class": "android.widget.Button",
+        "enabled": "false",
+        "bounds": "[1194,1108][2194,1164]",
+        "heightPx": 56,
+        "characters": 6,
+        "publicText": "제안 보내기"
+      }
+    ]
+  },
+  "rootReportedRestorationAtThatCaseEnd": {
+    "emulator-5570": "1.0",
+    "emulator-5572": "1.0"
+  },
+  "currentFinalRestorationStillRequiresCloseout": true,
+  "fileSha256": {
+    "Q06d-font-visual-result.json": "efa1a21158e5585d59073c9b5b96ef38c35442bacb55d0b42f10b694edb2fb53",
+    "Q06d-emulator-5570-long.json": "a41a9abb64df4f49a19df3b25f0ff005f4714beb7e46b8ee7a2a3e02ec80fddb",
+    "Q06d-observed-font13-control-geometry.json": "f1f20b77b2d5436c9f1af2df9b9a2ee64d8c7bbbde40fee8c970d80b3a958cdc",
+    "ui/Q06d-emulator-5570-font13-top.xml": "2559938840908d4fd52c5799e4451325b4e04cfe477716122d1655dd6d362d78",
+    "ui/Q06d-emulator-5570-font13-top.png": "ea057feff40d06c13d11d3baab7154bccda70be7f9e740697ffe56ca113d0091",
+    "ui/Q06d-emulator-5570-font13-bottom.xml": "e043a415f076348e926d7c1505d47970dc568f37a354d335dd096952fc31eb3d",
+    "ui/Q06d-emulator-5570-font13-bottom.png": "de466ab560103b2535bb1b89d3090d910a6d8f23a17650f9e1bacf58b5775095"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "head": "b883042cbc9610a551b3329bb6effdd219eabd06",
+  "command": [
+    "/private/tmp/pleos-vehicle-tools-20261105/gradle/gradle-8.11.1/bin/gradle",
+    "--offline",
+    "--no-daemon",
+    "--max-workers=1",
+    "-Dorg.gradle.jvmargs=-Xmx1024m -XX:MaxMetaspaceSize=384m",
+    "-Pkotlin.compiler.execution.strategy=in-process",
+    ":core:test",
+    ":app:testDebugUnitTest",
+    ":app:assembleDebug",
+    ":app:lintDebug",
+    ":nativeDriver:assembleDebug",
+    ":nativeDriver:lintDebug"
+  ],
+  "exit": 0,
+  "seconds": 165.646967333,
+  "tests": {
+    "core": {
+      "totals": {
+        "tests": 93,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "files": [
+        "TEST-ai.pleos.destinations.core.PlaceIntentSafetyTest.xml",
+        "TEST-ai.pleos.destinations.core.SelectedPlaceConfirmationTest.xml",
+        "TEST-ai.pleos.destinations.core.VehicleAutomationTest.xml",
+        "TEST-ai.pleos.destinations.core.VehicleCoordinatorTest.xml",
+        "TEST-ai.pleos.destinations.core.VehicleProposalProtectionTest.xml"
+      ]
+    },
+    "app": {
+      "totals": {
+        "tests": 105,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "files": [
+        "TEST-ai.pleos.destinations.vehicle.NaviDestinationNormalizerTest.xml",
+        "TEST-ai.pleos.destinations.vehicle.PendingConfirmationCacheTest.xml",
+        "TEST-ai.pleos.destinations.vehicle.PlacesLoadIntentTest.xml",
+        "TEST-ai.pleos.destinations.vehicle.RoomHttpClientTest.xml",
+        "TEST-ai.pleos.destinations.vehicle.RoomProtocolTest.xml",
+        "TEST-ai.pleos.destinations.vehicle.SavedPlacesTest.xml",
+        "TEST-ai.pleos.destinations.vehicle.SdkRouteMappingTest.xml",
+        "TEST-ai.pleos.destinations.vehicle.VehiclePresentationTest.xml",
+        "TEST-ai.pleos.destinations.vehicle.VehicleProposalSessionTest.xml",
+        "TEST-ai.pleos.destinations.vehicle.VehicleSessionTest.xml",
+        "TEST-ai.pleos.destinations.vehicle.VoiceDraftTest.xml",
+        "TEST-ai.pleos.destinations.vehicle.VoiceInputCleanupTest.xml",
+        "TEST-ai.pleos.destinations.vehicle.VoiceInputTest.xml",
+        "TEST-ai.pleos.destinations.vehicle.VoicePcmCaptureTest.xml"
+      ]
+    }
+  },
+  "lint": {
+    "app": {
+      "Warning": 13
+    },
+    "nativeDriver": {
+      "Warning": 8
+    }
+  },
+  "apk": {
+    "app": "a4e7a6d0368b66f8445661d07aa819921d8f1170fc586088ef0e54aa1a74ab7a",
+    "nativeDriver": "f457c4261f0be536cf63ef7ab0b72badfbe56dc65e1ff12dc2977e5fa716abe9"
+  },
+  "unchangedInputs": true
+}

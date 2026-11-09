@@ -1,0 +1,9 @@
+{
+  "atUtc": "2026-11-09T04:51:28.536983+00:00",
+  "serial": "emulator-5572",
+  "inputSource": "actual fixed400char UI edit, not STT",
+  "pass": false,
+  "error": "['', 'ai.umos.drivingview:id/front_container', 'android:id/content']",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\nAssertionError: ['', 'ai.umos.drivingview:id/front_container', 'android:id/content']\n",
+  "restored": "1.0"
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ai.pleos.destinations.core.VehicleProposalProtectionTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-11-09T03:49:50" hostname="wontop-MacBookAir.local" time="0.004">
+  <properties/>
+  <testcase name="leaderFailureKeepsProtectionAndOldCallbacksCannotPublishOrRestoreSuccess" classname="ai.pleos.destinations.core.VehicleProposalProtectionTest" time="0.002"/>
+  <testcase name="successfulAcceptedCompletionPreservesANewerPendingHold" classname="ai.pleos.destinations.core.VehicleProposalProtectionTest" time="0.0"/>
+  <testcase name="acceptedAutoOffReconnectIsQueryOnlyAndPreservesOriginalDeadline" classname="ai.pleos.destinations.core.VehicleProposalProtectionTest" time="0.0"/>
+  <testcase name="completingOrResettingPublicationDoesNotRestoreGenericAcceptedApplyAuthority" classname="ai.pleos.destinations.core.VehicleProposalProtectionTest" time="0.0"/>
+  <testcase name="pendingReleaseAndStaleSuccessCannotClearCurrentAcceptedProtection" classname="ai.pleos.destinations.core.VehicleProposalProtectionTest" time="0.0"/>
+  <testcase name="lateLeaderDestinationChangeAfterMatchRechecksOnlyAndNeverPublishesOldTarget" classname="ai.pleos.destinations.core.VehicleProposalProtectionTest" time="0.0"/>
+  <testcase name="stopDuringAcceptedConnectFencesEveryLateSdkEvent" classname="ai.pleos.destinations.core.VehicleProposalProtectionTest" time="0.0"/>
+  <testcase name="discardingRoomIdentityDoesNotFenceTheSameRevisionInAnotherRoom" classname="ai.pleos.destinations.core.VehicleProposalProtectionTest" time="0.001"/>
+  <testcase name="pendingProtectionFencesAnAlreadyInFlightLeaderReadAndShareAcknowledgement" classname="ai.pleos.destinations.core.VehicleProposalProtectionTest" time="0.0"/>
+  <testcase name="acceptedRevisionDoesNotEnterGenericFollowerPathAndExplicitApplyIsOneOperation" classname="ai.pleos.destinations.core.VehicleProposalProtectionTest" time="0.0"/>
+  <testcase name="acceptedInitialSnapshotProtectsBeforeLeaderStartsObservingOldNative" classname="ai.pleos.destinations.core.VehicleProposalProtectionTest" time="0.0"/>
+  <testcase name="acceptedCommitIsNotBlockedByOldInFlightPublicationAndItsLateFailureCannotCancelApply" classname="ai.pleos.destinations.core.VehicleProposalProtectionTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

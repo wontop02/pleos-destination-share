@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ai.pleos.playground.sdk.stt" >
+
+    <uses-sdk android:minSdkVersion="23" />
+
+    <!-- CCG Validation 체크를 위한 권한 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <queries>
+        <intent>
+            <action android:name="ai.pleos.playground.caas.intent.action.SPEECH_START" />
+        </intent>
+    </queries>
+
+    <application>
+
+        <!-- CAAS minimum version: matches the actual GAAS package name (ai.pleos.playground.caas) -->
+        <meta-data
+            android:name="ai.pleos.playground.caas.min_version_name"
+            android:value="4.1.29" />
+        <meta-data
+            android:name="ai.pleos.playground.caas.min_version_code"
+            android:value="4001029" />
+
+        <!-- Deprecated: legacy keys kept for backward compatibility with older app-market versions -->
+        <meta-data
+            android:name="ai.pleos.playground.service.caas.min_version_name"
+            android:value="4.1.29" />
+        <meta-data
+            android:name="ai.pleos.playground.service.caas.min_version_code"
+            android:value="4001029" />
+        <meta-data
+            android:name="ai.pleos.playground.sdk.stt.current_version_name"
+            android:value="3.3.1" />
+        <meta-data
+            android:name="ai.pleos.playground.sdk.stt.current_version_code"
+            android:value="3003001" />
+    </application>
+
+</manifest>

@@ -1,0 +1,17 @@
+{
+  "atUtc": "2026-11-09T05:02:52.320828+00:00",
+  "productSource": "105cd7ef5b47e194be1fbfd2271ba6d96c0fd32f",
+  "startHead": "b883042cbc9610a551b3329bb6effdd219eabd06",
+  "manifestFiles": 73,
+  "unchangedFiles": 72,
+  "allowedDocumentationChanges": [
+    {
+      "path": "docs/product/vehicle-voice-proposals.md",
+      "before": "956b876bf29fefcf7112b56bde79ffae316b99796eac307d20268925fa19aedc",
+      "after": "e8f55edfefbda7869945957fd58766ed5bc4524df93d8a274adfe9e2ad583b89"
+    }
+  ],
+  "compiledProductAndTestInputsUnchanged": true,
+  "installedPackageBinding": "installed-apk-user-pid-binding.json",
+  "independentBuild": "verifier/build-result.json"
+}

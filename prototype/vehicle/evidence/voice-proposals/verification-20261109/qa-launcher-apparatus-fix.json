@@ -1,0 +1,7 @@
+{
+  "atUtc": "2026-11-09T04:53:22.564070+00:00",
+  "beforeSha256": "e4c59057f01c2d2e0dc505affac1bb5d71bc7c50401b6f7058c774deb2638c6d",
+  "afterSha256": "583731458acc4c95d53c34fffbe869c7b4bf230136b801aa9b7c8fc39930dc4a",
+  "change": "Emulate actual MAIN/LAUNCHER NEW_TASK+RESET_TASK_IF_NEEDED and wait launch; previous explicit component repeatedly stacked MainActivity and could leave DrivingView in front after config recreation. Product source unchanged.",
+  "evidence": "Q06-B-launcher-entry-diagnostic.json"
+}

@@ -1,0 +1,24 @@
+{
+  "atUtc": "2026-11-09T04:53:40.271935+00:00",
+  "serial": "emulator-5572",
+  "component": "VehicleUiTextProbe",
+  "arguments": {
+    "field": "voice_text",
+    "textKey": "long"
+  },
+  "exit": 0,
+  "seconds": 3.111632165999998,
+  "result": {
+    "actionAccepted": "true",
+    "emptyOrShowingHint": "false",
+    "field": "voice_text",
+    "inputSource": "ui_edit_not_speech_recognition",
+    "readbackCharacters": "400",
+    "readbackEquals": "true",
+    "requestedCharacters": "400",
+    "success": "true",
+    "textKey": "long"
+  },
+  "productionPidBefore": "19726",
+  "productionPidAfter": "19726"
+}

@@ -1,0 +1,66 @@
+{
+  "role": "builtin worker applying .codex/agents/builder.toml contract; custom builder role was not executed",
+  "base": "8b6321276f33923f24f15a8437205b6126bf92ca",
+  "readHead": "b883042cbc9610a551b3329bb6effdd219eabd06",
+  "state": "one-file uncommitted documentation change; no product, device, GitHub or commit operation",
+  "changedPath": "docs/product/vehicle-voice-proposals.md",
+  "beforeSha256": "956b876bf29fefcf7112b56bde79ffae316b99796eac307d20268925fa19aedc",
+  "afterSha256": "e8f55edfefbda7869945957fd58766ed5bc4524df93d8a274adfe9e2ad583b89",
+  "exactDiff": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-verify-20261109/builder-docs-final.patch",
+  "exactDiffSha256": "0ce41bfd5ebbce89ec32806d1d875d67db4f9a537ce583a8fc72f1953208732a",
+  "numstat": {
+    "insertions": 39,
+    "deletions": 2
+  },
+  "changes": [
+    "Date-scoped original native request failure and initial AudioRecord unverified status; original closeout remains linked.",
+    "Cleanup serialization is scoped to the same gateway/Activity instance; cross-Activity sub-three-second overlap was not directly tested and has no confirmed failure.",
+    "Appended bounded B human recognition, Q01 through Q08b actual observations, apparatus errata, independent partial audits, source/native metadata separation and separate approved verification window.",
+    "Q04b failed capture is retained; Q04c captures the same actual failure UI without a new recording. Q05c final actual cases are included.",
+    "Exact final head verdict and merge remain coordinator/verifier actions; no overall PASS asserted."
+  ],
+  "validation": [
+    {
+      "command": "git diff --check -- docs/product/vehicle-voice-proposals.md",
+      "exit": 0
+    },
+    {
+      "command": "git diff --numstat -- docs/product/vehicle-voice-proposals.md",
+      "exit": 0,
+      "result": "39 insertions, 2 deletions"
+    },
+    {
+      "command": "git diff --name-only",
+      "exit": 0,
+      "result": [
+        "docs/product/vehicle-voice-proposals.md"
+      ]
+    },
+    {
+      "command": "git diff --name-only 105cd7ef5b47e194be1fbfd2271ba6d96c0fd32f -- prototype/vehicle/app prototype/vehicle/core",
+      "exit": 0,
+      "result": []
+    },
+    {
+      "command": "git rev-parse HEAD",
+      "exit": 0,
+      "result": "b883042cbc9610a551b3329bb6effdd219eabd06"
+    },
+    {
+      "command": "Python evidence-link audit first attempt",
+      "exit": 1,
+      "cause": "Relative Path(.) was not resolved before selecting the sibling RAW directory; no repository data was changed by this diagnostic."
+    },
+    {
+      "command": "Corrected Python evidence-link audit using Path(.).resolve()",
+      "exit": 0,
+      "result": "23 new evidence links; 21 named RAW files exist; README.md and qa-report.md await coordinator creation/packaging."
+    }
+  ],
+  "publicationPending": [
+    "verification-20261109/README.md",
+    "verification-20261109/qa-report.md",
+    "coordinator packaging of linked RAW files into prototype/vehicle/evidence/voice-proposals/verification-20261109/"
+  ],
+  "tests": "No product changes in this task; no Gradle, Node, device or server tests rerun."
+}

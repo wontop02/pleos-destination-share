@@ -1,0 +1,104 @@
+{
+  "emulator-5570": {
+    "serial": "emulator-5570",
+    "lineOffset": 24,
+    "hostAt": "2026-11-09T03:57:41.948169+00:00",
+    "state": {
+      "at": 1794196402617,
+      "event": "sessionState",
+      "serviceEpoch": 4000780,
+      "roomEpoch": 1,
+      "revision": 1,
+      "role": "host",
+      "automatic": "OFF",
+      "applying": "IDLE",
+      "connection": "CONNECTED",
+      "roomConnected": true,
+      "uiCount": 1,
+      "confirmedAtElapsed": null,
+      "routingCompletedObserved": false,
+      "confirmationKind": null,
+      "sharedKind": "pleos_place",
+      "proposalLease": false,
+      "proposalBusy": false,
+      "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+      "proposalPublicationHeld": true,
+      "acceptedProposalId": "e669d8a5dd735bef86b9ff48",
+      "acceptedProposalVersion": 2,
+      "acceptedProposalRevision": 1,
+      "proposal": {
+        "id": "e669d8a5dd735bef86b9ff48",
+        "version": 2,
+        "status": "accepted",
+        "candidateName": "청계산담백미",
+        "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+        "proposerId": "93c1bad0addf52af2adf8159",
+        "baseRevision": 0,
+        "createdAt": 1794195679869,
+        "expiresAt": 1794195799869,
+        "acceptedRevision": 1,
+        "responses": [
+          {
+            "memberId": "747ebc2fb24f7684bbf6242c",
+            "response": "accepted"
+          },
+          {
+            "memberId": "93c1bad0addf52af2adf8159",
+            "response": "accepted"
+          }
+        ]
+      }
+    }
+  },
+  "emulator-5572": {
+    "serial": "emulator-5572",
+    "lineOffset": 22,
+    "hostAt": "2026-11-09T03:57:42.054964+00:00",
+    "state": {
+      "at": 1794196653513,
+      "event": "activityStopDetach",
+      "serviceEpoch": 5159463,
+      "roomEpoch": 1,
+      "revision": 1,
+      "role": "member",
+      "automatic": "OFF",
+      "applying": "IDLE",
+      "connection": "CONNECTED",
+      "roomConnected": true,
+      "uiCount": 1,
+      "confirmedAtElapsed": null,
+      "routingCompletedObserved": false,
+      "confirmationKind": null,
+      "sharedKind": "pleos_place",
+      "proposalLease": false,
+      "proposalBusy": false,
+      "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+      "proposalPublicationHeld": true,
+      "acceptedProposalId": "e669d8a5dd735bef86b9ff48",
+      "acceptedProposalVersion": 2,
+      "acceptedProposalRevision": 1,
+      "proposal": {
+        "id": "e669d8a5dd735bef86b9ff48",
+        "version": 2,
+        "status": "accepted",
+        "candidateName": "청계산담백미",
+        "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+        "proposerId": "93c1bad0addf52af2adf8159",
+        "baseRevision": 0,
+        "createdAt": 1794195679869,
+        "expiresAt": 1794195799869,
+        "acceptedRevision": 1,
+        "responses": [
+          {
+            "memberId": "747ebc2fb24f7684bbf6242c",
+            "response": "accepted"
+          },
+          {
+            "memberId": "93c1bad0addf52af2adf8159",
+            "response": "accepted"
+          }
+        ]
+      }
+    }
+  }
+}

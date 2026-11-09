@@ -1,0 +1,9 @@
+{
+  "atUtc": "2026-11-09T04:52:01.179112+00:00",
+  "expectedWrongField": "error=invalid_name",
+  "actual": {
+    "code": "invalid_name",
+    "error": "참여자 이름을 1–40자로 입력해 주세요."
+  },
+  "classification": "Harness assertion used the message field for a code. Actual invalid request was rejected; no product fix."
+}

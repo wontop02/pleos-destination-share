@@ -1,0 +1,117 @@
+{
+  "atUtc": "2026-11-09T04:59:54.295098+00:00",
+  "cleanup": {
+    "emulator-5570": {
+      "fontScale": "1.0",
+      "appop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+20m53s336ms ago; duration=+567ms\n",
+      "state": {
+        "at": 1794200394832,
+        "event": "activityStopDetach",
+        "serviceEpoch": 7447527,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "host",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "994d714aa66333c17676e84b",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "994d714aa66333c17676e84b",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "747ebc2fb24f7684bbf6242c",
+          "baseRevision": 1,
+          "createdAt": 1794198326888,
+          "expiresAt": 1794198446888,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "747ebc2fb24f7684bbf6242c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "93c1bad0addf52af2adf8159",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      "pid": "32650",
+      "surface": "home"
+    },
+    "emulator-5572": {
+      "fontScale": "1.0",
+      "appop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+4m1s695ms ago; duration=+1s603ms\n",
+      "state": {
+        "at": 1794200044533,
+        "event": "sessionState",
+        "serviceEpoch": 8799808,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "member",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "994d714aa66333c17676e84b",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "994d714aa66333c17676e84b",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "747ebc2fb24f7684bbf6242c",
+          "baseRevision": 1,
+          "createdAt": 1794198326888,
+          "expiresAt": 1794198446888,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "747ebc2fb24f7684bbf6242c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "93c1bad0addf52af2adf8159",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      "pid": "19726",
+      "surface": "clean composer, enabled 말로작성"
+    }
+  },
+  "apparatusErratum": "Previous unconditional clear asserted an action on an already disabled/empty draft. No product defect.",
+  "intentionalRetained": [
+    "two existing owned AVDs and app auth/room",
+    "existing4190 and task4192",
+    "approved host mic inputs on",
+    "all external diagnostics and baseline evidence"
+  ],
+  "pass": true
+}

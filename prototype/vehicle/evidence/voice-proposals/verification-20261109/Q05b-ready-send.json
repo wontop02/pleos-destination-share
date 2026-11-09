@@ -1,0 +1,25 @@
+{
+  "serial": "emulator-5570",
+  "actualNativeChoice": "가든서비스\n경기도 성남시 수정구 창업로40번길 6",
+  "sendEnabled": true,
+  "sent": false,
+  "inputSource": "editable UI public fixture, not recognized speech",
+  "traces": {
+    "emulator-5570": [
+      {
+        "hostAt": "2026-11-09T04:07:01.529892+00:00",
+        "serial": "emulator-5570",
+        "sourceGeneration": 0,
+        "productionPid": "32650",
+        "record": {
+          "at": 1794197221196,
+          "event": "voice:edited",
+          "nativeEpoch": 4,
+          "operation": 4,
+          "matched": null
+        }
+      }
+    ],
+    "emulator-5572": []
+  }
+}

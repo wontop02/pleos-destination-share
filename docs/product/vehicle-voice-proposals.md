@@ -16,7 +16,7 @@
 
 2026-11-08 공식 문서와 Maven AAR의 공개 선언을 확인했다. 동결 7은 `SpeechToText(applicationContext, Mode.ON_DEVICE)`를 initialize/addListener/setLocale한 뒤 앱 전경의 Android AudioRecord로 PCM16LE 16kHz mono를 메모리에 캡처한다. 실제 RECORDSTATE_RECORDING 확인 뒤에만 듣는 중이다. 명시 말하기 끝 또는 15초/480000바이트 상한에서 AudioRecord를 stop/release한 뒤 공개 sendAudio/completeAudioSend로 같은 차량 내 엔진에 전달한다. SDK request() 위임 마이크로 fallback하지 않는다. 파일·Intent·백업·방 서버에 PCM을 저장하지 않는다. 확정 completed=true만 인식문으로 사용하며 SDK onEnded가 최종 결과 대기 기한을 단축하지 않는다.
 
-이 전환은 사용자 실제 B 발화에서 준비와 약 8초 CAAS 녹음은 있었으나 중간/최종/인식 시작 callback 없이 말하기 끝 3초 뒤 시간 초과된 관찰에 따른다. 같은 ON_DEVICE 엔진의 supplied PCM final은 별도 관측되었다. 이는 request 위임 마이크의 입력 전달/완료 신호/기한 중 근본 원인이 어느 것인지 확정한 증거가 아니며, 새 AudioRecord 경로의 실마이크 성공도 아니다. 실제 권한 승인·원본 음향 재현 루프·실제 인식문·물리 마이크 해제를 동결 7에서 별도 검증해야 한다.
+이 전환은 2026-11-08 사용자 실제 B 발화에서 준비와 약 8초 CAAS 녹음은 있었으나 중간/최종/인식 시작 callback 없이 말하기 끝 3초 뒤 시간 초과된 관찰에 따른다. 같은 ON_DEVICE 엔진의 supplied PCM final은 별도 관측되었다. 입력 전달/완료 신호/기한 중 어느 것이 request 위임 마이크 실패의 근본 원인인지는 확정하지 않았다. 전환 결정 당시에는 새 AudioRecord 경로의 실제 권한 승인·사람 발화·물리 마이크 해제도 미검증이었다. 이 실패와 [11/8 종료 기록](../../prototype/vehicle/evidence/voice-proposals/closeout-20261108/README.md)은 보존하며, 이후 B 사람 발화와 11/9 실제 두 차량 관찰은 아래에서 구분한다.
 
 새 android.permission.RECORD_AUDIO는 앱이 직접 캡처하기 위해 필요한 dangerous runtime permission이다. 전경 작성 버튼에서만 요청하며 사용자가 거절하면 직접 입력/장소 선택을 유지한다. 승인 callback은 foreground/작성 페이지/방/회원/room epoch/native epoch/page generation을 다시 검사하고 한 번만 소비한다. 화면 이탈·중지 후 늦은 승인은 녹음을 시작하지 않는다. adb grant, 특권 우회, 새 FGS/마이크 FGS/배경 녹음은 없다. 실제 사용자 승인 전 녹음이 검증되었다고 주장하지 않는다. [AudioRecord 공식 계약](https://developer.android.com/reference/android/media/AudioRecord), [Android runtime permission](https://developer.android.com/training/permissions/requesting)
 
@@ -31,7 +31,7 @@ Gleo Interface의 action schema/Android intent는 별도의 앱 기능 호출 �
 
 ## 수명과 동의
 
-`VoiceInputController`는 마이크 gateway·monotonic 시계·변경 알림만 받는다. 제안 API, 경로 gateway, 장소 선택과 foreground service를 소유하지 않는다. Activity 전경과 현재 작성 화면에서만 시작하며 방·회원·room epoch·화면 generation·native epoch에 묶는다. 화면 이탈, Activity 중지, 방/회원/내비 연결 교체, 새 pending 제안과 동행 중지는 발화를 지우고 UI generation을 즉시 무효화한 뒤 앱 AudioRecord를 즉시 stop/release한다. 캡처 worker는 nonblocking read/interrupt와 한 번의 native close로 종료하고 취소한 메모리 PCM은 지운다. SDK send는 명시 완료 뒤에만 한 번 가능하며 캡처 취소 뒤에는 0회다. SDK 엔진 stop은 비동기여서 helper/listener를 바로 release하지 않는다. onEndedRecognition 또는 최대 3초 종료 대기 뒤 listener 제거와 release를 수행한다. 다음 명시 인식은 이전 정리가 끝날 때까지 준비 중으로 기다리며, 이전 release가 새 인식과 겹치지 않는다. 이 기한은 물리 마이크 종료의 증거가 아니므로 실제 appops/audio 관찰로 종료를 따로 확인한다. 지연된 초기화·중간/최종 결과·오류는 이전 generation에서 수용하지 않는다. cold start에서 초안이나 마이크 동의를 복구하지 않는다.
+`VoiceInputController`는 마이크 gateway·monotonic 시계·변경 알림만 받는다. 제안 API, 경로 gateway, 장소 선택과 foreground service를 소유하지 않는다. Activity 전경과 현재 작성 화면에서만 시작하며 방·회원·room epoch·화면 generation·native epoch에 묶는다. 화면 이탈, Activity 중지, 방/회원/내비 연결 교체, 새 pending 제안과 동행 중지는 발화를 지우고 UI generation을 즉시 무효화한 뒤 앱 AudioRecord를 즉시 stop/release한다. 캡처 worker는 nonblocking read/interrupt와 한 번의 native close로 종료하고 취소한 메모리 PCM은 지운다. SDK send는 명시 완료 뒤에만 한 번 가능하며 캡처 취소 뒤에는 0회다. SDK 엔진 stop은 비동기여서 helper/listener를 바로 release하지 않는다. onEndedRecognition 또는 최대 3초 종료 대기 뒤 listener 제거와 release를 수행한다. 같은 gateway/Activity 인스턴스의 다음 명시 인식은 그 인스턴스의 이전 정리가 끝날 때까지 준비 중으로 기다린다. 서로 다른 Activity 인스턴스 전체의 SDK 정리를 직렬화하는 보장은 아니다. Activity 재생성 후 3초 안에 새 인식을 시작하는 겹침은 직접 실측하지 않았고, 확인된 실패도 없다. 이 기한은 물리 마이크 종료의 증거가 아니므로 실제 appops/audio 관찰로 종료를 따로 확인한다. 지연된 초기화·중간/최종 결과·오류는 이전 generation에서 수용하지 않는다. cold start에서 초안이나 마이크 동의를 복구하지 않는다.
 
 초기화/이전 엔진 종료 대기 10초, 실제 앱 녹음 상태 뒤 듣기 15초/480000바이트와 종료 뒤 최종 결과 확인 15초 상한을 사용한다. cold 엔진 PCM final이 약 9.5초 걸린 관찰을 반영했으며 실제 종료 이벤트가 결과 기한을 단축하거나 중복 이벤트가 연장하지 않는다. timeout은 callback에서도 검사한다. 자동 재시도나 계속 듣기가 없다. 화면의 편집 입력은 400자로 제한하며 저장·자동완성을 끈다. 관찰 tick이 편집 중인 입력을 덮지 않는다.
 
@@ -46,3 +46,40 @@ Gleo Interface의 action schema/Android intent는 별도의 앱 기능 호출 �
 별도 `nativeDriver`의 testOnly `SpeechProbeActivity`는 공개 SDK의 ON_DEVICE 초기화·차량 마이크·`sendAudio/completeAudioSend`를 분리하여 진단한다. PCM 입력은 작업자가 저장한 자기 앱의 고정 사설 파일 `files/speech-fixture.pcm`, 최대 15초/480000바이트다. `microphoneAudioPersisted=false`는 마이크 녹음을 저장하지 않는다는 뜻이며, 공급한 합성/녹음 fixture 파일의 저장과 구분한다. 보고서에는 해당 사설 fixture 파일명과 바이트 수를 별도 기록한다. probe도 같은 최대 3초 stop 유지 후 해제를 사용하고, 새 초기화는 이전 해제 뒤에만 수행한다. 한 초기화당 입력은 한 번이며 다음 입력은 명시적으로 다시 초기화한다. 이 경로는 운영 앱에 없다. 인식문은 probe 화면에만 표시하고 onStop에 지우며 보고서는 입력 종류·성공/오류·문자 수·RMS 존재만 기록한다. [공식 PCM API](https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/SpeechToText/sending-audio-data)
 
 JVM 검사는 인식 수명·늦은 callback·부정/모호/복수 후보·원본 객체 보존과 선택 무효화를 검사한다. 이는 실제 STT나 차량 라우팅 증거가 아니다. 실제 두 공식 AVD의 소스/APK·입력 출처·STT 결과·오인식 수정·상대 수신·거절/대기 0회·수락 후 실제 native 조회는 총괄이 별도로 동결한다. 합성 PCM/소리·사용자 마이크·실제 사람 발화를 구분한다. 실제 사람 발화가 없으면 사람의 발화 성공을 주장하지 않는다. 최종 PASS와 병합은 별도 문맥 verifier가 정확한 head/증거를 확인한 뒤 총괄이 수행한다.
+
+## 동결 7의 후속 실제 관찰
+
+실행 제품은 source `105cd7ef5b47e194be1fbfd2271ba6d96c0fd32f`, APK SHA-256 `5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e`다. 이후 문서·증거 변경과 제품 source를 구분하며, 아래 후속 검증을 위해 제품 코드를 바꾸지 않았다. 2026-11-09 두 전용 차량 emulator-5570/5572의 foreground user10, 설치 APK와 관찰 PID는 [설치 APK/user/PID 결합](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/installed-apk-user-pid-binding.json)에 기록했다.
+
+11/8 B의 이미 대기 중이던 사람 발화 재시도에서 사용자가 화면에 `여기서 주유하고 가자`가 표시됐다고 확인했다. 문구 정확성은 사용자의 화면 확인이며, 원문을 저장하지 않는 앱 journal이 텍스트 자체를 증명하는 것은 아니다. 직접 대조한 해당 시도의 앱 녹음·종료·PCM 제출·수락된 finalText 이벤트와 설치 APK hash가 일치했다. final은 말하기 끝 뒤 8026ms, PCM 제출 뒤 6084ms에 도착했고 읽기 시점의 app-op은 녹음 중이 아니었다. 이는 공급한 합성 PCM·스피커 합성 시험과 구분되는 B의 실제 사람 발화 관찰이다. A의 사람 발화나 두 차량 전체 흐름의 성공으로 확대하지 않는다. [B 사람 발화 원본](../../prototype/vehicle/evidence/voice-proposals/human-recognition-B-20261108/observation.json)
+
+11/9 후속 결과는 다음과 같다. 후보·이유·긴 문장 검사는 공개 고정 문자열을 실제 화면에서 편집한 것이며 새 STT 성공이나 사람 발화로 세지 않는다. 경로 횟수는 실제 collector의 원시 occurrence를 기준으로 한다. 개별 사례나 부분 독립 감사의 PASS는 전체 AC와 최종 head의 PASS를 뜻하지 않는다.
+
+| 사례 | 직접 관찰한 결과와 증거 |
+|---|---|
+| Q01 기본 API | 앱 기본값 `http://127.0.0.1:4182`로 양쪽 실제 방 생성 API가 201, 격리 시험 방 정리가 200이었다. 부팅 뒤 단말 4182를 검증 서버 4192에 연결하는 운영 reverse helper가 필요했다. 전체 수동 방 생성 UI를 검사했다는 뜻은 아니다. [원본](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/Q01-default-endpoint-verification.json) |
+| Q02 A/B 명시 취소 | 실제 앱 AudioRecord 시작 후 공개 취소 버튼을 눌렀다. 정지한 app-op duration은 A1.569초/B1.435초이고 취소 뒤 15초 관찰 창에서 PCM 제출·finalText·경로 요청은 0회였다. 마이크 수명 검사이며 사람 발화 인식 성공은 아니다. [A](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/Q02-A-result.json) · [B](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/Q02-B-result.json) |
+| Q03 화면 이탈/Activity 중지 | A 홈 이동 뒤 scope 무효화와 앱 마이크 정지, B opaque Activity 전환 뒤 uiCount0과 앱 마이크 정지를 관찰했다. B의 SpeechProbe가 자동 SDK 초기화를 수행한 혼입은 정정 원본에 남겼다. 이 B 시도를 probe 없는 SDK 정리 격리나 빠른 Activity 재시작 증거로 쓰지 않는다. [A](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03-A-page-exit-result.json) · [B](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03-B-opaque-result.json) · [정정](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03-opaque-apparatus-erratum.json) |
+| Q03d B 명시 재시도 | 글꼴 변경에 따른 Activity 재생성이 끝난 뒤 실제 시작·취소를 두 번 수행했고 매번 물리 app-op이 종료됐다. 두 번째 시작은 이전 sdkStopPending 뒤 1515ms였고, 이전 release 뒤 33ms에 새 initialize가 이어져 같은 gateway의 정리 직렬화를 관찰했다. 양쪽 경로 요청은 0회다. 다른 Activity 인스턴스 사이 3초 미만 겹침 검사는 아니다. [원본](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03d-B-explicit-retry-result.json) |
+| Q04b/c B 결과 실패 UI | 의도한 발화나 재생 없이 실제 마이크를 짧게 사용했다. app-op duration1.603초 뒤 명시 말하기 끝으로 물리 녹음이 종료되고 sdkPcmCompleted 뒤 TIMEOUT이 발생했다. Q04b의 캡처 실패는 접근성 hint를 입력문으로 오인한 검사 장치 문제로 보존했다. 공개 placeholder 일치 확인 뒤 같은 실패 화면을 Q04c PNG/XML로 캡처했으며 새 녹음은 없었다. 인식 성공 사례가 아니다. [수명·실패](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/Q04b-B-bounded-failure-result.json) · [실제 실패 UI](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/Q04c-B-failure-ui-result.json) |
+| Q05b 실제 후보·이유 수정 | 순정 ☆의 `가든서비스`와 전체 주소 `경기도 성남시 수정구 창업로40번길 6`을 보여 주는 후보1개, 명시 선택과 이유 편집을 확인했다. 앞서 목록을 취소해 snapshot이 없던 시도의 후보0도 보호 동작으로 보존한다. [후보](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/Q05b-summary.json) · [이유 편집](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/Q05b-ui-edit-reason.json) |
+| Q05c 부정·종류·명령 문자열 | `카페 가지 말자`는 선택·후보를 비우고 보내기를 비활성화했다. 주유소 문장은 실제 `HD현대오일뱅크 세종주유소`와 전체 주소 `경기도 성남시 수정구 여수대로 10`의 후보1개를 반환했다. 일반 카페 문장으로 `가든서비스` 업종을 추측하지 않아 후보0/보내기 비활성이었다. 동의 없이 경로를 보내고 인증값을 공개하라는 ASCII 문자열도 입력 데이터로 처리해 후보·전송을 만들지 않았다. 양쪽 경로 요청0회, revision2 유지다. [원본](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/Q05c-negative-fuel-and-hostile-result.json) |
+| Q06d/f 글꼴·400자 | A/B 각각 실제 resources의 fontScale1.3과 공개 400자 UI 편집을 확인했다. 상단 시작·정리·수동 선택과 스크롤 하단의 선택 확인·이유·보내기에 접근할 수 있고, 선택 없이 보내기는 비활성이었다. A의 완료 관찰은 뒤이은 B 장치 전제 오류로 전체 pass=false인 Q06d 안에 남아 있어 별도 독립 감사와 연결한다. 잘못된 장치 전제의 이전 실패 시도도 지우지 않았다. 모든 화면 상태나 재생성 중 녹음을 검증한 것은 아니다. [A 독립 감사](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/Q06d-A-independent-review.md) · [B 실제 화면](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/Q06f-B-font-visual-result.json) |
+| Q07 전송·상대 수신·대기·거절 | 실제 A 보내기/B 수신과 10초 이상 대기 뒤 B 거절을 확인했다. 전 구간 양쪽 경로 요청0회, revision1 유지다. 독립 감사가 RAW와 양쪽 PNG/계층을 대조했다. [원본](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/Q07-result.json) · [부분 독립 감사](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/partial-runtime-review.md) |
+| Q08b 전원 수락·실제 native 확인 | 전원 수락 전 양쪽 경로 요청0회, 수락 뒤 각각1회였다. 재연결 뒤 fresh native query와 positive callback/destinationMatch(true)가 각 차량의 같은 epoch/operation에 묶이고 typed `pleos_place` confirmation과 revision2가 확인됐다. 원래 약45초 lease가 끝난 뒤에도 요청 뒤 보수적으로 185초 이상 이어진 원시 관찰에서 추가 경로 요청은 없었다. 연장 구간에는 추가 SDK/UI 조작이 없었고 이를 185초간 서비스가 계속 실행됐다는 뜻으로 쓰지 않는다. 이후 독립 native 읽기도 양쪽 같은 장소를 확인했다. [결과](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/Q08b-result.json) · [연장](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/Q08b-extended-observation.json) · [독립 감사](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/Q08b-independent-review.md) |
+
+Q08b의 선택 원본과 실제 native 안내 지점은 다음처럼 별도로 확인했다. 선택 당시 화면·후속 공개 북마크 읽기·독립 native 읽기를 결합한 관찰이며, 후속 읽기를 원래 composer snapshot이나 HTTP 전송 payload 캡처로 표현하지 않는다.
+
+| 필드 | 선택한 저장 장소 원본 | 실제 native 목적지 |
+|---|---|---|
+| 이름 | 가든서비스 | 가든서비스 |
+| 위도/경도 | 37.41255277 / 127.09591666 | 37.412475 / 127.09534722 |
+| 주소 | 경기도 성남시 수정구 창업로40번길 6 | 수정구 시흥동 |
+| POI ID | `36khp2h36p68cm5nqhec` | 동일 |
+| provider / sub-ID | 빈 문자열 / null | 동일 |
+
+실제 앱 계층의 공유 revision2는 원래 좌표·전체 주소의 PLEOS_PLACE를 유지하고 현재 native의 EXACT_POINT와 구분했다. `PLEOS_BOOKMARK` source는 검증된 Destination 생성자 invariant에 근거한 판정이며 SDK source 필드나 전송 payload에서 직접 캡처한 값은 아니다. POI 식별 일치는 좌표가 같다는 뜻이 아니며 기존 exact-point 검사를 완화하지 않았다. 이후 재개한 화면의 confirmation 없음 상태를 앞선 live CONFIRMED 상태와 혼합하지 않는다. [선택 원본/native provenance 독립 감사](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/Q08-provenance-review.md)
+
+위 사례별 후속 관찰과 별개로 최종 설치·정리 상태와 정확한 최종 base/head에 대한 전체 독립 판정은 최종 보고서에서 확정한다. 이 문서 갱신으로 전체 PASS나 병합 완료를 선언하지 않는다. [후속 검증 개요](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/README.md)와 [최종 QA 보고서](../../prototype/vehicle/evidence/voice-proposals/verification-20261109/qa-report.md)에 결합한다.
+
+native 목적지 확인은 지원하는 저장 장소의 식별 확인이다. 입구·경로 동일성, 경로 계산 완료, 지도 타일 복구, 실차, 휴대폰 #7/#8, 지도 #16과 외부 배포는 이 관찰의 완료 범위가 아니다. 11/8 고정 묶음의 120분 상한과 종료·당시 BLOCKED 기록은 원본 그대로 유지한다. 11/9의 별도 승인 검증은 03:43:58–05:43:58 UTC 실행 묶음이며 이전 상한을 재설정하거나 당시 실패를 소급 변경하지 않는다.
