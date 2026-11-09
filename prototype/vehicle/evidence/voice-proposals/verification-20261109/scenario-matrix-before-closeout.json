@@ -1,0 +1,154 @@
+[
+  {
+    "id": "Q01",
+    "intent": "Default room creation",
+    "model": "Normal user defaults",
+    "setup": "Both owned device4182 to host4192, isolated POST create+own cleanup",
+    "harness": "Existing root/default-room-path-20261109/probe-default-create.py",
+    "expected": "Both201 and cleanup200; current app room untouched",
+    "actual": "Both actual device default4182 POST create201, isolated cleanup200; existing room untouched",
+    "status": "PASS",
+    "fixes": [],
+    "evidence": [
+      "Q01-default-endpoint-verification.json"
+    ],
+    "cleanup": "Isolated probe rooms deleted"
+  },
+  {
+    "id": "Q02",
+    "intent": "Microphone explicit cancel",
+    "model": "Interrupted user on A/B",
+    "setup": "Grant A by approved OS UI, explicit start, cancel",
+    "harness": "Actual UI + appop + journal",
+    "expected": "Recording starts then stops; no stale final/proposal/route",
+    "actual": "A approved permission UI; actual app recording observed on A/B, explicit cancellation ended physical app-op; no route during cases",
+    "status": "PASS",
+    "fixes": [],
+    "evidence": [
+      "Q02-A-result.json",
+      "Q02-B-result.json"
+    ],
+    "cleanup": "No app recording active after cancel"
+  },
+  {
+    "id": "Q03",
+    "intent": "Foreground exit and retry",
+    "model": "Repeated interruption/stale scope",
+    "setup": "Start/stop/page exit and activity stop; explicit restart",
+    "harness": "Actual UI + appop lifecycle traces",
+    "expected": "Mic stops; cleared UI; no prior-generation result accepted",
+    "actual": "A page-exit stopped recording. Android HOME left B Main resumed/uiCount1, so stop assertion did not exercise onStop; that failed apparatus attempt is retained. Opaque owned Activity alternative in progress.",
+    "status": "IN_PROGRESS",
+    "fixes": [],
+    "evidence": [
+      "Q03-A-page-exit-result.json",
+      "Q03-B-home-key-observation.json"
+    ],
+    "cleanup": "PENDING"
+  },
+  {
+    "id": "Q04",
+    "intent": "Recognition and edited draft",
+    "model": "Human/synthesized sources distinguished",
+    "setup": "Same installed APK; current native snapshot",
+    "harness": "Actual SpeechToText callbacks + editable TextProbe",
+    "expected": "Final or explicit failure, user edit allowed; no automatic send/route",
+    "actual": "PENDING",
+    "status": "PENDING",
+    "fixes": [],
+    "evidence": [],
+    "cleanup": "PENDING"
+  },
+  {
+    "id": "Q05",
+    "intent": "Saved-place candidate and negatives",
+    "model": "Ambiguous/negated/hostile text",
+    "setup": "Current immutable native ☆ candidates, public text fixtures",
+    "harness": "Actual UI candidate dialog/analyzer and text edit",
+    "expected": "Real names/address; negative/unclear gives no recommendation/send; editing clears selection",
+    "actual": "Actual native cafe name/address and edited reason checked. Cancelled saved-place snapshot correctly produced no candidates; restored explicit native selection produced one current actual voice candidate. Negated/injection UI still pending.",
+    "status": "PARTIAL_PASS",
+    "fixes": [],
+    "evidence": [
+      "Q05-summary.json",
+      "Q05b-summary.json",
+      "Q05b-ready-send.json"
+    ],
+    "cleanup": "PENDING"
+  },
+  {
+    "id": "Q06",
+    "intent": "Long text and font1.3",
+    "model": "Large text/unusual Unicode",
+    "setup": "Save baseline font scale; scoped A/B change then restore",
+    "harness": "Actual UI captures and layout bounds",
+    "expected": "20sp/56dp controls readable; all actions reachable; no data leak",
+    "actual": "PENDING",
+    "status": "PENDING",
+    "fixes": [],
+    "evidence": [],
+    "cleanup": "PENDING"
+  },
+  {
+    "id": "Q07",
+    "intent": "Pending and rejection",
+    "model": "Two-car shared proposal",
+    "setup": "Explicit real saved place and reviewed reason",
+    "harness": "Actual A->B proposal UI + continuous native journal",
+    "expected": "Peer receives; waiting/rejected requestRoute occurrences0 on both",
+    "actual": "Independent raw audit confirms two-member peer receipt and pending/reject requestRoute0 each, revision1 unchanged, gap/error0",
+    "status": "PASS",
+    "fixes": [],
+    "evidence": [
+      "Q07-result.json",
+      "verifier/partial-runtime-review.md"
+    ],
+    "cleanup": "Proposal rejected; no route issued"
+  },
+  {
+    "id": "Q08",
+    "intent": "Unanimous native apply",
+    "model": "Both frozen members consent",
+    "setup": "New proposal, no other members; exact source/APK fixed",
+    "harness": "Actual send/accept +45sec service window + fresh public native query",
+    "expected": "Exactly one route each, actual guarded POI match, selected/native metadata separate",
+    "actual": "Unanimous real cafe proposal: each vehicle route1, same-epoch fresh native match and typedplace confirmation, revision2, >=185sec host observation no extra route; independent SDK queries match",
+    "status": "PASS",
+    "fixes": [],
+    "evidence": [
+      "Q08b-result.json",
+      "Q08b-extended-observation.json",
+      "Q08-independent-native-emulator-5570.json",
+      "Q08-independent-native-emulator-5572.json",
+      "installed-apk-user-pid-binding.json",
+      "verifier/Q08b-independent-review.md"
+    ],
+    "cleanup": "45sec lease ended, no pending proposal"
+  },
+  {
+    "id": "Q09",
+    "intent": "Malformed and misleading success",
+    "model": "Hostile app/network/harness inputs",
+    "setup": "Public fixed strings, isolated API probes and result guards",
+    "harness": "Existing production JVM/Node plus dynamic negative/cancel probes",
+    "expected": "Invalid input cannot submit; no false green from partial logs/exit1",
+    "actual": "PENDING",
+    "status": "PENDING",
+    "fixes": [],
+    "evidence": [],
+    "cleanup": "PENDING"
+  },
+  {
+    "id": "Q10",
+    "intent": "Integrity and cleanup",
+    "model": "Dirty/stale state, bounded commands",
+    "setup": "Freeze Git/base/head, old846 hashes, preserve current app auth",
+    "harness": "Manifest comparisons + explicit timeouts + report",
+    "expected": "No unrelated edits, no secrets, restore font, stop collectors, final exact-head independent verdict",
+    "actual": "PENDING",
+    "status": "PENDING",
+    "fixes": [],
+    "evidence": [],
+    "cleanup": "PENDING"
+  }
+]

@@ -1,0 +1,251 @@
+{
+  "atUtc": "2026-11-09T04:56:16.193381+00:00",
+  "serial": "emulator-5572",
+  "inputSource": "actual microphone, no intentional utterance or playback; short explicit stop",
+  "scope": "observe real bounded empty/no-result failure UI, not recognition accuracy",
+  "before": {
+    "emulator-5570": {
+      "serial": "emulator-5570",
+      "lineOffset": 367,
+      "hostAt": "2026-11-09T04:56:22.537904+00:00",
+      "state": {
+        "at": 1794200038643,
+        "event": "activityStopDetach",
+        "serviceEpoch": 7447527,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "host",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "994d714aa66333c17676e84b",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "994d714aa66333c17676e84b",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "747ebc2fb24f7684bbf6242c",
+          "baseRevision": 1,
+          "createdAt": 1794198326888,
+          "expiresAt": 1794198446888,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "747ebc2fb24f7684bbf6242c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "93c1bad0addf52af2adf8159",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    },
+    "emulator-5572": {
+      "serial": "emulator-5572",
+      "lineOffset": 269,
+      "hostAt": "2026-11-09T04:56:22.679351+00:00",
+      "state": {
+        "at": 1794200044533,
+        "event": "sessionState",
+        "serviceEpoch": 8799808,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "member",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "994d714aa66333c17676e84b",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "994d714aa66333c17676e84b",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "747ebc2fb24f7684bbf6242c",
+          "baseRevision": 1,
+          "createdAt": 1794198326888,
+          "expiresAt": 1794198446888,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "747ebc2fb24f7684bbf6242c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "93c1bad0addf52af2adf8159",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "recordingAppop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+370ms ago (running)\n",
+  "stoppedAppop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+1s978ms ago; duration=+1s603ms\n",
+  "events": [
+    {
+      "hostAt": "2026-11-09T04:56:24.402998+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200183702,
+        "event": "voice:startMicrophone",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:56:24.402998+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200183757,
+        "event": "voice:sdkInitializedOnDevice",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:56:24.402998+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200183813,
+        "event": "voice:appMicrophoneRecording",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:56:24.402998+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200183813,
+        "event": "voice:listening",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:56:26.235730+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200185381,
+        "event": "voice:stopMicrophone",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:56:26.235730+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200185426,
+        "event": "voice:appMicrophoneClosed",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:56:26.235730+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200185427,
+        "event": "voice:endedAwaitingFinal",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:56:26.235730+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200185432,
+        "event": "voice:sdkPcmCompleted",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:56:40.846354+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200200474,
+        "event": "voice:sdkStopPending",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:56:40.846354+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200200478,
+        "event": "voice:failureTIMEOUT",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    }
+  ],
+  "failureEvents": [
+    "voice:failureTIMEOUT"
+  ],
+  "pass": false,
+  "error": "Populated form capture requires explicit public-fixture attestation",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 8, in <module>\n  File \"/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-verify-20261109/qa-live.py\", line 100, in capture\n    assert not any(n.get('class')=='android.widget.EditText' and n.get('text') for n in nodes),'Populated form capture requires explicit public-fixture attestation'\nAssertionError: Populated form capture requires explicit public-fixture attestation\n",
+  "finalAppop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+19s550ms ago; duration=+1s603ms\n"
+}

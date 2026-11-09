@@ -1,0 +1,696 @@
+{
+  "head": "b883042cbc9610a551b3329bb6effdd219eabd06",
+  "verdict": "PARTIAL_RUNTIME_REVIEW; overall BLOCKED pending Q08/Q03-recreation/fontScale/final head",
+  "atUtc": "2026-11-09T04:20:25.676704+00:00",
+  "Q07": {
+    "method": "Count every raw collector row occurrence after checkpoint offset through result timestamp; no set or event deduplication.",
+    "rows": {
+      "emulator-5570": {
+        "lineOffset": 45,
+        "endLineOffset": 54,
+        "rawCaseRows": 9,
+        "eventCounts": {
+          "proposalPublicationHeld": 2,
+          "sessionState": 4,
+          "voice:scopeCleared": 1,
+          "coordinationServiceStart": 1,
+          "pendingProposalReleased": 1
+        },
+        "routeOccurrences": 0,
+        "revisions": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "productionPids": [
+          "32650"
+        ],
+        "sourceGenerations": [
+          0
+        ],
+        "resultTraceIsPrefixOfRawWindow": true,
+        "observations": 34,
+        "maxObservationIntervalSeconds": 1.386224,
+        "rawPrefixSha256": "0d943ec3fa4c828d916a59de2d2e6667096ef428d33c09d795ee937aa414e8d8",
+        "currentProposalIds": [
+          "e669d8a5dd735bef86b9ff48",
+          "e669d8a5dd735bef86b9ff48",
+          "0cdedfffc86a7036aa77396e",
+          "0cdedfffc86a7036aa77396e",
+          "0cdedfffc86a7036aa77396e"
+        ],
+        "start": "2026-11-09T04:11:21.978165+00:00",
+        "end": "2026-11-09T04:11:51.655780+00:00"
+      },
+      "emulator-5572": {
+        "lineOffset": 78,
+        "endLineOffset": 86,
+        "rawCaseRows": 8,
+        "eventCounts": {
+          "proposalPublicationHeld": 2,
+          "sessionState": 4,
+          "coordinationServiceStart": 1,
+          "pendingProposalReleased": 1
+        },
+        "routeOccurrences": 0,
+        "revisions": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "productionPids": [
+          "19726"
+        ],
+        "sourceGenerations": [
+          0
+        ],
+        "resultTraceIsPrefixOfRawWindow": true,
+        "observations": 33,
+        "maxObservationIntervalSeconds": 1.411069,
+        "rawPrefixSha256": "80ee9afc87859e0870ae4263bfc79f319cb9d3ce3884f31879f69f18ee4609a8",
+        "currentProposalIds": [
+          "0cdedfffc86a7036aa77396e",
+          "0cdedfffc86a7036aa77396e",
+          "0cdedfffc86a7036aa77396e",
+          "0cdedfffc86a7036aa77396e",
+          "0cdedfffc86a7036aa77396e"
+        ],
+        "start": "2026-11-09T04:11:22.092878+00:00",
+        "end": "2026-11-09T04:11:51.655780+00:00"
+      }
+    },
+    "routeCounts": {
+      "emulator-5570": 0,
+      "emulator-5572": 0
+    },
+    "collector": {
+      "collector-gaps.jsonl": {
+        "fileExists": false,
+        "allRowsAtAudit": 0,
+        "caseRows": []
+      },
+      "collector-errors.jsonl": {
+        "fileExists": false,
+        "allRowsAtAudit": 0,
+        "caseRows": []
+      }
+    },
+    "publicActions": [
+      {
+        "hostAt": "2026-11-09T04:11:22.196988+00:00",
+        "event": "explicitSendBegin",
+        "case": "Q07",
+        "serial": "emulator-5570"
+      },
+      {
+        "hostAt": "2026-11-09T04:11:24.937262+00:00",
+        "event": "publicUiTap",
+        "serial": "emulator-5570",
+        "resource": "send_proposal"
+      },
+      {
+        "hostAt": "2026-11-09T04:11:44.334295+00:00",
+        "event": "explicitRejectBegin",
+        "case": "Q07",
+        "serial": "emulator-5572"
+      },
+      {
+        "hostAt": "2026-11-09T04:11:46.759166+00:00",
+        "event": "publicUiTap",
+        "serial": "emulator-5572",
+        "resource": "reject_proposal"
+      }
+    ],
+    "resultCountsMatch": true,
+    "revisionRemainedOne": true,
+    "noCollectorCaseErrorsOrGaps": true,
+    "sourceLabel": "explicit edited UI text and actual native saved-place choice"
+  },
+  "voiceLifecycle": {
+    "Q02-A": {
+      "serial": "emulator-5570",
+      "eventNames": [
+        "voice:startMicrophone",
+        "voice:sdkInitializedOnDevice",
+        "voice:appMicrophoneRecording",
+        "voice:listening",
+        "voice:sdkStopPending",
+        "voice:cancelled"
+      ],
+      "recordingToCancellationOrScopeClearMs": 1538,
+      "appop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+1s843ms ago; duration=+1s569ms\n",
+      "auditWindowEndHost": "2026-11-09T03:55:39.293694+00:00",
+      "countsThrough15SecondsAfterCancelOrExit": {
+        "voice:startMicrophone": 1,
+        "voice:sdkInitializedOnDevice": 1,
+        "voice:appMicrophoneRecording": 1,
+        "voice:listening": 1,
+        "voice:sdkStopPending": 1,
+        "voice:cancelled": 1,
+        "voice:sdkStopWaitElapsed": 1,
+        "voice:sdkReleased": 1
+      },
+      "collectorContinuedBeyondWindow": true,
+      "noFinalOrPcmOrRouteThroughWindow": true,
+      "limitation": null
+    },
+    "Q02-B": {
+      "serial": "emulator-5572",
+      "eventNames": [
+        "voice:startMicrophone",
+        "voice:sdkInitializedOnDevice",
+        "voice:appMicrophoneRecording",
+        "voice:listening",
+        "voice:sdkStopPending",
+        "voice:cancelled"
+      ],
+      "recordingToCancellationOrScopeClearMs": 1417,
+      "appop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+1s706ms ago; duration=+1s435ms\n",
+      "auditWindowEndHost": "2026-11-09T03:58:01.902925+00:00",
+      "countsThrough15SecondsAfterCancelOrExit": {
+        "voice:startMicrophone": 1,
+        "voice:sdkInitializedOnDevice": 1,
+        "voice:appMicrophoneRecording": 1,
+        "voice:listening": 1,
+        "voice:sdkStopPending": 1,
+        "voice:cancelled": 1,
+        "voice:sdkStopWaitElapsed": 1,
+        "voice:sdkReleased": 1,
+        "activityStartAttach": 1,
+        "voice:scopeCleared": 1,
+        "activityStopDetach": 1
+      },
+      "collectorContinuedBeyondWindow": true,
+      "noFinalOrPcmOrRouteThroughWindow": true,
+      "limitation": null
+    },
+    "Q03-A-page-exit": {
+      "serial": "emulator-5570",
+      "eventNames": [
+        "voice:startMicrophone",
+        "voice:sdkInitializedOnDevice",
+        "voice:appMicrophoneRecording",
+        "voice:listening",
+        "voice:sdkStopPending",
+        "voice:scopeCleared",
+        "voice:sdkStopWaitElapsed",
+        "voice:sdkReleased"
+      ],
+      "recordingToCancellationOrScopeClearMs": 1300,
+      "appop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+5s94ms ago; duration=+1s363ms\n",
+      "auditWindowEndHost": "2026-11-09T03:58:10.906602+00:00",
+      "countsThrough15SecondsAfterCancelOrExit": {
+        "voice:startMicrophone": 1,
+        "voice:sdkInitializedOnDevice": 1,
+        "voice:appMicrophoneRecording": 1,
+        "voice:listening": 1,
+        "voice:sdkStopPending": 1,
+        "voice:scopeCleared": 1,
+        "voice:sdkStopWaitElapsed": 1,
+        "voice:sdkReleased": 1
+      },
+      "collectorContinuedBeyondWindow": true,
+      "noFinalOrPcmOrRouteThroughWindow": true,
+      "limitation": null
+    },
+    "Q03-B-opaque": {
+      "serial": "emulator-5572",
+      "eventNames": [
+        "voice:startMicrophone",
+        "voice:sdkInitializedOnDevice",
+        "voice:appMicrophoneRecording",
+        "voice:listening",
+        "voice:sdkStopPending",
+        "voice:scopeCleared",
+        "activityStopDetach",
+        "serviceDestroy",
+        "voice:sdkStopWaitElapsed",
+        "voice:sdkReleased"
+      ],
+      "recordingToCancellationOrScopeClearMs": 2466,
+      "appop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+6s654ms ago; duration=+2s451ms\n",
+      "auditWindowEndHost": "2026-11-09T04:00:58.569663+00:00",
+      "countsThrough15SecondsAfterCancelOrExit": {
+        "voice:startMicrophone": 1,
+        "voice:sdkInitializedOnDevice": 1,
+        "voice:appMicrophoneRecording": 1,
+        "voice:listening": 1,
+        "voice:sdkStopPending": 1,
+        "voice:scopeCleared": 2,
+        "activityStopDetach": 1,
+        "serviceDestroy": 1,
+        "voice:sdkStopWaitElapsed": 1,
+        "voice:sdkReleased": 1,
+        "sessionState": 8,
+        "serviceCreate": 1,
+        "activityStartAttach": 1,
+        "connected": 1,
+        "getDestinationInfo": 1,
+        "proposalPublicationHeld": 2,
+        "onDestinationInfo": 1
+      },
+      "collectorContinuedBeyondWindow": true,
+      "noFinalOrPcmOrRouteThroughWindow": true,
+      "limitation": "Opaque SpeechProbe auto-initializes SDK; microphone exit only, not isolated engine cleanup."
+    }
+  },
+  "Q03Erratum": {
+    "incorrectOriginalMark": "probeSdkInitialized=false",
+    "corrected": {
+      "probeSdkInitialized": true,
+      "probeMicrophoneRequested": false,
+      "suppliedPcmRequested": false
+    },
+    "source": "SpeechProbeActivity.onCreate ends with setContentView(root); initialize()",
+    "effect": "ON_DEVICE init is a confound for engine cleanup. Do not relabel this as a probe-free Activity-stop or fast-restart test. Original rows retained."
+  },
+  "xmlFields": {
+    "Q05b-actual-voice-candidate.xml": [
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/voice_candidate_choice",
+        "class": "android.widget.Button",
+        "text": "가든서비스\n경기도 성남시 수정구 창업로40번길 6",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[1334,654][2054,727]"
+      }
+    ],
+    "Q05b-reviewed-cafe-ready-send.xml": [
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/nav_home",
+        "class": "android.widget.Button",
+        "text": "홈으로",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[885,114][984,170]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/nav_settings",
+        "class": "android.widget.Button",
+        "text": "설정",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[2421,114][2503,170]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/voice_summary",
+        "class": "android.widget.TextView",
+        "text": "변경할 곳 · 가든서비스\n이유 초안 · 직접 적을 수 있어요\n저장한 실제 후보 1곳의 이름과 주소를 확인해 주세요.",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1194,190][2194,210]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/voice_candidates",
+        "class": "android.widget.Button",
+        "text": "후보 확인 · 1곳",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[1194,226][2194,282]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/select_saved_place",
+        "class": "android.widget.Button",
+        "text": "저장한 장소 다시 선택 · 불러온 목록",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[1194,462][2194,518]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/saved_places_status",
+        "class": "android.widget.TextView",
+        "text": "불러온 목록이에요. 새로 저장한 곳은 ‘목록 새로 불러오기’를 눌러 주세요.",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1194,534][2194,559]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/reload_saved_places",
+        "class": "android.widget.Button",
+        "text": "목록 새로 불러오기",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[1194,571][2194,627]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/cancel_place_selection",
+        "class": "android.widget.Button",
+        "text": "선택 취소",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[1194,639][2194,695]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/selected_place_name",
+        "class": "android.widget.TextView",
+        "text": "가든서비스",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1194,838][2194,881]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/selected_place_address",
+        "class": "android.widget.TextView",
+        "text": "경기도 성남시 수정구 창업로40번길 6",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1194,893][2194,918]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/proposal_reason_input",
+        "class": "android.widget.EditText",
+        "text": "카페 들르는 거 어때?",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[1194,1024][2194,1080]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/send_proposal",
+        "class": "android.widget.Button",
+        "text": "제안 보내기",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[1194,1108][2194,1164]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/example_places",
+        "class": "android.widget.Button",
+        "text": "예제 장소",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[1166,1212][2222,1268]"
+      }
+    ],
+    "Q07-A-after-reject.xml": [
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/nav_settings",
+        "class": "android.widget.Button",
+        "text": "설정",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[2421,114][2503,170]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/connection_status",
+        "class": "android.widget.TextView",
+        "text": "동행방 연결됨 · 내비 연결됨 · 자동 동행 꺼짐",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1166,202][2222,227]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/shared_place_name",
+        "class": "android.widget.TextView",
+        "text": "청계산담백미",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1194,357][2194,402]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/shared_place_address",
+        "class": "android.widget.TextView",
+        "text": "경기도 성남시 수정구 달래내로 22",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1194,414][2194,439]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/destination_status",
+        "class": "android.widget.TextView",
+        "text": "수락한 목적지예요. 필요하면 다시 반영해 주세요.",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1194,463][2194,512]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/change_destination",
+        "class": "android.widget.Button",
+        "text": "목적지 바꾸기",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[1194,540][2194,596]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/home_recovery",
+        "class": "android.widget.Button",
+        "text": "다시 반영",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[1194,608][2194,664]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/start_convoy",
+        "class": "android.widget.Button",
+        "text": "동행 시작",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[1166,757][2222,813]"
+      }
+    ],
+    "Q07-A-pending.xml": [
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/stop_convoy",
+        "class": "android.widget.Button",
+        "text": "동행 중지",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[2284,114][2405,170]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/nav_settings",
+        "class": "android.widget.Button",
+        "text": "설정",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[2421,114][2503,170]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/connection_status",
+        "class": "android.widget.TextView",
+        "text": "동행방 연결됨 · 내비 연결됨 · 자동 동행 꺼짐",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1166,202][2222,227]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/proposal_name",
+        "class": "android.widget.TextView",
+        "text": "가든서비스",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1194,316][2194,359]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/proposal_reason",
+        "class": "android.widget.TextView",
+        "text": "카페 들르는 거 어때?",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1194,371][2194,396]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/proposal_proposer",
+        "class": "android.widget.TextView",
+        "text": "제안한 차량 · Voice-A",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1194,408][2194,433]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/proposal_status",
+        "class": "android.widget.TextView",
+        "text": "기다리는 중 · 다른 차량의 수락을 기다려요",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1194,449][2194,474]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/start_convoy",
+        "class": "android.widget.Button",
+        "text": "동행 시작",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[1166,612][2222,668]"
+      }
+    ],
+    "Q07-B-after-reject.xml": [
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/nav_settings",
+        "class": "android.widget.Button",
+        "text": "설정",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[2421,114][2503,170]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/connection_status",
+        "class": "android.widget.TextView",
+        "text": "동행방 연결됨 · 내비 연결됨 · 자동 동행 꺼짐",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1166,202][2222,227]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/shared_place_name",
+        "class": "android.widget.TextView",
+        "text": "청계산담백미",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1194,357][2194,402]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/shared_place_address",
+        "class": "android.widget.TextView",
+        "text": "경기도 성남시 수정구 달래내로 22",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1194,414][2194,439]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/destination_status",
+        "class": "android.widget.TextView",
+        "text": "수락한 목적지예요. 필요하면 다시 반영해 주세요.",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1194,463][2194,512]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/change_destination",
+        "class": "android.widget.Button",
+        "text": "목적지 바꾸기",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[1194,540][2194,596]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/home_recovery",
+        "class": "android.widget.Button",
+        "text": "다시 반영",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[1194,608][2194,664]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/start_convoy",
+        "class": "android.widget.Button",
+        "text": "동행 시작",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[1166,757][2222,813]"
+      }
+    ],
+    "Q07-B-peer-pending.xml": [
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/nav_settings",
+        "class": "android.widget.Button",
+        "text": "설정",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[2421,114][2503,170]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/connection_status",
+        "class": "android.widget.TextView",
+        "text": "동행방 연결됨 · 내비 연결됨 · 자동 동행 꺼짐",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1166,202][2222,227]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/proposal_name",
+        "class": "android.widget.TextView",
+        "text": "가든서비스",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1194,316][2194,359]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/proposal_reason",
+        "class": "android.widget.TextView",
+        "text": "카페 들르는 거 어때?",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1194,371][2194,396]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/proposal_proposer",
+        "class": "android.widget.TextView",
+        "text": "제안한 차량 · Voice-A",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1194,408][2194,433]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/proposal_status",
+        "class": "android.widget.TextView",
+        "text": "모두 수락하면 내비에 반영해요",
+        "enabled": "true",
+        "clickable": "false",
+        "bounds": "[1194,449][2194,474]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/accept_proposal",
+        "class": "android.widget.Button",
+        "text": "수락",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[1194,498][1686,554]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/reject_proposal",
+        "class": "android.widget.Button",
+        "text": "거절",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[1702,498][2194,554]"
+      },
+      {
+        "resource-id": "ai.pleos.destinations.vehicle:id/start_convoy",
+        "class": "android.widget.Button",
+        "text": "동행 시작",
+        "enabled": "true",
+        "clickable": "true",
+        "bounds": "[1166,692][2222,748]"
+      }
+    ]
+  },
+  "rawXmlStatusSuffixes": {
+    "Q05b-actual-voice-candidate.xml": "UI hierchary dumped to: /proc/self/fd/1\n",
+    "Q05b-reviewed-cafe-ready-send.xml": "UI hierchary dumped to: /proc/self/fd/1\n",
+    "Q07-A-after-reject.xml": "UI hierchary dumped to: /proc/self/fd/1\n",
+    "Q07-A-pending.xml": "UI hierchary dumped to: /proc/self/fd/1\n",
+    "Q07-B-after-reject.xml": "UI hierchary dumped to: /proc/self/fd/1\n",
+    "Q07-B-peer-pending.xml": "UI hierchary dumped to: /proc/self/fd/1\n"
+  },
+  "reviewedFileSha256": {
+    "Q02-A-result.json": "8674c35395a1d20edbf71c6b1e7f15c83ea9112a8297dd4ca26fa2d1e0408437",
+    "Q02-B-result.json": "d6c2de71e787087cb92d2bdcf0d8757e2814f8542d96fc6ee152058184d97c43",
+    "Q03-A-page-exit-result.json": "e90e1563c3171f2bef2465ba7ef659bd820b4a7a00fff482a7f8e6ceb17ec4f8",
+    "Q03-B-opaque-result.json": "bcf3cc8e5f027b098334add4f744a9b27ff9acfcb09a930ebdd8752cb22b7a82",
+    "Q03-opaque-apparatus-erratum.json": "628bf5fd5b6e8ea34c9df7502e8713f4d96f50aeef28228adc67a4dc63f15b63",
+    "Q05-summary.json": "88586b86b6c86db8b23871bac1632da2db8a000e0ab4cee606205b7a114585b4",
+    "Q05b-summary.json": "97583dbe7d58961dd96b9540114136816b04cb56c2d03edf628e61b62ce947c7",
+    "Q05b-ready-send.json": "3e5546a641a166a9ecd116a759ff31c9092f1cd96122ca8c1f2afd620ffe7dc7",
+    "Q07-before.json": "85bad2bd08b805e24f4ddcda903f6e88bb20a1cb4111203c00d39e355736796c",
+    "Q07-peer-pending.json": "3079f8d64ae4f0567ca4f22b6ba8fd012685c1fa976050d36fe8cd0607b87448",
+    "Q07-result.json": "4342aaa418c8ed0b0184ccb530d81d08f077928cd96639c4d4150a343430ba7d",
+    "collector.py": "0fd7da7a2de5e06f8ee09a9b0b960008f7cd1cf513a98202d596ac8405941999",
+    "qa-live.py": "900ec0a0fabafa9e2a1ec304e5c879a889f47b8011645b29eb64e7695befb878",
+    "ui/Q05b-actual-voice-candidate.png": "1f235d8a3b910ee8c09e783d9e8f38a67d8bfbe328a7f02cde751c49e161e8c7",
+    "ui/Q05b-actual-voice-candidate.xml": "6e4fab29b72af95bafdf033e5cd474b6f5d834b41a6461128cb58141aa952b21",
+    "ui/Q05b-reviewed-cafe-ready-send.png": "9e8e65b433c8edab8825fb3f8d901ca7395e92e3983426a5ab9c9e312b137663",
+    "ui/Q05b-reviewed-cafe-ready-send.xml": "1661480423aa796c2ddde5de92a47123807714f8634f9bca5af20ad88ba8e9f7",
+    "ui/Q07-A-after-reject.png": "82a94839247904d67e6cd936495a7a47d9e294c619e33c534ed680a436892ce9",
+    "ui/Q07-A-after-reject.xml": "430d9e4057fea99097b80f89239d0376f32e8d89be558cddcc1d3cc66c5d8b79",
+    "ui/Q07-A-pending.png": "842eee4a099480de090fc022b5f8d7c14aa0c3e086b446055abe9b57b8232a20",
+    "ui/Q07-A-pending.xml": "6d4bc1d626b07cb864da9f30d2f6840fda96f4169d6235a4a75ecc5fdfde53b8",
+    "ui/Q07-B-after-reject.png": "6896aadd72e1d0ddf4b25f8fe5a59d2950de92e516a1b2cac82a920aea55567b",
+    "ui/Q07-B-after-reject.xml": "7bcf7fd0129182a558ba82142d26762a56844f2624542719c5ab94453f5ca805",
+    "ui/Q07-B-peer-pending.png": "7afe901cf1cc59cfa3933fde4d17f9d180c3be57fdc4ea605b2f3d3ad3ee0ad5",
+    "ui/Q07-B-peer-pending.xml": "27a7c540ee800102f83bd508bc93a935a5d1e36b451b41a7a61c588bbece4013"
+  }
+}

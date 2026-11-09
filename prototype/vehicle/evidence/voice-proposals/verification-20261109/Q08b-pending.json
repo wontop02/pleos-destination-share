@@ -1,0 +1,100 @@
+{
+  "states": {
+    "emulator-5570": {
+      "at": 1794198326763,
+      "event": "sessionState",
+      "serviceEpoch": 4000780,
+      "roomEpoch": 1,
+      "revision": 1,
+      "role": "host",
+      "automatic": "OFF",
+      "applying": "IDLE",
+      "connection": "CONNECTED",
+      "roomConnected": true,
+      "uiCount": 1,
+      "confirmedAtElapsed": null,
+      "routingCompletedObserved": false,
+      "confirmationKind": null,
+      "sharedKind": "pleos_place",
+      "proposalLease": true,
+      "proposalBusy": false,
+      "proposalMessage": "제안 대기 · 전원 수락 전에는 순정 안내를 유지합니다.",
+      "proposalPublicationHeld": true,
+      "acceptedProposalId": "e669d8a5dd735bef86b9ff48",
+      "acceptedProposalVersion": 2,
+      "acceptedProposalRevision": 1,
+      "proposal": {
+        "id": "994d714aa66333c17676e84b",
+        "version": 1,
+        "status": "pending",
+        "candidateName": "가든서비스",
+        "candidatePoiId": "36khp2h36p68cm5nqhec",
+        "proposerId": "747ebc2fb24f7684bbf6242c",
+        "baseRevision": 1,
+        "createdAt": 1794198326888,
+        "expiresAt": 1794198446888,
+        "acceptedRevision": null,
+        "responses": [
+          {
+            "memberId": "747ebc2fb24f7684bbf6242c",
+            "response": "accepted"
+          },
+          {
+            "memberId": "93c1bad0addf52af2adf8159",
+            "response": "pending"
+          }
+        ]
+      }
+    },
+    "emulator-5572": {
+      "at": 1794198326656,
+      "event": "sessionState",
+      "serviceEpoch": 5604512,
+      "roomEpoch": 1,
+      "revision": 1,
+      "role": "member",
+      "automatic": "OFF",
+      "applying": "IDLE",
+      "connection": "CONNECTED",
+      "roomConnected": true,
+      "uiCount": 1,
+      "confirmedAtElapsed": null,
+      "routingCompletedObserved": false,
+      "confirmationKind": null,
+      "sharedKind": "pleos_place",
+      "proposalLease": false,
+      "proposalBusy": false,
+      "proposalMessage": "새 목적지 제안 · 수락 또는 거절해 주세요.",
+      "proposalPublicationHeld": true,
+      "acceptedProposalId": "e669d8a5dd735bef86b9ff48",
+      "acceptedProposalVersion": 2,
+      "acceptedProposalRevision": 1,
+      "proposal": {
+        "id": "994d714aa66333c17676e84b",
+        "version": 1,
+        "status": "pending",
+        "candidateName": "가든서비스",
+        "candidatePoiId": "36khp2h36p68cm5nqhec",
+        "proposerId": "747ebc2fb24f7684bbf6242c",
+        "baseRevision": 1,
+        "createdAt": 1794198326888,
+        "expiresAt": 1794198446888,
+        "acceptedRevision": null,
+        "responses": [
+          {
+            "memberId": "747ebc2fb24f7684bbf6242c",
+            "response": "accepted"
+          },
+          {
+            "memberId": "93c1bad0addf52af2adf8159",
+            "response": "pending"
+          }
+        ]
+      }
+    }
+  },
+  "nativeRequestCounts": {
+    "emulator-5570": 0,
+    "emulator-5572": 0
+  }
+}

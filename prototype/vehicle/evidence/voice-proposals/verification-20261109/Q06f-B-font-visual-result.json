@@ -1,0 +1,15 @@
+{
+  "atUtc": "2026-11-09T04:53:22.762280+00:00",
+  "serial": "emulator-5572",
+  "inputSource": "actual fixed400char UI edit, not STT",
+  "apparatus": "corrected actual launcher flags",
+  "pass": true,
+  "fontScale": "1.3",
+  "configuration": "mLastConfigurationFromResources={1.3 310mcc260mnc [ko_KR] ldltr sw1440dp w1682dp h1210dp 160dpi xlrg land car finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(853, 90 - 2535, 1300) mAppBounds=Rect(853, 90 - 2535, 1300) mMaxBounds=Rect(0, 0 - 2560, 1440) mDisplayRotation=ROTATION_0 mWindowingMode=multi-window mDisplayWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} s.2 fontWeightAdjustment=0}",
+  "longChars": 400,
+  "disabledWithoutSelection": true,
+  "topStartBounds": "[1194,334][2194,390]",
+  "sendBounds": "[1194,1108][2194,1164]",
+  "bottomReachable": true,
+  "restored": "1.0"
+}

@@ -1,0 +1,27 @@
+{
+  "changedFromFreeze4": [
+    "prototype/vehicle/nativeDriver/src/main/AndroidManifest.xml"
+  ],
+  "addedFromFreeze4": [
+    "prototype/vehicle/nativeDriver/src/main/kotlin/ai/pleos/destinations/driver/VehicleUiActionProbe.kt"
+  ],
+  "changedNonDriverInputs": [],
+  "currentMatchesFreeze5": true,
+  "appApkUnchanged": true,
+  "appSha256": "259c8ac483c753679c7f8ea56d1e966a813dc55ae50c6ce64bfd8b7891575a64",
+  "driverSha256": "5f99cb5355e12f9af818e1b6740aa3a4f7a9974b387de93a3f8e504639e5a4ea",
+  "checks": [
+    {
+      "check": "signature",
+      "exit": 0
+    },
+    {
+      "check": "manifest",
+      "exit": 0
+    },
+    {
+      "check": "permissions",
+      "exit": 0
+    }
+  ]
+}

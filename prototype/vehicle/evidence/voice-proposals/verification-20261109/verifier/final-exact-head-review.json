@@ -1,0 +1,264 @@
+{
+  "verdict": "PASS",
+  "scope": "issue25 exact H1 independent source/evidence review; not H2 approval or merged/main/issue closure",
+  "role": "Builtin default agent in a separate context followed .codex/agents/verifier.toml; custom verifier role was not invoked.",
+  "reviewedAtUtc": "2026-11-09T05:19:02.463890+00:00",
+  "base": "8b6321276f33923f24f15a8437205b6126bf92ca",
+  "head": "f65183b8f568ddfef63530a7faaaa6418d5d8a74",
+  "productSource": "105cd7ef5b47e194be1fbfd2271ba6d96c0fd32f",
+  "independentBuildHead": "b883042cbc9610a551b3329bb6effdd219eabd06",
+  "operationalApkSha256": "5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e",
+  "operationalDriverSha256": "5f99cb5355e12f9af818e1b6740aa3a4f7a9974b387de93a3f8e504639e5a4ea",
+  "independentApkSha256": {
+    "app": "a4e7a6d0368b66f8445661d07aa819921d8f1170fc586088ef0e54aa1a74ab7a",
+    "nativeDriver": "f457c4261f0be536cf63ef7ab0b72badfbe56dc65e1ff12dc2977e5fa716abe9"
+  },
+  "compiledInputsUnchanged": true,
+  "inputAndAuditHashes": {
+    "execution.json": "3257ac394460874bb423f434ed56e4ab315df5441b59214b6a82eb3758e043ff",
+    "issue-25-frozen.md": "49d45ca69dd6351da7f1b4b11834609f2a2669d6943436be48f9845260c8a3f0",
+    "verifier/build-result.json": "96c910d0d7bd4734f16f340966d9ca562a18f7bbe008780189f83352a315d894",
+    "verifier/node-result.json": "1b21d979da7f2ce374269bc9dfaf754edd9b5465108dbdacd882d2a5a7e20ed6",
+    "verifier/apk-payload-comparison.json": "e7374ca171b091f94c8535468d0e432b012ca27cedb3cd1854a781f1eb2f655d",
+    "verifier/package-checks.json": "e115d41c1e19a8e00cefb739f0a10ed526473603acfea13beff86c9efabc7d2f",
+    "verifier/sdk-public-audit.json": "bf126dfe655540a784cef0d8d347c7d8fb3d8fdda1c207556aac34588f4370a1",
+    "verifier/h1-integrity-audit.json": "e693dfaa75a6dd5ea12046abd701a5262589f3e75896cb14aae4ec2a39c5af43",
+    "verifier/h1-global-runtime-audit.json": "a0b08b41a13f29b8e450210a145d9ddd7f936ec0b5efe4fda7c1f352c5a2799d",
+    "verifier/partial-runtime-audit.json": "425131e3a73d82a09d6974a6950ab1b91183d39393820c1c2ca023e32dee7192",
+    "verifier/Q08b-independent-audit.json": "7bea4ac8173510ddec3d37e980b7050ebec00bce4f454b418de8e0584ee4b1e4",
+    "verifier/Q08-provenance-audit.json": "9637a0e2875f49a248823e33e2622e66d1a3c5beeb97008899508c80b25f6b9f",
+    "verifier/late-runtime-independent-audit.json": "1f8253ca70e1eb524ae59c8b370207719c39abd5f706c529ace7f31f5ca14e63",
+    "committedArtifactManifest": "92da08c2a1e6c4f4fccd20c96f2f2d3badcdac0772625bf86e609e4ed46104e2"
+  },
+  "acceptanceCriteria": [
+    {
+      "id": "AC1",
+      "verdict": "PASS",
+      "evidence": [
+        "source-review-b883042.md",
+        "sdk-public-audit.json",
+        "independent-junit/app/TEST-ai.pleos.destinations.vehicle.VoiceInputTest.xml",
+        "independent-junit/app/TEST-ai.pleos.destinations.vehicle.VoiceInputCleanupTest.xml",
+        "independent-junit/app/TEST-ai.pleos.destinations.vehicle.VoicePcmCaptureTest.xml",
+        "../Q02-A-result.json",
+        "../Q02-B-result.json",
+        "../Q03-A-page-exit-result.json",
+        "../Q03-B-opaque-result.json",
+        "../Q03-opaque-apparatus-erratum.json",
+        "../Q03d-B-explicit-retry-result.json",
+        "../Q04b-B-bounded-failure-result.json",
+        "../Q04c-B-failure-ui-result.json",
+        "late-runtime-independent-audit.json"
+      ],
+      "finding": "전경 명시 시작/중지/취소, 준비/듣기/실패/미지원/timeout 구분과 scope/늦은 callback 가드를 소스·독립 JVM·실제 app-op/저널/화면으로 확인. AudioRecord 종료 후 메모리 PCM 제출, 취소 후 제출/final0. 서로 다른 Activity 간 3초 미만 SDK 정리 겹침은 미측정이며 전역 직렬화 주장을 하지 않음."
+    },
+    {
+      "id": "AC2",
+      "verdict": "PASS",
+      "evidence": [
+        "source-review-b883042.md",
+        "independent-junit/app/TEST-ai.pleos.destinations.vehicle.VoiceDraftTest.xml",
+        "../Q05b-summary.json",
+        "../Q05b-ready-send.json",
+        "../Q05c-negative-fuel-and-hostile-result.json",
+        "../Q05-summary.json",
+        "Q08-provenance-audit.json",
+        "late-runtime-independent-audit.json"
+      ],
+      "finding": "고친 문장→제한적 로컬 초안, 실제 불변 저장 장소 객체만 사용, 부정/복수/모호/없음 보호 및 수정 시 선택 무효화 확인. 현재 native ☆ 실제 카페/주유소 이름·주소, 이유 편집/수동 선택을 실제 UI에서 확인. 정체불명 업종/좌표/ID 생성 없음. 원음·인식문 전체·후보 목록의 journal/server 저장 경로 없음."
+    },
+    {
+      "id": "AC3",
+      "verdict": "PASS",
+      "evidence": [
+        "partial-runtime-audit.json",
+        "Q08b-independent-audit.json",
+        "Q08-provenance-audit.json",
+        "../Q07-result.json",
+        "../Q08b-result.json",
+        "../Q08b-extended-observation.json",
+        "../Q08-independent-native-emulator-5570.json",
+        "../Q08-independent-native-emulator-5572.json",
+        "h1-global-runtime-audit.json",
+        "independent-junit/core/",
+        "independent-junit/app/TEST-ai.pleos.destinations.vehicle.VehicleProposalSessionTest.xml"
+      ],
+      "finding": "검토한 이름/주소/수정 이유 후 실제 명시 send→상대 수신→10초 이상 pending→거절 동안 양쪽 route0/revision1. 새 제안 전원 수락 전0, 이후 각1회만 요청. 같은 새 epoch/operation query→positive callback→destinationMatch(true), typed pleos_place/current revision2 확인. host-wrapper 보수적185초 이상 추가 요청0, 선택 원본과 실제 native 좌표/주소 별도 확인. 이전 place/엄격 exact 계약 회귀 통과."
+    },
+    {
+      "id": "AC4",
+      "verdict": "PASS",
+      "evidence": [
+        "build-result.json",
+        "node-result.json",
+        "package-checks.json",
+        "../ui/",
+        "Q06d-A-independent-audit.json",
+        "late-runtime-independent-audit.json",
+        "../Q06f-B-font-visual-result.json",
+        "../Q04c-B-failure-ui-result.json"
+      ],
+      "finding": "20sp/56dp 토큰 소스, 실제 듣기/취소/편집/후보/전송/timeout 한국어 화면, A/B resources1.3/공개400자 상·하단 PNG/XML 직접 확인. 독립 JVM198/Node94, app+driver assemble/lint와 패키지 검사 통과. 실패한 장치 전제와 캡처 guard 시도는 보존하고 완료된 부분만 근거로 사용."
+    },
+    {
+      "id": "AC5",
+      "verdict": "PASS",
+      "evidence": [
+        "../execution.json",
+        "../installed-apk-user-pid-binding.json",
+        "../../human-recognition-B-20261108/observation.json",
+        "partial-runtime-audit.json",
+        "Q08b-independent-audit.json",
+        "h1-integrity-audit.json",
+        "h1-global-runtime-audit.json"
+      ],
+      "finding": "승인된 ADB5041 두 AVD/user10 및 실제 설치 app/driver hash, production PID와 raw generation을 고정. B 동일 freeze7 실제 사람 발화 final은 11/8 사용자의 화면 보고+실제 lifecycle/final event/hash로 확인; A 사람 발화 성공은 미주장. 현재 edited public text UI와 별도 구분해 실제 두 차량 receipt/reject0/unanimous native를 확인. 이 독립 최종 판정은 exact H1만 대상."
+    }
+  ],
+  "commands": {
+    "independentGradle": {
+      "command": [
+        "/private/tmp/pleos-vehicle-tools-20261105/gradle/gradle-8.11.1/bin/gradle",
+        "--offline",
+        "--no-daemon",
+        "--max-workers=1",
+        "-Dorg.gradle.jvmargs=-Xmx1024m -XX:MaxMetaspaceSize=384m",
+        "-Pkotlin.compiler.execution.strategy=in-process",
+        ":core:test",
+        ":app:testDebugUnitTest",
+        ":app:assembleDebug",
+        ":app:lintDebug",
+        ":nativeDriver:assembleDebug",
+        ":nativeDriver:lintDebug"
+      ],
+      "exit": 0,
+      "seconds": 165.646967333,
+      "tests": 198,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "lintWarnings": {
+        "app": 13,
+        "nativeDriver": 8
+      },
+      "lintErrors": 0
+    },
+    "independentNode": {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "seconds": 15.501354375
+    },
+    "packageChecks": "8 commands exit0; package-checks.json",
+    "integrityAuditPythonExit": 0,
+    "globalRuntimeAuditPythonExit": 0,
+    "finalAssertionsPythonExit": 0,
+    "whitespaceNewDeltaFull": 2,
+    "whitespaceNewDeltaExactFourRawExclusions": 0,
+    "finalGitReadOnlyCommands": [
+      {
+        "command": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exit": 0,
+        "stdout": "f65183b8f568ddfef63530a7faaaa6418d5d8a74",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "git",
+          "rev-parse",
+          "origin/main"
+        ],
+        "exit": 0,
+        "stdout": "8b6321276f33923f24f15a8437205b6126bf92ca",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "git",
+          "status",
+          "--porcelain=v1"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "git",
+          "merge-base",
+          "f65183b8f568ddfef63530a7faaaa6418d5d8a74",
+          "8b6321276f33923f24f15a8437205b6126bf92ca"
+        ],
+        "exit": 0,
+        "stdout": "8b6321276f33923f24f15a8437205b6126bf92ca",
+        "stderr": ""
+      }
+    ]
+  },
+  "integrity": {
+    "manifestFiles": 237,
+    "manifestBytes": 22537087,
+    "manifestMismatches": 0,
+    "sourceManifestFiles": 73,
+    "unchangedSourceFiles": 72,
+    "onlyChangedSourceManifestEntry": "authorized docs/product/vehicle-voice-proposals.md",
+    "baseline846Unchanged": true,
+    "all1104PriorTrackedFilesPreservedExceptAuthorizedDoc": true,
+    "newDeltaFiles": 239,
+    "scopeViolations": 0,
+    "noMatchingCredentialPatternOrBinaryAudioArtifact": true,
+    "workingTreeClean": true,
+    "externalMutableActions": "external actions.jsonl gained later Q10c actions; immutable H1 committed manifest and all reviewed H1 snapshots remain exact. This drift is not silently rebound."
+  },
+  "runtime": {
+    "rawJournalRows": {
+      "A": 376,
+      "B": 282
+    },
+    "observationsEach": 4208,
+    "allRequestRouteOccurrencesEach": 1,
+    "collectorGenerationEach": 0,
+    "productionPids": {
+      "A": 32650,
+      "B": 19726
+    },
+    "maxHostSampleGapSeconds": {
+      "A": 2.645506,
+      "B": 3.382756
+    },
+    "collectorGapErrorFiles": 0,
+    "collectorEndedAtUtc": "2026-11-09T05:00:26.819148+00:00",
+    "collectorExit": "coordinator observed process exit0; verifier directly checked normal-tail collector-result and source, did not control/re-run process",
+    "cleanupH1": "Q10b actual PNG/XML and allowlisted state: fonts1.0/no active recording/connected/rev2/no proposal lease or busy; A home, B clean composer"
+  },
+  "findings": [],
+  "blockers": [],
+  "limitations": [
+    "No claim of A human recognition or a new single uninterrupted human-phrase-to-route trial; actual B human result and edited public-draft proposal/native trials are attributed separately.",
+    "No transcript retained in journal: B phrase accuracy is the user screen report, corroborated by accepted final event and same APK. Earlier synthetic-acoustic timeout remains unresolved.",
+    "Q03 opaque Activity initializes SDK automatically: only app microphone/lifecycle evidence, not isolated SDK cleanup. Cross-Activity sub3s overlap remains unmeasured/no confirmed defect.",
+    "Full independent APK container hashes differ; all decompressed payload entries match app886/driver883 with zero differing entries. Operational install identity is its own full SHA256.",
+    "Selected bookmark read is later read-only provenance, not original composer snapshot/HTTP wire. PLEOS_BOOKMARK is constructor inference. Actual native coordinates/address differ; no exact-point/entrance/route-completion claim.",
+    "Pattern/privacy checks cover committed approved evidence, not unrelated credentials or host stores. No raw audio/private credential/backup was read.",
+    "Q10c cold-reentry has later replacement PIDs and will be reviewed only under requested H2 rebind; no live CONFIRMED inference from historical restoration.",
+    "GitHub PR/merge/main/issue checks belong to coordinator and are not performed by this verifier.",
+    "Any base/head/requirement change invalidates reuse of this exact-head verdict; reverify the changed inputs."
+  ],
+  "referenceCheck": {
+    "path": "final-report-reference-check.json",
+    "missingReferences": 0,
+    "newAuditFilesForH2Copy": [
+      "h1-global-runtime-audit.json",
+      "h1-integrity-audit.json"
+    ],
+    "note": "All durable references checked against H1 package. New H1 audit files are explicitly added with reports in H2; historical human evidence resolves in existing voice-proposals folder.",
+    "firstAttemptExit": 1,
+    "finalExit": 0
+  }
+}

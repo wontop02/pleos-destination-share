@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ai.pleos.destinations.core.PlaceIntentSafetyTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-11-08T10:25:11" hostname="wontop-MacBookAir.local" time="0.051">
+  <properties/>
+  <testcase name="ordinaryExactLeaderStillPublishesASameIdCoordinateChange" classname="ai.pleos.destinations.core.PlaceIntentSafetyTest" time="0.025"/>
+  <testcase name="identityIsCompleteAndSourceDtoCannotMasqueradeAsNativeObservation" classname="ai.pleos.destinations.core.PlaceIntentSafetyTest" time="0.009"/>
+  <testcase name="errorTimeoutStopRoomChangeAndOldSdkEpochNeverRevivePlaceConfirmation" classname="ai.pleos.destinations.core.PlaceIntentSafetyTest" time="0.008"/>
+  <testcase name="acceptedPlaceDoesNotRepublishOrReapplyAfterProtectionEndsButDifferentNativeIdentityStillPublishes" classname="ai.pleos.destinations.core.PlaceIntentSafetyTest" time="0.003"/>
+  <testcase name="routeReturnAndStartAloneDoNotConfirmAndOnlyFreshIssuedReadCanConfirm" classname="ai.pleos.destinations.core.PlaceIntentSafetyTest" time="0.001"/>
+  <testcase name="samePlaceCoalescesAfterReconnectRestartAndColdObservationWithoutManufacturingConfirmation" classname="ai.pleos.destinations.core.PlaceIntentSafetyTest" time="0.001"/>
+  <testcase name="incompleteOrUnsupportedSelectionsAndInvalidGuidanceCoordinatesRejectAtTheModelSeam" classname="ai.pleos.destinations.core.PlaceIntentSafetyTest" time="0.002"/>
+  <testcase name="cancelRequiresANewSdkReadAndKeepsOriginalDeadlineWithoutAnotherRouteRequest" classname="ai.pleos.destinations.core.PlaceIntentSafetyTest" time="0.001"/>
+  <testcase name="legacyExactPointStillRejectsTheSameIdAtTheCafeGuidanceCoordinates" classname="ai.pleos.destinations.core.PlaceIntentSafetyTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

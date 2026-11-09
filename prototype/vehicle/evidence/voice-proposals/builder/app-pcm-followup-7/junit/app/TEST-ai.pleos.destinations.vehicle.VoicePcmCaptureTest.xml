@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ai.pleos.destinations.vehicle.VoicePcmCaptureTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-08T11:49:38" hostname="wontop-MacBookAir.local" time="0.03">
+  <properties/>
+  <testcase name="partialReadsAreLittleEndianAndFinishClosesBeforeDeliveringOnce" classname="ai.pleos.destinations.vehicle.VoicePcmCaptureTest" time="0.011"/>
+  <testcase name="sampleLimitIsExactlyFifteenSecondsAndNeverOverflows" classname="ai.pleos.destinations.vehicle.VoicePcmCaptureTest" time="0.012"/>
+  <testcase name="permissionAndRecordingOrReadFailureNeverBecomeReadyOrDeliverAudio" classname="ai.pleos.destinations.vehicle.VoicePcmCaptureTest" time="0.001"/>
+  <testcase name="permissionResultIsOneShotAndCannotRestoreAChangedForegroundScope" classname="ai.pleos.destinations.vehicle.VoicePcmCaptureTest" time="0.0"/>
+  <testcase name="cancelAfterQueuedCompletionDropsAudioAndNeverSubmitsIt" classname="ai.pleos.destinations.vehicle.VoicePcmCaptureTest" time="0.003"/>
+  <testcase name="cancellingActiveCaptureStopsReadAndDropsAllData" classname="ai.pleos.destinations.vehicle.VoicePcmCaptureTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

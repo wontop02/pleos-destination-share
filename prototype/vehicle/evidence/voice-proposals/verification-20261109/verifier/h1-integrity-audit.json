@@ -1,0 +1,1041 @@
+{
+  "atUtc": "2026-11-09T05:15:48.205899+00:00",
+  "role": "builtin default following verifier.toml in independent context",
+  "base": "8b6321276f33923f24f15a8437205b6126bf92ca",
+  "head": "f65183b8f568ddfef63530a7faaaa6418d5d8a74",
+  "startHead": "b883042cbc9610a551b3329bb6effdd219eabd06",
+  "git": {
+    "head": {
+      "exit": 0,
+      "stdout": "f65183b8f568ddfef63530a7faaaa6418d5d8a74",
+      "stderr": ""
+    },
+    "status": {
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "originMain": {
+      "exit": 0,
+      "stdout": "8b6321276f33923f24f15a8437205b6126bf92ca",
+      "stderr": ""
+    },
+    "mergeBase": {
+      "exit": 0,
+      "stdout": "8b6321276f33923f24f15a8437205b6126bf92ca",
+      "stderr": ""
+    }
+  },
+  "artifactManifest": {
+    "sha256": "92da08c2a1e6c4f4fccd20c96f2f2d3badcdac0772625bf86e609e4ed46104e2",
+    "declaredCount": 237,
+    "actualCount": 237,
+    "declaredBytes": 22537087,
+    "actualBytes": 22537087,
+    "hashMismatches": [],
+    "unlisted": [],
+    "missing": [],
+    "externalCurrentDrift": [
+      "actions.jsonl"
+    ]
+  },
+  "sourceManifest": {
+    "count": 73,
+    "unchanged": 72,
+    "changes": [
+      {
+        "path": "docs/product/vehicle-voice-proposals.md",
+        "before": "956b876bf29fefcf7112b56bde79ffae316b99796eac307d20268925fa19aedc",
+        "after": "e8f55edfefbda7869945957fd58766ed5bc4524df93d8a274adfe9e2ad583b89"
+      }
+    ],
+    "differencesFromBuiltArchive": [
+      "docs/product/vehicle-voice-proposals.md"
+    ]
+  },
+  "baselineEvidence": {
+    "count": 846,
+    "mismatches": []
+  },
+  "priorTrackedFiles": {
+    "count": 1104,
+    "mismatchesExcludingAuthorizedDoc": []
+  },
+  "deltaCount": 239,
+  "delta": [
+    {
+      "status": "M",
+      "path": "docs/product/vehicle-voice-proposals.md"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q01-default-endpoint-verification.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q02-A-before.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q02-A-cancel.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q02-A-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q02-A-start.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q02-B-before.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q02-B-cancel.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q02-B-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q02-B-start.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03-A-font-fast-new-start.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03-A-font-old-start.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03-A-font-recreate-before.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03-A-page-exit-before.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03-A-page-exit-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03-A-page-home.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03-A-page-start.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03-B-home-key-observation.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03-B-opaque-before.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03-B-opaque-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03-B-opaque-start.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03-B-stop-before.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03-B-stop-start.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03-opaque-apparatus-erratum.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03c-B-apparatus-cancel-cleanup.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03c-B-explicit-retry-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03c-B-retry-start-0.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03d-B-clear.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03d-B-explicit-retry-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03d-B-retry-cancel-0.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03d-B-retry-cancel-1.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03d-B-retry-start-0.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q03d-B-retry-start-1.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q04b-B-bounded-failure-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q04b-B-clear.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q04b-B-start.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q04b-B-stop.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q04c-B-failure-ui-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q05-actual-cafe-choice.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q05-before.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q05-summary.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q05-ui-edit-saved-cafe.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q05b-before.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q05b-ready-send.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q05b-summary.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q05b-ui-edit-reason.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q05b-ui-edit-saved-cafe.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q05c-edit-cafe.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q05c-edit-fuel.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q05c-edit-negated.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q05c-negative-fuel-and-hostile-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q05c-negative-prep-edit-reason.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q05c-negative-prep-edit-text.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q06-B-launcher-entry-diagnostic.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q06-font-baseline-user10.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q06-font-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q06-font-stability-diagnostic.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q06b-font-visual-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q06b-observed-font13-control-geometry.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q06c-font-visual-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q06c-observed-font13-control-geometry.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q06d-emulator-5570-long.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q06d-font-visual-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q06d-observed-font13-control-geometry.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q06e-B-font-visual-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q06f-B-font-visual-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q06f-B-long.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q07-before.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q07-peer-pending.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q07-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q08-independent-native-emulator-5570.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q08-independent-native-emulator-5572.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q08-independent-selected-cafe-source.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q08-observed-app-source-and-native-detail.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q08a-edit-reason.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q08a-edit-text.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q08b-before.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q08b-extended-observation.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q08b-observed.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q08b-pending.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q08b-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q09-apparatus-schema-error.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q09-instruction-clear.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q09-invalid-and-noop-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q09-noop-probe-raw.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q10-emulator-5570-clear-draft.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q10b-cleanup-and-ready.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q10b-emulator-5570-clear-inspect.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q10b-emulator-5572-clear-draft.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/Q10b-emulator-5572-clear-inspect.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/README.md"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/actions.jsonl"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/artifact-manifest.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/baseline-existing-session.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/builder-docs-final.patch"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/builder-docs-update.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/collector-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/collector-start.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/collector.py"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/emulator-5570-journal.jsonl"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/emulator-5572-journal.jsonl"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/environment/README.md"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/environment/default-room-path-20261109/README.md"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/environment/default-room-path-20261109/after-fix.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/environment/default-room-path-20261109/apply-default-route.py"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/environment/default-room-path-20261109/before-fix.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/environment/default-room-path-20261109/manifest.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/environment/default-room-path-20261109/probe-default-create.py"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/environment/default-room-path-20261109/routing-fix.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/environment/default-room-path-20261109/verification-baseline.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/environment/ensure-default-route.py"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/environment/helper-idempotency-check.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/environment/root-ui-tools.py"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/execution.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/final-input-binding.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/final-runtime-audit.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/initial-idle-check-apparatus-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/installed-apk-user-pid-binding.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/issue-25-frozen.md"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/observations.jsonl"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/qa-launcher-apparatus-fix.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/qa-live.py"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/qa-report.md"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/qa-state.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/runtime-baseline-config.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/scenario-matrix-before-closeout.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/scenario-matrix.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q03d-B-after-retry-cancel.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q03d-B-after-retry-cancel.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q03d-B-recording-0.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q03d-B-recording-0.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q03d-B-recording-1.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q03d-B-recording-1.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q04c-B-actual-timeout.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q04c-B-actual-timeout.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q05b-actual-voice-candidate.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q05b-actual-voice-candidate.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q05b-reviewed-cafe-ready-send.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q05b-reviewed-cafe-ready-send.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q05c-cafe-no-send.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q05c-cafe-no-send.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q05c-fuel-candidate.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q05c-fuel-candidate.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q05c-negated-no-send.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q05c-negated-no-send.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q05c-negative-prep-candidate.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q05c-negative-prep-candidate.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q05c-negative-prep-reviewed.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q05c-negative-prep-reviewed.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q06-B-surface-diagnostic.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q06-debug-current-A.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q06-font-stability-diagnostic.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q06d-emulator-5570-font13-bottom.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q06d-emulator-5570-font13-bottom.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q06d-emulator-5570-font13-top.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q06d-emulator-5570-font13-top.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q06f-B-font13-bottom.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q06f-B-font13-bottom.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q06f-B-font13-top.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q06f-B-font13-top.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q07-A-after-reject.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q07-A-after-reject.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q07-A-pending.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q07-A-pending.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q07-B-after-reject.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q07-B-after-reject.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q07-B-peer-pending.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q07-B-peer-pending.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q08-app-source-and-native-detail.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q08-app-source-and-native-detail.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q08a-candidate.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q08a-candidate.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q08a-reviewed.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q08a-reviewed.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q09-instruction-no-send.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q09-instruction-no-send.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q10b-emulator-5570-ready.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q10b-emulator-5570-ready.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q10b-emulator-5572-ready.png"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/ui/Q10b-emulator-5572-ready.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/Q06d-A-independent-audit.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/Q06d-A-independent-review.md"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/Q08-provenance-audit.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/Q08-provenance-review.md"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/Q08b-independent-audit.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/Q08b-independent-review.md"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/apk-payload-comparison.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/app-badging.txt"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/app-lint.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/app-manifest.txt"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/app-permissions.txt"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/app-signature.txt"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/build-inputs.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/build-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-gradle.log"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/app/TEST-ai.pleos.destinations.vehicle.NaviDestinationNormalizerTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/app/TEST-ai.pleos.destinations.vehicle.PendingConfirmationCacheTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/app/TEST-ai.pleos.destinations.vehicle.PlacesLoadIntentTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/app/TEST-ai.pleos.destinations.vehicle.RoomHttpClientTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/app/TEST-ai.pleos.destinations.vehicle.RoomProtocolTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/app/TEST-ai.pleos.destinations.vehicle.SavedPlacesTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/app/TEST-ai.pleos.destinations.vehicle.SdkRouteMappingTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/app/TEST-ai.pleos.destinations.vehicle.VehiclePresentationTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/app/TEST-ai.pleos.destinations.vehicle.VehicleProposalSessionTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/app/TEST-ai.pleos.destinations.vehicle.VehicleSessionTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/app/TEST-ai.pleos.destinations.vehicle.VoiceDraftTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/app/TEST-ai.pleos.destinations.vehicle.VoiceInputCleanupTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/app/TEST-ai.pleos.destinations.vehicle.VoiceInputTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/app/TEST-ai.pleos.destinations.vehicle.VoicePcmCaptureTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/core/TEST-ai.pleos.destinations.core.PlaceIntentSafetyTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/core/TEST-ai.pleos.destinations.core.SelectedPlaceConfirmationTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/core/TEST-ai.pleos.destinations.core.VehicleAutomationTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/core/TEST-ai.pleos.destinations.core.VehicleCoordinatorTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-junit/core/TEST-ai.pleos.destinations.core.VehicleProposalProtectionTest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-node.log"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/late-runtime-independent-audit.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/nativeDriver-badging.txt"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/nativeDriver-lint.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/nativeDriver-manifest.txt"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/nativeDriver-permissions.txt"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/nativeDriver-signature.txt"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/node-result.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/package-checks.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/partial-audit-preparation-failure.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/partial-emulator-5570-through-Q07.jsonl"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/partial-emulator-5570-through-Q08b.jsonl"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/partial-emulator-5572-through-Q07.jsonl"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/partial-emulator-5572-through-Q08b.jsonl"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/partial-runtime-audit.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/partial-runtime-review.md"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/product-to-b883042.patch"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/sdk-AAR-AndroidManifest.xml"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/sdk-public-api.txt"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/sdk-public-audit.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/source-integrity-b883042.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/source-result-b883042.json"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/source-review-b883042.md"
+    },
+    {
+      "status": "A",
+      "path": "prototype/vehicle/evidence/voice-proposals/verification-20261109/whitespace-check.json"
+    }
+  ],
+  "scopeViolations": [],
+  "privacy": {
+    "binaryAudioArtifactPaths": [],
+    "credentialPatternHits": [],
+    "scope": "new committed evidence only; no unrelated credentials/raw audio read; pattern scan is supplemental to source/schema review"
+  },
+  "whitespace": {
+    "fullNewDeltaExit": 2,
+    "fullNewDeltaOutput": "prototype/vehicle/evidence/voice-proposals/verification-20261109/builder-docs-final.patch:6: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/builder-docs-final.patch:8: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/builder-docs-final.patch:11: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/builder-docs-final.patch:13: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/builder-docs-final.patch:14: trailing whitespace.\n+@@ -31,7 +31,7 @@ Gleo Interface의 action schema/Android intent는 별도의 앱 기능 호출 \nprototype/vehicle/evidence/voice-proposals/verification-20261109/builder-docs-final.patch:15: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/builder-docs-final.patch:17: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/builder-docs-final.patch:20: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/builder-docs-final.patch:22: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/builder-docs-final.patch:23: trailing whitespace.\n+@@ -46,3 +46,40 @@ Gleo Interface의 action schema/Android intent는 별도의 앱 기능 호출 \nprototype/vehicle/evidence/voice-proposals/verification-20261109/builder-docs-final.patch:25: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:6: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:13: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:21: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:29: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:35: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:53: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:55: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:61: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:68: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:70: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:80: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:143: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:145: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:147: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:149: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:158: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:160: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:162: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:164: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:167: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:290: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:360: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:512: trailing whitespace.\n+ \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:2334: trailing whitespace.\n++Daemon will be stopped at the end of the build \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:3185: trailing whitespace.\n++Daemon will be stopped at the end of the build \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:3693: trailing whitespace.\n++Daemon will be stopped at the end of the build \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:3793: trailing whitespace.\n++Daemon will be stopped at the end of the build \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:5369: trailing whitespace.\n++Daemon will be stopped at the end of the build \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:5508: trailing whitespace.\n++Daemon will be stopped at the end of the build \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/base-to-b883042.patch:7117: trailing whitespace.\n++Daemon will be stopped at the end of the build \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/independent-gradle.log:2: trailing whitespace.\n+Daemon will be stopped at the end of the build \nprototype/vehicle/evidence/voice-proposals/verification-20261109/verifier/product-to-b883042.patch:466: trailing whitespace.\n++Daemon will be stopped at the end of the build \n",
+    "exactExcludedFiles": [
+      "builder-docs-final.patch",
+      "verifier/base-to-b883042.patch",
+      "verifier/product-to-b883042.patch",
+      "verifier/independent-gradle.log"
+    ],
+    "remainingExit": 0,
+    "remainingOutput": ""
+  }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "path": "app-pcm-followup-7/gradle.log",
+    "exit": 3,
+    "output": "prototype/vehicle/evidence/voice-proposals/builder/app-pcm-followup-7/gradle.log:2: trailing whitespace.\n+Daemon will be stopped at the end of the build \n"
+  },
+  {
+    "path": "driver-followup-5/gradle.log",
+    "exit": 3,
+    "output": "prototype/vehicle/evidence/voice-proposals/builder/driver-followup-5/gradle.log:2: trailing whitespace.\n+Daemon will be stopped at the end of the build \n"
+  },
+  {
+    "path": "first-probe-build-failure.log",
+    "exit": 3,
+    "output": "prototype/vehicle/evidence/voice-proposals/builder/first-probe-build-failure.log:2: trailing whitespace.\n+Daemon will be stopped at the end of the build \n"
+  },
+  {
+    "path": "gradle-freeze-4.log",
+    "exit": 3,
+    "output": "prototype/vehicle/evidence/voice-proposals/builder/gradle-freeze-4.log:2: trailing whitespace.\n+Daemon will be stopped at the end of the build \n"
+  },
+  {
+    "path": "negation-followup-6/first-attempt-failed.log",
+    "exit": 3,
+    "output": "prototype/vehicle/evidence/voice-proposals/builder/negation-followup-6/first-attempt-failed.log:2: trailing whitespace.\n+Daemon will be stopped at the end of the build \n"
+  },
+  {
+    "path": "negation-followup-6/gradle.log",
+    "exit": 3,
+    "output": "prototype/vehicle/evidence/voice-proposals/builder/negation-followup-6/gradle.log:2: trailing whitespace.\n+Daemon will be stopped at the end of the build \n"
+  }
+]

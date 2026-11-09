@@ -22,6 +22,14 @@
 
 View는 Activity 생성 시 한 번 만든다. 관찰 상태가 바뀔 때 텍스트와 enabled/visibility만 갱신하며 이유·차량 이름·방 입력을 tick마다 다시 설정하지 않는다. 페이지 이동은 서비스에 재연결하거나 세션을 재생성하지 않는다.
 
+## 말로 초안 작성 (#25)
+
+작성 화면 상단의 `말로 작성`은 명시적인 전경 음성 입력이다. `말하기 끝`은 최종 결과를 잠시 기다리고, `음성 초안 지우기`는 즉시 취소한다. `들은 말 (고칠 수 있어요)`에서 오인식을 고친 뒤 `초안 정리`로 변경할 곳과 이유의 초안을 만든다. 현재 저장 목록의 실제 이름/주소와 일치하는 후보만 `후보 확인`으로 보여 주고, 맞는 장소가 없으면 기존 수동 선택을 안내한다. `가든서비스`의 업종을 카페로 추측하거나 새 검색 결과를 만들지 않는다. 한 장소라도 직접 눌러 확인해야 하며 기존 `제안 보내기` 전에는 전송이나 경로 요청이 없다.
+
+문장을 고치거나 다시 정리하면 음성으로 고른 선택을 해제하고 현재 불변 목록은 보존한다. 장소 snapshot, 방/회원/room/native epoch, 작성 화면 generation을 다시 검사하며, 페이지 이탈/Activity 중지/새 제안/동행 중지는 음성 UI 권한을 즉시 무효화하고 마이크 stop을 요청한다. 비동기 stop을 보존하도록 helper/listener를 종료 callback 또는 최대 3초까지 유지한 뒤 해제하며 새 시작은 이전 해제를 기다린다. 물리 종료는 별도 기기 관찰로 검증한다. raw 발화나 후보 목록을 기록하지 않고 UI observation tick이 입력을 덮지 않는다. 기존 View helper·20sp/56dp와 세로 스크롤을 사용한다. 실패/권한/미지원/시간 초과는 직접 입력·다시 말하기·수동 장소 선택을 안내한다. 처리 위치, 제한된 규칙과 실제 STT/사람 발화 구분은 [음성 초안 계약](vehicle-voice-proposals.md)을 따른다.
+
+추가 View ID는 `voice_start`, `voice_stop`, `voice_cancel`, `voice_status`, `voice_text`, `voice_analyze`, `voice_summary`, `voice_candidates`, `voice_candidate_choices`, 반복하는 `voice_candidate_choice`다. 자기 testOnly driver의 `VehicleUiTextProbe`는 실제 보이는 음성문/이유 입력 View에만 고정 공개 문장을 입력할 수 있다. STT 결과 주입이나 운영 앱 대상 instrumentation은 아니다.
+
 ## 상태의 의미
 
 홈에는 raw `state.message`, `proposalMessage`, 좌표, ID, 버전, SDK 용어를 표시하지 않는다. `VehiclePresentation`은 구조화된 기존 상태로 짧은 제품 문구를 만든다. 제한된 기존 제안 오류 문구는 실패 여부를 식별하는 데만 사용하고, 그 원문을 홈에 노출하지 않는다.

@@ -1,0 +1,5 @@
+{
+  "summary": "변경할 곳 · 가든서비스\n이유 초안 · 직접 적을 수 있어요\n저장한 실제 후보 1곳의 이름과 주소를 확인해 주세요.",
+  "actualNativeChoice": "가든서비스\n경기도 성남시 수정구 창업로40번길 6",
+  "previousCancelCase": "Cancelled place read had no current snapshot; no-candidate behavior retained as correct guard."
+}

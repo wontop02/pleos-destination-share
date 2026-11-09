@@ -1,0 +1,152 @@
+{
+  "atUtc": "2026-11-09T04:52:46.282851+00:00",
+  "serial": "emulator-5572",
+  "command": [
+    "am",
+    "start",
+    "--user",
+    "10",
+    "-W",
+    "--windowingMode",
+    "6",
+    "--display",
+    "0",
+    "-a",
+    "android.intent.action.MAIN",
+    "-c",
+    "android.intent.category.LAUNCHER",
+    "-f",
+    "0x10200000",
+    "-n",
+    "ai.pleos.destinations.vehicle/.MainActivity"
+  ],
+  "output": "Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=ai.pleos.destinations.vehicle/.MainActivity }\nWarning: Activity not started, its current task has been brought to the front\nStatus: ok\nLaunchState: HOT\nActivity: ai.pleos.destinations.vehicle/.MainActivity\nTotalTime: 1845\nWaitTime: 1865\nComplete\n",
+  "nodes": [
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "",
+      "bounds": "[853,90][2535,1300]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "",
+      "bounds": "[853,90][2535,1300]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "android:id/content",
+      "text": "",
+      "bounds": "[853,90][2535,1300]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "",
+      "bounds": "[853,90][2535,1300]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "",
+      "bounds": "[853,90][2535,190]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "동행",
+      "bounds": "[885,120][2421,163]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "ai.pleos.destinations.vehicle:id/nav_settings",
+      "text": "설정",
+      "bounds": "[2421,114][2503,170]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "",
+      "bounds": "[853,190][2535,1300]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "ai.pleos.destinations.vehicle:id/home_page",
+      "text": "",
+      "bounds": "[853,190][2535,1300]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "",
+      "bounds": "[853,190][2535,1300]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "",
+      "bounds": "[1134,190][2254,808]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "ai.pleos.destinations.vehicle:id/connection_status",
+      "text": "동행방 연결됨 · 내비 연결됨 · 자동 동행 꺼짐",
+      "bounds": "[1166,202][2222,227]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "",
+      "bounds": "[1166,247][2222,655]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "함께 가는 곳",
+      "bounds": "[1194,275][2194,300]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "ai.pleos.destinations.vehicle:id/shared_place_name",
+      "text": "가든서비스",
+      "bounds": "[1194,320][2194,365]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "ai.pleos.destinations.vehicle:id/shared_place_address",
+      "text": "경기도 성남시 수정구 창업로40번길 6",
+      "bounds": "[1194,377][2194,402]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "ai.pleos.destinations.vehicle:id/destination_status",
+      "text": "수락한 목적지예요. 필요하면 다시 반영해 주세요.",
+      "bounds": "[1194,426][2194,475]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "ai.pleos.destinations.vehicle:id/change_destination",
+      "text": "목적지 바꾸기",
+      "bounds": "[1194,503][2194,559]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "ai.pleos.destinations.vehicle:id/home_recovery",
+      "text": "다시 반영",
+      "bounds": "[1194,571][2194,627]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "참여 차량 · 시작하면 함께 가는 곳을 내비에 자동 반영해요",
+      "bounds": "[1166,679][2222,704]"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "ai.pleos.destinations.vehicle:id/start_convoy",
+      "text": "동행 시작",
+      "bounds": "[1166,720][2222,776]"
+    }
+  ]
+}

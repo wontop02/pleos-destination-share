@@ -1,0 +1,194 @@
+{
+  "atUtc": "2026-11-09T05:16:29.443009+00:00",
+  "head": "f65183b8f568ddfef63530a7faaaa6418d5d8a74",
+  "method": "Every JSONL row parsed and every requestRoute occurrence counted without deduplication; no device calls",
+  "serials": {
+    "emulator-5570": {
+      "journalRows": 376,
+      "journalSha256": "f0c74e1b6cdc09fc779ba128b1fb13c913ca2f1fba346a353682047dfce5c3d1",
+      "requestRouteOccurrences": 1,
+      "routes": [
+        {
+          "hostAt": "2026-11-09T04:25:35.666925+00:00",
+          "serial": "emulator-5570",
+          "sourceGeneration": 0,
+          "productionPid": "32650",
+          "record": {
+            "at": 1794198334569,
+            "event": "requestRoute",
+            "nativeEpoch": 4,
+            "operation": 4,
+            "matched": null
+          }
+        }
+      ],
+      "PIDs": [
+        "32650"
+      ],
+      "generations": [
+        0
+      ],
+      "observations": 4208,
+      "firstHost": "2026-11-09T03:53:19.626330+00:00",
+      "lastHost": "2026-11-09T05:00:26.057797+00:00",
+      "maxObservationIntervalSeconds": 2.645506,
+      "nonMonotonicHostIntervals": 0,
+      "finalState": {
+        "at": 1794200394832,
+        "event": "activityStopDetach",
+        "serviceEpoch": 7447527,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "host",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "994d714aa66333c17676e84b",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "994d714aa66333c17676e84b",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "747ebc2fb24f7684bbf6242c",
+          "baseRevision": 1,
+          "createdAt": 1794198326888,
+          "expiresAt": 1794198446888,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "747ebc2fb24f7684bbf6242c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "93c1bad0addf52af2adf8159",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      "matchesRootAudit": true
+    },
+    "emulator-5572": {
+      "journalRows": 282,
+      "journalSha256": "20b644694586094e0986d6ee3e46cf8094c8f9368584e2aef32e12d94bbd4c0f",
+      "requestRouteOccurrences": 1,
+      "routes": [
+        {
+          "hostAt": "2026-11-09T04:25:34.894291+00:00",
+          "serial": "emulator-5572",
+          "sourceGeneration": 0,
+          "productionPid": "19726",
+          "record": {
+            "at": 1794198334445,
+            "event": "requestRoute",
+            "nativeEpoch": 2,
+            "operation": 2,
+            "matched": null
+          }
+        }
+      ],
+      "PIDs": [
+        "19726"
+      ],
+      "generations": [
+        0
+      ],
+      "observations": 4208,
+      "firstHost": "2026-11-09T03:53:20.155658+00:00",
+      "lastHost": "2026-11-09T05:00:26.391183+00:00",
+      "maxObservationIntervalSeconds": 3.382756,
+      "nonMonotonicHostIntervals": 0,
+      "finalState": {
+        "at": 1794200044533,
+        "event": "sessionState",
+        "serviceEpoch": 8799808,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "member",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "994d714aa66333c17676e84b",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "994d714aa66333c17676e84b",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "747ebc2fb24f7684bbf6242c",
+          "baseRevision": 1,
+          "createdAt": 1794198326888,
+          "expiresAt": 1794198446888,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "747ebc2fb24f7684bbf6242c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "93c1bad0addf52af2adf8159",
+              "response": "accepted"
+            }
+          ]
+        }
+      },
+      "matchesRootAudit": true
+    }
+  },
+  "observationsFileSha256": "5e3b542ab279c98a88252e34052ecc837aebed2544c254968abf4f28e49d5233",
+  "collectorResult": {
+    "endedAtUtc": "2026-11-09T05:00:26.819148+00:00",
+    "errors": 0,
+    "generationCounts": {
+      "emulator-5570": 0,
+      "emulator-5572": 0
+    }
+  },
+  "collectorDiagnosticFiles": [],
+  "retryRawCounts": {
+    "voice:startMicrophone": 2,
+    "voice:sdkInitializedOnDevice": 2,
+    "voice:appMicrophoneRecording": 2,
+    "voice:listening": 2,
+    "voice:sdkStopPending": 2,
+    "voice:cancelled": 2,
+    "voice:sdkStopWaitElapsed": 2,
+    "voice:sdkReleased": 2
+  },
+  "retryJournalWrapperWindowUtc": [
+    "2026-11-09T04:55:21+00:00",
+    "2026-11-09T04:55:44+00:00"
+  ],
+  "Q10bCorrection": "Q10 unconditional instrumentation click returned actionAccepted=false/visible=false/bounds empty. It proves unavailable control, not an already empty/disabled draft. Q10b inspection/cancel and actual final captures are separate successful cleanup evidence.",
+  "Q10bCaptureSha256": {
+    "ui/Q10b-emulator-5570-ready.png": "13632671f7e29903f33db372b42eb84849f5116e2eb7e33c5dc06c8aa4ea6479",
+    "ui/Q10b-emulator-5570-ready.xml": "04b00a457c62e4c75763aaa846d8ad2e5acbd12a7cd8e15a62478f578892342a",
+    "ui/Q10b-emulator-5572-ready.png": "66961a335838c9bb0fbb8f411a6e417af1b7b353358fa4c2d2eb035958fc1975",
+    "ui/Q10b-emulator-5572-ready.xml": "d15060c8c235318370cbba3d6a65c76376de0bbf849ba8d1a55153f302bb5254"
+  }
+}

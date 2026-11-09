@@ -1,0 +1,60 @@
+{
+  "exit": 0,
+  "seconds": 210.212948917,
+  "command": [
+    "/private/tmp/pleos-vehicle-tools-20261105/gradle/gradle-8.11.1/bin/gradle",
+    "--offline",
+    "--no-daemon",
+    "--max-workers=1",
+    "-Dorg.gradle.jvmargs=-Xmx1024m -XX:MaxMetaspaceSize=384m",
+    "-Pkotlin.compiler.execution.strategy=in-process",
+    ":core:test",
+    ":app:testDebugUnitTest",
+    ":app:assembleDebug",
+    ":app:lintDebug",
+    ":nativeDriver:assembleDebug",
+    ":nativeDriver:lintDebug"
+  ],
+  "unchangedInputs": true,
+  "files": 68,
+  "apks": {
+    "app": {
+      "path": "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/builder/freeze-4/app-debug.apk",
+      "sha256": "259c8ac483c753679c7f8ea56d1e966a813dc55ae50c6ce64bfd8b7891575a64"
+    },
+    "nativeDriver": {
+      "path": "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/builder/freeze-4/nativeDriver-debug.apk",
+      "sha256": "7982111520e733472203cc4adc52132494b9a2705660edb0e109544142c9cccc"
+    }
+  },
+  "tests": {
+    "app": {
+      "tests": 94,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "core": {
+      "tests": 93,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "nativeDriver": {
+      "tests": 0,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "lint": {
+    "app": {
+      "Error": 0,
+      "Warning": 13
+    },
+    "nativeDriver": {
+      "Error": 0,
+      "Warning": 8
+    }
+  }
+}

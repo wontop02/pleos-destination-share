@@ -1,0 +1,112 @@
+{
+  "appop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+5s94ms ago; duration=+1s363ms\n",
+  "traces": {
+    "emulator-5570": [
+      {
+        "hostAt": "2026-11-09T03:57:55.058682+00:00",
+        "serial": "emulator-5570",
+        "sourceGeneration": 0,
+        "productionPid": "32650",
+        "record": {
+          "at": 1794196673937,
+          "event": "voice:startMicrophone",
+          "nativeEpoch": 2,
+          "operation": 2,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T03:57:55.058682+00:00",
+        "serial": "emulator-5570",
+        "sourceGeneration": 0,
+        "productionPid": "32650",
+        "record": {
+          "at": 1794196674010,
+          "event": "voice:sdkInitializedOnDevice",
+          "nativeEpoch": 2,
+          "operation": 2,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T03:57:55.058682+00:00",
+        "serial": "emulator-5570",
+        "sourceGeneration": 0,
+        "productionPid": "32650",
+        "record": {
+          "at": 1794196674219,
+          "event": "voice:appMicrophoneRecording",
+          "nativeEpoch": 2,
+          "operation": 2,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T03:57:55.058682+00:00",
+        "serial": "emulator-5570",
+        "sourceGeneration": 0,
+        "productionPid": "32650",
+        "record": {
+          "at": 1794196674219,
+          "event": "voice:listening",
+          "nativeEpoch": 2,
+          "operation": 2,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T03:57:55.906602+00:00",
+        "serial": "emulator-5570",
+        "sourceGeneration": 0,
+        "productionPid": "32650",
+        "record": {
+          "at": 1794196675518,
+          "event": "voice:sdkStopPending",
+          "nativeEpoch": 2,
+          "operation": 3,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T03:57:55.906602+00:00",
+        "serial": "emulator-5570",
+        "sourceGeneration": 0,
+        "productionPid": "32650",
+        "record": {
+          "at": 1794196675519,
+          "event": "voice:scopeCleared",
+          "nativeEpoch": 2,
+          "operation": 3,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T03:57:59.185968+00:00",
+        "serial": "emulator-5570",
+        "sourceGeneration": 0,
+        "productionPid": "32650",
+        "record": {
+          "at": 1794196678520,
+          "event": "voice:sdkStopWaitElapsed",
+          "nativeEpoch": 2,
+          "operation": 3,
+          "matched": null
+        }
+      },
+      {
+        "hostAt": "2026-11-09T03:57:59.185968+00:00",
+        "serial": "emulator-5570",
+        "sourceGeneration": 0,
+        "productionPid": "32650",
+        "record": {
+          "at": 1794196678526,
+          "event": "voice:sdkReleased",
+          "nativeEpoch": 2,
+          "operation": 3,
+          "matched": null
+        }
+      }
+    ],
+    "emulator-5572": []
+  }
+}

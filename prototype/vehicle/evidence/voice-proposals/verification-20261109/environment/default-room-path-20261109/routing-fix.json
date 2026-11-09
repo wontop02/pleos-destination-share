@@ -1,0 +1,18 @@
+{
+  "atUtc": "2026-11-09T03:15:34.581659+00:00",
+  "results": [
+    {
+      "serial": "emulator-5570",
+      "default4182TargetsOwned4192": true,
+      "existing4192Preserved": true,
+      "newMapping": true
+    },
+    {
+      "serial": "emulator-5572",
+      "default4182TargetsOwned4192": true,
+      "existing4192Preserved": true,
+      "newMapping": true
+    }
+  ],
+  "note": "Run after each emulator boot; adb reverse mappings are per live transport. No app data or room identity changes."
+}

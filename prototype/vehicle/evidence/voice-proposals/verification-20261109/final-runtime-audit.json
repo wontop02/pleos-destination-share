@@ -1,0 +1,77 @@
+{
+  "atUtc": "2026-11-09T05:01:08.292390+00:00",
+  "source": "every raw journal occurrence, without deduplication",
+  "serials": {
+    "emulator-5570": {
+      "rows": 376,
+      "requestRouteOccurrences": 1,
+      "requestRouteRows": [
+        {
+          "hostAt": "2026-11-09T04:25:35.666925+00:00",
+          "serial": "emulator-5570",
+          "sourceGeneration": 0,
+          "productionPid": "32650",
+          "record": {
+            "at": 1794198334569,
+            "event": "requestRoute",
+            "nativeEpoch": 4,
+            "operation": 4,
+            "matched": null
+          }
+        }
+      ],
+      "productionPids": [
+        "32650"
+      ],
+      "sourceGenerations": [
+        0
+      ],
+      "rawSha256": "f0c74e1b6cdc09fc779ba128b1fb13c913ca2f1fba346a353682047dfce5c3d1",
+      "observations": 4208,
+      "firstHost": "2026-11-09T03:53:19.626330+00:00",
+      "lastHost": "2026-11-09T05:00:26.057797+00:00",
+      "maxObservationIntervalSeconds": 2.6455061435699463
+    },
+    "emulator-5572": {
+      "rows": 282,
+      "requestRouteOccurrences": 1,
+      "requestRouteRows": [
+        {
+          "hostAt": "2026-11-09T04:25:34.894291+00:00",
+          "serial": "emulator-5572",
+          "sourceGeneration": 0,
+          "productionPid": "19726",
+          "record": {
+            "at": 1794198334445,
+            "event": "requestRoute",
+            "nativeEpoch": 2,
+            "operation": 2,
+            "matched": null
+          }
+        }
+      ],
+      "productionPids": [
+        "19726"
+      ],
+      "sourceGenerations": [
+        0
+      ],
+      "rawSha256": "20b644694586094e0986d6ee3e46cf8094c8f9368584e2aef32e12d94bbd4c0f",
+      "observations": 4208,
+      "firstHost": "2026-11-09T03:53:20.155658+00:00",
+      "lastHost": "2026-11-09T05:00:26.391183+00:00",
+      "maxObservationIntervalSeconds": 3.382755994796753
+    }
+  },
+  "collectorGaps": 0,
+  "collectorErrors": 0,
+  "retryAudit": {
+    "cancelledOccurrences": 2,
+    "sdkPcmCompletedOccurrences": 0,
+    "finalTextOccurrences": 0,
+    "oldReleaseToSecondInitializeMs": 33,
+    "differentActivitySub3SecondRetry": "not exercised; no claim"
+  },
+  "Q10Erratum": "Q10 unconditional instrumentation click returned actionAccepted=false/visible=false/bounds empty. It proves unavailable control, not an already empty/disabled draft. Q10b inspection/cancel and actual final captures are separate successful cleanup evidence.",
+  "pass": true
+}

@@ -1,0 +1,16 @@
+{
+  "startedAtUtc": "2026-11-09T04:39:06.967265+00:00",
+  "baseline": {
+    "emulator-5570": "1.0",
+    "emulator-5572": "1.0"
+  },
+  "inputSource": "public UI actions and fixed editable text; no speech fixture",
+  "pass": false,
+  "errorClass": "AssertionError",
+  "error": "New recreated activity not ready for fast public start",
+  "restoredFontSettings": {
+    "emulator-5570": "1.0",
+    "emulator-5572": "1.0"
+  },
+  "endedAtUtc": "2026-11-09T04:39:22.380004+00:00"
+}

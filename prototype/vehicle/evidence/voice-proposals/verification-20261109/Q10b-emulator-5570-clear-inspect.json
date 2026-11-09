@@ -1,0 +1,22 @@
+{
+  "atUtc": "2026-11-09T05:00:06.468644+00:00",
+  "serial": "emulator-5570",
+  "component": "VehicleUiActionProbe",
+  "arguments": {
+    "resource": "voice_cancel",
+    "operation": "inspect"
+  },
+  "exit": 0,
+  "seconds": 1.2139103749999993,
+  "result": {
+    "actionAccepted": "false",
+    "bounds": "",
+    "elapsedMs": "93",
+    "enabled": "false",
+    "inputSource": "public_ui_button",
+    "resource": "voice_cancel",
+    "visible": "false"
+  },
+  "productionPidBefore": "32650",
+  "productionPidAfter": "32650"
+}

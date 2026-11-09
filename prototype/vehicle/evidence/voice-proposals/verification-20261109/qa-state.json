@@ -1,0 +1,14 @@
+{
+  "recordedAtUtc": "2026-11-09T05:21:57.605081+00:00",
+  "active": true,
+  "phase": "final-head-rebind",
+  "iteration": 1,
+  "maxCycles": 5,
+  "productRuntimeVerdict": "PASS",
+  "overallVerdict": "PENDING explicit exact new-head rebind; H1 AC1\u20135 PASS",
+  "implementationFixesThisRun": 0,
+  "cleanup": "complete; collector/probes ended, normal own-product cold reentry leaves one MainActivity each",
+  "deadlineUtc": "2026-11-09T05:43:58Z",
+  "original120MinuteCap": "preserved; not reset",
+  "independentPassedHead": "f65183b8f568ddfef63530a7faaaa6418d5d8a74"
+}

@@ -1,0 +1,31 @@
+{
+  "atUtc": "2026-11-09T03:14:33.693901+00:00",
+  "overall": "FAIL",
+  "scope": "Actual default-endpoint room POST from both approved cars, isolated probes only; current app rooms/credentials are untouched. Response credentials remain in memory and are never output. This is endpoint/API verification, not a claim of full manual UI verification.",
+  "results": [
+    {
+      "serial": "emulator-5570",
+      "endpoint": "http://127.0.0.1:4182",
+      "inputMatchesAppDefault": true,
+      "nameMatchesAppDefault": true,
+      "create": {
+        "status": null,
+        "connectRefused": true,
+        "exit": 1
+      },
+      "pass": false
+    },
+    {
+      "serial": "emulator-5572",
+      "endpoint": "http://127.0.0.1:4182",
+      "inputMatchesAppDefault": true,
+      "nameMatchesAppDefault": true,
+      "create": {
+        "status": null,
+        "connectRefused": true,
+        "exit": 1
+      },
+      "pass": false
+    }
+  ]
+}

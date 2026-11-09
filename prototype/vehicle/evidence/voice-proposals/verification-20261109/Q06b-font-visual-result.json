@@ -1,0 +1,9 @@
+{
+  "atUtc": "2026-11-09T04:45:10.372942+00:00",
+  "inputSource": "actual UI fixed400char text, not STT",
+  "cases": [],
+  "restored": {
+    "emulator-5570": "1.0",
+    "emulator-5572": "1.0"
+  }
+}

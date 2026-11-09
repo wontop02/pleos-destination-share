@@ -1,0 +1,35 @@
+{
+  "atUtc": "2026-11-09T05:11:53.249796+00:00",
+  "originalCriticalWindow": "collector through05:00:26 unchanged; old PIDs/generation0 and Q08 assertions remain historical",
+  "windowStart": "2026-11-09T05:10:14.346310+00:00",
+  "windowEnd": "2026-11-09T05:10:59.113455+00:00",
+  "serials": {
+    "emulator-5570": {
+      "pidBefore": "32650",
+      "pidAfter": "19921",
+      "mainActivityCount": 1,
+      "observations": 12,
+      "observationSeconds": 12.232796907424927,
+      "maxObservationIntervalSeconds": 3.391921043395996,
+      "requestRouteOccurrences": 0,
+      "nativePositiveCallbackObserved": true,
+      "nativeAbsentCallbackObserved": false,
+      "currentConfirmedAtElapsed": null,
+      "statement": "Historical accepted revision is restored with no auto-reapply; no new live native CONFIRMED is asserted after cold entry."
+    },
+    "emulator-5572": {
+      "pidBefore": "19726",
+      "pidAfter": "12020",
+      "mainActivityCount": 1,
+      "observations": 12,
+      "observationSeconds": 12.321571111679077,
+      "maxObservationIntervalSeconds": 3.6082029342651367,
+      "requestRouteOccurrences": 0,
+      "nativePositiveCallbackObserved": false,
+      "nativeAbsentCallbackObserved": true,
+      "currentConfirmedAtElapsed": null,
+      "statement": "Historical accepted revision is restored with no auto-reapply; no new live native CONFIRMED is asserted after cold entry."
+    }
+  },
+  "pass": true
+}

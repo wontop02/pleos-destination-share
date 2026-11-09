@@ -1,0 +1,97 @@
+{
+  "states": {
+    "emulator-5570": {
+      "at": 1794195732084,
+      "event": "serviceDestroy",
+      "serviceEpoch": 221368,
+      "roomEpoch": 1,
+      "revision": 1,
+      "role": "host",
+      "automatic": "OFF",
+      "applying": "CONFIRMED",
+      "connection": "CONNECTED",
+      "roomConnected": true,
+      "uiCount": 0,
+      "confirmedAtElapsed": 3300201,
+      "routingCompletedObserved": false,
+      "confirmationKind": "pleos_place",
+      "sharedKind": "pleos_place",
+      "proposalLease": false,
+      "proposalBusy": false,
+      "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+      "proposalPublicationHeld": false,
+      "acceptedProposalId": "e669d8a5dd735bef86b9ff48",
+      "acceptedProposalVersion": 2,
+      "acceptedProposalRevision": 1,
+      "proposal": {
+        "id": "e669d8a5dd735bef86b9ff48",
+        "version": 2,
+        "status": "accepted",
+        "candidateName": "청계산담백미",
+        "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+        "proposerId": "93c1bad0addf52af2adf8159",
+        "baseRevision": 0,
+        "createdAt": 1794195679869,
+        "expiresAt": 1794195799869,
+        "acceptedRevision": 1,
+        "responses": [
+          {
+            "memberId": "747ebc2fb24f7684bbf6242c",
+            "response": "accepted"
+          },
+          {
+            "memberId": "93c1bad0addf52af2adf8159",
+            "response": "accepted"
+          }
+        ]
+      }
+    },
+    "emulator-5572": {
+      "at": 1794195732372,
+      "event": "serviceDestroy",
+      "serviceEpoch": 789231,
+      "roomEpoch": 1,
+      "revision": 1,
+      "role": "member",
+      "automatic": "OFF",
+      "applying": "CONFIRMED",
+      "connection": "CONNECTED",
+      "roomConnected": true,
+      "uiCount": 0,
+      "confirmedAtElapsed": 4453839,
+      "routingCompletedObserved": false,
+      "confirmationKind": "pleos_place",
+      "sharedKind": "pleos_place",
+      "proposalLease": false,
+      "proposalBusy": false,
+      "proposalMessage": "서버 수락 확정 · 실제 순정 목적지 일치 확인 전",
+      "proposalPublicationHeld": false,
+      "acceptedProposalId": "e669d8a5dd735bef86b9ff48",
+      "acceptedProposalVersion": 2,
+      "acceptedProposalRevision": 1,
+      "proposal": {
+        "id": "e669d8a5dd735bef86b9ff48",
+        "version": 2,
+        "status": "accepted",
+        "candidateName": "청계산담백미",
+        "candidatePoiId": "36khp2h5fjcfcm5nqhe3",
+        "proposerId": "93c1bad0addf52af2adf8159",
+        "baseRevision": 0,
+        "createdAt": 1794195679869,
+        "expiresAt": 1794195799869,
+        "acceptedRevision": 1,
+        "responses": [
+          {
+            "memberId": "747ebc2fb24f7684bbf6242c",
+            "response": "accepted"
+          },
+          {
+            "memberId": "93c1bad0addf52af2adf8159",
+            "response": "accepted"
+          }
+        ]
+      }
+    }
+  },
+  "note": "Existing accepted/manual activity precedes new QA and is excluded from new route-count cases."
+}

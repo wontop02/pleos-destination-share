@@ -1,0 +1,14 @@
+[
+  {
+    "check": "signature",
+    "exit": 0
+  },
+  {
+    "check": "permissions",
+    "exit": 0
+  },
+  {
+    "check": "manifest",
+    "exit": 0
+  }
+]

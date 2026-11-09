@@ -1,0 +1,179 @@
+[
+  {
+    "id": "Q01",
+    "intent": "Default room creation",
+    "model": "Normal user defaults",
+    "setup": "Both owned device4182 to host4192, isolated POST create+own cleanup",
+    "harness": "Existing root/default-room-path-20261109/probe-default-create.py",
+    "expected": "Both201 and cleanup200; current app room untouched",
+    "actual": "Both actual device default4182 POST create201, isolated cleanup200; existing room untouched",
+    "status": "PASS",
+    "fixes": [],
+    "evidence": [
+      "Q01-default-endpoint-verification.json"
+    ],
+    "cleanup": "Isolated probe rooms deleted"
+  },
+  {
+    "id": "Q02",
+    "intent": "Microphone explicit cancel",
+    "model": "Interrupted user on A/B",
+    "setup": "Grant A by approved OS UI, explicit start, cancel",
+    "harness": "Actual UI + appop + journal",
+    "expected": "Recording starts then stops; no stale final/proposal/route",
+    "actual": "A approved permission UI; actual app recording observed on A/B, explicit cancellation ended physical app-op; no route during cases",
+    "status": "PASS",
+    "fixes": [],
+    "evidence": [
+      "Q02-A-result.json",
+      "Q02-B-result.json"
+    ],
+    "cleanup": "No app recording active after cancel"
+  },
+  {
+    "id": "Q03",
+    "intent": "Foreground exit and retry",
+    "model": "Repeated interruption/stale scope",
+    "setup": "Start/stop/page exit and activity stop; explicit restart",
+    "harness": "Actual UI + appop lifecycle traces",
+    "expected": "Mic stops; cleared UI; no prior-generation result accepted",
+    "actual": "Actual A page exit and B opaque Activity physical stop; opaque helper SDK auto-initialization is a cleanup-confounded apparatus. Valid B post-recreation start/cancel twice, actual app-op releases, no PCM/final/routes; same-instance second init33ms after prior release. Different-Activity <3sec overlap not exercised.",
+    "status": "PASS",
+    "fixes": [],
+    "evidence": [
+      "Q03-A-page-exit-result.json",
+      "Q03-B-opaque-result.json",
+      "Q03-opaque-apparatus-erratum.json",
+      "Q03d-B-explicit-retry-result.json",
+      "final-runtime-audit.json"
+    ],
+    "cleanup": "Font1.0 on both, microphone inactive, diagnostics collector stopped; existing AVD/server/auth/evidence preserved"
+  },
+  {
+    "id": "Q04",
+    "intent": "Recognition and edited draft",
+    "model": "Human/synthesized sources distinguished",
+    "setup": "Same installed APK; current native snapshot",
+    "harness": "Actual SpeechToText callbacks + editable TextProbe",
+    "expected": "Final or explicit failure, user edit allowed; no automatic send/route",
+    "actual": "Same product source105cd7e and installed APK5b9eec0: prior user B real phrase success/finalText; current actual text editing separate. Short real app recording/stop closed mic, submitted bounded PCM then TIMEOUT; actual failure UI captured after public hint attestation.",
+    "status": "PASS",
+    "fixes": [],
+    "evidence": [
+      "Q04b-B-bounded-failure-result.json",
+      "Q04c-B-failure-ui-result.json",
+      "Q05c-negative-fuel-and-hostile-result.json",
+      "../human-recognition-B-20261108/README.md"
+    ],
+    "cleanup": "Font1.0 on both, microphone inactive, diagnostics collector stopped; existing AVD/server/auth/evidence preserved"
+  },
+  {
+    "id": "Q05",
+    "intent": "Saved-place candidate and negatives",
+    "model": "Ambiguous/negated/hostile text",
+    "setup": "Current immutable native ☆ candidates, public text fixtures",
+    "harness": "Actual UI candidate dialog/analyzer and text edit",
+    "expected": "Real names/address; negative/unclear gives no recommendation/send; editing clears selection",
+    "actual": "Actual native cafe name/address and edited reason; edit after voice selection clears selection. Negation/instruction literal cannot send, generic cafe cannot infer native garden category. Fuel matches one actual native gas bookmark. No routes, revision2 unchanged.",
+    "status": "PASS",
+    "fixes": [],
+    "evidence": [
+      "Q05b-summary.json",
+      "Q05c-negative-fuel-and-hostile-result.json"
+    ],
+    "cleanup": "Font1.0 on both, microphone inactive, diagnostics collector stopped; existing AVD/server/auth/evidence preserved"
+  },
+  {
+    "id": "Q06",
+    "intent": "Long text and font1.3",
+    "model": "Large text/unusual Unicode",
+    "setup": "Save baseline font scale; scoped A/B change then restore",
+    "harness": "Actual UI captures and layout bounds",
+    "expected": "20sp/56dp controls readable; all actions reachable; no data leak",
+    "actual": "A and B actual resources font1.3/400char UI; upper/lower controls reachable,56dp buttons; no-selection send disabled. Baseline1.0 restored. Failed surface/transition assumptions retained, launcher-only apparatus fixed.",
+    "status": "PASS",
+    "fixes": [
+      "External harness actual MAIN/LAUNCHER flags and wait; product unchanged"
+    ],
+    "evidence": [
+      "Q06d-font-visual-result.json",
+      "Q06f-B-font-visual-result.json",
+      "qa-launcher-apparatus-fix.json"
+    ],
+    "cleanup": "Font1.0 on both, microphone inactive, diagnostics collector stopped; existing AVD/server/auth/evidence preserved"
+  },
+  {
+    "id": "Q07",
+    "intent": "Pending and rejection",
+    "model": "Two-car shared proposal",
+    "setup": "Explicit real saved place and reviewed reason",
+    "harness": "Actual A->B proposal UI + continuous native journal",
+    "expected": "Peer receives; waiting/rejected requestRoute occurrences0 on both",
+    "actual": "Independent raw audit confirms two-member peer receipt and pending/reject requestRoute0 each, revision1 unchanged, gap/error0",
+    "status": "PASS",
+    "fixes": [],
+    "evidence": [
+      "Q07-result.json",
+      "verifier/partial-runtime-review.md"
+    ],
+    "cleanup": "Proposal rejected; no route issued"
+  },
+  {
+    "id": "Q08",
+    "intent": "Unanimous native apply",
+    "model": "Both frozen members consent",
+    "setup": "New proposal, no other members; exact source/APK fixed",
+    "harness": "Actual send/accept +45sec service window + fresh public native query",
+    "expected": "Exactly one route each, actual guarded POI match, selected/native metadata separate",
+    "actual": "Unanimous real cafe proposal: each vehicle route1, same-epoch fresh native match and typedplace confirmation, revision2, >=185sec host observation no extra route; independent SDK queries match",
+    "status": "PASS",
+    "fixes": [],
+    "evidence": [
+      "Q08b-result.json",
+      "Q08b-extended-observation.json",
+      "Q08-independent-native-emulator-5570.json",
+      "Q08-independent-native-emulator-5572.json",
+      "installed-apk-user-pid-binding.json",
+      "verifier/Q08b-independent-review.md"
+    ],
+    "cleanup": "45sec lease ended, no pending proposal"
+  },
+  {
+    "id": "Q09",
+    "intent": "Malformed and misleading success",
+    "model": "Hostile app/network/harness inputs",
+    "setup": "Public fixed strings, isolated API probes and result guards",
+    "harness": "Existing production JVM/Node plus dynamic negative/cancel probes",
+    "expected": "Invalid input cannot submit; no false green from partial logs/exit1",
+    "actual": "Invalid array/41char names rejected400 on both default endpoints; no existing identity supplied. CLI0+actionAccepted=false correctly not accepted as action success. Literal hostile instructions remain editable input/no candidate/send; routes0.",
+    "status": "PASS",
+    "fixes": [],
+    "evidence": [
+      "Q09-invalid-and-noop-result.json",
+      "Q09-noop-probe-raw.json",
+      "Q05c-negative-fuel-and-hostile-result.json"
+    ],
+    "cleanup": "Font1.0 on both, microphone inactive, diagnostics collector stopped; existing AVD/server/auth/evidence preserved"
+  },
+  {
+    "id": "Q10",
+    "intent": "Integrity and cleanup",
+    "model": "Dirty/stale state, bounded commands",
+    "setup": "Freeze Git/base/head, old846 hashes, preserve current app auth",
+    "harness": "Manifest comparisons + explicit timeouts + report",
+    "expected": "No unrelated edits, no secrets, restore font, stop collectors, final exact-head independent verdict",
+    "actual": "H1 independent AC1–5 PASS. Critical collector stopped, immutable generation0/PIDs preserved. Separate normal own-product cold reentry clears harness-created MainActivity stack, changes PIDs explicitly, restores historicalrev2 with route0/no liveCONFIRMED claim and rechecks same installed packages. Final new-head rebind still required.",
+    "status": "PASS",
+    "fixes": [],
+    "evidence": [
+      "Q10b-cleanup-and-ready.json",
+      "collector-result.json",
+      "final-runtime-audit.json",
+      "Q10c-clean-cold-reentry.json",
+      "Q10c-final-installed-package-binding.json",
+      "Q10c-cold-reentry-audit.json",
+      "verifier/final-exact-head-review.md"
+    ],
+    "cleanup": "Font1.0 on both, microphone inactive, diagnostics collector stopped; existing AVD/server/auth/evidence preserved"
+  }
+]

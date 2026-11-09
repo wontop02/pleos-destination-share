@@ -1,0 +1,5 @@
+negative | 카페에 들르면 안 돼 | CHANGE | reason=카페에 들러요. | candidates=1 | pass=false
+negative | 카페에 가고 싶지 않아 | CHANGE | reason=카페에 들러요. | candidates=1 | pass=false
+positive | 카페에 들르고 싶어 | CHANGE | candidates=1 | pass=true
+positive | 카페에 가고 싶어 | CHANGE | candidates=1 | pass=true
+failures=2

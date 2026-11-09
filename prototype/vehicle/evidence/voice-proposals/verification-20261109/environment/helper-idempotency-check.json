@@ -1,0 +1,26 @@
+{
+  "atUtc": "2026-11-09T05:05:41.212602+00:00",
+  "command": [
+    "python3",
+    "environment/ensure-default-route.py"
+  ],
+  "exit": 0,
+  "result": {
+    "atUtc": "2026-11-09T05:05:41.205562+00:00",
+    "results": [
+      {
+        "serial": "emulator-5570",
+        "default4182TargetsOwned4192": true,
+        "existing4192Preserved": true,
+        "newMapping": false
+      },
+      {
+        "serial": "emulator-5572",
+        "default4182TargetsOwned4192": true,
+        "existing4192Preserved": true,
+        "newMapping": false
+      }
+    ],
+    "note": "Transport-scoped mapping; rerun after AVD boot. No app data, room identity or archived evidence is written."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "atUtc": "2026-11-09T04:26:21.722517+00:00",
+  "proposalId": "994d714aa66333c17676e84b",
+  "routeCounts": {
+    "emulator-5570": 1,
+    "emulator-5572": 1
+  },
+  "actualTypedConfirmationObservedBoth": true,
+  "revision": {
+    "emulator-5570": 2,
+    "emulator-5572": 2
+  },
+  "windowSeconds": 49.932135791,
+  "collectorGaps": [],
+  "pass": true
+}

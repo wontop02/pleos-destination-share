@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ai.pleos.destinations.vehicle.VoiceInputTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-11-08T11:26:25" hostname="wontop-MacBookAir.local" time="0.004">
+  <properties/>
+  <testcase name="roomMemberEpochPageAndNativeChangesDisposeAndClearAllVoiceContent" classname="ai.pleos.destinations.vehicle.VoiceInputTest" time="0.003"/>
+  <testcase name="observingOrEditingCannotStartMicrophoneAndDoubleTapStartsOnce" classname="ai.pleos.destinations.vehicle.VoiceInputTest" time="0.0"/>
+  <testcase name="stopWaitsBrieflyForFinalButNeverPromotesAnInterimResult" classname="ai.pleos.destinations.vehicle.VoiceInputTest" time="0.0"/>
+  <testcase name="unsupportedPermissionFailureEmptyAndInvalidResultsRemainEditable" classname="ai.pleos.destinations.vehicle.VoiceInputTest" time="0.001"/>
+  <testcase name="preparationAndFinalCallbacksCheckDeadlinesWithoutWaitingForTick" classname="ai.pleos.destinations.vehicle.VoiceInputTest" time="0.0"/>
+  <testcase name="onlyFinalTextCompletesAndClosesTheMicrophone" classname="ai.pleos.destinations.vehicle.VoiceInputTest" time="0.0"/>
+  <testcase name="cancelledAndRetriedRunsRejectOldCallbacks" classname="ai.pleos.destinations.vehicle.VoiceInputTest" time="0.0"/>
+  <testcase name="actualReadinessStartsTheCaptureWindowAndDuplicateReadyCannotExtendIt" classname="ai.pleos.destinations.vehicle.VoiceInputTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,199 @@
+{
+  "atUtc": "2026-11-09T04:49:28.441754+00:00",
+  "font": "1.3",
+  "state": {
+    "at": 1794199760372,
+    "event": "sessionState",
+    "serviceEpoch": 7358667,
+    "roomEpoch": 1,
+    "revision": 2,
+    "role": "host",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false,
+    "confirmationKind": null,
+    "sharedKind": "pleos_place",
+    "proposalLease": false,
+    "proposalBusy": false,
+    "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+    "proposalPublicationHeld": true,
+    "acceptedProposalId": "994d714aa66333c17676e84b",
+    "acceptedProposalVersion": 2,
+    "acceptedProposalRevision": 2,
+    "proposal": {
+      "id": "994d714aa66333c17676e84b",
+      "version": 2,
+      "status": "accepted",
+      "candidateName": "가든서비스",
+      "candidatePoiId": "36khp2h36p68cm5nqhec",
+      "proposerId": "747ebc2fb24f7684bbf6242c",
+      "baseRevision": 1,
+      "createdAt": 1794198326888,
+      "expiresAt": 1794198446888,
+      "acceptedRevision": 2,
+      "responses": [
+        {
+          "memberId": "747ebc2fb24f7684bbf6242c",
+          "response": "accepted"
+        },
+        {
+          "memberId": "93c1bad0addf52af2adf8159",
+          "response": "accepted"
+        }
+      ]
+    }
+  },
+  "nodes": [
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "",
+      "bounds": "[853,90][2535,1300]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "",
+      "bounds": "[853,90][2535,1300]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "android:id/content",
+      "text": "",
+      "bounds": "[853,90][2535,1300]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "",
+      "bounds": "[853,90][2535,1300]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "",
+      "bounds": "[853,90][2535,190]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "동행",
+      "bounds": "[885,120][2415,163]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "ai.pleos.destinations.vehicle:id/nav_settings",
+      "text": "설정",
+      "bounds": "[2415,114][2503,170]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "",
+      "bounds": "[853,190][2535,1300]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "ai.pleos.destinations.vehicle:id/home_page",
+      "text": "",
+      "bounds": "[853,190][2535,1300]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "",
+      "bounds": "[853,190][2535,1300]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "",
+      "bounds": "[1134,190][2254,828]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "ai.pleos.destinations.vehicle:id/connection_status",
+      "text": "동행방 연결됨 · 내비 연결됨 · 자동 동행 꺼짐",
+      "bounds": "[1166,202][2222,231]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "",
+      "bounds": "[1166,251][2222,671]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "함께 가는 곳",
+      "bounds": "[1194,279][2194,308]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "ai.pleos.destinations.vehicle:id/shared_place_name",
+      "text": "가든서비스",
+      "bounds": "[1194,328][2194,373]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "ai.pleos.destinations.vehicle:id/shared_place_address",
+      "text": "경기도 성남시 수정구 창업로40번길 6",
+      "bounds": "[1194,385][2194,414]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "ai.pleos.destinations.vehicle:id/destination_status",
+      "text": "수락한 목적지예요. 필요하면 다시 반영해 주세요.",
+      "bounds": "[1194,438][2194,491]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "ai.pleos.destinations.vehicle:id/change_destination",
+      "text": "목적지 바꾸기",
+      "bounds": "[1194,519][2194,575]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "ai.pleos.destinations.vehicle:id/home_recovery",
+      "text": "다시 반영",
+      "bounds": "[1194,587][2194,643]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "",
+      "text": "대표 차량 · 시작하면 내비 목적지를 자동으로 공유해요",
+      "bounds": "[1166,695][2222,724]",
+      "enabled": "true"
+    },
+    {
+      "package": "ai.pleos.destinations.vehicle",
+      "resource-id": "ai.pleos.destinations.vehicle:id/start_convoy",
+      "text": "동행 시작",
+      "bounds": "[1166,740][2222,796]",
+      "enabled": "true"
+    }
+  ]
+}

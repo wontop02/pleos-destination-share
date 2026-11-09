@@ -1,0 +1,10 @@
+{
+  "incorrectOriginalMark": "probeSdkInitialized=false",
+  "corrected": {
+    "probeSdkInitialized": true,
+    "probeMicrophoneRequested": false,
+    "suppliedPcmRequested": false
+  },
+  "source": "SpeechProbeActivity.onCreate ends with setContentView(root); initialize()",
+  "effect": "ON_DEVICE init is a confound for engine cleanup. Do not relabel this as a probe-free Activity-stop or fast-restart test. Original rows retained."
+}

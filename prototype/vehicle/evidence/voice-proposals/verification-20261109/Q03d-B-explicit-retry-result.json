@@ -1,0 +1,390 @@
+{
+  "atUtc": "2026-11-09T04:55:13.276321+00:00",
+  "serial": "emulator-5572",
+  "reason": "explicit retry after Activity font recreation; no <3sec timing claim",
+  "attempts": [
+    {
+      "index": 1,
+      "startHost": "2026-11-09T04:55:21.787685+00:00",
+      "recordingObservedAt": "2026-11-09T04:55:23.968467+00:00",
+      "recordingAppop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+245ms ago (running)\n",
+      "stoppedAppop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+6s993ms ago; duration=+5s490ms\n",
+      "cancelledAt": "2026-11-09T04:55:30.779767+00:00"
+    },
+    {
+      "index": 2,
+      "startHost": "2026-11-09T04:55:30.779875+00:00",
+      "recordingObservedAt": "2026-11-09T04:55:33.727812+00:00",
+      "recordingAppop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+289ms ago (running)\n",
+      "stoppedAppop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+7s227ms ago; duration=+5s13ms\n",
+      "cancelledAt": "2026-11-09T04:55:40.732586+00:00"
+    }
+  ],
+  "inputSource": "actual app microphone, public text fixture cleared before retry; no speech playback",
+  "before": {
+    "emulator-5570": {
+      "serial": "emulator-5570",
+      "lineOffset": 283,
+      "hostAt": "2026-11-09T04:55:21.385619+00:00",
+      "state": {
+        "at": 1794200038643,
+        "event": "activityStopDetach",
+        "serviceEpoch": 7447527,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "host",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "994d714aa66333c17676e84b",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "994d714aa66333c17676e84b",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "747ebc2fb24f7684bbf6242c",
+          "baseRevision": 1,
+          "createdAt": 1794198326888,
+          "expiresAt": 1794198446888,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "747ebc2fb24f7684bbf6242c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "93c1bad0addf52af2adf8159",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    },
+    "emulator-5572": {
+      "serial": "emulator-5572",
+      "lineOffset": 253,
+      "hostAt": "2026-11-09T04:55:21.614535+00:00",
+      "state": {
+        "at": 1794200044533,
+        "event": "sessionState",
+        "serviceEpoch": 8799808,
+        "roomEpoch": 1,
+        "revision": 2,
+        "role": "member",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": "pleos_place",
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+        "proposalPublicationHeld": true,
+        "acceptedProposalId": "994d714aa66333c17676e84b",
+        "acceptedProposalVersion": 2,
+        "acceptedProposalRevision": 2,
+        "proposal": {
+          "id": "994d714aa66333c17676e84b",
+          "version": 2,
+          "status": "accepted",
+          "candidateName": "가든서비스",
+          "candidatePoiId": "36khp2h36p68cm5nqhec",
+          "proposerId": "747ebc2fb24f7684bbf6242c",
+          "baseRevision": 1,
+          "createdAt": 1794198326888,
+          "expiresAt": 1794198446888,
+          "acceptedRevision": 2,
+          "responses": [
+            {
+              "memberId": "747ebc2fb24f7684bbf6242c",
+              "response": "accepted"
+            },
+            {
+              "memberId": "93c1bad0addf52af2adf8159",
+              "response": "accepted"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": [
+    {
+      "hostAt": "2026-11-09T04:55:24.629035+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200123375,
+        "event": "voice:startMicrophone",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:55:24.629035+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200123440,
+        "event": "voice:sdkInitializedOnDevice",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:55:24.629035+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200123550,
+        "event": "voice:appMicrophoneRecording",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:55:24.629035+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200123551,
+        "event": "voice:listening",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:55:31.478297+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200130094,
+        "event": "voice:sdkStopPending",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:55:31.478297+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200130101,
+        "event": "voice:cancelled",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:55:32.509746+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200131609,
+        "event": "voice:startMicrophone",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:55:34.314399+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200133102,
+        "event": "voice:sdkStopWaitElapsed",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:55:34.314399+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200133115,
+        "event": "voice:sdkReleased",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:55:34.314399+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200133148,
+        "event": "voice:sdkInitializedOnDevice",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:55:34.314399+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200133235,
+        "event": "voice:appMicrophoneRecording",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:55:34.314399+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200133235,
+        "event": "voice:listening",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:55:40.627055+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200139969,
+        "event": "voice:sdkStopPending",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:55:40.627055+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200139986,
+        "event": "voice:cancelled",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:55:43.879974+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200143004,
+        "event": "voice:sdkStopWaitElapsed",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    },
+    {
+      "hostAt": "2026-11-09T04:55:43.879974+00:00",
+      "serial": "emulator-5572",
+      "sourceGeneration": 0,
+      "productionPid": "19726",
+      "record": {
+        "at": 1794200143061,
+        "event": "voice:sdkReleased",
+        "nativeEpoch": 2,
+        "operation": 1,
+        "matched": null
+      }
+    }
+  ],
+  "routes": {
+    "emulator-5570": 0,
+    "emulator-5572": 0
+  },
+  "stateAfter": {
+    "at": 1794200044533,
+    "event": "sessionState",
+    "serviceEpoch": 8799808,
+    "roomEpoch": 1,
+    "revision": 2,
+    "role": "member",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 1,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false,
+    "confirmationKind": null,
+    "sharedKind": "pleos_place",
+    "proposalLease": false,
+    "proposalBusy": false,
+    "proposalMessage": "과거 수락 확정 · 자동 재요청 없음 · 필요하면 직접 다시 적용해 주세요.",
+    "proposalPublicationHeld": true,
+    "acceptedProposalId": "994d714aa66333c17676e84b",
+    "acceptedProposalVersion": 2,
+    "acceptedProposalRevision": 2,
+    "proposal": {
+      "id": "994d714aa66333c17676e84b",
+      "version": 2,
+      "status": "accepted",
+      "candidateName": "가든서비스",
+      "candidatePoiId": "36khp2h36p68cm5nqhec",
+      "proposerId": "747ebc2fb24f7684bbf6242c",
+      "baseRevision": 1,
+      "createdAt": 1794198326888,
+      "expiresAt": 1794198446888,
+      "acceptedRevision": 2,
+      "responses": [
+        {
+          "memberId": "747ebc2fb24f7684bbf6242c",
+          "response": "accepted"
+        },
+        {
+          "memberId": "93c1bad0addf52af2adf8159",
+          "response": "accepted"
+        }
+      ]
+    }
+  },
+  "pass": true,
+  "finalAppop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+16s580ms ago; duration=+5s13ms\n"
+}

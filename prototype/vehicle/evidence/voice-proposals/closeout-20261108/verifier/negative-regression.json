@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/private/tmp/pleos-vehicle-tools-20261105/jdk/jdk-21.0.13+9/Contents/Home/bin/java",
+    "-Xmx64m",
+    "-XX:MaxMetaspaceSize=64m",
+    "--class-path",
+    "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-25-voice-proposals/prototype/vehicle/app/build/tmp/kotlin-classes/debug:/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-25-voice-proposals/prototype/vehicle/core/build/classes/kotlin/main:/private/tmp/pleos-vehicle-tools-20261105/gradle/gradle-8.11.1/lib/kotlin-stdlib-2.0.20.jar",
+    "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/verifier/final-105cd7e/NegativeDraftProbe.java"
+  ],
+  "exit": 0,
+  "stdout": "input=카페에 들르면 안 돼\nintent=NEGATED\nreason=\ncandidateCount=0\ninput=카페에 가고 싶지 않아\nintent=NEGATED\nreason=\ncandidateCount=0\ninput=카페 가지 말자\nintent=NEGATED\nreason=\ncandidateCount=0\ninput=카페 들르는 거 어때?\nintent=CHANGE\nreason=카페에 들러요.\ncandidateCount=0\n",
+  "stderr": "",
+  "sourceSha256": "ff7a2ab74f42fae1b5cfb4dfe481bc8b06158f50736339a6ac5f1cfab5eaf034",
+  "note": "Existing compiled latest production analyzer, not independent fresh rebuild."
+}

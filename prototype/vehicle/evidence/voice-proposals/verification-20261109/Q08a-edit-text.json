@@ -1,0 +1,24 @@
+{
+  "atUtc": "2026-11-09T04:21:43.241327+00:00",
+  "serial": "emulator-5570",
+  "component": "VehicleUiTextProbe",
+  "arguments": {
+    "field": "voice_text",
+    "textKey": "saved-cafe"
+  },
+  "exit": 0,
+  "seconds": 1.279821082999998,
+  "result": {
+    "actionAccepted": "true",
+    "emptyOrShowingHint": "false",
+    "field": "voice_text",
+    "inputSource": "ui_edit_not_speech_recognition",
+    "readbackCharacters": "16",
+    "readbackEquals": "true",
+    "requestedCharacters": "16",
+    "success": "true",
+    "textKey": "saved-cafe"
+  },
+  "productionPidBefore": "32650",
+  "productionPidAfter": "32650"
+}

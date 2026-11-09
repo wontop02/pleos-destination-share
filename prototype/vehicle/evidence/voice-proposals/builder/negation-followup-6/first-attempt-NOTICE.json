@@ -1,0 +1,7 @@
+{
+  "status": "FAILED_NOT_INSTALLABLE_AS_NEW_SOURCE",
+  "reason": "existing unknown-place positive-intent regression failed; APK files were prior successful outputs, not outputs of this failed command",
+  "originalDirectory": "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/builder/freeze-6",
+  "relocatedDirectory": "/Users/wontop/Documents/ChatGPT/\ud604\ub300 \ubaa8\ube44\uc2a4 \ud574\ucee4\ud1a4/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/builder/freeze-6-attempt-1-failed",
+  "preservedOriginalReport": true
+}

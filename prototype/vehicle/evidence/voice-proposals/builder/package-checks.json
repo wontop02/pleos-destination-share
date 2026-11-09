@@ -1,0 +1,32 @@
+[
+  {
+    "module": "app",
+    "check": "signature",
+    "exit": 0
+  },
+  {
+    "module": "app",
+    "check": "permissions",
+    "exit": 0
+  },
+  {
+    "module": "app",
+    "check": "badging",
+    "exit": 0
+  },
+  {
+    "module": "nativeDriver",
+    "check": "signature",
+    "exit": 0
+  },
+  {
+    "module": "nativeDriver",
+    "check": "permissions",
+    "exit": 0
+  },
+  {
+    "module": "nativeDriver",
+    "check": "badging",
+    "exit": 0
+  }
+]

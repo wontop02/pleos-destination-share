@@ -1,0 +1,77 @@
+{
+  "inputSource": "User manually attempted voice test and supplied timeout screenshot; no successful transcription claimed",
+  "readyMarker": "2026-11-08T11:34:28.819300+00:00",
+  "voiceEvents": [
+    {
+      "at": 1794137752355,
+      "event": "voice:startMicrophone",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794137752604,
+      "event": "voice:sdkInitializedOnDevice",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794137752621,
+      "event": "voice:sdkMicrophoneRequested",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794137758238,
+      "event": "voice:sdkReady",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794137758240,
+      "event": "voice:listening",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794137766289,
+      "event": "voice:stopMicrophone",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794137769342,
+      "event": "voice:sdkStopPending",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794137769358,
+      "event": "voice:failureTIMEOUT",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794137772370,
+      "event": "voice:sdkStopWaitElapsed",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    },
+    {
+      "at": 1794137772579,
+      "event": "voice:sdkReleased",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": null
+    }
+  ],
+  "currentCaasRecordAppOp": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+1m49s650ms ago; duration=+8s26ms"
+}
