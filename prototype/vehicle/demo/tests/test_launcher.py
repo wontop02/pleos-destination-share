@@ -320,23 +320,53 @@ class LauncherTests(unittest.TestCase):
 
     def test_cold_boot_waits_for_user10_and_restores_only_approved_host_mic(self):
         host = mock.Mock()
-        host.listeners.side_effect = [{}, {}, {200: ["127.0.0.1:5570"]}, {200: ["127.0.0.1:5570"]}]
+        host.listeners.side_effect = [{}, {}] + [{200: ["127.0.0.1:5570"]}] * 10
         host.run.return_value = ""
         host.spawn.return_value.pid = 200
         app = self.instance(host)
         app.emulator_identity = mock.Mock(return_value=launcher.fingerprint(process(pid=200)))
         app.avd_name = mock.Mock()
-        app.shell = mock.Mock(side_effect=["1", "0", "1", "10", "RUNNING_UNLOCKED\n"])
+        users = iter(["0"] + ["10"] * 20)
+        app.shell = mock.Mock(side_effect=lambda _vehicle, *args, **kwargs:
+                             next(users) if args == ("am", "get-current-user") else
+                             "RUNNING_UNLOCKED\n" if args == ("am", "get-started-user-state", "10") else "1")
         app.adb = mock.Mock()
-        with contextlib.redirect_stdout(io.StringIO()), mock.patch.object(launcher.time, "sleep"):
+        app.boot_surface = mock.Mock(return_value=True)
+        app.c["timeouts"]["boot"] = 10
+        with contextlib.redirect_stdout(io.StringIO()), mock.patch.object(launcher.time, "sleep"), \
+                mock.patch.object(launcher.time, "monotonic", side_effect=iter(range(100))):
             app.ensure_emulator(self.config()["emulators"][0])
         argv = host.spawn.call_args.args[0]
         self.assertEqual(argv[1:], ["-avd", "Pleos12Leader", "-port", "5570", "-no-snapshot", "-no-boot-anim",
                                    "-audio", "coreaudio", "-gpu", "host", "-crash-report-mode", "disabled"])
         self.assertEqual(app.adb.call_args.args[1:], ("emu", "avd", "hostmicon"))
         self.assertEqual(app.shell.call_args.args[1:], ("am", "get-started-user-state", "10"))
+        self.assertEqual(app.boot_surface.call_count, 2)
         self.assertEqual(host.run.call_args.args[0][:2], ["/usr/bin/pgrep", "-f"])
         self.assertFalse(any("switch-user" in call.args or "grant" in call.args for call in app.shell.call_args_list))
+
+    def test_cold_boot_waits_for_normal_public_pane_and_times_out_without_opening_app(self):
+        host = mock.Mock()
+        host.listeners.side_effect = [{}, {}] + [{200: ["127.0.0.1:5570"]}] * 5
+        host.run.return_value = ""
+        host.spawn.return_value.pid = 200
+        app = self.instance(host)
+        app.emulator_identity = mock.Mock(return_value=launcher.fingerprint(process(pid=200)))
+        app.avd_name = mock.Mock()
+        app.shell = mock.Mock(side_effect=lambda _vehicle, *args, **kwargs:
+                             "10" if args == ("am", "get-current-user") else
+                             "RUNNING_UNLOCKED" if args == ("am", "get-started-user-state", "10") else "1")
+        app.boot_surface = mock.Mock(return_value=False)
+        app.adb = mock.Mock()
+        with contextlib.redirect_stdout(io.StringIO()), mock.patch.object(launcher.time, "sleep"), \
+                mock.patch.object(launcher.time, "monotonic", side_effect=iter(range(100))):
+            with self.assertRaises(launcher.Failure) as caught:
+                app.ensure_emulator(self.config()["emulators"][0])
+        self.assertEqual(caught.exception.code, 5)
+        app.boot_surface.assert_called()
+        app.adb.assert_not_called()
+        self.assertNotIn('"event": "vehicle_booted"', self.log.path.read_text())
+        self.assertFalse(any(call.args[1:3] == ("am", "start") for call in app.shell.call_args_list))
 
     def test_warm_wrong_foreground_user_refuses_without_switch_or_spawn(self):
         host = mock.Mock()
@@ -362,6 +392,52 @@ class LauncherTests(unittest.TestCase):
             with self.assertRaises(launcher.Failure) as caught:
                 app.ensure_app(self.config()["emulators"][0])
         self.assertEqual(caught.exception.code, 5)
+        self.assertNotIn('"event": "app_ready"', self.log.path.read_text())
+
+    def oem_xml(self, extra="", bounds="[853,90][2535,1300]"):
+        package = "ai.umos.maps.android.navigation.app"
+        return ('<?xml version="1.0"?><hierarchy><node package="' + package + '" class="android.widget.FrameLayout" bounds="' + bounds + '">' +
+                '<node package="' + package + '" class="android.widget.FrameLayout" resource-id="android:id/content" bounds="' + bounds + '">' +
+                '<node package="' + package + '" class="androidx.compose.ui.platform.ComposeView" bounds="' + bounds + '"/></node>' + extra + '</node></hierarchy>')
+
+    def test_observed_oem_pane_requires_exact_layout_and_no_own_or_modal_nodes(self):
+        self.assertTrue(launcher.oem_pane_observation(self.oem_xml(), [853, 90, 2535, 1300]))
+        self.assertFalse(launcher.oem_pane_observation(self.oem_xml(bounds="[0,0][1682,1350]"), [853, 90, 2535, 1300]))
+        for extra in ['<node package="ai.pleos.destinations.vehicle"/>',
+                      '<node package="com.android.permissioncontroller"/>',
+                      '<node package="ai.umos.maps.android.navigation.app" class="android.app.Dialog"/>',
+                      '<node package="ai.umos.maps.android.navigation.app" class="android.widget.EditText"/>']:
+            self.assertFalse(launcher.oem_pane_observation(self.oem_xml(extra), [853, 90, 2535, 1300]))
+
+    def test_resumed_but_hidden_own_main_reenters_only_observed_oem_pane(self):
+        app = self.instance(mock.Mock())
+        vehicle = self.config()["emulators"][0]
+        app.installed_apk = mock.Mock()
+        app.activity = mock.Mock(return_value=dict(count=1, user_ok=True, resumed=True))
+        own = '<?xml version="1.0"?><hierarchy><node package="' + launcher.PACKAGE + '" resource-id="' + launcher.PACKAGE + ':id/home_page" bounds="[853,240][2535,1300]"/></hierarchy>'
+        app.adb = mock.Mock(side_effect=[self.oem_xml(), self.oem_xml(), own])
+        app.c["timeouts"]["ready"] = 10
+        app.shell = mock.Mock(side_effect=lambda _vehicle, *args, **kwargs: "10" if args == ("am", "get-current-user") else "")
+        with mock.patch.object(launcher.time, "monotonic", side_effect=[0, 0, 3, 3, 3, 4]), mock.patch.object(launcher.time, "sleep"):
+            result = app.ensure_app(vehicle)
+        self.assertEqual(result["page"], "home")
+        starts = [call for call in app.shell.call_args_list if call.args[1:3] == ("am", "start")]
+        self.assertEqual(len(starts), 1)
+        self.assertEqual(starts[0].args[starts[0].args.index("-n") + 1], launcher.COMPONENT)
+
+    def test_resumed_hidden_main_never_ready_when_oem_surface_persists(self):
+        app = self.instance(mock.Mock())
+        app.installed_apk = mock.Mock()
+        app.activity = mock.Mock(return_value=dict(count=1, user_ok=True, resumed=True))
+        app.adb = mock.Mock(return_value=self.oem_xml())
+        app.shell = mock.Mock(side_effect=lambda _vehicle, *args, **kwargs: "10" if args == ("am", "get-current-user") else "")
+        app.c["timeouts"]["ready"] = 20
+        with mock.patch.object(launcher.time, "monotonic", side_effect=iter(range(100))), mock.patch.object(launcher.time, "sleep"):
+            with self.assertRaises(launcher.Failure) as caught:
+                app.ensure_app(self.config()["emulators"][0])
+        self.assertEqual(caught.exception.code, 5)
+        starts = [call for call in app.shell.call_args_list if call.args[1:3] == ("am", "start")]
+        self.assertEqual(len(starts), 3)
         self.assertNotIn('"event": "app_ready"', self.log.path.read_text())
 
     def test_public_ui_uses_resource_id_and_correct_pane_without_recording_text(self):

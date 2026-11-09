@@ -321,6 +321,29 @@ def ui_observation(xml, pane):
     return {"page": hits[0], "pane_verified": True}
 
 
+def oem_pane_observation(xml, pane):
+    """Recognize only the observed native Maps surface; never inspect or persist text."""
+    try:
+        tree = ET.fromstring(xml[xml.index("<?xml"):xml.index("</hierarchy>") + len("</hierarchy>")])
+    except (ValueError, ET.ParseError, TypeError):
+        return False
+    nodes = list(tree.iter("node"))
+    package = "ai.umos.maps.android.navigation.app"
+    bounds = "[{},{}][{},{}]".format(*pane)
+    if not nodes or {node.get("package") for node in nodes} != {package}:
+        return False  # Own, permission, system or unknown dialog windows must be preserved.
+    if any(node.get("password") == "true" or "Dialog" in node.get("class", "") or
+           "Popup" in node.get("class", "") or node.get("class") == "android.widget.EditText" or
+           node.get("resource-id") in {"android:id/alertTitle", "android:id/button1", "android:id/button2"}
+           for node in nodes):
+        return False
+    content = [node for node in nodes if node.get("resource-id") == "android:id/content"]
+    return (len(content) == 1 and content[0].get("class") == "android.widget.FrameLayout" and
+            content[0].get("bounds") == bounds and nodes[0].get("bounds") == bounds and
+            any(node.get("class") == "androidx.compose.ui.platform.ComposeView" and
+                node.get("bounds") == bounds for node in nodes))
+
+
 def activity_observation(output):
     histories = re.findall(r"(?m)^\s*\*\s+Hist\s+#\d+:\s+ActivityRecord\{([^\s}]+)\s+u(\d+)\s+" + re.escape(COMPONENT) + r"(?:\s|})", output)
     records = {(record, int(user)) for record, user in histories}
@@ -342,6 +365,7 @@ class Launcher:
         if not isinstance(self.state, dict) or self.state.get("version") != 1:
             raise Failure("실행 자원 기록을 읽을 수 없습니다. 기록을 보존하고 로컬 설정을 확인해 주세요.", 2)
         self.phase = "configuration"
+        self._oem_visible = {}
 
     def save(self):
         atomic_json(self.state_path, self.state)
@@ -482,6 +506,10 @@ class Launcher:
         if lines != [vehicle["avd"]]:
             raise Failure("실제 가상 차량 이름이 설정과 다릅니다. 기존 실행은 그대로 두었습니다.", 4)
 
+    def boot_surface(self, vehicle, remaining):
+        xml = self.adb(vehicle, "exec-out", "uiautomator", "dump", "/proc/self/fd/1", timeout=min(12, remaining))
+        return bool(ui_observation(xml, vehicle["pane"]) or oem_pane_observation(xml, vehicle["pane"]))
+
     def ensure_emulator(self, vehicle):
         self.phase = "boot_" + str(vehicle["port"])
         label = "대표" if vehicle["port"] == 5570 else "참여"
@@ -502,7 +530,9 @@ class Launcher:
             self.save()
         else:
             self.emulator_identity(vehicle)
+        pane_since = None
         def boot(remaining):
+            nonlocal pane_since
             if not self.host.listeners(vehicle["port"]):
                 return False
             self.emulator_identity(vehicle)
@@ -521,6 +551,21 @@ class Launcher:
                 raise Failure("차량의 전경 사용자가 10이 아닙니다. 사용자 변경 없이 중단했습니다.", 4)
             if self.shell(vehicle, "am", "get-started-user-state", "10", timeout=min(5, remaining)).strip() != "RUNNING_UNLOCKED":
                 return False
+            if cold:
+                try:
+                    stable = self.boot_surface(vehicle, remaining)
+                except Failure as error:
+                    if error.code not in (5, 6):
+                        raise
+                    stable = False
+                if not stable:
+                    pane_since = None
+                    return False
+                now = time.monotonic()
+                if pane_since is None:
+                    pane_since = now
+                if now - pane_since < 3:
+                    return False
             return True
         self.wait(boot, self.c["timeouts"]["boot"], label + " 차량의 부팅 대기 시간이 지났습니다. 실행 파일을 다시 열어 주세요.")
         record = self.emulator_identity(vehicle)
@@ -577,7 +622,9 @@ class Launcher:
         return result
 
     def public_ui(self, vehicle, timeout=None):
+        self._oem_visible[vehicle["avd"]] = False
         xml = self.adb(vehicle, "exec-out", "uiautomator", "dump", "/proc/self/fd/1", timeout=timeout)
+        self._oem_visible[vehicle["avd"]] = oem_pane_observation(xml, vehicle["pane"])
         return ui_observation(xml, vehicle["pane"])
 
     def ensure_app(self, vehicle):
@@ -613,8 +660,13 @@ class Launcher:
                     if open_count < 3 and time.monotonic() - last_open >= 3:
                         open_own_app(remaining)
                     return False
-                # An active own Activity with no public page may have a modal; preserve it.
-                return self.public_ui(vehicle, min(12, remaining))
+                visible = self.public_ui(vehicle, min(12, remaining))
+                # OEM multi-window can report our hidden task RESUMED. Retry only when the
+                # observed known native Maps surface occupies the pane and no own/modal nodes exist.
+                if not visible and self._oem_visible.get(vehicle["avd"], False):
+                    if open_count < 3 and time.monotonic() - last_open >= 3:
+                        open_own_app(remaining)
+                return visible
             except Failure as error:
                 if error.code in (5, 6):
                     return False
