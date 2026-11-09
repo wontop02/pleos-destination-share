@@ -1,0 +1,13 @@
+{
+  "atUtc": "2026-11-09T09:22:59.051275+00:00",
+  "launcherSha256": "172553d4510986da142de3b230ac0f32e517d53532b2f5079880dd0e7e53d8c0",
+  "suppliedXmlSha256": "40ae571d757ef7e1197a8972b8d3f7ef5ddd4969597a8f68e4d346278ec40eff",
+  "expectedPane": [
+    853,
+    90,
+    2535,
+    1300
+  ],
+  "observedOemSurfaceRecognized": true,
+  "persistedUiText": false
+}

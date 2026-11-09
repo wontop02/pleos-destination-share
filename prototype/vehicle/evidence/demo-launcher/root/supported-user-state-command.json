@@ -1,0 +1,6 @@
+{
+  "command": "am get-started-user-state 10",
+  "exit": 0,
+  "stdout": "RUNNING_UNLOCKED\n",
+  "stderr": ""
+}

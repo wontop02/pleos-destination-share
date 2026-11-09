@@ -1,0 +1,71 @@
+{
+  "atUtc": "2026-11-09T09:28:27.694860+00:00",
+  "pass": true,
+  "scope": "Operator QA isolated room create201/delete200 from both actual guests at4182 and4192. Existing app room is not mutated. Response roomId/token exist only in memory/stdin, never printed or saved. This is actual API verification, not a claim of complete new-room manualUI. Launcher never performs room management.",
+  "results": [
+    {
+      "serial": "emulator-5570",
+      "endpoint": "http://127.0.0.1:4182",
+      "nameMatchesAppDefault": true,
+      "create": {
+        "status": 201,
+        "connectRefused": false,
+        "exit": 0
+      },
+      "delete": {
+        "status": 200,
+        "connectRefused": false,
+        "exit": 0
+      },
+      "pass": true
+    },
+    {
+      "serial": "emulator-5570",
+      "endpoint": "http://127.0.0.1:4192",
+      "nameMatchesAppDefault": true,
+      "create": {
+        "status": 201,
+        "connectRefused": false,
+        "exit": 0
+      },
+      "delete": {
+        "status": 200,
+        "connectRefused": false,
+        "exit": 0
+      },
+      "pass": true
+    },
+    {
+      "serial": "emulator-5572",
+      "endpoint": "http://127.0.0.1:4182",
+      "nameMatchesAppDefault": true,
+      "create": {
+        "status": 201,
+        "connectRefused": false,
+        "exit": 0
+      },
+      "delete": {
+        "status": 200,
+        "connectRefused": false,
+        "exit": 0
+      },
+      "pass": true
+    },
+    {
+      "serial": "emulator-5572",
+      "endpoint": "http://127.0.0.1:4192",
+      "nameMatchesAppDefault": true,
+      "create": {
+        "status": 201,
+        "connectRefused": false,
+        "exit": 0
+      },
+      "delete": {
+        "status": 200,
+        "connectRefused": false,
+        "exit": 0
+      },
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "head": "179ce4838b9899f1828589de7c8240dd4751b8c8",
+  "base": "4a9865f1b1584cb13a32f3a7022b08928ebad158",
+  "startedUtc": "2026-11-09T09:11:43.123637+00:00",
+  "durationSeconds": 4.482450125,
+  "command": [
+    "/usr/bin/python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "prototype/vehicle/demo/tests",
+    "-v"
+  ],
+  "cwd": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/demo-launcher-20261109/verifier/fresh-archive-179ce48",
+  "exitCode": 0,
+  "archiveSha256": "49a80945cdc280957dc385caf3f2750e8176845c7c4715c1d8b4edf0a387cff9",
+  "files": {
+    "Pleos 데모 실행.command": {
+      "sha256": "9eb99d3fe19a8f0f1b4f1dfc29236d3db28f9c25de73e626ceeec21c20c38ba0",
+      "mode": "0o775"
+    },
+    "prototype/vehicle/demo/launcher.py": {
+      "sha256": "51bea95cde0bff56206f56a897d60dad7573934f6b056bb59857ea13b989773c",
+      "mode": "0o664"
+    },
+    "prototype/vehicle/demo/tests/test_launcher.py": {
+      "sha256": "8654386350c5179702370f78ac093a2d80f827a58e547ff64a36b39812643776",
+      "mode": "0o664"
+    },
+    "prototype/server.mjs": {
+      "sha256": "883f38356f2a8b3835b3e66f007eac9ad99a4584ddf6f7678cd3a28233d1ac8e",
+      "mode": "0o664"
+    },
+    "prototype/public/index.html": {
+      "sha256": "d2fe515cdb9bd3ba0c62e83b07aa2503c49822b976402aa9e38a93b2d367cc27",
+      "mode": "0o664"
+    }
+  },
+  "isolation": "Fresh git archive. TMPDIR under verifier. Mock SDK/ADB metadata only. Real Node only on OS free port, asserted not 4190/4192/5041/5570/5572. Cleanup limited to spawned test child with fingerprint recheck."
+}

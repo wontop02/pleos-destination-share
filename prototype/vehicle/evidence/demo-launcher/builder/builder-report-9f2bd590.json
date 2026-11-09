@@ -1,0 +1,109 @@
+{
+  "atUtc": "2026-11-09T09:03:33.600737+00:00",
+  "issue": 27,
+  "role": "builtin worker following builder.toml contract; not custom-role execution",
+  "base": "4a9865f1b1584cb13a32f3a7022b08928ebad158",
+  "branch": "be/issue-27-demo-launcher",
+  "state": "uncommitted changes; root owns commits/GitHub and actual runtime verification",
+  "ownedFiles": {
+    "Pleos 데모 실행.command": {
+      "sha256": "9eb99d3fe19a8f0f1b4f1dfc29236d3db28f9c25de73e626ceeec21c20c38ba0",
+      "mode": "0o755"
+    },
+    "prototype/vehicle/demo/launcher.py": {
+      "sha256": "9f2bd5907a58343f2164860fd29826239d1137a67a18f5b236ec3d605aa9d709",
+      "mode": "0o644"
+    },
+    "prototype/vehicle/demo/config.example.json": {
+      "sha256": "15b29e3c0b93dc878981e95090e404dc1d7f389324a4dae5c7a35fe84d4cb263",
+      "mode": "0o644"
+    },
+    "prototype/vehicle/demo/README.md": {
+      "sha256": "d84e2474010371a1173048abc730219ed0ff215866782dc541bbfff54464ada8",
+      "mode": "0o644"
+    },
+    "prototype/vehicle/demo/tests/test_launcher.py": {
+      "sha256": "dc2ec6c6343963ab055a7af11ca4391c5c79b0f121c52d714312055379c8e76a",
+      "mode": "0o644"
+    },
+    "prototype/vehicle/README.md": {
+      "sha256": "4ff151238d30198db471769b135ba88312106b8668fa20b11b749632584e1d23",
+      "mode": "0o644"
+    },
+    "docs/product/README.md": {
+      "sha256": "aa1ca537fc16a89d6fe3099edc6abfc3371f9e68683dd7b2ace8c5bc90365e22",
+      "mode": "0o644"
+    },
+    "docs/product/demo-launcher.md": {
+      "sha256": "8b8bb5aea0b19b1fda6d1788b727a5cead786dc5ccd934ffaec6382e1a29946a",
+      "mode": "0o644"
+    },
+    ".gitignore": {
+      "sha256": "99418373d7157c397cb49d7a057f870957fc842ed7cb110fa08ea521cc815ac3",
+      "mode": "0o644"
+    }
+  },
+  "checks": [
+    {
+      "name": "unit-tests",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "prototype/vehicle/demo/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/demo-launcher-20261109/builder/unit-tests-9f2bd590.txt"
+    },
+    {
+      "name": "compile",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "py_compile",
+        "prototype/vehicle/demo/launcher.py",
+        "prototype/vehicle/demo/tests/test_launcher.py"
+      ],
+      "exit_code": 0,
+      "log": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/demo-launcher-20261109/builder/compile-9f2bd590.txt"
+    },
+    {
+      "name": "diff-check",
+      "command": [
+        "/usr/bin/git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/demo-launcher-20261109/builder/diff-check-9f2bd590.txt"
+    }
+  ],
+  "testCount": 32,
+  "directEvidence": [
+    "Actual executable .command from a different cwd through a symlink with spaces (configuration-only path)",
+    "Actual OS lock competing entry refuses with exit3 before resources",
+    "Isolated actual Node cold process plus warm reuse on a free loopback port; test room create201, post-reuse GET200, cleanup200; only that created child was terminated after process fingerprint validation",
+    "Configuration failures, foreign resource refusal, expected-start PID reuse refusal, daemon isolation arguments, emulator identities, cold user0 to10, warm wrong user, both reverse repairs, finite boot/UI timeout, no false ready, public resource ID/pane checks and preserved warm compose page",
+    "Actual NFD-spelled target .command exits0 in config-only mode; symlink-independent fixture and same-inode proof",
+    "Curated purpose-specific JSON read diagnostics plus generic exception-class-only logging; private raw exception payload absence assertions"
+  ],
+  "notExecutedByBuilder": [
+    "Any live ADB5041 or emulator5570/5572 command",
+    "Any live server4192/4190 operation",
+    "Actual vehicle warm/cold lifecycle or real room restoration; root performs these",
+    "Independent verifier or commits/PR/merge; root owns these"
+  ],
+  "knownFixes": [
+    "First isolated Node readiness test found incorrect public asset path; fixed to prototype/public/index.html before passing runs",
+    "Root warm1 exposed unsupported cmd user is-user-unlocked; replaced with observed am get-started-user-state RUNNING_UNLOCKED output",
+    "Root warm2 passed previous launcher hash; final ad91 hash adds required adoption start fingerprint and fixed ps locale for root warm3/cold verification",
+    "Actual OS entry diagnostics distinguished the configured repo path mismatch from missing config or resource failures; logs contain only curated Failure messages or exception class names",
+    "Actual Mac NFC/NFD target-entry fixture proved same filesystem identity despite different resolved strings; directory and server guards now use samefile, retain canonical configured root spelling, and still reject a foreign directory/copied same-bytes server",
+    "Root actual cold bootstrap found ADB_SERVER_SOCKET remote-address semantics prohibit local daemon startup. Starter-only copied environment now removes that and ANDROID_ADB_SERVER_PORT, explicitly uses local -L tcp:5041 plus unchanged USB allowlist/mDNS/key; normal remote-scoped client environment is preserved. Regression passes; actual cold resource operation remains root-owned.",
+    "Root cold2 observed native Navigation foreground displacement after successful own app launch. Same own MAIN/LAUNCHER reentry is now bounded to three total opens spaced at least three seconds, only for exactly one own MainActivity not resumed, without resetting the readiness deadline. Already-resumed own Activity with no public UI is preserved and never reopened. Fixtures cover recovery, persistent-displacement timeout/no READY, and modal preservation."
+  ],
+  "documentationNote": "Page preservation applies to already-open app; cold app process uses its own default page. Operational docs now describe bounded own-app reentry and modal preservation. Runtime code frozen at 9f2bd590."
+}

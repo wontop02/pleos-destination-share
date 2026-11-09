@@ -1,0 +1,105 @@
+{
+  "atUtc": "2026-11-09T09:29:27.091625+00:00",
+  "baselineSchema": "resource-identity-baseline.json commandRaw/started/executable (earlier probe expected nonexistent command key; schema-error note generic explanation superseded here)",
+  "preservedServerIdentities": [
+    {
+      "pid": 40320,
+      "started": "Fri Nov  6 16:09:41 2026",
+      "command_sha256": "e1d34aa57ed7cbf3ed8465c72bc71c03ed0d379e9a36ed630e73e1411b196d41",
+      "executable": "/opt/homebrew/Cellar/node/25.8.1_1/bin/node",
+      "baselineMatch": true
+    },
+    {
+      "pid": 69453,
+      "started": "Sun Nov  8 19:17:48 2026",
+      "command_sha256": "39ede982ea78a75f40e530b30ecdc66d8bee2dddac7e0e33e6f2464603888959",
+      "executable": "/opt/homebrew/Cellar/node/25.8.1_1/bin/node",
+      "baselineMatch": true
+    }
+  ],
+  "originalCheckout": {
+    "head": "b2a7f53bc48e456c773ea9a119f4d1970fb06493",
+    "branch": "be/issue-7-android-prototype",
+    "status": ""
+  },
+  "listeners": {
+    "4190": [
+      40320
+    ],
+    "4192": [
+      69453
+    ],
+    "5041": [
+      93034
+    ],
+    "5570": [
+      93044
+    ],
+    "5572": [
+      93736
+    ]
+  },
+  "states": {
+    "emulator-5570": {
+      "state": {
+        "at": 1794216254918,
+        "event": "sessionState",
+        "serviceEpoch": 39006,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "host",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      "appPid": "7079",
+      "bootId": "3e40b66b-004e-4640-954f-52fb5056b825"
+    },
+    "emulator-5572": {
+      "state": {
+        "at": 1794216337415,
+        "event": "sessionState",
+        "serviceEpoch": 77007,
+        "roomEpoch": 1,
+        "revision": 0,
+        "role": "member",
+        "automatic": "OFF",
+        "applying": "IDLE",
+        "connection": "CONNECTED",
+        "roomConnected": true,
+        "uiCount": 1,
+        "confirmedAtElapsed": null,
+        "routingCompletedObserved": false,
+        "confirmationKind": null,
+        "sharedKind": null,
+        "proposalLease": false,
+        "proposalBusy": false,
+        "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+        "proposalPublicationHeld": false,
+        "acceptedProposalId": null,
+        "acceptedProposalVersion": null,
+        "acceptedProposalRevision": null,
+        "proposal": null
+      },
+      "appPid": "7274",
+      "bootId": "a43a7e9a-0175-4c3e-bff3-844d49140dc8"
+    }
+  },
+  "sourceHead": "3db09e0714e86cde6c83642977500e53cec0ff0d",
+  "launcherSha256": "172553d4510986da142de3b230ac0f32e517d53532b2f5079880dd0e7e53d8c0",
+  "pass": true
+}

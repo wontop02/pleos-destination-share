@@ -1,0 +1,6 @@
+{"at": 1794212184.0287511, "event": "server"}
+{"at": 1794212184.273236, "event": "server_ready", "pid": 69453, "reused": true, "source_sha256": "883f38356f2a8b3835b3e66f007eac9ad99a4584ddf6f7678cd3a28233d1ac8e"}
+{"at": 1794212184.273362, "event": "adb"}
+{"at": 1794212184.444654, "event": "adb_ready", "pid": 94295, "reused": true}
+{"at": 1794212184.444741, "event": "boot_5570"}
+{"at": 1794212185.389191, "event": "failed", "phase": "boot_5570", "exit_code": 6}

@@ -1,0 +1,64 @@
+{
+  "atUtc": "2026-11-09T08:58:54.424833+00:00",
+  "state": {
+    "at": 1794214597128,
+    "event": "serviceDestroy",
+    "serviceEpoch": 23204,
+    "roomEpoch": 1,
+    "revision": 0,
+    "role": "host",
+    "automatic": "OFF",
+    "applying": "IDLE",
+    "connection": "CONNECTED",
+    "roomConnected": true,
+    "uiCount": 0,
+    "confirmedAtElapsed": null,
+    "routingCompletedObserved": false,
+    "confirmationKind": null,
+    "sharedKind": null,
+    "proposalLease": false,
+    "proposalBusy": false,
+    "proposalMessage": "목적지 변경을 제안하면 다른 참여자 전원의 수락을 기다립니다.",
+    "proposalPublicationHeld": false,
+    "acceptedProposalId": null,
+    "acceptedProposalVersion": null,
+    "acceptedProposalRevision": null,
+    "proposal": null
+  },
+  "activityParser": {
+    "count": 1,
+    "user_ok": true,
+    "resumed": false
+  },
+  "paneParser": null,
+  "activityLines": [
+    "mLastPausedActivity: ActivityRecord{d1af882 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000652}",
+    "topResumedActivity=ActivityRecord{d1af882 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000652}",
+    "* Hist  #0: ActivityRecord{d1af882 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000652}",
+    "Intent { act=android.intent.action.MAIN flg=0x10000000 cmp=ai.umos.maps.android.navigation.app/.MainActivity }",
+    "mActivityComponent=ai.umos.maps.android.navigation.app/.MainActivity",
+    "windows=[Window{7b4ef65 u10 ai.umos.maps.android.navigation.app/ai.umos.maps.android.navigation.app.MainActivity}]",
+    "topResumedActivity=ActivityRecord{2e14d6e u10 ai.umos.drivingview/.DrivingViewActivity t1000651}",
+    "topResumedActivity=ActivityRecord{9f78988 u10 ai.umos.homescreen/.HomeActivity t1000649}",
+    "mLastPausedActivity: ActivityRecord{40f7b40 u10 ai.pleos.destinations.vehicle/.MainActivity t1000653}",
+    "* Hist  #0: ActivityRecord{40f7b40 u10 ai.pleos.destinations.vehicle/.MainActivity t1000653}",
+    "Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=ai.pleos.destinations.vehicle/.MainActivity }",
+    "mActivityComponent=ai.pleos.destinations.vehicle/.MainActivity",
+    "windows=[Window{5dadae2 u10 ai.pleos.destinations.vehicle/ai.pleos.destinations.vehicle.MainActivity}]",
+    "Resumed: ActivityRecord{d1af882 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000652}",
+    "ResumedActivity: ActivityRecord{d1af882 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000652}",
+    "mCurrentFocus=Window{7b4ef65 u10 ai.umos.maps.android.navigation.app/ai.umos.maps.android.navigation.app.MainActivity}",
+    "mFocusedApp=ActivityRecord{d1af882 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000652}",
+    "* ActivityRecord{d1af882 u10 ai.umos.maps.android.navigation.app/.MainActivity t1000652}",
+    "* ActivityRecord{40f7b40 u10 ai.pleos.destinations.vehicle/.MainActivity t1000653}",
+    "mFocusedWindow=Window{7b4ef65 u10 ai.umos.maps.android.navigation.app/ai.umos.maps.android.navigation.app.MainActivity}",
+    "mTopFullscreenOpaqueWindowState=Window{7b4ef65 u10 ai.umos.maps.android.navigation.app/ai.umos.maps.android.navigation.app.MainActivity}"
+  ],
+  "nodes": [
+    {
+      "package": "ai.umos.maps.android.navigation.app",
+      "id": "android:id/content",
+      "bounds": "[853,90][2535,1300]"
+    }
+  ]
+}

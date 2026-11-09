@@ -1,0 +1,4 @@
+실행 기록: /Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/demo/logs/20261109-171624-72716.jsonl
+공유 서버를 확인하고 있어요.
+두 차량의 전용 연결을 확인하고 있어요.
+대표 차량을 준비하고 있어요.

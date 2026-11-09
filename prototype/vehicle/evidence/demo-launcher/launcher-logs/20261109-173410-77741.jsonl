@@ -1,0 +1,4 @@
+{"at": 1794213250.234904, "event": "entry", "phase": "entry", "launcher_sha256": "a166306def0e85b2da2b0c076b8724cae077611c37f15ecd2a3167d35f63074a", "config_exists": true, "configuration_only": true}
+{"at": 1794213250.236321, "event": "phase", "phase": "configuration"}
+{"at": 1794213250.240157, "event": "phase", "phase": "adb_metadata"}
+{"at": 1794213250.241102, "event": "configuration_valid"}

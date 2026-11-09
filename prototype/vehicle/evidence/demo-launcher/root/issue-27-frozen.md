@@ -1,0 +1,41 @@
+## 목표
+
+이 Mac의 기존 전용 Pleos 시연 환경을 실행 파일 한 번으로 준비한다. 서버 시작/재사용, 전용 ADB와 두 가상 차량 시작/재사용, 기본 주소 연결 복구, 차량 앱 열기와 실제 준비 확인을 묶어 사용자가 수동 adb/서버 명령을 반복하지 않게 한다.
+
+## 작업 종류
+
+prototype
+
+## 수정 범위
+
+- 저장소 루트의 실행 진입 파일(.command)
+- prototype/vehicle/demo/** (런처·설정 예제·관련 검사)
+- prototype/vehicle/evidence/demo-launcher/** (이번 증거만 추가)
+- prototype/vehicle/README.md, docs/product/README.md, 필요할 때 docs/product/demo-launcher.md
+- .gitignore (로컬 설정·상태·로그 제외만)
+- 이 Mac의 무시된 .harness/demo/** 및 새 product-run-artifacts/demo-launcher-* 진단과 필요할 때 프로젝트 폴더 내 실행 바로가기
+- 앱·서버·공식 이미지 코드와 기존 증거/다른 checkout은 변경하지 않는다. 최소 범위 확대가 실제로 필요하면 먼저 원인과 범위를 기록한다.
+
+## 완료 조건
+
+- AC1: 이 Mac의 실제 .command를 Finder/LaunchServices로 실행하거나 동일 진입 파일을 호출하면 cwd/경로 공백에 상관없이 서버·전용 ADB5041·Pleos12Leader(5570)/Follower(5572)·설치된 ai.pleos.destinations.vehicle 앱을 준비한다. 준비는 HTTP 프로세스나 PID만이 아니라 실제 Android boot/user10·정상 차량 pane의 앱 화면으로 판단하며, 한 단계라도 실패하면 전체 성공으로 표시하지 않는다. 별도 수동 연결 명령을 요구하지 않는 실제 로컬 설정을 제공한다.
+- AC2: 따뜻한 재실행과 동시/중복 실행에서 서버·에뮬레이터·MainActivity를 중복 생성하지 않고, 종료된 전용 AVD는 기존 데이터로 다시 켠다. 각 실행에서 device4182→host4192 및 device4192→host4192를 검사/복구한다. 설치/부팅/준비 대기는 유한하고, 기록된 안전한 상태를 이용해 재실행할 수 있다.
+- AC3: 소유권·포트·AVD identity·foreground user를 확인하고 충돌/불명 리소스는 종료·덮어쓰기 없이 거절한다. ADB5037/물리 기기/다른 AVD/서버4190·기존4192 방/앱 인증/기존 증거는 보존한다. wipe/snapshot 복원, vendor 강제 종료, 자동 runtime grant·새 권한·가입·결제·다운로드·전역 설정 변경은 없다. 인식·제안·경로·방 생성/삭제를 런처가 자동 조작하지 않으며 인증·초대·원음·환경 비밀을 출력하지 않는다.
+- AC4: 시작 단계와 실패 지점을 쉬운 한국어로 표시하고 로그는 무시된 로컬 디렉터리에 남긴다. 잘못된/누락된 설정, 포트 충돌, 준비 timeout, 중복 실행을 의미 있는 자동 검사로 확인한다. 서버 cold-start 분기는 기존4192를 죽이지 않고 격리 포트의 실제 Node 프로세스로 검증한다.
+- AC5: 정확한 main/source와 설치 APK·자원/PID를 고정하고 실제 두 차량의 warm 재실행, 전용 AVD의 정상 종료 후 실제 진입 파일 cold-start, 두 기본 주소 API의 격리 방 생성201/정리200, 앱의 기존 방 연결 복원을 각각 확인한다. 기존 방은 유지하며 API 시험을 전체 수동 새 방 UI 시험으로 표현하지 않는다. 실제 .command 진입/화면·종료 코드·중복/보존 증거와 별도 verifier의 정확 base/head PASS 뒤에만 main squash하고 실제 merged/main/이슈 닫힘을 확인한다.
+
+## 의존 이슈
+
+#25 / PR #26 병합 확인. 기준 main 4a9865f1b1584cb13a32f3a7022b08928ebad158. 기존 음성·목적지 기능은 재구현하지 않는다. #7/#8 휴대폰, #16 지도, 실제 목소리 연속 시연/영상 제작, 공개 배포는 이 묶음에 추가하지 않는다.
+
+## 검증
+
+- 기존 승인된 ADB5041, 두 공식 AVD/user10와 toolchain만 사용한다. 현재4192 서버/PID69453 및4190은 보존한다. 4192 신규 서버 동작은 격리 포트에서 검증해 현재 방을 잃지 않게 한다.
+- 관련 Python/실제 subprocess 검사, 실제 진입 파일·warm/cold·중복 실행과 공개 화면 확인. APK 빌드/기존 서버·앱 코드 변경은 없으면 반복하지 않는다.
+- 새 외부 로그는 .harness/worktrees/product-run-artifacts/demo-launcher-20261109 에 보존한다. 인증·초대·원음은 기록하지 않는다.
+- 한 이슈의 새 실행 묶음으로만 진행하며 기존 작업 상한을 초기화하지 않는다. 이번 묶음도120분 이내에서 고정된 완료 조건으로 실행한다.
+
+## 사용자 승인
+
+2026-11-09 사용자가 “1번 원클릭 실행부터 해바”라고 실행을 지시했다. 이슈 → be/issue-<번호>-demo-launcher → PR → 별도 문맥 verifier → expected-head main squash 흐름을 적용한다. 기존 두 전용 가상 차량의 Mac 마이크 입력 및 앱 사용 중 Android 마이크 승인은 유지하되 런처는 녹음을 시작하거나 권한을 자동 부여하지 않는다.
+
