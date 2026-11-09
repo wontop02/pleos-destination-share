@@ -38,6 +38,10 @@ Builder의 HTTP/JVM 검사와 빌드/lint는 실제 두 전용 Pleos 차량 AC5 
 
 2026-11-08 사용자가 승인한 [#25](https://github.com/wontop02/pleos-destination-share/issues/25)는 #23/PR #24의 main `8b6321276f33923f24f15a8437205b6126bf92ca`를 기준으로 한다. 차량 작성 화면에서 명시적으로 짧게 말하고, 인식문 수정·실제 저장 후보 이름/주소와 이유 확인 뒤 기존 제안 보내기를 누른다. Pleos ON_DEVICE STT와 제한된 로컬 문장 규칙을 쓰며 생성형 AI나 자유 장소 검색을 가장하지 않는다. 전원 수락 전에는 경로를 요청하지 않는다. [음성 초안 계약](vehicle-voice-proposals.md)을 따른다. 실제 두 차량 입력 출처·오인식·마이크·상대 수신·수락 후 실제 native 조회와 별도 verifier를 분리하며, 합성/파일 입력은 사람 발화 성공으로 기록하지 않는다. 휴대폰·지도 복구·통화·원음 재생·외부 배포는 이번 묶음에 추가하지 않는다.
 
+## 별도 승인: 이 Mac의 원클릭 데모 실행
+
+2026-11-09 사용자가 “1번 원클릭 실행부터 해바”라고 지시했다. 새 실행 묶음은 [#27](https://github.com/wontop02/pleos-destination-share/issues/27) 하나이며 #25/PR #26 병합 main `4a9865f1b1584cb13a32f3a7022b08928ebad158`을 기준으로 한다. `.command` 한 번으로 기존 전용 서버·ADB5041·두 Pleos 차량·기본 주소 연결·설치 앱과 실제 pane을 준비한다. [사용 안내](demo-launcher.md)와 [설정·검사 계약](../../prototype/vehicle/demo/README.md)을 따른다. 실제 warm/cold·중복 실행·기존 방 보존과 독립 verifier의 정확한 base/head 판정 뒤 병합 여부를 결정한다. 앞선 증거와 휴대폰·지도·음성 연속 시연·영상 제작 범위는 바꾸지 않는다.
+
 ## 현재 결정
 
 - 녹음 후 전송하는 짧은 원음을 우선한다. 실시간 통화·음성 합성은 현재 범위가 아니다.
