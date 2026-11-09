@@ -162,13 +162,17 @@
     "setup": "Freeze Git/base/head, old846 hashes, preserve current app auth",
     "harness": "Manifest comparisons + explicit timeouts + report",
     "expected": "No unrelated edits, no secrets, restore font, stop collectors, final exact-head independent verdict",
-    "actual": "Collector stopped05:00:26Z, errors/gaps0, PID/sourceGeneration stable. Font1.0 and app microphone inactive on both; room/native connected, revision2. Final exact-head independent verdict still gates merge.",
-    "status": "RUNTIME_PASS_FINAL_REVIEW_PENDING",
+    "actual": "H1 independent AC1–5 PASS. Critical collector stopped, immutable generation0/PIDs preserved. Separate normal own-product cold reentry clears harness-created MainActivity stack, changes PIDs explicitly, restores historicalrev2 with route0/no liveCONFIRMED claim and rechecks same installed packages. Final new-head rebind still required.",
+    "status": "PASS",
     "fixes": [],
     "evidence": [
       "Q10b-cleanup-and-ready.json",
       "collector-result.json",
-      "final-runtime-audit.json"
+      "final-runtime-audit.json",
+      "Q10c-clean-cold-reentry.json",
+      "Q10c-final-installed-package-binding.json",
+      "Q10c-cold-reentry-audit.json",
+      "verifier/final-exact-head-review.md"
     ],
     "cleanup": "Font1.0 on both, microphone inactive, diagnostics collector stopped; existing AVD/server/auth/evidence preserved"
   }

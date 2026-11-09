@@ -15,3 +15,9 @@ B의 실제 사람 발화 성공은 [11/8 사람 발화 관측](../human-recogni
 원본 외부 디렉터리는 `.harness/worktrees/product-run-artifacts/voice-proposals-verify-20261109/`에 보존한다. 이 묶음은 root의 공개 진단·UI·원시 collector와 verifier의 테스트 보고서를 담고, 재빌드 archive/APK/JAR/원음·인증값은 포함하지 않는다. [포장 manifest](artifact-manifest.json)가 파일 해시와 원본 위치를 기록한다. A/B 글꼴1.0과 비활성 마이크, A홈/B깨끗한 작성 화면을 확인한 뒤 collector를 중지했다. 기존 두 AVD/서버/방은 사용자 이용을 위해 유지했다.
 
 Subsequent operation uses [environment/ensure-default-route.py](environment/ensure-default-route.py), which refuses an absent ADB server/conflicting mapping, preserves4192 and prints its result without overwriting archived evidence. The current idempotent execution exited0 and changed no mapping; [helper check](environment/helper-idempotency-check.json) records it.
+
+## Final evidence handoff
+
+Independent AC1–AC5 PASS is recorded for H1 `f65183b8f568ddfef63530a7faaaa6418d5d8a74` in [verifier/final-exact-head-review.md](verifier/final-exact-head-review.md). The report, its integrity/global/reference audits and separate [normal cold re-entry cleanup](cold-reentry-closeout.md) are added in the subsequent evidence commit. That exact new head requires an explicit final rebind; this paragraph does not approve it. The final exact-head verdict is posted in PR26 before expected-head squash.
+
+The new cleanup window deliberately replaces app PIDs with A19921/B12020 and leaves one MainActivity each. Its same-installed-package rebind,12 post-entry samples each and route0 are separate from the immutable earlier collector. It restores historical revision2 without a new liveCONFIRMED claim; B's idle native query was absent. Earlier Q08b confirmation and its185sec+ observation remain valid only in their own recorded scope.

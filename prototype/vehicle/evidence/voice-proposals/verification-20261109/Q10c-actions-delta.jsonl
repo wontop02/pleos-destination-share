@@ -1,0 +1,3 @@
+{"hostAt": "2026-11-09T05:10:20.703863+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5570"}
+{"hostAt": "2026-11-09T05:10:33.884769+00:00", "event": "explicitOwnAppEntry", "serial": "emulator-5572"}
+{"hostAt": "2026-11-09T05:10:39.782248+00:00", "event": "publicUiTap", "serial": "emulator-5572", "resource": "change_destination"}

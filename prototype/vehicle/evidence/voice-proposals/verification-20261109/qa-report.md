@@ -74,3 +74,9 @@ Final independent AC verdict, expected-head squash and actual merged/main/issue 
 Subsequent operation uses [environment/ensure-default-route.py](environment/ensure-default-route.py), which refuses an absent ADB server/conflicting mapping, preserves4192 and prints its result without overwriting archived evidence. The current idempotent execution exited0 and changed no mapping; [helper check](environment/helper-idempotency-check.json) records it.
 
 The full staged whitespace check exits2 only for the three archived raw patches and original Gradle log. Exact exceptions/output are retained in whitespace-check.json; the explicit remaining-file check exits0. Product/document changes have no whitespace error.
+
+## Final evidence handoff
+
+Independent AC1–AC5 PASS is recorded for H1 `f65183b8f568ddfef63530a7faaaa6418d5d8a74` in [verifier/final-exact-head-review.md](verifier/final-exact-head-review.md). The report, its integrity/global/reference audits and separate [normal cold re-entry cleanup](cold-reentry-closeout.md) are added in the subsequent evidence commit. That exact new head requires an explicit final rebind; this paragraph does not approve it. The final exact-head verdict is posted in PR26 before expected-head squash.
+
+The new cleanup window deliberately replaces app PIDs with A19921/B12020 and leaves one MainActivity each. Its same-installed-package rebind,12 post-entry samples each and route0 are separate from the immutable earlier collector. It restores historical revision2 without a new liveCONFIRMED claim; B's idle native query was absent. Earlier Q08b confirmation and its185sec+ observation remain valid only in their own recorded scope.

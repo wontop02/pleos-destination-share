@@ -1,0 +1,509 @@
+{
+  "atUtc": "2026-11-09T05:20:24.823786+00:00",
+  "head": "f65183b8f568ddfef63530a7faaaa6418d5d8a74",
+  "correction": "AC2 reference uses packaged late-runtime-independent-audit.json; external prose review is not packaged in H1.",
+  "entries": [
+    {
+      "format": "markdown",
+      "label": "전체 무결성",
+      "path": "h1-integrity-audit.json",
+      "externalExists": true,
+      "h1PackageExists": false,
+      "pendingH2Copy": true
+    },
+    {
+      "format": "markdown",
+      "label": "APK 대조",
+      "path": "apk-payload-comparison.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "markdown",
+      "label": "소스 검토",
+      "path": "source-review-b883042.md",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "markdown",
+      "label": "부분 원시 감사",
+      "path": "partial-runtime-audit.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "markdown",
+      "label": "Q08b",
+      "path": "Q08b-independent-audit.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "markdown",
+      "label": "원본/실제 지점",
+      "path": "Q08-provenance-audit.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "markdown",
+      "label": "최종 UI/재시도",
+      "path": "late-runtime-independent-audit.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "markdown",
+      "label": "명령/결과",
+      "path": "build-result.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "markdown",
+      "label": "원본 Gradle",
+      "path": "independent-gradle.log",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "markdown",
+      "label": "Node",
+      "path": "node-result.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "markdown",
+      "label": "패키지",
+      "path": "package-checks.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "markdown",
+      "label": "정확한 출력/예외",
+      "path": "h1-integrity-audit.json",
+      "externalExists": true,
+      "h1PackageExists": false,
+      "pendingH2Copy": true
+    },
+    {
+      "format": "markdown",
+      "label": "전체 재계산",
+      "path": "h1-global-runtime-audit.json",
+      "externalExists": true,
+      "h1PackageExists": false,
+      "pendingH2Copy": true
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC1",
+      "path": "source-review-b883042.md",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC1",
+      "path": "sdk-public-audit.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC1",
+      "path": "independent-junit/app/TEST-ai.pleos.destinations.vehicle.VoiceInputTest.xml",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC1",
+      "path": "independent-junit/app/TEST-ai.pleos.destinations.vehicle.VoiceInputCleanupTest.xml",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC1",
+      "path": "independent-junit/app/TEST-ai.pleos.destinations.vehicle.VoicePcmCaptureTest.xml",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC1",
+      "path": "../Q02-A-result.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC1",
+      "path": "../Q02-B-result.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC1",
+      "path": "../Q03-A-page-exit-result.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC1",
+      "path": "../Q03-B-opaque-result.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC1",
+      "path": "../Q03-opaque-apparatus-erratum.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC1",
+      "path": "../Q03d-B-explicit-retry-result.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC1",
+      "path": "../Q04b-B-bounded-failure-result.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC1",
+      "path": "../Q04c-B-failure-ui-result.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC1",
+      "path": "late-runtime-independent-audit.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC2",
+      "path": "source-review-b883042.md",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC2",
+      "path": "independent-junit/app/TEST-ai.pleos.destinations.vehicle.VoiceDraftTest.xml",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC2",
+      "path": "../Q05b-summary.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC2",
+      "path": "../Q05b-ready-send.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC2",
+      "path": "../Q05c-negative-fuel-and-hostile-result.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC2",
+      "path": "../Q05-summary.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC2",
+      "path": "Q08-provenance-audit.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC2",
+      "path": "late-runtime-independent-audit.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC3",
+      "path": "partial-runtime-audit.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC3",
+      "path": "Q08b-independent-audit.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC3",
+      "path": "Q08-provenance-audit.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC3",
+      "path": "../Q07-result.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC3",
+      "path": "../Q08b-result.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC3",
+      "path": "../Q08b-extended-observation.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC3",
+      "path": "../Q08-independent-native-emulator-5570.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC3",
+      "path": "../Q08-independent-native-emulator-5572.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC3",
+      "path": "h1-global-runtime-audit.json",
+      "externalExists": true,
+      "h1PackageExists": false,
+      "pendingH2Copy": true
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC3",
+      "path": "independent-junit/core/",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC3",
+      "path": "independent-junit/app/TEST-ai.pleos.destinations.vehicle.VehicleProposalSessionTest.xml",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC4",
+      "path": "build-result.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC4",
+      "path": "node-result.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC4",
+      "path": "package-checks.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC4",
+      "path": "../ui/",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC4",
+      "path": "Q06d-A-independent-audit.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC4",
+      "path": "late-runtime-independent-audit.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC4",
+      "path": "../Q06f-B-font-visual-result.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC4",
+      "path": "../Q04c-B-failure-ui-result.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC5",
+      "path": "../execution.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC5",
+      "path": "../installed-apk-user-pid-binding.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC5",
+      "path": "../../human-recognition-B-20261108/observation.json",
+      "externalExists": false,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC5",
+      "path": "partial-runtime-audit.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC5",
+      "path": "Q08b-independent-audit.json",
+      "externalExists": true,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC5",
+      "path": "h1-integrity-audit.json",
+      "externalExists": true,
+      "h1PackageExists": false,
+      "pendingH2Copy": true
+    },
+    {
+      "format": "json-evidence",
+      "ac": "AC5",
+      "path": "h1-global-runtime-audit.json",
+      "externalExists": true,
+      "h1PackageExists": false,
+      "pendingH2Copy": true
+    }
+  ],
+  "missing": [
+    {
+      "format": "json-evidence",
+      "ac": "AC5",
+      "path": "../../human-recognition-B-20261108/observation.json",
+      "externalExists": false,
+      "h1PackageExists": true,
+      "pendingH2Copy": false
+    }
+  ],
+  "newOwnedAuditFilesRequireH2Copy": [
+    "h1-global-runtime-audit.json",
+    "h1-integrity-audit.json"
+  ]
+}

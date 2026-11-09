@@ -1,0 +1,37 @@
+{
+  "atUtc": "2026-11-09T05:11:29.029384+00:00",
+  "scope": "read-only installed package/user/PID rebind after normal own-product cold cleanup",
+  "devices": {
+    "emulator-5570": {
+      "user": "10",
+      "productionPid": "19921",
+      "packages": {
+        "ai.pleos.destinations.vehicle": {
+          "sha256": "5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e",
+          "installedPath": "/data/app/~~FkwTT0YoMI9l4a9g0zYVuw==/ai.pleos.destinations.vehicle-gDqUsmk3asc2PAV-pVEJUg==/base.apk"
+        },
+        "ai.pleos.destinations.driver": {
+          "sha256": "5f99cb5355e12f9af818e1b6740aa3a4f7a9974b387de93a3f8e504639e5a4ea",
+          "installedPath": "/data/app/~~mgQW2kE4vvJsqaL_QUPOZQ==/ai.pleos.destinations.driver-FfRL6D5V_UVesh6FYK0WMw==/base.apk"
+        }
+      },
+      "appop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+32m12s127ms ago; duration=+567ms\n"
+    },
+    "emulator-5572": {
+      "user": "10",
+      "productionPid": "12020",
+      "packages": {
+        "ai.pleos.destinations.vehicle": {
+          "sha256": "5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e",
+          "installedPath": "/data/app/~~kr6-UhQZ2nX7ldwrrOByPQ==/ai.pleos.destinations.vehicle-hoB7SEzt65-Q1HrD8fv_0w==/base.apk"
+        },
+        "ai.pleos.destinations.driver": {
+          "sha256": "5f99cb5355e12f9af818e1b6740aa3a4f7a9974b387de93a3f8e504639e5a4ea",
+          "installedPath": "/data/app/~~TuSmnEX1l1V3dkKjRM24RA==/ai.pleos.destinations.driver-lsmxSbdUOAuEc8s--_VQAg==/base.apk"
+        }
+      },
+      "appop": "Uid mode: RECORD_AUDIO: foreground\nRECORD_AUDIO: allow; time=+15m9s431ms ago; duration=+1s603ms\n"
+    }
+  },
+  "pass": true
+}

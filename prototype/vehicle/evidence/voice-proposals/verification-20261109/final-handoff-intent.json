@@ -1,0 +1,12 @@
+{
+  "atUtc": "2026-11-09T05:21:57.608873+00:00",
+  "parent": "f65183b8f568ddfef63530a7faaaa6418d5d8a74",
+  "base": "8b6321276f33923f24f15a8437205b6126bf92ca",
+  "scope": "Evidence-only final handoff: independent H1 report/audits, separate cold cleanup, report/scenario metadata and manifest; no compiled product/test or product-spec changes",
+  "h1ReportHashes": {
+    "md": "ba981919af22e0922cb7302413f0ab22da2c9c616cd15ae0bc80839562eba778",
+    "json": "75bbbf4c5a483483d03e156398da9b638553fe30466fdd7cd4436a621d664c2e"
+  },
+  "criticalRawFilesUnchanged": true,
+  "expectedFinalGate": "explicit exact H2 independent verdict then current GitHub rules/expected-head squash/actual closure"
+}
