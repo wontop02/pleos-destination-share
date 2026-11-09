@@ -38,4 +38,3 @@ prototype
 ## 사용자 승인
 
 2026-11-09 사용자가 “1번 원클릭 실행부터 해바”라고 실행을 지시했다. 이슈 → be/issue-<번호>-demo-launcher → PR → 별도 문맥 verifier → expected-head main squash 흐름을 적용한다. 기존 두 전용 가상 차량의 Mac 마이크 입력 및 앱 사용 중 Android 마이크 승인은 유지하되 런처는 녹음을 시작하거나 권한을 자동 부여하지 않는다.
-

@@ -1,0 +1,7 @@
+{
+  "atUtc": "2026-11-09T09:32:53.674501+00:00",
+  "priorEvidenceHead": "70988bc6c3f4f8e6ee555ba5f265188c76bc5de7",
+  "priorDiffCheckExit": 2,
+  "diagnostic": "root/issue-27-frozen.md:41: new blank line at EOF",
+  "scope": "Evidence display copy trailing blank lines only. Exact original frozen issue retained in issue-27-frozen-verbatim.json and original RAW path; no requirements/source/runtime data changed."
+}

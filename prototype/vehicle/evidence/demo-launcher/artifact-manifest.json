@@ -1,13 +1,13 @@
 {
-  "atUtc": "2026-11-09T09:31:58.621563+00:00",
+  "atUtc": "2026-11-09T09:32:53.718426+00:00",
   "rootOrigin": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/demo-launcher-20261109",
   "scope": "Issue27 source/runtime/build/verifier artifacts only. Local configuration, key/env metadata, tokens, invitation values, audio, APK/SDK and fresh test archives excluded.",
   "artifacts": [
     {
       "path": "README.md",
       "origin": "package-generated",
-      "bytes": 4430,
-      "sha256": "1613c1c0a3e4d1fc1ca6e81e9698ba6614f8e1296967df33104fd5c3a3ff7e76"
+      "bytes": 4534,
+      "sha256": "2332299041e0ff4f9806872629a0f97a5564cc7febc73f41e9137a14e2527eb7"
     },
     {
       "path": "builder/builder-report-172553d4.json",
@@ -610,16 +610,31 @@
       "sha256": "adb352b1a6387214dab5a123bc9e82fa9818a22254646cc19dd73c484054db9d"
     },
     {
+      "path": "root/issue-27-frozen-verbatim.json",
+      "origin": "package-generated",
+      "bytes": 5544,
+      "sha256": "19453044f6f66dc026d775df8202f2695f22ff17ebc12a3cdd8ae83dd88a5d83"
+    },
+    {
       "path": "root/issue-27-frozen.md",
       "origin": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/demo-launcher-20261109/issue-27-frozen.md",
-      "bytes": 5018,
-      "sha256": "8184855b766769f864983dac03ab489ec747fe02dfa5770ed366d4f1e16a4b9e"
+      "bytes": 5017,
+      "sha256": "2d37d47e3049a193e717009e24620ffa8f83eb2e83aeb33b1f320865ea3831fd",
+      "transformation": "Remove surplus blank EOF lines only",
+      "originalSha256": "8184855b766769f864983dac03ab489ec747fe02dfa5770ed366d4f1e16a4b9e",
+      "verbatimArtifact": "root/issue-27-frozen-verbatim.json"
     },
     {
       "path": "root/package-privacy-result.json",
       "origin": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/demo-launcher-20261109/package-privacy-result.json",
       "bytes": 965,
       "sha256": "1baf3ea93605721468849ca249d3ea4668ad7d3713bae9c8f4311106133b4c6f"
+    },
+    {
+      "path": "root/packaging-whitespace-correction.json",
+      "origin": "package-generated",
+      "bytes": 414,
+      "sha256": "7f08a4e37e12ce35a105b2daa8a5837c2c4bdaf8fcecb334d396b5947979206c"
     },
     {
       "path": "root/preservation-probe-schema-error.json",

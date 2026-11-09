@@ -16,7 +16,7 @@ The implementation under test is commit `3db09e0714e86cde6c83642977500e53cec0ff0
 
 The independent [warm/API audit](verifier/warm-api-audit-3db09e0.json) confirms both final screenshots, byte-identical B compose XML and exact actual-entry logs.
 
-The [frozen issue](root/issue-27-frozen.md), [operator report](root/root-report.md), [execution limit](root/execution.json) and [artifact manifest](artifact-manifest.json) retain scope, commands, provenance, failures, limits and SHA256/byte counts. The logs folder contains curated launcher events, not raw subprocess output or private configuration. Full fresh-archive test trees, SDK/APK binaries and credentials are excluded.
+The [frozen issue](root/issue-27-frozen.md) ([exact original](root/issue-27-frozen-verbatim.json); display copy trims surplus blank EOF lines only), [operator report](root/root-report.md), [execution limit](root/execution.json) and [artifact manifest](artifact-manifest.json) retain scope, commands, provenance, failures, limits and SHA256/byte counts. The logs folder contains curated launcher events, not raw subprocess output or private configuration. Full fresh-archive test trees, SDK/APK binaries and credentials are excluded.
 
 The final evidence-only commit requires an independent exact-head rebind. Its final report is posted verbatim on [PR28](https://github.com/wontop02/pleos-destination-share/pull/28), followed by actual merged/main/issue27 closure checks. This premerge package does not presume that those GitHub operations have already occurred. It is AI verification under the repository's separate builder/verifier contexts, not a separate-account GitHub approval.
 
