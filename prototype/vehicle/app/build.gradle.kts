@@ -9,8 +9,8 @@ android {
         applicationId = "ai.pleos.destinations.vehicle"
         minSdk = 28
         targetSdk = 35
-        versionCode = 1
-        versionName = "0.3.0-issue17"
+        versionCode = 2
+        versionName = "0.4.0-issue29"
         testApplicationId = "ai.pleos.destinations.vehicle.probe"
         testInstrumentationRunner = "ai.pleos.destinations.vehicle.NaviSdkProbe"
     }
@@ -22,6 +22,8 @@ android {
     buildTypes { getByName("release") { isMinifyEnabled = false } }
     testOptions.unitTests.all {
         it.systemProperty("prototype.server.path", rootProject.file("../server.mjs").absolutePath)
+        // HTTP/SSE integration tests execute this source in a real Node process.
+        it.inputs.file(rootProject.file("../server.mjs"))
     }
 }
 kotlin { jvmToolchain(21) }

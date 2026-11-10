@@ -2,20 +2,23 @@
 
 ## Source of truth
 - Status: Active
-- Last refreshed: 2026-11-08
-- Primary product surfaces: 공유방 웹 시연, Pleos 차량 목적지 앱(#12 수동·#14 자동 동행), 후속 iPhone·Android 네이티브 앱.
+- Last refreshed: 2026-11-10
+- Primary product surfaces: 길맞춤 Pleos 차량 앱(#29 목적지 변경 요청), 기존 공유방 웹 시연, 후속 iPhone·Android 네이티브 앱.
 - Evidence reviewed: 사용자 원음·잠금 수신 요구, 상위 폴더의 DESIGN.md·GLOSSARY.md·development/implementation-plan.md·prototype/public/, 차량 MainActivity·SavedPlacesController·VehicleSession, #23의 실제 Pleos 화면과 승인된 단순화 요구. 기존 홈은 진단·제안·설정이 한 화면에 섞여 핵심 행동이 아래로 밀려 있었다. 상위 원본은 변경하지 않는다.
 
 ## Brand
-- Personality: 차분하고 명확한 동행 도구.
-- Trust signals: 연결 상태, 발신자, 수신 시각, 녹음 시간과 실제 재생 상태.
+- App name: 길맞춤.
+- Personality: 차분하고 명확한 목적지 변경 알림 도구.
+- Trust signals: 연결 상태, 발신 차량, 실제 목적지 이름·주소, 각 차량의 응답과 실제 내비 확인 상태. 원음 화면은 녹음 시간과 실제 재생 상태를 별도로 표시한다.
 - Avoid: 내비 실행 요청이나 음성 전송 접수를 실제 안내·재생 완료로 표시하지 않는다.
 
 ## Product goals
+- Active vehicle flow (#29): 장소명·업종 입력 → 실제 순정 검색 결과에서 목적지 설정 → 길맞춤에서 현재 목적지 새 조회·이름/주소 확인 → 다른 차량에 변경 요청 보내기. ☆ 저장·음성은 선행 조건이 아니다. 수신자는 실제 알림에서 내용을 확인하고 각자 수락한 경우 자기 내비만 반영한다. 전원 응답을 기다리지 않는다.
+- Notification session: 사용자가 변경 요청 알림 받기를 시작하면 순정 내비 전경에서도 수신한다. 명시 중지·탈퇴·인증 종료는 알림과 미발행 수락 권한을 끝낸다. 수신·과거 snapshot·중복 응답은 경로 요청 권한이 아니다.
 - Goals: 공유방에서 목적지와 최대 15초 원음을 주고받는다. 최종 휴대폰 수신은 내비 사용·화면 잠금 중에도 지원하는 네이티브 경로를 검증한다.
 - Non-goals: 자체 지도 엔진, 위치 궤적 추적, 음성 합성, 공개 배포, Pleos 미검증 이벤트를 실제 연동으로 표시하는 동작.
 - Success signals: 별도 참여자의 목적지 수신과 인증된 원음 바이트 전달·재생. 브라우저 결과는 잠금 수신의 증거가 아니다.
-- Vehicle scope: 기존 직접 공유·적용을 설정에서 유지한다. 자동 동행은 기본 꺼짐이다. 홈의 '동행 시작'은 역할별 자동 공유/자동 반영 설명과 함께 명시적으로 선택한다. 활성 세션은 순정 내비 화면에서도 목적지 변경 공유·최신값 적용·실제 조회 일치 확인을 계속한다. SDK 요청 전송, 경로 탐색 이벤트, 후속 목적지 일치 확인을 구분한다.
+- Vehicle scope: 홈은 실제 목적지 확인·변경 요청 보내기와 알림 수신 시작/중지를 제공한다. 각 차량은 현재 요청을 직접 수락해야 자기 내비를 바꾼다. 기존 직접 공유·적용은 설정에 남긴다. #14의 자동 공유·자동 따르기는 legacy 호환 경로이며 새 변경 요청을 수신하면 중지한다. SDK 요청 전송, 경로 탐색 이벤트, 후속 목적지 일치 확인을 구분한다.
 
 ## Personas and jobs
 - Primary personas: 여러 차량으로 이동하는 가족·친구와 동승자.
@@ -25,7 +28,7 @@
 ## Information architecture
 - Primary navigation: 공유방 생성·참여, 연결된 공유방.
 - Core routes/screens: 연결 전 시작 화면, 연결 후 목적지·원음·초대·나가기 영역.
-- Vehicle screens: 홈 / 목적지 바꾸기 / 설정 / 동행 만들기·참여. 홈은 '동행'·설정, 짧은 연결/자동 상태, '함께 가는 곳'의 이름·주소·실제 반영 상태, '목적지 바꾸기', '동행 시작/중지' 순서다. 진행 중 제안은 현재 목적지 대신 최상단 주 행동으로 이름·이유·제안자와 나란한 '수락'/'거절'을 보여 준다. 제안자는 '기다리는 중'을 본다. 설정은 초대·연결 복구·수동 공유/적용·수락한 목적지 재시도·방 관리·접힌 개발 상세를 소유한다. 정차 또는 동승자가 조작한다. #25는 작성 화면의 명시적인 음성 입력으로 수정 가능한 초안만 만든다.
+- Vehicle screens: 주 화면은 홈 / 검색하고 변경 알리기 / 설정 / 공유방 만들기·참여다. 홈은 내 실제 목적지·받은 변경 요청·개별 수락/거절·알림 수신 시작/중지를 우선한다. 기존 저장 장소·음성 제안 화면은 설정의 보조 기능으로 남긴다. 아래 #23 화면 설명은 legacy 비교 기록이다. 기존 홈 / 목적지 바꾸기 / 설정 / 동행 만들기·참여. 홈은 '동행'·설정, 짧은 연결/자동 상태, '함께 가는 곳'의 이름·주소·실제 반영 상태, '목적지 바꾸기', '동행 시작/중지' 순서다. 진행 중 제안은 현재 목적지 대신 최상단 주 행동으로 이름·이유·제안자와 나란한 '수락'/'거절'을 보여 준다. 제안자는 '기다리는 중'을 본다. 설정은 초대·연결 복구·수동 공유/적용·수락한 목적지 재시도·방 관리·접힌 개발 상세를 소유한다. 정차 또는 동승자가 조작한다. #25는 작성 화면의 명시적인 음성 입력으로 수정 가능한 초안만 만든다.
 - Content hierarchy: 연결 상태, 받은 목적지, 말하기, 새 원음, 공유방 관리.
 
 ## Design principles
@@ -47,7 +50,7 @@
 - Variants and states: 연결/재연결/종료, 녹음/전송/실패, 자동 재생 꺼짐/켜짐/거절, 최신/오래된 원음.
 - Token/component ownership: prototype/public/의 CSS 변수와 UI 코드.
 - Vehicle tokens: `prototype/vehicle/app/src/main/res/values/`가 색상·간격·글꼴 크기를 소유한다. 시스템 View, 20sp 본문, 56dp 이상 버튼, 화면 내 세로 스크롤을 사용한다.
-- Vehicle automatic controls: 홈의 '동행 시작' 옆에 대표는 '내비 목적지를 함께 공유해요', 참여자는 '함께 가는 곳을 내비에 반영해요'를 표시한다. 중지는 자동 모드와 제안 lease에 연결된 실제 중지 동작을 유지하고 모든 하위 화면에서도 접근 가능하다. 진행 알림은 실제 계산한 연결/확인 상태를 표준 제목의 맨 앞에 표시하고 동행·역할을 뒤에 둔다. 인증·초대 비밀·좌표는 넣지 않는다.
+- Vehicle request controls: 홈의 '변경 요청 알림 받기'는 내비가 전경인 동안에도 받는 세션을 명시적으로 시작한다. '알림 수신 중지'는 모든 하위 화면에서 접근 가능하며 알림·이전 수락 권한을 끝낸다. 요청 알림은 발신 차량과 목적지 이름·주소를 표시하고 누르면 수락/거절 화면을 연다. 진행 알림은 수신·응답 확인·실제 내비 확인 상태를 구분한다. 인증·초대 비밀·좌표·마이크 내용은 넣지 않는다.
 - Vehicle visual system: 밝은 회색 바탕, 흰색 20dp 둥근 카드, 짙은 ink, 파란색 주 행동, 테두리 보조 행동, 빨간색 위험 행동을 공통 resource token과 View helper로 관리한다. 제목 32–36sp, 본문/버튼 20sp, 버튼 최소 높이 56dp, 8dp 간격 단위와 24–32dp 바깥 여백. 상태는 색과 문구를 함께 표시한다. 홈에는 긴 설명·좌표·SDK·버전·예제 선택을 두지 않는다.
 
 ## Accessibility
@@ -68,14 +71,14 @@
 - Error: 마이크·재생 권한 거절, 입력 오류, 연결 오류를 구분한다.
 - Success: 전송 접수·수신·재생을 각각 표시한다.
 - Vehicle states: 미연결/연결 중/연결 실패, 미조회/조회 중/목적지 있음/목적지 없음/조회 실패, 공유 전송/서버 저장/다른 회원 수신, 요청 전송/탐색 중/결과 확인 중/목적지 일치 확인/실패/시간 초과. 목적지 없음은 공식 전용 환경에서 관찰한 전체 빈 조회 응답에서만 표시한다. 이름/주소/ID/provider가 정확한 빈 문자열, sub-ID/표시 좌표가 null, 좌표/남은 거리/시간/요금이 모두 0인 경우만 빈 조회로 판정한다. 취소 이벤트·부분 누락·공백·응답 없음은 삭제로 추측하지 않는다.
-- Vehicle safety: 자동 동행을 시작한 뒤 앱 복귀를 요구하지 않는다. UI와 독립된 서비스가 인증·SDK listener·필요 조회·작업별 45초 확인 기한을 소유한다. UI 재연결은 관찰만 하며 동의나 경로 요청을 중복 생성하지 않는다. 자동 꺼짐에서는 받은 값을 직접 적용하기 전 내비를 변경하지 않는다. 공유 null은 '자동 따르기 대기 · 공유 목적지 없음 · 순정 안내 유지'로 표시한다. 전역 취소 이벤트는 기존 안내 교체에서도 발생하므로 새 SDK 세션의 조회만 재개하며 원래 확인 기한을 유지한다. 일치 확인 직후 늦게 온 취소·목적지 변경도 같은 방·최신 대상·원래 기한의 최근 작업을 새 조회로 다시 검증한다. 이전 성공을 그대로 복원하거나 경로를 재요청하지 않는다. 서버 접수나 SDK 반환만으로 순정 내비 변경 완료를 표시하지 않는다.
-- Vehicle automatic lifetime: 활성/공유 중/자동 요청 전송/실제 조회 확인 중/목적지 일치/재연결/대기/중지 상태를 구분한다. 명시 중지·탈퇴·인증 종료·작업 제거·프로세스 소실은 자동 동의를 끝낸다. 동의는 저장하지 않고 프로세스 재생성 후 기본 꺼짐으로 시작한다. 진행 알림의 중지는 앱 화면을 열지 않는다.
+- Vehicle safety: 사용자가 알림 수신을 시작하면 순정 내비 전경에서도 요청을 받는다. 알림을 열어 내용을 확인하고 각자 수락한다. 수락한 작업의 실제 내비 확인에는 앱 복귀를 요구하지 않는다. 아래 자동 공유 관련 세부 동작은 legacy #14 경로에만 해당한다. UI와 독립된 서비스가 인증·SDK listener·필요 조회·작업별 45초 확인 기한을 소유한다. UI 재연결은 관찰만 하며 동의나 경로 요청을 중복 생성하지 않는다. 자동 꺼짐에서는 받은 값을 직접 적용하기 전 내비를 변경하지 않는다. 공유 null은 '자동 따르기 대기 · 공유 목적지 없음 · 순정 안내 유지'로 표시한다. 전역 취소 이벤트는 기존 안내 교체에서도 발생하므로 새 SDK 세션의 조회만 재개하며 원래 확인 기한을 유지한다. 일치 확인 직후 늦게 온 취소·목적지 변경도 같은 방·최신 대상·원래 기한의 최근 작업을 새 조회로 다시 검증한다. 이전 성공을 그대로 복원하거나 경로를 재요청하지 않는다. 서버 접수나 SDK 반환만으로 순정 내비 변경 완료를 표시하지 않는다.
+- Legacy vehicle automatic lifetime (#14): 활성/공유 중/자동 요청 전송/실제 조회 확인 중/목적지 일치/재연결/대기/중지 상태를 구분한다. 명시 중지·탈퇴·인증 종료·작업 제거·프로세스 소실은 자동 동의를 끝낸다. 동의는 저장하지 않고 프로세스 재생성 후 기본 꺼짐으로 시작한다. 진행 알림의 중지는 앱 화면을 열지 않는다.
 - Disabled: 녹음 중 공유방 변경과 중복 녹음을 차단한다.
 - Offline/slow network: 마지막 목적지를 유지하고 재연결 상태를 표시한다. 오래된 원음을 자동 재생하지 않는다.
 
 ## Content voice
 - Tone: 짧고 구체적인 한국어.
-- Terminology: 공유방, 대표 차량, 참여자, 받은 목적지, 원음. GLOSSARY.md를 따른다.
+- Terminology: 길맞춤, 공유방, 발신 차량, 수신 차량, 목적지 변경 요청, 수락, 거절, 원음. GLOSSARY.md를 따른다.
 - Microcopy rules: 제품 조작을 우선하고 서버·SDK 설명은 개발 문서로 둔다.
 
 ## Implementation constraints
@@ -83,10 +86,11 @@
 - Design-token constraints: CSS 변수로 색·간격을 관리한다.
 - Performance constraints: 원음은 1–15초, PCM16 mono 16kHz WAV를 공통 검증 형식으로 사용한다. 15초 약 480KB이며 서버에서 실제 길이를 검사한다.
 - Compatibility constraints: 브라우저 마이크는 localhost 또는 신뢰된 HTTPS가 필요하다. iPhone 배경 수신은 PushToTalk/APNs, Android는 네이티브 서비스로 별도 검증한다.
-- Vehicle constraints: NaviHelper 3.0.5의 실제 Maven 아티팩트를 사용한다. `NAVI_ROUTE`, `NAVI_ROUTE_SEARCH`, 인터넷과 foreground service·specialUse·진행 알림 권한을 선언한다. specialUse는 사용자가 시작한 지속 동행 조율(실제 순정 목적지 변경 공유와 명시 동의한 자동 반영·확인)만 수행한다. media/location/connectedDevice 작업이나 개발자 면제로 위장하지 않는다. 서비스는 START_NOT_STICKY이며 작업 제거 시 중지한다. 인증은 loopback HTTP의 헤더로만 전송하고 AndroidKeyStore 암호화 사설 저장소에 보관한다. 공식 에뮬레이터의 실행 증거와 향후 배포 심사 승인을 구분한다.
+- Vehicle constraints: NaviHelper 3.0.5의 실제 Maven 아티팩트를 사용한다. `NAVI_ROUTE`, `NAVI_ROUTE_SEARCH`, 인터넷과 foreground service·specialUse·진행 알림 권한을 선언한다. specialUse는 사용자가 시작한 변경 요청 수신과 각자 명시 수락한 목적지의 실제 반영 확인을 수행한다. 기존 자동 동행·전원 합의 제안의 호환 수명도 유지한다. media/location/connectedDevice 작업이나 개발자 면제로 위장하지 않는다. 서비스는 START_NOT_STICKY이며 작업 제거 시 중지한다. 인증은 loopback HTTP의 헤더로만 전송하고 AndroidKeyStore 암호화 사설 저장소에 보관한다. 공식 에뮬레이터의 실행 증거와 향후 배포 심사 승인을 구분한다.
 - Test/screenshot expectations: 실제 HTTP 바이트 전달, 두 독립 브라우저 참여와 목적지 전달, 모바일 화면·오류 상태를 확인한다. 실마이크·실기기 미실행을 명시한다.
 
-## Vehicle destination proposal contract (#17)
+## Legacy vehicle destination proposal contract (#17)
+- Legacy-only compatibility: 아래 전원 합의와 저장 장소·음성 초안 계약은 기존 프로토콜 회귀용이며 #29의 주 흐름이 아니다. 새 변경 요청은 별도 상태/이벤트로 처리하고 기존 자동 따르기가 수락을 우회하지 못한다.
 - Evidence: `prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt`, `ConvoySessionService.kt`, `RoomProtocol.kt`, `prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/VehicleCoordinator.kt`, and the public POIs in `prototype/vehicle/nativeDriver/src/main/kotlin/ai/pleos/destinations/driver/NativeDestinationDriver.kt`.
 - Placement and tokens: the home foregrounds a pending proposal with its name, address, reason, proposer and side-by-side accept/reject actions. The proposer sees a waiting status. Use the vehicle tokens above. The primary change flow is a separate saved-place composer with an explicit selection preview, optional reason and '제안 보내기'. Public prototype places (42dot / 소프트웨어드림센터) remain under a secondary '예제 장소' entry in the composer; never show a fixture selector on home or imply general search. Detailed votes, expiry and original metadata belong in settings/details.
 - State flow: no proposal → sending → pending (proposer already consents) → accepted only after every frozen member accepts → server committed → native request / actual follow-up query / strict destination match, or separate failure. Rejected, expired at 120 seconds, membership invalidated, newer direct destination and room closed never change the candidate into the shared/native destination. Stale cards and duplicate taps cannot send a second operation.
@@ -95,7 +99,7 @@
 - Automatic protection: pending-proposal publication hold and accepted-target protection have separate lifetimes. A later rejection, expiry or membership invalidation releases only the pending hold and must preserve an earlier failed agreement. Every snapshot/frame carries the current destination’s accepted-proposal provenance independently of the latest proposal, so a later proposal cannot hide historical acceptance on cold resume. Generic follower replay fencing is independent of publication protection: completing the 45-second window or explicitly resetting publication never authorizes that historical accepted revision again. Stop/reconnect and reconnect-only preserve the replay fence; only explicit current-target apply/retry or a newer destination intent may start an operation. Duplicate mutation results describe the current room frame and carry the historical request outcome separately; one sequence never names two proposal states. Pending proposals suspend leader publication before candidate handling; accepted proposals protect the agreed target before receiving the commit, block follower's generic automatic path, and use the existing strict SDK apply/verification path once for a live local consent. Failure retains leader protection until an explicit retry or reset. Successful protection continues through the original verification window before fresh automatic observations resume. An old in-flight direct publication remains subject to server revision CAS and invalidates a proposal if it wins before acceptance.
 - Assumptions: proposal records live only in the bounded in-memory local server; the application is a stationary/passenger prototype. A single-member room satisfies unanimous consent immediately. The original #17 scope excluded AI and voice. #25 adds foreground voice draft input only; mobile work, general POI search and map repair remain excluded. SDK transmission and server acceptance are never labeled native completion; map drawing and onRoutingCompleted are not success evidence.
 
-## Saved place selection and confirmation (#21)
+## Legacy saved place selection and confirmation (#21)
 - Entry: '목적지 바꾸기 → 저장한 장소 선택 → 선택 장소 확인과 이유(선택) → 제안 보내기'. Explain '내비에 ☆ 저장한 장소만 보여요.' Users explicitly select a name/address from an immutable list snapshot. Only '제안 보내기' sends that selected candidate. Empty reason uses a factual generic default. Keep the existing public prototype selector under '예제 장소' for exact-point regression; add no category fixtures or invented search callbacks.
 - Meaning: place identity is checked only after unanimous consent and a fresh native destination query. Exact-point verification keeps the original criteria. Home success says '내비에서 목적지를 확인했어요' only for the current connected target and actual guarded confirmation; old accepted records, same names, connection or route-start events never create success. This does not claim identical coordinates, entrance, route or completed calculation. Original selection and current native metadata remain separately available in collapsed developer details.
 - Support assumption: NaviHelper 3.0.5 public BookmarkInfo only, preserving source `pleos_bookmark`, explicit native provider `""`, nonblank POI ID, nullable sub-ID, exact name and full original metadata. Unknown source/provider/mode and incomplete metadata are rejected. Public POI ID/sub-ID descriptions establish map identity, not canonical coordinate equality; support remains limited to the current SDK/environment and two-car runtime verification.
@@ -103,7 +107,7 @@
 - Layout: the composer uses a stable native View page, 20sp body, 56dp buttons and vertical scroll. Choice dialog uses 20sp rows and at least 56dp touch targets; show name and address together. Loading/empty/error/cancel states explain the next action in product language. Opening a page or reopening a cached list never reconnects, reloads, requests a route or grants consent. Explicit refresh is disabled during route/read/sharing/proposal conflicts. Its volatile UI intent is bound to room/member/room epoch/page generation and the newly eligible native snapshot, waits for the initial destination read to finish, then reads places once. Exit, cold start, stop, scope/native-generation change, failure or conflicting work cancels that intent; it never submits a proposal. UI renders do not clear in-progress text input. New pending proposals invalidate the visible composer choice and response controls always use their displayed proposal ID/version.
 - Lifetime: the service owns the shared native helper/listener and read-only place state. Selection is valid only in its current room/member/native epoch and UI lifetime. No bookmark list is written to the journal/server. Normal proposal consent, 120-second expiry, original 45-second confirmation deadline, replay/version/stop/reconnect guards remain authoritative.
 
-## Vehicle voice draft (#25)
+## Legacy vehicle voice draft (#25)
 - Evidence: existing `MainActivity`, `VehicleViews`, `SavedPlacesController`, proposal contracts and current official SpeechToText 3.3.1 public artifact. Keep existing 20sp text, 56dp controls, shared tokens and vertical scrolling.
 - Entry: `목적지 바꾸기 → 말로 작성 → 들은 말 확인/수정 → 초안 정리 → 저장한 실제 후보 이름/주소 확인 → 제안 보내기`. Manual saved-place selection remains available. Voice is stationary/passenger, foreground-only and explicitly started. Show listening, stop, cancel, unsupported, failure and timeout in plain Korean. Page exit, Activity stop, scope/native generation change and convoy stop immediately revoke UI authority and clear volatile voice content. Stop/release the app-owned foreground AudioRecord immediately; keep PCM only in bounded memory and wipe it on cancellation. Retain the ON_DEVICE engine helper/listener for its end callback or at most three seconds before release, and serialize a later start behind engine cleanup. Verify physical microphone termination separately; the timeout itself is not proof. No wake word, background microphone, playback or call.
 - Provider: explicitly use Pleos SpeechToText `ON_DEVICE`/Korean. Do not use the SDK's HYBRID default or register a remote speech app. Public STT_SERVICE is declared normally. #25 freeze 7 also declares RECORD_AUDIO for app-owned 16kHz PCM16LE mono capture, with a contextual while-in-use runtime request and scope-checked one-shot callback. SDK request() microphone delegation is not used. Only RECORDSTATE_RECORDING starts the listening state. Finish closes AudioRecord before sendAudio/completeAudioSend; capture is at most 15 seconds/480000 bytes and result waiting at most 15 seconds. Permission or platform failure is shown without a grant/bypass. Voice data is not sent to the room server or journal. No model API key, remote LLM or new paid service is required.
@@ -116,3 +120,11 @@
 - [ ] iPhone 기종·iOS와 Apple 서명/PTT capability / 사용자·개발 / 실제 배경 원음 검증.
 - [ ] Galaxy 기종·OS 및 장시간 무음 후 수신 / 사용자·개발 / 실기기 첫 소리 검증.
 - [ ] specialUse 배포 심사 / 향후 배포 담당 / 에뮬레이터 검증은 공개 배포 승인으로 간주하지 않는다.
+
+## Destination change request contract (#29)
+- Sender target is a fresh actual native EXACT_POINT, never a fabricated place or bookmark coordinate. Foreground Activity-context SearchPlace opens native search; it does not return candidates to the app. A new read and explicit name/address review precede send, and the sender is not routed again.
+- Requests use independent requestRevision and immutable target/version. Each frozen recipient answers only its own pending response. Other responses do not make the displayed target stale; replacement, expiry, membership change or legacy direct destination do. The latest request is bounded and history is bounded. Old requests/HTTP duplicates describe current state and cannot resurrect a route.
+- Receiving and native application are separate. Only live local explicit acceptance and authenticated matching response may start one strict native request. Notification tap opens review and grants no navigation permission.
+- The request controller has no automatic mode and owns a separate public SDK gateway for actual reads/verification; legacy automatic mode is stopped/fenced when this protocol is present. Existing legacy wire contracts remain compatible.
+
+- Request lifetime: pending authority expires at 120 seconds or room expiry. Explicit acceptance before expiry starts at most one native operation with its original 45-second confirmation deadline. Expiry removes new response authority and pending notifications, while an already accepted operation may finish its bounded read-only confirmation. A newer request, membership invalidation, stop, auth loss or room change cancels the old operation. Historical accepted snapshots are display-only.

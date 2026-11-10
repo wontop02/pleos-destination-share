@@ -46,6 +46,17 @@ class RoomHttpClient(baseUrl: String) : AutoCloseable {
             JSONObject().put("version", proposal.version).put("expectedRevision", proposal.baseRevision)
                 .put("response", if (accept) "accepted" else "rejected")))
 
+    fun requestDestinationChange(credentials: RoomCredentials, id: String, destination: Destination,
+        expectedRequestRevision: Long): DestinationUpdate {
+        require(RoomCredentials.ID.matches(id) && expectedRequestRevision >= 0)
+        return RoomProtocol.update(request("POST", "${roomPath(credentials)}/destination-requests", credentials.token,
+            JSONObject().put("id", id).put("expectedRequestRevision", expectedRequestRevision)
+                .put("destination", RoomProtocol.destinationJson(destination))))
+    }
+    fun respondDestinationChange(credentials: RoomCredentials, value: DestinationChangeRequest, accept: Boolean): DestinationUpdate =
+        RoomProtocol.update(request("POST", "${roomPath(credentials)}/destination-requests/${value.id}/responses", credentials.token,
+            JSONObject().put("revision", value.revision).put("response", if (accept) "accepted" else "rejected")))
+
     fun leave(credentials: RoomCredentials) {
         request("DELETE", roomPath(credentials) + if (credentials.role == "host") "" else "/members/me", credentials.token)
     }

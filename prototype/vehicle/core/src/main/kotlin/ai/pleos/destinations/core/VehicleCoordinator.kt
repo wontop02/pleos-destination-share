@@ -208,6 +208,7 @@ class VehicleCoordinator(
     }
 
     private fun onConnected() {
+        if (state.connection == NativeConnection.CONNECTED) return // A duplicate initialize callback cannot issue a second route.
         if (clock() >= connectDeadline) {
             nativeFailure("순정 내비 연결 시간 초과 · Pleos 서비스가 필요합니다.", true); return
         }

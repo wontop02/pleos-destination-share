@@ -47,6 +47,16 @@ class VehicleCoordinatorTest {
         assertEquals(NativeConnection.FAILED, f.coordinator.state.connection)
         assertEquals(0, f.gateway.reads)
     }
+    @Test fun duplicateConnectionCallbackCannotIssueAnotherRoute() {
+        val f = Fixture(); f.ready(); f.room(); val listener = f.apply()
+        repeat(3) { listener.connected() }
+        assertEquals(listOf(first), f.gateway.routes)
+        listener.routingCompleted(); listener.destinationInfo(first)
+        assertEquals(ApplyPhase.CONFIRMED, f.coordinator.state.applying)
+        listener.connected()
+        assertEquals(1, f.gateway.routes.size)
+        assertEquals(ApplyPhase.CONFIRMED, f.coordinator.state.applying)
+    }
 
     @Test fun nativeEventsNeverShareWithoutHostExplicitAction() {
         val f = Fixture(); f.ready(); f.room(true)
