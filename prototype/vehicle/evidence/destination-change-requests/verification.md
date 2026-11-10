@@ -1,5 +1,35 @@
 # Destination change requests — builder evidence
 
+## Current corrected candidate — cycle 2
+
+The current production head is `95073bc9a63545e1323d425281ac04b7cae7de80`. It corrects independently reproduced AC2 failures in the first candidate: a membership change before the first request left a sender preview valid, and a native failure after review left the same stale preview visible/sendable. A third confirmed boundary allowed C1-control member names through the server while the new Android request parser rejected them. The initial candidate's evidence remains below as history; it is not the final runtime candidate or an AC2 PASS.
+
+Sender review and its unfinished native re-read now belong to the last observed room sequence. Any newer frame invalidates them, including a `members` frame whose request remains null. Equal-sequence duplicates retain the review. This is a conservative sender fence that leaves the request wire/API unchanged; a later recipient response also requires fresh sender review. Cancelling an unfinished read retires its SDK listener and pending sender callback authority. A reviewed preview also disappears when native state loses its connected/current-present observation, including failure, absence, disconnect or a new read. `canSend` independently requires that currently connected native value to equal the reviewed target.
+
+The server rejects the complete C0/DEL/C1 control ranges in member names at create/join, matching the new Android person parser. Normal Korean, Latin, punctuation and emoji names remain accepted. This is the only server change in cycle 2; the final server must replace only the coordinator-owned isolated4196 process, leaving4190/4192 intact.
+
+Two new JVM regressions first failed against the old code, then passed after correction. They cover join/leave before any request, stale native callback during a send-time read, equal-sequence duplicates, and failure/absence/disconnect after review. A third real VehicleSession HTTP/SSE test proves the membership frame reaches and invalidates the actual sender controller. The C1 HTTP test first observed201 instead of400, then passed for U+0080/U+0085/U+009F at both entry paths while retaining ordinary names. [Red logs, exact commands and corrected results](builder/cycle-2/summary.json) preserve the failure and fix.
+
+| Corrected check | Result |
+|---|---|
+| Node full suite | exit0,101/101 pass; fail/cancel/skip0 |
+| Core JVM |94 tests; failure/error/skip0 |
+| App JVM |116 tests; failure/error/skip0 |
+| App and driver build/lint |exit0; lint errors0, warnings14/8 |
+| Package/signature checks |9 commands exit0; same previous update signer |
+| Source input manifest |67 files; hash mismatch0 after commit |
+
+| Corrected artifact | SHA-256 |
+|---|---|
+| App APK |`3bc9d57db01e94e31382110eca3cd24f0a1544fa4359a15d22452310330e8c08` |
+| Driver APK (unchanged) |`913cf8ada6340c14cb0cb93ec4f1fcef62164ed07399630de8142ec6f0575ba6` |
+| Server source |`6338890a40005b7ba02149d9cff8838c344d477025eba73d9d4978ee639674f6` |
+| Source input manifest |`d1b1ac1b10ce518088bc9bfcea33a9c25e41ec5b3dad3f0dc2008a23c3a6fa17` |
+
+The new immutable APK copies are outside Git at `product-run-artifacts/destination-change-requests-20261110/builder/cycle-2/candidate/app-debug.apk` and `driver-debug.apk`. [Corrected source hashes](builder/cycle-2/source-inputs.json), [package audit](builder/cycle-2/package-audit.json), [build result](builder/cycle-2/build-result.json), [test/lint counts](builder/cycle-2/test-counts.json), [full Node log](builder/cycle-2/node-all.log) and [artifact hashes](builder/cycle-2/artifact-hashes.json) bind this revision. No device state or live server was changed by this builder. Actual same-build two-car validation and a new independent verifier verdict remain required. The original deadline and execution state were preserved.
+
+## Initial candidate — preserved history
+
 Implementation base: `5ccc9ed4480fd12d96a2166ec2d4cc1850fe7f23`. Tested implementation head: `7a56c139cfe946e9f5fb5173cdedf83ed7e4e148`. The original execution deadline remains `2026-11-10T12:53:02Z`; no execution state was reset. This builder used the repository's builder behavioral contract as an assigned built-in worker, not an automatically discovered custom role.
 
 ## Result and boundary

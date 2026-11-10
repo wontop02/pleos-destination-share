@@ -1,0 +1,86 @@
+[
+  {
+    "path": "app-badging.txt",
+    "sha256": "e5e959bb5faecbda20b0be526916fbae9358f833aa306f1640c20800727a0c46"
+  },
+  {
+    "path": "app-permissions.txt",
+    "sha256": "d70dc50cd2f0579837439e053288640bb14357619c45869a70428762615f48a6"
+  },
+  {
+    "path": "app-signer.txt",
+    "sha256": "d021c90de64e598ead5d2c02257847136998e3429db786cca38a657089ccdf2f"
+  },
+  {
+    "path": "app-xmltree.txt",
+    "sha256": "4cf9eec7153bcffbb0bbbc0a3c6cd5e36122a3f136b2feb2c80c1d5f1a55686e"
+  },
+  {
+    "path": "build-result.json",
+    "sha256": "11a4084912a9749c9f338098e14c9d44423cfa1314d6cdac993669fa74edf44c"
+  },
+  {
+    "path": "build.log",
+    "sha256": "7e7b7056d74c8e1b5fdbad1348c2d2d83a416dca52338f4f5700213743f2b749"
+  },
+  {
+    "path": "driver-badging.txt",
+    "sha256": "0e539912a643229965020278530ae4c3ebc564c636102c62f2b23fa189076b61"
+  },
+  {
+    "path": "driver-permissions.txt",
+    "sha256": "1a166218b6171a4f9e82f369bec411a07cb5657115a7ac5b79e7a4c199314f89"
+  },
+  {
+    "path": "driver-signer.txt",
+    "sha256": "d021c90de64e598ead5d2c02257847136998e3429db786cca38a657089ccdf2f"
+  },
+  {
+    "path": "driver-xmltree.txt",
+    "sha256": "9be5b453a6404ac5fee0e070c46dd0ebc60e5f25622f88ff37fb92b2bb40b124"
+  },
+  {
+    "path": "node-all.log",
+    "sha256": "19a4b960a079ba12518146c264d43ad7f9f4be9ccdb8b73e141ea8ba5da8cdc4"
+  },
+  {
+    "path": "node-focused.log",
+    "sha256": "6558446db09752f8e7505687c0b596538491d0ee76d61d97ce719884f3e3c0b6"
+  },
+  {
+    "path": "node-red-result.json",
+    "sha256": "e3d175746f7030bed95de9a34ddd9276ded282f9e82ea563e075a115a1e32a16"
+  },
+  {
+    "path": "node-red.log",
+    "sha256": "355dac08416a6902b17060232b266bb63ae895e560c17ace76bfa7849234dda8"
+  },
+  {
+    "path": "package-audit.json",
+    "sha256": "d1fae754bc5ec0b16a834069dc434a498d646ddd923033dd3e96e68b57dcd88c"
+  },
+  {
+    "path": "previous_app-signer.txt",
+    "sha256": "d021c90de64e598ead5d2c02257847136998e3429db786cca38a657089ccdf2f"
+  },
+  {
+    "path": "red-result.json",
+    "sha256": "7b3f5e54eb3e35587acc912d22bd86315ecb0398c64bb299a950b04a32adb503"
+  },
+  {
+    "path": "red.log",
+    "sha256": "072c665ba596979c3d71172105c1d5fc59c2708346fe13ac407e7f00b8cd984b"
+  },
+  {
+    "path": "source-inputs.json",
+    "sha256": "d1b1ac1b10ce518088bc9bfcea33a9c25e41ec5b3dad3f0dc2008a23c3a6fa17"
+  },
+  {
+    "path": "summary.json",
+    "sha256": "b9596a53bf4c8d48b0dc6bbece00ea43301355145714764b27ad6634c91c95da"
+  },
+  {
+    "path": "test-counts.json",
+    "sha256": "272c63612a432253168c08be412d50eb3e850b3a52479609c22892819ac15cbd"
+  }
+]

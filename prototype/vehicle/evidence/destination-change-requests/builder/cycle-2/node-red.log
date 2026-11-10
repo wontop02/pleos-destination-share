@@ -1,0 +1,29 @@
+✖ member entry rejects C1 controls consistently with new request person parsing (114.050459ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 650.895792
+
+✖ failing tests:
+
+test at prototype/test/destination-change-requests.test.mjs:17:1
+✖ member entry rejects C1 controls consistently with new request person parsing (114.050459ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  201 !== 400
+  
+      at TestContext.<anonymous> (file:///Users/wontop/Documents/ChatGPT/%ED%98%84%EB%8C%80%20%EB%AA%A8%EB%B9%84%EC%8A%A4%20%ED%95%B4%EC%BB%A4%ED%86%A4/pleos-destination-share/.harness/worktrees/issue-29-destination-change-requests/prototype/test/destination-change-requests.test.mjs:21:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 201,
+    expected: 400,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

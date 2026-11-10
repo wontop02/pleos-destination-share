@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/private/tmp/pleos-vehicle-tools-20261105/gradle/gradle-8.11.1/bin/gradle",
+    "--offline",
+    "--no-daemon",
+    "--max-workers=1",
+    "-Dorg.gradle.jvmargs=-Xmx1024m -XX:MaxMetaspaceSize=384m",
+    "-Pkotlin.compiler.execution.strategy=in-process",
+    ":app:testDebugUnitTest",
+    "--tests",
+    "ai.pleos.destinations.vehicle.DestinationRequestsTest.membershipChangeBeforeFirstRequestInvalidatesPreviewAndInFlightSendRead",
+    "--tests",
+    "ai.pleos.destinations.vehicle.DestinationRequestsTest.nativeFailureAbsenceAndDisconnectAfterPreviewRevokeSendAuthority"
+  ],
+  "exit": 1,
+  "seconds": 71.67561864852905
+}
