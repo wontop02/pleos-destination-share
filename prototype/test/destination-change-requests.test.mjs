@@ -14,6 +14,19 @@ const answer = (app, who, value, response = 'accepted') => app.call('POST', `${p
 });
 const snapshot = async (app, who) => (await app.call('GET', path(who), { token: who.token })).data;
 
+test('member entry rejects C1 controls consistently with new request person parsing', async (t) => {
+  const app = await runningApp(t); const a = await app.create('정상 차량 🚗');
+  for (const control of ['\u0080', '\u0085', '\u009f']) {
+    const name = `차량${control}이름`;
+    assert.equal((await app.call('POST', '/api/rooms', { body: { name } })).status, 400);
+    assert.equal((await app.call('POST', `${path(a)}/members`, { token: a.inviteSecret, body: { name } })).status, 400);
+  }
+  const b = await app.join(a, '정상 참여자 · Cafe');
+  const value = (await send(app, a)).data.changeRequest;
+  assert.equal(value.sender.name, '정상 차량 🚗');
+  assert.equal(value.recipients.find((v) => v.member.id === b.memberId).member.name, '정상 참여자 · Cafe');
+});
+
 test('actual HTTP/SSE change request remains separate from legacy destination and each recipient responds independently', async (t) => {
   const app = await runningApp(t); const a = await app.create(); const b = await app.join(a); const c = await app.join(a);
   const feed = await events(t, app, b); await feed.next('snapshot');

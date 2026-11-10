@@ -4,6 +4,7 @@ import ai.pleos.destinations.core.ApplyPhase
 import ai.pleos.destinations.core.CurrentDestination
 import ai.pleos.destinations.core.Destination
 import ai.pleos.destinations.core.NavigationGateway
+import ai.pleos.destinations.core.NativeConnection
 import ai.pleos.destinations.core.VehicleCoordinator
 import ai.pleos.destinations.core.VehicleState
 import java.security.SecureRandom
@@ -45,7 +46,8 @@ class DestinationRequests(
     val applying: Boolean get() = state.applying in listOf(ApplyPhase.CONNECTING, ApplyPhase.REQUESTED, ApplyPhase.ROUTING, ApplyPhase.VERIFYING)
     val hasLease: Boolean get() = listening || busy || clock() < operationDeadline
     val canPreview: Boolean get() = !closed && connected && client != null && !busy && !querying && !applying
-    val canSend: Boolean get() = canPreview && preview != null && clock() - previewAt in 0..15_000
+    val canSend: Boolean get() = canPreview && preview != null && clock() - previewAt in 0..15_000 &&
+        state.connection == NativeConnection.CONNECTED && (state.current as? CurrentDestination.Present)?.value == preview
     val ownResponse: String? get() = request?.recipients?.firstOrNull { it.member.id == identity?.memberId }?.response
     val hasLocalAcceptance: Boolean get() = request != null && issued == request?.id
     val pending: DestinationChangeRequest? get() = request?.takeIf {
@@ -68,6 +70,12 @@ class DestinationRequests(
 
     fun consume(value: DestinationChangeRequest?, revision: Long, sequence: Long, serverTime: Long) {
         if (closed || sequence <= lastSequence) return
+        // Membership changes also arrive before any request exists (null -> null).
+        // Bind review and its pending native read to the last observed room frame.
+        if (lastSequence >= 0 && (preview != null || querying)) {
+            invalidatePreview()
+            message = "동행방 내용이 바뀌었어요. 내비 목적지를 다시 확인해 주세요."
+        }
         lastSequence = sequence; requestRevision = revision
         val old = request
         // Expiry closes new response authority. An already accepted native operation keeps
@@ -129,7 +137,14 @@ class DestinationRequests(
     private fun nativeChanged(state: VehicleState) {
         if (closed) return
         val current = state.current
-        if (querying && current is CurrentDestination.Present && current.observedAt >= queryStarted) {
+        if (preview != null && (state.connection != NativeConnection.CONNECTED || current !is CurrentDestination.Present)) {
+            preview = null; previewAt = 0
+            message = "내비 상태가 바뀌었어요. 목적지를 다시 확인해 주세요."
+        }
+        if (querying && state.connection == NativeConnection.DISCONNECTED) {
+            querying = false; sendAfterRead = null; busy = false; preview = null
+            message = "내비 연결이 끝났어요. 목적지를 다시 확인해 주세요."
+        } else if (querying && current is CurrentDestination.Present && current.observedAt >= queryStarted) {
             querying = false
             val expected = sendAfterRead; sendAfterRead = null
             if (!current.value.canRequestRoute || current.value.pleos?.address.isNullOrBlank()) {

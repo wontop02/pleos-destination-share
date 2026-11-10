@@ -99,6 +99,47 @@ class DestinationRequestsTest {
             }; api.leave(a)
         }
     }
+    @Test fun membershipChangeBeforeFirstRequestInvalidatesPreviewAndInFlightSendRead() {
+        RoomHttpClient(base).use { api ->
+            val a = api.create("회원 변경 발신").first
+            Runtime(a, api).use { source ->
+                source.preview()
+                val b = api.join(a.roomId, a.inviteSecret!!, "추가 회원").first
+                source.sync()
+                assertNull(source.controller.request)
+                assertNull(source.controller.preview); assertFalse(source.controller.canSend)
+                source.controller.sendCurrent(); assertNull(api.snapshot(a).update.changeRequest)
+
+                source.preview(); source.controller.sendCurrent(); val stale = source.gateway.latest
+                api.leave(b); source.sync()
+                stale.connected(); stale.destinationInfo(first)
+                assertNull(source.controller.preview); assertFalse(source.controller.busy)
+                assertFalse(source.controller.canSend); assertNull(api.snapshot(a).update.changeRequest)
+
+                source.preview(); val unchanged = api.snapshot(a).update
+                source.controller.consume(unchanged.changeRequest, unchanged.requestRevision, unchanged.sequence, unchanged.serverTime)
+                assertTrue("Duplicate unchanged room frames do not invalidate review", source.controller.canSend)
+            }; api.leave(a)
+        }
+    }
+    @Test fun nativeFailureAbsenceAndDisconnectAfterPreviewRevokeSendAuthority() {
+        RoomHttpClient(base).use { api ->
+            val a = api.create("내비 상태 발신").first
+            Runtime(a, api).use { source ->
+                source.preview(); source.gateway.latest.failed()
+                assertNull(source.controller.preview); assertFalse(source.controller.canSend)
+                source.controller.sendCurrent(); assertNull(api.snapshot(a).update.changeRequest)
+
+                source.preview(); source.gateway.latest.destinationChanged(); source.gateway.latest.destinationAbsent()
+                assertNull(source.controller.preview); assertFalse(source.controller.canSend)
+
+                source.preview(); source.controller.navigation.stopAutomatic()
+                assertNull(source.controller.preview); assertFalse(source.controller.canSend)
+                source.controller.sendCurrent(); assertNull(api.snapshot(a).update.changeRequest)
+                assertTrue(source.gateway.routes.isEmpty())
+            }; api.leave(a)
+        }
+    }
     @Test fun threeCarsAcceptIndependentlyAndDuplicateFramesNeverReissue() {
         RoomHttpClient(base).use { api ->
             val a = api.create("대표 요청").first; val b = api.join(a.roomId, a.inviteSecret!!, "수락 요청").first

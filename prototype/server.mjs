@@ -34,7 +34,7 @@ const objectWith = (value, keys) => value !== null && typeof value === 'object' 
   Object.keys(value).length === keys.length && keys.every((key) => Object.hasOwn(value, key));
 function personName(body) {
   if (!objectWith(body, ['name']) || typeof body.name !== 'string' ||
-      !body.name.trim() || body.name.length > 40 || /[\u0000-\u001f\u007f]/u.test(body.name)) {
+      !body.name.trim() || body.name.length > 40 || /[\u0000-\u001f\u007f-\u009f]/u.test(body.name)) {
     reject(400, 'invalid_name', '참여자 이름을 1–40자로 입력해 주세요.');
   }
   return body.name.trim();
