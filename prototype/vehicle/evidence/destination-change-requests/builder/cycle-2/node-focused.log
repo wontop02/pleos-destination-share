@@ -1,0 +1,15 @@
+✔ member entry rejects C1 controls consistently with new request person parsing (95.064291ms)
+✔ actual HTTP/SSE change request remains separate from legacy destination and each recipient responds independently (49.574667ms)
+✔ concurrent different recipient responses do not conflict and duplicate same response is idempotent (21.828625ms)
+✔ duplicate creation retains current frame, conflicting id and stale creation revision fail (15.909916ms)
+✔ replacement and exact expiry invalidate old response authority without changing native/legacy target (14.492583ms)
+✔ membership changes and legacy direct publication invalidate a current change request (22.573625ms)
+✔ auth, own-response schema, target metadata and bounded request history fail closed (26.422916ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 536.611167

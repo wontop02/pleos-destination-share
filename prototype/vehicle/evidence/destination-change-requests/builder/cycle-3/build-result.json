@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/private/tmp/pleos-vehicle-tools-20261105/gradle/gradle-8.11.1/bin/gradle",
+    "--offline",
+    "--no-daemon",
+    "--max-workers=1",
+    "-Dorg.gradle.jvmargs=-Xmx1024m -XX:MaxMetaspaceSize=384m",
+    "-Pkotlin.compiler.execution.strategy=in-process",
+    ":app:testDebugUnitTest",
+    ":app:assembleDebug",
+    ":app:lintDebug"
+  ],
+  "environment_source": "pleos-vehicle-20261105/toolchain/build-env.json",
+  "started_utc": "2026-11-11T08:26:59.503536+00:00",
+  "source_base_head": "0e3817c067954438f36e7939e0be82950491edc1",
+  "source_manifest_count": 67,
+  "source_manifest_sha256": "f4e5831356ce5d5c2803b9eaf81294a30f83f0f4c6e51903ee93aa84d8e8f741",
+  "changed_source_from_cycle_2": [
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt"
+  ],
+  "exit": 0,
+  "seconds": 135.900619333,
+  "finished_utc": "2026-11-11T08:29:15.404993+00:00"
+}

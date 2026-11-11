@@ -37,9 +37,13 @@ data class DestinationProposal(val id: String, val version: Long, val status: St
     val destination: Destination, val reason: String, val proposer: ProposalPerson,
     val createdAt: Long, val expiresAt: Long, val baseRevision: Long, val responses: List<ProposalVote>,
     val acceptedRevision: Long?, val endedAt: Long?, val invalidatedBy: String?)
+data class DestinationChangeRequest(val id: String, val revision: Long, val status: String,
+    val destination: Destination, val sender: ProposalPerson, val createdAt: Long, val expiresAt: Long,
+    val recipients: List<ProposalVote>)
 data class DestinationUpdate(val revision: Long, val sequence: Long, val destination: Destination?,
     val proposal: DestinationProposal? = null, val hasProposal: Boolean = false, val serverTime: Long = 0,
-    val acceptedProposal: DestinationProposal? = null, val hasAcceptedProposal: Boolean = false)
+    val acceptedProposal: DestinationProposal? = null, val hasAcceptedProposal: Boolean = false,
+    val changeRequest: DestinationChangeRequest? = null, val requestRevision: Long = 0, val hasChangeRequest: Boolean = false)
 data class RoomSnapshot(val update: DestinationUpdate, val role: String, val expiresAt: Long)
 class RoomFailure(val status: Int, val code: String) : Exception("공유방 요청 실패 ($status)")
 
@@ -92,6 +96,32 @@ object RoomProtocol {
                 require(it in listOf("membership_changed", "destination_changed", "room_closed"))
             })
     }
+    fun changeRequest(body: JSONObject): DestinationChangeRequest {
+        fun person(value: JSONObject): ProposalPerson {
+            val id = value.getString("id"); val name = value.getString("name")
+            require(RoomCredentials.ID.matches(id) && name.isNotBlank() && name.length <= 40 && name.none { it.isISOControl() })
+            return ProposalPerson(id, name)
+        }
+        val id = body.getString("id"); require(RoomCredentials.ID.matches(id))
+        val status = body.getString("status"); require(status in listOf("active", "expired", "superseded", "invalidated"))
+        val created = integer(body, "createdAt"); val expires = integer(body, "expiresAt")
+        require(expires > created && expires - created <= 120_000)
+        val sender = person(body.getJSONObject("sender"))
+        val list = body.getJSONArray("recipients"); require(list.length() <= 100)
+        val recipients = (0 until list.length()).map { index ->
+            val item = list.getJSONObject(index)
+            val response = item.getString("response"); require(response in listOf("pending", "accepted", "rejected"))
+            require(item.has("respondedAt"))
+            val at = if (item.isNull("respondedAt")) null else integer(item, "respondedAt")
+            require((response == "pending") == (at == null) && (at == null || at in created until expires))
+            ProposalVote(person(item.getJSONObject("member")), response, at)
+        }
+        require(recipients.none { it.member.id == sender.id } && recipients.map { it.member.id }.distinct().size == recipients.size)
+        val target = destination(body.getJSONObject("destination"))
+        require(target.kind == DestinationKind.EXACT_POINT && target.canRequestRoute)
+        return DestinationChangeRequest(id, integer(body, "revision", 1), status, target, sender, created, expires, recipients)
+    }
+
     fun destinationJson(value: Destination): JSONObject = JSONObject()
         .put("name", value.name).put("latitude", value.latitude).put("longitude", value.longitude).apply {
             if (value.kind != DestinationKind.EXACT_POINT) {
@@ -142,9 +172,13 @@ object RoomProtocol {
                 it.status == "accepted" && it.acceptedRevision == revision && it.destination == target
             } == true)
         }
+        val hasChange = body.has("changeRequest")
+        val requestRevision = if (hasChange) integer(body, "requestRevision") else 0
+        val change = if (hasChange && !body.isNull("changeRequest")) changeRequest(body.getJSONObject("changeRequest")) else null
+        require(change == null || change.revision == requestRevision)
         return DestinationUpdate(revision, sequence, target,
             currentProposal,
-            hasProposal, if (hasProposal || hasAccepted) integer(body, "serverTime") else 0, accepted, hasAccepted)
+            hasProposal, if (hasProposal || hasAccepted || hasChange) integer(body, "serverTime") else 0, accepted, hasAccepted, change, requestRevision, hasChange)
     }
 
     fun snapshot(body: JSONObject): RoomSnapshot {

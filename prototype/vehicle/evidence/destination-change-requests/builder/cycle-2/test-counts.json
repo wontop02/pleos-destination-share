@@ -1,0 +1,22 @@
+{
+  "core": {
+    "tests": 94,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "app": {
+    "tests": 116,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "app_lint": {
+    "errors": 0,
+    "warnings": 14
+  },
+  "nativeDriver_lint": {
+    "errors": 0,
+    "warnings": 8
+  }
+}

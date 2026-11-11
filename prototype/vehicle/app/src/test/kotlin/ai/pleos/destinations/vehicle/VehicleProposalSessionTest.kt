@@ -122,6 +122,50 @@ class VehicleProposalSessionTest {
         a.until { a.session.proposal?.status == "accepted" }
         b.until { b.session.proposal?.status == "accepted" && !b.session.proposalBusy }
     }
+    @Test fun newRequestStopsLegacyAutomaticAndRequiresIndependentExplicitAcceptance() {
+        serverTime(0)
+        RoomHttpClient(base).use { api ->
+            val host = api.create("새 요청 발신").first; val member = api.join(host.roomId, host.inviteSecret!!, "자동 수신").first
+            api.publish(host, first, 0)
+            Runtime(member).use { receiver ->
+                receiver.session.startAutomatic()
+                assertEquals(AutomaticMode.FOLLOWER, receiver.session.state.automatic)
+                val value = api.requestDestinationChange(host, "abababababababababababab", second, 0).changeRequest!!
+                receiver.until { receiver.session.changeRequests.request?.id == value.id }
+                assertEquals(AutomaticMode.OFF, receiver.session.state.automatic)
+                receiver.advance(1_000)
+                assertTrue(receiver.gateway.routes.isEmpty())
+                receiver.session.startAutomatic(); receiver.advance(1_000)
+                assertEquals(AutomaticMode.OFF, receiver.session.state.automatic)
+                assertTrue(receiver.gateway.routes.isEmpty())
+                receiver.session.changeRequests.respond(value.id, true)
+                receiver.until { receiver.session.changeRequests.state.applying == ApplyPhase.CONNECTING }
+                receiver.gateway.latest.connected()
+                assertEquals(listOf(second), receiver.gateway.routes)
+                receiver.gateway.latest.routingCompleted(); receiver.gateway.latest.destinationInfo(second)
+                assertEquals(ApplyPhase.CONFIRMED, receiver.session.changeRequests.state.applying)
+                assertEquals(first, api.snapshot(host).update.destination)
+            }; api.leave(host)
+        }
+    }
+    @Test fun realMembershipSseInvalidatesSenderPreviewBeforeAnyChangeRequestExists() {
+        serverTime(0)
+        RoomHttpClient(base).use { api ->
+            val host = api.create("회원 수신 발신").first
+            Runtime(host).use { sender ->
+                sender.session.changeRequests.refreshCurrent()
+                sender.gateway.latest.connected(); sender.gateway.latest.destinationInfo(first)
+                assertTrue(sender.session.changeRequests.canSend)
+                api.join(host.roomId, host.inviteSecret!!, "새 수신 회원")
+                sender.until { sender.session.changeRequests.preview == null }
+                assertNull(sender.session.changeRequests.request)
+                assertFalse(sender.session.changeRequests.canSend)
+                sender.session.changeRequests.sendCurrent()
+                assertNull(api.snapshot(host).update.changeRequest)
+                assertTrue(sender.gateway.routes.isEmpty())
+            }; api.leave(host)
+        }
+    }
     @Test fun autoOffBothVehiclesApplyOnlyAfterAcceptanceAndVerifyOffscreenOnce() {
         serverTime(0)
         RoomHttpClient(base).use { api ->

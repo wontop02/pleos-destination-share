@@ -1,0 +1,14 @@
+✔ actual HTTP/SSE change request remains separate from legacy destination and each recipient responds independently (52.59175ms)
+✔ concurrent different recipient responses do not conflict and duplicate same response is idempotent (26.07075ms)
+✔ duplicate creation retains current frame, conflicting id and stale creation revision fail (12.820167ms)
+✔ replacement and exact expiry invalidate old response authority without changing native/legacy target (9.874584ms)
+✔ membership changes and legacy direct publication invalidate a current change request (9.70375ms)
+✔ auth, own-response schema, target metadata and bounded request history fail closed (20.614833ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 257.792166

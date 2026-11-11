@@ -3,6 +3,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="pleos.car.permission.NAVI_ROUTE" />
     <uses-permission android:name="pleos.car.permission.NAVI_ROUTE_SEARCH" />
+    <uses-permission android:name="pleos.car.permission.NAVI_CUSTOM_MAP" />
     <uses-permission android:name="pleos.car.permission.STT_SERVICE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
@@ -13,14 +14,14 @@
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
-        android:label="동행 목적지"
+        android:label="길맞춤"
         android:theme="@style/AppTheme"
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true">
         <service android:name=".ConvoySessionService" android:exported="false"
             android:stopWithTask="true" android:foregroundServiceType="specialUse">
             <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
-                android:value="User-initiated ongoing convoy coordination: while native navigation is visible, share the leader vehicle's actual destination changes and apply and verify the latest shared destination for a member who explicitly enabled automatic following. Independently, a member's explicit destination proposal or acceptance keeps coordination alive only for that proposal's 120-second consent window and an issued operation's original 45-second native destination verification window. A visible ongoing notification provides immediate stop. No location tracking, media playback, or connected-device work is performed." />
+                android:value="User-initiated destination-change request reception while native navigation is visible, with explicit per-recipient acceptance and actual destination verification. A visible ongoing notification stops reception immediately. No automatic response or background microphone is used. Legacy user-initiated convoy coordination: while native navigation is visible, share the leader vehicle's actual destination changes and apply and verify the latest shared destination for a member who explicitly enabled automatic following. Independently, a member's explicit destination proposal or acceptance keeps coordination alive only for that proposal's 120-second consent window and an issued operation's original 45-second native destination verification window. A visible ongoing notification provides immediate stop. No location tracking, media playback, or connected-device work is performed." />
         </service>
         <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>

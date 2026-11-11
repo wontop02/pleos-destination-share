@@ -1,0 +1,17 @@
+{
+  "incomplete_collector_attempts": [
+    {
+      "error": "Expected own visible scrolling container",
+      "cause": "Restart control was sought on retained CHANGE page after stop; normal MAIN launch retains that page",
+      "route_side_effect": false
+    },
+    {
+      "error": "start_convoy actionAccepted=false/visible=false",
+      "cause": "Same retained CHANGE page; no click or route was issued",
+      "route_side_effect": false
+    }
+  ],
+  "correction": "Visible nav_home was inspected and clicked, then actual Home Stop/Start UI succeeded on both",
+  "final_proof": "R11-final-stop-restart-no-replay.json",
+  "new_production_change": false
+}

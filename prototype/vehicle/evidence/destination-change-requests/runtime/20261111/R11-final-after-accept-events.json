@@ -1,0 +1,166 @@
+[
+  {
+    "at": 1794386154439,
+    "event": "activityStartAttach"
+  },
+  {
+    "at": 1794386160648,
+    "event": "request:explicitApply",
+    "nativeEpoch": 1,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794386160935,
+    "event": "request:connected",
+    "nativeEpoch": 1,
+    "operation": 1,
+    "matched": null
+  },
+  {
+    "at": 1794386160982,
+    "event": "request:requestRoute",
+    "nativeEpoch": 1,
+    "operation": 1,
+    "matched": null
+  },
+  {
+    "at": 1794386161854,
+    "event": "request:onRouteCancelled",
+    "nativeEpoch": 1,
+    "operation": 1,
+    "matched": null
+  },
+  {
+    "at": 1794386162389,
+    "event": "onRouteCancelled",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794386162671,
+    "event": "sessionState"
+  },
+  {
+    "at": 1794386163253,
+    "event": "activityStopDetach"
+  },
+  {
+    "at": 1794386163340,
+    "event": "request:connected",
+    "nativeEpoch": 2,
+    "operation": 1,
+    "matched": null
+  },
+  {
+    "at": 1794386163418,
+    "event": "request:resumeVerification",
+    "nativeEpoch": 2,
+    "operation": 1,
+    "matched": null
+  },
+  {
+    "at": 1794386163449,
+    "event": "request:getDestinationInfo",
+    "nativeEpoch": 2,
+    "operation": 1,
+    "matched": null
+  },
+  {
+    "at": 1794386163464,
+    "event": "connected",
+    "nativeEpoch": 2,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794386163478,
+    "event": "sessionState"
+  },
+  {
+    "at": 1794386163654,
+    "event": "sessionState"
+  },
+  {
+    "at": 1794386163784,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 2,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794386163805,
+    "event": "request:onDestinationInfoAbsent",
+    "nativeEpoch": 2,
+    "operation": 1,
+    "matched": null
+  },
+  {
+    "at": 1794386163842,
+    "event": "onDestinationInfoAbsent",
+    "nativeEpoch": 2,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794386163851,
+    "event": "sessionState"
+  },
+  {
+    "at": 1794386165851,
+    "event": "request:periodicVerification",
+    "nativeEpoch": 2,
+    "operation": 1,
+    "matched": null
+  },
+  {
+    "at": 1794386165991,
+    "event": "request:getDestinationInfo",
+    "nativeEpoch": 2,
+    "operation": 1,
+    "matched": null
+  },
+  {
+    "at": 1794386166008,
+    "event": "request:onDestinationInfoAbsent",
+    "nativeEpoch": 2,
+    "operation": 1,
+    "matched": null
+  },
+  {
+    "at": 1794386168004,
+    "event": "request:onRouteStarted",
+    "nativeEpoch": 2,
+    "operation": 1,
+    "matched": null
+  },
+  {
+    "at": 1794386168014,
+    "event": "request:periodicVerification",
+    "nativeEpoch": 2,
+    "operation": 1,
+    "matched": null
+  },
+  {
+    "at": 1794386168055,
+    "event": "request:getDestinationInfo",
+    "nativeEpoch": 2,
+    "operation": 1,
+    "matched": null
+  },
+  {
+    "at": 1794386169233,
+    "event": "request:onDestinationInfo",
+    "nativeEpoch": 2,
+    "operation": 1,
+    "matched": null
+  },
+  {
+    "at": 1794386169273,
+    "event": "request:destinationMatch",
+    "nativeEpoch": 2,
+    "operation": 1,
+    "matched": true
+  }
+]

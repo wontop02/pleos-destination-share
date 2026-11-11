@@ -1,0 +1,10 @@
+{
+  "command": [
+    "node",
+    "--test",
+    "--test-name-pattern=member entry rejects C1",
+    "prototype/test/destination-change-requests.test.mjs"
+  ],
+  "exit": 1,
+  "reason": "Actual201 versus expected400 confirms C1 member-name acceptance before correction."
+}

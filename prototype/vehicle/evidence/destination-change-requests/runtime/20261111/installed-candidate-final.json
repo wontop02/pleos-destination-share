@@ -1,0 +1,18 @@
+{
+  "emulator-5570": {
+    "installed_app_sha256": "f0811d7d2ec32eb8be9bb9d595a6d7b44e74de999cb169086faa39e3349390e2",
+    "versionCode_2": true,
+    "versionName_0_4": true,
+    "navi_custom_map_granted": true,
+    "no_uninstall": true,
+    "reverse4196_added": false
+  },
+  "emulator-5572": {
+    "installed_app_sha256": "f0811d7d2ec32eb8be9bb9d595a6d7b44e74de999cb169086faa39e3349390e2",
+    "versionCode_2": true,
+    "versionName_0_4": true,
+    "navi_custom_map_granted": true,
+    "no_uninstall": true,
+    "reverse4196_added": false
+  }
+}

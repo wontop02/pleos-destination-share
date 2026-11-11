@@ -1,0 +1,37 @@
+{
+  "base": "5ccc9ed4480fd12d96a2166ec2d4cc1850fe7f23",
+  "head": "d3a9766b54158c54da63c5431538f57a3d695d1e",
+  "working_tree_clean": true,
+  "changed_committed_paths": [
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt"
+  ],
+  "manifest_count": 67,
+  "manifest_sha256": "f4e5831356ce5d5c2803b9eaf81294a30f83f0f4c6e51903ee93aa84d8e8f741",
+  "worktree_manifest_mismatches": [],
+  "committed_manifest_mismatches": [],
+  "changed_input_paths": [
+    "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt"
+  ],
+  "app_sha256": "f0811d7d2ec32eb8be9bb9d595a6d7b44e74de999cb169086faa39e3349390e2",
+  "raw_current_junit_counts": {
+    "tests": 116,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "raw_junit_timestamp_min": "2026-11-11T08:28:03",
+  "raw_junit_timestamp_max": "2026-11-11T08:28:10",
+  "raw_current_lint": {
+    "Warning": 14
+  },
+  "raw_build_log_final": [
+    "",
+    "> Task :app:lintDebug",
+    "",
+    "BUILD SUCCESSFUL in 2m 15s",
+    "55 actionable tasks: 17 executed, 38 up-to-date"
+  ],
+  "V29_R1_resolution": "Fixed by two neutral fallback string replacements; no navigation, query, authorization, SDK, service or protocol logic change.",
+  "final_verdict": "BLOCKED pending corrected APK runtime evidence and final head rebind",
+  "new_heavy_commands": []
+}

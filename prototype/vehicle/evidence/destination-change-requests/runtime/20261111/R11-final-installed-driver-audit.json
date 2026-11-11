@@ -1,0 +1,14 @@
+{
+  "emulator-5570": {
+    "installed_driver_sha256": "913cf8ada6340c14cb0cb93ec4f1fcef62164ed07399630de8142ec6f0575ba6",
+    "user": 10,
+    "package": "ai.pleos.destinations.driver",
+    "matches_frozen_test_only_driver": true
+  },
+  "emulator-5572": {
+    "installed_driver_sha256": "913cf8ada6340c14cb0cb93ec4f1fcef62164ed07399630de8142ec6f0575ba6",
+    "user": 10,
+    "package": "ai.pleos.destinations.driver",
+    "matches_frozen_test_only_driver": true
+  }
+}

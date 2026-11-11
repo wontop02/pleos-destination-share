@@ -1,0 +1,9 @@
+{
+  "observer_leave_status": 200,
+  "only_test_observer_removed": true,
+  "actual_car_members_retained": true,
+  "at_ms": 1794386255499,
+  "server_return": {
+    "left": true
+  }
+}

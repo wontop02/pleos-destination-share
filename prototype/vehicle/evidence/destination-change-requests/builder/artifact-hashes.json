@@ -1,0 +1,70 @@
+[
+  {
+    "path": "app-badging.txt",
+    "sha256": "e5e959bb5faecbda20b0be526916fbae9358f833aa306f1640c20800727a0c46"
+  },
+  {
+    "path": "app-permissions.txt",
+    "sha256": "d70dc50cd2f0579837439e053288640bb14357619c45869a70428762615f48a6"
+  },
+  {
+    "path": "app-signer.txt",
+    "sha256": "d021c90de64e598ead5d2c02257847136998e3429db786cca38a657089ccdf2f"
+  },
+  {
+    "path": "app-xmltree.txt",
+    "sha256": "4cf9eec7153bcffbb0bbbc0a3c6cd5e36122a3f136b2feb2c80c1d5f1a55686e"
+  },
+  {
+    "path": "build-summary.json",
+    "sha256": "54658ce0d66b9474dfbc6bde6089794522f69fd1e8e7a42068571a65ae98d8e0"
+  },
+  {
+    "path": "candidate-build-result.json",
+    "sha256": "78e658dad8ccdda1a08aa1a798c23a96c5d0dbf8d41b05cca24748a091566fd3"
+  },
+  {
+    "path": "candidate-build.log",
+    "sha256": "71ff28c2f638623e8cd8085fd6760b9135d8d5fe2b810c96e60df95cf16c04cf"
+  },
+  {
+    "path": "candidate-package-audit.json",
+    "sha256": "ee3412a78a6523c789adfb31bb853645bd31c9452c1e5983376013fca207f042"
+  },
+  {
+    "path": "driver-badging.txt",
+    "sha256": "0e539912a643229965020278530ae4c3ebc564c636102c62f2b23fa189076b61"
+  },
+  {
+    "path": "driver-permissions.txt",
+    "sha256": "1a166218b6171a4f9e82f369bec411a07cb5657115a7ac5b79e7a4c199314f89"
+  },
+  {
+    "path": "driver-signer.txt",
+    "sha256": "d021c90de64e598ead5d2c02257847136998e3429db786cca38a657089ccdf2f"
+  },
+  {
+    "path": "driver-xmltree.txt",
+    "sha256": "9be5b453a6404ac5fee0e070c46dd0ebc60e5f25622f88ff37fb92b2bb40b124"
+  },
+  {
+    "path": "node-all-final.log",
+    "sha256": "fba1fc4ec4fd36568a96623d5dcbde0a5145f5d8f4d31a6604023f7647d95408"
+  },
+  {
+    "path": "node-requests-final.log",
+    "sha256": "613e828ecff8bdb30a89baeec99e8dd3bd3c56c57f4bbb71d76901f772045730"
+  },
+  {
+    "path": "previous_app-signer.txt",
+    "sha256": "d021c90de64e598ead5d2c02257847136998e3429db786cca38a657089ccdf2f"
+  },
+  {
+    "path": "source-inputs.json",
+    "sha256": "ec5bacccc79812dd4028d9db101a192d0000a25f09af19d8c8294ecbc77d8f52"
+  },
+  {
+    "path": "test-counts.json",
+    "sha256": "7b8bea1ef372eda4414dca420aa585cc43cec06e5120623e328bc3d5bf8cf041"
+  }
+]

@@ -1,0 +1,96 @@
+{
+  "implementation_head": "95073bc9a63545e1323d425281ac04b7cae7de80",
+  "previous_implementation_head": "7a56c139cfe946e9f5fb5173cdedf83ed7e4e148",
+  "cycle": 2,
+  "deadline_utc": "2026-11-10T12:53:02Z",
+  "gradle": {
+    "command": [
+      "/private/tmp/pleos-vehicle-tools-20261105/gradle/gradle-8.11.1/bin/gradle",
+      "--offline",
+      "--no-daemon",
+      "--max-workers=1",
+      "-Dorg.gradle.jvmargs=-Xmx1024m -XX:MaxMetaspaceSize=384m",
+      "-Pkotlin.compiler.execution.strategy=in-process",
+      ":core:test",
+      ":app:testDebugUnitTest",
+      ":app:assembleDebug",
+      ":app:lintDebug",
+      ":nativeDriver:assembleDebug",
+      ":nativeDriver:lintDebug"
+    ],
+    "exit": 0,
+    "seconds": 194.0999460220337,
+    "environment_source": "pleos-vehicle-20261105/toolchain/build-env.json"
+  },
+  "node": {
+    "command": [
+      "npm",
+      "test"
+    ],
+    "cwd": "prototype",
+    "exit": 0,
+    "tests": 101,
+    "pass": 101,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "test_and_lint_counts": {
+    "core": {
+      "tests": 94,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 116,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app_lint": {
+      "errors": 0,
+      "warnings": 14
+    },
+    "nativeDriver_lint": {
+      "errors": 0,
+      "warnings": 8
+    }
+  },
+  "packages": {
+    "app": {
+      "sha256": "3bc9d57db01e94e31382110eca3cd24f0a1544fa4359a15d22452310330e8c08",
+      "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-29-destination-change-requests/prototype/vehicle/app/build/outputs/apk/debug/app-debug.apk",
+      "signer_sha256": "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1"
+    },
+    "driver": {
+      "sha256": "913cf8ada6340c14cb0cb93ec4f1fcef62164ed07399630de8142ec6f0575ba6",
+      "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-29-destination-change-requests/prototype/vehicle/nativeDriver/build/outputs/apk/debug/nativeDriver-debug.apk",
+      "signer_sha256": "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1"
+    },
+    "previous_app": {
+      "sha256": "5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e",
+      "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/root/freeze-7-app-debug.apk",
+      "signer_sha256": "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1"
+    },
+    "same_update_signer": true,
+    "server_sha256": "6338890a40005b7ba02149d9cff8838c344d477025eba73d9d4978ee639674f6",
+    "source_manifest_sha256": "d1b1ac1b10ce518088bc9bfcea33a9c25e41ec5b3dad3f0dc2008a23c3a6fa17"
+  },
+  "red_regressions": {
+    "jvm": {
+      "exit": 1,
+      "tests": 2,
+      "fail": 2,
+      "result": "red-result.json"
+    },
+    "node": {
+      "exit": 1,
+      "tests": 1,
+      "fail": 1,
+      "result": "node-red-result.json"
+    }
+  },
+  "scope": "Room-sequence and native-state sender review invalidation; C1 member-name input validation; tests. No other production files changed.",
+  "runtime": "No builder device/install/native-route/live-server mutations. Same-build actual two-car verification and independent verdict remain required."
+}

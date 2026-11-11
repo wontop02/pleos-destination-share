@@ -1,0 +1,114 @@
+{
+  "app": {
+    "sha256": "3bc9d57db01e94e31382110eca3cd24f0a1544fa4359a15d22452310330e8c08",
+    "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-29-destination-change-requests/prototype/vehicle/app/build/outputs/apk/debug/app-debug.apk",
+    "signer_sha256": "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1"
+  },
+  "driver": {
+    "sha256": "913cf8ada6340c14cb0cb93ec4f1fcef62164ed07399630de8142ec6f0575ba6",
+    "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-29-destination-change-requests/prototype/vehicle/nativeDriver/build/outputs/apk/debug/nativeDriver-debug.apk",
+    "signer_sha256": "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1"
+  },
+  "previous_app": {
+    "sha256": "5b9eec0cca7f645e25ef4615cd5096d8e31b9256141d35f8d5018bc2c398317e",
+    "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/voice-proposals-20261108/root/freeze-7-app-debug.apk",
+    "signer_sha256": "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1"
+  },
+  "same_update_signer": true,
+  "server_sha256": "6338890a40005b7ba02149d9cff8838c344d477025eba73d9d4978ee639674f6",
+  "source_manifest_sha256": "d1b1ac1b10ce518088bc9bfcea33a9c25e41ec5b3dad3f0dc2008a23c3a6fa17",
+  "commands": [
+    {
+      "command": [
+        "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/apksigner",
+        "verify",
+        "--print-certs",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-29-destination-change-requests/prototype/vehicle/app/build/outputs/apk/debug/app-debug.apk"
+      ],
+      "exit": 0,
+      "output": "app-signer.txt"
+    },
+    {
+      "command": [
+        "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+        "dump",
+        "badging",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-29-destination-change-requests/prototype/vehicle/app/build/outputs/apk/debug/app-debug.apk"
+      ],
+      "exit": 0,
+      "output": "app-badging.txt"
+    },
+    {
+      "command": [
+        "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+        "dump",
+        "permissions",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-29-destination-change-requests/prototype/vehicle/app/build/outputs/apk/debug/app-debug.apk"
+      ],
+      "exit": 0,
+      "output": "app-permissions.txt"
+    },
+    {
+      "command": [
+        "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+        "dump",
+        "xmltree",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-29-destination-change-requests/prototype/vehicle/app/build/outputs/apk/debug/app-debug.apk",
+        "AndroidManifest.xml"
+      ],
+      "exit": 0,
+      "output": "app-xmltree.txt"
+    },
+    {
+      "command": [
+        "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/apksigner",
+        "verify",
+        "--print-certs",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-29-destination-change-requests/prototype/vehicle/nativeDriver/build/outputs/apk/debug/nativeDriver-debug.apk"
+      ],
+      "exit": 0,
+      "output": "driver-signer.txt"
+    },
+    {
+      "command": [
+        "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+        "dump",
+        "badging",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-29-destination-change-requests/prototype/vehicle/nativeDriver/build/outputs/apk/debug/nativeDriver-debug.apk"
+      ],
+      "exit": 0,
+      "output": "driver-badging.txt"
+    },
+    {
+      "command": [
+        "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+        "dump",
+        "permissions",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-29-destination-change-requests/prototype/vehicle/nativeDriver/build/outputs/apk/debug/nativeDriver-debug.apk"
+      ],
+      "exit": 0,
+      "output": "driver-permissions.txt"
+    },
+    {
+      "command": [
+        "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+        "dump",
+        "xmltree",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-29-destination-change-requests/prototype/vehicle/nativeDriver/build/outputs/apk/debug/nativeDriver-debug.apk",
+        "AndroidManifest.xml"
+      ],
+      "exit": 0,
+      "output": "driver-xmltree.txt"
+    },
+    {
+      "command": [
+        "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/apksigner",
+        "verify",
+        "--print-certs",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/issue-29-destination-change-requests/../product-run-artifacts/voice-proposals-20261108/root/freeze-7-app-debug.apk"
+      ],
+      "exit": 0,
+      "output": "previous_app-signer.txt"
+    }
+  ]
+}

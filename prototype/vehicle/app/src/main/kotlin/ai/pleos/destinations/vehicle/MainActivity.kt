@@ -39,7 +39,7 @@ import java.util.Date
 
 /** One stable set of views observes the existing service; page changes never grant consent. */
 class MainActivity : Activity() {
-    private enum class Page { HOME, COMPOSE, SETTINGS, WELCOME, ROOM_FORM }
+    private enum class Page { HOME, CHANGE, COMPOSE, SETTINGS, WELCOME, ROOM_FORM }
     private var service: ConvoySessionService? = null
     private var bound = false
     private val session get() = service?.session
@@ -54,6 +54,24 @@ class MainActivity : Activity() {
         }
         override fun onServiceDisconnected(name: ComponentName?) { service = null; render(VehicleState()) }
     }
+    private lateinit var placeSearch: NativePlaceSearch
+    private lateinit var searchKeyword: EditText
+    private lateinit var searchPlacesButton: Button
+    private lateinit var changePreviewButton: Button
+    private lateinit var changeSendButton: Button
+    private lateinit var changePreviewName: TextView
+    private lateinit var changePreviewAddress: TextView
+    private lateinit var changeStatus: TextView
+    private lateinit var requestCard: LinearLayout
+    private lateinit var requestName: TextView
+    private lateinit var requestAddress: TextView
+    private lateinit var requestSender: TextView
+    private lateinit var requestStatus: TextView
+    private lateinit var requestAccept: Button
+    private lateinit var requestReject: Button
+    private lateinit var requestReceipt: TextView
+    private var searchMessage = "장소명이나 업종을 입력해 검색해 주세요."
+    private var displayedChangeRequest: String? = null
     private lateinit var ui: VehicleViews
     private val pages = mutableMapOf<Page, ScrollView>()
     private var page = Page.HOME
@@ -160,6 +178,8 @@ class MainActivity : Activity() {
         val trace: (String) -> Unit = { event -> journal.append("voice:$event", session?.savedPlaces?.nativeEpoch ?: -1, composeGeneration, null) }
         voiceInput = VoiceInputController(PleosVoiceInputGateway(this, trace), { SystemClock.elapsedRealtime() },
             { if (!observingVoice && ::voiceStatus.isInitialized) renderCurrent() }, trace)
+        placeSearch = NativePlaceSearch(this, { foreground && page == Page.CHANGE && credentials != null && session?.state?.roomConnected == true },
+            { searchMessage = it; renderCurrent() }, { journal.append(it, 0, 0, null) })
         ui = VehicleViews(this); buildScreen(); render(VehicleState())
     }
     override fun onStart() {
@@ -167,7 +187,12 @@ class MainActivity : Activity() {
         foreground = true; voiceHandler.post(voiceTick)
         bound = bindService(Intent(this, ConvoySessionService::class.java), connection, BIND_AUTO_CREATE)
     }
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        navigate(if (credentials == null) Page.WELCOME else Page.HOME)
+    }
     override fun onStop() {
+        placeSearch.cancel(); session?.changeRequests?.invalidatePreview()
         foreground = false; voicePermission.cancel(); voiceHandler.removeCallbacks(voiceTick); voiceInput.observe(null); invalidateVoiceReview()
         placesLoadIntent.cancel(); composeGeneration += 1; placesLoadFailed = false
         pickerRequested = false; closePicker(); selectedExample = null
@@ -187,7 +212,7 @@ class MainActivity : Activity() {
         localNotice = null
         if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 14)
-        } else service?.requestAutomaticFromUi()
+        } else service?.requestReceiveFromUi()
     }
     private fun proposalAction(action: (VehicleSession) -> Unit) {
         localNotice = null
@@ -200,7 +225,7 @@ class MainActivity : Activity() {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 14) {
-            if (grantResults.firstOrNull() == PackageManager.PERMISSION_GRANTED) service?.requestAutomaticFromUi()
+            if (grantResults.firstOrNull() == PackageManager.PERMISSION_GRANTED) service?.requestReceiveFromUi()
             else localNotice = "알림을 허용한 뒤 동행을 시작해 주세요. 알림에서 중지할 수 있어요."
         }
         if (requestCode == 25) {
@@ -224,13 +249,17 @@ class MainActivity : Activity() {
         if (previous != next && (previous == Page.COMPOSE || next == Page.COMPOSE)) composeGeneration += 1
         pages.forEach { (key, view) -> view.visibility = if (key == next) View.VISIBLE else View.GONE }
         pageTitle.text = when (next) {
-            Page.HOME, Page.WELCOME -> "동행"
+            Page.HOME, Page.WELCOME -> "길맞춤"
+            Page.CHANGE -> "목적지 바꾸기"
             Page.COMPOSE -> "목적지 바꾸기"
             Page.SETTINGS -> "설정"
             Page.ROOM_FORM -> if (joinForm) "동행 참여" else "동행 만들기"
         }
         backButton.visibility = if (next == Page.HOME || next == Page.WELCOME) View.GONE else View.VISIBLE
         settingsButton.visibility = if (next == Page.SETTINGS) View.GONE else View.VISIBLE
+        if (previous == Page.CHANGE && next != Page.CHANGE) {
+            placeSearch.cancel(); session?.changeRequests?.invalidatePreview()
+        }
         if (previous == Page.COMPOSE && next != Page.COMPOSE) {
             voicePermission.cancel(); voiceInput.observe(null); invalidateVoiceReview()
             placesLoadIntent.cancel(); placesLoadFailed = false
@@ -247,6 +276,7 @@ class MainActivity : Activity() {
         val accepted = owner?.acceptedProposal
         val roomKey = credentials?.let { "${it.roomId}/${it.memberId}" }
         if (roomKey != lastRoomKey) {
+            placeSearch.cancel()
             placesLoadIntent.cancel(); placesLoadFailed = false
             lastRoomKey = roomKey; selectedExample = null
             closePicker(); pickerRequested = false; localNotice = null
@@ -258,7 +288,7 @@ class MainActivity : Activity() {
             if (page != Page.COMPOSE) service?.manual { it.savedPlaces?.cancel() }
             showPage(Page.HOME)
         }
-        if (credentials == null && page in listOf(Page.HOME, Page.COMPOSE)) showPage(Page.WELCOME)
+        if (credentials == null && page in listOf(Page.HOME, Page.CHANGE, Page.COMPOSE)) showPage(Page.WELCOME)
         if (credentials != null && page in listOf(Page.WELCOME, Page.ROOM_FORM)) showPage(Page.HOME)
         displayedProposal = p
         val active = state.automatic != AutomaticMode.OFF || owner?.pendingAutomatic == true || owner?.hasProposalLease == true
@@ -352,6 +382,63 @@ class MainActivity : Activity() {
             formAttempted && credentials == null -> "연결하지 못했어요. 이름과 초대 정보, 연결 주소를 확인한 뒤 다시 시도해 주세요."
             else -> ""
         }
+        renderRequestFlow(state, owner)
+    }
+
+    private fun renderRequestFlow(state: VehicleState, owner: VehicleSession?) {
+        val flow = owner?.changeRequests
+        val value = flow?.request
+        val self = credentials?.memberId
+        val recipient = value?.recipients?.firstOrNull { it.member.id == self }
+        displayedChangeRequest = value?.id
+        proposalCard.visibility = View.GONE
+        sharedCard.visibility = View.VISIBLE
+        recoveryButton.visibility = View.GONE
+        connectionText.text = if (credentials == null) "동행방 없음"
+            else if (state.roomConnected) "동행방 연결됨" else "동행방 연결 끊김 · 다시 연결해 주세요."
+        val current = (flow?.state?.current as? CurrentDestination.Present)?.value
+            ?: (state.current as? CurrentDestination.Present)?.value
+        sharedName.text = current?.name ?: "현재 목적지 확인 전"
+        sharedAddress.text = current?.pleos?.address ?: "'목적지 바꾸기'에서 현재 목적지를 확인해 주세요."
+        destinationStatus.text = flow?.message ?: "공유방에 연결해 주세요."
+        changeButton.isEnabled = credentials != null && state.roomConnected && !busy && !leaving && flow?.applying != true
+        automaticStartButton.text = "변경 요청 알림 받기"
+        automaticStartButton.visibility = if (flow?.listening == true) View.GONE else View.VISIBLE
+        automaticStartButton.isEnabled = credentials != null && !busy && !leaving
+        automaticText.text = if (flow?.listening == true) "알림 수신 중 · 수락하기 전에는 내비를 바꾸지 않아요."
+            else "다른 내비 화면에서도 요청을 받으려면 알림 수신을 시작해 주세요."
+        stopButton.text = "알림 수신 중지"
+        stopButton.visibility = if (flow?.hasLease == true) View.VISIBLE else View.GONE
+        requestCard.visibility = if (value?.status in listOf("active", "expired") && recipient != null &&
+            (flow.pending != null || recipient.response != "pending")) View.VISIBLE else View.GONE
+        if (value != null) {
+            requestName.text = value.destination.name
+            requestAddress.text = value.destination.pleos?.address ?: "주소 정보 없음"
+            requestSender.text = "${value.sender.name} 차량에서 보낸 요청"
+            val canRespond = flow?.canRespond(value.id) == true
+            requestAccept.isEnabled = canRespond; requestReject.isEnabled = canRespond
+            requestAccept.visibility = if (recipient?.response == "pending") View.VISIBLE else View.GONE
+            requestReject.visibility = requestAccept.visibility
+            requestStatus.text = when (recipient?.response) {
+                "accepted" -> if (flow?.hasLocalAcceptance != true) "수락한 기록이에요. 자동으로 다시 요청하지 않아요."
+                    else if (flow.state.applying == ApplyPhase.CONFIRMED) "내 내비에서 목적지를 확인했어요."
+                    else VehiclePresentation.destinationStatus(flow.state, null).text
+                "rejected" -> "거절했어요. 내 안내는 그대로예요."
+                else -> "수락하면 내 차량의 목적지를 바꿔요. 다른 차량의 응답을 기다리지 않아요."
+            }
+        }
+        requestReceipt.text = if (value != null && value.sender.id == self) {
+            val accepted = value.recipients.count { it.response == "accepted" }
+            val rejected = value.recipients.count { it.response == "rejected" }
+            "변경 요청 보냄 · 수락 ${accepted}대 · 거절 ${rejected}대 · 미응답 ${value.recipients.size - accepted - rejected}대"
+        } else ""
+        requestReceipt.visibility = if (requestReceipt.text.isNotEmpty()) View.VISIBLE else View.GONE
+        searchPlacesButton.isEnabled = credentials != null && state.roomConnected && !busy && flow?.busy != true && flow?.applying != true && !placeSearch.busy
+        changePreviewButton.isEnabled = flow?.canPreview == true && !placeSearch.busy
+        changeSendButton.isEnabled = flow?.canSend == true && !placeSearch.busy
+        changePreviewName.text = flow?.preview?.name ?: "내비에 설정한 목적지를 확인해 주세요"
+        changePreviewAddress.text = flow?.preview?.pleos?.address ?: "이름과 주소를 확인한 뒤 다른 차량에 알릴 수 있어요."
+        changeStatus.text = if (flow?.preview != null || flow?.busy == true) flow.message else searchMessage + "\n" + (flow?.message ?: "")
     }
 
     private fun renderComposer(state: VehicleState, owner: VehicleSession?, proposalError: Boolean) {
@@ -683,13 +770,14 @@ class MainActivity : Activity() {
         val header = ui.row().apply { setPadding(ui.dp(32), ui.dp(24), ui.dp(32), ui.dp(20)) }
         backButton = ui.button("홈으로", R.id.nav_home) { navigate(if (credentials == null) Page.WELCOME else Page.HOME) }
         header.addView(backButton, LinearLayout.LayoutParams(-2, -2).apply { rightMargin = ui.dp(24) })
-        pageTitle = ui.text("동행", true); header.addView(pageTitle, LinearLayout.LayoutParams(0, -2, 1f))
+        pageTitle = ui.text("길맞춤", true); header.addView(pageTitle, LinearLayout.LayoutParams(0, -2, 1f))
         stopButton = ui.button("동행 중지", R.id.stop_convoy, Role.DANGER) { voicePermission.cancel(); voiceInput.cancel(); invalidateVoiceReview(); placesLoadIntent.cancel(); pickerRequested = false; service?.stopAutomatic() }
         header.addView(stopButton, LinearLayout.LayoutParams(-2, -2).apply { rightMargin = ui.dp(16) })
         settingsButton = ui.button("설정", R.id.nav_settings) { navigate(Page.SETTINGS) }; header.addView(settingsButton)
         root.addView(header)
         val holder = FrameLayout(this); root.addView(holder, LinearLayout.LayoutParams(-1, 0, 1f))
         buildHome(page(holder, Page.HOME, R.id.home_page))
+        buildChange(page(holder, Page.CHANGE, R.id.change_page))
         buildComposer(page(holder, Page.COMPOSE, R.id.compose_page))
         buildSettings(page(holder, Page.SETTINGS, R.id.settings_page))
         buildWelcome(page(holder, Page.WELCOME, R.id.welcome_page))
@@ -702,6 +790,23 @@ class MainActivity : Activity() {
         (connectionText.layoutParams as LinearLayout.LayoutParams).bottomMargin = ui.dp(20)
         homeNotice = ui.text().apply { setTextColor(ui.color(R.color.danger)); accessibilityLiveRegion = View.ACCESSIBILITY_LIVE_REGION_POLITE }
         ui.add(root, homeNotice, 12)
+        requestCard = ui.card(root).apply { id = R.id.change_request_card }
+        ui.add(requestCard, ui.text("목적지 변경 요청").apply { setTextColor(ui.color(R.color.primary)) })
+        requestName = ui.text(title = true, id = R.id.change_request_name); ui.add(requestCard, requestName, 16)
+        requestAddress = ui.text(id = R.id.change_request_address); ui.add(requestCard, requestAddress, 12)
+        requestSender = ui.text(id = R.id.change_request_sender); ui.add(requestCard, requestSender, 12)
+        requestStatus = ui.text(id = R.id.change_request_status); ui.add(requestCard, requestStatus, 12)
+        val requestButtons = ui.row()
+        requestAccept = ui.button("수락하고 내 목적지 변경", R.id.accept_change_request, Role.PRIMARY) {
+            displayedChangeRequest?.let { id -> proposalAction { it.changeRequests.respond(id, true) } }
+        }
+        requestReject = ui.button("거절", R.id.reject_change_request, Role.DANGER) {
+            displayedChangeRequest?.let { id -> proposalAction { it.changeRequests.respond(id, false) } }
+        }
+        requestButtons.addView(requestAccept, LinearLayout.LayoutParams(0, -2, 1f).apply { rightMargin = ui.dp(8) })
+        requestButtons.addView(requestReject, LinearLayout.LayoutParams(0, -2, 1f).apply { leftMargin = ui.dp(8) })
+        ui.add(requestCard, requestButtons, 24)
+        requestReceipt = ui.text(id = R.id.change_request_receipt); ui.add(root, requestReceipt, 12)
         proposalCard = ui.card(root).apply { id = R.id.proposal_card }
         ui.add(proposalCard, ui.text("새 목적지 제안").apply { setTextColor(ui.color(R.color.primary)) })
         proposalName = ui.text(title = true, id = R.id.proposal_name); ui.add(proposalCard, proposalName, 16)
@@ -716,17 +821,43 @@ class MainActivity : Activity() {
         ui.add(proposalCard, responseRow, 24)
         proposalAddress = ui.text().apply { setTextColor(ui.color(R.color.muted)) }; ui.add(proposalCard, proposalAddress, 20)
         sharedCard = ui.card(root)
-        ui.add(sharedCard, ui.text("함께 가는 곳").apply { setTextColor(ui.color(R.color.muted)) })
+        ui.add(sharedCard, ui.text("내 차량의 목적지").apply { setTextColor(ui.color(R.color.muted)) })
         sharedName = ui.text(title = true, id = R.id.shared_place_name).apply {
             setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.destination_size))
         }; ui.add(sharedCard, sharedName, 20)
         sharedAddress = ui.text(id = R.id.shared_place_address).apply { setTextColor(ui.color(R.color.muted)) }; ui.add(sharedCard, sharedAddress, 12)
         destinationStatus = ui.text(id = R.id.destination_status).apply { accessibilityLiveRegion = View.ACCESSIBILITY_LIVE_REGION_POLITE }; ui.add(sharedCard, destinationStatus, 24)
-        changeButton = ui.button("목적지 바꾸기", R.id.change_destination, Role.PRIMARY) { navigate(Page.COMPOSE) }; ui.add(sharedCard, changeButton, 28)
+        changeButton = ui.button("목적지 바꾸기", R.id.change_destination, Role.PRIMARY) { navigate(Page.CHANGE) }; ui.add(sharedCard, changeButton, 28)
         recoveryButton = ui.button("다시 반영", R.id.home_recovery) { recover() }; ui.add(sharedCard, recoveryButton, 12)
         automaticText = ui.text().apply { setTextColor(ui.color(R.color.muted)) }; ui.add(root, automaticText, 4)
         automaticStartButton = ui.button("동행 시작", R.id.start_convoy) { automaticStart() }; ui.add(root, automaticStartButton, 16)
     }
+    private fun buildChange(root: LinearLayout) {
+        val search = ui.card(root)
+        ui.add(search, ui.text("1  변경할 목적지 검색", true))
+        searchKeyword = ui.field(search, "장소명 또는 업종", R.id.search_keyword).apply {
+            hint = "예: 카페, 식당, 주유소, 장소 이름"; filters = arrayOf(InputFilter.LengthFilter(100))
+        }
+        ui.add(search, ui.text("검색 결과에서 새 목적지를 설정한 뒤 길맞춤으로 돌아와 주세요."), 16)
+        searchPlacesButton = ui.button("장소 검색", R.id.search_native_places, Role.PRIMARY) {
+            val keyword = searchKeyword.text.toString().trim()
+            if (keyword.isBlank()) { searchMessage = "장소명이나 업종을 입력해 주세요."; renderCurrent() }
+            else { session?.changeRequests?.invalidatePreview(); placeSearch.open(keyword) }
+        }; ui.add(search, searchPlacesButton, 20)
+        val review = ui.card(root)
+        ui.add(review, ui.text("2  정한 목적지 확인하고 알리기", true))
+        changePreviewButton = ui.button("내비에서 정한 목적지 확인", R.id.preview_changed_destination) {
+            service?.manual { it.changeRequests.refreshCurrent() }
+        }; ui.add(review, changePreviewButton, 20)
+        changePreviewName = ui.text(title = true, id = R.id.changed_destination_name); ui.add(review, changePreviewName, 20)
+        changePreviewAddress = ui.text(id = R.id.changed_destination_address); ui.add(review, changePreviewAddress, 12)
+        changeStatus = ui.text(id = R.id.changed_destination_status).apply { accessibilityLiveRegion = View.ACCESSIBILITY_LIVE_REGION_POLITE }
+        ui.add(review, changeStatus, 16)
+        changeSendButton = ui.button("다른 차량에 변경 요청 보내기", R.id.send_destination_change, Role.PRIMARY) {
+            proposalAction { it.changeRequests.sendCurrent() }
+        }; ui.add(review, changeSendButton, 24)
+    }
+
     private fun buildComposer(root: LinearLayout) {
         buildVoiceComposer(root)
         val card = ui.card(root)
@@ -753,6 +884,8 @@ class MainActivity : Activity() {
         examplesButton = ui.button("예제 장소", R.id.example_places) { showExamples() }; ui.add(root, examplesButton)
     }
     private fun buildSettings(root: LinearLayout) {
+        ui.add(root, ui.button("기존 저장 장소·음성 제안", R.id.legacy_proposal) { navigate(Page.COMPOSE) }, 12)
+
         settingsStatus = ui.text().apply { setTextColor(ui.color(R.color.muted)) }; ui.add(root, settingsStatus)
         val connection = ui.card(root); ui.add(connection, ui.text("연결", true))
         nativeSummary = ui.text(); ui.add(connection, nativeSummary, 16)

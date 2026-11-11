@@ -1,0 +1,54 @@
+{
+  "base": "5ccc9ed4480fd12d96a2166ec2d4cc1850fe7f23",
+  "head": "0e3817c067954438f36e7939e0be82950491edc1",
+  "clean": true,
+  "production_head": "95073bc9a63545e1323d425281ac04b7cae7de80",
+  "manifest_entries": 67,
+  "manifest_sha256": "d1b1ac1b10ce518088bc9bfcea33a9c25e41ec5b3dad3f0dc2008a23c3a6fa17",
+  "source_mismatches": [],
+  "evidence_only_changes_since_production": [
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/app-badging.txt",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/app-permissions.txt",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/app-signer.txt",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/app-xmltree.txt",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/artifact-hashes.json",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/build-result.json",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/build.log",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/driver-badging.txt",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/driver-permissions.txt",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/driver-signer.txt",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/driver-xmltree.txt",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/node-all.log",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/node-focused.log",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/node-red-result.json",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/node-red.log",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/package-audit.json",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/previous_app-signer.txt",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/red-result.json",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/red.log",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/source-inputs.json",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/summary.json",
+    "prototype/vehicle/evidence/destination-change-requests/builder/cycle-2/test-counts.json",
+    "prototype/vehicle/evidence/destination-change-requests/verification.md"
+  ],
+  "prior_raw_junit_counts": {
+    "core": {
+      "tests": 94,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 116,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "candidate_hashes": {
+    "app": "3bc9d57db01e94e31382110eca3cd24f0a1544fa4359a15d22452310330e8c08",
+    "driver": "913cf8ada6340c14cb0cb93ec4f1fcef62164ed07399630de8142ec6f0575ba6",
+    "server": "6338890a40005b7ba02149d9cff8838c344d477025eba73d9d4978ee639674f6"
+  },
+  "new_tests_or_builds_run": false
+}

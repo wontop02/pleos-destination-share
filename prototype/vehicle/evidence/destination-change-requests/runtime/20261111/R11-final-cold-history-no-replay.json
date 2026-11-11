@@ -1,0 +1,15 @@
+{
+  "cold_history_no_replay": true,
+  "devices": {
+    "emulator-5570": {
+      "new_route_count": 0,
+      "post_restart_pid": "29802",
+      "prior_pid": "15852"
+    },
+    "emulator-5572": {
+      "new_route_count": 0,
+      "post_restart_pid": "18463",
+      "prior_pid": "8930"
+    }
+  }
+}

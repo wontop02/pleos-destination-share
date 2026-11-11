@@ -1,0 +1,270 @@
+[
+  {
+    "path": "prototype/server.mjs",
+    "sha256": "6338890a40005b7ba02149d9cff8838c344d477025eba73d9d4978ee639674f6"
+  },
+  {
+    "path": "prototype/vehicle/app/build.gradle.kts",
+    "sha256": "15d6ebfc2772da6b7e27546b0cff63c8c20234c34185d6640c106e493d67a421"
+  },
+  {
+    "path": "prototype/vehicle/app/src/androidTest/AndroidManifest.xml",
+    "sha256": "02d17101d59fd8db06bd474f120651ce117b33023cf96c81066b0ed94981c3f1"
+  },
+  {
+    "path": "prototype/vehicle/app/src/androidTest/kotlin/ai/pleos/destinations/vehicle/NaviSdkProbe.kt",
+    "sha256": "252fa4d417df5770214c1ed945d14520b3ff9a15ce6cbd40eb46464d6ab2d5f2"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/AndroidManifest.xml",
+    "sha256": "5a6d3de33649e5d7093befd4219815bd93d5d74e2b559b6da2c939272876f687"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/AndroidVoicePcmSource.kt",
+    "sha256": "27a01f9048c6e6d7c38f42d4db64b3816b9c38539075ff30f47e54fc74b77e50"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/ConvoySessionService.kt",
+    "sha256": "d61551b339f364e5661c1dc3def5fbb05a6cf18bcbc6f8ecd9bab5b4d7323693"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/DestinationRequests.kt",
+    "sha256": "24d5c123eb68ea7b50cf273a20cea5159efd667b6b7fc3e1b92567d4e6f0943e"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/EvidenceJournal.kt",
+    "sha256": "bdc9f7384dc9539432cfdd5f395d3087c4a4f1b98f7bb1735830221a946f6c7f"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt",
+    "sha256": "5a28f0a418275bc34a529cff3b0059a32cd429d3b31366d5dac90733c2059f35"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/NativePlaceSearch.kt",
+    "sha256": "33dbb615af7af9d1c0371587fd008415efea63fc72b11ddb1d9989619383bb13"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/NaviDestinationNormalizer.kt",
+    "sha256": "9e03ebb1631442942d5d890f42c46dab893e3e7e2525becf4d8c0e9a1eb3c792"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PendingConfirmationCache.kt",
+    "sha256": "63ddd55cc998f98df10cea90ea5fad9ea30aad8e607a628e37efe5b2fa4db68e"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PlacesLoadIntent.kt",
+    "sha256": "2c0c5c85c71ce49f0b5e8b56377919fbac09127b8bf66ac1fe13da4b1476c058"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PleosNavigationGateway.kt",
+    "sha256": "0e66878305ff373df34263417afb9ece625b7f20df43a10c1ade082929fc170a"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PleosVoiceInputGateway.kt",
+    "sha256": "b4b05637c2780f82a5ed49d0ae456cc11024f48731f2cb4691eb016f2c70a869"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/PrototypePlaces.kt",
+    "sha256": "180970cf12bf3edd64a3b89cc3af3e694115c2004659bdb13f045919e96f9645"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/RoomHttpClient.kt",
+    "sha256": "df7301e2d4a2f89d3518ac2f6b28c153dfa56e1da5fc6d9b6fe5381a23443e81"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/RoomProtocol.kt",
+    "sha256": "2b177ff1398c6f9ec43c22483e92aceb816431d0b01681102f7b8f0370d7dce6"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/SavedPlaces.kt",
+    "sha256": "233ebc6bebb933c0d7c1cf94dcad1881aa4e0fb289ea625d13b45862d8b30ae5"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/SecureSessionStore.kt",
+    "sha256": "f22e61dd394abf7ec0d17d99d1e5bfeda35dd76f490c391df7c8833344c2f932"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehiclePresentation.kt",
+    "sha256": "625e72a3dc72f6520a83247db20dc4aefba4ccf59b7bd497e007854ee9e79cbc"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehicleSession.kt",
+    "sha256": "ab1984fc4077f7c49117f47a321492ef02a52094f716bc41629b21e70818ca63"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VehicleViews.kt",
+    "sha256": "163dd0bf64505664e514481d2e8f003d343a55089ee424b85e43f1d265745033"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VoiceDraft.kt",
+    "sha256": "ff7a2ab74f42fae1b5cfb4dfe481bc8b06158f50736339a6ac5f1cfab5eaf034"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VoiceInput.kt",
+    "sha256": "bbd2ab0c6c86130c2185690d9536857cc9b61d37159e1a84e7a0cd2ab86c07ce"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VoiceInputCleanup.kt",
+    "sha256": "bd8732fcb210b9dc84fbb3f3e25b9b9604288cde0caf56bae88010f351718dc4"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VoicePcmCapture.kt",
+    "sha256": "304f54c7da7320f953e662960bdad147a414820754f2d432ef62ba5b2afe918e"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/VoicePermissionIntent.kt",
+    "sha256": "fc040bc630e410ab0ad19af7faa84741ab0805f35353d775c067437849d51a42"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/res/values/ids.xml",
+    "sha256": "15c2b15c7ce4b403711488960da981795d54b93a60c61b1401a780bff52fa7a5"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/res/values/styles.xml",
+    "sha256": "b4e474fa58444ce481e623b2f56599bcf8b007c342f91b6217f443c1444421cd"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/res/xml/data_extraction_rules.xml",
+    "sha256": "09e5cf26d18437bf29da8d9d211bfcd55a16be99ec68bbaa72fa23fa08130b4b"
+  },
+  {
+    "path": "prototype/vehicle/app/src/main/res/xml/network_security_config.xml",
+    "sha256": "9187f485f22fde712aea8de5243664710440a9ee08e9f1b172978eef96a15001"
+  },
+  {
+    "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/DestinationRequestsTest.kt",
+    "sha256": "ecceaf38dfc4c4925b6f7969d31c28e3f9c2bf92c5383c67c498f4af5fb1deb5"
+  },
+  {
+    "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/NaviDestinationNormalizerTest.kt",
+    "sha256": "3c9fb9056503ad59a1fcf23c25603193d1d1fa72ea3f602da3b33b35998f52e4"
+  },
+  {
+    "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/PendingConfirmationCacheTest.kt",
+    "sha256": "450b00782e11f5fe577b4c3a70e59ff68e2c2bdfc22943b8bc4f7a495b798c59"
+  },
+  {
+    "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/PlacesLoadIntentTest.kt",
+    "sha256": "b4e9a91dc38cd12d22f95d188b946ac4d4e249e43af1d31ccb249c95bd4a8559"
+  },
+  {
+    "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/RoomHttpClientTest.kt",
+    "sha256": "19332b3ba189a9d76930c3bf1cb7914c71091a4ffa57d141d0c394816c0f93eb"
+  },
+  {
+    "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/RoomProtocolTest.kt",
+    "sha256": "695912b79b3c6f0ac48110b0e043b6014096975130c8cc701de537f6671df86d"
+  },
+  {
+    "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/SavedPlacesTest.kt",
+    "sha256": "c222f4b061c66bfede6e2bf589dbdf290f3d4cdb9d7613408f846631da334f09"
+  },
+  {
+    "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/SdkRouteMappingTest.kt",
+    "sha256": "0f9973b46fd852409601e97ce9d962a77dbf0f7ca6fa42c91923d75cc99300a6"
+  },
+  {
+    "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VehiclePresentationTest.kt",
+    "sha256": "27b17429bd3d4d17746472a208747efdf3c69ecdc14cb7a73351f2eed41a0c00"
+  },
+  {
+    "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VehicleProposalSessionTest.kt",
+    "sha256": "b14696d1f6450bf2ec801942c2e42d99b0623815b8edbe0244cf92c42fbaa060"
+  },
+  {
+    "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VehicleSessionTest.kt",
+    "sha256": "1beaa01eb704ad98253af572fd99f4cdc35add1f7c1d40b18b2503acca9e8fe3"
+  },
+  {
+    "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VoiceDraftTest.kt",
+    "sha256": "75f81649b2fac8cca620b40c07a8d7e1e5cd4abd202b8424f4948915feb5c675"
+  },
+  {
+    "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VoiceInputCleanupTest.kt",
+    "sha256": "9ea4adfb5e80c21fcd786e033fa7370aa927477d6463631ca4ce0298f7b7a97f"
+  },
+  {
+    "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VoiceInputTest.kt",
+    "sha256": "fa3ecbb5f73d38634e93963b0e8c004b0c87d2dfeea7dc1f3bb09ad18832a266"
+  },
+  {
+    "path": "prototype/vehicle/app/src/test/kotlin/ai/pleos/destinations/vehicle/VoicePcmCaptureTest.kt",
+    "sha256": "8d4543b1e77fca6e12d8d692d61e8a4271e3d1418c5798dc2211027fdf1831d0"
+  },
+  {
+    "path": "prototype/vehicle/build.gradle.kts",
+    "sha256": "343f11fd15ec542f26c476725da69b23cdea22fb25ef19ffed45a4fdb7b0d4dc"
+  },
+  {
+    "path": "prototype/vehicle/core/build.gradle.kts",
+    "sha256": "4b3e0487ca08869e788dd91a4adf8104005a7836895729a4387d499dcd845d60"
+  },
+  {
+    "path": "prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/Destination.kt",
+    "sha256": "ecd8fba6a4bcbf2650783a89d9db31157fb0f1c2da5bc249f8a3da36c7646f11"
+  },
+  {
+    "path": "prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/NavigationGateway.kt",
+    "sha256": "2b23e6904048bd71a5bdf766d4afa2d036765b59cbc967f86444aee8ad2a60e2"
+  },
+  {
+    "path": "prototype/vehicle/core/src/main/kotlin/ai/pleos/destinations/core/VehicleCoordinator.kt",
+    "sha256": "440b7831486ac86a15a8911f4e0119c761b7443b16f9c1f891a24271428798c2"
+  },
+  {
+    "path": "prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/PlaceIntentSafetyTest.kt",
+    "sha256": "0a178ebec55a32d51defaa65117bd996e6c817dc696fc4e07f56e6e0c6a46c1f"
+  },
+  {
+    "path": "prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/SelectedPlaceConfirmationTest.kt",
+    "sha256": "bba44bebf96cb6815bc0cb20752cb1351c0374467bbf8eaa870ef38ab8e02131"
+  },
+  {
+    "path": "prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/VehicleAutomationTest.kt",
+    "sha256": "ba736aa987e897ed266e76ad6bdf16370a5f731beab94649bbfeaeb2f245ed79"
+  },
+  {
+    "path": "prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/VehicleCoordinatorTest.kt",
+    "sha256": "cb73deca6c24275147b485b1f76ba577d4ab4ad2dc7a75f7d33b32bfb118faff"
+  },
+  {
+    "path": "prototype/vehicle/core/src/test/kotlin/ai/pleos/destinations/core/VehicleProposalProtectionTest.kt",
+    "sha256": "4b306a84899af4baeee039532bfe477fc2ec2117709cdc4e1936b65728979f23"
+  },
+  {
+    "path": "prototype/vehicle/gradle.properties",
+    "sha256": "d5f372c6d46ad7c8d33f714bfae564eb5e1d73a159c495df9bc782b33e3567c2"
+  },
+  {
+    "path": "prototype/vehicle/nativeDriver/build.gradle.kts",
+    "sha256": "d73606efe8295018d74ba2f93adc672d32aadf6b215ee399878b668384af5e21"
+  },
+  {
+    "path": "prototype/vehicle/nativeDriver/src/main/AndroidManifest.xml",
+    "sha256": "587a9ae73ec99a066866c028fe213e4af864d658068b0a2d68709d5bedbfff08"
+  },
+  {
+    "path": "prototype/vehicle/nativeDriver/src/main/kotlin/ai/pleos/destinations/driver/NativeDestinationDriver.kt",
+    "sha256": "bd333294d5e687c0244f4058c0b55be00c2937a3c8f97cf76f308dd0f2ad797b"
+  },
+  {
+    "path": "prototype/vehicle/nativeDriver/src/main/kotlin/ai/pleos/destinations/driver/SearchScreenProbeActivity.kt",
+    "sha256": "3f87837fedd38cf67147de20f553c7c5e12ff4a7a6a26d0af037cd8081854fc3"
+  },
+  {
+    "path": "prototype/vehicle/nativeDriver/src/main/kotlin/ai/pleos/destinations/driver/SpeechProbeActivity.kt",
+    "sha256": "b57c7b1e0a9a5c6fa725bba45af2b0e3376f2f60a18f01e98795f8d5190d0def"
+  },
+  {
+    "path": "prototype/vehicle/nativeDriver/src/main/kotlin/ai/pleos/destinations/driver/VehicleUiActionProbe.kt",
+    "sha256": "34f1a52eba1565cc3af2dc1e3d9933b52e22723ac1187c204c46e20cf6577bfb"
+  },
+  {
+    "path": "prototype/vehicle/nativeDriver/src/main/kotlin/ai/pleos/destinations/driver/VehicleUiTextProbe.kt",
+    "sha256": "9ddd883f9dbd5eda59f017ae1fc324041c20a697995b07807348acbf252f5afd"
+  },
+  {
+    "path": "prototype/vehicle/settings.gradle.kts",
+    "sha256": "e380d094ea23f65ad925eb723586717c7ab767ee4d4b918554403f8197593c11"
+  }
+]

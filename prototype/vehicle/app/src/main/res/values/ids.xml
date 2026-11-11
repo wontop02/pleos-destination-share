@@ -66,4 +66,21 @@
     <item name="voice_candidates" type="id" />
     <item name="voice_candidate_choices" type="id" />
     <item name="voice_candidate_choice" type="id" />
+    <item name="change_page" type="id" />
+    <item name="search_keyword" type="id" />
+    <item name="search_native_places" type="id" />
+    <item name="preview_changed_destination" type="id" />
+    <item name="changed_destination_name" type="id" />
+    <item name="changed_destination_address" type="id" />
+    <item name="changed_destination_status" type="id" />
+    <item name="send_destination_change" type="id" />
+    <item name="change_request_card" type="id" />
+    <item name="change_request_name" type="id" />
+    <item name="change_request_address" type="id" />
+    <item name="change_request_sender" type="id" />
+    <item name="change_request_status" type="id" />
+    <item name="accept_change_request" type="id" />
+    <item name="reject_change_request" type="id" />
+    <item name="change_request_receipt" type="id" />
+    <item name="legacy_proposal" type="id" />
 </resources>

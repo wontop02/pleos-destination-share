@@ -1,0 +1,32 @@
+{
+  "issue": 29,
+  "base": "5ccc9ed4480fd12d96a2166ec2d4cc1850fe7f23",
+  "previous_head": "0e3817c067954438f36e7939e0be82950491edc1",
+  "head": "d3a9766b54158c54da63c5431538f57a3d695d1e",
+  "scope": "Only MainActivity.kt renderRequestFlow fallback text changes; no query, gateway, navigation, protocol, service or test changes.",
+  "change": "Unconfirmed current destination now displays 현재 목적지 확인 전 with an explicit current-destination check hint. Existing Present values and selection logic are retained.",
+  "role_execution": "AGENTS.md, docs/harness/README.md, .codex/agents/builder.toml and DESIGN.md were read. The builder role file was not automatically discovered; this agent followed its explicit behavioral contract.",
+  "checks": {
+    "gradle_exit": 0,
+    "app_unit_tests": 116,
+    "unit_failures": 0,
+    "unit_errors": 0,
+    "app_lint_errors": 0,
+    "app_lint_warnings": 14,
+    "diff_check_exit": 0,
+    "worktree_clean": true,
+    "apksigner_new_exit": 0,
+    "apksigner_prior_exit": 0,
+    "badging_exit": 0
+  },
+  "runtime": "Not executed by this builder. Root owns final same-APK actual Pleos flow and independent verification.",
+  "artifacts": {
+    "apk": "candidate/app-debug.apk",
+    "apk_sha256": "f0811d7d2ec32eb8be9bb9d595a6d7b44e74de999cb169086faa39e3349390e2",
+    "same_update_signer": true,
+    "signer_sha256": "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1",
+    "source_manifest": "source-inputs.json",
+    "source_manifest_count": 67,
+    "source_manifest_sha256": "f4e5831356ce5d5c2803b9eaf81294a30f83f0f4c6e51903ee93aa84d8e8f741"
+  }
+}

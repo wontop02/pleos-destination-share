@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.os.SystemClock
 import android.view.accessibility.AccessibilityNodeInfo
 
-/** Self-targeted public accessibility gestures on four visible product buttons only. */
+/** Self-targeted public accessibility gestures on a bounded allowlist of visible product buttons only. */
 class VehicleUiActionProbe : Instrumentation() {
     private var arguments = Bundle()
     private var startedAt = 0L
@@ -19,7 +19,10 @@ class VehicleUiActionProbe : Instrumentation() {
     override fun onStart() {
         val requested = arguments.getString("resource") ?: ""
         val operation = arguments.getString("operation") ?: "inspect"
-        val allowed = requested in listOf("voice_start", "voice_stop", "voice_cancel", "nav_home")
+        val allowed = requested in listOf("voice_start", "voice_stop", "voice_cancel", "nav_home", "nav_settings",
+            "change_destination", "start_convoy", "stop_convoy", "search_native_places",
+            "preview_changed_destination", "send_destination_change", "accept_change_request", "reject_change_request",
+            "create_room_entry", "join_room_entry", "submit_room")
         val result = Bundle().apply {
             putString("inputSource", "public_ui_button")
             putString("resource", if (allowed) requested else "")

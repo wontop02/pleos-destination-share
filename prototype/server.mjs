@@ -17,7 +17,7 @@ const defaults = Object.freeze({
   maxRooms: 100, maxMembers: 20, maxMessagesPerRoom: 100,
   maxAudioBytes: 32 * 1024 * 1024, maxWavBytes: MAX_WAV_BYTES,
   uploadsPerMinute: 10, maxStreamsPerMember: 2, maxInflightUploads: 8,
-  maxProposalsPerRoom: 64,
+  maxProposalsPerRoom: 64, maxChangeRequestsPerRoom: 64,
 });
 const PROPOSAL_TTL_MS = 120_000;
 const secret = () => randomBytes(32).toString('base64url');
@@ -34,7 +34,7 @@ const objectWith = (value, keys) => value !== null && typeof value === 'object' 
   Object.keys(value).length === keys.length && keys.every((key) => Object.hasOwn(value, key));
 function personName(body) {
   if (!objectWith(body, ['name']) || typeof body.name !== 'string' ||
-      !body.name.trim() || body.name.length > 40 || /[\u0000-\u001f\u007f]/u.test(body.name)) {
+      !body.name.trim() || body.name.length > 40 || /[\u0000-\u001f\u007f-\u009f]/u.test(body.name)) {
     reject(400, 'invalid_name', '참여자 이름을 1–40자로 입력해 주세요.');
   }
   return body.name.trim();
@@ -162,11 +162,20 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
     acceptedRevision: proposal.acceptedRevision ?? null, endedAt: proposal.endedAt ?? null,
     invalidatedBy: proposal.invalidatedBy ?? null,
   }) : null;
-  const frame = (room) => ({ destination: room.destination, revision: room.revision,
+  const publicChangeRequest = (value) => value ? ({
+    id: value.id, revision: value.revision, status: value.status, destination: value.destination,
+    sender: value.sender, createdAt: value.createdAt, expiresAt: value.expiresAt,
+    recipients: [...value.recipients.values()].map(({ member, response, respondedAt }) => ({ member, response, respondedAt })),
+  }) : null;
+  const changeFields = (room) => ({ requestRevision: room.requestRevision, changeRequest: publicChangeRequest(room.changeRequest) });
+  const changeResult = (room, value, duplicate) => ({ ...frame(room), duplicate,
+    result: { requestId: value.id, revision: value.revision } });
+  const frame = (room) => ({ ...changeFields(room), destination: room.destination, revision: room.revision,
     sequence: room.sequence, proposal: publicProposal(room.proposal), acceptedProposal: publicProposal(room.acceptedProposal), serverTime: now() });
   const proposalResult = (room, proposal, duplicate) => ({ ...frame(room), duplicate,
     result: { proposalId: proposal.id, version: proposal.version, status: proposal.status, acceptedRevision: proposal.acceptedRevision ?? null } });
   const state = (room, member) => ({
+    ...changeFields(room),
     room: { id: room.id, createdAt: room.createdAt, expiresAt: room.expiresAt },
     self: { id: member.id, name: member.name, role: member.role }, members: members(room),
     destination: room.destination, revision: room.revision, sequence: room.sequence,
@@ -197,6 +206,18 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
     clearTimeout(room.proposalTimer); room.proposalTimer = null;
     return true;
   }
+  function endChangeRequest(room, status) {
+    if (room.changeRequest?.status !== 'active') return false;
+    room.changeRequest.status = status;
+    clearTimeout(room.changeTimer); room.changeTimer = null;
+    return true;
+  }
+  function expireChangeRequest(room) {
+    if (room.changeRequest?.status === 'active' && room.changeRequest.expiresAt <= now()) {
+      endChangeRequest(room, 'expired'); room.sequence += 1;
+      broadcast(room, 'destination_request', frame(room));
+    }
+  }
   function expireProposal(room) {
     if (room.proposal?.status === 'pending' && room.proposal.expiresAt <= now()) {
       endProposal(room, 'expired'); room.sequence += 1; broadcast(room, 'proposal', frame(room));
@@ -214,6 +235,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
   function removeRoom(room, reason) {
     if (rooms.get(room.id) !== room) return;
     endProposal(room, 'invalidated', 'room_closed');
+    endChangeRequest(room, 'invalidated');
     room.sequence += 1;
     broadcast(room, 'closed', { reason });
     for (const stream of room.streams) { clearInterval(stream.heartbeat); stream.res.end(); }
@@ -224,13 +246,14 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
     room.members.clear();
     room.inviteSecret = '';
     room.proposals.clear(); room.proposal = null; room.acceptedProposal = null;
+    room.changeRequests.clear(); room.changeRequest = null;
     rooms.delete(room.id);
   }
   function cleanupExpired() {
     const at = now();
     for (const room of rooms.values()) {
       if (room.expiresAt <= at) removeRoom(room, 'expired');
-      else expireProposal(room);
+      else { expireProposal(room); expireChangeRequest(room); }
     }
   }
   const ensureActive = (room) => {
@@ -241,7 +264,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
   };
   function authenticate(req, room) {
     ensureActive(room);
-    expireProposal(room);
+    expireProposal(room); expireChangeRequest(room);
     const supplied = bearer(req);
     const member = [...room.members.values()].find((candidate) => same(supplied, candidate.token));
     if (!member) reject(403, 'forbidden', '이 공유방의 참여 권한이 없습니다.');
@@ -298,13 +321,14 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
         const createdAt = now();
         const room = { id: id(), inviteSecret: secret(), members: new Map(), messages: new Map(),
           streams: new Set(), createdAt, expiresAt: createdAt + ttlMs, destination: null, revision: 0, sequence: 0,
-          proposals: new Map(), proposal: null, acceptedProposal: null };
+          proposals: new Map(), proposal: null, acceptedProposal: null,
+          changeRequests: new Map(), changeRequest: null, requestRevision: 0 };
         const member = addMember(room, name, 'host');
         rooms.set(room.id, room);
         return json(201, { roomId: room.id, memberId: member.id, role: member.role, token: member.token,
           inviteSecret: room.inviteSecret, state: state(room, member) });
       }
-      const match = /^\/api\/rooms\/([a-f0-9]{24})(?:\/(members|members\/me|destination|events|proposals|proposals\/[a-f0-9]{24}\/responses|voice|voice\/[a-f0-9]{24}\/audio))?$/.exec(url.pathname);
+      const match = /^\/api\/rooms\/([a-f0-9]{24})(?:\/(members|members\/me|destination|events|proposals|proposals\/[a-f0-9]{24}\/responses|destination-requests|destination-requests\/[a-f0-9]{24}\/responses|voice|voice\/[a-f0-9]{24}\/audio))?$/.exec(url.pathname);
       if (!match) reject(404, 'not_found', '요청한 경로를 찾을 수 없습니다.');
       const [, roomId, action] = match;
       const room = rooms.get(roomId);
@@ -315,6 +339,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
         ensureActive(room);
         const member = addMember(room, name, 'member');
         endProposal(room, 'invalidated', 'membership_changed');
+        endChangeRequest(room, 'invalidated');
         room.sequence += 1;
         broadcast(room, 'members', { members: members(room), ...frame(room) });
         return json(201, { roomId, memberId: member.id, role: member.role, token: member.token, state: state(room, member) });
@@ -338,6 +363,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
         member.sent.clear();
         member.token = '';
         endProposal(room, 'invalidated', 'membership_changed');
+        endChangeRequest(room, 'invalidated');
         room.sequence += 1;
         broadcast(room, 'members', { members: members(room), ...frame(room) });
         return json(200, { left: true });
@@ -361,6 +387,7 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
           reject(409, 'destination_revision_conflict', '더 최신 목적지가 있습니다. 다시 조회해 주세요.');
         }
         endProposal(room, 'invalidated', 'destination_changed');
+        endChangeRequest(room, 'invalidated');
         room.revision += 1;
         room.sequence += 1;
         room.destination = body.destination === null ? null : { ...body.destination, changedAt: now(), changedBy: member.id };
@@ -369,9 +396,69 @@ export function createPrototypeServer({ clock = Date.now, ttlMs = 6 * 60 * 60 * 
         broadcast(room, 'destination', update);
         return json(200, update);
       }
+      if (action === 'destination-requests' && req.method === 'POST') {
+        const body = await jsonBody(req);
+        authenticate(req, room);
+        if (!objectWith(body, ['id', 'expectedRequestRevision', 'destination']) ||
+            typeof body.id !== 'string' || !/^[a-f0-9]{24}$/.test(body.id) ||
+            !Number.isSafeInteger(body.expectedRequestRevision) || body.expectedRequestRevision < 0) {
+          reject(400, 'invalid_change_request', '변경 요청 형식이 올바르지 않습니다.');
+        }
+        const { destination } = destinationBody(body.destination);
+        if (!destination?.pleos?.poiId.trim() || !destination.pleos.address.trim() ||
+            (destination.pleos.poiSubId !== null && !destination.pleos.poiSubId.trim())) {
+          reject(400, 'invalid_change_request', '실제 순정 내비에서 확인한 목적지가 필요합니다.');
+        }
+        const fingerprint = JSON.stringify([member.id, body.expectedRequestRevision, destination]);
+        const existing = room.changeRequests.get(body.id);
+        if (existing) {
+          if (existing.fingerprint !== fingerprint) reject(409, 'change_request_id_conflict', '같은 요청에 다른 목적지가 있습니다.');
+          return json(200, changeResult(room, existing, true));
+        }
+        if (body.expectedRequestRevision !== room.requestRevision) reject(409, 'change_request_revision_conflict', '더 최신 변경 요청이 있습니다.');
+        if (room.changeRequests.size >= limits.maxChangeRequestsPerRoom) reject(429, 'change_request_limit', '변경 요청 보관 상한입니다. 새 공유방을 만들어 주세요.');
+        endChangeRequest(room, 'superseded');
+        endProposal(room, 'invalidated', 'destination_changed');
+        const createdAt = now();
+        const value = { id: body.id, revision: ++room.requestRevision, status: 'active', destination,
+          sender: { id: member.id, name: member.name }, createdAt,
+          expiresAt: Math.min(createdAt + PROPOSAL_TTL_MS, room.expiresAt), fingerprint,
+          recipients: new Map([...room.members.values()].filter((person) => person.id !== member.id).map((person) => [person.id, {
+            member: { id: person.id, name: person.name }, response: 'pending', respondedAt: null,
+          }])) };
+        room.changeRequests.set(value.id, value); room.changeRequest = value;
+        room.changeTimer = setTimeout(() => expireChangeRequest(room), Math.max(1, value.expiresAt - now())).unref();
+        room.sequence += 1;
+        // Deliberately separate from legacy destination/proposal events and shared revision.
+        broadcast(room, 'destination_request', frame(room));
+        return json(201, changeResult(room, value, false));
+      }
+      if (action?.startsWith('destination-requests/') && req.method === 'POST') {
+        const body = await jsonBody(req);
+        authenticate(req, room);
+        if (!objectWith(body, ['revision', 'response']) || !Number.isSafeInteger(body.revision) ||
+            body.revision < 1 || !['accepted', 'rejected'].includes(body.response)) {
+          reject(400, 'invalid_change_response', '변경 요청 응답이 올바르지 않습니다.');
+        }
+        const value = room.changeRequests.get(action.split('/')[1]);
+        if (!value) reject(404, 'change_request_gone', '이 공유방의 변경 요청이 아닙니다.');
+        const response = value.recipients.get(member.id);
+        if (!response) reject(403, 'change_recipient_required', '이 요청의 수신 차량이 아닙니다.');
+        if (value.revision !== body.revision || value !== room.changeRequest || value.status !== 'active') {
+          reject(409, 'change_request_stale', '변경 요청이 바뀌었거나 종료되었습니다.');
+        }
+        if (response.response === body.response) return json(200, changeResult(room, value, true));
+        if (response.response !== 'pending') reject(409, 'change_response_finished', '이미 응답한 변경 요청입니다.');
+        response.response = body.response; response.respondedAt = now();
+        room.sequence += 1;
+        broadcast(room, 'destination_request', frame(room));
+        return json(200, changeResult(room, value, false));
+      }
       if (action === 'proposals' && req.method === 'POST') {
         const body = await jsonBody(req);
-        authenticate(req, room); // Request bodies can cross expiry or membership changes.
+        authenticate(req, room);
+        if (room.changeRequest?.status === 'active') reject(409, 'change_request_active', '현재 변경 요청에 먼저 응답해 주세요.');
+        // Request bodies can cross expiry or membership changes.
         if (!objectWith(body, ['id', 'expectedRevision', 'destination', 'reason']) ||
             !/^[a-f0-9]{24}$/.test(body.id) || typeof body.id !== 'string' ||
             !Number.isSafeInteger(body.expectedRevision) || body.expectedRevision < 0 ||

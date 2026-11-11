@@ -1,0 +1,66 @@
+{
+  "destination": null,
+  "revision": 0,
+  "requestRevision": 3,
+  "sequence": 12,
+  "changeRequest": {
+    "id": "b418fd75c37d5d5e108e3647",
+    "revision": 3,
+    "status": "expired",
+    "destination": {
+      "name": "에스이커피 기업성장센터점",
+      "latitude": 37.412525,
+      "longitude": 127.09473333,
+      "pleos": {
+        "poiId": "36khp2hdqdekcm5nqhg8",
+        "poiSubId": null,
+        "address": "수정구 시흥동",
+        "poiProvider": "",
+        "displayLatitude": null,
+        "displayLongitude": null
+      }
+    },
+    "sender": {
+      "id": "f0d7bc88a50f4d71d5445553",
+      "name": "Car-A"
+    },
+    "createdAt": 1794385439102,
+    "expiresAt": 1794385559102,
+    "recipients": [
+      {
+        "member": {
+          "id": "117cc7978ad10a3ba0512793",
+          "name": "Car-B"
+        },
+        "response": "accepted",
+        "respondedAt": 1794385450487
+      },
+      {
+        "member": {
+          "id": "6f77dbcacefffe86681837b1",
+          "name": "Observer-C"
+        },
+        "response": "rejected",
+        "respondedAt": 1794385464981
+      }
+    ]
+  },
+  "serverTime": 1794386131540,
+  "members": [
+    {
+      "id": "f0d7bc88a50f4d71d5445553",
+      "name": "Car-A",
+      "role": "host"
+    },
+    {
+      "id": "117cc7978ad10a3ba0512793",
+      "name": "Car-B",
+      "role": "member"
+    },
+    {
+      "id": "6f77dbcacefffe86681837b1",
+      "name": "Observer-C",
+      "role": "member"
+    }
+  ]
+}

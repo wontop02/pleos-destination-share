@@ -30,6 +30,7 @@ class ConvoySessionService : Service() {
     private var uiCount = 0
     private var destroyed = false
     private var ticking = false
+    private var lastAlertId: String? = null
     private var lastState: VehicleState? = null
     private var lastProposal: DestinationProposal? = null
     private var lastAcceptedProposal: DestinationProposal? = null
@@ -45,20 +46,26 @@ class ConvoySessionService : Service() {
         super.onCreate()
         journal = EvidenceJournal(this)
         getSystemService(NotificationManager::class.java).createNotificationChannel(
-            NotificationChannel(CHANNEL, "동행과 목적지 제안 진행", NotificationManager.IMPORTANCE_LOW).apply {
-                description = "사용자가 시작한 자동 동행 또는 제한 시간 내 목적지 제안·수락·실제 반영 확인과 중지"
+            NotificationChannel(CHANNEL, "길맞춤 수신과 목적지 확인", NotificationManager.IMPORTANCE_LOW).apply {
+                description = "사용자가 시작한 변경 요청 수신과 수락한 목적지의 실제 확인·중지, 기존 동행과 제안 진행"
                 setShowBadge(false)
             })
+        getSystemService(NotificationManager::class.java).createNotificationChannel(
+            NotificationChannel(REQUEST_CHANNEL, "목적지 변경 요청", NotificationManager.IMPORTANCE_HIGH).apply {
+                description = "다른 차량이 정한 목적지의 변경 요청 · 수락 전 안내 유지"
+                setShowBadge(true)
+            })
         session = VehicleSession(PleosNavigationGateway(applicationContext), SystemClock::elapsedRealtime,
-            SecureSessionStore(this), Executors.newFixedThreadPool(3), { main.post(it) }, journal::append)
+            SecureSessionStore(this), Executors.newFixedThreadPool(3), { main.post(it) }, journal::append, PleosNavigationGateway(applicationContext))
         session.observe {
             if (lastState != it.state || lastProposal != it.proposal || lastAcceptedProposal != it.acceptedProposal || lastProposalLease != it.hasProposalLease || lastProposalBusy != it.proposalBusy || lastProposalMessage != it.proposalMessage) {
                 lastState = it.state; lastProposal = it.proposal; lastAcceptedProposal = it.acceptedProposal; lastProposalLease = it.hasProposalLease; lastProposalBusy = it.proposalBusy; lastProposalMessage = it.proposalMessage
                 journal.session("sessionState", it.state, session.coordinator.roomEpoch, serviceEpoch, uiCount,
                     it.proposal, it.hasProposalLease, it.proposalBusy, it.proposalMessage, it.coordinator.proposalPublicationHeld, it.acceptedProposal)
             }
+            updateRequestNotification()
             if (foreground) {
-                if (it.state.automatic == AutomaticMode.OFF && !it.pendingAutomatic && !it.hasProposalLease) finishForeground()
+                if (it.state.automatic == AutomaticMode.OFF && !it.pendingAutomatic && !it.hasProposalLease && !it.changeRequests.hasLease) finishForeground()
                 else updateNotification()
             }
         }
@@ -76,6 +83,10 @@ class ConvoySessionService : Service() {
         record("activityStopDetach")
     }
     fun manual(action: (VehicleSession) -> Unit) { ensureTicker(); action(session) }
+    fun requestReceiveFromUi() {
+        if (uiCount == 0 || session.credentials == null || session.busy || session.leaving) return
+        requestCoordination { session.changeRequests.startListening(); if (!session.state.roomConnected) session.reconnectRoom() }
+    }
     fun requestAutomaticFromUi() {
         if (uiCount == 0 || session.credentials == null || session.busy || session.leaving ||
             session.state.automatic != AutomaticMode.OFF || session.pendingAutomatic) return
@@ -104,7 +115,7 @@ class ConvoySessionService : Service() {
                     ensureTicker(); action()
                     journal.session("coordinationServiceStart", session.state, session.coordinator.roomEpoch, serviceEpoch, uiCount,
                         session.proposal, session.hasProposalLease, session.proposalBusy, session.proposalMessage, session.coordinator.proposalPublicationHeld, session.acceptedProposal)
-                    if (session.state.automatic == AutomaticMode.OFF && !session.pendingAutomatic && !session.hasProposalLease) finishForeground()
+                    if (session.state.automatic == AutomaticMode.OFF && !session.pendingAutomatic && !session.hasProposalLease && !session.changeRequests.hasLease) finishForeground()
                 } else if (!foreground) stopSelfResult(startId)
             }
             ACTION_STOP -> stopAutomatic()
@@ -125,14 +136,18 @@ class ConvoySessionService : Service() {
     private fun finishForeground() {
         foreground = false; authorizedAction = null
         ticking = false; main.removeCallbacks(ticker)
+        getSystemService(NotificationManager::class.java).cancel(REQUEST_NOTIFICATION)
         stopForeground(STOP_FOREGROUND_REMOVE); stopSelf()
     }
     private fun notification(): Notification {
         val state = session.state
-        val role = if (session.hasProposalLease) {
+        val role = if (session.changeRequests.hasLease) "길맞춤 · 변경 요청" else if (session.hasProposalLease) {
             if (session.credentials?.role == "host") "대표 · 목적지 제안" else "참여 · 목적지 제안"
         } else if (session.credentials?.role == "host") "대표 · 자동 공유" else "참여 · 자동 따르기"
         val status = when {
+            session.changeRequests.busy -> "변경 요청 확인 중"
+            session.changeRequests.listening -> "목적지 변경 요청 알림 받는 중"
+            session.changeRequests.hasLease -> "수락한 목적지 실제 확인 중"
             session.pendingAutomatic -> "공유방 인증 확인 중"
             session.proposalBusy -> "제안 응답 확인 중 · 순정 안내 유지"
             session.hasProposalLease && !session.hasProposalOperation -> "제안 대기 · 전원 수락 전 안내 유지"
@@ -165,17 +180,37 @@ class ConvoySessionService : Service() {
         return Notification.Builder(this, CHANNEL).setSmallIcon(android.R.drawable.ic_menu_compass)
             .setContentTitle("$status · 동행 중 · $role")
             .setContentIntent(open).setOngoing(true).setOnlyAlertOnce(true).setCategory(Notification.CATEGORY_SERVICE)
-            .addAction(Notification.Action.Builder(null, "동행 중지", stop).build()).build()
+            .addAction(Notification.Action.Builder(null, if (session.changeRequests.hasLease) "알림 수신 중지" else "동행 중지", stop).build()).build()
+    }
+    private fun updateRequestNotification() {
+        val manager = getSystemService(NotificationManager::class.java)
+        val request = session.changeRequests.pending?.takeIf { session.changeRequests.listening }
+        if (request == null) { manager.cancel(REQUEST_NOTIFICATION); lastAlertId = null; return }
+        val open = PendingIntent.getActivity(this, 29, Intent(this, MainActivity::class.java)
+            .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP),
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        if (lastAlertId == request.id) return
+        val text = "${request.sender.name} · ${request.destination.name}"
+        val notification = Notification.Builder(this, REQUEST_CHANNEL).setSmallIcon(android.R.drawable.ic_menu_compass)
+            .setContentTitle("목적지 변경 요청").setContentText(text)
+            .setStyle(Notification.BigTextStyle().bigText("$text\n${request.destination.pleos?.address ?: ""}\n내용을 확인하고 수락해 주세요."))
+            .setContentIntent(open).setAutoCancel(true).setOnlyAlertOnce(lastAlertId == request.id)
+            .setVisibility(Notification.VISIBILITY_PRIVATE).setCategory(Notification.CATEGORY_EVENT)
+            .build()
+        manager.notify(REQUEST_NOTIFICATION, notification); lastAlertId = request.id
     }
     private fun updateNotification() { getSystemService(NotificationManager::class.java).notify(NOTIFICATION, notification()) }
     override fun onTaskRemoved(rootIntent: Intent?) { stopAutomatic(); super.onTaskRemoved(rootIntent) }
     override fun onDestroy() {
         destroyed = true; ticking = false; main.removeCallbacksAndMessages(null)
         record("serviceDestroy")
+        getSystemService(NotificationManager::class.java).cancel(REQUEST_NOTIFICATION)
         session.close(); stopForeground(STOP_FOREGROUND_REMOVE)
         super.onDestroy()
     }
     companion object {
+        private const val REQUEST_CHANNEL = "destination-change-requests"
+        private const val REQUEST_NOTIFICATION = 1429
         private const val CHANNEL = "convoy-coordination"
         private const val NOTIFICATION = 1401
         private const val ACTION_BEGIN = "ai.pleos.destinations.vehicle.BEGIN_AUTOMATIC"

@@ -11,7 +11,14 @@ class VehicleUiTextProbe : Instrumentation() {
     override fun onStart() {
         val field = arguments.getString("field") ?: "voice_text"
         val key = arguments.getString("textKey") ?: ""
-        val text = when (key) {
+        val text = if (field == "search_keyword") when (key) {
+            "cafe" -> "카페"
+            "fuel" -> "주유소"
+            "restaurant" -> "식당"
+            "search-name" -> "가든서비스"
+            "clear" -> ""
+            else -> null
+        } else when (key) {
             "cafe" -> "카페 들르는 거 어때?"
             "fuel" -> "여기서 주유하고 가자"
             "restaurant" -> "식당에 들르자"
@@ -25,7 +32,7 @@ class VehicleUiTextProbe : Instrumentation() {
             putString("inputSource", "ui_edit_not_speech_recognition")
             putString("field", field); putString("textKey", key); putBoolean("success", false)
         }
-        if (field !in listOf("voice_text", "proposal_reason_input") || text == null ||
+        if (field !in listOf("voice_text", "proposal_reason_input", "search_keyword") || text == null ||
             (field == "proposal_reason_input" && text.length > 200)) {
             result.putString("failure", "unsupported_fixed_input"); finish(0, result); return
         }

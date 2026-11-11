@@ -1,0 +1,14 @@
+{
+  "emulator-5570": {
+    "stop_visible_UI_accepted": true,
+    "restarted_via_visible_UI": true,
+    "total_final_case_request_routes": 0,
+    "no_extra_routes_on_stop_restart": true
+  },
+  "emulator-5572": {
+    "stop_visible_UI_accepted": true,
+    "restarted_via_visible_UI": true,
+    "total_final_case_request_routes": 1,
+    "no_extra_routes_on_stop_restart": true
+  }
+}

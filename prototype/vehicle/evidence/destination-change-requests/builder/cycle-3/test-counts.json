@@ -1,0 +1,14 @@
+{
+  "app": {
+    "tests": 116,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "app_lint": {
+    "Error": 0,
+    "Fatal": 0,
+    "Warning": 14,
+    "Information": 0
+  }
+}

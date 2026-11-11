@@ -28,8 +28,10 @@ class VehicleSession(
     private val workers: ExecutorService,
     private val dispatch: (() -> Unit) -> Unit,
     private val evidence: (String, Long, Long, Boolean?) -> Unit = { _, _, _, _ -> },
+    requestGateway: NavigationGateway? = null,
 ) {
     private val observers = linkedSetOf<(VehicleSession) -> Unit>()
+    val changeRequests = DestinationRequests(requestGateway ?: gateway, clock, workers, dispatch, ::emit, evidence)
     val coordinator = VehicleCoordinator(gateway, clock, { emit() }, ::publish, evidence)
     val savedPlaces = (gateway as? SavedPlacesGateway)?.let { SavedPlacesController(it, clock, ::emit) }
     val state: VehicleState get() = coordinator.state
@@ -73,6 +75,7 @@ class VehicleSession(
     fun observe(observer: (VehicleSession) -> Unit) { observers.add(observer); observer(this) }
     fun removeObserver(observer: (VehicleSession) -> Unit) { observers.remove(observer) }
     private fun emit() {
+        changeRequests.scope(credentials, state.roomConnected && !leaving && !closed, client)
         savedPlaces?.scope(credentials?.takeIf { state.roomConnected && !busy && !leaving && !closed }?.let {
             PlaceScope(it.roomId, it.memberId, coordinator.roomEpoch)
         })
@@ -167,7 +170,7 @@ class VehicleSession(
                 try {
                     api.events(identity) { event, body ->
                         when (event) {
-                            "snapshot", "destination", "proposal", "members" -> {
+                            "snapshot", "destination", "proposal", "members", "destination_request" -> {
                                 val snapshot = if (event == "snapshot") RoomProtocol.snapshot(body) else null
                                 val update = snapshot?.update ?: RoomProtocol.update(body)
                                 deliver {
@@ -229,6 +232,11 @@ class VehicleSession(
     }
 
     private fun protectFrame(update: DestinationUpdate) {
+        if (update.hasChangeRequest && update.requestRevision > 0) {
+            publicationGeneration.incrementAndGet()
+            if (state.automatic != AutomaticMode.OFF) coordinator.stopAutomatic()
+            pendingAutomatic = false
+        }
         val p = update.proposal
         val accepted = update.acceptedProposal ?: p?.takeIf {
             it.status == "accepted" && it.acceptedRevision == update.revision && it.destination == update.destination
@@ -258,6 +266,10 @@ class VehicleSession(
         acceptedProposal = if (update.hasAcceptedProposal) update.acceptedProposal else
             update.proposal?.takeIf { it.status == "accepted" && it.acceptedRevision == update.revision && it.destination == update.destination }
                 ?: acceptedProposal?.takeIf { it.acceptedRevision == update.revision && it.destination == update.destination }
+        if (update.hasChangeRequest) {
+            changeRequests.scope(credentials, state.roomConnected && !leaving && !closed, client)
+            changeRequests.consume(update.changeRequest, update.requestRevision, update.sequence, update.serverTime)
+        }
         coordinator.receive(coordinator.roomEpoch, update.revision, update.destination)
         val p = proposal
         val authority = consent
@@ -365,7 +377,7 @@ class VehicleSession(
     }
 
     fun startAutomatic() {
-        if (closed || credentials == null || leaving || state.automatic != AutomaticMode.OFF || pendingAutomatic) return
+        if (changeRequests.request != null || changeRequests.listening || closed || credentials == null || leaving || state.automatic != AutomaticMode.OFF || pendingAutomatic) return
         PendingConfirmationCache.clear()
         if (state.roomConnected) coordinator.startAutomatic()
         else { pendingAutomatic = true; reconnectRoom() }
@@ -374,6 +386,7 @@ class VehicleSession(
     /** Fences pending I/O before closing transports, SDK listeners, timers, and consent. */
     fun stopAutomatic() {
         if (closed) return
+        changeRequests.stop()
         savedPlaces?.cancel()
         lifecycleEpoch += 1; pendingAutomatic = false
         consent = null; proposalBusy = false; proposalDeadline = 0
@@ -411,6 +424,7 @@ class VehicleSession(
     fun tick() {
         if (closed) return
         coordinator.tick()
+        changeRequests.tick()
         savedPlaces?.tick()
         consent?.let { live ->
             val deadline = if (live.issued) live.operationDeadline else live.deadline
@@ -430,7 +444,7 @@ class VehicleSession(
         savedPlaces?.cancel()
         closed = true; lifecycleEpoch += 1; pendingAutomatic = false; consent = null; proposalBusy = false
         stopFeed(); temporaryClient?.close(); temporaryClient = null
-        coordinator.stop(); observers.clear(); workers.shutdownNow()
+        changeRequests.close(); coordinator.stop(); observers.clear(); workers.shutdownNow()
     }
     private fun failureMessage(error: Throwable): String = when (error) {
         is RoomFailure -> when (error.status) {
