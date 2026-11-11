@@ -1,0 +1,60 @@
+{
+  "recorded_utc": "2026-11-11T08:29:53.128960+00:00",
+  "app": {
+    "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/destination-change-requests-20261110/builder/cycle-3/candidate/app-debug.apk",
+    "sha256": "f0811d7d2ec32eb8be9bb9d595a6d7b44e74de999cb169086faa39e3349390e2",
+    "signer_sha256": "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1"
+  },
+  "previous_app": {
+    "path": "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/destination-change-requests-20261110/builder/cycle-2/candidate/app-debug.apk",
+    "sha256": "3bc9d57db01e94e31382110eca3cd24f0a1544fa4359a15d22452310330e8c08",
+    "signer_sha256": "75637c02c025fbaae54561060852049f962cba132025e7b755a2dbc8133332c1"
+  },
+  "same_update_signer": true,
+  "source_manifest_count": 67,
+  "source_manifest_sha256": "f4e5831356ce5d5c2803b9eaf81294a30f83f0f4c6e51903ee93aa84d8e8f741",
+  "source_unchanged_after_build": true,
+  "commands": [
+    {
+      "command": [
+        "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/apksigner",
+        "verify",
+        "--print-certs",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/destination-change-requests-20261110/builder/cycle-3/candidate/app-debug.apk"
+      ],
+      "exit": 0,
+      "output": "app-signer.txt"
+    },
+    {
+      "command": [
+        "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/apksigner",
+        "verify",
+        "--print-certs",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/destination-change-requests-20261110/builder/cycle-2/candidate/app-debug.apk"
+      ],
+      "exit": 0,
+      "output": "previous_app-signer.txt"
+    },
+    {
+      "command": [
+        "/private/tmp/pleos-vehicle-tools-20261105/sdk/build-tools/35.0.0/aapt",
+        "dump",
+        "badging",
+        "/Users/wontop/Documents/ChatGPT/현대 모비스 해커톤/pleos-destination-share/.harness/worktrees/product-run-artifacts/destination-change-requests-20261110/builder/cycle-3/candidate/app-debug.apk"
+      ],
+      "exit": 0,
+      "output": "app-badging.txt"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit": 0,
+      "output": "diff-check.txt"
+    }
+  ],
+  "source_commit": "d3a9766b54158c54da63c5431538f57a3d695d1e",
+  "committed_source_manifest_matches": true
+}

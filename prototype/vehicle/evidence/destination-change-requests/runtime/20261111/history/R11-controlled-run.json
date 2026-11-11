@@ -1,0 +1,147 @@
+{
+  "started_at_ms": 1794385000127,
+  "baseline": {
+    "emulator-5570": {
+      "last_at": 1794384997962,
+      "request_route_count": 0
+    },
+    "emulator-5572": {
+      "last_at": 1794384672018,
+      "request_route_count": 1
+    }
+  },
+  "previous_request_revision": 1,
+  "app_sha256": "3bc9d57db01e94e31382110eca3cd24f0a1544fa4359a15d22452310330e8c08",
+  "head": "0e3817c067954438f36e7939e0be82950491edc1",
+  "preview_at_ms": 1794385004969,
+  "send_action_at_ms": 1794385005731,
+  "send_action": {
+    "actionAccepted": "true",
+    "bounds": "1194,859,2194,915",
+    "elapsedMs": "86",
+    "enabled": "true",
+    "inputSource": "public_ui_button",
+    "resource": "send_destination_change",
+    "visible": "true"
+  },
+  "request_id": "ca0b7f1052e6b052e73eeb52",
+  "request_revision": 2,
+  "server_created_at": 1794385006709,
+  "notification_tapped": true,
+  "visible_notification_matches": 0,
+  "visible_texts": [
+    "수정구 시흥동",
+    "200m",
+    "80m",
+    "기업지원허브 방면",
+    "5:21 PM",
+    "5분",
+    "330m",
+    "스타벅스 판교아이스퀘어점",
+    "100%",
+    "왕복 주행 후 예상 100%",
+    "안내 종료"
+  ],
+  "preaccept_routes": {
+    "emulator-5570": 0,
+    "emulator-5572": 0
+  },
+  "notification_tap_surface": "actual Android notification shade",
+  "review_texts": [
+    {
+      "text": "길맞춤",
+      "id": "",
+      "enabled": "true"
+    },
+    {
+      "text": "알림 수신 중지",
+      "id": "ai.pleos.destinations.vehicle:id/stop_convoy",
+      "enabled": "true"
+    },
+    {
+      "text": "설정",
+      "id": "ai.pleos.destinations.vehicle:id/nav_settings",
+      "enabled": "true"
+    },
+    {
+      "text": "동행방 연결됨",
+      "id": "ai.pleos.destinations.vehicle:id/connection_status",
+      "enabled": "true"
+    },
+    {
+      "text": "목적지 변경 요청",
+      "id": "",
+      "enabled": "true"
+    },
+    {
+      "text": "가든서비스",
+      "id": "ai.pleos.destinations.vehicle:id/change_request_name",
+      "enabled": "true"
+    },
+    {
+      "text": "수정구 시흥동",
+      "id": "ai.pleos.destinations.vehicle:id/change_request_address",
+      "enabled": "true"
+    },
+    {
+      "text": "Car-A 차량에서 보낸 요청",
+      "id": "ai.pleos.destinations.vehicle:id/change_request_sender",
+      "enabled": "true"
+    },
+    {
+      "text": "수락하면 내 차량의 목적지를 바꿔요. 다른 차량의 응답을 기다리지 않아요.",
+      "id": "ai.pleos.destinations.vehicle:id/change_request_status",
+      "enabled": "true"
+    },
+    {
+      "text": "수락하고 내 목적지 변경",
+      "id": "ai.pleos.destinations.vehicle:id/accept_change_request",
+      "enabled": "true"
+    },
+    {
+      "text": "거절",
+      "id": "ai.pleos.destinations.vehicle:id/reject_change_request",
+      "enabled": "true"
+    },
+    {
+      "text": "내 차량의 목적지",
+      "id": "",
+      "enabled": "true"
+    },
+    {
+      "text": "아직 목적지가 없어요",
+      "id": "ai.pleos.destinations.vehicle:id/shared_place_name",
+      "enabled": "true"
+    },
+    {
+      "text": "내비에서 목적지를 정한 뒤 다른 차량에 알려 주세요.",
+      "id": "ai.pleos.destinations.vehicle:id/shared_place_address",
+      "enabled": "true"
+    },
+    {
+      "text": "새 목적지 변경 요청이 왔어요. 이름과 주소를 확인해 주세요.",
+      "id": "ai.pleos.destinations.vehicle:id/destination_status",
+      "enabled": "true"
+    },
+    {
+      "text": "목적지 바꾸기",
+      "id": "ai.pleos.destinations.vehicle:id/change_destination",
+      "enabled": "true"
+    },
+    {
+      "text": "알림 수신 중 · 수락하기 전에는 내비를 바꾸지 않아요.",
+      "id": "",
+      "enabled": "true"
+    }
+  ],
+  "accept_action_at_ms": 1794385123245,
+  "accept_action": {
+    "actionAccepted": "true",
+    "bounds": "1194,494,1686,550",
+    "elapsedMs": "120",
+    "enabled": "true",
+    "inputSource": "public_ui_button",
+    "resource": "accept_change_request",
+    "visible": "true"
+  }
+}

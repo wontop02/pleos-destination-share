@@ -1,0 +1,2 @@
+Uid mode: RECORD_AUDIO: foreground
+RECORD_AUDIO: allow; time=+21h51m55s7ms ago; duration=+3s747ms

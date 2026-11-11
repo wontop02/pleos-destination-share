@@ -1,0 +1,66 @@
+{
+  "destination": null,
+  "revision": 0,
+  "requestRevision": 4,
+  "sequence": 15,
+  "changeRequest": {
+    "id": "ec924d8ed6fe9403c4cb0a25",
+    "revision": 4,
+    "status": "active",
+    "destination": {
+      "name": "프레소커피랩",
+      "latitude": 37.412525,
+      "longitude": 127.09473333,
+      "pleos": {
+        "poiId": "36khp2hdqdekcm5nqhjr",
+        "poiSubId": null,
+        "address": "수정구 시흥동",
+        "poiProvider": "",
+        "displayLatitude": null,
+        "displayLongitude": null
+      }
+    },
+    "sender": {
+      "id": "f0d7bc88a50f4d71d5445553",
+      "name": "Car-A"
+    },
+    "createdAt": 1794386140972,
+    "expiresAt": 1794386260972,
+    "recipients": [
+      {
+        "member": {
+          "id": "117cc7978ad10a3ba0512793",
+          "name": "Car-B"
+        },
+        "response": "accepted",
+        "respondedAt": 1794386160662
+      },
+      {
+        "member": {
+          "id": "6f77dbcacefffe86681837b1",
+          "name": "Observer-C"
+        },
+        "response": "rejected",
+        "respondedAt": 1794386178807
+      }
+    ]
+  },
+  "serverTime": 1794386255494,
+  "members": [
+    {
+      "id": "f0d7bc88a50f4d71d5445553",
+      "name": "Car-A",
+      "role": "host"
+    },
+    {
+      "id": "117cc7978ad10a3ba0512793",
+      "name": "Car-B",
+      "role": "member"
+    },
+    {
+      "id": "6f77dbcacefffe86681837b1",
+      "name": "Observer-C",
+      "role": "member"
+    }
+  ]
+}

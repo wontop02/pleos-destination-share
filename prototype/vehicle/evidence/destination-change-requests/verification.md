@@ -1,8 +1,14 @@
-# Destination change requests — builder evidence
+# Destination change requests — verification
 
-## Current corrected candidate — cycle 2
+## Final verified candidate — 2026-11-11
 
-The current production head is `95073bc9a63545e1323d425281ac04b7cae7de80`. It corrects independently reproduced AC2 failures in the first candidate: a membership change before the first request left a sender preview valid, and a native failure after review left the same stale preview visible/sendable. A third confirmed boundary allowed C1-control member names through the server while the new Android request parser rejected them. The initial candidate's evidence remains below as history; it is not the final runtime candidate or an AC2 PASS.
+The current frozen APK is `f0811d7d2ec32eb8be9bb9d595a6d7b44e74de999cb169086faa39e3349390e2`, production source `d3a9766b54158c54da63c5431538f57a3d695d1e`. Both approved AVDs completed real name/category search, native selection/set, fresh review/Send, Android notification/tap, receive-before-accept0 routes, explicit-accept1 route and a fresh strict native match while a third member remained pending. [Current runtime evidence and AC table](runtime/20261111/verification.md), [final source/build evidence](builder/cycle-3/summary.json). Independent exact evidence-head review is completed in PR #30 before merge.
+
+All sections below are retained builder-only history from earlier candidates. Their “remaining runtime” language records those earlier checkpoints and is superseded by the current runtime evidence above.
+
+## Cycle 2 — retained builder history
+
+The cycle-2 production head was `95073bc9a63545e1323d425281ac04b7cae7de80`. It corrects independently reproduced AC2 failures in the first candidate: a membership change before the first request left a sender preview valid, and a native failure after review left the same stale preview visible/sendable. A third confirmed boundary allowed C1-control member names through the server while the new Android request parser rejected them. The initial candidate's evidence remains below as history; it is not the final runtime candidate or an AC2 PASS.
 
 Sender review and its unfinished native re-read now belong to the last observed room sequence. Any newer frame invalidates them, including a `members` frame whose request remains null. Equal-sequence duplicates retain the review. This is a conservative sender fence that leaves the request wire/API unchanged; a later recipient response also requires fresh sender review. Cancelling an unfinished read retires its SDK listener and pending sender callback authority. A reviewed preview also disappears when native state loses its connected/current-present observation, including failure, absence, disconnect or a new read. `canSend` independently requires that currently connected native value to equal the reviewed target.
 

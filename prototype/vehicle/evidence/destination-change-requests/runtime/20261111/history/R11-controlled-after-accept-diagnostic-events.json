@@ -1,0 +1,125 @@
+[
+  {
+    "at": 1794385124977,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 3,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794385124984,
+    "event": "request:connected",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385124987,
+    "event": "request:resumeVerification",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385124996,
+    "event": "request:getDestinationInfo",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385124997,
+    "event": "onDestinationInfoAbsent",
+    "nativeEpoch": 3,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794385124997,
+    "event": "sessionState"
+  },
+  {
+    "at": 1794385125018,
+    "event": "request:onDestinationInfoAbsent",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385127255,
+    "event": "request:periodicVerification",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385127258,
+    "event": "request:getDestinationInfo",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385127267,
+    "event": "request:onDestinationInfoAbsent",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385129270,
+    "event": "request:periodicVerification",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385129274,
+    "event": "request:getDestinationInfo",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385129283,
+    "event": "request:onDestinationInfoAbsent",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385130251,
+    "event": "request:onRouteStarted",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385131532,
+    "event": "request:periodicVerification",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385131536,
+    "event": "request:getDestinationInfo",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385132542,
+    "event": "request:onDestinationInfo",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385132553,
+    "event": "request:destinationMatch",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": true
+  }
+]

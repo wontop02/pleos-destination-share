@@ -1,0 +1,51 @@
+[
+  {
+    "at": 1794386134083,
+    "event": "request:connected",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794386134408,
+    "event": "request:getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794386135471,
+    "event": "request:onDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794386140270,
+    "event": "request:connected",
+    "nativeEpoch": 2,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794386140369,
+    "event": "request:getDestinationInfo",
+    "nativeEpoch": 2,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794386141413,
+    "event": "request:onDestinationInfo",
+    "nativeEpoch": 2,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794386141611,
+    "event": "request:automaticStop",
+    "nativeEpoch": 3,
+    "operation": 0,
+    "matched": null
+  }
+]

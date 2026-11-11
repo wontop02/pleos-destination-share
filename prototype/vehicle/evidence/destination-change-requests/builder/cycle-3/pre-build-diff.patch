@@ -1,0 +1,15 @@
+diff --git a/prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt b/prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt
+index ea43d3a..7ff579f 100644
+--- a/prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt
++++ b/prototype/vehicle/app/src/main/kotlin/ai/pleos/destinations/vehicle/MainActivity.kt
+@@ -398,8 +398,8 @@ class MainActivity : Activity() {
+             else if (state.roomConnected) "동행방 연결됨" else "동행방 연결 끊김 · 다시 연결해 주세요."
+         val current = (flow?.state?.current as? CurrentDestination.Present)?.value
+             ?: (state.current as? CurrentDestination.Present)?.value
+-        sharedName.text = current?.name ?: "아직 목적지가 없어요"
+-        sharedAddress.text = current?.pleos?.address ?: "내비에서 목적지를 정한 뒤 다른 차량에 알려 주세요."
++        sharedName.text = current?.name ?: "현재 목적지 확인 전"
++        sharedAddress.text = current?.pleos?.address ?: "'목적지 바꾸기'에서 현재 목적지를 확인해 주세요."
+         destinationStatus.text = flow?.message ?: "공유방에 연결해 주세요."
+         changeButton.isEnabled = credentials != null && state.roomConnected && !busy && !leaving && flow?.applying != true
+         automaticStartButton.text = "변경 요청 알림 받기"

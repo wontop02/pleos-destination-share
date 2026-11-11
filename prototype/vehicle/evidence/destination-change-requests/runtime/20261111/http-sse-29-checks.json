@@ -1,0 +1,129 @@
+{
+  "at_utc": "2026-11-11T08:02:50.373724+00:00",
+  "server": "http://127.0.0.1:4196",
+  "input": "public SDK fixture used only for HTTP protocol tests; not native UI search evidence",
+  "result": "PASS",
+  "checks": [
+    {
+      "case": "owned isolated server configured",
+      "pass": true
+    },
+    {
+      "case": "create I29_API_A",
+      "pass": true
+    },
+    {
+      "case": "join B",
+      "pass": true
+    },
+    {
+      "case": "join C",
+      "pass": true
+    },
+    {
+      "case": "create I29_API_FOREIGN",
+      "pass": true
+    },
+    {
+      "case": "real SSE content type",
+      "pass": true
+    },
+    {
+      "case": "initial authenticated SSE snapshot",
+      "pass": true
+    },
+    {
+      "case": "request creation",
+      "pass": true
+    },
+    {
+      "case": "peer receives actual destination request event",
+      "pass": true
+    },
+    {
+      "case": "frozen two recipients",
+      "pass": true
+    },
+    {
+      "case": "no legacy destination broadcast commit",
+      "pass": true
+    },
+    {
+      "case": "B accepts while C stays pending",
+      "pass": true
+    },
+    {
+      "case": "C rejection preserves B acceptance",
+      "pass": true
+    },
+    {
+      "case": "authenticated snapshot",
+      "pass": true
+    },
+    {
+      "case": "authenticated snapshot",
+      "pass": true
+    },
+    {
+      "case": "duplicate accept idempotent",
+      "pass": true
+    },
+    {
+      "case": "cannot change a completed individual response",
+      "pass": true
+    },
+    {
+      "case": "sender cannot vote as recipient",
+      "pass": true
+    },
+    {
+      "case": "foreign room credential denied",
+      "pass": true
+    },
+    {
+      "case": "unauthenticated room denied",
+      "pass": true
+    },
+    {
+      "case": "participant can send a new change",
+      "pass": true
+    },
+    {
+      "case": "newer request supersedes previous request",
+      "pass": true
+    },
+    {
+      "case": "superseded pending request denied",
+      "pass": true
+    },
+    {
+      "case": "stale create revision denied",
+      "pass": true
+    },
+    {
+      "case": "old duplicate does not revive target",
+      "pass": true
+    },
+    {
+      "case": "same request ID cannot change payload",
+      "pass": true
+    },
+    {
+      "case": "invalid latitude denied",
+      "pass": true
+    },
+    {
+      "case": "authenticated snapshot",
+      "pass": true
+    },
+    {
+      "case": "HTTP protocol never commits legacy route",
+      "pass": true
+    }
+  ],
+  "cleanup_statuses": [
+    200,
+    200
+  ],
+  "credentials_logged": false
+}

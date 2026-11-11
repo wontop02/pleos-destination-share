@@ -1,0 +1,136 @@
+{
+  "phase": "final_corrected_APK_runtime_evidence_review",
+  "base": "5ccc9ed4480fd12d96a2166ec2d4cc1850fe7f23",
+  "production_head": "d3a9766b54158c54da63c5431538f57a3d695d1e",
+  "app_sha256": "f0811d7d2ec32eb8be9bb9d595a6d7b44e74de999cb169086faa39e3349390e2",
+  "request_id": "ec924d8ed6fe9403c4cb0a25",
+  "request_revision": 4,
+  "all_raw_checks_pass": true,
+  "checks": {
+    "both_devices_exact_corrected_APK_and_normal_grant": true,
+    "same_request_id_and_revision_all_frames": true,
+    "two_distinct_frozen_recipients_other_than_sender": true,
+    "all_pending_after_send_and_before_accept": true,
+    "preaccept_new_route_count_zero_both": true,
+    "sender_new_route_count_zero": true,
+    "one_explicit_apply_bound_to_request_revision": true,
+    "one_total_recipient_product_route_and_fresh_match_same_native_operation": true,
+    "fresh_native_read_and_response_precede_match_in_same_epoch_operation": true,
+    "B_accepted_before_expiry_while_C_pending": true,
+    "C_decline_does_not_revert_B": true,
+    "legacy_destination_unchanged_null_revision_zero": true,
+    "independent_public_query_reads_strict_target_without_route": true,
+    "B_native_baseline_is_different_real_POI": true,
+    "UI_actions_visible_enabled_public_controls": true,
+    "name_and_category_app_to_actual_native_package": true,
+    "cold_restart_zero_routes_in_raw_journals_both": true,
+    "actual_cold_history_review_is_display_only": true
+  },
+  "native_route_event": [
+    {
+      "at": 1794386160982,
+      "event": "request:requestRoute",
+      "nativeEpoch": 1,
+      "operation": 1,
+      "matched": null
+    }
+  ],
+  "native_match_event": [
+    {
+      "at": 1794386169273,
+      "event": "request:destinationMatch",
+      "nativeEpoch": 2,
+      "operation": 1,
+      "matched": true
+    }
+  ],
+  "explicit_apply_event": [
+    {
+      "at": 1794386160648,
+      "event": "request:explicitApply",
+      "nativeEpoch": 1,
+      "operation": 4,
+      "matched": null
+    }
+  ],
+  "counter_semantics": "explicitApply.operation is wire request revision4; requestRoute/destinationMatch.operation is native operation1; cancellation reconnect changed epoch1→2 without second route.",
+  "cold_windows": {
+    "emulator-5570": {
+      "launch_at_ms": 1794385902817.646,
+      "rows": 27,
+      "route_count": 0,
+      "new_pid": "29802",
+      "old_pid": "15852"
+    },
+    "emulator-5572": {
+      "launch_at_ms": 1794385920243.69,
+      "rows": 14,
+      "route_count": 0,
+      "new_pid": "18463",
+      "old_pid": "8930"
+    }
+  },
+  "xml_packages": {
+    "R11-final-name-input": [
+      "ai.pleos.destinations.vehicle"
+    ],
+    "R11-final-name-native-results": [
+      "ai.umos.maps.android.navigation.app"
+    ],
+    "R11-final-category-input": [
+      "ai.pleos.destinations.vehicle"
+    ],
+    "R11-final-category-native-results": [
+      "ai.umos.maps.android.navigation.app"
+    ]
+  },
+  "screenshot_visually_inspected": [
+    "R11-final-name-input.png",
+    "R11-final-name-native-results.png",
+    "R11-final-category-input.png",
+    "R11-final-category-native-results.png",
+    "R11-final-native-place-selected.png",
+    "R11-final-native-guidance-started.png",
+    "R11-final-emulator-5572-cold-history-home.png",
+    "R11-final-01-B-native-before-send.png",
+    "R11-final-02-A-fresh-preview.png",
+    "R11-final-04-B-Android-notification-shade.png",
+    "R11-final-05-B-current-request-review.png",
+    "R11-final-06-B-native-confirmed.png"
+  ],
+  "proof_hashes": {
+    "root/R11-final-sender-after-events.json": "f6ac9e8ea4d0a0a749682bb65c468f78f9dd4cbc95ec5a31563ea3280f770c5d",
+    "root/R11-final-original-session-preserved.json": "5498876cfb4396f79c1444324e1c2ea4a1f5d9ce7ef967b4bc8b85200d779652",
+    "root/R11-final-independent-B-native-query.json": "77dc2b1c63eb359804e72771b14c2e60b9159e70b700d171d47419d97b0dcd78",
+    "root/R11-final-B-native-baseline.json": "b621d71a1869bd323f27a0738f3e460632702ab45bec5fa6612c6782651ba601",
+    "root/R11-final-independent-apk-source-audit.json": "2c3fb3a494a329526c41e50a8d430c3ab47516cb17ee6102f600c8c5166824ac",
+    "root/R11-final-before-emulator-5570-events.json": "89ce64a6654d365571a7eb5cf69e65a6f4f5a15638ec90683956e8764d433361",
+    "root/R11-final-before-accept-frame.json": "214f48c58d14d2efc2032e87cf421ff16b2985bdcf3f56074b39aeca4011a0ac",
+    "root/R11-final-match-while-C-pending.json": "1154e7ba3f88fa8c9840dbd54621839e0c77788a17e3aabf1bde317e6be87bb5",
+    "root/R11-final-preaccept-emulator-5572-events.json": "e70a463a7af2d5c736e06562d472b9c88ba9aee59d42c5689538994c65f46aee",
+    "root/R11-final-observer-teardown.json": "cf87b3e85ed97974eb8b6a152bd4b69986a7f3c76dd6ad288384349f6430378f",
+    "root/R11-final-result.json": "ddcdeb0e3f2d03a8883e90e32e535a31eddf75afebf252a34d770bb2f95356c2",
+    "root/R11-final-before-emulator-5572-events.json": "0e96221c2ebe55b58f6c4699f15da812118a4d61ac701278e312712e551cc58b",
+    "root/R11-final-after-accept-events.json": "c18044052db50a1751b4011c9f4891c6882cd907440937d163b0593a09b9fa91",
+    "root/R11-final-cold-history-no-replay.json": "51a182417c9e3536fa1115ba616b7c200f65b5f291da46f68c2e33f99174b09a",
+    "root/R11-final-pre-observer-leave-frame.json": "484e1efd77834712068c20da5f48e3988b62a32325e7eee00c1319794a21ffe2",
+    "root/R11-final-preaccept-emulator-5570-events.json": "f6ac9e8ea4d0a0a749682bb65c468f78f9dd4cbc95ec5a31563ea3280f770c5d",
+    "root/R11-final-after-send-frame.json": "6577195e0e2f588976f376df1c6d764cb557a5ee010c671a803d126e66a76c0c",
+    "root/R11-final-C-rejected-B-still-accepted.json": "af2e98e567e0f4497606d9b6c5968c6ab069770780512354a18e7442a083f333",
+    "root/R11-final-before-frame.json": "8406c6dce26c7b385ddb1bdd2203a6b17427ab1c87963320718f64e850a8dc83",
+    "root/installed-candidate-final.json": "673bac418b485f1cf69f4c4243ed4eb2fa299dbdc8aa25bdd933fda68bf728be",
+    "root/ui/R11-final-name-input.png": "babd0d40553a27bc72bf948b0ef22cc55170791351a40fc141835da0d6b15732",
+    "root/ui/R11-final-name-native-results.png": "dad4414b99e95507b9e08ecae9849908cd14ba9b39b6fe19750a0c412ab32aa7",
+    "root/ui/R11-final-category-input.png": "8d84828f8ddcd87b8fe3dffceac8af7b3d8a8996d5373aba736efbd85c7b17cf",
+    "root/ui/R11-final-category-native-results.png": "99ea1c0eba166f30705fddeb25d544962d89f6ec426e3f0dcd3b14fc9336643a",
+    "root/ui/R11-final-native-place-selected.png": "97f240651cc22370271bf8cad0743798b47991f5b9ea839bba677e4fd17498fd",
+    "root/ui/R11-final-native-guidance-started.png": "63e490b602f4dd006bc03673bd492564aa26e8e5a5349570c2309d4986d6d4be",
+    "root/ui/R11-final-emulator-5572-cold-history-home.png": "dbb1d4677b1707b89baf7beb26ad372195a4b0cf6747b49637f577a7411328f3",
+    "root/ui/R11-final-01-B-native-before-send.png": "8c963f01063691aa0d9461bac0dd042bfb1e4614ea9b82fc4a2182bca4766c77",
+    "root/ui/R11-final-02-A-fresh-preview.png": "8c385b3f17a30e1023c6a42d34d83feef6486b59781ce64b24759b85339d9952",
+    "root/ui/R11-final-04-B-Android-notification-shade.png": "a3f28b46fcae73a56fdfb3c5f78d69d5d3fd61e103291e4ca2e99314bf884fe1",
+    "root/ui/R11-final-05-B-current-request-review.png": "32eae6f06b4fd0b89d07f2cd2ecb955a1ea7cb2fb24b754388af8ae3f01c8fc5",
+    "root/ui/R11-final-06-B-native-confirmed.png": "468e6a9589228db555ab8b1e2bddf5085acba93439b81efd3d50b93eddacb4f9"
+  },
+  "remaining": "Final evidence-only head rebind and selected-artifact integrity check. No new defect found."
+}

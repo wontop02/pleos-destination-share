@@ -1,0 +1,245 @@
+{
+  "app_sha256": "f0811d7d2ec32eb8be9bb9d595a6d7b44e74de999cb169086faa39e3349390e2",
+  "head": "d3a9766b54158c54da63c5431538f57a3d695d1e",
+  "started_at_ms": 1794386119730,
+  "status": "PASS",
+  "previous_revision": 3,
+  "baseline": {
+    "emulator-5570": {
+      "last_at": 1794386128612,
+      "bytes": 292416,
+      "rows": 696
+    },
+    "emulator-5572": {
+      "last_at": 1794385958553,
+      "bytes": 15131,
+      "rows": 62
+    }
+  },
+  "preview_action": {
+    "actionAccepted": "true",
+    "bounds": "1194,638,2194,694",
+    "elapsedMs": "184",
+    "enabled": "true",
+    "inputSource": "public_ui_button",
+    "resource": "preview_changed_destination",
+    "visible": "true"
+  },
+  "preview_texts": [
+    {
+      "text": "홈으로",
+      "id": "ai.pleos.destinations.vehicle:id/nav_home",
+      "enabled": "true"
+    },
+    {
+      "text": "목적지 바꾸기",
+      "id": "",
+      "enabled": "true"
+    },
+    {
+      "text": "알림 수신 중지",
+      "id": "ai.pleos.destinations.vehicle:id/stop_convoy",
+      "enabled": "true"
+    },
+    {
+      "text": "설정",
+      "id": "ai.pleos.destinations.vehicle:id/nav_settings",
+      "enabled": "true"
+    },
+    {
+      "text": "1  변경할 목적지 검색",
+      "id": "",
+      "enabled": "true"
+    },
+    {
+      "text": "장소명 또는 업종",
+      "id": "",
+      "enabled": "true"
+    },
+    {
+      "text": "카페",
+      "id": "ai.pleos.destinations.vehicle:id/search_keyword",
+      "enabled": "true"
+    },
+    {
+      "text": "검색 결과에서 새 목적지를 설정한 뒤 길맞춤으로 돌아와 주세요.",
+      "id": "",
+      "enabled": "true"
+    },
+    {
+      "text": "장소 검색",
+      "id": "ai.pleos.destinations.vehicle:id/search_native_places",
+      "enabled": "true"
+    },
+    {
+      "text": "2  정한 목적지 확인하고 알리기",
+      "id": "",
+      "enabled": "true"
+    },
+    {
+      "text": "내비에서 정한 목적지 확인",
+      "id": "ai.pleos.destinations.vehicle:id/preview_changed_destination",
+      "enabled": "true"
+    },
+    {
+      "text": "프레소커피랩",
+      "id": "ai.pleos.destinations.vehicle:id/changed_destination_name",
+      "enabled": "true"
+    },
+    {
+      "text": "수정구 시흥동",
+      "id": "ai.pleos.destinations.vehicle:id/changed_destination_address",
+      "enabled": "true"
+    },
+    {
+      "text": "이름과 주소를 확인한 뒤 변경 요청을 보내세요.",
+      "id": "ai.pleos.destinations.vehicle:id/changed_destination_status",
+      "enabled": "true"
+    },
+    {
+      "text": "다른 차량에 변경 요청 보내기",
+      "id": "ai.pleos.destinations.vehicle:id/send_destination_change",
+      "enabled": "true"
+    }
+  ],
+  "send_action": {
+    "actionAccepted": "true",
+    "bounds": "1194,859,2194,915",
+    "elapsedMs": "209",
+    "enabled": "true",
+    "inputSource": "public_ui_button",
+    "resource": "send_destination_change",
+    "visible": "true"
+  },
+  "send_return_at_ms": 1794386139861,
+  "request_id": "ec924d8ed6fe9403c4cb0a25",
+  "request_revision": 4,
+  "server_created_at": 1794386140972,
+  "expected_destination": {
+    "name": "프레소커피랩",
+    "latitude": 37.412525,
+    "longitude": 127.09473333,
+    "pleos": {
+      "poiId": "36khp2hdqdekcm5nqhjr",
+      "poiSubId": null,
+      "address": "수정구 시흥동",
+      "poiProvider": "",
+      "displayLatitude": null,
+      "displayLongitude": null
+    }
+  },
+  "notification_tapped": true,
+  "review_texts": [
+    {
+      "text": "길맞춤",
+      "id": "",
+      "enabled": "true"
+    },
+    {
+      "text": "알림 수신 중지",
+      "id": "ai.pleos.destinations.vehicle:id/stop_convoy",
+      "enabled": "true"
+    },
+    {
+      "text": "설정",
+      "id": "ai.pleos.destinations.vehicle:id/nav_settings",
+      "enabled": "true"
+    },
+    {
+      "text": "동행방 연결됨",
+      "id": "ai.pleos.destinations.vehicle:id/connection_status",
+      "enabled": "true"
+    },
+    {
+      "text": "목적지 변경 요청",
+      "id": "",
+      "enabled": "true"
+    },
+    {
+      "text": "프레소커피랩",
+      "id": "ai.pleos.destinations.vehicle:id/change_request_name",
+      "enabled": "true"
+    },
+    {
+      "text": "수정구 시흥동",
+      "id": "ai.pleos.destinations.vehicle:id/change_request_address",
+      "enabled": "true"
+    },
+    {
+      "text": "Car-A 차량에서 보낸 요청",
+      "id": "ai.pleos.destinations.vehicle:id/change_request_sender",
+      "enabled": "true"
+    },
+    {
+      "text": "수락하면 내 차량의 목적지를 바꿔요. 다른 차량의 응답을 기다리지 않아요.",
+      "id": "ai.pleos.destinations.vehicle:id/change_request_status",
+      "enabled": "true"
+    },
+    {
+      "text": "수락하고 내 목적지 변경",
+      "id": "ai.pleos.destinations.vehicle:id/accept_change_request",
+      "enabled": "true"
+    },
+    {
+      "text": "거절",
+      "id": "ai.pleos.destinations.vehicle:id/reject_change_request",
+      "enabled": "true"
+    },
+    {
+      "text": "내 차량의 목적지",
+      "id": "",
+      "enabled": "true"
+    },
+    {
+      "text": "에스이커피 기업성장센터점",
+      "id": "ai.pleos.destinations.vehicle:id/shared_place_name",
+      "enabled": "true"
+    },
+    {
+      "text": "수정구 시흥동",
+      "id": "ai.pleos.destinations.vehicle:id/shared_place_address",
+      "enabled": "true"
+    },
+    {
+      "text": "새 목적지 변경 요청이 왔어요. 이름과 주소를 확인해 주세요.",
+      "id": "ai.pleos.destinations.vehicle:id/destination_status",
+      "enabled": "true"
+    },
+    {
+      "text": "목적지 바꾸기",
+      "id": "ai.pleos.destinations.vehicle:id/change_destination",
+      "enabled": "true"
+    },
+    {
+      "text": "알림 수신 중 · 수락하기 전에는 내비를 바꾸지 않아요.",
+      "id": "",
+      "enabled": "true"
+    }
+  ],
+  "preaccept_routes": {
+    "emulator-5570": 0,
+    "emulator-5572": 0
+  },
+  "accept_action": {
+    "actionAccepted": "true",
+    "bounds": "1194,494,1686,550",
+    "elapsedMs": "232",
+    "enabled": "true",
+    "inputSource": "public_ui_button",
+    "resource": "accept_change_request",
+    "visible": "true"
+  },
+  "accept_return_at_ms": 1794386160864,
+  "route_request_count": 1,
+  "fresh_match": {
+    "at": 1794386169273,
+    "event": "request:destinationMatch",
+    "nativeEpoch": 2,
+    "operation": 1,
+    "matched": true
+  },
+  "C_pending_at_B_match": true,
+  "sender_route_request_count": 0,
+  "C_rejected_without_reverting_B": true,
+  "independent_native_name": "프레소커피랩"
+}

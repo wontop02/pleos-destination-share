@@ -1,0 +1,382 @@
+[
+  {
+    "at": 1794385124977,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 3,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794385124984,
+    "event": "request:connected",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385124987,
+    "event": "request:resumeVerification",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385124996,
+    "event": "request:getDestinationInfo",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385124997,
+    "event": "onDestinationInfoAbsent",
+    "nativeEpoch": 3,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794385124997,
+    "event": "sessionState"
+  },
+  {
+    "at": 1794385125018,
+    "event": "request:onDestinationInfoAbsent",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385127255,
+    "event": "request:periodicVerification",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385127258,
+    "event": "request:getDestinationInfo",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385127267,
+    "event": "request:onDestinationInfoAbsent",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385129270,
+    "event": "request:periodicVerification",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385129274,
+    "event": "request:getDestinationInfo",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385129283,
+    "event": "request:onDestinationInfoAbsent",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385130251,
+    "event": "request:onRouteStarted",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385131532,
+    "event": "request:periodicVerification",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385131536,
+    "event": "request:getDestinationInfo",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385132542,
+    "event": "request:onDestinationInfo",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": null
+  },
+  {
+    "at": 1794385132553,
+    "event": "request:destinationMatch",
+    "nativeEpoch": 5,
+    "operation": 4,
+    "matched": true
+  },
+  {
+    "at": 1794385439376,
+    "event": "request:automaticStop",
+    "nativeEpoch": 6,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794385446648,
+    "event": "activityStartAttach"
+  },
+  {
+    "at": 1794385450474,
+    "event": "request:explicitApply",
+    "nativeEpoch": 5,
+    "operation": 3,
+    "matched": null
+  },
+  {
+    "at": 1794385450650,
+    "event": "request:connected",
+    "nativeEpoch": 7,
+    "operation": 9,
+    "matched": null
+  },
+  {
+    "at": 1794385450670,
+    "event": "request:requestRoute",
+    "nativeEpoch": 7,
+    "operation": 9,
+    "matched": null
+  },
+  {
+    "at": 1794385451258,
+    "event": "activityStopDetach"
+  },
+  {
+    "at": 1794385451610,
+    "event": "onRouteCancelled",
+    "nativeEpoch": 3,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794385451656,
+    "event": "sessionState"
+  },
+  {
+    "at": 1794385451709,
+    "event": "request:onRouteCancelled",
+    "nativeEpoch": 7,
+    "operation": 9,
+    "matched": null
+  },
+  {
+    "at": 1794385451759,
+    "event": "connected",
+    "nativeEpoch": 4,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794385451767,
+    "event": "sessionState"
+  },
+  {
+    "at": 1794385451802,
+    "event": "sessionState"
+  },
+  {
+    "at": 1794385451827,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 4,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794385451832,
+    "event": "request:connected",
+    "nativeEpoch": 8,
+    "operation": 9,
+    "matched": null
+  },
+  {
+    "at": 1794385451860,
+    "event": "request:resumeVerification",
+    "nativeEpoch": 8,
+    "operation": 9,
+    "matched": null
+  },
+  {
+    "at": 1794385451874,
+    "event": "request:getDestinationInfo",
+    "nativeEpoch": 8,
+    "operation": 9,
+    "matched": null
+  },
+  {
+    "at": 1794385451876,
+    "event": "request:onDestinationInfoAbsent",
+    "nativeEpoch": 8,
+    "operation": 9,
+    "matched": null
+  },
+  {
+    "at": 1794385451890,
+    "event": "onDestinationInfoAbsent",
+    "nativeEpoch": 4,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794385451891,
+    "event": "sessionState"
+  },
+  {
+    "at": 1794385454002,
+    "event": "request:periodicVerification",
+    "nativeEpoch": 8,
+    "operation": 9,
+    "matched": null
+  },
+  {
+    "at": 1794385454009,
+    "event": "request:getDestinationInfo",
+    "nativeEpoch": 8,
+    "operation": 9,
+    "matched": null
+  },
+  {
+    "at": 1794385454018,
+    "event": "request:onDestinationInfoAbsent",
+    "nativeEpoch": 8,
+    "operation": 9,
+    "matched": null
+  },
+  {
+    "at": 1794385456268,
+    "event": "request:periodicVerification",
+    "nativeEpoch": 8,
+    "operation": 9,
+    "matched": null
+  },
+  {
+    "at": 1794385456282,
+    "event": "request:getDestinationInfo",
+    "nativeEpoch": 8,
+    "operation": 9,
+    "matched": null
+  },
+  {
+    "at": 1794385456290,
+    "event": "request:onDestinationInfoAbsent",
+    "nativeEpoch": 8,
+    "operation": 9,
+    "matched": null
+  },
+  {
+    "at": 1794385457159,
+    "event": "request:onRouteStarted",
+    "nativeEpoch": 8,
+    "operation": 9,
+    "matched": null
+  },
+  {
+    "at": 1794385458290,
+    "event": "request:periodicVerification",
+    "nativeEpoch": 8,
+    "operation": 9,
+    "matched": null
+  },
+  {
+    "at": 1794385458305,
+    "event": "request:getDestinationInfo",
+    "nativeEpoch": 8,
+    "operation": 9,
+    "matched": null
+  },
+  {
+    "at": 1794385459324,
+    "event": "request:onDestinationInfo",
+    "nativeEpoch": 8,
+    "operation": 9,
+    "matched": null
+  },
+  {
+    "at": 1794385459326,
+    "event": "request:destinationMatch",
+    "nativeEpoch": 8,
+    "operation": 9,
+    "matched": true
+  },
+  {
+    "at": 1794385924677,
+    "event": "sessionState"
+  },
+  {
+    "at": 1794385924699,
+    "event": "serviceCreate"
+  },
+  {
+    "at": 1794385924923,
+    "event": "sessionState"
+  },
+  {
+    "at": 1794385926171,
+    "event": "activityStartAttach"
+  },
+  {
+    "at": 1794385926324,
+    "event": "sessionState"
+  },
+  {
+    "at": 1794385926391,
+    "event": "connected",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794385926391,
+    "event": "sessionState"
+  },
+  {
+    "at": 1794385926403,
+    "event": "sessionState"
+  },
+  {
+    "at": 1794385926415,
+    "event": "getDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794385927468,
+    "event": "onDestinationInfo",
+    "nativeEpoch": 1,
+    "operation": 0,
+    "matched": null
+  },
+  {
+    "at": 1794385927468,
+    "event": "sessionState"
+  },
+  {
+    "at": 1794385927483,
+    "event": "sessionState"
+  },
+  {
+    "at": 1794385953966,
+    "event": "coordinationServiceStart"
+  },
+  {
+    "at": 1794385958553,
+    "event": "activityStopDetach"
+  }
+]

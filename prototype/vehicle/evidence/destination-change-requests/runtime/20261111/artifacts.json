@@ -1,0 +1,452 @@
+{
+  "source_head": "d3a9766b54158c54da63c5431538f57a3d695d1e",
+  "files": [
+    {
+      "path": "builder/cycle-3/build-result.json",
+      "sha256": "095cfa978b175d8b1ece5297c3e6682ba1e3ac82d89b2efa7f77af6ac93b5fe2",
+      "bytes": 905
+    },
+    {
+      "path": "builder/cycle-3/build.log",
+      "sha256": "d40e706854af8ffaad5f7784007cc483aa88639007f2b32c259f45611b6602fc",
+      "bytes": 6801
+    },
+    {
+      "path": "builder/cycle-3/package-audit.json",
+      "sha256": "90357830a6f664d781edc731d99725ce233b07de51c1f35b89d95791ba81c4ff",
+      "bytes": 2625
+    },
+    {
+      "path": "builder/cycle-3/pre-build-diff.patch",
+      "sha256": "643455ea46f00aab00db5ef5cc8bb8754ab5a15c42b2a180808d0c57c8725404",
+      "bytes": 1415
+    },
+    {
+      "path": "builder/cycle-3/source-inputs.json",
+      "sha256": "f4e5831356ce5d5c2803b9eaf81294a30f83f0f4c6e51903ee93aa84d8e8f741",
+      "bytes": 12535
+    },
+    {
+      "path": "builder/cycle-3/summary.json",
+      "sha256": "b8aa8596e65ee645a126ca4faedf1d064158ecf43fc5ea688d905ad95e8c7027",
+      "bytes": 1612
+    },
+    {
+      "path": "builder/cycle-3/test-counts.json",
+      "sha256": "2b14b2d22182bfe4a9480efe777f031fbd6caa2f807002d503b15bee0915e68f",
+      "bytes": 183
+    },
+    {
+      "path": "runtime/20261111/R11-final-B-native-baseline.json",
+      "sha256": "b621d71a1869bd323f27a0738f3e460632702ab45bec5fa6612c6782651ba601",
+      "bytes": 1694
+    },
+    {
+      "path": "runtime/20261111/R11-final-C-rejected-B-still-accepted.json",
+      "sha256": "af2e98e567e0f4497606d9b6c5968c6ab069770780512354a18e7442a083f333",
+      "bytes": 1448
+    },
+    {
+      "path": "runtime/20261111/R11-final-after-accept-events.json",
+      "sha256": "c18044052db50a1751b4011c9f4891c6882cd907440937d163b0593a09b9fa91",
+      "bytes": 3106
+    },
+    {
+      "path": "runtime/20261111/R11-final-after-send-frame.json",
+      "sha256": "6577195e0e2f588976f376df1c6d764cb557a5ee010c671a803d126e66a76c0c",
+      "bytes": 1428
+    },
+    {
+      "path": "runtime/20261111/R11-final-before-accept-frame.json",
+      "sha256": "214f48c58d14d2efc2032e87cf421ff16b2985bdcf3f56074b39aeca4011a0ac",
+      "bytes": 1428
+    },
+    {
+      "path": "runtime/20261111/R11-final-before-emulator-5570-events.json",
+      "sha256": "89ce64a6654d365571a7eb5cf69e65a6f4f5a15638ec90683956e8764d433361",
+      "bytes": 67265
+    },
+    {
+      "path": "runtime/20261111/R11-final-before-emulator-5572-events.json",
+      "sha256": "0e96221c2ebe55b58f6c4699f15da812118a4d61ac701278e312712e551cc58b",
+      "bytes": 7174
+    },
+    {
+      "path": "runtime/20261111/R11-final-before-frame.json",
+      "sha256": "8406c6dce26c7b385ddb1bdd2203a6b17427ab1c87963320718f64e850a8dc83",
+      "bytes": 1468
+    },
+    {
+      "path": "runtime/20261111/R11-final-cold-history-no-replay.json",
+      "sha256": "51a182417c9e3536fa1115ba616b7c200f65b5f291da46f68c2e33f99174b09a",
+      "bytes": 295
+    },
+    {
+      "path": "runtime/20261111/R11-final-emulator-5570-record-audio-appops.txt",
+      "sha256": "cf371d670302e9278f1acb48ae61f3ed1ada2dc0fecfc4c8750123fcb9cb333f",
+      "bytes": 98
+    },
+    {
+      "path": "runtime/20261111/R11-final-emulator-5572-record-audio-appops.txt",
+      "sha256": "df25375c916e861548da3b210d845e6078324f61a2c0e86e73fcf9052b71c865",
+      "bytes": 101
+    },
+    {
+      "path": "runtime/20261111/R11-final-independent-B-native-query.json",
+      "sha256": "77dc2b1c63eb359804e72771b14c2e60b9159e70b700d171d47419d97b0dcd78",
+      "bytes": 1656
+    },
+    {
+      "path": "runtime/20261111/R11-final-independent-apk-source-audit.json",
+      "sha256": "2c3fb3a494a329526c41e50a8d430c3ab47516cb17ee6102f600c8c5166824ac",
+      "bytes": 266
+    },
+    {
+      "path": "runtime/20261111/R11-final-match-while-C-pending.json",
+      "sha256": "1154e7ba3f88fa8c9840dbd54621839e0c77788a17e3aabf1bde317e6be87bb5",
+      "bytes": 1438
+    },
+    {
+      "path": "runtime/20261111/R11-final-observer-teardown.json",
+      "sha256": "cf87b3e85ed97974eb8b6a152bd4b69986a7f3c76dd6ad288384349f6430378f",
+      "bytes": 181
+    },
+    {
+      "path": "runtime/20261111/R11-final-original-session-preserved.json",
+      "sha256": "5498876cfb4396f79c1444324e1c2ea4a1f5d9ce7ef967b4bc8b85200d779652",
+      "bytes": 231
+    },
+    {
+      "path": "runtime/20261111/R11-final-pre-observer-leave-frame.json",
+      "sha256": "484e1efd77834712068c20da5f48e3988b62a32325e7eee00c1319794a21ffe2",
+      "bytes": 1448
+    },
+    {
+      "path": "runtime/20261111/R11-final-preaccept-emulator-5570-events.json",
+      "sha256": "f6ac9e8ea4d0a0a749682bb65c468f78f9dd4cbc95ec5a31563ea3280f770c5d",
+      "bytes": 951
+    },
+    {
+      "path": "runtime/20261111/R11-final-preaccept-emulator-5572-events.json",
+      "sha256": "e70a463a7af2d5c736e06562d472b9c88ba9aee59d42c5689538994c65f46aee",
+      "bytes": 72
+    },
+    {
+      "path": "runtime/20261111/R11-final-result.json",
+      "sha256": "ddcdeb0e3f2d03a8883e90e32e535a31eddf75afebf252a34d770bb2f95356c2",
+      "bytes": 6621
+    },
+    {
+      "path": "runtime/20261111/R11-final-sender-after-events.json",
+      "sha256": "f6ac9e8ea4d0a0a749682bb65c468f78f9dd4cbc95ec5a31563ea3280f770c5d",
+      "bytes": 951
+    },
+    {
+      "path": "runtime/20261111/R11-final-stop-restart-no-replay.json",
+      "sha256": "63806d40bda2b4bfa043a988d93ffded43f6b8052e3f170ae2007a205497bb18",
+      "bytes": 379
+    },
+    {
+      "path": "runtime/20261111/history/R11-controlled-after-accept-diagnostic-events.json",
+      "sha256": "1badc3504e57f891a1d08f651afa3915127cd5638f45a7e330d0d05066fc6759",
+      "bytes": 2422
+    },
+    {
+      "path": "runtime/20261111/history/R11-controlled-after-accept-diagnostic-frame.json",
+      "sha256": "0493d79ab0245eb07f50e165b562574e5b83a6b973fee11f610997bd35aeb57c",
+      "bytes": 1435
+    },
+    {
+      "path": "runtime/20261111/history/R11-controlled-run.json",
+      "sha256": "d1fa7c5397ae1d4013c5216343ad7b6bac4526551a5a912d739a71c91204fa75",
+      "bytes": 4065
+    },
+    {
+      "path": "runtime/20261111/history/R11-rev3-result.json",
+      "sha256": "1f5c6e75e272f058f690e2a375c14a722fcba682db929c5b36691e7e6090e075",
+      "bytes": 6739
+    },
+    {
+      "path": "runtime/20261111/history/cleanup-collector-notes.json",
+      "sha256": "b18254c588f95706434c0b95d8e18905618f639563798d05ba93e0cfc9a3c265",
+      "bytes": 657
+    },
+    {
+      "path": "runtime/20261111/history/ui/R11-final-emulator-5570-ready-for-user.png",
+      "sha256": "f227a20611eee2ce4f483b1870b293dad9ff4e9499f3db3e1d55703e89dbafd5",
+      "bytes": 361944
+    },
+    {
+      "path": "runtime/20261111/history/ui/R11-final-emulator-5570-ready-for-user.xml",
+      "sha256": "de9f5299f5f7b5e4dcbb5c14bb2547a45d89ed4fdd5033d49130025ee501b1c6",
+      "bytes": 10063
+    },
+    {
+      "path": "runtime/20261111/history/ui/R11-final-emulator-5570-receive-stopped.png",
+      "sha256": "b03af674e218c3cf5dbc0b7e86a01c3da6b7424f943c6eb9f32f66b5778a2866",
+      "bytes": 359361
+    },
+    {
+      "path": "runtime/20261111/history/ui/R11-final-emulator-5570-receive-stopped.xml",
+      "sha256": "33e1f1e8558ca3a84b15015cf14bd2df8aa6b0c6fd51229a4b47814364aa593e",
+      "bytes": 9693
+    },
+    {
+      "path": "runtime/20261111/history/ui/R11-final-emulator-5572-home-receive-stopped.png",
+      "sha256": "0f2a2b8301f5aac2745a39bd53139554fcc1fc2ed20d78b9af33571dd2764f17",
+      "bytes": 323941
+    },
+    {
+      "path": "runtime/20261111/history/ui/R11-final-emulator-5572-home-receive-stopped.xml",
+      "sha256": "33d7dcb390b52386bcd4ad4f6df161b5d50bf162d6611edf64a78b9b850ae0f2",
+      "bytes": 7675
+    },
+    {
+      "path": "runtime/20261111/history/ui/R11-final-emulator-5572-ready-for-user.png",
+      "sha256": "49ff910bcd3f1e1fe9705929cdb2cdba302f9dd315251b542ce8f1547e1c2bf6",
+      "bytes": 318167
+    },
+    {
+      "path": "runtime/20261111/history/ui/R11-final-emulator-5572-ready-for-user.xml",
+      "sha256": "c03b33608e89090e7b2e75fa15cc3141dd7fea814ee924d053e21c8b3341ee81",
+      "bytes": 7612
+    },
+    {
+      "path": "runtime/20261111/http-sse-29-checks.json",
+      "sha256": "a325070f2178b205fdab460a4b0ca963ac3675af27031e0ade957a53afd8a8da",
+      "bytes": 2571
+    },
+    {
+      "path": "runtime/20261111/installed-candidate-final.json",
+      "sha256": "673bac418b485f1cf69f4c4243ed4eb2fa299dbdc8aa25bdd933fda68bf728be",
+      "bytes": 547
+    },
+    {
+      "path": "runtime/20261111/issue-29-frozen.md",
+      "sha256": "cbea81819790adb868973d011130ada1a4963ceb337b00dc864b49ffb4771de7",
+      "bytes": 5514
+    },
+    {
+      "path": "runtime/20261111/scripts/R11-final-flow.py",
+      "sha256": "1cbb5713dd42cef289b2fce655811f6e0bc857255aba3c74ba0cd9e2f959b8bd",
+      "bytes": 6696
+    },
+    {
+      "path": "runtime/20261111/scripts/R11-final-search-category.py",
+      "sha256": "f1baef34c98d0963ebe1519d72cb7a8434aa8d842a89fd224960c4f388f3319d",
+      "bytes": 908
+    },
+    {
+      "path": "runtime/20261111/scripts/R11-final-search-name.py",
+      "sha256": "5e7d8100ab043dfa1104cf90de0b9fbba935464a2f84512102d1f6385df12a4b",
+      "bytes": 617
+    },
+    {
+      "path": "runtime/20261111/scripts/R11-install-final.py",
+      "sha256": "8f23c7bfe20ada900d6e3803f55798666d79e4f1cd95a88304285008d01dcb5b",
+      "bytes": 2362
+    },
+    {
+      "path": "runtime/20261111/scripts/api_scenarios.py",
+      "sha256": "ba2664532b846762d2909cdad2191dd6d4c7e86f08e8c8c3c6e0a84d67bb143c",
+      "bytes": 8393
+    },
+    {
+      "path": "runtime/20261111/scripts/prepare_two_car_room.py",
+      "sha256": "a6f0b09d573896a3e1d9fbe20dd00d5474253c8212572c71e8be0cdaeca14f37",
+      "bytes": 2168
+    },
+    {
+      "path": "runtime/20261111/scripts/runtime_tools.py",
+      "sha256": "d9583bd7422b41d40050060a8050c2ed142a5e71cc882bac240ecaade9975981",
+      "bytes": 8223
+    },
+    {
+      "path": "runtime/20261111/scripts/test_room_api.py",
+      "sha256": "8e6909ded8f491dd59ae8c782bfed89e56431521a6e56ac91e3b2796417f5d7e",
+      "bytes": 846
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-01-B-native-before-send.png",
+      "sha256": "8c963f01063691aa0d9461bac0dd042bfb1e4614ea9b82fc4a2182bca4766c77",
+      "bytes": 320847
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-01-B-native-before-send.xml",
+      "sha256": "9ad7eb7c41fe14c31f6c1ee3ca80356e76ed9d77db96c9548f37ec3303302675",
+      "bytes": 10572
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-02-A-fresh-preview.png",
+      "sha256": "8c385b3f17a30e1023c6a42d34d83feef6486b59781ce64b24759b85339d9952",
+      "bytes": 341062
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-02-A-fresh-preview.xml",
+      "sha256": "c56ef4299ecb0e552c731f94e9aeb929d36e1ea189419c66fb0530ef4c95b203",
+      "bytes": 9899
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-03-B-native-notification-immediate.png",
+      "sha256": "8c963f01063691aa0d9461bac0dd042bfb1e4614ea9b82fc4a2182bca4766c77",
+      "bytes": 320847
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-04-B-Android-notification-shade.png",
+      "sha256": "a3f28b46fcae73a56fdfb3c5f78d69d5d3fd61e103291e4ca2e99314bf884fe1",
+      "bytes": 210094
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-04-B-Android-notification-shade.xml",
+      "sha256": "24000a249398421400b8da5e2f0348eb4150755028cc97b0e687007e677cc7c0",
+      "bytes": 22650
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-05-B-current-request-review.png",
+      "sha256": "32eae6f06b4fd0b89d07f2cd2ecb955a1ea7cb2fb24b754388af8ae3f01c8fc5",
+      "bytes": 348916
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-05-B-current-request-review.xml",
+      "sha256": "cd1ca17de769f858c7ac3a2d6ed273da1f658df84e461b1ccb301d04b6f9816f",
+      "bytes": 11229
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-06-B-native-confirmed.png",
+      "sha256": "468e6a9589228db555ab8b1e2bddf5085acba93439b81efd3d50b93eddacb4f9",
+      "bytes": 316762
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-06-B-native-confirmed.xml",
+      "sha256": "6a9f54095c9efddb8f8a44e5a10d866f26037a4db163ca30948b21ea0a44d6e9",
+      "bytes": 10553
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-category-input.png",
+      "sha256": "8d84828f8ddcd87b8fe3dffceac8af7b3d8a8996d5373aba736efbd85c7b17cf",
+      "bytes": 365766
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-category-input.xml",
+      "sha256": "6555b6a1b2d3bbb4e2f43ebd3ac6ed9dc553843752dc2ec0f71b24a3d574856c",
+      "bytes": 10105
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-category-native-results.png",
+      "sha256": "99ea1c0eba166f30705fddeb25d544962d89f6ec426e3f0dcd3b14fc9336643a",
+      "bytes": 398518
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-category-native-results.xml",
+      "sha256": "16be3f50bad67bd3490949ebc833d984c28017686ac795adff436d9f59552bb0",
+      "bytes": 27762
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-emulator-5570-cold-history-home.png",
+      "sha256": "af3170be2d82a9cf0246b4209df29bb58e9c8f0f4e6357404b5d91945c53e32d",
+      "bytes": 323349
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-emulator-5570-cold-history-home.xml",
+      "sha256": "602a06e49c92dae4c8aa13be740dab924489ee01ac573b7ec8ca612babb85830",
+      "bytes": 8035
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-emulator-5570-ready-receiving.png",
+      "sha256": "4ad1b193f5bf4988683438f1b65432b124212917a312c6edc5b339851aa33684",
+      "bytes": 318376
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-emulator-5570-ready-receiving.xml",
+      "sha256": "68c84685e3dc528fd27087b14a542b8a561768e404d3f39e4c506f43d7ba1014",
+      "bytes": 8034
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-emulator-5572-cold-history-home.png",
+      "sha256": "dbb1d4677b1707b89baf7beb26ad372195a4b0cf6747b49637f577a7411328f3",
+      "bytes": 349223
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-emulator-5572-cold-history-home.xml",
+      "sha256": "62a42de1965ea71564d1b59ef488dd2cfe0394c240a1944869e722d98c571e91",
+      "bytes": 10086
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-emulator-5572-ready-receiving.png",
+      "sha256": "f14808a09ee1fe4f100e11a7484cd96c9dc8cb67c89f8de025f8fa1a9f9f7076",
+      "bytes": 312604
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-emulator-5572-ready-receiving.xml",
+      "sha256": "80f63f932a7a38929e2063ada5ec9d66036963f4331957750c78ca4f7b15b8f6",
+      "bytes": 7575
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-name-input.png",
+      "sha256": "babd0d40553a27bc72bf948b0ef22cc55170791351a40fc141835da0d6b15732",
+      "bytes": 363295
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-name-input.xml",
+      "sha256": "ba66d53f56bf3b5f5f1e0081139f36a52612fb7a4bf501e6ed4b35e8f2f45a59",
+      "bytes": 10083
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-name-native-results.png",
+      "sha256": "dad4414b99e95507b9e08ecae9849908cd14ba9b39b6fe19750a0c412ab32aa7",
+      "bytes": 397930
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-name-native-results.xml",
+      "sha256": "12f88797ef047714848021a952204c32da52433643868a31b4c5d39539b6b5dd",
+      "bytes": 29477
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-native-guidance-started.png",
+      "sha256": "63e490b602f4dd006bc03673bd492564aa26e8e5a5349570c2309d4986d6d4be",
+      "bytes": 317081
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-native-guidance-started.xml",
+      "sha256": "1b969b5d7a04eb321f3afbd0fb15115b2a287598a7d09df78763ba4348732cbf",
+      "bytes": 11959
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-native-place-selected.png",
+      "sha256": "97f240651cc22370271bf8cad0743798b47991f5b9ea839bba677e4fd17498fd",
+      "bytes": 337488
+    },
+    {
+      "path": "runtime/20261111/ui/R11-final-native-place-selected.xml",
+      "sha256": "bd73795c0c8ebf9384fe24f81c1d683574e8afab7c92e52787f8af344e323531",
+      "bytes": 14030
+    },
+    {
+      "path": "runtime/20261111/verification.md",
+      "sha256": "b4a08d2903cacdef91d5fdf9e0d188a44080bbcfb7d21a722fc5e36db6843e01",
+      "bytes": 9158
+    },
+    {
+      "path": "runtime/20261111/verifier/cycle3-static-rebind.json",
+      "sha256": "67c343a0df8fdbcfb01130386a79c8dbd1b729fe3cd4a87e91b0099c6aded842",
+      "bytes": 1359
+    },
+    {
+      "path": "runtime/20261111/verifier/final-runtime-review.json",
+      "sha256": "407b507bfd6003d2cdb3aced0e2447b9087a4405d3c2ba0f0fe75faa8509827e",
+      "bytes": 7379
+    },
+    {
+      "path": "runtime/20261111/verifier/rev3-supplemental-review.json",
+      "sha256": "effec4897180a53d771abd763d5c6eb6d4e51035114d645d3c1542821c013248",
+      "bytes": 4757
+    },
+    {
+      "path": "runtime/20261111/verifier/static-binding.json",
+      "sha256": "5f54fef9dfcf2ea3372fa92e02bcd5000fb6a3f767b13436cb0edc4737bf3bfc",
+      "bytes": 3093
+    }
+  ],
+  "secrets_scanned": true,
+  "private_files_excluded": true
+}
